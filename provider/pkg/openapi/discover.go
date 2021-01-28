@@ -253,7 +253,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 	// Add a POST invoke entry.
 	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")
-		operationName := parts[len(parts)-1]
+		operationName := strings.ToLower(parts[len(parts)-1])
 		prefix := ""
 		switch {
 		case strings.HasPrefix(operationName, "list"):
