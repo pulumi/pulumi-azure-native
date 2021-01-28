@@ -995,6 +995,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	resp, err = autorest.SendWithSender(
 		k.client,
 		prepReq,
+		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1050,6 +1051,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
+		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1118,6 +1120,7 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
+		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1192,6 +1195,7 @@ func (k *azureNextGenProvider) azureHead(ctx context.Context, id string, apiVers
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
+		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1222,6 +1226,7 @@ func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
+		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1284,6 +1289,7 @@ func (k *azureNextGenProvider) azurePost(
 	resp, err = autorest.SendWithSender(
 		k.client,
 		prepReq,
+		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1479,6 +1485,22 @@ func buildUserAgent(partnerID string) (userAgent string) {
 
 	glog.V(9).Infof("AzureNextGen User Agent: %s", userAgent)
 	return
+}
+
+// withSenderLogging decorates a sender with logging of HTTP methods, URLs, and statuses.
+func withSenderLogging() autorest.SendDecorator {
+	return func(s autorest.Sender) autorest.Sender {
+		return autorest.SenderFunc(func(r *http.Request) (*http.Response, error) {
+			glog.V(9).Infof("Sending %s %s", r.Method, r.URL)
+			resp, err := s.Do(r)
+			if err != nil {
+				glog.V(9).Infof("%s %s received error '%v'", r.Method, r.URL, err)
+			} else {
+				glog.V(9).Infof("%s %s received %s", r.Method, r.URL, resp.Status)
+			}
+			return resp, err
+		})
+	}
 }
 
 // checkpointObject puts inputs in the `__inputs` field of the state.
