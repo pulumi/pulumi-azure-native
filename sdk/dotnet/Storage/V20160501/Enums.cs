@@ -39,6 +39,37 @@ namespace Pulumi.AzureNextGen.Storage.V20160501
     }
 
     /// <summary>
+    /// The protocol permitted for a request made with the account SAS.
+    /// </summary>
+    [EnumType]
+    public readonly struct HttpProtocol : IEquatable<HttpProtocol>
+    {
+        private readonly string _value;
+
+        private HttpProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HttpProtocol Https_http { get; } = new HttpProtocol("https,http");
+        public static HttpProtocol Https { get; } = new HttpProtocol("https");
+
+        public static bool operator ==(HttpProtocol left, HttpProtocol right) => left.Equals(right);
+        public static bool operator !=(HttpProtocol left, HttpProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(HttpProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HttpProtocol other && Equals(other);
+        public bool Equals(HttpProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Required. Indicates the type of storage account.
     /// </summary>
     [EnumType]
