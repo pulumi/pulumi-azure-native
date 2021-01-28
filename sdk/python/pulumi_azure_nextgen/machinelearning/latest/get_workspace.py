@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetWorkspaceResult',
@@ -20,7 +19,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, creation_time=None, id=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, sku=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
+    def __init__(__self__, creation_time=None, id=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -39,9 +38,6 @@ class GetWorkspaceResult:
         if owner_email and not isinstance(owner_email, str):
             raise TypeError("Expected argument 'owner_email' to be a str")
         pulumi.set(__self__, "owner_email", owner_email)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
         if studio_endpoint and not isinstance(studio_endpoint, str):
             raise TypeError("Expected argument 'studio_endpoint' to be a str")
         pulumi.set(__self__, "studio_endpoint", studio_endpoint)
@@ -113,14 +109,6 @@ class GetWorkspaceResult:
         return pulumi.get(self, "owner_email")
 
     @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
-        """
-        The sku of the workspace.
-        """
-        return pulumi.get(self, "sku")
-
-    @property
     @pulumi.getter(name="studioEndpoint")
     def studio_endpoint(self) -> str:
         """
@@ -189,7 +177,6 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             location=self.location,
             name=self.name,
             owner_email=self.owner_email,
-            sku=self.sku,
             studio_endpoint=self.studio_endpoint,
             tags=self.tags,
             type=self.type,
@@ -224,7 +211,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         owner_email=__ret__.owner_email,
-        sku=__ret__.sku,
         studio_endpoint=__ret__.studio_endpoint,
         tags=__ret__.tags,
         type=__ret__.type,

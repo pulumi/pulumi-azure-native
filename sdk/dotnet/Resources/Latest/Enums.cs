@@ -39,6 +39,68 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     }
 
     /// <summary>
+    /// The scope to be used for evaluation of parameters, variables and functions in a nested template.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressionEvaluationOptionsScopeType : IEquatable<ExpressionEvaluationOptionsScopeType>
+    {
+        private readonly string _value;
+
+        private ExpressionEvaluationOptionsScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressionEvaluationOptionsScopeType NotSpecified { get; } = new ExpressionEvaluationOptionsScopeType("NotSpecified");
+        public static ExpressionEvaluationOptionsScopeType Outer { get; } = new ExpressionEvaluationOptionsScopeType("Outer");
+        public static ExpressionEvaluationOptionsScopeType Inner { get; } = new ExpressionEvaluationOptionsScopeType("Inner");
+
+        public static bool operator ==(ExpressionEvaluationOptionsScopeType left, ExpressionEvaluationOptionsScopeType right) => left.Equals(right);
+        public static bool operator !=(ExpressionEvaluationOptionsScopeType left, ExpressionEvaluationOptionsScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressionEvaluationOptionsScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressionEvaluationOptionsScopeType other && Equals(other);
+        public bool Equals(ExpressionEvaluationOptionsScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the managed identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
     /// </summary>
     [EnumType]
@@ -95,6 +157,37 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the script.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptType : IEquatable<ScriptType>
+    {
+        private readonly string _value;
+
+        private ScriptType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptType AzurePowerShell { get; } = new ScriptType("AzurePowerShell");
+        public static ScriptType AzureCLI { get; } = new ScriptType("AzureCLI");
+
+        public static bool operator ==(ScriptType left, ScriptType right) => left.Equals(right);
+        public static bool operator !=(ScriptType left, ScriptType right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptType other && Equals(other);
+        public bool Equals(ScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

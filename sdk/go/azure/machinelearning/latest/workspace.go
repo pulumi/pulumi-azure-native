@@ -12,7 +12,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-// Latest API Version: 2019-10-01.
+// Latest API Version: 2016-04-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -26,8 +26,6 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The email id of the owner for this workspace.
 	OwnerEmail pulumi.StringOutput `pulumi:"ownerEmail"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The regional endpoint for the machine learning studio service which hosts this workspace.
 	StudioEndpoint pulumi.StringOutput `pulumi:"studioEndpoint"`
 	// The tags of the resource.
@@ -107,8 +105,6 @@ type workspaceState struct {
 	Name *string `pulumi:"name"`
 	// The email id of the owner for this workspace.
 	OwnerEmail *string `pulumi:"ownerEmail"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
 	// The regional endpoint for the machine learning studio service which hosts this workspace.
 	StudioEndpoint *string `pulumi:"studioEndpoint"`
 	// The tags of the resource.
@@ -136,8 +132,6 @@ type WorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The email id of the owner for this workspace.
 	OwnerEmail pulumi.StringPtrInput
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput
 	// The regional endpoint for the machine learning studio service which hosts this workspace.
 	StudioEndpoint pulumi.StringPtrInput
 	// The tags of the resource.
@@ -167,8 +161,6 @@ type workspaceArgs struct {
 	OwnerEmail string `pulumi:"ownerEmail"`
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the workspace.
-	Sku *Sku `pulumi:"sku"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The fully qualified arm id of the storage account associated with this workspace.
@@ -187,8 +179,6 @@ type WorkspaceArgs struct {
 	OwnerEmail pulumi.StringInput
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName pulumi.StringInput
-	// The sku of the workspace.
-	Sku SkuPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The fully qualified arm id of the storage account associated with this workspace.

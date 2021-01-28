@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Cloud Endpoint object.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-03-01.
  */
 export class CloudEndpoint extends pulumi.CustomResource {
     /**

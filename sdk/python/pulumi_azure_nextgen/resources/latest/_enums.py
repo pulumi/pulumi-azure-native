@@ -6,8 +6,11 @@ from enum import Enum
 
 __all__ = [
     'DeploymentMode',
+    'ExpressionEvaluationOptionsScopeType',
+    'ManagedServiceIdentityType',
     'OnErrorDeploymentType',
     'ResourceIdentityType',
+    'ScriptType',
 ]
 
 
@@ -17,6 +20,22 @@ class DeploymentMode(str, Enum):
     """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
+
+
+class ExpressionEvaluationOptionsScopeType(str, Enum):
+    """
+    The scope to be used for evaluation of parameters, variables and functions in a nested template.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    OUTER = "Outer"
+    INNER = "Inner"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of the managed identity.
+    """
+    USER_ASSIGNED = "UserAssigned"
 
 
 class OnErrorDeploymentType(str, Enum):
@@ -35,3 +54,11 @@ class ResourceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
+
+
+class ScriptType(str, Enum):
+    """
+    Type of the script.
+    """
+    AZURE_POWER_SHELL = "AzurePowerShell"
+    AZURE_CLI = "AzureCLI"

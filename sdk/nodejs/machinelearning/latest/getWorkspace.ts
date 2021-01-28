@@ -59,10 +59,6 @@ export interface GetWorkspaceResult {
      */
     readonly ownerEmail: string;
     /**
-     * The sku of the workspace.
-     */
-    readonly sku?: outputs.machinelearning.latest.SkuResponse;
-    /**
      * The regional endpoint for the machine learning studio service which hosts this workspace.
      */
     readonly studioEndpoint: string;

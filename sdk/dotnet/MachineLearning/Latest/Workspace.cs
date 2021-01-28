@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// Latest API Version: 2019-10-01.
+    /// Latest API Version: 2016-04-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:machinelearning/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -45,12 +45,6 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
         /// </summary>
         [Output("ownerEmail")]
         public Output<string> OwnerEmail { get; private set; } = null!;
-
-        /// <summary>
-        /// The sku of the workspace.
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The regional endpoint for the machine learning studio service which hosts this workspace.
@@ -167,12 +161,6 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The sku of the workspace.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

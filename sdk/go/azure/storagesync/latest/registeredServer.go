@@ -12,58 +12,52 @@ import (
 )
 
 // Registered Server resource.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-03-01.
 type RegisteredServer struct {
 	pulumi.CustomResourceState
 
 	// Registered Server Agent Version
 	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate pulumi.StringOutput `pulumi:"agentVersionExpirationDate"`
-	// Registered Server Agent Version Status
-	AgentVersionStatus pulumi.StringOutput `pulumi:"agentVersionStatus"`
 	// Registered Server clusterId
 	ClusterId pulumi.StringPtrOutput `pulumi:"clusterId"`
 	// Registered Server clusterName
 	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
 	// Resource discoveryEndpointUri
-	DiscoveryEndpointUri pulumi.StringOutput `pulumi:"discoveryEndpointUri"`
+	DiscoveryEndpointUri pulumi.StringPtrOutput `pulumi:"discoveryEndpointUri"`
 	// Friendly Name
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Registered Server last heart beat
-	LastHeartBeat pulumi.StringOutput `pulumi:"lastHeartBeat"`
+	LastHeartBeat pulumi.StringPtrOutput `pulumi:"lastHeartBeat"`
 	// Resource Last Operation Name
-	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
+	LastOperationName pulumi.StringPtrOutput `pulumi:"lastOperationName"`
 	// Registered Server lastWorkflowId
-	LastWorkflowId pulumi.StringOutput `pulumi:"lastWorkflowId"`
+	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
 	// Management Endpoint Uri
-	ManagementEndpointUri pulumi.StringOutput `pulumi:"managementEndpointUri"`
+	ManagementEndpointUri pulumi.StringPtrOutput `pulumi:"managementEndpointUri"`
 	// Monitoring Configuration
-	MonitoringConfiguration pulumi.StringOutput `pulumi:"monitoringConfiguration"`
+	MonitoringConfiguration pulumi.StringPtrOutput `pulumi:"monitoringConfiguration"`
 	// Telemetry Endpoint Uri
-	MonitoringEndpointUri pulumi.StringOutput `pulumi:"monitoringEndpointUri"`
+	MonitoringEndpointUri pulumi.StringPtrOutput `pulumi:"monitoringEndpointUri"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Registered Server Provisioning State
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource Location
-	ResourceLocation pulumi.StringOutput `pulumi:"resourceLocation"`
+	ResourceLocation pulumi.StringPtrOutput `pulumi:"resourceLocation"`
 	// Registered Server Certificate
 	ServerCertificate pulumi.StringPtrOutput `pulumi:"serverCertificate"`
 	// Registered Server serverId
 	ServerId pulumi.StringPtrOutput `pulumi:"serverId"`
 	// Registered Server Management Error Code
-	ServerManagementErrorCode pulumi.IntOutput `pulumi:"serverManagementErrorCode"`
-	// Server name
-	ServerName pulumi.StringOutput `pulumi:"serverName"`
+	ServerManagementErrorCode pulumi.IntPtrOutput `pulumi:"serverManagementErrorCode"`
 	// Registered Server OS Version
 	ServerOSVersion pulumi.StringPtrOutput `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
 	ServerRole pulumi.StringPtrOutput `pulumi:"serverRole"`
 	// Service Location
-	ServiceLocation pulumi.StringOutput `pulumi:"serviceLocation"`
+	ServiceLocation pulumi.StringPtrOutput `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
+	StorageSyncServiceUid pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -141,10 +135,6 @@ func GetRegisteredServer(ctx *pulumi.Context,
 type registeredServerState struct {
 	// Registered Server Agent Version
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate *string `pulumi:"agentVersionExpirationDate"`
-	// Registered Server Agent Version Status
-	AgentVersionStatus *string `pulumi:"agentVersionStatus"`
 	// Registered Server clusterId
 	ClusterId *string `pulumi:"clusterId"`
 	// Registered Server clusterName
@@ -177,8 +167,6 @@ type registeredServerState struct {
 	ServerId *string `pulumi:"serverId"`
 	// Registered Server Management Error Code
 	ServerManagementErrorCode *int `pulumi:"serverManagementErrorCode"`
-	// Server name
-	ServerName *string `pulumi:"serverName"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
@@ -194,10 +182,6 @@ type registeredServerState struct {
 type RegisteredServerState struct {
 	// Registered Server Agent Version
 	AgentVersion pulumi.StringPtrInput
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate pulumi.StringPtrInput
-	// Registered Server Agent Version Status
-	AgentVersionStatus pulumi.StringPtrInput
 	// Registered Server clusterId
 	ClusterId pulumi.StringPtrInput
 	// Registered Server clusterName
@@ -230,8 +214,6 @@ type RegisteredServerState struct {
 	ServerId pulumi.StringPtrInput
 	// Registered Server Management Error Code
 	ServerManagementErrorCode pulumi.IntPtrInput
-	// Server name
-	ServerName pulumi.StringPtrInput
 	// Registered Server OS Version
 	ServerOSVersion pulumi.StringPtrInput
 	// Registered Server serverRole

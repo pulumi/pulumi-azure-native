@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * Latest API Version: 2019-10-01.
+ * Latest API Version: 2016-04-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -56,10 +55,6 @@ export class Workspace extends pulumi.CustomResource {
      * The email id of the owner for this workspace.
      */
     public readonly ownerEmail!: pulumi.Output<string>;
-    /**
-     * The sku of the workspace.
-     */
-    public readonly sku!: pulumi.Output<outputs.machinelearning.latest.SkuResponse | undefined>;
     /**
      * The regional endpoint for the machine learning studio service which hosts this workspace.
      */
@@ -118,7 +113,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["ownerEmail"] = args ? args.ownerEmail : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
@@ -135,7 +129,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownerEmail"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
             inputs["studioEndpoint"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -177,10 +170,6 @@ export interface WorkspaceArgs {
      * The name of the resource group to which the machine learning workspace belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The sku of the workspace.
-     */
-    readonly sku?: pulumi.Input<inputs.machinelearning.latest.Sku>;
     /**
      * The tags of the resource.
      */

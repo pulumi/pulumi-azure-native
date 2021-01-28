@@ -3,11 +3,13 @@
 package openapi
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
@@ -56,10 +58,17 @@ func AllVersions() AzureProviders {
 		}
 	}
 
+	knownVersions, err := readKnownVersions()
+	if err != nil {
+		panic(errors.Wrapf(err, "reading provider versions"))
+	}
+
 	for providerName, versionMap := range providers {
+		knownProviderVersions := knownVersions[strings.ToLower(providerName)]
+
 		// Add a `latest` (stable) version for each resource and invoke.
-		latestResources := calculateLatestVersions(providerName, versionMap, false /* invokes */, false /* preview */)
-		latestInvokes := calculateLatestVersions(providerName, versionMap, true /* invokes */, false /* preview */)
+		latestResources := calculateLatestVersions(knownProviderVersions, providerName, versionMap, false /* invokes */, false /* preview */)
+		latestInvokes := calculateLatestVersions(knownProviderVersions, providerName, versionMap, true /* invokes */, false /* preview */)
 		versionMap["latest"] = VersionResources{
 			Resources: latestResources,
 			Invokes:   latestInvokes,
@@ -88,7 +97,14 @@ func AllVersions() AzureProviders {
 func SingleVersion(providers AzureProviders) AzureProviders {
 	singleVersion := AzureProviders{}
 
+	knownVersions, err := readKnownVersions()
+	if err != nil {
+		panic(errors.Wrapf(err, "reading provider versions"))
+	}
+
 	for providerName, allVersionMap := range providers {
+		knownProviderVersions := knownVersions[strings.ToLower(providerName)]
+
 		latest := allVersionMap["latest"]
 		versions := ProviderVersions{
 			"latest": latest,
@@ -110,7 +126,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 			return &version
 		}
 
-		previewResources := calculateLatestVersions(providerName, allVersionMap, false /* invokes */, true /* preview */)
+		previewResources := calculateLatestVersions(knownProviderVersions, providerName, allVersionMap, false /* invokes */, true /* preview */)
 		for resourceName, resource := range previewResources {
 			if _, ok := latest.Resources[resourceName]; ok {
 				continue
@@ -122,7 +138,7 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 			}
 		}
 
-		previewInvokes := calculateLatestVersions(providerName, allVersionMap, true /* invokes */, true /* preview */)
+		previewInvokes := calculateLatestVersions(knownProviderVersions, providerName, allVersionMap, true /* invokes */, true /* preview */)
 		for invokeName, invoke := range previewInvokes {
 			if _, ok := latest.Invokes[invokeName]; ok {
 				continue
@@ -261,7 +277,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
-func calculateLatestVersions(provider string, versionMap ProviderVersions, invokes,
+func calculateLatestVersions(knownVersions codegen.StringSet, provider string, versionMap ProviderVersions, invokes,
 	preview bool) (latestResources map[string]*ResourceSpec) {
 	var versions []string
 	for version := range versionMap {
@@ -274,9 +290,9 @@ func calculateLatestVersions(provider string, versionMap ProviderVersions, invok
 	pathTypeNames := map[string]string{}
 	latestResources = map[string]*ResourceSpec{}
 	for _, version := range versions {
-		if provider == "Resources" && version == "v20201001" {
-			// Temporary workaround for a API that's not yet deployed.
-			// Remove when https://github.com/Azure/azure-rest-api-specs/issues/11711 is fixed.
+		if !knownVersions.Has(version) && len(knownVersions) > 0 {
+			// If we have a list of known versions for this provider but it does not include this version, skip it
+			// for consideration of being the 'latest'.
 			continue
 		}
 
@@ -285,6 +301,7 @@ func calculateLatestVersions(provider string, versionMap ProviderVersions, invok
 		if invokes {
 			resources = items.Invokes
 		}
+
 		for typeName, r := range resources {
 			normalizedPath := normalizePath(r.Path)
 			previousTypeName := pathTypeNames[normalizedPath]
@@ -332,4 +349,60 @@ func normalizePath(path string) string {
 		}
 	}
 	return strings.Join(newParts, "/")
+}
+
+// readKnownVersions returns a map of known API versions per resource provider based on the metadata
+// returned by Azure (retrieved via the Azure CLI, stored in a local JSON file).
+func readKnownVersions() (map[string]codegen.StringSet, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+
+	jsonFile, err := os.Open(filepath.Join(dir, "/azure-provider-versions/provider_list.json"))
+	if err != nil {
+		return nil, err
+	}
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
+	}
+
+	var provs []prov
+	err = json.Unmarshal(byteValue, &provs)
+	if err != nil {
+		return nil, err
+	}
+
+	result := map[string]codegen.StringSet{}
+
+	for _, prov := range provs {
+		namespace := strings.ToLower(prov.Namespace)
+		if !strings.HasPrefix(namespace, "microsoft.") {
+			continue
+		}
+		providerName := strings.TrimPrefix(namespace, "microsoft.")
+
+		versions := codegen.NewStringSet()
+		for _, rt := range prov.ResourceTypes {
+			for _, v := range rt.ApiVersions {
+				versions.Add("v" + strings.ReplaceAll(v, "-", ""))
+			}
+		}
+		result[providerName] = versions
+	}
+
+	return result, nil
+}
+
+type prov struct {
+	Namespace string `json:"namespace"`
+	ResourceTypes []provRes `json:"resourceTypes"`
+}
+
+type provRes struct {
+	ResourceType string `json:"resourceType"`
+	ApiVersions []string `json:"apiVersions"`
 }

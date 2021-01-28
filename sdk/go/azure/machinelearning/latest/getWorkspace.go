@@ -37,8 +37,6 @@ type LookupWorkspaceResult struct {
 	Name string `pulumi:"name"`
 	// The email id of the owner for this workspace.
 	OwnerEmail string `pulumi:"ownerEmail"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
 	// The regional endpoint for the machine learning studio service which hosts this workspace.
 	StudioEndpoint string `pulumi:"studioEndpoint"`
 	// The tags of the resource.

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-10-01.
  */
 export class DeploymentAtTenantScope extends pulumi.CustomResource {
     /**

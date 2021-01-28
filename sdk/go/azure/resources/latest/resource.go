@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-10-01.
 type Resource struct {
 	pulumi.CustomResourceState
 

@@ -25,6 +25,8 @@ update_submodules:: init_submodules
 		echo "Updating submodule $$submodule" ; \
 		(cd $$submodule && git pull origin master); \
 	done
+	rm ./azure-provider-versions/provider_list.json
+	az provider list >> ./azure-provider-versions/provider_list.json
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
