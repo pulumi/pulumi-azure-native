@@ -6,7 +6,10 @@ from enum import Enum
 
 __all__ = [
     'AccessTier',
+    'HttpProtocol',
     'Kind',
+    'Permissions',
+    'SignedResource',
     'SkuName',
 ]
 
@@ -19,12 +22,44 @@ class AccessTier(str, Enum):
     COOL = "Cool"
 
 
+class HttpProtocol(str, Enum):
+    """
+    The protocol permitted for a request made with the account SAS.
+    """
+    HTTPS_HTTP = "https,http"
+    HTTPS = "https"
+
+
 class Kind(str, Enum):
     """
     Required. Indicates the type of storage account.
     """
     STORAGE = "Storage"
     BLOB_STORAGE = "BlobStorage"
+
+
+class Permissions(str, Enum):
+    """
+    The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+    """
+    R = "r"
+    D = "d"
+    W = "w"
+    L = "l"
+    A = "a"
+    C = "c"
+    U = "u"
+    P = "p"
+
+
+class SignedResource(str, Enum):
+    """
+    The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+    """
+    B = "b"
+    C = "c"
+    F = "f"
+    S = "s"
 
 
 class SkuName(str, Enum):

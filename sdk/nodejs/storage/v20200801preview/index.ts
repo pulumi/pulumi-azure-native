@@ -26,6 +26,8 @@ export * from "./getStorageAccount";
 export * from "./getTable";
 export * from "./getTableServiceProperties";
 export * from "./listStorageAccountKeys";
+export * from "./listStorageAccountSAS";
+export * from "./listStorageAccountServiceSAS";
 export * from "./managementPolicy";
 export * from "./objectReplicationPolicy";
 export * from "./privateEndpointConnection";

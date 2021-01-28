@@ -54,6 +54,16 @@ export const DirectoryServiceOptions = {
  */
 export type DirectoryServiceOptions = (typeof DirectoryServiceOptions)[keyof typeof DirectoryServiceOptions];
 
+export const HttpProtocol = {
+    Https_http: "https,http",
+    Https: "https",
+} as const;
+
+/**
+ * The protocol permitted for a request made with the account SAS.
+ */
+export type HttpProtocol = (typeof HttpProtocol)[keyof typeof HttpProtocol];
+
 export const IdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
@@ -107,6 +117,22 @@ export const MinimumTlsVersion = {
  */
 export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
 
+export const Permissions = {
+    R: "r",
+    D: "d",
+    W: "w",
+    L: "l",
+    A: "a",
+    C: "c",
+    U: "u",
+    P: "p",
+} as const;
+
+/**
+ * The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+ */
+export type Permissions = (typeof Permissions)[keyof typeof Permissions];
+
 export const PublicAccess = {
     Container: "Container",
     Blob: "Blob",
@@ -136,6 +162,41 @@ export const RuleType = {
  * The valid value is Lifecycle
  */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+export const Services = {
+    B: "b",
+    Q: "q",
+    T: "t",
+    F: "f",
+} as const;
+
+/**
+ * The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
+ */
+export type Services = (typeof Services)[keyof typeof Services];
+
+export const SignedResource = {
+    B: "b",
+    C: "c",
+    F: "f",
+    S: "s",
+} as const;
+
+/**
+ * The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+ */
+export type SignedResource = (typeof SignedResource)[keyof typeof SignedResource];
+
+export const SignedResourceTypes = {
+    S: "s",
+    C: "c",
+    O: "o",
+} as const;
+
+/**
+ * The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
+ */
+export type SignedResourceTypes = (typeof SignedResourceTypes)[keyof typeof SignedResourceTypes];
 
 export const SkuName = {
     Standard_LRS: "Standard_LRS",

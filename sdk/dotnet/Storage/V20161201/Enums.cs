@@ -39,6 +39,37 @@ namespace Pulumi.AzureNextGen.Storage.V20161201
     }
 
     /// <summary>
+    /// The protocol permitted for a request made with the account SAS.
+    /// </summary>
+    [EnumType]
+    public readonly struct HttpProtocol : IEquatable<HttpProtocol>
+    {
+        private readonly string _value;
+
+        private HttpProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HttpProtocol Https_http { get; } = new HttpProtocol("https,http");
+        public static HttpProtocol Https { get; } = new HttpProtocol("https");
+
+        public static bool operator ==(HttpProtocol left, HttpProtocol right) => left.Equals(right);
+        public static bool operator !=(HttpProtocol left, HttpProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(HttpProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HttpProtocol other && Equals(other);
+        public bool Equals(HttpProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Required. Indicates the type of storage account.
     /// </summary>
     [EnumType]
@@ -62,6 +93,76 @@ namespace Pulumi.AzureNextGen.Storage.V20161201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+    /// </summary>
+    [EnumType]
+    public readonly struct Permissions : IEquatable<Permissions>
+    {
+        private readonly string _value;
+
+        private Permissions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Permissions R { get; } = new Permissions("r");
+        public static Permissions D { get; } = new Permissions("d");
+        public static Permissions W { get; } = new Permissions("w");
+        public static Permissions L { get; } = new Permissions("l");
+        public static Permissions A { get; } = new Permissions("a");
+        public static Permissions C { get; } = new Permissions("c");
+        public static Permissions U { get; } = new Permissions("u");
+        public static Permissions P { get; } = new Permissions("p");
+
+        public static bool operator ==(Permissions left, Permissions right) => left.Equals(right);
+        public static bool operator !=(Permissions left, Permissions right) => !left.Equals(right);
+
+        public static explicit operator string(Permissions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Permissions other && Equals(other);
+        public bool Equals(Permissions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+    /// </summary>
+    [EnumType]
+    public readonly struct SignedResource : IEquatable<SignedResource>
+    {
+        private readonly string _value;
+
+        private SignedResource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SignedResource B { get; } = new SignedResource("b");
+        public static SignedResource C { get; } = new SignedResource("c");
+        public static SignedResource F { get; } = new SignedResource("f");
+        public static SignedResource S { get; } = new SignedResource("s");
+
+        public static bool operator ==(SignedResource left, SignedResource right) => left.Equals(right);
+        public static bool operator !=(SignedResource left, SignedResource right) => !left.Equals(right);
+
+        public static explicit operator string(SignedResource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SignedResource other && Equals(other);
+        public bool Equals(SignedResource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
