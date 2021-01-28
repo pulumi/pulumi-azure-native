@@ -20,7 +20,7 @@ class GetComponentResult:
     """
     An Application Insights component definition.
     """
-    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, la_migration_date=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None, workspace_resource_id=None):
+    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, etag=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, la_migration_date=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None, workspace_resource_id=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -39,6 +39,9 @@ class GetComponentResult:
         if disable_ip_masking and not isinstance(disable_ip_masking, bool):
             raise TypeError("Expected argument 'disable_ip_masking' to be a bool")
         pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if flow_type and not isinstance(flow_type, str):
             raise TypeError("Expected argument 'flow_type' to be a str")
         pulumi.set(__self__, "flow_type", flow_type)
@@ -153,6 +156,14 @@ class GetComponentResult:
         Disable IP masking.
         """
         return pulumi.get(self, "disable_ip_masking")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="flowType")
@@ -324,9 +335,9 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> str:
+    def workspace_resource_id(self) -> Optional[str]:
         """
-        ResourceId of the log analytics workspace which the data will be ingested to.
+        Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
         return pulumi.get(self, "workspace_resource_id")
 
@@ -343,6 +354,7 @@ class AwaitableGetComponentResult(GetComponentResult):
             connection_string=self.connection_string,
             creation_date=self.creation_date,
             disable_ip_masking=self.disable_ip_masking,
+            etag=self.etag,
             flow_type=self.flow_type,
             hockey_app_id=self.hockey_app_id,
             hockey_app_token=self.hockey_app_token,
@@ -392,6 +404,7 @@ def get_component(resource_group_name: Optional[str] = None,
         connection_string=__ret__.connection_string,
         creation_date=__ret__.creation_date,
         disable_ip_masking=__ret__.disable_ip_masking,
+        etag=__ret__.etag,
         flow_type=__ret__.flow_type,
         hockey_app_id=__ret__.hockey_app_id,
         hockey_app_token=__ret__.hockey_app_token,

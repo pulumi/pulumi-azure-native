@@ -20,7 +20,7 @@ class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
     """
-    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
+    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, provider_incident_id=None, provider_name=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
@@ -69,6 +69,12 @@ class GetIncidentResult:
         if owner and not isinstance(owner, dict):
             raise TypeError("Expected argument 'owner' to be a dict")
         pulumi.set(__self__, "owner", owner)
+        if provider_incident_id and not isinstance(provider_incident_id, str):
+            raise TypeError("Expected argument 'provider_incident_id' to be a str")
+        pulumi.set(__self__, "provider_incident_id", provider_incident_id)
+        if provider_name and not isinstance(provider_name, str):
+            raise TypeError("Expected argument 'provider_name' to be a str")
+        pulumi.set(__self__, "provider_name", provider_name)
         if related_analytic_rule_ids and not isinstance(related_analytic_rule_ids, list):
             raise TypeError("Expected argument 'related_analytic_rule_ids' to be a list")
         pulumi.set(__self__, "related_analytic_rule_ids", related_analytic_rule_ids)
@@ -214,6 +220,22 @@ class GetIncidentResult:
         return pulumi.get(self, "owner")
 
     @property
+    @pulumi.getter(name="providerIncidentId")
+    def provider_incident_id(self) -> Optional[str]:
+        """
+        The incident ID assigned by the incident provider
+        """
+        return pulumi.get(self, "provider_incident_id")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[str]:
+        """
+        The name of the source provider that generated the incident
+        """
+        return pulumi.get(self, "provider_name")
+
+    @property
     @pulumi.getter(name="relatedAnalyticRuleIds")
     def related_analytic_rule_ids(self) -> Sequence[str]:
         """
@@ -276,6 +298,8 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             last_modified_time_utc=self.last_modified_time_utc,
             name=self.name,
             owner=self.owner,
+            provider_incident_id=self.provider_incident_id,
+            provider_name=self.provider_name,
             related_analytic_rule_ids=self.related_analytic_rule_ids,
             severity=self.severity,
             status=self.status,
@@ -324,6 +348,8 @@ def get_incident(incident_id: Optional[str] = None,
         last_modified_time_utc=__ret__.last_modified_time_utc,
         name=__ret__.name,
         owner=__ret__.owner,
+        provider_incident_id=__ret__.provider_incident_id,
+        provider_name=__ret__.provider_name,
         related_analytic_rule_ids=__ret__.related_analytic_rule_ids,
         severity=__ret__.severity,
         status=__ret__.status,

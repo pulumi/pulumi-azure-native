@@ -29,6 +29,8 @@ class Incident(pulumi.CustomResource):
                  last_activity_time_utc: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
+                 provider_incident_id: Optional[pulumi.Input[str]] = None,
+                 provider_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
                  status: Optional[pulumi.Input[Union[str, 'IncidentStatus']]] = None,
@@ -53,6 +55,8 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
+        :param pulumi.Input[str] provider_incident_id: The incident ID assigned by the incident provider
+        :param pulumi.Input[str] provider_name: The name of the source provider that generated the incident
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
@@ -91,6 +95,8 @@ class Incident(pulumi.CustomResource):
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
             __props__['owner'] = owner
+            __props__['provider_incident_id'] = provider_incident_id
+            __props__['provider_name'] = provider_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -257,6 +263,22 @@ class Incident(pulumi.CustomResource):
         Describes a user that the incident is assigned to
         """
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="providerIncidentId")
+    def provider_incident_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The incident ID assigned by the incident provider
+        """
+        return pulumi.get(self, "provider_incident_id")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the source provider that generated the incident
+        """
+        return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter(name="relatedAnalyticRuleIds")

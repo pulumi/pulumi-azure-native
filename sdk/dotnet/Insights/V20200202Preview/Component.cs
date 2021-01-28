@@ -52,6 +52,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
 
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         [Output("flowType")]
@@ -172,10 +178,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId of the log analytics workspace which the data will be ingested to.
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         /// </summary>
         [Output("workspaceResourceId")]
-        public Output<string> WorkspaceResourceId { get; private set; } = null!;
+        public Output<string?> WorkspaceResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -239,6 +245,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// </summary>
         [Input("disableIpMasking")]
         public Input<bool>? DisableIpMasking { get; set; }
+
+        /// <summary>
+        /// Resource etag
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
@@ -325,10 +337,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         }
 
         /// <summary>
-        /// ResourceId of the log analytics workspace which the data will be ingested to.
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         /// </summary>
-        [Input("workspaceResourceId", required: true)]
-        public Input<string> WorkspaceResourceId { get; set; } = null!;
+        [Input("workspaceResourceId")]
+        public Input<string>? WorkspaceResourceId { get; set; }
 
         public ComponentArgs()
         {

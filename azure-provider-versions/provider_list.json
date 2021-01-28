@@ -2224,7 +2224,8 @@
           "UAE Central",
           "Switzerland West",
           "Germany West Central",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -2272,7 +2273,8 @@
           "UAE Central",
           "Switzerland West",
           "Germany West Central",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -2320,7 +2322,8 @@
           "UAE Central",
           "Switzerland West",
           "Germany West Central",
-          "Brazil Southeast"
+          "Brazil Southeast",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -30486,6 +30489,14 @@
           {
             "location": "Brazil South",
             "zones": []
+          },
+          {
+            "location": "Central India",
+            "zones": []
+          },
+          {
+            "location": "Korea Central",
+            "zones": []
           }
         ]
       },
@@ -41001,6 +41012,7 @@
           "South Central US",
           "West US",
           "West US 2",
+          "West US 3",
           "West Central US",
           "France Central",
           "Norway East"
@@ -41047,6 +41059,7 @@
           "South Central US",
           "West US",
           "West US 2",
+          "West US 3",
           "West Central US",
           "France Central",
           "Norway East"
@@ -41093,6 +41106,7 @@
           "South Central US",
           "West US",
           "West US 2",
+          "West US 3",
           "West Central US",
           "France Central",
           "Norway East"
@@ -46640,25 +46654,26 @@
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": "2020-07-01-preview",
         "locations": [
-          "East US",
-          "West US",
-          "Southeast Asia",
-          "West Europe",
-          "West US 2",
-          "East US 2",
-          "North Europe",
           "Australia East",
+          "Brazil South",
+          "Canada Central",
           "Canada East",
           "Central US",
-          "Japan East",
-          "UK South",
-          "South Central US",
-          "Brazil South",
-          "France Central",
-          "Korea Central",
-          "Switzerland North",
           "East Asia",
-          "Canada Central"
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Korea Central",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Switzerland North",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "SignalR"
@@ -46688,25 +46703,26 @@
         "capabilities": "None",
         "defaultApiVersion": "2020-07-01-preview",
         "locations": [
-          "East US",
-          "West US",
-          "Southeast Asia",
-          "West Europe",
-          "West US 2",
-          "East US 2",
-          "North Europe",
           "Australia East",
+          "Brazil South",
+          "Canada Central",
           "Canada East",
           "Central US",
-          "Japan East",
-          "UK South",
-          "South Central US",
-          "Brazil South",
-          "France Central",
-          "Korea Central",
-          "Switzerland North",
           "East Asia",
-          "Canada Central"
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Korea Central",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Switzerland North",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -46722,25 +46738,26 @@
         "capabilities": "None",
         "defaultApiVersion": "2020-07-01-preview",
         "locations": [
-          "East US",
-          "West US",
-          "Southeast Asia",
-          "West Europe",
-          "West US 2",
-          "East US 2",
-          "North Europe",
           "Australia East",
+          "Brazil South",
+          "Canada Central",
           "Canada East",
           "Central US",
-          "Japan East",
-          "UK South",
-          "South Central US",
-          "Brazil South",
-          "France Central",
-          "Korea Central",
-          "Switzerland North",
           "East Asia",
-          "Canada Central"
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Korea Central",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Switzerland North",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
@@ -46776,25 +46793,26 @@
         "capabilities": "None",
         "defaultApiVersion": "2020-07-01-preview",
         "locations": [
-          "East US",
-          "West US",
-          "Southeast Asia",
-          "West Europe",
-          "West US 2",
-          "East US 2",
-          "North Europe",
           "Australia East",
+          "Brazil South",
+          "Canada Central",
           "Canada East",
           "Central US",
-          "Japan East",
-          "UK South",
-          "South Central US",
-          "Brazil South",
-          "France Central",
-          "Korea Central",
-          "Switzerland North",
           "East Asia",
-          "Canada Central"
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Korea Central",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Switzerland North",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability"
@@ -46810,25 +46828,26 @@
         "capabilities": "None",
         "defaultApiVersion": "2020-07-01-preview",
         "locations": [
-          "East US",
-          "West US",
-          "Southeast Asia",
-          "West Europe",
-          "West US 2",
-          "East US 2",
-          "North Europe",
           "Australia East",
+          "Brazil South",
+          "Canada Central",
           "Canada East",
           "Central US",
-          "Japan East",
-          "UK South",
-          "South Central US",
-          "Brazil South",
-          "France Central",
-          "Korea Central",
-          "Switzerland North",
           "East Asia",
-          "Canada Central"
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Korea Central",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Switzerland North",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/usages"
@@ -46844,25 +46863,26 @@
         "capabilities": "None",
         "defaultApiVersion": "2020-07-01-preview",
         "locations": [
-          "East US",
-          "West US",
-          "Southeast Asia",
-          "West Europe",
-          "West US 2",
-          "East US 2",
-          "North Europe",
           "Australia East",
+          "Brazil South",
+          "Canada Central",
           "Canada East",
           "Central US",
-          "Japan East",
-          "UK South",
-          "South Central US",
-          "Brazil South",
-          "France Central",
-          "Korea Central",
-          "Switzerland North",
           "East Asia",
-          "Canada Central"
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Korea Central",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Switzerland North",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "SignalR/eventGridFilters"
@@ -64253,7 +64273,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts"
@@ -64277,7 +64300,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/shares"
@@ -64301,7 +64327,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/shares/datasets"
@@ -64325,7 +64354,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/shares/synchronizationSettings"
@@ -64349,7 +64381,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/shares/invitations"
@@ -64373,7 +64408,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/sharesubscriptions"
@@ -64397,7 +64435,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/shares/providersharesubscriptions"
@@ -64421,7 +64462,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/sharesubscriptions/datasetmappings"
@@ -64445,7 +64489,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/sharesubscriptions/triggers"
@@ -64469,7 +64516,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "accounts/sharesubscriptions/consumerSourceDataSets"
@@ -64532,7 +64582,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -64540,7 +64593,6 @@
       {
         "aliases": null,
         "apiVersions": [
-          "2020-10-01-preview",
           "2020-09-01",
           "2019-11-01",
           "2018-11-01-alpha"
@@ -64559,7 +64611,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "locations/rejectInvitation"
@@ -64567,7 +64622,6 @@
       {
         "aliases": null,
         "apiVersions": [
-          "2020-10-01-preview",
           "2020-09-01",
           "2019-11-01",
           "2018-11-01-alpha"
@@ -64586,7 +64640,10 @@
           "South Central US",
           "Canada Central",
           "Central India",
-          "East Asia"
+          "East Asia",
+          "South Africa North",
+          "West US",
+          "Central US"
         ],
         "properties": null,
         "resourceType": "locations/consumerInvitations"
@@ -68177,7 +68234,9 @@
           "Korea Central",
           "Korea South",
           "France Central",
-          "South Africa North"
+          "South Africa North",
+          "Switzerland West",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "dashboards"
@@ -68217,7 +68276,9 @@
           "Korea Central",
           "Korea South",
           "France Central",
-          "South Africa North"
+          "South Africa North",
+          "Switzerland West",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "tenantconfigurations"
@@ -68257,7 +68318,9 @@
           "Korea Central",
           "Korea South",
           "France Central",
-          "South Africa North"
+          "South Africa North",
+          "Switzerland West",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "listTenantConfigurationViolations"
@@ -69006,6 +69069,10 @@
       {
         "applicationId": "585fc3c3-9a59-4720-8319-53cce041a605",
         "roleDefinitionId": "008e7b93-7712-4d05-83ce-a9fcc80300e9"
+      },
+      {
+        "applicationId": "d22ea4d1-2678-4a7b-aa5e-f340c2a7d993",
+        "roleDefinitionId": "7c812eee-67c9-4a05-a1b1-c0ac88fd1067"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ResourceConnector",

@@ -90,6 +90,7 @@ from . import (
     insights,
     intune,
     iotcentral,
+    iotsecurity,
     iotspaces,
     keyvault,
     kubernetes,

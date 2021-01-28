@@ -19,6 +19,7 @@ class Component(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  hockey_app_id: Optional[pulumi.Input[str]] = None,
                  immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
@@ -43,6 +44,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Type of application being monitored.
         :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
+        :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[Union[str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         :param pulumi.Input[bool] immediate_purge_data_on30_days: Purge data immediately after 30 days.
@@ -56,7 +58,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] workspace_resource_id: ResourceId of the log analytics workspace which the data will be ingested to.
+        :param pulumi.Input[str] workspace_resource_id: Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,6 +83,7 @@ class Component(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_type'")
             __props__['application_type'] = application_type
             __props__['disable_ip_masking'] = disable_ip_masking
+            __props__['etag'] = etag
             if flow_type is None:
                 flow_type = 'Bluefield'
             __props__['flow_type'] = flow_type
@@ -108,8 +111,6 @@ class Component(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
-            if workspace_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_resource_id'")
             __props__['workspace_resource_id'] = workspace_resource_id
             __props__['app_id'] = None
             __props__['application_id'] = None
@@ -197,6 +198,14 @@ class Component(pulumi.CustomResource):
         Disable IP masking.
         """
         return pulumi.get(self, "disable_ip_masking")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource etag
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="flowType")
@@ -360,9 +369,9 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> pulumi.Output[str]:
+    def workspace_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        ResourceId of the log analytics workspace which the data will be ingested to.
+        Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
         return pulumi.get(self, "workspace_resource_id")
 

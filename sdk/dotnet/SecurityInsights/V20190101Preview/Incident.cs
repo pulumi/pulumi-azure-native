@@ -106,6 +106,18 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Output<Outputs.IncidentOwnerInfoResponse?> Owner { get; private set; } = null!;
 
         /// <summary>
+        /// The incident ID assigned by the incident provider
+        /// </summary>
+        [Output("providerIncidentId")]
+        public Output<string?> ProviderIncidentId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the source provider that generated the incident
+        /// </summary>
+        [Output("providerName")]
+        public Output<string?> ProviderName { get; private set; } = null!;
+
+        /// <summary>
         /// List of resource ids of Analytic rules related to the incident
         /// </summary>
         [Output("relatedAnalyticRuleIds")]
@@ -251,6 +263,18 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         [Input("owner")]
         public Input<Inputs.IncidentOwnerInfoArgs>? Owner { get; set; }
+
+        /// <summary>
+        /// The incident ID assigned by the incident provider
+        /// </summary>
+        [Input("providerIncidentId")]
+        public Input<string>? ProviderIncidentId { get; set; }
+
+        /// <summary>
+        /// The name of the source provider that generated the incident
+        /// </summary>
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

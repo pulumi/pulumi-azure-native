@@ -37,6 +37,8 @@ type LookupComponentResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Resource etag
+	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -79,6 +81,6 @@ type LookupComponentResult struct {
 	TenantId string `pulumi:"tenantId"`
 	// Azure resource type
 	Type string `pulumi:"type"`
-	// ResourceId of the log analytics workspace which the data will be ingested to.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
