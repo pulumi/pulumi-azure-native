@@ -116,6 +116,14 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly Outputs.IncidentOwnerInfoResponse? Owner;
         /// <summary>
+        /// The incident ID assigned by the incident provider
+        /// </summary>
+        public readonly string? ProviderIncidentId;
+        /// <summary>
+        /// The name of the source provider that generated the incident
+        /// </summary>
+        public readonly string? ProviderName;
+        /// <summary>
         /// List of resource ids of Analytic rules related to the incident
         /// </summary>
         public readonly ImmutableArray<string> RelatedAnalyticRuleIds;
@@ -170,6 +178,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             Outputs.IncidentOwnerInfoResponse? owner,
 
+            string? providerIncidentId,
+
+            string? providerName,
+
             ImmutableArray<string> relatedAnalyticRuleIds,
 
             string severity,
@@ -196,6 +208,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Name = name;
             Owner = owner;
+            ProviderIncidentId = providerIncidentId;
+            ProviderName = providerName;
             RelatedAnalyticRuleIds = relatedAnalyticRuleIds;
             Severity = severity;
             Status = status;

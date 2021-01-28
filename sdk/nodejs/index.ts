@@ -91,6 +91,7 @@ import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
+import * as iotsecurity from "./iotsecurity";
 import * as iotspaces from "./iotspaces";
 import * as keyvault from "./keyvault";
 import * as kubernetes from "./kubernetes";
@@ -249,6 +250,7 @@ export {
     insights,
     intune,
     iotcentral,
+    iotsecurity,
     iotspaces,
     keyvault,
     kubernetes,

@@ -96,6 +96,14 @@ export class Incident extends pulumi.CustomResource {
      */
     public readonly owner!: pulumi.Output<outputs.securityinsights.v20190101preview.IncidentOwnerInfoResponse | undefined>;
     /**
+     * The incident ID assigned by the incident provider
+     */
+    public readonly providerIncidentId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the source provider that generated the incident
+     */
+    public readonly providerName!: pulumi.Output<string | undefined>;
+    /**
      * List of resource ids of Analytic rules related to the incident
      */
     public /*out*/ readonly relatedAnalyticRuleIds!: pulumi.Output<string[]>;
@@ -158,6 +166,8 @@ export class Incident extends pulumi.CustomResource {
             inputs["lastActivityTimeUtc"] = args ? args.lastActivityTimeUtc : undefined;
             inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             inputs["owner"] = args ? args.owner : undefined;
+            inputs["providerIncidentId"] = args ? args.providerIncidentId : undefined;
+            inputs["providerName"] = args ? args.providerName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["severity"] = args ? args.severity : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -187,6 +197,8 @@ export class Incident extends pulumi.CustomResource {
             inputs["lastModifiedTimeUtc"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
+            inputs["providerIncidentId"] = undefined /*out*/;
+            inputs["providerName"] = undefined /*out*/;
             inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
             inputs["severity"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -252,6 +264,14 @@ export interface IncidentArgs {
      * Describes a user that the incident is assigned to
      */
     readonly owner?: pulumi.Input<inputs.securityinsights.v20190101preview.IncidentOwnerInfo>;
+    /**
+     * The incident ID assigned by the incident provider
+     */
+    readonly providerIncidentId?: pulumi.Input<string>;
+    /**
+     * The name of the source provider that generated the incident
+     */
+    readonly providerName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

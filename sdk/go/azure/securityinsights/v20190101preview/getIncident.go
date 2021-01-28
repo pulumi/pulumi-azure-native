@@ -61,6 +61,10 @@ type LookupIncidentResult struct {
 	Name string `pulumi:"name"`
 	// Describes a user that the incident is assigned to
 	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	// The incident ID assigned by the incident provider
+	ProviderIncidentId *string `pulumi:"providerIncidentId"`
+	// The name of the source provider that generated the incident
+	ProviderName *string `pulumi:"providerName"`
 	// List of resource ids of Analytic rules related to the incident
 	RelatedAnalyticRuleIds []string `pulumi:"relatedAnalyticRuleIds"`
 	// The severity of the incident

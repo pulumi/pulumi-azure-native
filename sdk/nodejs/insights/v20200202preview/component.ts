@@ -60,6 +60,10 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
+     * Resource etag
+     */
+    public readonly etag!: pulumi.Output<string | undefined>;
+    /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     public readonly flowType!: pulumi.Output<string | undefined>;
@@ -140,9 +144,9 @@ export class Component extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * ResourceId of the log analytics workspace which the data will be ingested to.
+     * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
      */
-    public readonly workspaceResourceId!: pulumi.Output<string>;
+    public readonly workspaceResourceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -169,11 +173,9 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.workspaceResourceId === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'workspaceResourceId'");
-            }
             inputs["applicationType"] = (args ? args.applicationType : undefined) || "web";
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            inputs["etag"] = args ? args.etag : undefined;
             inputs["flowType"] = (args ? args.flowType : undefined) || "Bluefield";
             inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
             inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
@@ -208,6 +210,7 @@ export class Component extends pulumi.CustomResource {
             inputs["connectionString"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["disableIpMasking"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["flowType"] = undefined /*out*/;
             inputs["hockeyAppId"] = undefined /*out*/;
             inputs["hockeyAppToken"] = undefined /*out*/;
@@ -255,6 +258,10 @@ export interface ComponentArgs {
      * Disable IP masking.
      */
     readonly disableIpMasking?: pulumi.Input<boolean>;
+    /**
+     * Resource etag
+     */
+    readonly etag?: pulumi.Input<string>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
@@ -308,7 +315,7 @@ export interface ComponentArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * ResourceId of the log analytics workspace which the data will be ingested to.
+     * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
      */
-    readonly workspaceResourceId: pulumi.Input<string>;
+    readonly workspaceResourceId?: pulumi.Input<string>;
 }

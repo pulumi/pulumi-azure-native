@@ -27,6 +27,8 @@ type Component struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
+	// Resource etag
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrOutput `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -67,8 +69,8 @@ type Component struct {
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
-	// ResourceId of the log analytics workspace which the data will be ingested to.
-	WorkspaceResourceId pulumi.StringOutput `pulumi:"workspaceResourceId"`
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId pulumi.StringPtrOutput `pulumi:"workspaceResourceId"`
 }
 
 // NewComponent registers a new resource with the given unique name, arguments, and options.
@@ -92,9 +94,6 @@ func NewComponent(ctx *pulumi.Context,
 	}
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
-	}
-	if args.WorkspaceResourceId == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceResourceId'")
 	}
 	if args.ApplicationType == nil {
 		args.ApplicationType = pulumi.String("web")
@@ -154,6 +153,8 @@ type componentState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Resource etag
+	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -194,7 +195,7 @@ type componentState struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
-	// ResourceId of the log analytics workspace which the data will be ingested to.
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -211,6 +212,8 @@ type ComponentState struct {
 	CreationDate pulumi.StringPtrInput
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Resource etag
+	Etag pulumi.StringPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -251,7 +254,7 @@ type ComponentState struct {
 	TenantId pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
-	// ResourceId of the log analytics workspace which the data will be ingested to.
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
 	WorkspaceResourceId pulumi.StringPtrInput
 }
 
@@ -264,6 +267,8 @@ type componentArgs struct {
 	ApplicationType string `pulumi:"applicationType"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Resource etag
+	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -290,8 +295,8 @@ type componentArgs struct {
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// ResourceId of the log analytics workspace which the data will be ingested to.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // The set of arguments for constructing a Component resource.
@@ -300,6 +305,8 @@ type ComponentArgs struct {
 	ApplicationType pulumi.StringInput
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Resource etag
+	Etag pulumi.StringPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -326,8 +333,8 @@ type ComponentArgs struct {
 	SamplingPercentage pulumi.Float64PtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// ResourceId of the log analytics workspace which the data will be ingested to.
-	WorkspaceResourceId pulumi.StringInput
+	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
+	WorkspaceResourceId pulumi.StringPtrInput
 }
 
 func (ComponentArgs) ElementType() reflect.Type {

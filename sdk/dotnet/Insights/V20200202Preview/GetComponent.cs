@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// </summary>
         public readonly bool? DisableIpMasking;
         /// <summary>
+        /// Resource etag
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         public readonly string? FlowType;
@@ -148,9 +152,9 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// ResourceId of the log analytics workspace which the data will be ingested to.
+        /// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         /// </summary>
-        public readonly string WorkspaceResourceId;
+        public readonly string? WorkspaceResourceId;
 
         [OutputConstructor]
         private GetComponentResult(
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
             string creationDate,
 
             bool? disableIpMasking,
+
+            string? etag,
 
             string? flowType,
 
@@ -208,7 +214,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
 
             string type,
 
-            string workspaceResourceId)
+            string? workspaceResourceId)
         {
             AppId = appId;
             ApplicationId = applicationId;
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200202Preview
             ConnectionString = connectionString;
             CreationDate = creationDate;
             DisableIpMasking = disableIpMasking;
+            Etag = etag;
             FlowType = flowType;
             HockeyAppId = hockeyAppId;
             HockeyAppToken = hockeyAppToken;

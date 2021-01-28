@@ -109,6 +109,14 @@ export interface GetIncidentResult {
      */
     readonly owner?: outputs.securityinsights.v20190101preview.IncidentOwnerInfoResponse;
     /**
+     * The incident ID assigned by the incident provider
+     */
+    readonly providerIncidentId?: string;
+    /**
+     * The name of the source provider that generated the incident
+     */
+    readonly providerName?: string;
+    /**
      * List of resource ids of Analytic rules related to the incident
      */
     readonly relatedAnalyticRuleIds: string[];

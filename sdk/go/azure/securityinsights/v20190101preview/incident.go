@@ -45,6 +45,10 @@ type Incident struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes a user that the incident is assigned to
 	Owner IncidentOwnerInfoResponsePtrOutput `pulumi:"owner"`
+	// The incident ID assigned by the incident provider
+	ProviderIncidentId pulumi.StringPtrOutput `pulumi:"providerIncidentId"`
+	// The name of the source provider that generated the incident
+	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// List of resource ids of Analytic rules related to the incident
 	RelatedAnalyticRuleIds pulumi.StringArrayOutput `pulumi:"relatedAnalyticRuleIds"`
 	// The severity of the incident
@@ -137,6 +141,10 @@ type incidentState struct {
 	Name *string `pulumi:"name"`
 	// Describes a user that the incident is assigned to
 	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	// The incident ID assigned by the incident provider
+	ProviderIncidentId *string `pulumi:"providerIncidentId"`
+	// The name of the source provider that generated the incident
+	ProviderName *string `pulumi:"providerName"`
 	// List of resource ids of Analytic rules related to the incident
 	RelatedAnalyticRuleIds []string `pulumi:"relatedAnalyticRuleIds"`
 	// The severity of the incident
@@ -180,6 +188,10 @@ type IncidentState struct {
 	Name pulumi.StringPtrInput
 	// Describes a user that the incident is assigned to
 	Owner IncidentOwnerInfoResponsePtrInput
+	// The incident ID assigned by the incident provider
+	ProviderIncidentId pulumi.StringPtrInput
+	// The name of the source provider that generated the incident
+	ProviderName pulumi.StringPtrInput
 	// List of resource ids of Analytic rules related to the incident
 	RelatedAnalyticRuleIds pulumi.StringArrayInput
 	// The severity of the incident
@@ -219,6 +231,10 @@ type incidentArgs struct {
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// Describes a user that the incident is assigned to
 	Owner *IncidentOwnerInfo `pulumi:"owner"`
+	// The incident ID assigned by the incident provider
+	ProviderIncidentId *string `pulumi:"providerIncidentId"`
+	// The name of the source provider that generated the incident
+	ProviderName *string `pulumi:"providerName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The severity of the incident
@@ -255,6 +271,10 @@ type IncidentArgs struct {
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// Describes a user that the incident is assigned to
 	Owner IncidentOwnerInfoPtrInput
+	// The incident ID assigned by the incident provider
+	ProviderIncidentId pulumi.StringPtrInput
+	// The name of the source provider that generated the incident
+	ProviderName pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The severity of the incident
