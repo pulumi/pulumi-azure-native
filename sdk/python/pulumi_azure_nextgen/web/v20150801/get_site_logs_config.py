@@ -54,7 +54,7 @@ class GetSiteLogsConfigResult:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional['outputs.ApplicationLogsConfigResponse']:
+    def application_logs(self) -> Optional['outputs.ApplicationLogsConfigInvokeResponseResult']:
         """
         Application logs configuration
         """
@@ -62,7 +62,7 @@ class GetSiteLogsConfigResult:
 
     @property
     @pulumi.getter(name="detailedErrorMessages")
-    def detailed_error_messages(self) -> Optional['outputs.EnabledConfigResponse']:
+    def detailed_error_messages(self) -> Optional['outputs.EnabledConfigInvokeResponseResult']:
         """
         Detailed error messages configuration
         """
@@ -70,7 +70,7 @@ class GetSiteLogsConfigResult:
 
     @property
     @pulumi.getter(name="failedRequestsTracing")
-    def failed_requests_tracing(self) -> Optional['outputs.EnabledConfigResponse']:
+    def failed_requests_tracing(self) -> Optional['outputs.EnabledConfigInvokeResponseResult']:
         """
         Failed requests tracing configuration
         """
@@ -78,7 +78,7 @@ class GetSiteLogsConfigResult:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional['outputs.HttpLogsConfigResponse']:
+    def http_logs(self) -> Optional['outputs.HttpLogsConfigInvokeResponseResult']:
         """
         Http logs configuration
         """

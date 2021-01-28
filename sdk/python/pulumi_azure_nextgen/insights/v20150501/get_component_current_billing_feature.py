@@ -38,7 +38,7 @@ class GetComponentCurrentBillingFeatureResult:
 
     @property
     @pulumi.getter(name="dataVolumeCap")
-    def data_volume_cap(self) -> Optional['outputs.ApplicationInsightsComponentDataVolumeCapResponse']:
+    def data_volume_cap(self) -> Optional['outputs.ApplicationInsightsComponentDataVolumeCapInvokeResponseResult']:
         """
         An Application Insights component daily data volume cap
         """

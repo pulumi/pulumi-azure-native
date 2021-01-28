@@ -42,7 +42,7 @@ class GetStorageDomainResult:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretInvokeResponseResult']:
         """
         The encryption key used to encrypt the data. This is a user secret.
         """

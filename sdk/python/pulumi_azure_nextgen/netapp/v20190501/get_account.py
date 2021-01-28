@@ -45,7 +45,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="activeDirectories")
-    def active_directories(self) -> Optional[Sequence['outputs.ActiveDirectoryResponse']]:
+    def active_directories(self) -> Optional[Sequence['outputs.ActiveDirectoryInvokeResponseResult']]:
         """
         Active Directories
         """

@@ -62,7 +62,7 @@ class GetRemediationAtSubscriptionResult:
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> Optional['outputs.RemediationDeploymentSummaryResponse']:
+    def deployment_status(self) -> Optional['outputs.RemediationDeploymentSummaryInvokeResponseResult']:
         """
         The deployment status summary for all deployments created by the remediation.
         """
@@ -70,7 +70,7 @@ class GetRemediationAtSubscriptionResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.RemediationFiltersResponse']:
+    def filters(self) -> Optional['outputs.RemediationFiltersInvokeResponseResult']:
         """
         The filters that will be applied to determine which resources to remediate.
         """

@@ -126,7 +126,7 @@ class GetSecurityPartnerProviderResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The virtualHub to which the Security Partner Provider belongs.
         """

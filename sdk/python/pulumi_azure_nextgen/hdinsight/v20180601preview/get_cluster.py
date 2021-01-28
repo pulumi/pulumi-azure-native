@@ -64,7 +64,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ClusterIdentityResponse']:
+    def identity(self) -> Optional['outputs.ClusterIdentityInvokeResponseResult']:
         """
         The identity of the cluster, if configured.
         """
@@ -88,7 +88,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ClusterGetPropertiesResponse':
+    def properties(self) -> 'outputs.ClusterGetPropertiesInvokeResponseResult':
         """
         The properties of the cluster.
         """

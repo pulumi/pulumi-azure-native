@@ -91,7 +91,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="sourceVirtualMachine")
-    def source_virtual_machine(self) -> Optional['outputs.SubResourceResponse']:
+    def source_virtual_machine(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The source virtual machine from which Image is created.
         """
@@ -99,7 +99,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.ImageStorageProfileResponse']:
+    def storage_profile(self) -> Optional['outputs.ImageStorageProfileInvokeResponseResult']:
         """
         Specifies the storage settings for the virtual machine disks.
         """

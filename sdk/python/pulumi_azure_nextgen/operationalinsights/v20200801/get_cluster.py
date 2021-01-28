@@ -73,7 +73,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -81,7 +81,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesInvokeResponseResult']:
         """
         The associated key properties.
         """
@@ -121,7 +121,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ClusterSkuResponse']:
+    def sku(self) -> Optional['outputs.ClusterSkuInvokeResponseResult']:
         """
         The sku properties.
         """

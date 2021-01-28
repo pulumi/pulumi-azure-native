@@ -180,7 +180,7 @@ class GetAccessReviewScheduleDefinitionByIdResult:
 
     @property
     @pulumi.getter
-    def instances(self) -> Optional[Sequence['outputs.AccessReviewInstanceResponse']]:
+    def instances(self) -> Optional[Sequence['outputs.AccessReviewInstanceInvokeResponseResult']]:
         """
         This is the collection of instances returned when one does an expand on it.
         """
@@ -276,7 +276,7 @@ class GetAccessReviewScheduleDefinitionByIdResult:
 
     @property
     @pulumi.getter
-    def reviewers(self) -> Optional[Sequence['outputs.AccessReviewReviewerResponse']]:
+    def reviewers(self) -> Optional[Sequence['outputs.AccessReviewReviewerInvokeResponseResult']]:
         """
         This is the collection of reviewers.
         """

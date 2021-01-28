@@ -111,7 +111,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="domainSecuritySettings")
-    def domain_security_settings(self) -> Optional['outputs.DomainSecuritySettingsResponse']:
+    def domain_security_settings(self) -> Optional['outputs.DomainSecuritySettingsInvokeResponseResult']:
         """
         DomainSecurity Settings
         """
@@ -143,7 +143,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="ldapsSettings")
-    def ldaps_settings(self) -> Optional['outputs.LdapsSettingsResponse']:
+    def ldaps_settings(self) -> Optional['outputs.LdapsSettingsInvokeResponseResult']:
         """
         Secure LDAP Settings
         """
@@ -159,7 +159,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="migrationProperties")
-    def migration_properties(self) -> 'outputs.MigrationPropertiesResponse':
+    def migration_properties(self) -> 'outputs.MigrationPropertiesInvokeResponseResult':
         """
         Migration Properties
         """
@@ -175,7 +175,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
+    def notification_settings(self) -> Optional['outputs.NotificationSettingsInvokeResponseResult']:
         """
         Notification Settings
         """
@@ -191,7 +191,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="replicaSets")
-    def replica_sets(self) -> Optional[Sequence['outputs.ReplicaSetResponse']]:
+    def replica_sets(self) -> Optional[Sequence['outputs.ReplicaSetInvokeResponseResult']]:
         """
         List of ReplicaSets
         """
@@ -199,7 +199,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="resourceForestSettings")
-    def resource_forest_settings(self) -> Optional['outputs.ResourceForestSettingsResponse']:
+    def resource_forest_settings(self) -> Optional['outputs.ResourceForestSettingsInvokeResponseResult']:
         """
         Resource Forest Settings
         """

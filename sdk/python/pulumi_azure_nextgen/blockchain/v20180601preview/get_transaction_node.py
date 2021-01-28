@@ -62,7 +62,7 @@ class GetTransactionNodeResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[Sequence['outputs.FirewallRuleResponse']]:
+    def firewall_rules(self) -> Optional[Sequence['outputs.FirewallRuleInvokeResponseResult']]:
         """
         Gets or sets the firewall rules.
         """

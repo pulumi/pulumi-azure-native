@@ -86,7 +86,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="geoFilters")
-    def geo_filters(self) -> Optional[Sequence['outputs.GeoFilterResponse']]:
+    def geo_filters(self) -> Optional[Sequence['outputs.GeoFilterInvokeResponseResult']]:
         """
         List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         """
@@ -174,7 +174,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> Sequence['outputs.DeepCreatedOriginResponse']:
+    def origins(self) -> Sequence['outputs.DeepCreatedOriginInvokeResponseResult']:
         """
         The source of the content being delivered via CDN.
         """

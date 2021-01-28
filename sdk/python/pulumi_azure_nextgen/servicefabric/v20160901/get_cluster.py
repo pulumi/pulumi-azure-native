@@ -96,7 +96,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="availableClusterVersions")
-    def available_cluster_versions(self) -> Sequence['outputs.ClusterVersionDetailsResponse']:
+    def available_cluster_versions(self) -> Sequence['outputs.ClusterVersionDetailsInvokeResponseResult']:
         """
         The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
         """
@@ -104,7 +104,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
+    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryInvokeResponseResult']:
         """
         The settings to enable AAD authentication on the cluster
         """
@@ -112,7 +112,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
+    def certificate(self) -> Optional['outputs.CertificateDescriptionInvokeResponseResult']:
         """
         This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
         """
@@ -120,7 +120,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clientCertificateCommonNames")
-    def client_certificate_common_names(self) -> Optional[Sequence['outputs.ClientCertificateCommonNameResponse']]:
+    def client_certificate_common_names(self) -> Optional[Sequence['outputs.ClientCertificateCommonNameInvokeResponseResult']]:
         """
          List of client certificates to whitelist based on common names
         """
@@ -128,7 +128,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clientCertificateThumbprints")
-    def client_certificate_thumbprints(self) -> Optional[Sequence['outputs.ClientCertificateThumbprintResponse']]:
+    def client_certificate_thumbprints(self) -> Optional[Sequence['outputs.ClientCertificateThumbprintInvokeResponseResult']]:
         """
         The client thumbprint details ,it is used for client access for cluster operation
         """
@@ -168,7 +168,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="diagnosticsStorageAccountConfig")
-    def diagnostics_storage_account_config(self) -> Optional['outputs.DiagnosticsStorageAccountConfigResponse']:
+    def diagnostics_storage_account_config(self) -> Optional['outputs.DiagnosticsStorageAccountConfigInvokeResponseResult']:
         """
         The storage diagnostics account configuration details
         """
@@ -176,7 +176,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]:
+    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionInvokeResponseResult']]:
         """
         List of custom fabric settings to configure the cluster.
         """
@@ -216,7 +216,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> Sequence['outputs.NodeTypeDescriptionResponse']:
+    def node_types(self) -> Sequence['outputs.NodeTypeDescriptionInvokeResponseResult']:
         """
         The list of node types that make up the cluster
         """
@@ -240,7 +240,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="reverseProxyCertificate")
-    def reverse_proxy_certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
+    def reverse_proxy_certificate(self) -> Optional['outputs.CertificateDescriptionInvokeResponseResult']:
         """
         The server certificate used by reverse proxy
         """
@@ -264,7 +264,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="upgradeDescription")
-    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyResponse']:
+    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyInvokeResponseResult']:
         """
         The policy to use when upgrading the cluster.
         """

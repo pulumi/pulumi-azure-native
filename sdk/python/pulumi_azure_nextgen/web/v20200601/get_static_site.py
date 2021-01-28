@@ -71,7 +71,7 @@ class GetStaticSiteResult:
 
     @property
     @pulumi.getter(name="buildProperties")
-    def build_properties(self) -> Optional['outputs.StaticSiteBuildPropertiesResponse']:
+    def build_properties(self) -> Optional['outputs.StaticSiteBuildPropertiesInvokeResponseResult']:
         """
         Build properties to configure on the repository.
         """
@@ -143,7 +143,7 @@ class GetStaticSiteResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+    def sku(self) -> Optional['outputs.SkuDescriptionInvokeResponseResult']:
         """
         Description of a SKU for a scalable resource.
         """

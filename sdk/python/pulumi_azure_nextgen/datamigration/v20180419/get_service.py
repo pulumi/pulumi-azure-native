@@ -113,7 +113,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ServiceSkuResponse']:
+    def sku(self) -> Optional['outputs.ServiceSkuInvokeResponseResult']:
         """
         Service SKU
         """

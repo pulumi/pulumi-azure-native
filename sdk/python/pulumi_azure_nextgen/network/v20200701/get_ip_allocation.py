@@ -135,7 +135,7 @@ class GetIpAllocationResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> 'outputs.SubResourceResponse':
+    def subnet(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         The Subnet that using the prefix of this IpAllocation resource.
         """
@@ -159,7 +159,7 @@ class GetIpAllocationResult:
 
     @property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> 'outputs.SubResourceResponse':
+    def virtual_network(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         The VirtualNetwork that using the prefix of this IpAllocation resource.
         """

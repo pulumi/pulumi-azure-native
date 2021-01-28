@@ -154,7 +154,7 @@ class GetWebhookResult:
 
     @property
     @pulumi.getter
-    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
+    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyInvokeResponseResult']:
         """
         Gets or sets the runbook the webhook is associated with.
         """

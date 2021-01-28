@@ -63,7 +63,7 @@ class GetDpsCertificateResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CertificatePropertiesResponse':
+    def properties(self) -> 'outputs.CertificatePropertiesInvokeResponseResult':
         """
         properties of a certificate
         """

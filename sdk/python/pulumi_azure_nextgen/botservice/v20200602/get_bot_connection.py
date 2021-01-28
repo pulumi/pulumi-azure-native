@@ -91,7 +91,7 @@ class GetBotConnectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConnectionSettingPropertiesResponse':
+    def properties(self) -> 'outputs.ConnectionSettingPropertiesInvokeResponseResult':
         """
         The set of properties specific to bot channel resource
         """
@@ -99,7 +99,7 @@ class GetBotConnectionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the SKU of the resource.
         """

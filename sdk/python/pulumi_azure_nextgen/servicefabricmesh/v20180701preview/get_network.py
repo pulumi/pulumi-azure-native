@@ -75,7 +75,7 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter(name="ingressConfig")
-    def ingress_config(self) -> Optional['outputs.IngressConfigResponse']:
+    def ingress_config(self) -> Optional['outputs.IngressConfigInvokeResponseResult']:
         """
         Configuration for public connectivity for this network.
         """

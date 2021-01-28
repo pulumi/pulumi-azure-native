@@ -82,7 +82,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionConfigurationResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionConfigurationInvokeResponseResult']:
         """
         Properties to enable Customer Managed Key for the factory.
         """
@@ -90,7 +90,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter(name="globalParameters")
-    def global_parameters(self) -> Optional[Mapping[str, 'outputs.GlobalParameterSpecificationResponse']]:
+    def global_parameters(self) -> Optional[Mapping[str, 'outputs.GlobalParameterSpecificationInvokeResponseResult']]:
         """
         List of parameters for factory.
         """
@@ -106,7 +106,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.FactoryIdentityResponse']:
+    def identity(self) -> Optional['outputs.FactoryIdentityInvokeResponseResult']:
         """
         Managed service identity of the factory.
         """

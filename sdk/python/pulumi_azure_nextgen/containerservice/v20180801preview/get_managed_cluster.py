@@ -75,7 +75,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="aadProfile")
-    def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileResponse']:
+    def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileInvokeResponseResult']:
         """
         Profile of Azure Active Directory configuration.
         """
@@ -83,7 +83,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="addonProfiles")
-    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]:
+    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileInvokeResponseResult']]:
         """
         Profile of managed cluster add-on.
         """
@@ -91,7 +91,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ManagedClusterAgentPoolProfileInvokeResponseResult']]:
         """
         Properties of the agent pool.
         """
@@ -139,7 +139,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
+    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileInvokeResponseResult']:
         """
         Profile for Linux VMs in the container service cluster.
         """
@@ -163,7 +163,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileInvokeResponseResult']:
         """
         Profile of network configuration.
         """
@@ -187,7 +187,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ManagedClusterServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> Optional['outputs.ManagedClusterServicePrincipalProfileInvokeResponseResult']:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         """

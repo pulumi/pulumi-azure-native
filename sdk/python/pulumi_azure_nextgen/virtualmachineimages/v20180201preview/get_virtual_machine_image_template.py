@@ -54,7 +54,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def customize(self) -> Optional[Sequence['outputs.ImageTemplateShellCustomizerResponse']]:
+    def customize(self) -> Optional[Sequence['outputs.ImageTemplateShellCustomizerInvokeResponseResult']]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -78,7 +78,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="lastRunStatus")
-    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusResponse':
+    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusInvokeResponseResult':
         """
         State of 'run' that is currently executing or was last executed.
         """
@@ -102,7 +102,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> 'outputs.ProvisioningErrorResponse':
+    def provisioning_error(self) -> 'outputs.ProvisioningErrorInvokeResponseResult':
         """
         Provisioning error, if any
         """

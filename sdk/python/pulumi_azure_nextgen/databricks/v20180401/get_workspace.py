@@ -75,7 +75,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[Sequence['outputs.WorkspaceProviderAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.WorkspaceProviderAuthorizationInvokeResponseResult']]:
         """
         The workspace provider authorizations.
         """
@@ -83,7 +83,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional['outputs.CreatedByResponse']:
+    def created_by(self) -> Optional['outputs.CreatedByInvokeResponseResult']:
         """
         Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         """
@@ -131,7 +131,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.WorkspaceCustomParametersResponse']:
+    def parameters(self) -> Optional['outputs.WorkspaceCustomParametersInvokeResponseResult']:
         """
         The workspace's custom parameters.
         """
@@ -147,7 +147,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the resource.
         """
@@ -155,7 +155,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="storageAccountIdentity")
-    def storage_account_identity(self) -> Optional['outputs.ManagedIdentityConfigurationResponse']:
+    def storage_account_identity(self) -> Optional['outputs.ManagedIdentityConfigurationInvokeResponseResult']:
         """
         The details of Managed Identity of Storage Account
         """
@@ -187,7 +187,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional['outputs.CreatedByResponse']:
+    def updated_by(self) -> Optional['outputs.CreatedByInvokeResponseResult']:
         """
         Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
         """

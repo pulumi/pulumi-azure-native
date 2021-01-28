@@ -108,7 +108,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter
-    def grades(self) -> Optional[Sequence['outputs.PredictionResponseGrades']]:
+    def grades(self) -> Optional[Sequence['outputs.PredictionInvokeResponseGradesResult']]:
         """
         The prediction grades.
         """
@@ -148,7 +148,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter
-    def mappings(self) -> 'outputs.PredictionResponseMappings':
+    def mappings(self) -> 'outputs.PredictionInvokeResponseMappingsResult':
         """
         Definition of the link mapping of prediction.
         """
@@ -220,7 +220,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter(name="systemGeneratedEntities")
-    def system_generated_entities(self) -> 'outputs.PredictionResponseSystemGeneratedEntities':
+    def system_generated_entities(self) -> 'outputs.PredictionInvokeResponseSystemGeneratedEntitiesResult':
         """
         System generated entities.
         """

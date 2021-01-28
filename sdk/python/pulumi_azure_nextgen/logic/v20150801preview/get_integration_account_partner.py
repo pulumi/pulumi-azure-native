@@ -59,7 +59,7 @@ class GetIntegrationAccountPartnerResult:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.PartnerContentResponse']:
+    def content(self) -> Optional['outputs.PartnerContentInvokeResponseResult']:
         """
         The partner content.
         """

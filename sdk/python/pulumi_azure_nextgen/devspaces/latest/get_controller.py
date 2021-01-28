@@ -105,7 +105,7 @@ class GetControllerResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         Model representing SKU for Azure Dev Spaces Controller.
         """

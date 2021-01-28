@@ -185,7 +185,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the created namespace
         """

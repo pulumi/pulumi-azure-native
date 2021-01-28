@@ -10,10 +10,36 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'ControllerDetailsInvokeResponseResult',
     'ControllerDetailsResponse',
+    'OrchestratorIdentityInvokeResponseResult',
     'OrchestratorIdentityResponse',
+    'SubnetDetailsInvokeResponseResult',
     'SubnetDetailsResponse',
 ]
+
+@pulumi.output_type
+class ControllerDetailsInvokeResponseResult(dict):
+    """
+    controller details
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        controller details
+        :param str id: controller arm resource id
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        controller arm resource id
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class ControllerDetailsResponse(dict):
@@ -39,6 +65,47 @@ class ControllerDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OrchestratorIdentityInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        :param str principal_id: The principal id of the system assigned identity which is used by orchestrator.
+        :param str tenant_id: The tenant id of the system assigned identity which is used by orchestrator.
+        :param str type: The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the system assigned identity which is used by orchestrator.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the system assigned identity which is used by orchestrator.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -83,6 +150,29 @@ class OrchestratorIdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubnetDetailsInvokeResponseResult(dict):
+    """
+    Properties of orchestrator
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Properties of orchestrator
+        :param str id: subnet arm resource id
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        subnet arm resource id
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

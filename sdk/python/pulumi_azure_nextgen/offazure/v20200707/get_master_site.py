@@ -74,7 +74,7 @@ class GetMasterSiteResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MasterSitePropertiesResponse':
+    def properties(self) -> 'outputs.MasterSitePropertiesInvokeResponseResult':
         """
         Nested properties of Master site.
         """

@@ -109,7 +109,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> 'outputs.CustomDomainResponse':
+    def custom_domain(self) -> 'outputs.CustomDomainInvokeResponseResult':
         """
         Gets the custom domain the user assigned to this storage account.
         """
@@ -125,7 +125,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> 'outputs.EncryptionResponse':
+    def encryption(self) -> 'outputs.EncryptionInvokeResponseResult':
         """
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
@@ -141,7 +141,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -189,7 +189,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> 'outputs.NetworkRuleSetResponse':
+    def network_rule_set(self) -> 'outputs.NetworkRuleSetInvokeResponseResult':
         """
         Network rule set
         """
@@ -197,7 +197,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="primaryEndpoints")
-    def primary_endpoints(self) -> 'outputs.EndpointsResponse':
+    def primary_endpoints(self) -> 'outputs.EndpointsInvokeResponseResult':
         """
         Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         """
@@ -221,7 +221,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="secondaryEndpoints")
-    def secondary_endpoints(self) -> 'outputs.EndpointsResponse':
+    def secondary_endpoints(self) -> 'outputs.EndpointsInvokeResponseResult':
         """
         Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         """
@@ -237,7 +237,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         Gets the SKU.
         """

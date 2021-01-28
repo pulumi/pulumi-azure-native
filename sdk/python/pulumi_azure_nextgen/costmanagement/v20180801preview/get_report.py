@@ -48,7 +48,7 @@ class GetReportResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.ReportDefinitionResponse':
+    def definition(self) -> 'outputs.ReportDefinitionInvokeResponseResult':
         """
         Has definition for the report.
         """
@@ -56,7 +56,7 @@ class GetReportResult:
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ReportDeliveryInfoResponse':
+    def delivery_info(self) -> 'outputs.ReportDeliveryInfoInvokeResponseResult':
         """
         Has delivery information for the report.
         """
@@ -88,7 +88,7 @@ class GetReportResult:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ReportScheduleResponse']:
+    def schedule(self) -> Optional['outputs.ReportScheduleInvokeResponseResult']:
         """
         Has schedule information for the report.
         """

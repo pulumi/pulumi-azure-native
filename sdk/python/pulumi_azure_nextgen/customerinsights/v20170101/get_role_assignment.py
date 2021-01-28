@@ -101,7 +101,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="conflationPolicies")
-    def conflation_policies(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def conflation_policies(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Widget types set for the assignment.
         """
@@ -109,7 +109,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def connectors(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def connectors(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Connectors set for the assignment.
         """
@@ -141,7 +141,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def interactions(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def interactions(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Interactions set for the assignment.
         """
@@ -149,7 +149,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def kpis(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def kpis(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Kpis set for the assignment.
         """
@@ -157,7 +157,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def links(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Links set for the assignment.
         """
@@ -173,7 +173,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def principals(self) -> Sequence['outputs.AssignmentPrincipalResponse']:
+    def principals(self) -> Sequence['outputs.AssignmentPrincipalInvokeResponseResult']:
         """
         The principals being assigned to.
         """
@@ -181,7 +181,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def profiles(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def profiles(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Profiles set for the assignment.
         """
@@ -197,7 +197,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="relationshipLinks")
-    def relationship_links(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def relationship_links(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         The Role assignments set for the relationship links.
         """
@@ -205,7 +205,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def relationships(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def relationships(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         The Role assignments set for the relationships.
         """
@@ -221,7 +221,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="roleAssignments")
-    def role_assignments(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def role_assignments(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         The Role assignments set for the assignment.
         """
@@ -229,7 +229,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="sasPolicies")
-    def sas_policies(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def sas_policies(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Sas Policies set for the assignment.
         """
@@ -237,7 +237,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def segments(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def segments(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         The Role assignments set for the assignment.
         """
@@ -261,7 +261,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def views(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def views(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Views set for the assignment.
         """
@@ -269,7 +269,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="widgetTypes")
-    def widget_types(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def widget_types(self) -> Optional['outputs.ResourceSetDescriptionInvokeResponseResult']:
         """
         Widget types set for the assignment.
         """

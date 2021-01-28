@@ -66,7 +66,7 @@ class GetGremlinResourceGremlinDatabaseResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.GremlinDatabaseGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.GremlinDatabaseGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

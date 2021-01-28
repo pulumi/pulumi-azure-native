@@ -212,7 +212,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU type.
         """

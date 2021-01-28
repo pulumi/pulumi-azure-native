@@ -85,7 +85,7 @@ class GetTransformResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Sequence['outputs.TransformOutputResponse']:
+    def outputs(self) -> Sequence['outputs.TransformOutputInvokeResponseResult']:
         """
         An array of one or more TransformOutputs that the Transform should generate.
         """

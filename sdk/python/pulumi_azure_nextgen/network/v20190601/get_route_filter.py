@@ -70,7 +70,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter(name="ipv6Peerings")
-    def ipv6_peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def ipv6_peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringInvokeResponseResult']]:
         """
         A collection of references to express route circuit ipv6 peerings.
         """
@@ -94,7 +94,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringInvokeResponseResult']]:
         """
         A collection of references to express route circuit peerings.
         """
@@ -110,7 +110,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.RouteFilterRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.RouteFilterRuleInvokeResponseResult']]:
         """
         Collection of RouteFilterRules contained within a route filter.
         """

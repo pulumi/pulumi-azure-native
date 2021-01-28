@@ -80,7 +80,7 @@ class GetRoleDefinitionResult:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[Sequence['outputs.PermissionResponse']]:
+    def permissions(self) -> Optional[Sequence['outputs.PermissionInvokeResponseResult']]:
         """
         Role definition permissions.
         """

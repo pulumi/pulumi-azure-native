@@ -27,7 +27,7 @@ class ListAssetStreamingLocatorsResult:
 
     @property
     @pulumi.getter(name="streamingLocators")
-    def streaming_locators(self) -> Sequence['outputs.AssetStreamingLocatorResponseResult']:
+    def streaming_locators(self) -> Sequence['outputs.AssetStreamingLocatorInvokeResponseResult']:
         """
         The list of Streaming Locators.
         """

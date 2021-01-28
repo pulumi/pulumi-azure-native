@@ -114,7 +114,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="aadProfile")
-    def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileResponse']:
+    def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileInvokeResponseResult']:
         """
         Profile of Azure Active Directory configuration.
         """
@@ -122,7 +122,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="addonProfiles")
-    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]:
+    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileInvokeResponseResult']]:
         """
         Profile of managed cluster add-on.
         """
@@ -130,7 +130,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ManagedClusterAgentPoolProfileInvokeResponseResult']]:
         """
         Properties of the agent pool.
         """
@@ -138,7 +138,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="apiServerAccessProfile")
-    def api_server_access_profile(self) -> Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']:
+    def api_server_access_profile(self) -> Optional['outputs.ManagedClusterAPIServerAccessProfileInvokeResponseResult']:
         """
         Access profile for managed cluster API server.
         """
@@ -146,7 +146,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="autoScalerProfile")
-    def auto_scaler_profile(self) -> Optional['outputs.ManagedClusterPropertiesResponseAutoScalerProfile']:
+    def auto_scaler_profile(self) -> Optional['outputs.ManagedClusterPropertiesInvokeResponseAutoScalerProfileResult']:
         """
         Parameters to be applied to the cluster-autoscaler when enabled
         """
@@ -154,7 +154,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="autoUpgradeProfile")
-    def auto_upgrade_profile(self) -> Optional['outputs.ManagedClusterAutoUpgradeProfileResponse']:
+    def auto_upgrade_profile(self) -> Optional['outputs.ManagedClusterAutoUpgradeProfileInvokeResponseResult']:
         """
         Profile of auto upgrade configuration.
         """
@@ -210,7 +210,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedClusterIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedClusterIdentityInvokeResponseResult']:
         """
         The identity of the managed cluster, if configured.
         """
@@ -218,7 +218,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="identityProfile")
-    def identity_profile(self) -> Optional[Mapping[str, 'outputs.ManagedClusterPropertiesResponseIdentityProfile']]:
+    def identity_profile(self) -> Optional[Mapping[str, 'outputs.ManagedClusterPropertiesInvokeResponseIdentityProfileResult']]:
         """
         Identities associated with the cluster.
         """
@@ -234,7 +234,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
+    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileInvokeResponseResult']:
         """
         Profile for Linux VMs in the container service cluster.
         """
@@ -266,7 +266,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileInvokeResponseResult']:
         """
         Profile of network configuration.
         """
@@ -282,7 +282,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="podIdentityProfile")
-    def pod_identity_profile(self) -> Optional['outputs.ManagedClusterPodIdentityProfileResponse']:
+    def pod_identity_profile(self) -> Optional['outputs.ManagedClusterPodIdentityProfileInvokeResponseResult']:
         """
         Profile of managed cluster pod identity.
         """
@@ -290,7 +290,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> 'outputs.PowerStateResponse':
+    def power_state(self) -> 'outputs.PowerStateInvokeResponseResult':
         """
         Represents the Power State of the cluster
         """
@@ -314,7 +314,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ManagedClusterServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> Optional['outputs.ManagedClusterServicePrincipalProfileInvokeResponseResult']:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         """
@@ -322,7 +322,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ManagedClusterSKUResponse']:
+    def sku(self) -> Optional['outputs.ManagedClusterSKUInvokeResponseResult']:
         """
         The managed cluster SKU.
         """
@@ -346,7 +346,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional['outputs.ManagedClusterWindowsProfileResponse']:
+    def windows_profile(self) -> Optional['outputs.ManagedClusterWindowsProfileInvokeResponseResult']:
         """
         Profile for Windows VMs in the container service cluster.
         """

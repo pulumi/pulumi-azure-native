@@ -95,7 +95,7 @@ class GetLiveOutputResult:
 
     @property
     @pulumi.getter
-    def hls(self) -> Optional['outputs.HlsResponse']:
+    def hls(self) -> Optional['outputs.HlsInvokeResponseResult']:
         """
         The HLS configuration.
         """

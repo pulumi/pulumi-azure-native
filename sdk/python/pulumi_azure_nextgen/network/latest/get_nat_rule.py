@@ -57,7 +57,7 @@ class GetNatRuleResult:
 
     @property
     @pulumi.getter(name="egressVpnSiteLinkConnections")
-    def egress_vpn_site_link_connections(self) -> Sequence['outputs.SubResourceResponse']:
+    def egress_vpn_site_link_connections(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of egress VpnSiteLinkConnections.
         """
@@ -73,7 +73,7 @@ class GetNatRuleResult:
 
     @property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingResponse']]:
+    def external_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingInvokeResponseResult']]:
         """
         The private IP address external mapping for NAT.
         """
@@ -89,7 +89,7 @@ class GetNatRuleResult:
 
     @property
     @pulumi.getter(name="ingressVpnSiteLinkConnections")
-    def ingress_vpn_site_link_connections(self) -> Sequence['outputs.SubResourceResponse']:
+    def ingress_vpn_site_link_connections(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of ingress VpnSiteLinkConnections.
         """
@@ -97,7 +97,7 @@ class GetNatRuleResult:
 
     @property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingResponse']]:
+    def internal_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingInvokeResponseResult']]:
         """
         The private IP address internal mapping for NAT.
         """

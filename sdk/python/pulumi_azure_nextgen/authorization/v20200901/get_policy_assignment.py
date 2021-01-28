@@ -98,7 +98,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The managed identity associated with the policy assignment.
         """
@@ -130,7 +130,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter(name="nonComplianceMessages")
-    def non_compliance_messages(self) -> Optional[Sequence['outputs.NonComplianceMessageResponse']]:
+    def non_compliance_messages(self) -> Optional[Sequence['outputs.NonComplianceMessageInvokeResponseResult']]:
         """
         The messages that describe why a resource is non-compliant with the policy.
         """
@@ -146,7 +146,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterValuesValueInvokeResponseResult']]:
         """
         The parameter values for the assigned policy rule. The keys are the parameter names.
         """

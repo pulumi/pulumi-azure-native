@@ -52,7 +52,7 @@ class GetMoveResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MoveResourcePropertiesResponse':
+    def properties(self) -> 'outputs.MoveResourcePropertiesInvokeResponseResult':
         """
         Defines the move resource properties.
         """

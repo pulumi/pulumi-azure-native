@@ -42,7 +42,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional['outputs.CorsRulesResponse']:
+    def cors(self) -> Optional['outputs.CorsRulesInvokeResponseResult']:
         """
         Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
         """
@@ -58,7 +58,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter(name="deleteRetentionPolicy")
-    def delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyResponse']:
+    def delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyInvokeResponseResult']:
         """
         The blob service properties for soft delete.
         """

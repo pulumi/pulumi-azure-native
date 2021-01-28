@@ -66,7 +66,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ApplicationPropertiesResponse':
+    def properties(self) -> 'outputs.ApplicationPropertiesInvokeResponseResult':
         """
         The properties of the application.
         """

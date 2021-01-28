@@ -72,7 +72,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MapsAccountPropertiesResponse':
+    def properties(self) -> 'outputs.MapsAccountPropertiesInvokeResponseResult':
         """
         The map account properties.
         """
@@ -80,7 +80,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The SKU of this account.
         """
@@ -88,7 +88,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system meta data relating to this resource.
         """

@@ -10,8 +10,38 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AzureSkuInvokeResponseResult',
     'AzureSkuResponse',
 ]
+
+@pulumi.output_type
+class AzureSkuInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        :param str name: SKU name
+        :param str tier: SKU tier
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        SKU tier
+        """
+        return pulumi.get(self, "tier")
+
 
 @pulumi.output_type
 class AzureSkuResponse(dict):

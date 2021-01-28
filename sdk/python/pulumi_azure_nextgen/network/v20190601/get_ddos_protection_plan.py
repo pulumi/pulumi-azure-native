@@ -115,7 +115,7 @@ class GetDdosProtectionPlanResult:
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Sequence['outputs.SubResourceResponse']:
+    def virtual_networks(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
         """

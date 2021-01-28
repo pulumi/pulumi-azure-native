@@ -56,7 +56,7 @@ class GetMongoDBResourceMongoDBDatabaseResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -80,12 +80,12 @@ class GetMongoDBResourceMongoDBDatabaseResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.MongoDBDatabaseGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.MongoDBDatabaseGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.MongoDBDatabaseGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.MongoDBDatabaseGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

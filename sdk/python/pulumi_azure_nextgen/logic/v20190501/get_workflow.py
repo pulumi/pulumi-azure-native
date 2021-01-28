@@ -78,7 +78,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional['outputs.FlowAccessControlConfigurationResponse']:
+    def access_control(self) -> Optional['outputs.FlowAccessControlConfigurationInvokeResponseResult']:
         """
         The access control configuration.
         """
@@ -118,7 +118,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="endpointsConfiguration")
-    def endpoints_configuration(self) -> Optional['outputs.FlowEndpointsConfigurationResponse']:
+    def endpoints_configuration(self) -> Optional['outputs.FlowEndpointsConfigurationInvokeResponseResult']:
         """
         The endpoints configuration.
         """
@@ -134,7 +134,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="integrationAccount")
-    def integration_account(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def integration_account(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
         """
         The integration account.
         """
@@ -142,7 +142,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def integration_service_environment(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
         """
         The integration service environment.
         """
@@ -166,7 +166,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterInvokeResponseResult']]:
         """
         The parameters.
         """
@@ -182,7 +182,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The sku.
         """

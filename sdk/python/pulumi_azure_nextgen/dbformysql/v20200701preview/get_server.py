@@ -151,7 +151,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
-    def delegated_subnet_arguments(self) -> Optional['outputs.DelegatedSubnetArgumentsResponse']:
+    def delegated_subnet_arguments(self) -> Optional['outputs.DelegatedSubnetArgumentsInvokeResponseResult']:
         """
         Delegated subnet arguments.
         """
@@ -199,7 +199,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The Azure Active Directory identity of the server.
         """
@@ -223,7 +223,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
+    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowInvokeResponseResult']:
         """
         Maintenance window of a server.
         """
@@ -271,7 +271,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU (pricing tier) of the server.
         """
@@ -311,7 +311,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+    def storage_profile(self) -> Optional['outputs.StorageProfileInvokeResponseResult']:
         """
         Storage profile of a server.
         """

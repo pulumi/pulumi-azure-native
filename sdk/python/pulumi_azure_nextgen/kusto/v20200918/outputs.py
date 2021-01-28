@@ -11,18 +11,72 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureSkuInvokeResponseResult',
     'AzureSkuResponse',
-    'DatabasePrincipalResponseResult',
-    'FollowerDatabaseDefinitionResponseResult',
+    'DatabasePrincipalInvokeResponseResult',
+    'FollowerDatabaseDefinitionInvokeResponseResult',
+    'IdentityInvokeResponseResult',
+    'IdentityInvokeResponseUserAssignedIdentitiesResult',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
+    'KeyVaultPropertiesInvokeResponseResult',
     'KeyVaultPropertiesResponse',
+    'LanguageExtensionInvokeResponseResult',
     'LanguageExtensionResponse',
+    'LanguageExtensionsListInvokeResponseResult',
     'LanguageExtensionsListResponse',
+    'OptimizedAutoscaleInvokeResponseResult',
     'OptimizedAutoscaleResponse',
+    'TrustedExternalTenantInvokeResponseResult',
     'TrustedExternalTenantResponse',
+    'VirtualNetworkConfigurationInvokeResponseResult',
     'VirtualNetworkConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AzureSkuInvokeResponseResult(dict):
+    """
+    Azure SKU definition.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str,
+                 capacity: Optional[int] = None):
+        """
+        Azure SKU definition.
+        :param str name: SKU name.
+        :param str tier: SKU tier.
+        :param int capacity: The number of instances of the cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The number of instances of the cluster.
+        """
+        return pulumi.get(self, "capacity")
+
 
 @pulumi.output_type
 class AzureSkuResponse(dict):
@@ -73,7 +127,7 @@ class AzureSkuResponse(dict):
 
 
 @pulumi.output_type
-class DatabasePrincipalResponseResult(dict):
+class DatabasePrincipalInvokeResponseResult(dict):
     """
     A class representing database principal entity.
     """
@@ -164,7 +218,7 @@ class DatabasePrincipalResponseResult(dict):
 
 
 @pulumi.output_type
-class FollowerDatabaseDefinitionResponseResult(dict):
+class FollowerDatabaseDefinitionInvokeResponseResult(dict):
     """
     A class representing follower database request.
     """
@@ -205,6 +259,91 @@ class FollowerDatabaseDefinitionResponseResult(dict):
         The database name owned by this cluster that was followed. * in case following all databases.
         """
         return pulumi.get(self, "database_name")
+
+
+@pulumi.output_type
+class IdentityInvokeResponseResult(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityInvokeResponseUserAssignedIdentitiesResult']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+        :param Mapping[str, 'IdentityInvokeResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.IdentityInvokeResponseUserAssignedIdentitiesResult']]:
+        """
+        The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class IdentityInvokeResponseUserAssignedIdentitiesResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -299,6 +438,63 @@ class IdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class KeyVaultPropertiesInvokeResponseResult(dict):
+    """
+    Properties of the key vault.
+    """
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_vault_uri: str,
+                 key_version: Optional[str] = None,
+                 user_identity: Optional[str] = None):
+        """
+        Properties of the key vault.
+        :param str key_name: The name of the key vault key.
+        :param str key_vault_uri: The Uri of the key vault.
+        :param str key_version: The version of the key vault key.
+        :param str user_identity: The user assigned identity (ARM resource id) that has access to the key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+        if user_identity is not None:
+            pulumi.set(__self__, "user_identity", user_identity)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of the key vault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        The Uri of the key vault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of the key vault key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="userIdentity")
+    def user_identity(self) -> Optional[str]:
+        """
+        The user assigned identity (ARM resource id) that has access to the key.
+        """
+        return pulumi.get(self, "user_identity")
+
+
+@pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
     """
     Properties of the key vault.
@@ -359,6 +555,29 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LanguageExtensionInvokeResponseResult(dict):
+    """
+    The language extension object.
+    """
+    def __init__(__self__, *,
+                 language_extension_name: Optional[str] = None):
+        """
+        The language extension object.
+        :param str language_extension_name: The language extension name.
+        """
+        if language_extension_name is not None:
+            pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionName")
+    def language_extension_name(self) -> Optional[str]:
+        """
+        The language extension name.
+        """
+        return pulumi.get(self, "language_extension_name")
+
+
+@pulumi.output_type
 class LanguageExtensionResponse(dict):
     """
     The language extension object.
@@ -385,6 +604,29 @@ class LanguageExtensionResponse(dict):
 
 
 @pulumi.output_type
+class LanguageExtensionsListInvokeResponseResult(dict):
+    """
+    The list of language extension objects.
+    """
+    def __init__(__self__, *,
+                 value: Optional[Sequence['outputs.LanguageExtensionInvokeResponseResult']] = None):
+        """
+        The list of language extension objects.
+        :param Sequence['LanguageExtensionInvokeResponseArgs'] value: The list of language extensions.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence['outputs.LanguageExtensionInvokeResponseResult']]:
+        """
+        The list of language extensions.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LanguageExtensionsListResponse(dict):
     """
     The list of language extension objects.
@@ -408,6 +650,61 @@ class LanguageExtensionsListResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OptimizedAutoscaleInvokeResponseResult(dict):
+    """
+    A class that contains the optimized auto scale definition.
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 maximum: int,
+                 minimum: int,
+                 version: int):
+        """
+        A class that contains the optimized auto scale definition.
+        :param bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        :param int maximum: Maximum allowed instances count.
+        :param int minimum: Minimum allowed instances count.
+        :param int version: The version of the template defined, for instance 1.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        Maximum allowed instances count.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        Minimum allowed instances count.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        The version of the template defined, for instance 1.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -469,6 +766,29 @@ class OptimizedAutoscaleResponse(dict):
 
 
 @pulumi.output_type
+class TrustedExternalTenantInvokeResponseResult(dict):
+    """
+    Represents a tenant ID that is trusted by the cluster.
+    """
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        Represents a tenant ID that is trusted by the cluster.
+        :param str value: GUID representing an external tenant.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        GUID representing an external tenant.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TrustedExternalTenantResponse(dict):
     """
     Represents a tenant ID that is trusted by the cluster.
@@ -492,6 +812,50 @@ class TrustedExternalTenantResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkConfigurationInvokeResponseResult(dict):
+    """
+    A class that contains virtual network definition.
+    """
+    def __init__(__self__, *,
+                 data_management_public_ip_id: str,
+                 engine_public_ip_id: str,
+                 subnet_id: str):
+        """
+        A class that contains virtual network definition.
+        :param str data_management_public_ip_id: Data management's service public IP address resource id.
+        :param str engine_public_ip_id: Engine service's public IP address resource id.
+        :param str subnet_id: The subnet resource id.
+        """
+        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
+        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="dataManagementPublicIpId")
+    def data_management_public_ip_id(self) -> str:
+        """
+        Data management's service public IP address resource id.
+        """
+        return pulumi.get(self, "data_management_public_ip_id")
+
+    @property
+    @pulumi.getter(name="enginePublicIpId")
+    def engine_public_ip_id(self) -> str:
+        """
+        Engine service's public IP address resource id.
+        """
+        return pulumi.get(self, "engine_public_ip_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The subnet resource id.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

@@ -65,7 +65,7 @@ class GetRemediationAtManagementGroupResult:
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> 'outputs.RemediationDeploymentSummaryResponse':
+    def deployment_status(self) -> 'outputs.RemediationDeploymentSummaryInvokeResponseResult':
         """
         The deployment status summary for all deployments created by the remediation.
         """
@@ -73,7 +73,7 @@ class GetRemediationAtManagementGroupResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.RemediationFiltersResponse']:
+    def filters(self) -> Optional['outputs.RemediationFiltersInvokeResponseResult']:
         """
         The filters that will be applied to determine which resources to remediate.
         """

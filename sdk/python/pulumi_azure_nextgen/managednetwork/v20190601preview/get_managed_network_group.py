@@ -89,7 +89,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
+    def management_groups(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
         """
         The collection of management groups covered by the Managed Network
         """
@@ -113,7 +113,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
+    def subnets(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
         """
         The collection of  subnets covered by the Managed Network
         """
@@ -121,7 +121,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
+    def subscriptions(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
         """
         The collection of subscriptions covered by the Managed Network
         """
@@ -137,7 +137,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
+    def virtual_networks(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
         """
         The collection of virtual nets covered by the Managed Network
         """

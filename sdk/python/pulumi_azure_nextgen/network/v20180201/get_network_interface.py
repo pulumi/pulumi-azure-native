@@ -72,7 +72,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsResponse']:
+    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsInvokeResponseResult']:
         """
         The DNS settings in network interface.
         """
@@ -112,7 +112,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']]:
         """
         A list of IPConfigurations of the network interface.
         """
@@ -144,7 +144,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupInvokeResponseResult']:
         """
         The reference of the NetworkSecurityGroup resource.
         """
@@ -192,7 +192,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="virtualMachine")
-    def virtual_machine(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_machine(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference of a virtual machine.
         """

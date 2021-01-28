@@ -56,7 +56,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+    def filter(self) -> Optional['outputs.EventSubscriptionFilterInvokeResponseResult']:
         """
         Information about the filter for the event subscription.
         """

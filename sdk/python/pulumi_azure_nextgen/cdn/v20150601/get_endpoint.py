@@ -152,7 +152,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> Optional[Sequence['outputs.DeepCreatedOriginResponse']]:
+    def origins(self) -> Optional[Sequence['outputs.DeepCreatedOriginInvokeResponseResult']]:
         """
         The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         """

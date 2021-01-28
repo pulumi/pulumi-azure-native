@@ -77,7 +77,7 @@ class GetOrderCollectionByNameResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Represents resource creation and update time
         """

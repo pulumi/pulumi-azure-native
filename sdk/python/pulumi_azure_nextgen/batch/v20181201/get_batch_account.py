@@ -79,7 +79,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="autoStorage")
-    def auto_storage(self) -> 'outputs.AutoStoragePropertiesResponse':
+    def auto_storage(self) -> 'outputs.AutoStoragePropertiesInvokeResponseResult':
         """
         Contains information about the auto-storage account associated with a Batch account.
         """
@@ -100,7 +100,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> 'outputs.KeyVaultReferenceResponse':
+    def key_vault_reference(self) -> 'outputs.KeyVaultReferenceInvokeResponseResult':
         """
         Identifies the Azure key vault associated with a Batch account.
         """

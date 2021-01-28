@@ -74,7 +74,7 @@ class GetManagementLockAtSubscriptionLevelResult:
 
     @property
     @pulumi.getter
-    def owners(self) -> Optional[Sequence['outputs.ManagementLockOwnerResponse']]:
+    def owners(self) -> Optional[Sequence['outputs.ManagementLockOwnerInvokeResponseResult']]:
         """
         The owners of the lock.
         """

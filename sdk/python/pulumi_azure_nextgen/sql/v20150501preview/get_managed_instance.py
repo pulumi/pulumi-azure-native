@@ -161,7 +161,7 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The Azure Active Directory identity of the managed instance.
         """
@@ -253,7 +253,7 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         """

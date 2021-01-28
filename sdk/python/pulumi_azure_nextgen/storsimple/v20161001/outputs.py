@@ -10,11 +10,60 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AsymmetricEncryptedSecretInvokeResponseResult',
     'AsymmetricEncryptedSecretResponse',
+    'ManagerIntrinsicSettingsInvokeResponseResult',
     'ManagerIntrinsicSettingsResponse',
+    'ManagerSkuInvokeResponseResult',
     'ManagerSkuResponse',
+    'TimeInvokeResponseResult',
     'TimeResponse',
 ]
+
+@pulumi.output_type
+class AsymmetricEncryptedSecretInvokeResponseResult(dict):
+    """
+    This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+    """
+    def __init__(__self__, *,
+                 encryption_algorithm: str,
+                 value: str,
+                 encryption_certificate_thumbprint: Optional[str] = None):
+        """
+        This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+        :param str encryption_algorithm: Algorithm used to encrypt "Value"
+        :param str value: The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+        :param str encryption_certificate_thumbprint: Thumbprint certificate that was used to encrypt "Value"
+        """
+        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        pulumi.set(__self__, "value", value)
+        if encryption_certificate_thumbprint is not None:
+            pulumi.set(__self__, "encryption_certificate_thumbprint", encryption_certificate_thumbprint)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> str:
+        """
+        Algorithm used to encrypt "Value"
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="encryptionCertificateThumbprint")
+    def encryption_certificate_thumbprint(self) -> Optional[str]:
+        """
+        Thumbprint certificate that was used to encrypt "Value"
+        """
+        return pulumi.get(self, "encryption_certificate_thumbprint")
+
 
 @pulumi.output_type
 class AsymmetricEncryptedSecretResponse(dict):
@@ -65,6 +114,28 @@ class AsymmetricEncryptedSecretResponse(dict):
 
 
 @pulumi.output_type
+class ManagerIntrinsicSettingsInvokeResponseResult(dict):
+    """
+    Intrinsic settings which refers to the type of the StorSimple manager
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        Intrinsic settings which refers to the type of the StorSimple manager
+        :param str type: Refers to the type of the StorSimple Manager
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Refers to the type of the StorSimple Manager
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ManagerIntrinsicSettingsResponse(dict):
     """
     Intrinsic settings which refers to the type of the StorSimple manager
@@ -90,6 +161,28 @@ class ManagerIntrinsicSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ManagerSkuInvokeResponseResult(dict):
+    """
+    The Sku.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The Sku.
+        :param str name: Refers to the sku name which should be "Standard"
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Refers to the sku name which should be "Standard"
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ManagerSkuResponse(dict):
     """
     The Sku.
@@ -112,6 +205,39 @@ class ManagerSkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TimeInvokeResponseResult(dict):
+    """
+    The Time.
+    """
+    def __init__(__self__, *,
+                 hour: int,
+                 minute: int):
+        """
+        The Time.
+        :param int hour: The hour.
+        :param int minute: The minute.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        The hour.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        The minute.
+        """
+        return pulumi.get(self, "minute")
 
 
 @pulumi.output_type

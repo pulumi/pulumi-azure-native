@@ -52,7 +52,7 @@ class GetLinkedWorkspaceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.LinkedWorkspacePropsResponse':
+    def properties(self) -> 'outputs.LinkedWorkspacePropsInvokeResponseResult':
         """
         LinkedWorkspace specific properties.
         """

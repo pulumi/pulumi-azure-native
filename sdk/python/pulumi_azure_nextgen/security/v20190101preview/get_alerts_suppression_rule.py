@@ -118,7 +118,7 @@ class GetAlertsSuppressionRuleResult:
 
     @property
     @pulumi.getter(name="suppressionAlertsScope")
-    def suppression_alerts_scope(self) -> Optional['outputs.SuppressionAlertsScopeResponse']:
+    def suppression_alerts_scope(self) -> Optional['outputs.SuppressionAlertsScopeInvokeResponseResult']:
         """
         The suppression conditions
         """

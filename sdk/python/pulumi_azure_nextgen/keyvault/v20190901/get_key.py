@@ -60,7 +60,7 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional['outputs.KeyAttributesResponse']:
+    def attributes(self) -> Optional['outputs.KeyAttributesInvokeResponseResult']:
         """
         The attributes of the key.
         """

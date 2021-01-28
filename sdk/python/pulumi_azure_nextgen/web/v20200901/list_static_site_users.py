@@ -38,7 +38,7 @@ class ListStaticSiteUsersResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.StaticSiteUserARMResourceResponseResult']:
+    def value(self) -> Sequence['outputs.StaticSiteUserARMResourceInvokeResponseResult']:
         """
         Collection of resources.
         """

@@ -27,7 +27,7 @@ class ListDatabasePrincipalsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.DatabasePrincipalResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.DatabasePrincipalInvokeResponseResult']]:
         """
         The list of Kusto database principals.
         """

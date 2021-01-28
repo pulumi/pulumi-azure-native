@@ -63,7 +63,7 @@ class GetReplicationPolicyResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PolicyPropertiesResponse':
+    def properties(self) -> 'outputs.PolicyPropertiesInvokeResponseResult':
         """
         The custom data.
         """

@@ -63,7 +63,7 @@ class GetDatabaseAccountGremlinGraphResult:
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")
-    def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyResponse']:
+    def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyInvokeResponseResult']:
         """
         The conflict resolution policy for the graph.
         """
@@ -95,7 +95,7 @@ class GetDatabaseAccountGremlinGraphResult:
 
     @property
     @pulumi.getter(name="indexingPolicy")
-    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponse']:
+    def indexing_policy(self) -> Optional['outputs.IndexingPolicyInvokeResponseResult']:
         """
         The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         """
@@ -119,7 +119,7 @@ class GetDatabaseAccountGremlinGraphResult:
 
     @property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponse']:
+    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyInvokeResponseResult']:
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """
@@ -159,7 +159,7 @@ class GetDatabaseAccountGremlinGraphResult:
 
     @property
     @pulumi.getter(name="uniqueKeyPolicy")
-    def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyResponse']:
+    def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyInvokeResponseResult']:
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """

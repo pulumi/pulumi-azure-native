@@ -118,7 +118,7 @@ class GetVirtualNetworkPeeringResult:
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def remote_virtual_network(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Gets or sets the reference of the remote virtual network
         """

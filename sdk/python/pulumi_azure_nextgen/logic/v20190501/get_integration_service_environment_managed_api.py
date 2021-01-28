@@ -66,7 +66,7 @@ class GetIntegrationServiceEnvironmentManagedApiResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ApiResourcePropertiesResponse':
+    def properties(self) -> 'outputs.ApiResourcePropertiesInvokeResponseResult':
         """
         The api resource properties.
         """

@@ -84,7 +84,7 @@ class GetPrivateCloudResult:
 
     @property
     @pulumi.getter
-    def circuit(self) -> Optional['outputs.CircuitResponse']:
+    def circuit(self) -> Optional['outputs.CircuitInvokeResponseResult']:
         """
         An ExpressRoute Circuit
         """
@@ -92,7 +92,7 @@ class GetPrivateCloudResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> 'outputs.EndpointsResponse':
+    def endpoints(self) -> 'outputs.EndpointsInvokeResponseResult':
         """
         The endpoints
         """
@@ -108,7 +108,7 @@ class GetPrivateCloudResult:
 
     @property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[Sequence['outputs.IdentitySourceResponse']]:
+    def identity_sources(self) -> Optional[Sequence['outputs.IdentitySourceInvokeResponseResult']]:
         """
         vCenter Single Sign On Identity Sources
         """
@@ -132,7 +132,7 @@ class GetPrivateCloudResult:
 
     @property
     @pulumi.getter(name="managementCluster")
-    def management_cluster(self) -> 'outputs.ManagementClusterResponse':
+    def management_cluster(self) -> 'outputs.ManagementClusterInvokeResponseResult':
         """
         The default cluster used for management
         """
@@ -196,7 +196,7 @@ class GetPrivateCloudResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The private cloud SKU
         """

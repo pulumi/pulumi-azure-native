@@ -66,7 +66,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The AddressSpace that contains an array of IP address ranges.
         """
@@ -74,7 +74,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="bgpProperties")
-    def bgp_properties(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_properties(self) -> Optional['outputs.BgpSettingsInvokeResponseResult']:
         """
         The set of bgp properties.
         """
@@ -82,7 +82,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="deviceProperties")
-    def device_properties(self) -> Optional['outputs.DevicePropertiesResponse']:
+    def device_properties(self) -> Optional['outputs.DevicePropertiesInvokeResponseResult']:
         """
         The device properties
         """
@@ -170,7 +170,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualWAN to which the vpnSite belongs
         """

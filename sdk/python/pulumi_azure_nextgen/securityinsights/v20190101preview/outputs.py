@@ -11,28 +11,34 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActivityTimelineItemResponseResult',
-    'BookmarkTimelineItemResponseResult',
+    'ActivityTimelineItemInvokeResponseResult',
+    'BookmarkTimelineItemInvokeResponseResult',
+    'ClientInfoInvokeResponseResult',
     'ClientInfoResponse',
-    'EntityInsightItemResponseResult',
-    'EntityInsightItemResponseQueryTimeIntervalResult',
-    'GetInsightsErrorResponseResult',
-    'GetInsightsResultsMetadataResponseResult',
+    'EntityInsightItemInvokeResponseResult',
+    'EntityInsightItemInvokeResponseQueryTimeIntervalResult',
+    'GetInsightsErrorInvokeResponseResult',
+    'GetInsightsResultsMetadataInvokeResponseResult',
+    'IncidentAdditionalDataInvokeResponseResult',
     'IncidentAdditionalDataResponse',
+    'IncidentInfoInvokeResponseResult',
     'IncidentInfoResponse',
+    'IncidentLabelInvokeResponseResult',
     'IncidentLabelResponse',
+    'IncidentOwnerInfoInvokeResponseResult',
     'IncidentOwnerInfoResponse',
-    'InsightsTableResultResponseResult',
-    'InsightsTableResultResponseColumnsResult',
-    'SecurityAlertTimelineItemResponseResult',
-    'TimelineAggregationResponseResult',
-    'TimelineErrorResponseResult',
-    'TimelineResultsMetadataResponseResult',
+    'InsightsTableResultInvokeResponseResult',
+    'InsightsTableResultInvokeResponseColumnsResult',
+    'SecurityAlertTimelineItemInvokeResponseResult',
+    'TimelineAggregationInvokeResponseResult',
+    'TimelineErrorInvokeResponseResult',
+    'TimelineResultsMetadataInvokeResponseResult',
+    'UserInfoInvokeResponseResult',
     'UserInfoResponse',
 ]
 
 @pulumi.output_type
-class ActivityTimelineItemResponseResult(dict):
+class ActivityTimelineItemInvokeResponseResult(dict):
     """
     Represents Activity timeline item.
     """
@@ -133,13 +139,13 @@ class ActivityTimelineItemResponseResult(dict):
 
 
 @pulumi.output_type
-class BookmarkTimelineItemResponseResult(dict):
+class BookmarkTimelineItemInvokeResponseResult(dict):
     """
     Represents bookmark timeline item.
     """
     def __init__(__self__, *,
                  azure_resource_id: str,
-                 created_by: 'outputs.UserInfoResponse',
+                 created_by: 'outputs.UserInfoInvokeResponseResult',
                  display_name: str,
                  end_time_utc: str,
                  kind: str,
@@ -150,7 +156,7 @@ class BookmarkTimelineItemResponseResult(dict):
         """
         Represents bookmark timeline item.
         :param str azure_resource_id: The bookmark azure resource id.
-        :param 'UserInfoResponseArgs' created_by: Describes a user that created the bookmark
+        :param 'UserInfoInvokeResponseArgs' created_by: Describes a user that created the bookmark
         :param str display_name: The bookmark display name.
         :param str end_time_utc: The bookmark end time.
         :param str kind: The entity query kind type.
@@ -181,7 +187,7 @@ class BookmarkTimelineItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> 'outputs.UserInfoResponse':
+    def created_by(self) -> 'outputs.UserInfoInvokeResponseResult':
         """
         Describes a user that created the bookmark
         """
@@ -243,6 +249,65 @@ class BookmarkTimelineItemResponseResult(dict):
         The bookmark event time.
         """
         return pulumi.get(self, "event_time")
+
+
+@pulumi.output_type
+class ClientInfoInvokeResponseResult(dict):
+    """
+    Information on the client (user or application) that made some action
+    """
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 name: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
+        """
+        Information on the client (user or application) that made some action
+        :param str email: The email of the client.
+        :param str name: The name of the client.
+        :param str object_id: The object id of the client.
+        :param str user_principal_name: The user principal name of the client.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email of the client.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the client.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the client.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name of the client.
+        """
+        return pulumi.get(self, "user_principal_name")
 
 
 @pulumi.output_type
@@ -308,21 +373,21 @@ class ClientInfoResponse(dict):
 
 
 @pulumi.output_type
-class EntityInsightItemResponseResult(dict):
+class EntityInsightItemInvokeResponseResult(dict):
     """
     Entity insight Item.
     """
     def __init__(__self__, *,
-                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponseResult']] = None,
+                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultInvokeResponseResult']] = None,
                  query_id: Optional[str] = None,
-                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult'] = None,
-                 table_query_results: Optional['outputs.InsightsTableResultResponseResult'] = None):
+                 query_time_interval: Optional['outputs.EntityInsightItemInvokeResponseQueryTimeIntervalResult'] = None,
+                 table_query_results: Optional['outputs.InsightsTableResultInvokeResponseResult'] = None):
         """
         Entity insight Item.
-        :param Sequence['InsightsTableResultResponseArgs'] chart_query_results: Query results for table insights query.
+        :param Sequence['InsightsTableResultInvokeResponseArgs'] chart_query_results: Query results for table insights query.
         :param str query_id: The query id of the insight
-        :param 'EntityInsightItemResponseQueryTimeIntervalArgs' query_time_interval: The Time interval that the query actually executed on.
-        :param 'InsightsTableResultResponseArgs' table_query_results: Query results for table insights query.
+        :param 'EntityInsightItemInvokeResponseQueryTimeIntervalArgs' query_time_interval: The Time interval that the query actually executed on.
+        :param 'InsightsTableResultInvokeResponseArgs' table_query_results: Query results for table insights query.
         """
         if chart_query_results is not None:
             pulumi.set(__self__, "chart_query_results", chart_query_results)
@@ -335,7 +400,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="chartQueryResults")
-    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponseResult']]:
+    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultInvokeResponseResult']]:
         """
         Query results for table insights query.
         """
@@ -351,7 +416,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="queryTimeInterval")
-    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult']:
+    def query_time_interval(self) -> Optional['outputs.EntityInsightItemInvokeResponseQueryTimeIntervalResult']:
         """
         The Time interval that the query actually executed on.
         """
@@ -359,7 +424,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="tableQueryResults")
-    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponseResult']:
+    def table_query_results(self) -> Optional['outputs.InsightsTableResultInvokeResponseResult']:
         """
         Query results for table insights query.
         """
@@ -367,7 +432,7 @@ class EntityInsightItemResponseResult(dict):
 
 
 @pulumi.output_type
-class EntityInsightItemResponseQueryTimeIntervalResult(dict):
+class EntityInsightItemInvokeResponseQueryTimeIntervalResult(dict):
     """
     The Time interval that the query actually executed on.
     """
@@ -402,7 +467,7 @@ class EntityInsightItemResponseQueryTimeIntervalResult(dict):
 
 
 @pulumi.output_type
-class GetInsightsErrorResponseResult(dict):
+class GetInsightsErrorInvokeResponseResult(dict):
     """
     GetInsights Query Errors.
     """
@@ -447,17 +512,17 @@ class GetInsightsErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class GetInsightsResultsMetadataResponseResult(dict):
+class GetInsightsResultsMetadataInvokeResponseResult(dict):
     """
     Get Insights result metadata.
     """
     def __init__(__self__, *,
                  total_count: int,
-                 errors: Optional[Sequence['outputs.GetInsightsErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.GetInsightsErrorInvokeResponseResult']] = None):
         """
         Get Insights result metadata.
         :param int total_count: the total items found for the insights request
-        :param Sequence['GetInsightsErrorResponseArgs'] errors: information about the failed queries
+        :param Sequence['GetInsightsErrorInvokeResponseArgs'] errors: information about the failed queries
         """
         pulumi.set(__self__, "total_count", total_count)
         if errors is not None:
@@ -473,11 +538,77 @@ class GetInsightsResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorInvokeResponseResult']]:
         """
         information about the failed queries
         """
         return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class IncidentAdditionalDataInvokeResponseResult(dict):
+    """
+    Incident additional data property bag.
+    """
+    def __init__(__self__, *,
+                 alert_product_names: Sequence[str],
+                 alerts_count: int,
+                 bookmarks_count: int,
+                 comments_count: int,
+                 tactics: Sequence[str]):
+        """
+        Incident additional data property bag.
+        :param Sequence[str] alert_product_names: List of product names of alerts in the incident
+        :param int alerts_count: The number of alerts in the incident
+        :param int bookmarks_count: The number of bookmarks in the incident
+        :param int comments_count: The number of comments in the incident
+        :param Sequence[str] tactics: The tactics associated with incident
+        """
+        pulumi.set(__self__, "alert_product_names", alert_product_names)
+        pulumi.set(__self__, "alerts_count", alerts_count)
+        pulumi.set(__self__, "bookmarks_count", bookmarks_count)
+        pulumi.set(__self__, "comments_count", comments_count)
+        pulumi.set(__self__, "tactics", tactics)
+
+    @property
+    @pulumi.getter(name="alertProductNames")
+    def alert_product_names(self) -> Sequence[str]:
+        """
+        List of product names of alerts in the incident
+        """
+        return pulumi.get(self, "alert_product_names")
+
+    @property
+    @pulumi.getter(name="alertsCount")
+    def alerts_count(self) -> int:
+        """
+        The number of alerts in the incident
+        """
+        return pulumi.get(self, "alerts_count")
+
+    @property
+    @pulumi.getter(name="bookmarksCount")
+    def bookmarks_count(self) -> int:
+        """
+        The number of bookmarks in the incident
+        """
+        return pulumi.get(self, "bookmarks_count")
+
+    @property
+    @pulumi.getter(name="commentsCount")
+    def comments_count(self) -> int:
+        """
+        The number of comments in the incident
+        """
+        return pulumi.get(self, "comments_count")
+
+    @property
+    @pulumi.getter
+    def tactics(self) -> Sequence[str]:
+        """
+        The tactics associated with incident
+        """
+        return pulumi.get(self, "tactics")
 
 
 @pulumi.output_type
@@ -550,6 +681,61 @@ class IncidentAdditionalDataResponse(dict):
 
 
 @pulumi.output_type
+class IncidentInfoInvokeResponseResult(dict):
+    """
+    Describes related incident information for the bookmark
+    """
+    def __init__(__self__, *,
+                 incident_id: str,
+                 relation_name: str,
+                 severity: str,
+                 title: str):
+        """
+        Describes related incident information for the bookmark
+        :param str incident_id: Incident Id
+        :param str relation_name: Relation Name
+        :param str severity: The severity of the incident
+        :param str title: The title of the incident
+        """
+        pulumi.set(__self__, "incident_id", incident_id)
+        pulumi.set(__self__, "relation_name", relation_name)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="incidentId")
+    def incident_id(self) -> str:
+        """
+        Incident Id
+        """
+        return pulumi.get(self, "incident_id")
+
+    @property
+    @pulumi.getter(name="relationName")
+    def relation_name(self) -> str:
+        """
+        Relation Name
+        """
+        return pulumi.get(self, "relation_name")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The title of the incident
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
 class IncidentInfoResponse(dict):
     """
     Describes related incident information for the bookmark
@@ -608,6 +794,39 @@ class IncidentInfoResponse(dict):
 
 
 @pulumi.output_type
+class IncidentLabelInvokeResponseResult(dict):
+    """
+    Represents an incident label
+    """
+    def __init__(__self__, *,
+                 label_name: str,
+                 label_type: str):
+        """
+        Represents an incident label
+        :param str label_name: The name of the label
+        :param str label_type: The type of the label
+        """
+        pulumi.set(__self__, "label_name", label_name)
+        pulumi.set(__self__, "label_type", label_type)
+
+    @property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> str:
+        """
+        The name of the label
+        """
+        return pulumi.get(self, "label_name")
+
+    @property
+    @pulumi.getter(name="labelType")
+    def label_type(self) -> str:
+        """
+        The type of the label
+        """
+        return pulumi.get(self, "label_type")
+
+
+@pulumi.output_type
 class IncidentLabelResponse(dict):
     """
     Represents an incident label
@@ -641,6 +860,65 @@ class IncidentLabelResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IncidentOwnerInfoInvokeResponseResult(dict):
+    """
+    Information on the user an incident is assigned to
+    """
+    def __init__(__self__, *,
+                 assigned_to: Optional[str] = None,
+                 email: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_principal_name: Optional[str] = None):
+        """
+        Information on the user an incident is assigned to
+        :param str assigned_to: The name of the user the incident is assigned to.
+        :param str email: The email of the user the incident is assigned to.
+        :param str object_id: The object id of the user the incident is assigned to.
+        :param str user_principal_name: The user principal name of the user the incident is assigned to.
+        """
+        if assigned_to is not None:
+            pulumi.set(__self__, "assigned_to", assigned_to)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter(name="assignedTo")
+    def assigned_to(self) -> Optional[str]:
+        """
+        The name of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "assigned_to")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[str]:
+        """
+        The user principal name of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "user_principal_name")
 
 
 @pulumi.output_type
@@ -706,16 +984,16 @@ class IncidentOwnerInfoResponse(dict):
 
 
 @pulumi.output_type
-class InsightsTableResultResponseResult(dict):
+class InsightsTableResultInvokeResponseResult(dict):
     """
     Query results for table insights query.
     """
     def __init__(__self__, *,
-                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']] = None,
+                 columns: Optional[Sequence['outputs.InsightsTableResultInvokeResponseColumnsResult']] = None,
                  rows: Optional[Sequence[Sequence[str]]] = None):
         """
         Query results for table insights query.
-        :param Sequence['InsightsTableResultResponseColumnsArgs'] columns: Columns Metadata of the table
+        :param Sequence['InsightsTableResultInvokeResponseColumnsArgs'] columns: Columns Metadata of the table
         :param Sequence[Sequence[str]] rows: Rows data of the table
         """
         if columns is not None:
@@ -725,7 +1003,7 @@ class InsightsTableResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']]:
+    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultInvokeResponseColumnsResult']]:
         """
         Columns Metadata of the table
         """
@@ -741,7 +1019,7 @@ class InsightsTableResultResponseResult(dict):
 
 
 @pulumi.output_type
-class InsightsTableResultResponseColumnsResult(dict):
+class InsightsTableResultInvokeResponseColumnsResult(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -772,7 +1050,7 @@ class InsightsTableResultResponseColumnsResult(dict):
 
 
 @pulumi.output_type
-class SecurityAlertTimelineItemResponseResult(dict):
+class SecurityAlertTimelineItemInvokeResponseResult(dict):
     """
     Represents security alert timeline item.
     """
@@ -884,7 +1162,7 @@ class SecurityAlertTimelineItemResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineAggregationResponseResult(dict):
+class TimelineAggregationInvokeResponseResult(dict):
     """
     timeline aggregation information per kind
     """
@@ -917,7 +1195,7 @@ class TimelineAggregationResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineErrorResponseResult(dict):
+class TimelineErrorInvokeResponseResult(dict):
     """
     Timeline Query Errors.
     """
@@ -962,19 +1240,19 @@ class TimelineErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineResultsMetadataResponseResult(dict):
+class TimelineResultsMetadataInvokeResponseResult(dict):
     """
     Expansion result metadata.
     """
     def __init__(__self__, *,
-                 aggregations: Sequence['outputs.TimelineAggregationResponseResult'],
+                 aggregations: Sequence['outputs.TimelineAggregationInvokeResponseResult'],
                  total_count: int,
-                 errors: Optional[Sequence['outputs.TimelineErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.TimelineErrorInvokeResponseResult']] = None):
         """
         Expansion result metadata.
-        :param Sequence['TimelineAggregationResponseArgs'] aggregations: timeline aggregation per kind
+        :param Sequence['TimelineAggregationInvokeResponseArgs'] aggregations: timeline aggregation per kind
         :param int total_count: the total items found for the timeline request
-        :param Sequence['TimelineErrorResponseArgs'] errors: information about the failure queries
+        :param Sequence['TimelineErrorInvokeResponseArgs'] errors: information about the failure queries
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "total_count", total_count)
@@ -983,7 +1261,7 @@ class TimelineResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def aggregations(self) -> Sequence['outputs.TimelineAggregationResponseResult']:
+    def aggregations(self) -> Sequence['outputs.TimelineAggregationInvokeResponseResult']:
         """
         timeline aggregation per kind
         """
@@ -999,11 +1277,56 @@ class TimelineResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.TimelineErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.TimelineErrorInvokeResponseResult']]:
         """
         information about the failure queries
         """
         return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class UserInfoInvokeResponseResult(dict):
+    """
+    User information that made some action
+    """
+    def __init__(__self__, *,
+                 email: str,
+                 name: str,
+                 object_id: Optional[str] = None):
+        """
+        User information that made some action
+        :param str email: The email of the user.
+        :param str name: The name of the user.
+        :param str object_id: The object id of the user.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user.
+        """
+        return pulumi.get(self, "object_id")
 
 
 @pulumi.output_type

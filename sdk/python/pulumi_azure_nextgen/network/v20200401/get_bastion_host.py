@@ -75,7 +75,7 @@ class GetBastionHostResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.BastionHostIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.BastionHostIPConfigurationInvokeResponseResult']]:
         """
         IP configuration of the Bastion Host resource.
         """

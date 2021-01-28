@@ -72,7 +72,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The AddressSpace that contains an array of IP address ranges.
         """
@@ -80,7 +80,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="bgpProperties")
-    def bgp_properties(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_properties(self) -> Optional['outputs.BgpSettingsInvokeResponseResult']:
         """
         The set of bgp properties.
         """
@@ -88,7 +88,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="deviceProperties")
-    def device_properties(self) -> Optional['outputs.DevicePropertiesResponse']:
+    def device_properties(self) -> Optional['outputs.DevicePropertiesInvokeResponseResult']:
         """
         The device properties.
         """
@@ -144,7 +144,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional['outputs.O365PolicyPropertiesResponse']:
+    def o365_policy(self) -> Optional['outputs.O365PolicyPropertiesInvokeResponseResult']:
         """
         Office365 Policy.
         """
@@ -184,7 +184,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualWAN to which the vpnSite belongs.
         """
@@ -192,7 +192,7 @@ class GetVpnSiteResult:
 
     @property
     @pulumi.getter(name="vpnSiteLinks")
-    def vpn_site_links(self) -> Optional[Sequence['outputs.VpnSiteLinkResponse']]:
+    def vpn_site_links(self) -> Optional[Sequence['outputs.VpnSiteLinkInvokeResponseResult']]:
         """
         List of all vpn site links.
         """

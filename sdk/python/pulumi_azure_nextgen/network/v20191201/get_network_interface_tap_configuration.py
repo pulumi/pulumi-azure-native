@@ -82,7 +82,7 @@ class GetNetworkInterfaceTapConfigurationResult:
 
     @property
     @pulumi.getter(name="virtualNetworkTap")
-    def virtual_network_tap(self) -> Optional['outputs.VirtualNetworkTapResponse']:
+    def virtual_network_tap(self) -> Optional['outputs.VirtualNetworkTapInvokeResponseResult']:
         """
         The reference to the Virtual Network Tap resource.
         """

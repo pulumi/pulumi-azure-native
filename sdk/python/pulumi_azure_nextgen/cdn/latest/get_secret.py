@@ -82,7 +82,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

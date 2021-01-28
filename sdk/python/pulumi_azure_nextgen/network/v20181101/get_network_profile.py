@@ -54,7 +54,7 @@ class GetNetworkProfileResult:
 
     @property
     @pulumi.getter(name="containerNetworkInterfaceConfigurations")
-    def container_network_interface_configurations(self) -> Optional[Sequence['outputs.ContainerNetworkInterfaceConfigurationResponse']]:
+    def container_network_interface_configurations(self) -> Optional[Sequence['outputs.ContainerNetworkInterfaceConfigurationInvokeResponseResult']]:
         """
         List of chid container network interface configurations.
         """
@@ -62,7 +62,7 @@ class GetNetworkProfileResult:
 
     @property
     @pulumi.getter(name="containerNetworkInterfaces")
-    def container_network_interfaces(self) -> Optional[Sequence['outputs.ContainerNetworkInterfaceResponse']]:
+    def container_network_interfaces(self) -> Optional[Sequence['outputs.ContainerNetworkInterfaceInvokeResponseResult']]:
         """
         List of child container network interfaces.
         """

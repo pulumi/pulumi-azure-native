@@ -107,7 +107,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The Azure Active Directory identity of the server.
         """
@@ -155,7 +155,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU (pricing tier) of the server.
         """
@@ -171,7 +171,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+    def storage_profile(self) -> Optional['outputs.StorageProfileInvokeResponseResult']:
         """
         Storage profile of a server.
         """

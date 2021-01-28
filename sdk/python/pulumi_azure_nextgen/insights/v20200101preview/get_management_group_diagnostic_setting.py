@@ -86,7 +86,7 @@ class GetManagementGroupDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[Sequence['outputs.ManagementGroupLogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.ManagementGroupLogSettingsInvokeResponseResult']]:
         """
         The list of logs settings.
         """

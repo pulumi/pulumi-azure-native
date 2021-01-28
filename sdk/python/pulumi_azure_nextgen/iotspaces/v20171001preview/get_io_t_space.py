@@ -69,7 +69,7 @@ class GetIoTSpaceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IoTSpacesPropertiesResponse':
+    def properties(self) -> 'outputs.IoTSpacesPropertiesInvokeResponseResult':
         """
         The common properties of a IoTSpaces service.
         """
@@ -77,7 +77,7 @@ class GetIoTSpaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IoTSpacesSkuInfoResponse':
+    def sku(self) -> 'outputs.IoTSpacesSkuInfoInvokeResponseResult':
         """
         A valid instance SKU.
         """

@@ -11,11 +11,50 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'HealthAlertActionInvokeResponseResult',
     'HealthAlertActionResponse',
+    'HealthAlertCriteriaInvokeResponseResult',
     'HealthAlertCriteriaResponse',
+    'HealthStateInvokeResponseResult',
     'HealthStateResponse',
+    'VmGuestHealthAlertCriterionInvokeResponseResult',
     'VmGuestHealthAlertCriterionResponse',
 ]
+
+@pulumi.output_type
+class HealthAlertActionInvokeResponseResult(dict):
+    """
+    An alert action.
+    """
+    def __init__(__self__, *,
+                 action_group_id: Optional[str] = None,
+                 web_hook_properties: Optional[Mapping[str, str]] = None):
+        """
+        An alert action.
+        :param str action_group_id: the id of the action group to use.
+        :param Mapping[str, str] web_hook_properties: The properties of a webhook object.
+        """
+        if action_group_id is not None:
+            pulumi.set(__self__, "action_group_id", action_group_id)
+        if web_hook_properties is not None:
+            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> Optional[str]:
+        """
+        the id of the action group to use.
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @property
+    @pulumi.getter(name="webHookProperties")
+    def web_hook_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of a webhook object.
+        """
+        return pulumi.get(self, "web_hook_properties")
+
 
 @pulumi.output_type
 class HealthAlertActionResponse(dict):
@@ -56,6 +95,29 @@ class HealthAlertActionResponse(dict):
 
 
 @pulumi.output_type
+class HealthAlertCriteriaInvokeResponseResult(dict):
+    """
+    Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
+    """
+    def __init__(__self__, *,
+                 all_of: Optional[Sequence['outputs.VmGuestHealthAlertCriterionInvokeResponseResult']] = None):
+        """
+        Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
+        :param Sequence['VmGuestHealthAlertCriterionInvokeResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        """
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[Sequence['outputs.VmGuestHealthAlertCriterionInvokeResponseResult']]:
+        """
+        The list of metric criteria for this 'all of' operation. 
+        """
+        return pulumi.get(self, "all_of")
+
+
+@pulumi.output_type
 class HealthAlertCriteriaResponse(dict):
     """
     Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
@@ -79,6 +141,39 @@ class HealthAlertCriteriaResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HealthStateInvokeResponseResult(dict):
+    """
+    Specifies the health state to alert on and the corresponding severity
+    """
+    def __init__(__self__, *,
+                 health_state_name: str,
+                 severity: float):
+        """
+        Specifies the health state to alert on and the corresponding severity
+        :param str health_state_name: Health state name
+        :param float severity: Severity of alert fired
+        """
+        pulumi.set(__self__, "health_state_name", health_state_name)
+        pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter(name="healthStateName")
+    def health_state_name(self) -> str:
+        """
+        Health state name
+        """
+        return pulumi.get(self, "health_state_name")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> float:
+        """
+        Severity of alert fired
+        """
+        return pulumi.get(self, "severity")
 
 
 @pulumi.output_type
@@ -115,6 +210,65 @@ class HealthStateResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VmGuestHealthAlertCriterionInvokeResponseResult(dict):
+    """
+    Specifies the health alert criteria to alert on.
+    """
+    def __init__(__self__, *,
+                 health_states: Sequence['outputs.HealthStateInvokeResponseResult'],
+                 namespace: str,
+                 monitor_names: Optional[Sequence[str]] = None,
+                 monitor_types: Optional[Sequence[str]] = None):
+        """
+        Specifies the health alert criteria to alert on.
+        :param Sequence['HealthStateInvokeResponseArgs'] health_states: Health states to alert on
+        :param str namespace: specifies the type of the alert criterion.
+               Expected value is 'GuestVmHealth'.
+        :param Sequence[str] monitor_names: Names of health monitor on which to define alert
+        :param Sequence[str] monitor_types: Names of health monitor type on which to define alert
+        """
+        pulumi.set(__self__, "health_states", health_states)
+        pulumi.set(__self__, "namespace", 'GuestVmHealth')
+        if monitor_names is not None:
+            pulumi.set(__self__, "monitor_names", monitor_names)
+        if monitor_types is not None:
+            pulumi.set(__self__, "monitor_types", monitor_types)
+
+    @property
+    @pulumi.getter(name="healthStates")
+    def health_states(self) -> Sequence['outputs.HealthStateInvokeResponseResult']:
+        """
+        Health states to alert on
+        """
+        return pulumi.get(self, "health_states")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        specifies the type of the alert criterion.
+        Expected value is 'GuestVmHealth'.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="monitorNames")
+    def monitor_names(self) -> Optional[Sequence[str]]:
+        """
+        Names of health monitor on which to define alert
+        """
+        return pulumi.get(self, "monitor_names")
+
+    @property
+    @pulumi.getter(name="monitorTypes")
+    def monitor_types(self) -> Optional[Sequence[str]]:
+        """
+        Names of health monitor type on which to define alert
+        """
+        return pulumi.get(self, "monitor_types")
 
 
 @pulumi.output_type

@@ -11,13 +11,52 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectivityCollectionInvokeResponseResult',
     'ConnectivityCollectionResponse',
+    'ManagedNetworkGroupInvokeResponseResult',
     'ManagedNetworkGroupResponse',
+    'ManagedNetworkPeeringPolicyInvokeResponseResult',
+    'ManagedNetworkPeeringPolicyPropertiesInvokeResponseResult',
     'ManagedNetworkPeeringPolicyPropertiesResponse',
     'ManagedNetworkPeeringPolicyResponse',
+    'ResourceIdInvokeResponseResult',
     'ResourceIdResponse',
+    'ScopeInvokeResponseResult',
     'ScopeResponse',
 ]
+
+@pulumi.output_type
+class ConnectivityCollectionInvokeResponseResult(dict):
+    """
+    The collection of Connectivity related groups and policies within the Managed Network
+    """
+    def __init__(__self__, *,
+                 groups: Sequence['outputs.ManagedNetworkGroupInvokeResponseResult'],
+                 peerings: Sequence['outputs.ManagedNetworkPeeringPolicyInvokeResponseResult']):
+        """
+        The collection of Connectivity related groups and policies within the Managed Network
+        :param Sequence['ManagedNetworkGroupInvokeResponseArgs'] groups: The collection of connectivity related Managed Network Groups within the Managed Network
+        :param Sequence['ManagedNetworkPeeringPolicyInvokeResponseArgs'] peerings: The collection of Managed Network Peering Policies within the Managed Network
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "peerings", peerings)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Sequence['outputs.ManagedNetworkGroupInvokeResponseResult']:
+        """
+        The collection of connectivity related Managed Network Groups within the Managed Network
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def peerings(self) -> Sequence['outputs.ManagedNetworkPeeringPolicyInvokeResponseResult']:
+        """
+        The collection of Managed Network Peering Policies within the Managed Network
+        """
+        return pulumi.get(self, "peerings")
+
 
 @pulumi.output_type
 class ConnectivityCollectionResponse(dict):
@@ -53,6 +92,144 @@ class ConnectivityCollectionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedNetworkGroupInvokeResponseResult(dict):
+    """
+    The Managed Network Group resource
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 kind: Optional[str] = None,
+                 location: Optional[str] = None,
+                 management_groups: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 subnets: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 subscriptions: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 virtual_networks: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None):
+        """
+        The Managed Network Group resource
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param str provisioning_state: Provisioning state of the ManagedNetwork resource.
+        :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        :param str kind: Responsibility role under which this Managed Network Group will be created
+        :param str location: The geo-location where the resource lives
+        :param Sequence['ResourceIdInvokeResponseArgs'] management_groups: The collection of management groups covered by the Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] subnets: The collection of  subnets covered by the Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] subscriptions: The collection of subscriptions covered by the Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] virtual_networks: The collection of virtual nets covered by the Managed Network
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+        if virtual_networks is not None:
+            pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the ManagedNetwork resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Responsibility role under which this Managed Network Group will be created
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of management groups covered by the Managed Network
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of  subnets covered by the Managed Network
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of subscriptions covered by the Managed Network
+        """
+        return pulumi.get(self, "subscriptions")
+
+    @property
+    @pulumi.getter(name="virtualNetworks")
+    def virtual_networks(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of virtual nets covered by the Managed Network
+        """
+        return pulumi.get(self, "virtual_networks")
 
 
 @pulumi.output_type
@@ -194,6 +371,154 @@ class ManagedNetworkGroupResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedNetworkPeeringPolicyInvokeResponseResult(dict):
+    """
+    The Managed Network Peering Policy resource
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 location: Optional[str] = None,
+                 properties: Optional['outputs.ManagedNetworkPeeringPolicyPropertiesInvokeResponseResult'] = None):
+        """
+        The Managed Network Peering Policy resource
+        :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        :param str location: The geo-location where the resource lives
+        :param 'ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs' properties: Gets or sets the properties of a Managed Network Policy
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.ManagedNetworkPeeringPolicyPropertiesInvokeResponseResult']:
+        """
+        Gets or sets the properties of a Managed Network Policy
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class ManagedNetworkPeeringPolicyPropertiesInvokeResponseResult(dict):
+    """
+    Properties of a Managed Network Peering Policy
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 hub: Optional['outputs.ResourceIdInvokeResponseResult'] = None,
+                 mesh: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 spokes: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None):
+        """
+        Properties of a Managed Network Peering Policy
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: Provisioning state of the ManagedNetwork resource.
+        :param str type: Gets or sets the connectivity type of a network structure policy
+        :param 'ResourceIdInvokeResponseArgs' hub: Gets or sets the hub virtual network ID
+        :param Sequence['ResourceIdInvokeResponseArgs'] mesh: Gets or sets the mesh group IDs
+        :param Sequence['ResourceIdInvokeResponseArgs'] spokes: Gets or sets the spokes group IDs
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if hub is not None:
+            pulumi.set(__self__, "hub", hub)
+        if mesh is not None:
+            pulumi.set(__self__, "mesh", mesh)
+        if spokes is not None:
+            pulumi.set(__self__, "spokes", spokes)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the ManagedNetwork resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets or sets the connectivity type of a network structure policy
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def hub(self) -> Optional['outputs.ResourceIdInvokeResponseResult']:
+        """
+        Gets or sets the hub virtual network ID
+        """
+        return pulumi.get(self, "hub")
+
+    @property
+    @pulumi.getter
+    def mesh(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        Gets or sets the mesh group IDs
+        """
+        return pulumi.get(self, "mesh")
+
+    @property
+    @pulumi.getter
+    def spokes(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        Gets or sets the spokes group IDs
+        """
+        return pulumi.get(self, "spokes")
 
 
 @pulumi.output_type
@@ -351,6 +676,29 @@ class ManagedNetworkPeeringPolicyResponse(dict):
 
 
 @pulumi.output_type
+class ResourceIdInvokeResponseResult(dict):
+    """
+    Generic pointer to a resource
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Generic pointer to a resource
+        :param str id: Resource Id
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ResourceIdResponse(dict):
     """
     Generic pointer to a resource
@@ -374,6 +722,65 @@ class ResourceIdResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ScopeInvokeResponseResult(dict):
+    """
+    Scope of a Managed Network
+    """
+    def __init__(__self__, *,
+                 management_groups: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 subnets: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 subscriptions: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None,
+                 virtual_networks: Optional[Sequence['outputs.ResourceIdInvokeResponseResult']] = None):
+        """
+        Scope of a Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] management_groups: The collection of management groups covered by the Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] subnets: The collection of  subnets covered by the Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] subscriptions: The collection of subscriptions covered by the Managed Network
+        :param Sequence['ResourceIdInvokeResponseArgs'] virtual_networks: The collection of virtual nets covered by the Managed Network
+        """
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+        if virtual_networks is not None:
+            pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of management groups covered by the Managed Network
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of  subnets covered by the Managed Network
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of subscriptions covered by the Managed Network
+        """
+        return pulumi.get(self, "subscriptions")
+
+    @property
+    @pulumi.getter(name="virtualNetworks")
+    def virtual_networks(self) -> Optional[Sequence['outputs.ResourceIdInvokeResponseResult']]:
+        """
+        The collection of virtual nets covered by the Managed Network
+        """
+        return pulumi.get(self, "virtual_networks")
 
 
 @pulumi.output_type

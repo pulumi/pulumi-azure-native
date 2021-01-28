@@ -78,7 +78,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.PublicIPAddressDnsSettingsResponse']:
+    def dns_settings(self) -> Optional['outputs.PublicIPAddressDnsSettingsInvokeResponseResult']:
         """
         The FQDN of the DNS record associated with the public IP address.
         """
@@ -118,7 +118,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> 'outputs.IPConfigurationResponse':
+    def ip_configuration(self) -> 'outputs.IPConfigurationInvokeResponseResult':
         """
         The IP configuration associated with the public IP address.
         """
@@ -126,7 +126,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.IpTagInvokeResponseResult']]:
         """
         The list of tags associated with the public IP address.
         """
@@ -174,7 +174,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter(name="publicIPPrefix")
-    def public_ip_prefix(self) -> Optional['outputs.SubResourceResponse']:
+    def public_ip_prefix(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The Public IP Prefix this Public IP Address should be allocated from.
         """
@@ -190,7 +190,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PublicIPAddressSkuResponse']:
+    def sku(self) -> Optional['outputs.PublicIPAddressSkuInvokeResponseResult']:
         """
         The public IP address SKU.
         """

@@ -109,7 +109,7 @@ class ListWebAppBackupStatusSecretsResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponseResult']:
+    def databases(self) -> Sequence['outputs.DatabaseBackupSettingInvokeResponseResult']:
         """
         List of databases included in the backup.
         """
@@ -239,8 +239,8 @@ class AwaitableListWebAppBackupStatusSecretsResult(ListWebAppBackupStatusSecrets
 
 def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
                                        backup_name: Optional[str] = None,
-                                       backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
-                                       databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
+                                       backup_schedule: Optional[pulumi.InputType['BackupScheduleInvokeArgs']] = None,
+                                       databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSettingInvokeArgs']]] = None,
                                        enabled: Optional[bool] = None,
                                        kind: Optional[str] = None,
                                        name: Optional[str] = None,
@@ -252,8 +252,8 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
 
     :param str backup_id: ID of backup.
     :param str backup_name: Name of the backup.
-    :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically.
-    :param Sequence[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup.
+    :param pulumi.InputType['BackupScheduleInvokeArgs'] backup_schedule: Schedule for the backup if it is executed periodically.
+    :param Sequence[pulumi.InputType['DatabaseBackupSettingInvokeArgs']] databases: Databases included in the backup.
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
     :param str kind: Kind of resource.
     :param str name: Name of web app.

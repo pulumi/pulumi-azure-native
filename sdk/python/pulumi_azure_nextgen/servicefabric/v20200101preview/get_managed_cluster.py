@@ -117,7 +117,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
+    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryInvokeResponseResult']:
         """
         Azure active directory.
         """
@@ -133,7 +133,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter
-    def clients(self) -> Optional[Sequence['outputs.ClientCertificateResponse']]:
+    def clients(self) -> Optional[Sequence['outputs.ClientCertificateInvokeResponseResult']]:
         """
         client certificates for the cluster.
         """
@@ -189,7 +189,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]:
+    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionInvokeResponseResult']]:
         """
         The list of custom fabric settings to configure the cluster.
         """
@@ -221,7 +221,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancingRuleResponse']]:
+    def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancingRuleInvokeResponseResult']]:
         """
         Describes load balancing rules.
         """
@@ -253,7 +253,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the managed cluster
         """

@@ -110,7 +110,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def errors(self) -> Sequence['outputs.BatchAIErrorResponse']:
+    def errors(self) -> Sequence['outputs.BatchAIErrorInvokeResponseResult']:
         """
         Collection of errors encountered by various compute nodes during node setup.
         """
@@ -134,7 +134,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeSetup")
-    def node_setup(self) -> Optional['outputs.NodeSetupResponse']:
+    def node_setup(self) -> Optional['outputs.NodeSetupInvokeResponseResult']:
         """
         Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
         """
@@ -142,7 +142,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeStateCounts")
-    def node_state_counts(self) -> 'outputs.NodeStateCountsResponse':
+    def node_state_counts(self) -> 'outputs.NodeStateCountsInvokeResponseResult':
         """
         Counts of various node states on the cluster.
         """
@@ -166,7 +166,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="scaleSettings")
-    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+    def scale_settings(self) -> Optional['outputs.ScaleSettingsInvokeResponseResult']:
         """
         Scale settings of the cluster.
         """
@@ -174,7 +174,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+    def subnet(self) -> Optional['outputs.ResourceIdInvokeResponseResult']:
         """
         Virtual network subnet resource ID the cluster nodes belong to.
         """
@@ -190,7 +190,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> Optional['outputs.UserAccountSettingsResponse']:
+    def user_account_settings(self) -> Optional['outputs.UserAccountSettingsInvokeResponseResult']:
         """
         Administrator user account settings which can be used to SSH to compute nodes.
         """
@@ -198,7 +198,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="virtualMachineConfiguration")
-    def virtual_machine_configuration(self) -> Optional['outputs.VirtualMachineConfigurationResponse']:
+    def virtual_machine_configuration(self) -> Optional['outputs.VirtualMachineConfigurationInvokeResponseResult']:
         """
         Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
         """

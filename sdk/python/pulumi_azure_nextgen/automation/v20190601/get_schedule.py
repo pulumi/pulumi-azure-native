@@ -75,7 +75,7 @@ class GetScheduleResult:
 
     @property
     @pulumi.getter(name="advancedSchedule")
-    def advanced_schedule(self) -> Optional['outputs.AdvancedScheduleResponse']:
+    def advanced_schedule(self) -> Optional['outputs.AdvancedScheduleInvokeResponseResult']:
         """
         Gets or sets the advanced schedule.
         """

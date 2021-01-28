@@ -91,7 +91,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter(name="customImagePlan")
-    def custom_image_plan(self) -> Optional['outputs.CustomImagePropertiesFromPlanResponse']:
+    def custom_image_plan(self) -> Optional['outputs.CustomImagePropertiesFromPlanInvokeResponseResult']:
         """
         Storage information about the plan related to this custom image
         """
@@ -99,7 +99,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter(name="dataDiskStorageInfo")
-    def data_disk_storage_info(self) -> Optional[Sequence['outputs.DataDiskStorageTypeInfoResponse']]:
+    def data_disk_storage_info(self) -> Optional[Sequence['outputs.DataDiskStorageTypeInfoInvokeResponseResult']]:
         """
         Storage information about the data disks present in the custom image
         """
@@ -195,7 +195,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter
-    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomResponse']:
+    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomInvokeResponseResult']:
         """
         The VHD from which the image is to be created.
         """
@@ -203,7 +203,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter
-    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmResponse']:
+    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmInvokeResponseResult']:
         """
         The virtual machine from which the image is to be created.
         """

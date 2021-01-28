@@ -10,8 +10,42 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    Sku of the Namespace.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        Sku of the Namespace.
+        :param str name: Name of this Sku
+        :param str tier: The tier of this particular SKU
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this Sku
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The tier of this particular SKU
+        """
+        return pulumi.get(self, "tier")
+
 
 @pulumi.output_type
 class SkuResponse(dict):

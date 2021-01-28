@@ -80,7 +80,7 @@ class GetPeerAsnResult:
 
     @property
     @pulumi.getter(name="peerContactDetail")
-    def peer_contact_detail(self) -> Optional[Sequence['outputs.ContactDetailResponse']]:
+    def peer_contact_detail(self) -> Optional[Sequence['outputs.ContactDetailInvokeResponseResult']]:
         """
         The contact details of the peer.
         """

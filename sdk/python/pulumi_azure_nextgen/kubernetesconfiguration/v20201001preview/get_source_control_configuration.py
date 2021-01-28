@@ -75,7 +75,7 @@ class GetSourceControlConfigurationResult:
 
     @property
     @pulumi.getter(name="complianceStatus")
-    def compliance_status(self) -> 'outputs.ComplianceStatusResponse':
+    def compliance_status(self) -> 'outputs.ComplianceStatusInvokeResponseResult':
         """
         Compliance Status of the Configuration
         """
@@ -99,7 +99,7 @@ class GetSourceControlConfigurationResult:
 
     @property
     @pulumi.getter(name="helmOperatorProperties")
-    def helm_operator_properties(self) -> Optional['outputs.HelmOperatorPropertiesResponse']:
+    def helm_operator_properties(self) -> Optional['outputs.HelmOperatorPropertiesInvokeResponseResult']:
         """
         Properties for Helm operator.
         """
@@ -195,7 +195,7 @@ class GetSourceControlConfigurationResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+    def system_data(self) -> Optional['outputs.SystemDataInvokeResponseResult']:
         """
         Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         """

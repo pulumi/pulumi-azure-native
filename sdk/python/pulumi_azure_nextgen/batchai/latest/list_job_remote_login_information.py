@@ -38,7 +38,7 @@ class ListJobRemoteLoginInformationResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.RemoteLoginInformationResponseResult']:
+    def value(self) -> Sequence['outputs.RemoteLoginInformationInvokeResponseResult']:
         """
         The collection of returned remote login details.
         """

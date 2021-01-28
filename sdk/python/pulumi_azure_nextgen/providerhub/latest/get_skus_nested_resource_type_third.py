@@ -49,7 +49,7 @@ class GetSkusNestedResourceTypeThirdResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SkuResourceResponseProperties':
+    def properties(self) -> 'outputs.SkuResourceInvokeResponsePropertiesResult':
         return pulumi.get(self, "properties")
 
     @property

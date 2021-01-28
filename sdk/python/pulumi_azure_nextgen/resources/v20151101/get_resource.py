@@ -69,7 +69,7 @@ class GetResourceResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanInvokeResponseResult']:
         """
         Gets or sets the plan of the resource.
         """

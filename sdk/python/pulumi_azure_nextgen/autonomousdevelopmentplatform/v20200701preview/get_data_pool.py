@@ -61,7 +61,7 @@ class GetDataPoolResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> Sequence['outputs.DataPoolLocationResponse']:
+    def locations(self) -> Sequence['outputs.DataPoolLocationInvokeResponseResult']:
         """
         Gets or sets the collection of locations where Data Pool resources should be created.
         """
@@ -85,7 +85,7 @@ class GetDataPoolResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system meta data relating to this resource.
         """

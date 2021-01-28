@@ -132,7 +132,7 @@ class GetBlockchainMemberResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[Sequence['outputs.FirewallRuleResponse']]:
+    def firewall_rules(self) -> Optional[Sequence['outputs.FirewallRuleInvokeResponseResult']]:
         """
         Gets or sets firewall rules
         """
@@ -204,7 +204,7 @@ class GetBlockchainMemberResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the blockchain member Sku.
         """
@@ -236,7 +236,7 @@ class GetBlockchainMemberResult:
 
     @property
     @pulumi.getter(name="validatorNodesSku")
-    def validator_nodes_sku(self) -> Optional['outputs.BlockchainMemberNodesSkuResponse']:
+    def validator_nodes_sku(self) -> Optional['outputs.BlockchainMemberNodesSkuInvokeResponseResult']:
         """
         Gets or sets the blockchain validator nodes Sku.
         """

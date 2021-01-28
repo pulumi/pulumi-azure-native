@@ -53,7 +53,7 @@ class GetDashboardResult:
 
     @property
     @pulumi.getter
-    def lenses(self) -> Optional[Mapping[str, 'outputs.DashboardLensResponse']]:
+    def lenses(self) -> Optional[Mapping[str, 'outputs.DashboardLensInvokeResponseResult']]:
         """
         The dashboard lenses.
         """

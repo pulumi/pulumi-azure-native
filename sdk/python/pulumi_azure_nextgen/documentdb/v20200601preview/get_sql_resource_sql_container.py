@@ -56,7 +56,7 @@ class GetSqlResourceSqlContainerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -80,12 +80,12 @@ class GetSqlResourceSqlContainerResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.SqlContainerGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.SqlContainerGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.SqlContainerGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.SqlContainerGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

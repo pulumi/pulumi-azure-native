@@ -108,7 +108,7 @@ class GetSqlPoolsV3Result:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sql pool SKU. The list of SKUs may vary by region and support offer.
         """
@@ -132,7 +132,7 @@ class GetSqlPoolsV3Result:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         SystemData of SqlPool.
         """

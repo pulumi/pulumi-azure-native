@@ -63,7 +63,7 @@ class GetManagementAssociationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ManagementAssociationPropertiesResponse':
+    def properties(self) -> 'outputs.ManagementAssociationPropertiesInvokeResponseResult':
         """
         Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         """

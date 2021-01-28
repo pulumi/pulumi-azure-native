@@ -152,7 +152,7 @@ class GetSyncGroupResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional['outputs.SyncGroupSchemaResponse']:
+    def schema(self) -> Optional['outputs.SyncGroupSchemaInvokeResponseResult']:
         """
         Sync schema of the sync group.
         """
@@ -160,7 +160,7 @@ class GetSyncGroupResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The name and capacity of the SKU.
         """

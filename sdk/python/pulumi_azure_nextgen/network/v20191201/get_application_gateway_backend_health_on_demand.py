@@ -32,7 +32,7 @@ class GetApplicationGatewayBackendHealthOnDemandResult:
 
     @property
     @pulumi.getter(name="backendAddressPool")
-    def backend_address_pool(self) -> Optional['outputs.ApplicationGatewayBackendAddressPoolResponse']:
+    def backend_address_pool(self) -> Optional['outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult']:
         """
         Reference to an ApplicationGatewayBackendAddressPool resource.
         """
@@ -40,7 +40,7 @@ class GetApplicationGatewayBackendHealthOnDemandResult:
 
     @property
     @pulumi.getter(name="backendHealthHttpSettings")
-    def backend_health_http_settings(self) -> Optional['outputs.ApplicationGatewayBackendHealthHttpSettingsResponseResult']:
+    def backend_health_http_settings(self) -> Optional['outputs.ApplicationGatewayBackendHealthHttpSettingsInvokeResponseResult']:
         """
         Application gateway BackendHealthHttp settings.
         """
@@ -58,11 +58,11 @@ class AwaitableGetApplicationGatewayBackendHealthOnDemandResult(GetApplicationGa
 
 
 def get_application_gateway_backend_health_on_demand(application_gateway_name: Optional[str] = None,
-                                                     backend_address_pool: Optional[pulumi.InputType['SubResourceArgs']] = None,
-                                                     backend_http_settings: Optional[pulumi.InputType['SubResourceArgs']] = None,
+                                                     backend_address_pool: Optional[pulumi.InputType['SubResourceInvokeArgs']] = None,
+                                                     backend_http_settings: Optional[pulumi.InputType['SubResourceInvokeArgs']] = None,
                                                      expand: Optional[str] = None,
                                                      host: Optional[str] = None,
-                                                     match: Optional[pulumi.InputType['ApplicationGatewayProbeHealthResponseMatchArgs']] = None,
+                                                     match: Optional[pulumi.InputType['ApplicationGatewayProbeHealthResponseMatchInvokeArgs']] = None,
                                                      path: Optional[str] = None,
                                                      pick_host_name_from_backend_http_settings: Optional[bool] = None,
                                                      protocol: Optional[Union[str, 'ApplicationGatewayProtocol']] = None,
@@ -73,11 +73,11 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
     Use this data source to access information about an existing resource.
 
     :param str application_gateway_name: The name of the application gateway.
-    :param pulumi.InputType['SubResourceArgs'] backend_address_pool: Reference to backend pool of application gateway to which probe request will be sent.
-    :param pulumi.InputType['SubResourceArgs'] backend_http_settings: Reference to backend http setting of application gateway to be used for test probe.
+    :param pulumi.InputType['SubResourceInvokeArgs'] backend_address_pool: Reference to backend pool of application gateway to which probe request will be sent.
+    :param pulumi.InputType['SubResourceInvokeArgs'] backend_http_settings: Reference to backend http setting of application gateway to be used for test probe.
     :param str expand: Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
     :param str host: Host name to send the probe to.
-    :param pulumi.InputType['ApplicationGatewayProbeHealthResponseMatchArgs'] match: Criterion for classifying a healthy probe response.
+    :param pulumi.InputType['ApplicationGatewayProbeHealthResponseMatchInvokeArgs'] match: Criterion for classifying a healthy probe response.
     :param str path: Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
     :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Default value is false.
     :param Union[str, 'ApplicationGatewayProtocol'] protocol: The protocol used for the probe.

@@ -29,7 +29,7 @@ class ListCustomApiWsdlInterfacesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.WsdlServiceResponse']]:
+    def value(self) -> Optional[Sequence['outputs.WsdlServiceInvokeResponseResult']]:
         """
         Collection of WSDL interfaces
         """
@@ -48,7 +48,7 @@ class AwaitableListCustomApiWsdlInterfacesResult(ListCustomApiWsdlInterfacesResu
 def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
                                     import_method: Optional[Union[str, 'WsdlImportMethod']] = None,
                                     location: Optional[str] = None,
-                                    service: Optional[pulumi.InputType['WsdlServiceArgs']] = None,
+                                    service: Optional[pulumi.InputType['WsdlServiceInvokeArgs']] = None,
                                     subscription_id: Optional[str] = None,
                                     url: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCustomApiWsdlInterfacesResult:
@@ -58,7 +58,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
     :param str content: The WSDL content
     :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method
     :param str location: The location
-    :param pulumi.InputType['WsdlServiceArgs'] service: The service with name and endpoint names
+    :param pulumi.InputType['WsdlServiceInvokeArgs'] service: The service with name and endpoint names
     :param str subscription_id: Subscription Id
     :param str url: The WSDL URL
     """

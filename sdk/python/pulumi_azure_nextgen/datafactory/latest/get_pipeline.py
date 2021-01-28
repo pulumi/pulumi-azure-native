@@ -100,7 +100,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.PipelineResponseFolder']:
+    def folder(self) -> Optional['outputs.PipelineInvokeResponseFolderResult']:
         """
         The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         """
@@ -124,7 +124,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationInvokeResponseResult']]:
         """
         List of parameters for pipeline.
         """
@@ -148,7 +148,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, 'outputs.VariableSpecificationResponse']]:
+    def variables(self) -> Optional[Mapping[str, 'outputs.VariableSpecificationInvokeResponseResult']]:
         """
         List of variables for pipeline.
         """

@@ -52,7 +52,7 @@ class GetRegistrationAssignmentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RegistrationAssignmentPropertiesResponse':
+    def properties(self) -> 'outputs.RegistrationAssignmentPropertiesInvokeResponseResult':
         """
         Properties of a registration assignment.
         """

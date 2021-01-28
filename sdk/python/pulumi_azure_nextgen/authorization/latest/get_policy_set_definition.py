@@ -94,7 +94,7 @@ class GetPolicySetDefinitionResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueInvokeResponseResult']]:
         """
         The policy set definition parameters that can be used in policy definition references.
         """
@@ -102,7 +102,7 @@ class GetPolicySetDefinitionResult:
 
     @property
     @pulumi.getter(name="policyDefinitionGroups")
-    def policy_definition_groups(self) -> Optional[Sequence['outputs.PolicyDefinitionGroupResponse']]:
+    def policy_definition_groups(self) -> Optional[Sequence['outputs.PolicyDefinitionGroupInvokeResponseResult']]:
         """
         The metadata describing groups of policy definition references within the policy set definition.
         """
@@ -110,7 +110,7 @@ class GetPolicySetDefinitionResult:
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceResponse']:
+    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceInvokeResponseResult']:
         """
         An array of policy definition references.
         """

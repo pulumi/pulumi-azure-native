@@ -11,24 +11,64 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CustomProfileInvokeResponseResult',
     'CustomProfileResponse',
+    'DataDiskInvokeResponseResult',
     'DataDiskResponse',
+    'ImageReferenceInvokeResponseResult',
     'ImageReferenceResponse',
+    'LinuxConfigurationInvokeResponseResult',
     'LinuxConfigurationResponse',
+    'NetworkFunctionRoleConfigurationInvokeResponseResult',
     'NetworkFunctionRoleConfigurationResponse',
+    'NetworkFunctionTemplateInvokeResponseResult',
     'NetworkFunctionTemplateResponse',
+    'NetworkFunctionUserConfigurationInvokeResponseResult',
+    'NetworkFunctionUserConfigurationInvokeResponseOsProfileResult',
     'NetworkFunctionUserConfigurationResponse',
     'NetworkFunctionUserConfigurationResponseOsProfile',
+    'NetworkInterfaceIPConfigurationInvokeResponseResult',
     'NetworkInterfaceIPConfigurationResponse',
+    'NetworkInterfaceInvokeResponseResult',
     'NetworkInterfaceResponse',
+    'OsDiskInvokeResponseResult',
     'OsDiskResponse',
+    'OsProfileInvokeResponseResult',
     'OsProfileResponse',
+    'SshConfigurationInvokeResponseResult',
     'SshConfigurationResponse',
+    'SshPublicKeyInvokeResponseResult',
     'SshPublicKeyResponse',
+    'StorageProfileInvokeResponseResult',
     'StorageProfileResponse',
+    'SubResourceInvokeResponseResult',
     'SubResourceResponse',
+    'VirtualHardDiskInvokeResponseResult',
     'VirtualHardDiskResponse',
 ]
+
+@pulumi.output_type
+class CustomProfileInvokeResponseResult(dict):
+    """
+    Specifies the custom settings for the virtual machine.
+    """
+    def __init__(__self__, *,
+                 metadata_configuration_path: Optional[str] = None):
+        """
+        Specifies the custom settings for the virtual machine.
+        :param str metadata_configuration_path: Path for metadata configuration.
+        """
+        if metadata_configuration_path is not None:
+            pulumi.set(__self__, "metadata_configuration_path", metadata_configuration_path)
+
+    @property
+    @pulumi.getter(name="metadataConfigurationPath")
+    def metadata_configuration_path(self) -> Optional[str]:
+        """
+        Path for metadata configuration.
+        """
+        return pulumi.get(self, "metadata_configuration_path")
+
 
 @pulumi.output_type
 class CustomProfileResponse(dict):
@@ -54,6 +94,53 @@ class CustomProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataDiskInvokeResponseResult(dict):
+    """
+    Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    """
+    def __init__(__self__, *,
+                 create_option: Optional[str] = None,
+                 disk_size_gb: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param str create_option: Specifies how the virtual machine should be created.
+        :param int disk_size_gb: Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+        :param str name: The name of data disk.
+        """
+        if create_option is not None:
+            pulumi.set(__self__, "create_option", create_option)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> Optional[str]:
+        """
+        Specifies how the virtual machine should be created.
+        """
+        return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[int]:
+        """
+        Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of data disk.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -104,6 +191,77 @@ class DataDiskResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageReferenceInvokeResponseResult(dict):
+    """
+    The image reference properties.
+    """
+    def __init__(__self__, *,
+                 exact_version: Optional[str] = None,
+                 offer: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The image reference properties.
+        :param str exact_version: Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+        :param str offer: Specifies the offer of the image used to create the virtual machine.
+        :param str publisher: The image publisher.
+        :param str sku: The image SKU.
+        :param str version: Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        """
+        if exact_version is not None:
+            pulumi.set(__self__, "exact_version", exact_version)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="exactVersion")
+    def exact_version(self) -> Optional[str]:
+        """
+        Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+        """
+        return pulumi.get(self, "exact_version")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[str]:
+        """
+        Specifies the offer of the image used to create the virtual machine.
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The image publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The image SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -181,6 +339,29 @@ class ImageReferenceResponse(dict):
 
 
 @pulumi.output_type
+class LinuxConfigurationInvokeResponseResult(dict):
+    """
+    Specifies the Linux operating system settings on the virtual machine.
+    """
+    def __init__(__self__, *,
+                 ssh: Optional['outputs.SshConfigurationInvokeResponseResult'] = None):
+        """
+        Specifies the Linux operating system settings on the virtual machine.
+        :param 'SshConfigurationInvokeResponseArgs' ssh: Specifies the ssh key configuration for a Linux OS.
+        """
+        if ssh is not None:
+            pulumi.set(__self__, "ssh", ssh)
+
+    @property
+    @pulumi.getter
+    def ssh(self) -> Optional['outputs.SshConfigurationInvokeResponseResult']:
+        """
+        Specifies the ssh key configuration for a Linux OS.
+        """
+        return pulumi.get(self, "ssh")
+
+
+@pulumi.output_type
 class LinuxConfigurationResponse(dict):
     """
     Specifies the Linux operating system settings on the virtual machine.
@@ -204,6 +385,125 @@ class LinuxConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkFunctionRoleConfigurationInvokeResponseResult(dict):
+    """
+    Network function role configuration.
+    """
+    def __init__(__self__, *,
+                 custom_profile: Optional['outputs.CustomProfileInvokeResponseResult'] = None,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceInvokeResponseResult']] = None,
+                 os_profile: Optional['outputs.OsProfileInvokeResponseResult'] = None,
+                 role_name: Optional[str] = None,
+                 role_type: Optional[str] = None,
+                 storage_profile: Optional['outputs.StorageProfileInvokeResponseResult'] = None,
+                 user_data_parameters: Optional[Any] = None,
+                 user_data_template: Optional[Any] = None,
+                 virtual_machine_size: Optional[str] = None):
+        """
+        Network function role configuration.
+        :param 'CustomProfileInvokeResponseArgs' custom_profile: Specifies the custom settings for the virtual machine.
+        :param Sequence['NetworkInterfaceInvokeResponseArgs'] network_interfaces: The network interface configurations.
+        :param 'OsProfileInvokeResponseArgs' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+        :param str role_name: The name of the network function role.
+        :param str role_type: Role type.
+        :param 'StorageProfileInvokeResponseArgs' storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param Any user_data_parameters: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+        :param Any user_data_template: The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+        :param str virtual_machine_size: The size of the virtual machine.
+        """
+        if custom_profile is not None:
+            pulumi.set(__self__, "custom_profile", custom_profile)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if role_type is not None:
+            pulumi.set(__self__, "role_type", role_type)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if user_data_parameters is not None:
+            pulumi.set(__self__, "user_data_parameters", user_data_parameters)
+        if user_data_template is not None:
+            pulumi.set(__self__, "user_data_template", user_data_template)
+        if virtual_machine_size is not None:
+            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
+
+    @property
+    @pulumi.getter(name="customProfile")
+    def custom_profile(self) -> Optional['outputs.CustomProfileInvokeResponseResult']:
+        """
+        Specifies the custom settings for the virtual machine.
+        """
+        return pulumi.get(self, "custom_profile")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceInvokeResponseResult']]:
+        """
+        The network interface configurations.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional['outputs.OsProfileInvokeResponseResult']:
+        """
+        Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[str]:
+        """
+        The name of the network function role.
+        """
+        return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> Optional[str]:
+        """
+        Role type.
+        """
+        return pulumi.get(self, "role_type")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileInvokeResponseResult']:
+        """
+        Specifies the storage settings for the virtual machine disks.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter(name="userDataParameters")
+    def user_data_parameters(self) -> Optional[Any]:
+        """
+        The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+        """
+        return pulumi.get(self, "user_data_parameters")
+
+    @property
+    @pulumi.getter(name="userDataTemplate")
+    def user_data_template(self) -> Optional[Any]:
+        """
+        The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+        """
+        return pulumi.get(self, "user_data_template")
+
+    @property
+    @pulumi.getter(name="virtualMachineSize")
+    def virtual_machine_size(self) -> Optional[str]:
+        """
+        The size of the virtual machine.
+        """
+        return pulumi.get(self, "virtual_machine_size")
 
 
 @pulumi.output_type
@@ -329,6 +629,29 @@ class NetworkFunctionRoleConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class NetworkFunctionTemplateInvokeResponseResult(dict):
+    """
+    The network function template.
+    """
+    def __init__(__self__, *,
+                 network_function_role_configurations: Optional[Sequence['outputs.NetworkFunctionRoleConfigurationInvokeResponseResult']] = None):
+        """
+        The network function template.
+        :param Sequence['NetworkFunctionRoleConfigurationInvokeResponseArgs'] network_function_role_configurations: An array of network function role definitions.
+        """
+        if network_function_role_configurations is not None:
+            pulumi.set(__self__, "network_function_role_configurations", network_function_role_configurations)
+
+    @property
+    @pulumi.getter(name="networkFunctionRoleConfigurations")
+    def network_function_role_configurations(self) -> Optional[Sequence['outputs.NetworkFunctionRoleConfigurationInvokeResponseResult']]:
+        """
+        An array of network function role definitions.
+        """
+        return pulumi.get(self, "network_function_role_configurations")
+
+
+@pulumi.output_type
 class NetworkFunctionTemplateResponse(dict):
     """
     The network function template.
@@ -352,6 +675,88 @@ class NetworkFunctionTemplateResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkFunctionUserConfigurationInvokeResponseResult(dict):
+    """
+    The network function user configuration.
+    """
+    def __init__(__self__, *,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceInvokeResponseResult']] = None,
+                 os_profile: Optional['outputs.NetworkFunctionUserConfigurationInvokeResponseOsProfileResult'] = None,
+                 role_name: Optional[str] = None,
+                 user_data_parameters: Optional[Any] = None):
+        """
+        The network function user configuration.
+        :param Sequence['NetworkInterfaceInvokeResponseArgs'] network_interfaces: The network interface configuration.
+        :param 'NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs' os_profile: Specifies the operating system settings for the role instance.
+        :param str role_name: The name of the network function role.
+        :param Any user_data_parameters: The user data parameters from the customer.
+        """
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if user_data_parameters is not None:
+            pulumi.set(__self__, "user_data_parameters", user_data_parameters)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceInvokeResponseResult']]:
+        """
+        The network interface configuration.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional['outputs.NetworkFunctionUserConfigurationInvokeResponseOsProfileResult']:
+        """
+        Specifies the operating system settings for the role instance.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[str]:
+        """
+        The name of the network function role.
+        """
+        return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="userDataParameters")
+    def user_data_parameters(self) -> Optional[Any]:
+        """
+        The user data parameters from the customer.
+        """
+        return pulumi.get(self, "user_data_parameters")
+
+
+@pulumi.output_type
+class NetworkFunctionUserConfigurationInvokeResponseOsProfileResult(dict):
+    """
+    Specifies the operating system settings for the role instance.
+    """
+    def __init__(__self__, *,
+                 custom_data: Optional[str] = None):
+        """
+        Specifies the operating system settings for the role instance.
+        :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[str]:
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+        return pulumi.get(self, "custom_data")
 
 
 @pulumi.output_type
@@ -443,6 +848,89 @@ class NetworkFunctionUserConfigurationResponseOsProfile(dict):
 
 
 @pulumi.output_type
+class NetworkInterfaceIPConfigurationInvokeResponseResult(dict):
+    """
+    Network interface IP configuration properties.
+    """
+    def __init__(__self__, *,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 gateway: Optional[str] = None,
+                 ip_address: Optional[str] = None,
+                 ip_allocation_method: Optional[str] = None,
+                 ip_version: Optional[str] = None,
+                 subnet: Optional[str] = None):
+        """
+        Network interface IP configuration properties.
+        :param Sequence[str] dns_servers: The list of DNS servers IP addresses.
+        :param str gateway: The value of the gateway.
+        :param str ip_address: The value of the IP address.
+        :param str ip_allocation_method: IP address allocation method.
+        :param str ip_version: IP address version.
+        :param str subnet: The value of the subnet.
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_allocation_method is not None:
+            pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
+        if ip_version is not None:
+            pulumi.set(__self__, "ip_version", ip_version)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        The list of DNS servers IP addresses.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[str]:
+        """
+        The value of the gateway.
+        """
+        return pulumi.get(self, "gateway")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        The value of the IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipAllocationMethod")
+    def ip_allocation_method(self) -> Optional[str]:
+        """
+        IP address allocation method.
+        """
+        return pulumi.get(self, "ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> Optional[str]:
+        """
+        IP address version.
+        """
+        return pulumi.get(self, "ip_version")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[str]:
+        """
+        The value of the subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
 class NetworkInterfaceIPConfigurationResponse(dict):
     """
     Network interface IP configuration properties.
@@ -529,6 +1017,65 @@ class NetworkInterfaceIPConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class NetworkInterfaceInvokeResponseResult(dict):
+    """
+    Network interface properties.
+    """
+    def __init__(__self__, *,
+                 ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']] = None,
+                 mac_address: Optional[str] = None,
+                 network_interface_name: Optional[str] = None,
+                 vm_switch_type: Optional[str] = None):
+        """
+        Network interface properties.
+        :param Sequence['NetworkInterfaceIPConfigurationInvokeResponseArgs'] ip_configurations: A list of IP configurations of the network interface.
+        :param str mac_address: The MAC address of the network interface.
+        :param str network_interface_name: The name of the network interface.
+        :param str vm_switch_type: The type of the VM switch.
+        """
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if network_interface_name is not None:
+            pulumi.set(__self__, "network_interface_name", network_interface_name)
+        if vm_switch_type is not None:
+            pulumi.set(__self__, "vm_switch_type", vm_switch_type)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']]:
+        """
+        A list of IP configurations of the network interface.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[str]:
+        """
+        The MAC address of the network interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> Optional[str]:
+        """
+        The name of the network interface.
+        """
+        return pulumi.get(self, "network_interface_name")
+
+    @property
+    @pulumi.getter(name="vmSwitchType")
+    def vm_switch_type(self) -> Optional[str]:
+        """
+        The type of the VM switch.
+        """
+        return pulumi.get(self, "vm_switch_type")
+
+
+@pulumi.output_type
 class NetworkInterfaceResponse(dict):
     """
     Network interface properties.
@@ -591,6 +1138,65 @@ class NetworkInterfaceResponse(dict):
 
 
 @pulumi.output_type
+class OsDiskInvokeResponseResult(dict):
+    """
+    Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    """
+    def __init__(__self__, *,
+                 disk_size_gb: Optional[int] = None,
+                 name: Optional[str] = None,
+                 os_type: Optional[str] = None,
+                 vhd: Optional['outputs.VirtualHardDiskInvokeResponseResult'] = None):
+        """
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param int disk_size_gb: Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+        :param str name: The VHD name.
+        :param str os_type: The OS type.
+        :param 'VirtualHardDiskInvokeResponseArgs' vhd: The virtual hard disk.
+        """
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if vhd is not None:
+            pulumi.set(__self__, "vhd", vhd)
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[int]:
+        """
+        Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The VHD name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The OS type.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def vhd(self) -> Optional['outputs.VirtualHardDiskInvokeResponseResult']:
+        """
+        The virtual hard disk.
+        """
+        return pulumi.get(self, "vhd")
+
+
+@pulumi.output_type
 class OsDiskResponse(dict):
     """
     Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -650,6 +1256,67 @@ class OsDiskResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OsProfileInvokeResponseResult(dict):
+    """
+    Specifies the operating system settings for the role instance.
+    """
+    def __init__(__self__, *,
+                 admin_username: Optional[str] = None,
+                 custom_data: Optional[str] = None,
+                 custom_data_required: Optional[bool] = None,
+                 linux_configuration: Optional['outputs.LinuxConfigurationInvokeResponseResult'] = None):
+        """
+        Specifies the operating system settings for the role instance.
+        :param str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        :param bool custom_data_required: Indicates if custom data is required to deploy this role.
+        :param 'LinuxConfigurationInvokeResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+        if custom_data_required is None:
+            custom_data_required = True
+        if custom_data_required is not None:
+            pulumi.set(__self__, "custom_data_required", custom_data_required)
+        if linux_configuration is not None:
+            pulumi.set(__self__, "linux_configuration", linux_configuration)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[str]:
+        """
+        Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[str]:
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+        return pulumi.get(self, "custom_data")
+
+    @property
+    @pulumi.getter(name="customDataRequired")
+    def custom_data_required(self) -> Optional[bool]:
+        """
+        Indicates if custom data is required to deploy this role.
+        """
+        return pulumi.get(self, "custom_data_required")
+
+    @property
+    @pulumi.getter(name="linuxConfiguration")
+    def linux_configuration(self) -> Optional['outputs.LinuxConfigurationInvokeResponseResult']:
+        """
+        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+        return pulumi.get(self, "linux_configuration")
 
 
 @pulumi.output_type
@@ -717,6 +1384,29 @@ class OsProfileResponse(dict):
 
 
 @pulumi.output_type
+class SshConfigurationInvokeResponseResult(dict):
+    """
+    SSH configuration for Linux based VMs running on Azure
+    """
+    def __init__(__self__, *,
+                 public_keys: Optional[Sequence['outputs.SshPublicKeyInvokeResponseResult']] = None):
+        """
+        SSH configuration for Linux based VMs running on Azure
+        :param Sequence['SshPublicKeyInvokeResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        """
+        if public_keys is not None:
+            pulumi.set(__self__, "public_keys", public_keys)
+
+    @property
+    @pulumi.getter(name="publicKeys")
+    def public_keys(self) -> Optional[Sequence['outputs.SshPublicKeyInvokeResponseResult']]:
+        """
+        The list of SSH public keys used to authenticate with linux based VMs.
+        """
+        return pulumi.get(self, "public_keys")
+
+
+@pulumi.output_type
 class SshConfigurationResponse(dict):
     """
     SSH configuration for Linux based VMs running on Azure
@@ -740,6 +1430,41 @@ class SshConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SshPublicKeyInvokeResponseResult(dict):
+    """
+    Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+    """
+    def __init__(__self__, *,
+                 key_data: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+        :param str key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param str path: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        """
+        if key_data is not None:
+            pulumi.set(__self__, "key_data", key_data)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="keyData")
+    def key_data(self) -> Optional[str]:
+        """
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        """
+        return pulumi.get(self, "key_data")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        """
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type
@@ -778,6 +1503,53 @@ class SshPublicKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageProfileInvokeResponseResult(dict):
+    """
+    Specifies the storage settings for the virtual machine disks.
+    """
+    def __init__(__self__, *,
+                 data_disks: Optional[Sequence['outputs.DataDiskInvokeResponseResult']] = None,
+                 image_reference: Optional['outputs.ImageReferenceInvokeResponseResult'] = None,
+                 os_disk: Optional['outputs.OsDiskInvokeResponseResult'] = None):
+        """
+        Specifies the storage settings for the virtual machine disks.
+        :param Sequence['DataDiskInvokeResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine.
+        :param 'ImageReferenceInvokeResponseArgs' image_reference: The image reference properties.
+        :param 'OsDiskInvokeResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine.
+        """
+        if data_disks is not None:
+            pulumi.set(__self__, "data_disks", data_disks)
+        if image_reference is not None:
+            pulumi.set(__self__, "image_reference", image_reference)
+        if os_disk is not None:
+            pulumi.set(__self__, "os_disk", os_disk)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Optional[Sequence['outputs.DataDiskInvokeResponseResult']]:
+        """
+        Specifies the parameters that are used to add a data disk to a virtual machine.
+        """
+        return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> Optional['outputs.ImageReferenceInvokeResponseResult']:
+        """
+        The image reference properties.
+        """
+        return pulumi.get(self, "image_reference")
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> Optional['outputs.OsDiskInvokeResponseResult']:
+        """
+        Specifies information about the operating system disk used by the virtual machine.
+        """
+        return pulumi.get(self, "os_disk")
 
 
 @pulumi.output_type
@@ -831,6 +1603,29 @@ class StorageProfileResponse(dict):
 
 
 @pulumi.output_type
+class SubResourceInvokeResponseResult(dict):
+    """
+    Reference to another sub resource.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Reference to another sub resource.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SubResourceResponse(dict):
     """
     Reference to another sub resource.
@@ -854,6 +1649,29 @@ class SubResourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualHardDiskInvokeResponseResult(dict):
+    """
+    Describes the uri of a disk.
+    """
+    def __init__(__self__, *,
+                 uri: Optional[str] = None):
+        """
+        Describes the uri of a disk.
+        :param str uri: Specifies the virtual hard disk's uri.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Specifies the virtual hard disk's uri.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

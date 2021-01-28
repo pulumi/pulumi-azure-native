@@ -103,7 +103,7 @@ class GetRedisEnterpriseResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         List of private endpoint connections associated with the specified RedisEnterprise cluster
         """
@@ -135,7 +135,7 @@ class GetRedisEnterpriseResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The SKU to create, which affects price, performance, and features.
         """

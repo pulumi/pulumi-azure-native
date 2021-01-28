@@ -77,7 +77,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ZonePropertiesResponse':
+    def properties(self) -> 'outputs.ZonePropertiesInvokeResponseResult':
         """
         Gets or sets the properties of the zone.
         """

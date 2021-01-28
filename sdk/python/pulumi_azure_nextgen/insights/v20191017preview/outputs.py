@@ -10,12 +10,96 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'PrivateEndpointConnectionInvokeResponseResult',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointPropertyInvokeResponseResult',
     'PrivateEndpointPropertyResponse',
+    'PrivateLinkServiceConnectionStatePropertyInvokeResponseResult',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'WorkbookTemplateGalleryInvokeResponseResult',
     'WorkbookTemplateGalleryResponse',
+    'WorkbookTemplateLocalizedGalleryInvokeResponseResult',
     'WorkbookTemplateLocalizedGalleryResponse',
 ]
+
+@pulumi.output_type
+class PrivateEndpointConnectionInvokeResponseResult(dict):
+    """
+    A private endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointPropertyInvokeResponseResult'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult'] = None):
+        """
+        A private endpoint connection
+        :param str id: Azure resource Id
+        :param str name: Azure resource name
+        :param str provisioning_state: State of the private endpoint connection.
+        :param str type: Azure resource type
+        :param 'PrivateEndpointPropertyInvokeResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyInvokeResponseResult']:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
@@ -100,6 +184,29 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointPropertyInvokeResponseResult(dict):
+    """
+    Private endpoint which the connection belongs to.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Private endpoint which the connection belongs to.
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class PrivateEndpointPropertyResponse(dict):
     """
     Private endpoint which the connection belongs to.
@@ -123,6 +230,50 @@ class PrivateEndpointPropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStatePropertyInvokeResponseResult(dict):
+    """
+    State of the private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: str):
+        """
+        State of the private endpoint connection.
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -170,6 +321,77 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkbookTemplateGalleryInvokeResponseResult(dict):
+    """
+    Gallery information for a workbook template.
+    """
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 name: Optional[str] = None,
+                 order: Optional[int] = None,
+                 resource_type: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Gallery information for a workbook template.
+        :param str category: Category for the gallery.
+        :param str name: Name of the workbook template in the gallery.
+        :param int order: Order of the template within the gallery.
+        :param str resource_type: Azure resource type supported by the gallery.
+        :param str type: Type of workbook supported by the workbook template.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category for the gallery.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the workbook template in the gallery.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[int]:
+        """
+        Order of the template within the gallery.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        Azure resource type supported by the gallery.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of workbook supported by the workbook template.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -244,6 +466,41 @@ class WorkbookTemplateGalleryResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkbookTemplateLocalizedGalleryInvokeResponseResult(dict):
+    """
+    Localized template data and gallery information.
+    """
+    def __init__(__self__, *,
+                 galleries: Optional[Sequence['outputs.WorkbookTemplateGalleryInvokeResponseResult']] = None,
+                 template_data: Optional[Any] = None):
+        """
+        Localized template data and gallery information.
+        :param Sequence['WorkbookTemplateGalleryInvokeResponseArgs'] galleries: Workbook galleries supported by the template.
+        :param Any template_data: Valid JSON object containing workbook template payload.
+        """
+        if galleries is not None:
+            pulumi.set(__self__, "galleries", galleries)
+        if template_data is not None:
+            pulumi.set(__self__, "template_data", template_data)
+
+    @property
+    @pulumi.getter
+    def galleries(self) -> Optional[Sequence['outputs.WorkbookTemplateGalleryInvokeResponseResult']]:
+        """
+        Workbook galleries supported by the template.
+        """
+        return pulumi.get(self, "galleries")
+
+    @property
+    @pulumi.getter(name="templateData")
+    def template_data(self) -> Optional[Any]:
+        """
+        Valid JSON object containing workbook template payload.
+        """
+        return pulumi.get(self, "template_data")
 
 
 @pulumi.output_type

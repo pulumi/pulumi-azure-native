@@ -45,7 +45,7 @@ class GetRuleResult:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional['outputs.ActionResponse']:
+    def action(self) -> Optional['outputs.ActionInvokeResponseResult']:
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         """
@@ -53,7 +53,7 @@ class GetRuleResult:
 
     @property
     @pulumi.getter(name="correlationFilter")
-    def correlation_filter(self) -> Optional['outputs.CorrelationFilterResponse']:
+    def correlation_filter(self) -> Optional['outputs.CorrelationFilterInvokeResponseResult']:
         """
         Properties of correlationFilter
         """
@@ -85,7 +85,7 @@ class GetRuleResult:
 
     @property
     @pulumi.getter(name="sqlFilter")
-    def sql_filter(self) -> Optional['outputs.SqlFilterResponse']:
+    def sql_filter(self) -> Optional['outputs.SqlFilterInvokeResponseResult']:
         """
         Properties of sqlFilter
         """

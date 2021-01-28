@@ -60,7 +60,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional['outputs.CustomRuleListResponse']:
+    def custom_rules(self) -> Optional['outputs.CustomRuleListInvokeResponseResult']:
         """
         Describes custom rules inside the policy.
         """
@@ -76,7 +76,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="frontendEndpointLinks")
-    def frontend_endpoint_links(self) -> Sequence['outputs.FrontendEndpointLinkResponse']:
+    def frontend_endpoint_links(self) -> Sequence['outputs.FrontendEndpointLinkInvokeResponseResult']:
         """
         Describes Frontend Endpoints associated with this Web Application Firewall policy.
         """
@@ -100,7 +100,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListResponse']:
+    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListInvokeResponseResult']:
         """
         Describes managed rules inside the policy.
         """
@@ -116,7 +116,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.PolicySettingsInvokeResponseResult']:
         """
         Describes settings for the policy.
         """

@@ -83,7 +83,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="autoApproval")
-    def auto_approval(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval']:
+    def auto_approval(self) -> Optional['outputs.PrivateLinkServicePropertiesInvokeResponseAutoApprovalResult']:
         """
         The auto-approval list of the private link service.
         """
@@ -107,7 +107,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationInvokeResponseResult']:
         """
         The extended location of the load balancer.
         """
@@ -131,7 +131,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.PrivateLinkServiceIpConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.PrivateLinkServiceIpConfigurationInvokeResponseResult']]:
         """
         An array of private link service IP configurations.
         """
@@ -139,7 +139,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurations")
-    def load_balancer_frontend_ip_configurations(self) -> Optional[Sequence['outputs.FrontendIPConfigurationResponse']]:
+    def load_balancer_frontend_ip_configurations(self) -> Optional[Sequence['outputs.FrontendIPConfigurationInvokeResponseResult']]:
         """
         An array of references to the load balancer IP configurations.
         """
@@ -163,7 +163,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceInvokeResponseResult']:
         """
         An array of references to the network interfaces created for this private link service.
         """
@@ -171,7 +171,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         An array of list about connections to the private endpoint.
         """
@@ -203,7 +203,7 @@ class GetPrivateLinkServiceResult:
 
     @property
     @pulumi.getter
-    def visibility(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseVisibility']:
+    def visibility(self) -> Optional['outputs.PrivateLinkServicePropertiesInvokeResponseVisibilityResult']:
         """
         The visibility list of the private link service.
         """

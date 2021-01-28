@@ -46,7 +46,7 @@ __all__ = [
     'IntegrationAccountSkuArgs',
     'KeyVaultKeyReferenceArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
-    'KeyVaultReferenceArgs',
+    'KeyVaultReferenceInvokeArgs',
     'PartnerContentArgs',
     'RecurrenceScheduleArgs',
     'RecurrenceScheduleOccurrenceArgs',
@@ -3896,7 +3896,7 @@ class KeyVaultKeyReferenceKeyVaultArgs:
 
 
 @pulumi.input_type
-class KeyVaultReferenceArgs:
+class KeyVaultReferenceInvokeArgs:
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """

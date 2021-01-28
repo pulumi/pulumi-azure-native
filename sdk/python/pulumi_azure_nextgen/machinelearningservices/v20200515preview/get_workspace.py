@@ -147,7 +147,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionPropertyResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionPropertyInvokeResponseResult']:
         """
         The encryption settings of Azure ML workspace.
         """
@@ -179,7 +179,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -219,7 +219,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         The list of private endpoint connections in the workspace.
         """
@@ -251,7 +251,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourceResponse']]:
+    def shared_private_link_resources(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourceInvokeResponseResult']]:
         """
         The list of shared private link resources in this workspace.
         """
@@ -259,7 +259,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the workspace.
         """

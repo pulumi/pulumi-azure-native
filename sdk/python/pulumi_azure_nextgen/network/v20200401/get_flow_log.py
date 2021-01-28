@@ -82,7 +82,7 @@ class GetFlowLogResult:
 
     @property
     @pulumi.getter(name="flowAnalyticsConfiguration")
-    def flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsPropertiesResponse']:
+    def flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsPropertiesInvokeResponseResult']:
         """
         Parameters that define the configuration of traffic analytics.
         """
@@ -90,7 +90,7 @@ class GetFlowLogResult:
 
     @property
     @pulumi.getter
-    def format(self) -> Optional['outputs.FlowLogFormatParametersResponse']:
+    def format(self) -> Optional['outputs.FlowLogFormatParametersInvokeResponseResult']:
         """
         Parameters that define the flow log format.
         """
@@ -130,7 +130,7 @@ class GetFlowLogResult:
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional['outputs.RetentionPolicyParametersResponse']:
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyParametersInvokeResponseResult']:
         """
         Parameters that define the retention policy for flow log.
         """

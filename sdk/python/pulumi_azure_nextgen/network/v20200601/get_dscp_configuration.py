@@ -72,7 +72,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="associatedNetworkInterfaces")
-    def associated_network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+    def associated_network_interfaces(self) -> Sequence['outputs.NetworkInterfaceInvokeResponseResult']:
         """
         Associated Network Interfaces to the DSCP Configuration.
         """
@@ -80,7 +80,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="destinationIpRanges")
-    def destination_ip_ranges(self) -> Optional[Sequence['outputs.QosIpRangeResponse']]:
+    def destination_ip_ranges(self) -> Optional[Sequence['outputs.QosIpRangeInvokeResponseResult']]:
         """
         Destination IP ranges.
         """
@@ -88,7 +88,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[Sequence['outputs.QosPortRangeResponse']]:
+    def destination_port_ranges(self) -> Optional[Sequence['outputs.QosPortRangeInvokeResponseResult']]:
         """
         Destination port ranges.
         """
@@ -168,7 +168,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="sourceIpRanges")
-    def source_ip_ranges(self) -> Optional[Sequence['outputs.QosIpRangeResponse']]:
+    def source_ip_ranges(self) -> Optional[Sequence['outputs.QosIpRangeInvokeResponseResult']]:
         """
         Source IP ranges.
         """
@@ -176,7 +176,7 @@ class GetDscpConfigurationResult:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[Sequence['outputs.QosPortRangeResponse']]:
+    def source_port_ranges(self) -> Optional[Sequence['outputs.QosPortRangeInvokeResponseResult']]:
         """
         Sources port ranges.
         """

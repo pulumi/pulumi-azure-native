@@ -67,7 +67,7 @@ class GetExpressRouteConnectionResult:
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
-    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdResponse':
+    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdInvokeResponseResult':
         """
         The ExpressRoute circuit peering.
         """
@@ -107,7 +107,7 @@ class GetExpressRouteConnectionResult:
 
     @property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationInvokeResponseResult']:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

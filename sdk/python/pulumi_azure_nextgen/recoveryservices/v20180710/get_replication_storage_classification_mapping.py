@@ -63,7 +63,7 @@ class GetReplicationStorageClassificationMappingResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.StorageClassificationMappingPropertiesResponse':
+    def properties(self) -> 'outputs.StorageClassificationMappingPropertiesInvokeResponseResult':
         """
         Properties of the storage mapping object.
         """

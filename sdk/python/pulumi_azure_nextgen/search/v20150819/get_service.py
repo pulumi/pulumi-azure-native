@@ -79,7 +79,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -127,7 +127,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         """

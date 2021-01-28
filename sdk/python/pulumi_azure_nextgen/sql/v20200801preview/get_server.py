@@ -104,7 +104,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The Azure Active Directory identity of the server.
         """
@@ -144,7 +144,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.ServerPrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.ServerPrivateEndpointConnectionInvokeResponseResult']:
         """
         List of private endpoint connections on a server
         """

@@ -244,7 +244,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> 'outputs.PowerStateResponse':
+    def power_state(self) -> 'outputs.PowerStateInvokeResponseResult':
         """
         Describes whether the Agent Pool is Running or Stopped
         """
@@ -308,7 +308,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional['outputs.AgentPoolUpgradeSettingsResponse']:
+    def upgrade_settings(self) -> Optional['outputs.AgentPoolUpgradeSettingsInvokeResponseResult']:
         """
         Settings for upgrading the agentpool
         """

@@ -73,7 +73,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="deploymentProperties")
-    def deployment_properties(self) -> Optional['outputs.EnvironmentDeploymentPropertiesResponse']:
+    def deployment_properties(self) -> Optional['outputs.EnvironmentDeploymentPropertiesInvokeResponseResult']:
         """
         The deployment properties of the environment.
         """

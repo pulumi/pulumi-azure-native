@@ -113,7 +113,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Sequence['outputs.JobOutputAssetResponse']:
+    def outputs(self) -> Sequence['outputs.JobOutputAssetInvokeResponseResult']:
         """
         The outputs for the Job.
         """

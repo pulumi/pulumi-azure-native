@@ -10,8 +10,32 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'ManagementLockOwnerInvokeResponseResult',
     'ManagementLockOwnerResponse',
 ]
+
+@pulumi.output_type
+class ManagementLockOwnerInvokeResponseResult(dict):
+    """
+    Lock owner properties.
+    """
+    def __init__(__self__, *,
+                 application_id: Optional[str] = None):
+        """
+        Lock owner properties.
+        :param str application_id: The application ID of the lock owner.
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+        The application ID of the lock owner.
+        """
+        return pulumi.get(self, "application_id")
+
 
 @pulumi.output_type
 class ManagementLockOwnerResponse(dict):

@@ -56,7 +56,7 @@ class GetTableResourceTableResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -80,12 +80,12 @@ class GetTableResourceTableResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.TableGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.TableGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.TableGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.TableGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

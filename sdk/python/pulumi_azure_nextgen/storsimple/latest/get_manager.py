@@ -51,7 +51,7 @@ class GetManagerResult:
 
     @property
     @pulumi.getter(name="cisIntrinsicSettings")
-    def cis_intrinsic_settings(self) -> Optional['outputs.ManagerIntrinsicSettingsResponse']:
+    def cis_intrinsic_settings(self) -> Optional['outputs.ManagerIntrinsicSettingsInvokeResponseResult']:
         """
         Represents the type of StorSimple Manager.
         """
@@ -99,7 +99,7 @@ class GetManagerResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ManagerSkuResponse']:
+    def sku(self) -> Optional['outputs.ManagerSkuInvokeResponseResult']:
         """
         Specifies the Sku.
         """

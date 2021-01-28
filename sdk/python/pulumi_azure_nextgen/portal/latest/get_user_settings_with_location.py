@@ -27,7 +27,7 @@ class GetUserSettingsWithLocationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.UserPropertiesResponse':
+    def properties(self) -> 'outputs.UserPropertiesInvokeResponseResult':
         """
         The cloud shell user settings properties.
         """

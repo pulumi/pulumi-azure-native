@@ -86,7 +86,7 @@ class GetExpressRouteCircuitConnectionResult:
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
-    def express_route_circuit_peering(self) -> Optional['outputs.SubResourceResponse']:
+    def express_route_circuit_peering(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         """
@@ -110,7 +110,7 @@ class GetExpressRouteCircuitConnectionResult:
 
     @property
     @pulumi.getter(name="peerExpressRouteCircuitPeering")
-    def peer_express_route_circuit_peering(self) -> Optional['outputs.SubResourceResponse']:
+    def peer_express_route_circuit_peering(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """

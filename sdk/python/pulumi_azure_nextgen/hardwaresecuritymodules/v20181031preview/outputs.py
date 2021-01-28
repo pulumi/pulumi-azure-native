@@ -10,11 +10,38 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ApiEntityReferenceInvokeResponseResult',
     'ApiEntityReferenceResponse',
+    'NetworkInterfaceInvokeResponseResult',
     'NetworkInterfaceResponse',
+    'NetworkProfileInvokeResponseResult',
     'NetworkProfileResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class ApiEntityReferenceInvokeResponseResult(dict):
+    """
+    The API entity reference.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The API entity reference.
+        :param str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class ApiEntityReferenceResponse(dict):
@@ -40,6 +67,40 @@ class ApiEntityReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkInterfaceInvokeResponseResult(dict):
+    """
+    The network interface definition.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 private_ip_address: Optional[str] = None):
+        """
+        The network interface definition.
+        :param str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        :param str private_ip_address: Private Ip address of the interface
+        """
+        pulumi.set(__self__, "id", id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Private Ip address of the interface
+        """
+        return pulumi.get(self, "private_ip_address")
 
 
 @pulumi.output_type
@@ -80,6 +141,37 @@ class NetworkInterfaceResponse(dict):
 
 
 @pulumi.output_type
+class NetworkProfileInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceInvokeResponseResult']] = None,
+                 subnet: Optional['outputs.ApiEntityReferenceInvokeResponseResult'] = None):
+        """
+        :param Sequence['NetworkInterfaceInvokeResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+        :param 'ApiEntityReferenceInvokeResponseArgs' subnet: Specifies the identifier of the subnet.
+        """
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceInvokeResponseResult']]:
+        """
+        Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.ApiEntityReferenceInvokeResponseResult']:
+        """
+        Specifies the identifier of the subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
 class NetworkProfileResponse(dict):
     def __init__(__self__, *,
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
@@ -111,6 +203,25 @@ class NetworkProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        :param str name: SKU of the dedicated HSM
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        SKU of the dedicated HSM
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

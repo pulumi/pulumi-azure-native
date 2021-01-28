@@ -66,7 +66,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Sequence['outputs.ContainerServiceAgentPoolProfileResponse']:
+    def agent_pool_profiles(self) -> Sequence['outputs.ContainerServiceAgentPoolProfileInvokeResponseResult']:
         """
         Properties of the agent pool.
         """
@@ -74,7 +74,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="customProfile")
-    def custom_profile(self) -> Optional['outputs.ContainerServiceCustomProfileResponse']:
+    def custom_profile(self) -> Optional['outputs.ContainerServiceCustomProfileInvokeResponseResult']:
         """
         Properties for custom clusters.
         """
@@ -82,7 +82,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
-    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileResponse']:
+    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileInvokeResponseResult']:
         """
         Properties of the diagnostic agent.
         """
@@ -98,7 +98,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileResponse':
+    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileInvokeResponseResult':
         """
         Properties of Linux VMs.
         """
@@ -114,7 +114,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="masterProfile")
-    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileResponse':
+    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileInvokeResponseResult':
         """
         Properties of master agents.
         """
@@ -130,7 +130,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="orchestratorProfile")
-    def orchestrator_profile(self) -> Optional['outputs.ContainerServiceOrchestratorProfileResponse']:
+    def orchestrator_profile(self) -> Optional['outputs.ContainerServiceOrchestratorProfileInvokeResponseResult']:
         """
         Properties of the orchestrator.
         """
@@ -146,7 +146,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileInvokeResponseResult']:
         """
         Properties for cluster service principals.
         """
@@ -170,7 +170,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileResponse']:
+    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileInvokeResponseResult']:
         """
         Properties of Windows VMs.
         """

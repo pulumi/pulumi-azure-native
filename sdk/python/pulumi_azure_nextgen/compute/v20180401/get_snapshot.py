@@ -63,7 +63,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> 'outputs.CreationDataInvokeResponseResult':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -79,7 +79,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional['outputs.EncryptionSettingsResponse']:
+    def encryption_settings(self) -> Optional['outputs.EncryptionSettingsInvokeResponseResult']:
         """
         Encryption settings for disk or snapshot
         """
@@ -135,7 +135,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
+    def sku(self) -> Optional['outputs.SnapshotSkuInvokeResponseResult']:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         """

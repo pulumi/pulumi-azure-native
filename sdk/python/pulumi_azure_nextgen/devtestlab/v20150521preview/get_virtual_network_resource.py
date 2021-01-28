@@ -54,7 +54,7 @@ class GetVirtualNetworkResourceResult:
 
     @property
     @pulumi.getter(name="allowedSubnets")
-    def allowed_subnets(self) -> Optional[Sequence['outputs.SubnetResponse']]:
+    def allowed_subnets(self) -> Optional[Sequence['outputs.SubnetInvokeResponseResult']]:
         """
         The allowed subnets of the virtual network.
         """
@@ -110,7 +110,7 @@ class GetVirtualNetworkResourceResult:
 
     @property
     @pulumi.getter(name="subnetOverrides")
-    def subnet_overrides(self) -> Optional[Sequence['outputs.SubnetOverrideResponse']]:
+    def subnet_overrides(self) -> Optional[Sequence['outputs.SubnetOverrideInvokeResponseResult']]:
         """
         The subnet overrides of the virtual network.
         """

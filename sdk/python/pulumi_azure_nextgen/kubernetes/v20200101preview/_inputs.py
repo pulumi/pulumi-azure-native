@@ -10,13 +10,13 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
-    'AuthenticationDetailsValueArgs',
+    'AuthenticationDetailsInvokeValueArgs',
     'ConnectedClusterAADProfileArgs',
     'ConnectedClusterIdentityArgs',
 ]
 
 @pulumi.input_type
-class AuthenticationDetailsValueArgs:
+class AuthenticationDetailsInvokeValueArgs:
     def __init__(__self__, *,
                  token: Optional[str] = None):
         """

@@ -160,7 +160,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="reportedProperties")
-    def reported_properties(self) -> Optional['outputs.ClusterReportedPropertiesResponse']:
+    def reported_properties(self) -> Optional['outputs.ClusterReportedPropertiesInvokeResponseResult']:
         """
         Properties reported by cluster agent.
         """

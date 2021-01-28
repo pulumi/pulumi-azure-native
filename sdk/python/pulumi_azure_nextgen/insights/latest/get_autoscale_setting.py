@@ -83,7 +83,7 @@ class GetAutoscaleSettingResult:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[Sequence['outputs.AutoscaleNotificationResponse']]:
+    def notifications(self) -> Optional[Sequence['outputs.AutoscaleNotificationInvokeResponseResult']]:
         """
         the collection of notifications.
         """
@@ -91,7 +91,7 @@ class GetAutoscaleSettingResult:
 
     @property
     @pulumi.getter
-    def profiles(self) -> Sequence['outputs.AutoscaleProfileResponse']:
+    def profiles(self) -> Sequence['outputs.AutoscaleProfileInvokeResponseResult']:
         """
         the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         """

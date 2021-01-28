@@ -78,7 +78,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.MetricAlertActionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.MetricAlertActionInvokeResponseResult']]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """

@@ -51,7 +51,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> Sequence['outputs.SubResourceResponse']:
+    def availability_sets(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         A list of references to all availability sets in the proximity placement group.
         """
@@ -107,7 +107,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="virtualMachineScaleSets")
-    def virtual_machine_scale_sets(self) -> Sequence['outputs.SubResourceResponse']:
+    def virtual_machine_scale_sets(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         A list of references to all virtual machine scale sets in the proximity placement group.
         """
@@ -115,7 +115,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Sequence['outputs.SubResourceResponse']:
+    def virtual_machines(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         A list of references to all virtual machines in the proximity placement group.
         """

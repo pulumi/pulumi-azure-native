@@ -66,7 +66,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NotificationHubPropertiesResponse':
+    def properties(self) -> 'outputs.NotificationHubPropertiesInvokeResponseResult':
         """
         Gets or sets properties of the NotificationHub.
         """

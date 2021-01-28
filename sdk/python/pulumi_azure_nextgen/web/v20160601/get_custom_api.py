@@ -77,7 +77,7 @@ class GetCustomApiResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CustomApiPropertiesDefinitionResponse':
+    def properties(self) -> 'outputs.CustomApiPropertiesDefinitionInvokeResponseResult':
         """
         Custom API properties
         """

@@ -129,7 +129,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PolicySkuResponse']:
+    def sku(self) -> Optional['outputs.PolicySkuInvokeResponseResult']:
         """
         The policy sku.
         """

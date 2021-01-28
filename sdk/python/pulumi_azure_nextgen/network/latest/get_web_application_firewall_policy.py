@@ -66,7 +66,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="applicationGateways")
-    def application_gateways(self) -> Sequence['outputs.ApplicationGatewayResponse']:
+    def application_gateways(self) -> Sequence['outputs.ApplicationGatewayInvokeResponseResult']:
         """
         A collection of references to application gateways.
         """
@@ -74,7 +74,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[Sequence['outputs.WebApplicationFirewallCustomRuleResponse']]:
+    def custom_rules(self) -> Optional[Sequence['outputs.WebApplicationFirewallCustomRuleInvokeResponseResult']]:
         """
         The custom rules inside the policy.
         """
@@ -90,7 +90,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="httpListeners")
-    def http_listeners(self) -> Sequence['outputs.SubResourceResponse']:
+    def http_listeners(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         A collection of references to application gateway http listeners.
         """
@@ -114,7 +114,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> 'outputs.ManagedRulesDefinitionResponse':
+    def managed_rules(self) -> 'outputs.ManagedRulesDefinitionInvokeResponseResult':
         """
         Describes the managedRules structure.
         """
@@ -130,7 +130,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="pathBasedRules")
-    def path_based_rules(self) -> Sequence['outputs.SubResourceResponse']:
+    def path_based_rules(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         A collection of references to application gateway path rules.
         """
@@ -138,7 +138,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.PolicySettingsInvokeResponseResult']:
         """
         The PolicySettings for policy.
         """

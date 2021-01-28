@@ -71,7 +71,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> 'outputs.ConnectionMonitorDestinationResponse':
+    def destination(self) -> 'outputs.ConnectionMonitorDestinationInvokeResponseResult':
         """
         Describes the destination of connection monitor.
         """
@@ -132,7 +132,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.ConnectionMonitorSourceResponse':
+    def source(self) -> 'outputs.ConnectionMonitorSourceInvokeResponseResult':
         """
         Describes the source of connection monitor.
         """

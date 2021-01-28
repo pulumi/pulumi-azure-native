@@ -62,7 +62,7 @@ class GetWorkbookTemplateResult:
 
     @property
     @pulumi.getter
-    def galleries(self) -> Sequence['outputs.WorkbookTemplateGalleryResponse']:
+    def galleries(self) -> Sequence['outputs.WorkbookTemplateGalleryInvokeResponseResult']:
         """
         Workbook galleries supported by the template.
         """
@@ -78,7 +78,7 @@ class GetWorkbookTemplateResult:
 
     @property
     @pulumi.getter
-    def localized(self) -> Optional[Mapping[str, Sequence['outputs.WorkbookTemplateLocalizedGalleryResponse']]]:
+    def localized(self) -> Optional[Mapping[str, Sequence['outputs.WorkbookTemplateLocalizedGalleryInvokeResponseResult']]]:
         """
         Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         """

@@ -62,7 +62,7 @@ class ListWebAppBackupConfigurationResult:
 
     @property
     @pulumi.getter(name="backupSchedule")
-    def backup_schedule(self) -> Optional['outputs.BackupScheduleResponseResult']:
+    def backup_schedule(self) -> Optional['outputs.BackupScheduleInvokeResponseResult']:
         """
         Schedule for the backup if it is executed periodically.
         """
@@ -70,7 +70,7 @@ class ListWebAppBackupConfigurationResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponseResult']]:
+    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingInvokeResponseResult']]:
         """
         Databases included in the backup.
         """
@@ -118,7 +118,7 @@ class ListWebAppBackupConfigurationResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

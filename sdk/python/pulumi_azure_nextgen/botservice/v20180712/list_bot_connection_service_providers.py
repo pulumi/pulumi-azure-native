@@ -38,7 +38,7 @@ class ListBotConnectionServiceProvidersResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.ServiceProviderResponseResult']:
+    def value(self) -> Sequence['outputs.ServiceProviderInvokeResponseResult']:
         """
         Gets the list of bot service providers and their properties.
         """

@@ -80,7 +80,7 @@ class GetPipelineRunResult:
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.PipelineRunRequestResponse']:
+    def request(self) -> Optional['outputs.PipelineRunRequestInvokeResponseResult']:
         """
         The request parameters for a pipeline run.
         """
@@ -88,7 +88,7 @@ class GetPipelineRunResult:
 
     @property
     @pulumi.getter
-    def response(self) -> 'outputs.PipelineRunResponseResponse':
+    def response(self) -> 'outputs.PipelineRunResponseInvokeResponseResult':
         """
         The response of a pipeline run.
         """
@@ -96,7 +96,7 @@ class GetPipelineRunResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

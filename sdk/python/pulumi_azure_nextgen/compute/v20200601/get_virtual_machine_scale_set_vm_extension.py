@@ -92,7 +92,7 @@ class GetVirtualMachineScaleSetVMExtensionResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> Optional['outputs.VirtualMachineExtensionInstanceViewResponse']:
+    def instance_view(self) -> Optional['outputs.VirtualMachineExtensionInstanceViewInvokeResponseResult']:
         """
         The virtual machine extension instance view.
         """

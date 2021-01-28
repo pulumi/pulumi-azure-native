@@ -66,7 +66,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SKUResponse':
+    def sku(self) -> 'outputs.SKUInvokeResponseResult':
         """
         The SKU of the resource
         """

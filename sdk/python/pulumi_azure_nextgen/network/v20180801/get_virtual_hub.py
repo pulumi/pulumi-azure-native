@@ -82,7 +82,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="expressRouteGateway")
-    def express_route_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def express_route_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The expressRouteGateway associated with this VirtualHub
         """
@@ -114,7 +114,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="p2SVpnGateway")
-    def p2_s_vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def p2_s_vpn_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The P2SVpnGateway associated with this VirtualHub
         """
@@ -130,7 +130,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.VirtualHubRouteTableResponse']:
+    def route_table(self) -> Optional['outputs.VirtualHubRouteTableInvokeResponseResult']:
         """
         The routeTable associated with this virtual hub.
         """
@@ -154,7 +154,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualNetworkConnections")
-    def virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionResponse']]:
+    def virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionInvokeResponseResult']]:
         """
         list of all vnet connections with this VirtualHub.
         """
@@ -162,7 +162,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualWAN to which the VirtualHub belongs
         """
@@ -170,7 +170,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="vpnGateway")
-    def vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def vpn_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VpnGateway associated with this VirtualHub
         """

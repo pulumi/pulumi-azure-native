@@ -97,7 +97,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.AzureSkuResponse':
+    def sku(self) -> 'outputs.AzureSkuInvokeResponseResult':
         """
         The SKU of the cluster.
         """
@@ -121,7 +121,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> Optional[Sequence['outputs.TrustedExternalTenantResponse']]:
+    def trusted_external_tenants(self) -> Optional[Sequence['outputs.TrustedExternalTenantInvokeResponseResult']]:
         """
         The cluster's external tenants.
         """

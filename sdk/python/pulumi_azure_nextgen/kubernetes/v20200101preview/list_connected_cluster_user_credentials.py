@@ -32,7 +32,7 @@ class ListConnectedClusterUserCredentialsResult:
 
     @property
     @pulumi.getter(name="hybridConnectionConfig")
-    def hybrid_connection_config(self) -> 'outputs.HybridConnectionConfigResponseResult':
+    def hybrid_connection_config(self) -> 'outputs.HybridConnectionConfigInvokeResponseResult':
         """
         Contains the REP (rendezvous endpoint) and “Sender” access token.
         """
@@ -40,7 +40,7 @@ class ListConnectedClusterUserCredentialsResult:
 
     @property
     @pulumi.getter
-    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponseResult']:
+    def kubeconfigs(self) -> Sequence['outputs.CredentialResultInvokeResponseResult']:
         """
         Base64-encoded Kubernetes configuration file.
         """
@@ -61,7 +61,7 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
                                             client_proxy: Optional[bool] = None,
                                             cluster_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
-                                            value: Optional[pulumi.InputType['AuthenticationDetailsValueArgs']] = None,
+                                            value: Optional[pulumi.InputType['AuthenticationDetailsInvokeValueArgs']] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectedClusterUserCredentialsResult:
     """
     Use this data source to access information about an existing resource.
@@ -70,7 +70,7 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[Unio
     :param bool client_proxy: Parameter to indicate whether the request is for client side proxy or not
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param pulumi.InputType['AuthenticationDetailsValueArgs'] value: Authentication token value.
+    :param pulumi.InputType['AuthenticationDetailsInvokeValueArgs'] value: Authentication token value.
     """
     __args__ = dict()
     __args__['authenticationMethod'] = authentication_method

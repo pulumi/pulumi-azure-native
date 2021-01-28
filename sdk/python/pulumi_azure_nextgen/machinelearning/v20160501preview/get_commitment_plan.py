@@ -80,7 +80,7 @@ class GetCommitmentPlanResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CommitmentPlanPropertiesResponse':
+    def properties(self) -> 'outputs.CommitmentPlanPropertiesInvokeResponseResult':
         """
         The commitment plan properties.
         """
@@ -88,7 +88,7 @@ class GetCommitmentPlanResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> Optional['outputs.ResourceSkuInvokeResponseResult']:
         """
         The commitment plan SKU.
         """

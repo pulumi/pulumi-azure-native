@@ -202,7 +202,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> Optional['outputs.CloningInfoResponse']:
+    def cloning_info(self) -> Optional['outputs.CloningInfoInvokeResponseResult']:
         """
         If specified during app creation, the app is cloned from a source app.
         """
@@ -259,7 +259,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="hostNameSslStates")
-    def host_name_ssl_states(self) -> Optional[Sequence['outputs.HostNameSslStateResponse']]:
+    def host_name_ssl_states(self) -> Optional[Sequence['outputs.HostNameSslStateInvokeResponseResult']]:
         """
         Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         """
@@ -284,7 +284,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileInvokeResponseResult']:
         """
         App Service Environment to use for the app.
         """
@@ -317,7 +317,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Managed service identity.
         """
@@ -454,7 +454,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional['outputs.SiteConfigResponse']:
+    def site_config(self) -> Optional['outputs.SiteConfigInvokeResponseResult']:
         """
         Configuration of the app.
         """
@@ -462,7 +462,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="slotSwapStatus")
-    def slot_swap_status(self) -> 'outputs.SlotSwapStatusResponse':
+    def slot_swap_status(self) -> 'outputs.SlotSwapStatusInvokeResponseResult':
         """
         Status of the last deployment slot swap operation.
         """

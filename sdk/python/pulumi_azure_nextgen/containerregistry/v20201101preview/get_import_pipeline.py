@@ -62,7 +62,7 @@ class GetImportPipelineResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         """
         The identity of the import pipeline.
         """
@@ -102,7 +102,7 @@ class GetImportPipelineResult:
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.ImportPipelineSourcePropertiesResponse':
+    def source(self) -> 'outputs.ImportPipelineSourcePropertiesInvokeResponseResult':
         """
         The source properties of the import pipeline.
         """
@@ -110,7 +110,7 @@ class GetImportPipelineResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -118,7 +118,7 @@ class GetImportPipelineResult:
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional['outputs.PipelineTriggerPropertiesResponse']:
+    def trigger(self) -> Optional['outputs.PipelineTriggerPropertiesInvokeResponseResult']:
         """
         The properties that describe the trigger of the import pipeline.
         """

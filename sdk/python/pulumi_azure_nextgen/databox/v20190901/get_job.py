@@ -83,7 +83,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> Optional['outputs.JobDeliveryInfoResponse']:
+    def delivery_info(self) -> Optional['outputs.JobDeliveryInfoInvokeResponseResult']:
         """
         Delivery Info of Job.
         """
@@ -107,7 +107,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorResponse':
+    def error(self) -> 'outputs.ErrorInvokeResponseResult':
         """
         Top level error for the job.
         """
@@ -171,7 +171,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The sku type.
         """

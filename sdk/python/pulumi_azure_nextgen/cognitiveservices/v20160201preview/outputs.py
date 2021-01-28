@@ -10,8 +10,42 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The SKU of the cognitive services account.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU of the cognitive services account.
+        :param str name: Gets or sets the sku name. Required for account creation, optional for update.
+        :param str tier: Gets the sku tier. This is based on the SKU name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets or sets the sku name. Required for account creation, optional for update.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        Gets the sku tier. This is based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
+
 
 @pulumi.output_type
 class SkuResponse(dict):

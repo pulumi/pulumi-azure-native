@@ -11,13 +11,54 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EnvironmentStateDetailsInvokeResponseResult',
     'EnvironmentStateDetailsResponse',
+    'EnvironmentStatusInvokeResponseResult',
     'EnvironmentStatusResponse',
+    'IngressEnvironmentStatusInvokeResponseResult',
     'IngressEnvironmentStatusResponse',
+    'PartitionKeyPropertyInvokeResponseResult',
     'PartitionKeyPropertyResponse',
+    'ReferenceDataSetKeyPropertyInvokeResponseResult',
     'ReferenceDataSetKeyPropertyResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class EnvironmentStateDetailsInvokeResponseResult(dict):
+    """
+    An object that contains the details about an environment's state.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        An object that contains the details about an environment's state.
+        :param str code: Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+        :param str message: A message that describes the state in detail.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        A message that describes the state in detail.
+        """
+        return pulumi.get(self, "message")
+
 
 @pulumi.output_type
 class EnvironmentStateDetailsResponse(dict):
@@ -58,6 +99,28 @@ class EnvironmentStateDetailsResponse(dict):
 
 
 @pulumi.output_type
+class EnvironmentStatusInvokeResponseResult(dict):
+    """
+    An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+    """
+    def __init__(__self__, *,
+                 ingress: 'outputs.IngressEnvironmentStatusInvokeResponseResult'):
+        """
+        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        :param 'IngressEnvironmentStatusInvokeResponseArgs' ingress: An object that represents the status of ingress on an environment.
+        """
+        pulumi.set(__self__, "ingress", ingress)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> 'outputs.IngressEnvironmentStatusInvokeResponseResult':
+        """
+        An object that represents the status of ingress on an environment.
+        """
+        return pulumi.get(self, "ingress")
+
+
+@pulumi.output_type
 class EnvironmentStatusResponse(dict):
     """
     An object that represents the status of the environment, and its internal state in the Time Series Insights service.
@@ -80,6 +143,40 @@ class EnvironmentStatusResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IngressEnvironmentStatusInvokeResponseResult(dict):
+    """
+    An object that represents the status of ingress on an environment.
+    """
+    def __init__(__self__, *,
+                 state_details: 'outputs.EnvironmentStateDetailsInvokeResponseResult',
+                 state: Optional[str] = None):
+        """
+        An object that represents the status of ingress on an environment.
+        :param 'EnvironmentStateDetailsInvokeResponseArgs' state_details: An object that contains the details about an environment's state.
+        :param str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+        """
+        pulumi.set(__self__, "state_details", state_details)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="stateDetails")
+    def state_details(self) -> 'outputs.EnvironmentStateDetailsInvokeResponseResult':
+        """
+        An object that contains the details about an environment's state.
+        """
+        return pulumi.get(self, "state_details")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -117,6 +214,41 @@ class IngressEnvironmentStatusResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PartitionKeyPropertyInvokeResponseResult(dict):
+    """
+    The structure of the property that a partition key can have. An environment can have multiple such properties.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The structure of the property that a partition key can have. An environment can have multiple such properties.
+        :param str name: The name of the property.
+        :param str type: The type of the property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the property.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -158,6 +290,41 @@ class PartitionKeyPropertyResponse(dict):
 
 
 @pulumi.output_type
+class ReferenceDataSetKeyPropertyInvokeResponseResult(dict):
+    """
+    A key property for the reference data set. A reference data set can have multiple key properties.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        A key property for the reference data set. A reference data set can have multiple key properties.
+        :param str name: The name of the key property.
+        :param str type: The type of the key property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the key property.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the key property.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ReferenceDataSetKeyPropertyResponse(dict):
     """
     A key property for the reference data set. A reference data set can have multiple key properties.
@@ -193,6 +360,39 @@ class ReferenceDataSetKeyPropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+    """
+    def __init__(__self__, *,
+                 capacity: int,
+                 name: str):
+        """
+        The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        :param int capacity: The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+        :param str name: The name of this SKU.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this SKU.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

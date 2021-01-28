@@ -156,7 +156,7 @@ class GetServerGroupResult:
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
-    def delegated_subnet_arguments(self) -> Optional['outputs.ServerGroupPropertiesResponseDelegatedSubnetArguments']:
+    def delegated_subnet_arguments(self) -> Optional['outputs.ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsResult']:
         """
         The delegated subnet arguments for a server group.
         """
@@ -212,7 +212,7 @@ class GetServerGroupResult:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
+    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowInvokeResponseResult']:
         """
         Maintenance window of a server group.
         """
@@ -252,7 +252,7 @@ class GetServerGroupResult:
 
     @property
     @pulumi.getter(name="serverRoleGroups")
-    def server_role_groups(self) -> Optional[Sequence['outputs.ServerRoleGroupResponse']]:
+    def server_role_groups(self) -> Optional[Sequence['outputs.ServerRoleGroupInvokeResponseResult']]:
         """
         The list of server role groups.
         """
@@ -308,7 +308,7 @@ class GetServerGroupResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource
         """

@@ -66,7 +66,7 @@ class GetVaultResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.VaultPropertiesResponse':
+    def properties(self) -> 'outputs.VaultPropertiesInvokeResponseResult':
         """
         Properties of the vault
         """

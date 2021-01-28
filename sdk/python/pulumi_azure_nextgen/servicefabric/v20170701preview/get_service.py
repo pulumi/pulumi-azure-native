@@ -63,7 +63,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="correlationScheme")
-    def correlation_scheme(self) -> Optional[Sequence['outputs.ServiceCorrelationDescriptionResponse']]:
+    def correlation_scheme(self) -> Optional[Sequence['outputs.ServiceCorrelationDescriptionInvokeResponseResult']]:
         """
         A list that describes the correlation of the service with other services.
         """
@@ -135,7 +135,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="serviceLoadMetrics")
-    def service_load_metrics(self) -> Optional[Sequence['outputs.ServiceLoadMetricDescriptionResponse']]:
+    def service_load_metrics(self) -> Optional[Sequence['outputs.ServiceLoadMetricDescriptionInvokeResponseResult']]:
         """
         The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         """
@@ -143,7 +143,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="servicePlacementPolicies")
-    def service_placement_policies(self) -> Optional[Sequence['outputs.ServicePlacementPolicyDescriptionResponse']]:
+    def service_placement_policies(self) -> Optional[Sequence['outputs.ServicePlacementPolicyDescriptionInvokeResponseResult']]:
         """
         A list that describes the correlation of the service with other services.
         """

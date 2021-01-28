@@ -11,29 +11,108 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ExportDefinitionInvokeResponseResult',
     'ExportDefinitionResponse',
+    'ExportDeliveryDestinationInvokeResponseResult',
     'ExportDeliveryDestinationResponse',
+    'ExportDeliveryInfoInvokeResponseResult',
     'ExportDeliveryInfoResponse',
+    'ExportRecurrencePeriodInvokeResponseResult',
     'ExportRecurrencePeriodResponse',
+    'ExportScheduleInvokeResponseResult',
     'ExportScheduleResponse',
+    'KpiPropertiesInvokeResponseResult',
     'KpiPropertiesResponse',
+    'PivotPropertiesInvokeResponseResult',
     'PivotPropertiesResponse',
+    'QueryAggregationInvokeResponseResult',
     'QueryAggregationResponse',
+    'QueryComparisonExpressionInvokeResponseResult',
     'QueryComparisonExpressionResponse',
+    'QueryDatasetConfigurationInvokeResponseResult',
     'QueryDatasetConfigurationResponse',
+    'QueryDatasetInvokeResponseResult',
     'QueryDatasetResponse',
+    'QueryFilterInvokeResponseResult',
     'QueryFilterResponse',
+    'QueryGroupingInvokeResponseResult',
     'QueryGroupingResponse',
+    'QueryTimePeriodInvokeResponseResult',
     'QueryTimePeriodResponse',
+    'ReportConfigAggregationInvokeResponseResult',
     'ReportConfigAggregationResponse',
+    'ReportConfigComparisonExpressionInvokeResponseResult',
     'ReportConfigComparisonExpressionResponse',
+    'ReportConfigDatasetConfigurationInvokeResponseResult',
     'ReportConfigDatasetConfigurationResponse',
+    'ReportConfigDatasetInvokeResponseResult',
     'ReportConfigDatasetResponse',
+    'ReportConfigFilterInvokeResponseResult',
     'ReportConfigFilterResponse',
+    'ReportConfigGroupingInvokeResponseResult',
     'ReportConfigGroupingResponse',
+    'ReportConfigSortingInvokeResponseResult',
     'ReportConfigSortingResponse',
+    'ReportConfigTimePeriodInvokeResponseResult',
     'ReportConfigTimePeriodResponse',
 ]
+
+@pulumi.output_type
+class ExportDefinitionInvokeResponseResult(dict):
+    """
+    The definition of a query.
+    """
+    def __init__(__self__, *,
+                 timeframe: str,
+                 type: str,
+                 data_set: Optional['outputs.QueryDatasetInvokeResponseResult'] = None,
+                 time_period: Optional['outputs.QueryTimePeriodInvokeResponseResult'] = None):
+        """
+        The definition of a query.
+        :param str timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        :param str type: The type of the query.
+        :param 'QueryDatasetInvokeResponseArgs' data_set: Has definition for data in this query.
+        :param 'QueryTimePeriodInvokeResponseArgs' time_period: Has time period for pulling data for the query.
+        """
+        pulumi.set(__self__, "timeframe", timeframe)
+        pulumi.set(__self__, "type", type)
+        if data_set is not None:
+            pulumi.set(__self__, "data_set", data_set)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> str:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        """
+        return pulumi.get(self, "timeframe")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> Optional['outputs.QueryDatasetInvokeResponseResult']:
+        """
+        Has definition for data in this query.
+        """
+        return pulumi.get(self, "data_set")
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional['outputs.QueryTimePeriodInvokeResponseResult']:
+        """
+        Has time period for pulling data for the query.
+        """
+        return pulumi.get(self, "time_period")
+
 
 @pulumi.output_type
 class ExportDefinitionResponse(dict):
@@ -96,6 +175,51 @@ class ExportDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class ExportDeliveryDestinationInvokeResponseResult(dict):
+    """
+    The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+    """
+    def __init__(__self__, *,
+                 container: str,
+                 resource_id: str,
+                 root_folder_path: Optional[str] = None):
+        """
+        The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+        :param str container: The name of the container where exports will be uploaded.
+        :param str resource_id: The resource id of the storage account where exports will be delivered.
+        :param str root_folder_path: The name of the directory where exports will be uploaded.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if root_folder_path is not None:
+            pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter
+    def container(self) -> str:
+        """
+        The name of the container where exports will be uploaded.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource id of the storage account where exports will be delivered.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> Optional[str]:
+        """
+        The name of the directory where exports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
+
+
+@pulumi.output_type
 class ExportDeliveryDestinationResponse(dict):
     """
     The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
@@ -144,6 +268,28 @@ class ExportDeliveryDestinationResponse(dict):
 
 
 @pulumi.output_type
+class ExportDeliveryInfoInvokeResponseResult(dict):
+    """
+    The delivery information associated with a export.
+    """
+    def __init__(__self__, *,
+                 destination: 'outputs.ExportDeliveryDestinationInvokeResponseResult'):
+        """
+        The delivery information associated with a export.
+        :param 'ExportDeliveryDestinationInvokeResponseArgs' destination: Has destination for the export being delivered.
+        """
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ExportDeliveryDestinationInvokeResponseResult':
+        """
+        Has destination for the export being delivered.
+        """
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
 class ExportDeliveryInfoResponse(dict):
     """
     The delivery information associated with a export.
@@ -166,6 +312,40 @@ class ExportDeliveryInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExportRecurrencePeriodInvokeResponseResult(dict):
+    """
+    The start and end date for recurrence schedule.
+    """
+    def __init__(__self__, *,
+                 from_: str,
+                 to: Optional[str] = None):
+        """
+        The start and end date for recurrence schedule.
+        :param str from_: The start date of recurrence.
+        :param str to: The end date of recurrence.
+        """
+        pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The start date of recurrence.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[str]:
+        """
+        The end date of recurrence.
+        """
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type
@@ -203,6 +383,52 @@ class ExportRecurrencePeriodResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExportScheduleInvokeResponseResult(dict):
+    """
+    The schedule associated with a export.
+    """
+    def __init__(__self__, *,
+                 recurrence: str,
+                 recurrence_period: Optional['outputs.ExportRecurrencePeriodInvokeResponseResult'] = None,
+                 status: Optional[str] = None):
+        """
+        The schedule associated with a export.
+        :param str recurrence: The schedule recurrence.
+        :param 'ExportRecurrencePeriodInvokeResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param str status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+        """
+        pulumi.set(__self__, "recurrence", recurrence)
+        if recurrence_period is not None:
+            pulumi.set(__self__, "recurrence_period", recurrence_period)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> str:
+        """
+        The schedule recurrence.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter(name="recurrencePeriod")
+    def recurrence_period(self) -> Optional['outputs.ExportRecurrencePeriodInvokeResponseResult']:
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        return pulumi.get(self, "recurrence_period")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -252,6 +478,53 @@ class ExportScheduleResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KpiPropertiesInvokeResponseResult(dict):
+    """
+    Each KPI must contain a 'type' and 'enabled' key.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Each KPI must contain a 'type' and 'enabled' key.
+        :param bool enabled: show the KPI in the UI?
+        :param str id: ID of resource related to metric (budget).
+        :param str type: KPI type (Forecast, Budget).
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        show the KPI in the UI?
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of resource related to metric (budget).
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        KPI type (Forecast, Budget).
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -305,6 +578,41 @@ class KpiPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PivotPropertiesInvokeResponseResult(dict):
+    """
+    Each pivot must contain a 'type' and 'name'.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Each pivot must contain a 'type' and 'name'.
+        :param str name: Data field to show in view.
+        :param str type: Data type to show in view.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Data field to show in view.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Data type to show in view.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class PivotPropertiesResponse(dict):
     """
     Each pivot must contain a 'type' and 'name'.
@@ -343,6 +651,39 @@ class PivotPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class QueryAggregationInvokeResponseResult(dict):
+    """
+    The aggregation expression to be used in the query.
+    """
+    def __init__(__self__, *,
+                 function: str,
+                 name: str):
+        """
+        The aggregation expression to be used in the query.
+        :param str function: The name of the aggregation function to use.
+        :param str name: The name of the column to aggregate.
+        """
+        pulumi.set(__self__, "function", function)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The name of the aggregation function to use.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to aggregate.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class QueryAggregationResponse(dict):
     """
     The aggregation expression to be used in the query.
@@ -376,6 +717,50 @@ class QueryAggregationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class QueryComparisonExpressionInvokeResponseResult(dict):
+    """
+    The comparison expression to be used in the query.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        The comparison expression to be used in the query.
+        :param str name: The name of the column to use in comparison.
+        :param str operator: The operator to use for comparison.
+        :param Sequence[str] values: Array of values to use for comparison
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to use in comparison.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to use for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Array of values to use for comparison
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -426,6 +811,29 @@ class QueryComparisonExpressionResponse(dict):
 
 
 @pulumi.output_type
+class QueryDatasetConfigurationInvokeResponseResult(dict):
+    """
+    The configuration of dataset in the query.
+    """
+    def __init__(__self__, *,
+                 columns: Optional[Sequence[str]] = None):
+        """
+        The configuration of dataset in the query.
+        :param Sequence[str] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[str]]:
+        """
+        Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
 class QueryDatasetConfigurationResponse(dict):
     """
     The configuration of dataset in the query.
@@ -449,6 +857,77 @@ class QueryDatasetConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class QueryDatasetInvokeResponseResult(dict):
+    """
+    The definition of data present in the query.
+    """
+    def __init__(__self__, *,
+                 aggregation: Optional[Mapping[str, 'outputs.QueryAggregationInvokeResponseResult']] = None,
+                 configuration: Optional['outputs.QueryDatasetConfigurationInvokeResponseResult'] = None,
+                 filter: Optional['outputs.QueryFilterInvokeResponseResult'] = None,
+                 granularity: Optional[str] = None,
+                 grouping: Optional[Sequence['outputs.QueryGroupingInvokeResponseResult']] = None):
+        """
+        The definition of data present in the query.
+        :param Mapping[str, 'QueryAggregationInvokeResponseArgs'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+        :param 'QueryDatasetConfigurationInvokeResponseArgs' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'QueryFilterInvokeResponseArgs' filter: Has filter expression to use in the query.
+        :param str granularity: The granularity of rows in the query.
+        :param Sequence['QueryGroupingInvokeResponseArgs'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        """
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if granularity is not None:
+            pulumi.set(__self__, "granularity", granularity)
+        if grouping is not None:
+            pulumi.set(__self__, "grouping", grouping)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[Mapping[str, 'outputs.QueryAggregationInvokeResponseResult']]:
+        """
+        Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.QueryDatasetConfigurationInvokeResponseResult']:
+        """
+        Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.QueryFilterInvokeResponseResult']:
+        """
+        Has filter expression to use in the query.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> Optional[str]:
+        """
+        The granularity of rows in the query.
+        """
+        return pulumi.get(self, "granularity")
+
+    @property
+    @pulumi.getter
+    def grouping(self) -> Optional[Sequence['outputs.QueryGroupingInvokeResponseResult']]:
+        """
+        Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        """
+        return pulumi.get(self, "grouping")
 
 
 @pulumi.output_type
@@ -526,6 +1005,65 @@ class QueryDatasetResponse(dict):
 
 
 @pulumi.output_type
+class QueryFilterInvokeResponseResult(dict):
+    """
+    The filter expression to be used in the export.
+    """
+    def __init__(__self__, *,
+                 and_: Optional[Sequence['outputs.QueryFilterInvokeResponseResult']] = None,
+                 dimensions: Optional['outputs.QueryComparisonExpressionInvokeResponseResult'] = None,
+                 or_: Optional[Sequence['outputs.QueryFilterInvokeResponseResult']] = None,
+                 tags: Optional['outputs.QueryComparisonExpressionInvokeResponseResult'] = None):
+        """
+        The filter expression to be used in the export.
+        :param Sequence['QueryFilterInvokeResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'QueryComparisonExpressionInvokeResponseArgs' dimensions: Has comparison expression for a dimension
+        :param Sequence['QueryFilterInvokeResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'QueryComparisonExpressionInvokeResponseArgs' tags: Has comparison expression for a tag
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if or_ is not None:
+            pulumi.set(__self__, "or_", or_)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional[Sequence['outputs.QueryFilterInvokeResponseResult']]:
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional['outputs.QueryComparisonExpressionInvokeResponseResult']:
+        """
+        Has comparison expression for a dimension
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="or")
+    def or_(self) -> Optional[Sequence['outputs.QueryFilterInvokeResponseResult']]:
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        return pulumi.get(self, "or_")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.QueryComparisonExpressionInvokeResponseResult']:
+        """
+        Has comparison expression for a tag
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class QueryFilterResponse(dict):
     """
     The filter expression to be used in the export.
@@ -588,6 +1126,39 @@ class QueryFilterResponse(dict):
 
 
 @pulumi.output_type
+class QueryGroupingInvokeResponseResult(dict):
+    """
+    The group by expression to be used in the query.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        The group by expression to be used in the query.
+        :param str name: The name of the column to group.
+        :param str type: Has type of the column to group.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Has type of the column to group.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class QueryGroupingResponse(dict):
     """
     The group by expression to be used in the query.
@@ -621,6 +1192,39 @@ class QueryGroupingResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class QueryTimePeriodInvokeResponseResult(dict):
+    """
+    The start and end date for pulling data for the query.
+    """
+    def __init__(__self__, *,
+                 from_: str,
+                 to: str):
+        """
+        The start and end date for pulling data for the query.
+        :param str from_: The start date to pull data from.
+        :param str to: The end date to pull data to.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The start date to pull data from.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> str:
+        """
+        The end date to pull data to.
+        """
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type
@@ -660,6 +1264,39 @@ class QueryTimePeriodResponse(dict):
 
 
 @pulumi.output_type
+class ReportConfigAggregationInvokeResponseResult(dict):
+    """
+    The aggregation expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 function: str,
+                 name: str):
+        """
+        The aggregation expression to be used in the report.
+        :param str function: The name of the aggregation function to use.
+        :param str name: The name of the column to aggregate.
+        """
+        pulumi.set(__self__, "function", function)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The name of the aggregation function to use.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to aggregate.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ReportConfigAggregationResponse(dict):
     """
     The aggregation expression to be used in the report.
@@ -693,6 +1330,50 @@ class ReportConfigAggregationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportConfigComparisonExpressionInvokeResponseResult(dict):
+    """
+    The comparison expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        The comparison expression to be used in the report.
+        :param str name: The name of the column to use in comparison.
+        :param str operator: The operator to use for comparison.
+        :param Sequence[str] values: Array of values to use for comparison
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to use in comparison.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to use for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Array of values to use for comparison
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -743,6 +1424,29 @@ class ReportConfigComparisonExpressionResponse(dict):
 
 
 @pulumi.output_type
+class ReportConfigDatasetConfigurationInvokeResponseResult(dict):
+    """
+    The configuration of dataset in the report.
+    """
+    def __init__(__self__, *,
+                 columns: Optional[Sequence[str]] = None):
+        """
+        The configuration of dataset in the report.
+        :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[str]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
 class ReportConfigDatasetConfigurationResponse(dict):
     """
     The configuration of dataset in the report.
@@ -766,6 +1470,89 @@ class ReportConfigDatasetConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportConfigDatasetInvokeResponseResult(dict):
+    """
+    The definition of data present in the report.
+    """
+    def __init__(__self__, *,
+                 aggregation: Optional[Mapping[str, 'outputs.ReportConfigAggregationInvokeResponseResult']] = None,
+                 configuration: Optional['outputs.ReportConfigDatasetConfigurationInvokeResponseResult'] = None,
+                 filter: Optional['outputs.ReportConfigFilterInvokeResponseResult'] = None,
+                 granularity: Optional[str] = None,
+                 grouping: Optional[Sequence['outputs.ReportConfigGroupingInvokeResponseResult']] = None,
+                 sorting: Optional[Sequence['outputs.ReportConfigSortingInvokeResponseResult']] = None):
+        """
+        The definition of data present in the report.
+        :param Mapping[str, 'ReportConfigAggregationInvokeResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param 'ReportConfigDatasetConfigurationInvokeResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param 'ReportConfigFilterInvokeResponseArgs' filter: Has filter expression to use in the report.
+        :param str granularity: The granularity of rows in the report.
+        :param Sequence['ReportConfigGroupingInvokeResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportConfigSortingInvokeResponseArgs'] sorting: Array of order by expression to use in the report.
+        """
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if granularity is not None:
+            pulumi.set(__self__, "granularity", granularity)
+        if grouping is not None:
+            pulumi.set(__self__, "grouping", grouping)
+        if sorting is not None:
+            pulumi.set(__self__, "sorting", sorting)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[Mapping[str, 'outputs.ReportConfigAggregationInvokeResponseResult']]:
+        """
+        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.ReportConfigDatasetConfigurationInvokeResponseResult']:
+        """
+        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.ReportConfigFilterInvokeResponseResult']:
+        """
+        Has filter expression to use in the report.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> Optional[str]:
+        """
+        The granularity of rows in the report.
+        """
+        return pulumi.get(self, "granularity")
+
+    @property
+    @pulumi.getter
+    def grouping(self) -> Optional[Sequence['outputs.ReportConfigGroupingInvokeResponseResult']]:
+        """
+        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+        return pulumi.get(self, "grouping")
+
+    @property
+    @pulumi.getter
+    def sorting(self) -> Optional[Sequence['outputs.ReportConfigSortingInvokeResponseResult']]:
+        """
+        Array of order by expression to use in the report.
+        """
+        return pulumi.get(self, "sorting")
 
 
 @pulumi.output_type
@@ -855,6 +1642,65 @@ class ReportConfigDatasetResponse(dict):
 
 
 @pulumi.output_type
+class ReportConfigFilterInvokeResponseResult(dict):
+    """
+    The filter expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 and_: Optional[Sequence['outputs.ReportConfigFilterInvokeResponseResult']] = None,
+                 dimensions: Optional['outputs.ReportConfigComparisonExpressionInvokeResponseResult'] = None,
+                 or_: Optional[Sequence['outputs.ReportConfigFilterInvokeResponseResult']] = None,
+                 tags: Optional['outputs.ReportConfigComparisonExpressionInvokeResponseResult'] = None):
+        """
+        The filter expression to be used in the report.
+        :param Sequence['ReportConfigFilterInvokeResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionInvokeResponseArgs' dimensions: Has comparison expression for a dimension
+        :param Sequence['ReportConfigFilterInvokeResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionInvokeResponseArgs' tags: Has comparison expression for a tag
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if or_ is not None:
+            pulumi.set(__self__, "or_", or_)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional[Sequence['outputs.ReportConfigFilterInvokeResponseResult']]:
+        """
+        The logical "AND" expression. Must have at least 2 items.
+        """
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional['outputs.ReportConfigComparisonExpressionInvokeResponseResult']:
+        """
+        Has comparison expression for a dimension
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="or")
+    def or_(self) -> Optional[Sequence['outputs.ReportConfigFilterInvokeResponseResult']]:
+        """
+        The logical "OR" expression. Must have at least 2 items.
+        """
+        return pulumi.get(self, "or_")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.ReportConfigComparisonExpressionInvokeResponseResult']:
+        """
+        Has comparison expression for a tag
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class ReportConfigFilterResponse(dict):
     """
     The filter expression to be used in the report.
@@ -917,6 +1763,39 @@ class ReportConfigFilterResponse(dict):
 
 
 @pulumi.output_type
+class ReportConfigGroupingInvokeResponseResult(dict):
+    """
+    The group by expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        The group by expression to be used in the report.
+        :param str name: The name of the column to group. This version supports subscription lowest possible grain.
+        :param str type: Has type of the column to group.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to group. This version supports subscription lowest possible grain.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Has type of the column to group.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ReportConfigGroupingResponse(dict):
     """
     The group by expression to be used in the report.
@@ -950,6 +1829,40 @@ class ReportConfigGroupingResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportConfigSortingInvokeResponseResult(dict):
+    """
+    The order by expression to be used in the report.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 direction: Optional[str] = None):
+        """
+        The order by expression to be used in the report.
+        :param str name: The name of the column to sort.
+        :param str direction: Direction of sort.
+        """
+        pulumi.set(__self__, "name", name)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to sort.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[str]:
+        """
+        Direction of sort.
+        """
+        return pulumi.get(self, "direction")
 
 
 @pulumi.output_type
@@ -987,6 +1900,39 @@ class ReportConfigSortingResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportConfigTimePeriodInvokeResponseResult(dict):
+    """
+    The start and end date for pulling data for the report.
+    """
+    def __init__(__self__, *,
+                 from_: str,
+                 to: str):
+        """
+        The start and end date for pulling data for the report.
+        :param str from_: The start date to pull data from.
+        :param str to: The end date to pull data to.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The start date to pull data from.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> str:
+        """
+        The end date to pull data to.
+        """
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type

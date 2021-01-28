@@ -85,7 +85,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def diagnostics(self) -> Optional['outputs.DiagnosticsDescriptionResponse']:
+    def diagnostics(self) -> Optional['outputs.DiagnosticsDescriptionInvokeResponseResult']:
         """
         Describes the diagnostics definition and usage for an application resource.
         """
@@ -141,7 +141,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]:
+    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionInvokeResponseResult']]:
         """
         Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         """

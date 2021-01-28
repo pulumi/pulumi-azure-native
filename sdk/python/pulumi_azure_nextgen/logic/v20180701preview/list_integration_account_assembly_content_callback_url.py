@@ -58,7 +58,7 @@ class ListIntegrationAccountAssemblyContentCallbackUrlResult:
 
     @property
     @pulumi.getter
-    def queries(self) -> Optional['outputs.WorkflowTriggerListCallbackUrlQueriesResponseResult']:
+    def queries(self) -> Optional['outputs.WorkflowTriggerListCallbackUrlQueriesInvokeResponseResult']:
         """
         Gets the workflow trigger callback URL query parameters.
         """

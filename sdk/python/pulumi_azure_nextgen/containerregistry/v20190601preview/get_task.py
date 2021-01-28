@@ -82,7 +82,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter(name="agentConfiguration")
-    def agent_configuration(self) -> Optional['outputs.AgentPropertiesResponse']:
+    def agent_configuration(self) -> Optional['outputs.AgentPropertiesInvokeResponseResult']:
         """
         The machine configuration of the run agent.
         """
@@ -106,7 +106,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.CredentialsResponse']:
+    def credentials(self) -> Optional['outputs.CredentialsInvokeResponseResult']:
         """
         The properties that describes a set of credentials that will be used when this run is invoked.
         """
@@ -122,7 +122,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -162,7 +162,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> Optional['outputs.PlatformPropertiesResponse']:
+    def platform(self) -> Optional['outputs.PlatformPropertiesInvokeResponseResult']:
         """
         The platform properties against which the run has to happen.
         """
@@ -194,7 +194,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -218,7 +218,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional['outputs.TriggerPropertiesResponse']:
+    def trigger(self) -> Optional['outputs.TriggerPropertiesInvokeResponseResult']:
         """
         The properties that describe all triggers for the task.
         """

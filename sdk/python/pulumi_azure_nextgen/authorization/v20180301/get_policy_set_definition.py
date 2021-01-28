@@ -99,7 +99,7 @@ class GetPolicySetDefinitionResult:
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceResponse']:
+    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceInvokeResponseResult']:
         """
         An array of policy definition references.
         """

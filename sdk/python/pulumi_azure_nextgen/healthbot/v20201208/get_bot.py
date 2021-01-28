@@ -72,7 +72,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.HealthBotPropertiesResponse':
+    def properties(self) -> 'outputs.HealthBotPropertiesInvokeResponseResult':
         """
         The set of properties specific to Healthbot resource.
         """
@@ -80,7 +80,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         SKU of the HealthBot.
         """
@@ -88,7 +88,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource
         """

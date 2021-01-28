@@ -39,7 +39,7 @@ class GetServerTrustGroupResult:
 
     @property
     @pulumi.getter(name="groupMembers")
-    def group_members(self) -> Sequence['outputs.ServerInfoResponse']:
+    def group_members(self) -> Sequence['outputs.ServerInfoInvokeResponseResult']:
         """
         Group members information for the server trust group.
         """

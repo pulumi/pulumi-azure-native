@@ -60,7 +60,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ContainerServiceAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ContainerServiceAgentPoolProfileInvokeResponseResult']]:
         """
         Properties of the agent pool.
         """
@@ -100,7 +100,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
+    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileInvokeResponseResult']:
         """
         Profile for Linux VMs in the container service cluster.
         """
@@ -132,7 +132,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileInvokeResponseResult']:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         """

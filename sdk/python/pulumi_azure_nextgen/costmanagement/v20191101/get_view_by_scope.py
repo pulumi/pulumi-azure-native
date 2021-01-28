@@ -113,7 +113,7 @@ class GetViewByScopeResult:
 
     @property
     @pulumi.getter(name="dataSet")
-    def data_set(self) -> Optional['outputs.ReportConfigDatasetResponse']:
+    def data_set(self) -> Optional['outputs.ReportConfigDatasetInvokeResponseResult']:
         """
         Has definition for data in this report config.
         """
@@ -161,7 +161,7 @@ class GetViewByScopeResult:
 
     @property
     @pulumi.getter
-    def kpis(self) -> Optional[Sequence['outputs.KpiPropertiesResponse']]:
+    def kpis(self) -> Optional[Sequence['outputs.KpiPropertiesInvokeResponseResult']]:
         """
         List of KPIs to show in Cost Analysis UI.
         """
@@ -193,7 +193,7 @@ class GetViewByScopeResult:
 
     @property
     @pulumi.getter
-    def pivots(self) -> Optional[Sequence['outputs.PivotPropertiesResponse']]:
+    def pivots(self) -> Optional[Sequence['outputs.PivotPropertiesInvokeResponseResult']]:
         """
         Configuration of 3 sub-views in the Cost Analysis UI.
         """
@@ -209,7 +209,7 @@ class GetViewByScopeResult:
 
     @property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional['outputs.ReportConfigTimePeriodResponse']:
+    def time_period(self) -> Optional['outputs.ReportConfigTimePeriodInvokeResponseResult']:
         """
         Has time period for pulling data for the report.
         """

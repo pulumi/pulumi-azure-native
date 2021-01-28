@@ -101,7 +101,7 @@ class GetRelationshipResult:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[Sequence['outputs.PropertyDefinitionResponse']]:
+    def fields(self) -> Optional[Sequence['outputs.PropertyDefinitionInvokeResponseResult']]:
         """
         The properties of the Relationship.
         """
@@ -117,7 +117,7 @@ class GetRelationshipResult:
 
     @property
     @pulumi.getter(name="lookupMappings")
-    def lookup_mappings(self) -> Optional[Sequence['outputs.RelationshipTypeMappingResponse']]:
+    def lookup_mappings(self) -> Optional[Sequence['outputs.RelationshipTypeMappingInvokeResponseResult']]:
         """
         Optional property to be used to map fields in profile to their strong ids in related profile.
         """

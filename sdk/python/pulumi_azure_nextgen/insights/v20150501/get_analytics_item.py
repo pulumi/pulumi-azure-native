@@ -75,7 +75,7 @@ class GetAnalyticsItemResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse':
+    def properties(self) -> 'outputs.ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseResult':
         """
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         """

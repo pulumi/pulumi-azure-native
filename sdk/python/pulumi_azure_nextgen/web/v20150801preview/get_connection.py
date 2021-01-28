@@ -78,7 +78,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def api(self) -> Optional['outputs.ExpandedParentApiEntityResponse']:
+    def api(self) -> Optional['outputs.ExpandedParentApiEntityInvokeResponseResult']:
         """
         expanded connection provider name
         """
@@ -102,7 +102,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="customParameterValues")
-    def custom_parameter_values(self) -> Optional[Mapping[str, 'outputs.ParameterCustomLoginSettingValuesResponse']]:
+    def custom_parameter_values(self) -> Optional[Mapping[str, 'outputs.ParameterCustomLoginSettingValuesInvokeResponseResult']]:
         """
         Custom login setting values.
         """
@@ -187,7 +187,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[Sequence['outputs.ConnectionStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.ConnectionStatusInvokeResponseResult']]:
         """
         Status of the connection
         """

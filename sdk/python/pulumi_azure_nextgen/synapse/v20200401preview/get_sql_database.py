@@ -110,7 +110,7 @@ class GetSqlDatabaseResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         SystemData of SqlDatabase.
         """

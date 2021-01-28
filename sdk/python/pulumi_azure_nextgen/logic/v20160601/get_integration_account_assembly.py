@@ -66,7 +66,7 @@ class GetIntegrationAccountAssemblyResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.AssemblyPropertiesResponse':
+    def properties(self) -> 'outputs.AssemblyPropertiesInvokeResponseResult':
         """
         The assembly properties.
         """

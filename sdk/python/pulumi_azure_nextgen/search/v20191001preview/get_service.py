@@ -85,7 +85,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -109,7 +109,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional['outputs.NetworkRuleSetResponse']:
+    def network_rule_set(self) -> Optional['outputs.NetworkRuleSetInvokeResponseResult']:
         """
         Network specific rules that determine how the Azure Cognitive Search service may be reached.
         """
@@ -125,7 +125,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         The list of private endpoint connections to the Azure Cognitive Search service.
         """
@@ -149,7 +149,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         """

@@ -85,7 +85,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def diagnostics(self) -> Optional['outputs.DiagnosticsDescriptionResponse']:
+    def diagnostics(self) -> Optional['outputs.DiagnosticsDescriptionInvokeResponseResult']:
         """
         Describes the diagnostics definition and usage for an application resource.
         """
@@ -141,7 +141,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionResponse']]:
+    def services(self) -> Optional[Sequence['outputs.ServiceResourceDescriptionInvokeResponseResult']]:
         """
         describes the services in the application.
         """

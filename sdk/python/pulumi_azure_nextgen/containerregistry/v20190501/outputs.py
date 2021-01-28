@@ -11,29 +11,39 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActorResponseResult',
-    'EventContentResponseResult',
-    'EventRequestMessageResponseResult',
-    'EventResponseResult',
-    'EventResponseMessageResponseResult',
+    'ActorInvokeResponseResult',
+    'EventContentInvokeResponseResult',
+    'EventInvokeResponseResult',
+    'EventRequestMessageInvokeResponseResult',
+    'EventResponseMessageInvokeResponseResult',
+    'IPRuleInvokeResponseResult',
     'IPRuleResponse',
+    'NetworkRuleSetInvokeResponseResult',
     'NetworkRuleSetResponse',
+    'PoliciesInvokeResponseResult',
     'PoliciesResponse',
+    'QuarantinePolicyInvokeResponseResult',
     'QuarantinePolicyResponse',
-    'RegistryPasswordResponseResult',
-    'RequestResponseResult',
+    'RegistryPasswordInvokeResponseResult',
+    'RequestInvokeResponseResult',
+    'RetentionPolicyInvokeResponseResult',
     'RetentionPolicyResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
-    'SourceResponseResult',
+    'SourceInvokeResponseResult',
+    'StatusInvokeResponseResult',
     'StatusResponse',
+    'StorageAccountPropertiesInvokeResponseResult',
     'StorageAccountPropertiesResponse',
-    'TargetResponseResult',
+    'TargetInvokeResponseResult',
+    'TrustPolicyInvokeResponseResult',
     'TrustPolicyResponse',
+    'VirtualNetworkRuleInvokeResponseResult',
     'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
-class ActorResponseResult(dict):
+class ActorInvokeResponseResult(dict):
     """
     The agent that initiated the event. For most situations, this could be from the authorization context of the request.
     """
@@ -56,26 +66,26 @@ class ActorResponseResult(dict):
 
 
 @pulumi.output_type
-class EventContentResponseResult(dict):
+class EventContentInvokeResponseResult(dict):
     """
     The content of the event request message.
     """
     def __init__(__self__, *,
                  action: Optional[str] = None,
-                 actor: Optional['outputs.ActorResponseResult'] = None,
+                 actor: Optional['outputs.ActorInvokeResponseResult'] = None,
                  id: Optional[str] = None,
-                 request: Optional['outputs.RequestResponseResult'] = None,
-                 source: Optional['outputs.SourceResponseResult'] = None,
-                 target: Optional['outputs.TargetResponseResult'] = None,
+                 request: Optional['outputs.RequestInvokeResponseResult'] = None,
+                 source: Optional['outputs.SourceInvokeResponseResult'] = None,
+                 target: Optional['outputs.TargetInvokeResponseResult'] = None,
                  timestamp: Optional[str] = None):
         """
         The content of the event request message.
         :param str action: The action that encompasses the provided event.
-        :param 'ActorResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+        :param 'ActorInvokeResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param str id: The event ID.
-        :param 'RequestResponseArgs' request: The request that generated the event.
-        :param 'SourceResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-        :param 'TargetResponseArgs' target: The target of the event.
+        :param 'RequestInvokeResponseArgs' request: The request that generated the event.
+        :param 'SourceInvokeResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+        :param 'TargetInvokeResponseArgs' target: The target of the event.
         :param str timestamp: The time at which the event occurred.
         """
         if action is not None:
@@ -103,7 +113,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def actor(self) -> Optional['outputs.ActorResponseResult']:
+    def actor(self) -> Optional['outputs.ActorInvokeResponseResult']:
         """
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         """
@@ -119,7 +129,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestResponseResult']:
+    def request(self) -> Optional['outputs.RequestInvokeResponseResult']:
         """
         The request that generated the event.
         """
@@ -127,7 +137,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.SourceResponseResult']:
+    def source(self) -> Optional['outputs.SourceInvokeResponseResult']:
         """
         The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
         """
@@ -135,7 +145,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.TargetResponseResult']:
+    def target(self) -> Optional['outputs.TargetInvokeResponseResult']:
         """
         The target of the event.
         """
@@ -151,19 +161,66 @@ class EventContentResponseResult(dict):
 
 
 @pulumi.output_type
-class EventRequestMessageResponseResult(dict):
+class EventInvokeResponseResult(dict):
+    """
+    The event for a webhook.
+    """
+    def __init__(__self__, *,
+                 event_request_message: Optional['outputs.EventRequestMessageInvokeResponseResult'] = None,
+                 event_response_message: Optional['outputs.EventResponseMessageInvokeResponseResult'] = None,
+                 id: Optional[str] = None):
+        """
+        The event for a webhook.
+        :param 'EventRequestMessageInvokeResponseArgs' event_request_message: The event request message sent to the service URI.
+        :param 'EventResponseMessageInvokeResponseArgs' event_response_message: The event response message received from the service URI.
+        :param str id: The event ID.
+        """
+        if event_request_message is not None:
+            pulumi.set(__self__, "event_request_message", event_request_message)
+        if event_response_message is not None:
+            pulumi.set(__self__, "event_response_message", event_response_message)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="eventRequestMessage")
+    def event_request_message(self) -> Optional['outputs.EventRequestMessageInvokeResponseResult']:
+        """
+        The event request message sent to the service URI.
+        """
+        return pulumi.get(self, "event_request_message")
+
+    @property
+    @pulumi.getter(name="eventResponseMessage")
+    def event_response_message(self) -> Optional['outputs.EventResponseMessageInvokeResponseResult']:
+        """
+        The event response message received from the service URI.
+        """
+        return pulumi.get(self, "event_response_message")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The event ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class EventRequestMessageInvokeResponseResult(dict):
     """
     The event request message sent to the service URI.
     """
     def __init__(__self__, *,
-                 content: Optional['outputs.EventContentResponseResult'] = None,
+                 content: Optional['outputs.EventContentInvokeResponseResult'] = None,
                  headers: Optional[Mapping[str, str]] = None,
                  method: Optional[str] = None,
                  request_uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The event request message sent to the service URI.
-        :param 'EventContentResponseArgs' content: The content of the event request message.
+        :param 'EventContentInvokeResponseArgs' content: The content of the event request message.
         :param Mapping[str, str] headers: The headers of the event request message.
         :param str method: The HTTP method used to send the event request message.
         :param str request_uri: The URI used to send the event request message.
@@ -182,7 +239,7 @@ class EventRequestMessageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.EventContentResponseResult']:
+    def content(self) -> Optional['outputs.EventContentInvokeResponseResult']:
         """
         The content of the event request message.
         """
@@ -222,54 +279,7 @@ class EventRequestMessageResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseResult(dict):
-    """
-    The event for a webhook.
-    """
-    def __init__(__self__, *,
-                 event_request_message: Optional['outputs.EventRequestMessageResponseResult'] = None,
-                 event_response_message: Optional['outputs.EventResponseMessageResponseResult'] = None,
-                 id: Optional[str] = None):
-        """
-        The event for a webhook.
-        :param 'EventRequestMessageResponseArgs' event_request_message: The event request message sent to the service URI.
-        :param 'EventResponseMessageResponseArgs' event_response_message: The event response message received from the service URI.
-        :param str id: The event ID.
-        """
-        if event_request_message is not None:
-            pulumi.set(__self__, "event_request_message", event_request_message)
-        if event_response_message is not None:
-            pulumi.set(__self__, "event_response_message", event_response_message)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="eventRequestMessage")
-    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponseResult']:
-        """
-        The event request message sent to the service URI.
-        """
-        return pulumi.get(self, "event_request_message")
-
-    @property
-    @pulumi.getter(name="eventResponseMessage")
-    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponseResult']:
-        """
-        The event response message received from the service URI.
-        """
-        return pulumi.get(self, "event_response_message")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The event ID.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class EventResponseMessageResponseResult(dict):
+class EventResponseMessageInvokeResponseResult(dict):
     """
     The event response message received from the service URI.
     """
@@ -340,6 +350,42 @@ class EventResponseMessageResponseResult(dict):
 
 
 @pulumi.output_type
+class IPRuleInvokeResponseResult(dict):
+    """
+    IP rule with specific IP or IP range in CIDR format.
+    """
+    def __init__(__self__, *,
+                 i_p_address_or_range: str,
+                 action: Optional[str] = None):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        :param str action: The action of IP ACL rule.
+        """
+        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="iPAddressOrRange")
+    def i_p_address_or_range(self) -> str:
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        return pulumi.get(self, "i_p_address_or_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of IP ACL rule.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
 class IPRuleResponse(dict):
     """
     IP rule with specific IP or IP range in CIDR format.
@@ -376,6 +422,54 @@ class IPRuleResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkRuleSetInvokeResponseResult(dict):
+    """
+    The network rule set for a container registry.
+    """
+    def __init__(__self__, *,
+                 default_action: str,
+                 ip_rules: Optional[Sequence['outputs.IPRuleInvokeResponseResult']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']] = None):
+        """
+        The network rule set for a container registry.
+        :param str default_action: The default action of allow or deny when no other rules match.
+        :param Sequence['IPRuleInvokeResponseArgs'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleInvokeResponseArgs'] virtual_network_rules: The virtual network rules.
+        """
+        if default_action is None:
+            default_action = 'Allow'
+        pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleInvokeResponseResult']]:
+        """
+        The IP ACL rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']]:
+        """
+        The virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
 
 
 @pulumi.output_type
@@ -430,6 +524,53 @@ class NetworkRuleSetResponse(dict):
 
 
 @pulumi.output_type
+class PoliciesInvokeResponseResult(dict):
+    """
+    The policies for a container registry.
+    """
+    def __init__(__self__, *,
+                 quarantine_policy: Optional['outputs.QuarantinePolicyInvokeResponseResult'] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyInvokeResponseResult'] = None,
+                 trust_policy: Optional['outputs.TrustPolicyInvokeResponseResult'] = None):
+        """
+        The policies for a container registry.
+        :param 'QuarantinePolicyInvokeResponseArgs' quarantine_policy: The quarantine policy for a container registry.
+        :param 'RetentionPolicyInvokeResponseArgs' retention_policy: The retention policy for a container registry.
+        :param 'TrustPolicyInvokeResponseArgs' trust_policy: The content trust policy for a container registry.
+        """
+        if quarantine_policy is not None:
+            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if trust_policy is not None:
+            pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="quarantinePolicy")
+    def quarantine_policy(self) -> Optional['outputs.QuarantinePolicyInvokeResponseResult']:
+        """
+        The quarantine policy for a container registry.
+        """
+        return pulumi.get(self, "quarantine_policy")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyInvokeResponseResult']:
+        """
+        The retention policy for a container registry.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="trustPolicy")
+    def trust_policy(self) -> Optional['outputs.TrustPolicyInvokeResponseResult']:
+        """
+        The content trust policy for a container registry.
+        """
+        return pulumi.get(self, "trust_policy")
+
+
+@pulumi.output_type
 class PoliciesResponse(dict):
     """
     The policies for a container registry.
@@ -480,6 +621,31 @@ class PoliciesResponse(dict):
 
 
 @pulumi.output_type
+class QuarantinePolicyInvokeResponseResult(dict):
+    """
+    The quarantine policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        The quarantine policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class QuarantinePolicyResponse(dict):
     """
     The quarantine policy for a container registry.
@@ -508,7 +674,7 @@ class QuarantinePolicyResponse(dict):
 
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordInvokeResponseResult(dict):
     """
     The login password for the container registry.
     """
@@ -543,7 +709,7 @@ class RegistryPasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RequestResponseResult(dict):
+class RequestInvokeResponseResult(dict):
     """
     The request that generated the event.
     """
@@ -614,6 +780,56 @@ class RequestResponseResult(dict):
 
 
 @pulumi.output_type
+class RetentionPolicyInvokeResponseResult(dict):
+    """
+    The retention policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 last_updated_time: str,
+                 days: Optional[int] = None,
+                 status: Optional[str] = None):
+        """
+        The retention policy for a container registry.
+        :param str last_updated_time: The timestamp when the policy was last updated.
+        :param int days: The number of days to retain an untagged manifest after which it gets purged.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if days is None:
+            days = 7
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        The timestamp when the policy was last updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class RetentionPolicyResponse(dict):
     """
     The retention policy for a container registry.
@@ -667,6 +883,39 @@ class RetentionPolicyResponse(dict):
 
 
 @pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The SKU of a container registry.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU of a container registry.
+        :param str name: The SKU name of the container registry. Required for registry creation.
+        :param str tier: The SKU tier based on the SKU name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The SKU of a container registry.
@@ -703,7 +952,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class SourceResponseResult(dict):
+class SourceInvokeResponseResult(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
     """
@@ -735,6 +984,50 @@ class SourceResponseResult(dict):
         The running instance of an application. Changes after each restart.
         """
         return pulumi.get(self, "instance_id")
+
+
+@pulumi.output_type
+class StatusInvokeResponseResult(dict):
+    """
+    The status of an Azure resource at the time the operation was called.
+    """
+    def __init__(__self__, *,
+                 display_status: str,
+                 message: str,
+                 timestamp: str):
+        """
+        The status of an Azure resource at the time the operation was called.
+        :param str display_status: The short label for the status.
+        :param str message: The detailed message for the status, including alerts and error messages.
+        :param str timestamp: The timestamp when the status was changed to the current value.
+        """
+        pulumi.set(__self__, "display_status", display_status)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> str:
+        """
+        The short label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The detailed message for the status, including alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        The timestamp when the status was changed to the current value.
+        """
+        return pulumi.get(self, "timestamp")
 
 
 @pulumi.output_type
@@ -785,6 +1078,28 @@ class StatusResponse(dict):
 
 
 @pulumi.output_type
+class StorageAccountPropertiesInvokeResponseResult(dict):
+    """
+    The properties of a storage account for a container registry. Only applicable to Classic SKU.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The properties of a storage account for a container registry. Only applicable to Classic SKU.
+        :param str id: The resource ID of the storage account.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of the storage account.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class StorageAccountPropertiesResponse(dict):
     """
     The properties of a storage account for a container registry. Only applicable to Classic SKU.
@@ -810,7 +1125,7 @@ class StorageAccountPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class TargetResponseResult(dict):
+class TargetInvokeResponseResult(dict):
     """
     The target of the event.
     """
@@ -929,6 +1244,45 @@ class TargetResponseResult(dict):
 
 
 @pulumi.output_type
+class TrustPolicyInvokeResponseResult(dict):
+    """
+    The content trust policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The content trust policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        :param str type: The type of trust policy.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of trust policy.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class TrustPolicyResponse(dict):
     """
     The content trust policy for a container registry.
@@ -968,6 +1322,42 @@ class TrustPolicyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkRuleInvokeResponseResult(dict):
+    """
+    Virtual network rule.
+    """
+    def __init__(__self__, *,
+                 virtual_network_resource_id: str,
+                 action: Optional[str] = None):
+        """
+        Virtual network rule.
+        :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        :param str action: The action of virtual network rule.
+        """
+        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="virtualNetworkResourceId")
+    def virtual_network_resource_id(self) -> str:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "virtual_network_resource_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of virtual network rule.
+        """
+        return pulumi.get(self, "action")
 
 
 @pulumi.output_type

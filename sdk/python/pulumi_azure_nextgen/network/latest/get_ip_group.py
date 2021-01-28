@@ -62,7 +62,7 @@ class GetIpGroupResult:
 
     @property
     @pulumi.getter(name="firewallPolicies")
-    def firewall_policies(self) -> Sequence['outputs.SubResourceResponse']:
+    def firewall_policies(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to Firewall Policies resources that this IpGroups is associated with.
         """
@@ -70,7 +70,7 @@ class GetIpGroupResult:
 
     @property
     @pulumi.getter
-    def firewalls(self) -> Sequence['outputs.SubResourceResponse']:
+    def firewalls(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to Firewall resources that this IpGroups is associated with.
         """

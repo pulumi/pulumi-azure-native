@@ -78,7 +78,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> Optional[Sequence['outputs.CompressionSettingsResponse']]:
+    def compression_settings(self) -> Optional[Sequence['outputs.CompressionSettingsInvokeResponseResult']]:
         """
         compression settings.
         """
@@ -86,7 +86,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
+    def custom_domains(self) -> Optional[Sequence['outputs.ResourceReferenceInvokeResponseResult']]:
         """
         Domains referenced by this endpoint.
         """
@@ -147,7 +147,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="originGroup")
-    def origin_group(self) -> 'outputs.ResourceReferenceResponse':
+    def origin_group(self) -> 'outputs.ResourceReferenceInvokeResponseResult':
         """
         A reference to the origin group.
         """
@@ -187,7 +187,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
+    def rule_sets(self) -> Optional[Sequence['outputs.ResourceReferenceInvokeResponseResult']]:
         """
         rule sets referenced by this endpoint.
         """
@@ -203,7 +203,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

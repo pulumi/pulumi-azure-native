@@ -45,7 +45,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretInvokeResponseResult']:
         """
         The password details.
         """
@@ -69,7 +69,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Sequence['outputs.ShareAccessRightResponse']:
+    def share_access_rights(self) -> Sequence['outputs.ShareAccessRightInvokeResponseResult']:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """
@@ -77,7 +77,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         User in DataBoxEdge Resource
         """

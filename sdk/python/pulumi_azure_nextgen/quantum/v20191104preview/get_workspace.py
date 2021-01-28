@@ -73,7 +73,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.QuantumWorkspaceResponseIdentity']:
+    def identity(self) -> Optional['outputs.QuantumWorkspaceInvokeResponseIdentityResult']:
         """
         Managed Identity information.
         """
@@ -97,7 +97,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def providers(self) -> Optional[Sequence['outputs.ProviderResponse']]:
+    def providers(self) -> Optional[Sequence['outputs.ProviderInvokeResponseResult']]:
         """
         List of Providers selected for this Workspace
         """

@@ -93,7 +93,7 @@ class GetMachineExtensionResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> Optional['outputs.MachineExtensionInstanceViewResponse']:
+    def instance_view(self) -> Optional['outputs.MachineExtensionInstanceViewInvokeResponseResult']:
         """
         The machine extension instance view.
         """

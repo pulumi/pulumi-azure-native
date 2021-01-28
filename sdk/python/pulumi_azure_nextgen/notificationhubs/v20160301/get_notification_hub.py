@@ -66,7 +66,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="admCredential")
-    def adm_credential(self) -> Optional['outputs.AdmCredentialResponse']:
+    def adm_credential(self) -> Optional['outputs.AdmCredentialInvokeResponseResult']:
         """
         The AdmCredential of the created NotificationHub
         """
@@ -74,7 +74,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="apnsCredential")
-    def apns_credential(self) -> Optional['outputs.ApnsCredentialResponse']:
+    def apns_credential(self) -> Optional['outputs.ApnsCredentialInvokeResponseResult']:
         """
         The ApnsCredential of the created NotificationHub
         """
@@ -82,7 +82,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
+    def authorization_rules(self) -> Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesInvokeResponseResult']]:
         """
         The AuthorizationRules of the created NotificationHub
         """
@@ -90,7 +90,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="baiduCredential")
-    def baidu_credential(self) -> Optional['outputs.BaiduCredentialResponse']:
+    def baidu_credential(self) -> Optional['outputs.BaiduCredentialInvokeResponseResult']:
         """
         The BaiduCredential of the created NotificationHub
         """
@@ -98,7 +98,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="gcmCredential")
-    def gcm_credential(self) -> Optional['outputs.GcmCredentialResponse']:
+    def gcm_credential(self) -> Optional['outputs.GcmCredentialInvokeResponseResult']:
         """
         The GcmCredential of the created NotificationHub
         """
@@ -122,7 +122,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="mpnsCredential")
-    def mpns_credential(self) -> Optional['outputs.MpnsCredentialResponse']:
+    def mpns_credential(self) -> Optional['outputs.MpnsCredentialInvokeResponseResult']:
         """
         The MpnsCredential of the created NotificationHub
         """
@@ -146,7 +146,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the created namespace
         """
@@ -170,7 +170,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="wnsCredential")
-    def wns_credential(self) -> Optional['outputs.WnsCredentialResponse']:
+    def wns_credential(self) -> Optional['outputs.WnsCredentialInvokeResponseResult']:
         """
         The WnsCredential of the created NotificationHub
         """

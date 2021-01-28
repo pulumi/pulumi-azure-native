@@ -70,7 +70,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.IdentityResponse':
+    def identity(self) -> 'outputs.IdentityInvokeResponseResult':
         """
         Identity Info on the Account
         """

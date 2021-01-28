@@ -38,7 +38,7 @@ class ListWebhookEventsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EventResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.EventInvokeResponseResult']]:
         """
         The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
         """

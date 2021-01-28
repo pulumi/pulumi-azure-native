@@ -63,7 +63,7 @@ class GetPrivateDnsZoneGroupResult:
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> Optional[Sequence['outputs.PrivateDnsZoneConfigResponse']]:
+    def private_dns_zone_configs(self) -> Optional[Sequence['outputs.PrivateDnsZoneConfigInvokeResponseResult']]:
         """
         A collection of private dns zone configurations of the private dns zone group.
         """

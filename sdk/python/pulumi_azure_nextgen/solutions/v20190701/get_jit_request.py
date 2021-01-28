@@ -71,7 +71,7 @@ class GetJitRequestResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def created_by(self) -> 'outputs.ApplicationClientDetailsInvokeResponseResult':
         """
         The client entity that created the JIT request.
         """
@@ -87,7 +87,7 @@ class GetJitRequestResult:
 
     @property
     @pulumi.getter(name="jitAuthorizationPolicies")
-    def jit_authorization_policies(self) -> Sequence['outputs.JitAuthorizationPoliciesResponse']:
+    def jit_authorization_policies(self) -> Sequence['outputs.JitAuthorizationPoliciesInvokeResponseResult']:
         """
         The JIT authorization policies.
         """
@@ -103,7 +103,7 @@ class GetJitRequestResult:
 
     @property
     @pulumi.getter(name="jitSchedulingPolicy")
-    def jit_scheduling_policy(self) -> 'outputs.JitSchedulingPolicyResponse':
+    def jit_scheduling_policy(self) -> 'outputs.JitSchedulingPolicyInvokeResponseResult':
         """
         The JIT request properties.
         """
@@ -159,7 +159,7 @@ class GetJitRequestResult:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def updated_by(self) -> 'outputs.ApplicationClientDetailsInvokeResponseResult':
         """
         The client entity that last updated the JIT request.
         """

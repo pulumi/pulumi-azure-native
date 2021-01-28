@@ -68,7 +68,7 @@ class GetVirtualRouterResult:
 
     @property
     @pulumi.getter(name="hostedGateway")
-    def hosted_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def hosted_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The Gateway on which VirtualRouter is hosted.
         """
@@ -76,7 +76,7 @@ class GetVirtualRouterResult:
 
     @property
     @pulumi.getter(name="hostedSubnet")
-    def hosted_subnet(self) -> Optional['outputs.SubResourceResponse']:
+    def hosted_subnet(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The Subnet on which VirtualRouter is hosted.
         """
@@ -108,7 +108,7 @@ class GetVirtualRouterResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> Sequence['outputs.SubResourceResponse']:
+    def peerings(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to VirtualRouterPeerings
         """

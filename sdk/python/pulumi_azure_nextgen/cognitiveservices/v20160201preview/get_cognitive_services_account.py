@@ -110,7 +110,7 @@ class GetCognitiveServicesAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the cognitive services account.
         """

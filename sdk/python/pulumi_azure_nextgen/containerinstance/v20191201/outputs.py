@@ -11,37 +11,124 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureFileVolumeInvokeResponseResult',
     'AzureFileVolumeResponse',
+    'ContainerExecInvokeResponseResult',
     'ContainerExecResponse',
+    'ContainerGroupDiagnosticsInvokeResponseResult',
     'ContainerGroupDiagnosticsResponse',
+    'ContainerGroupIdentityInvokeResponseResult',
+    'ContainerGroupIdentityInvokeResponseUserAssignedIdentitiesResult',
     'ContainerGroupIdentityResponse',
     'ContainerGroupIdentityResponseUserAssignedIdentities',
+    'ContainerGroupInvokeResponseInstanceViewResult',
+    'ContainerGroupNetworkProfileInvokeResponseResult',
     'ContainerGroupNetworkProfileResponse',
     'ContainerGroupResponseInstanceView',
+    'ContainerHttpGetInvokeResponseResult',
     'ContainerHttpGetResponse',
+    'ContainerInvokeResponseResult',
+    'ContainerPortInvokeResponseResult',
     'ContainerPortResponse',
+    'ContainerProbeInvokeResponseResult',
     'ContainerProbeResponse',
+    'ContainerPropertiesInvokeResponseInstanceViewResult',
     'ContainerPropertiesResponseInstanceView',
     'ContainerResponse',
+    'ContainerStateInvokeResponseResult',
     'ContainerStateResponse',
+    'DnsConfigurationInvokeResponseResult',
     'DnsConfigurationResponse',
+    'EncryptionPropertiesInvokeResponseResult',
     'EncryptionPropertiesResponse',
+    'EnvironmentVariableInvokeResponseResult',
     'EnvironmentVariableResponse',
+    'EventInvokeResponseResult',
     'EventResponse',
+    'GitRepoVolumeInvokeResponseResult',
     'GitRepoVolumeResponse',
+    'GpuResourceInvokeResponseResult',
     'GpuResourceResponse',
+    'ImageRegistryCredentialInvokeResponseResult',
     'ImageRegistryCredentialResponse',
+    'InitContainerDefinitionInvokeResponseResult',
     'InitContainerDefinitionResponse',
+    'InitContainerPropertiesDefinitionInvokeResponseInstanceViewResult',
     'InitContainerPropertiesDefinitionResponseInstanceView',
+    'IpAddressInvokeResponseResult',
     'IpAddressResponse',
+    'LogAnalyticsInvokeResponseResult',
     'LogAnalyticsResponse',
+    'PortInvokeResponseResult',
     'PortResponse',
+    'ResourceLimitsInvokeResponseResult',
     'ResourceLimitsResponse',
+    'ResourceRequestsInvokeResponseResult',
     'ResourceRequestsResponse',
+    'ResourceRequirementsInvokeResponseResult',
     'ResourceRequirementsResponse',
+    'VolumeInvokeResponseResult',
+    'VolumeMountInvokeResponseResult',
     'VolumeMountResponse',
     'VolumeResponse',
 ]
+
+@pulumi.output_type
+class AzureFileVolumeInvokeResponseResult(dict):
+    """
+    The properties of the Azure File volume. Azure File shares are mounted as volumes.
+    """
+    def __init__(__self__, *,
+                 share_name: str,
+                 storage_account_name: str,
+                 read_only: Optional[bool] = None,
+                 storage_account_key: Optional[str] = None):
+        """
+        The properties of the Azure File volume. Azure File shares are mounted as volumes.
+        :param str share_name: The name of the Azure File share to be mounted as a volume.
+        :param str storage_account_name: The name of the storage account that contains the Azure File share.
+        :param bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        :param str storage_account_key: The storage account access key used to access the Azure File share.
+        """
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> str:
+        """
+        The name of the Azure File share to be mounted as a volume.
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        The name of the storage account that contains the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        """
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[str]:
+        """
+        The storage account access key used to access the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_key")
+
 
 @pulumi.output_type
 class AzureFileVolumeResponse(dict):
@@ -104,6 +191,29 @@ class AzureFileVolumeResponse(dict):
 
 
 @pulumi.output_type
+class ContainerExecInvokeResponseResult(dict):
+    """
+    The container execution command, for liveness or readiness probe
+    """
+    def __init__(__self__, *,
+                 command: Optional[Sequence[str]] = None):
+        """
+        The container execution command, for liveness or readiness probe
+        :param Sequence[str] command: The commands to execute within the container.
+        """
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[str]]:
+        """
+        The commands to execute within the container.
+        """
+        return pulumi.get(self, "command")
+
+
+@pulumi.output_type
 class ContainerExecResponse(dict):
     """
     The container execution command, for liveness or readiness probe
@@ -130,6 +240,29 @@ class ContainerExecResponse(dict):
 
 
 @pulumi.output_type
+class ContainerGroupDiagnosticsInvokeResponseResult(dict):
+    """
+    Container group diagnostic information.
+    """
+    def __init__(__self__, *,
+                 log_analytics: Optional['outputs.LogAnalyticsInvokeResponseResult'] = None):
+        """
+        Container group diagnostic information.
+        :param 'LogAnalyticsInvokeResponseArgs' log_analytics: Container group log analytics information.
+        """
+        if log_analytics is not None:
+            pulumi.set(__self__, "log_analytics", log_analytics)
+
+    @property
+    @pulumi.getter(name="logAnalytics")
+    def log_analytics(self) -> Optional['outputs.LogAnalyticsInvokeResponseResult']:
+        """
+        Container group log analytics information.
+        """
+        return pulumi.get(self, "log_analytics")
+
+
+@pulumi.output_type
 class ContainerGroupDiagnosticsResponse(dict):
     """
     Container group diagnostic information.
@@ -153,6 +286,92 @@ class ContainerGroupDiagnosticsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerGroupIdentityInvokeResponseResult(dict):
+    """
+    Identity for the container group.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ContainerGroupIdentityInvokeResponseUserAssignedIdentitiesResult']] = None):
+        """
+        Identity for the container group.
+        :param str principal_id: The principal id of the container group identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant id associated with the container group. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        :param Mapping[str, 'ContainerGroupIdentityInvokeResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the container group identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id associated with the container group. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ContainerGroupIdentityInvokeResponseUserAssignedIdentitiesResult']]:
+        """
+        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ContainerGroupIdentityInvokeResponseUserAssignedIdentitiesResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -248,6 +467,61 @@ class ContainerGroupIdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class ContainerGroupInvokeResponseInstanceViewResult(dict):
+    """
+    The instance view of the container group. Only valid in response.
+    """
+    def __init__(__self__, *,
+                 events: Sequence['outputs.EventInvokeResponseResult'],
+                 state: str):
+        """
+        The instance view of the container group. Only valid in response.
+        :param Sequence['EventInvokeResponseArgs'] events: The events of this container group.
+        :param str state: The state of the container group. Only valid in response.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence['outputs.EventInvokeResponseResult']:
+        """
+        The events of this container group.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the container group. Only valid in response.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class ContainerGroupNetworkProfileInvokeResponseResult(dict):
+    """
+    Container group network profile information.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Container group network profile information.
+        :param str id: The identifier for a network profile.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier for a network profile.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ContainerGroupNetworkProfileResponse(dict):
     """
     Container group network profile information.
@@ -309,6 +583,52 @@ class ContainerGroupResponseInstanceView(dict):
 
 
 @pulumi.output_type
+class ContainerHttpGetInvokeResponseResult(dict):
+    """
+    The container Http Get settings, for liveness or readiness probe
+    """
+    def __init__(__self__, *,
+                 port: int,
+                 path: Optional[str] = None,
+                 scheme: Optional[str] = None):
+        """
+        The container Http Get settings, for liveness or readiness probe
+        :param int port: The port number to probe.
+        :param str path: The path to probe.
+        :param str scheme: The scheme.
+        """
+        pulumi.set(__self__, "port", port)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number to probe.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to probe.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[str]:
+        """
+        The scheme.
+        """
+        return pulumi.get(self, "scheme")
+
+
+@pulumi.output_type
 class ContainerHttpGetResponse(dict):
     """
     The container Http Get settings, for liveness or readiness probe
@@ -358,6 +678,167 @@ class ContainerHttpGetResponse(dict):
 
 
 @pulumi.output_type
+class ContainerInvokeResponseResult(dict):
+    """
+    A container instance.
+    """
+    def __init__(__self__, *,
+                 image: str,
+                 instance_view: 'outputs.ContainerPropertiesInvokeResponseInstanceViewResult',
+                 name: str,
+                 resources: 'outputs.ResourceRequirementsInvokeResponseResult',
+                 command: Optional[Sequence[str]] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableInvokeResponseResult']] = None,
+                 liveness_probe: Optional['outputs.ContainerProbeInvokeResponseResult'] = None,
+                 ports: Optional[Sequence['outputs.ContainerPortInvokeResponseResult']] = None,
+                 readiness_probe: Optional['outputs.ContainerProbeInvokeResponseResult'] = None,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountInvokeResponseResult']] = None):
+        """
+        A container instance.
+        :param str image: The name of the image used to create the container instance.
+        :param 'ContainerPropertiesInvokeResponseInstanceViewArgs' instance_view: The instance view of the container instance. Only valid in response.
+        :param str name: The user-provided name of the container instance.
+        :param 'ResourceRequirementsInvokeResponseArgs' resources: The resource requirements of the container instance.
+        :param Sequence[str] command: The commands to execute within the container instance in exec form.
+        :param Sequence['EnvironmentVariableInvokeResponseArgs'] environment_variables: The environment variables to set in the container instance.
+        :param 'ContainerProbeInvokeResponseArgs' liveness_probe: The liveness probe.
+        :param Sequence['ContainerPortInvokeResponseArgs'] ports: The exposed ports on the container instance.
+        :param 'ContainerProbeInvokeResponseArgs' readiness_probe: The readiness probe.
+        :param Sequence['VolumeMountInvokeResponseArgs'] volume_mounts: The volume mounts available to the container instance.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "instance_view", instance_view)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resources", resources)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.ContainerPropertiesInvokeResponseInstanceViewResult':
+        """
+        The instance view of the container instance. Only valid in response.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The user-provided name of the container instance.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> 'outputs.ResourceRequirementsInvokeResponseResult':
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[str]]:
+        """
+        The commands to execute within the container instance in exec form.
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableInvokeResponseResult']]:
+        """
+        The environment variables to set in the container instance.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional['outputs.ContainerProbeInvokeResponseResult']:
+        """
+        The liveness probe.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence['outputs.ContainerPortInvokeResponseResult']]:
+        """
+        The exposed ports on the container instance.
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional['outputs.ContainerProbeInvokeResponseResult']:
+        """
+        The readiness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountInvokeResponseResult']]:
+        """
+        The volume mounts available to the container instance.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class ContainerPortInvokeResponseResult(dict):
+    """
+    The port exposed on the container instance.
+    """
+    def __init__(__self__, *,
+                 port: int,
+                 protocol: Optional[str] = None):
+        """
+        The port exposed on the container instance.
+        :param int port: The port number exposed within the container group.
+        :param str protocol: The protocol associated with the port.
+        """
+        pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number exposed within the container group.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol associated with the port.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
 class ContainerPortResponse(dict):
     """
     The port exposed on the container instance.
@@ -392,6 +873,101 @@ class ContainerPortResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerProbeInvokeResponseResult(dict):
+    """
+    The container probe, for liveness or readiness
+    """
+    def __init__(__self__, *,
+                 exec_: Optional['outputs.ContainerExecInvokeResponseResult'] = None,
+                 failure_threshold: Optional[int] = None,
+                 http_get: Optional['outputs.ContainerHttpGetInvokeResponseResult'] = None,
+                 initial_delay_seconds: Optional[int] = None,
+                 period_seconds: Optional[int] = None,
+                 success_threshold: Optional[int] = None,
+                 timeout_seconds: Optional[int] = None):
+        """
+        The container probe, for liveness or readiness
+        :param 'ContainerExecInvokeResponseArgs' exec_: The execution command to probe
+        :param int failure_threshold: The failure threshold.
+        :param 'ContainerHttpGetInvokeResponseArgs' http_get: The Http Get settings to probe
+        :param int initial_delay_seconds: The initial delay seconds.
+        :param int period_seconds: The period seconds.
+        :param int success_threshold: The success threshold.
+        :param int timeout_seconds: The timeout seconds.
+        """
+        if exec_ is not None:
+            pulumi.set(__self__, "exec_", exec_)
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="exec")
+    def exec_(self) -> Optional['outputs.ContainerExecInvokeResponseResult']:
+        """
+        The execution command to probe
+        """
+        return pulumi.get(self, "exec_")
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[int]:
+        """
+        The failure threshold.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional['outputs.ContainerHttpGetInvokeResponseResult']:
+        """
+        The Http Get settings to probe
+        """
+        return pulumi.get(self, "http_get")
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[int]:
+        """
+        The initial delay seconds.
+        """
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[int]:
+        """
+        The period seconds.
+        """
+        return pulumi.get(self, "period_seconds")
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> Optional[int]:
+        """
+        The success threshold.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[int]:
+        """
+        The timeout seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
 
 
 @pulumi.output_type
@@ -490,6 +1066,61 @@ class ContainerProbeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerPropertiesInvokeResponseInstanceViewResult(dict):
+    """
+    The instance view of the container instance. Only valid in response.
+    """
+    def __init__(__self__, *,
+                 current_state: 'outputs.ContainerStateInvokeResponseResult',
+                 events: Sequence['outputs.EventInvokeResponseResult'],
+                 previous_state: 'outputs.ContainerStateInvokeResponseResult',
+                 restart_count: int):
+        """
+        The instance view of the container instance. Only valid in response.
+        :param 'ContainerStateInvokeResponseArgs' current_state: Current container instance state.
+        :param Sequence['EventInvokeResponseArgs'] events: The events of the container instance.
+        :param 'ContainerStateInvokeResponseArgs' previous_state: Previous container instance state.
+        :param int restart_count: The number of times that the container instance has been restarted.
+        """
+        pulumi.set(__self__, "current_state", current_state)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "previous_state", previous_state)
+        pulumi.set(__self__, "restart_count", restart_count)
+
+    @property
+    @pulumi.getter(name="currentState")
+    def current_state(self) -> 'outputs.ContainerStateInvokeResponseResult':
+        """
+        Current container instance state.
+        """
+        return pulumi.get(self, "current_state")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence['outputs.EventInvokeResponseResult']:
+        """
+        The events of the container instance.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="previousState")
+    def previous_state(self) -> 'outputs.ContainerStateInvokeResponseResult':
+        """
+        Previous container instance state.
+        """
+        return pulumi.get(self, "previous_state")
+
+    @property
+    @pulumi.getter(name="restartCount")
+    def restart_count(self) -> int:
+        """
+        The number of times that the container instance has been restarted.
+        """
+        return pulumi.get(self, "restart_count")
 
 
 @pulumi.output_type
@@ -681,6 +1312,72 @@ class ContainerResponse(dict):
 
 
 @pulumi.output_type
+class ContainerStateInvokeResponseResult(dict):
+    """
+    The container instance state.
+    """
+    def __init__(__self__, *,
+                 detail_status: str,
+                 exit_code: int,
+                 finish_time: str,
+                 start_time: str,
+                 state: str):
+        """
+        The container instance state.
+        :param str detail_status: The human-readable status of the container instance state.
+        :param int exit_code: The container instance exit codes correspond to those from the `docker run` command.
+        :param str finish_time: The date-time when the container instance state finished.
+        :param str start_time: The date-time when the container instance state started.
+        :param str state: The state of the container instance.
+        """
+        pulumi.set(__self__, "detail_status", detail_status)
+        pulumi.set(__self__, "exit_code", exit_code)
+        pulumi.set(__self__, "finish_time", finish_time)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="detailStatus")
+    def detail_status(self) -> str:
+        """
+        The human-readable status of the container instance state.
+        """
+        return pulumi.get(self, "detail_status")
+
+    @property
+    @pulumi.getter(name="exitCode")
+    def exit_code(self) -> int:
+        """
+        The container instance exit codes correspond to those from the `docker run` command.
+        """
+        return pulumi.get(self, "exit_code")
+
+    @property
+    @pulumi.getter(name="finishTime")
+    def finish_time(self) -> str:
+        """
+        The date-time when the container instance state finished.
+        """
+        return pulumi.get(self, "finish_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The date-time when the container instance state started.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the container instance.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class ContainerStateResponse(dict):
     """
     The container instance state.
@@ -750,6 +1447,52 @@ class ContainerStateResponse(dict):
 
 
 @pulumi.output_type
+class DnsConfigurationInvokeResponseResult(dict):
+    """
+    DNS configuration for the container group.
+    """
+    def __init__(__self__, *,
+                 name_servers: Sequence[str],
+                 options: Optional[str] = None,
+                 search_domains: Optional[str] = None):
+        """
+        DNS configuration for the container group.
+        :param Sequence[str] name_servers: The DNS servers for the container group.
+        :param str options: The DNS options for the container group.
+        :param str search_domains: The DNS search domains for hostname lookup in the container group.
+        """
+        pulumi.set(__self__, "name_servers", name_servers)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if search_domains is not None:
+            pulumi.set(__self__, "search_domains", search_domains)
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> Sequence[str]:
+        """
+        The DNS servers for the container group.
+        """
+        return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[str]:
+        """
+        The DNS options for the container group.
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="searchDomains")
+    def search_domains(self) -> Optional[str]:
+        """
+        The DNS search domains for hostname lookup in the container group.
+        """
+        return pulumi.get(self, "search_domains")
+
+
+@pulumi.output_type
 class DnsConfigurationResponse(dict):
     """
     DNS configuration for the container group.
@@ -796,6 +1539,50 @@ class DnsConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionPropertiesInvokeResponseResult(dict):
+    """
+    The container group encryption properties.
+    """
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_version: str,
+                 vault_base_url: str):
+        """
+        The container group encryption properties.
+        :param str key_name: The encryption key name.
+        :param str key_version: The encryption key version.
+        :param str vault_base_url: The keyvault base url.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_version", key_version)
+        pulumi.set(__self__, "vault_base_url", vault_base_url)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The encryption key name.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> str:
+        """
+        The encryption key version.
+        """
+        return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> str:
+        """
+        The keyvault base url.
+        """
+        return pulumi.get(self, "vault_base_url")
 
 
 @pulumi.output_type
@@ -846,6 +1633,52 @@ class EncryptionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class EnvironmentVariableInvokeResponseResult(dict):
+    """
+    The environment variable to set within the container instance.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 secure_value: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The environment variable to set within the container instance.
+        :param str name: The name of the environment variable.
+        :param str secure_value: The value of the secure environment variable.
+        :param str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secure_value is not None:
+            pulumi.set(__self__, "secure_value", secure_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secureValue")
+    def secure_value(self) -> Optional[str]:
+        """
+        The value of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EnvironmentVariableResponse(dict):
     """
     The environment variable to set within the container instance.
@@ -892,6 +1725,83 @@ class EnvironmentVariableResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventInvokeResponseResult(dict):
+    """
+    A container group or container instance event.
+    """
+    def __init__(__self__, *,
+                 count: int,
+                 first_timestamp: str,
+                 last_timestamp: str,
+                 message: str,
+                 name: str,
+                 type: str):
+        """
+        A container group or container instance event.
+        :param int count: The count of the event.
+        :param str first_timestamp: The date-time of the earliest logged event.
+        :param str last_timestamp: The date-time of the latest logged event.
+        :param str message: The event message.
+        :param str name: The event name.
+        :param str type: The event type.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "first_timestamp", first_timestamp)
+        pulumi.set(__self__, "last_timestamp", last_timestamp)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The count of the event.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="firstTimestamp")
+    def first_timestamp(self) -> str:
+        """
+        The date-time of the earliest logged event.
+        """
+        return pulumi.get(self, "first_timestamp")
+
+    @property
+    @pulumi.getter(name="lastTimestamp")
+    def last_timestamp(self) -> str:
+        """
+        The date-time of the latest logged event.
+        """
+        return pulumi.get(self, "last_timestamp")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The event message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The event name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The event type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -975,6 +1885,52 @@ class EventResponse(dict):
 
 
 @pulumi.output_type
+class GitRepoVolumeInvokeResponseResult(dict):
+    """
+    Represents a volume that is populated with the contents of a git repository
+    """
+    def __init__(__self__, *,
+                 repository: str,
+                 directory: Optional[str] = None,
+                 revision: Optional[str] = None):
+        """
+        Represents a volume that is populated with the contents of a git repository
+        :param str repository: Repository URL
+        :param str directory: Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+        :param str revision: Commit hash for the specified revision.
+        """
+        pulumi.set(__self__, "repository", repository)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        """
+        Repository URL
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional[str]:
+        """
+        Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[str]:
+        """
+        Commit hash for the specified revision.
+        """
+        return pulumi.get(self, "revision")
+
+
+@pulumi.output_type
 class GitRepoVolumeResponse(dict):
     """
     Represents a volume that is populated with the contents of a git repository
@@ -1024,6 +1980,39 @@ class GitRepoVolumeResponse(dict):
 
 
 @pulumi.output_type
+class GpuResourceInvokeResponseResult(dict):
+    """
+    The GPU resource.
+    """
+    def __init__(__self__, *,
+                 count: int,
+                 sku: str):
+        """
+        The GPU resource.
+        :param int count: The count of the GPU resource.
+        :param str sku: The SKU of the GPU resource.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        The count of the GPU resource.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        """
+        The SKU of the GPU resource.
+        """
+        return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
 class GpuResourceResponse(dict):
     """
     The GPU resource.
@@ -1057,6 +2046,51 @@ class GpuResourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageRegistryCredentialInvokeResponseResult(dict):
+    """
+    Image registry credential.
+    """
+    def __init__(__self__, *,
+                 server: str,
+                 username: str,
+                 password: Optional[str] = None):
+        """
+        Image registry credential.
+        :param str server: The Docker image registry server without a protocol such as "http" and "https".
+        :param str username: The username for the private registry.
+        :param str password: The password for the private registry.
+        """
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "username", username)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The Docker image registry server without a protocol such as "http" and "https".
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password for the private registry.
+        """
+        return pulumi.get(self, "password")
 
 
 @pulumi.output_type
@@ -1105,6 +2139,87 @@ class ImageRegistryCredentialResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class InitContainerDefinitionInvokeResponseResult(dict):
+    """
+    The init container definition.
+    """
+    def __init__(__self__, *,
+                 instance_view: 'outputs.InitContainerPropertiesDefinitionInvokeResponseInstanceViewResult',
+                 name: str,
+                 command: Optional[Sequence[str]] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableInvokeResponseResult']] = None,
+                 image: Optional[str] = None,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountInvokeResponseResult']] = None):
+        """
+        The init container definition.
+        :param 'InitContainerPropertiesDefinitionInvokeResponseInstanceViewArgs' instance_view: The instance view of the init container. Only valid in response.
+        :param str name: The name for the init container.
+        :param Sequence[str] command: The command to execute within the init container in exec form.
+        :param Sequence['EnvironmentVariableInvokeResponseArgs'] environment_variables: The environment variables to set in the init container.
+        :param str image: The image of the init container.
+        :param Sequence['VolumeMountInvokeResponseArgs'] volume_mounts: The volume mounts available to the init container.
+        """
+        pulumi.set(__self__, "instance_view", instance_view)
+        pulumi.set(__self__, "name", name)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.InitContainerPropertiesDefinitionInvokeResponseInstanceViewResult':
+        """
+        The instance view of the init container. Only valid in response.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the init container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[str]]:
+        """
+        The command to execute within the init container in exec form.
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableInvokeResponseResult']]:
+        """
+        The environment variables to set in the init container.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        The image of the init container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountInvokeResponseResult']]:
+        """
+        The volume mounts available to the init container.
+        """
+        return pulumi.get(self, "volume_mounts")
 
 
 @pulumi.output_type
@@ -1192,6 +2307,61 @@ class InitContainerDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class InitContainerPropertiesDefinitionInvokeResponseInstanceViewResult(dict):
+    """
+    The instance view of the init container. Only valid in response.
+    """
+    def __init__(__self__, *,
+                 current_state: 'outputs.ContainerStateInvokeResponseResult',
+                 events: Sequence['outputs.EventInvokeResponseResult'],
+                 previous_state: 'outputs.ContainerStateInvokeResponseResult',
+                 restart_count: int):
+        """
+        The instance view of the init container. Only valid in response.
+        :param 'ContainerStateInvokeResponseArgs' current_state: The current state of the init container.
+        :param Sequence['EventInvokeResponseArgs'] events: The events of the init container.
+        :param 'ContainerStateInvokeResponseArgs' previous_state: The previous state of the init container.
+        :param int restart_count: The number of times that the init container has been restarted.
+        """
+        pulumi.set(__self__, "current_state", current_state)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "previous_state", previous_state)
+        pulumi.set(__self__, "restart_count", restart_count)
+
+    @property
+    @pulumi.getter(name="currentState")
+    def current_state(self) -> 'outputs.ContainerStateInvokeResponseResult':
+        """
+        The current state of the init container.
+        """
+        return pulumi.get(self, "current_state")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence['outputs.EventInvokeResponseResult']:
+        """
+        The events of the init container.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="previousState")
+    def previous_state(self) -> 'outputs.ContainerStateInvokeResponseResult':
+        """
+        The previous state of the init container.
+        """
+        return pulumi.get(self, "previous_state")
+
+    @property
+    @pulumi.getter(name="restartCount")
+    def restart_count(self) -> int:
+        """
+        The number of times that the init container has been restarted.
+        """
+        return pulumi.get(self, "restart_count")
+
+
+@pulumi.output_type
 class InitContainerPropertiesDefinitionResponseInstanceView(dict):
     """
     The instance view of the init container. Only valid in response.
@@ -1247,6 +2417,74 @@ class InitContainerPropertiesDefinitionResponseInstanceView(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IpAddressInvokeResponseResult(dict):
+    """
+    IP address for the container group.
+    """
+    def __init__(__self__, *,
+                 fqdn: str,
+                 ports: Sequence['outputs.PortInvokeResponseResult'],
+                 type: str,
+                 dns_name_label: Optional[str] = None,
+                 ip: Optional[str] = None):
+        """
+        IP address for the container group.
+        :param str fqdn: The FQDN for the IP.
+        :param Sequence['PortInvokeResponseArgs'] ports: The list of ports exposed on the container group.
+        :param str type: Specifies if the IP is exposed to the public internet or private VNET.
+        :param str dns_name_label: The Dns name label for the IP.
+        :param str ip: The IP exposed to the public internet.
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "ports", ports)
+        pulumi.set(__self__, "type", type)
+        if dns_name_label is not None:
+            pulumi.set(__self__, "dns_name_label", dns_name_label)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN for the IP.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Sequence['outputs.PortInvokeResponseResult']:
+        """
+        The list of ports exposed on the container group.
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies if the IP is exposed to the public internet or private VNET.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dnsNameLabel")
+    def dns_name_label(self) -> Optional[str]:
+        """
+        The Dns name label for the IP.
+        """
+        return pulumi.get(self, "dns_name_label")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[str]:
+        """
+        The IP exposed to the public internet.
+        """
+        return pulumi.get(self, "ip")
 
 
 @pulumi.output_type
@@ -1321,6 +2559,63 @@ class IpAddressResponse(dict):
 
 
 @pulumi.output_type
+class LogAnalyticsInvokeResponseResult(dict):
+    """
+    Container group log analytics information.
+    """
+    def __init__(__self__, *,
+                 workspace_id: str,
+                 workspace_key: str,
+                 log_type: Optional[str] = None,
+                 metadata: Optional[Mapping[str, str]] = None):
+        """
+        Container group log analytics information.
+        :param str workspace_id: The workspace id for log analytics
+        :param str workspace_key: The workspace key for log analytics
+        :param str log_type: The log type to be used.
+        :param Mapping[str, str] metadata: Metadata for log analytics.
+        """
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        pulumi.set(__self__, "workspace_key", workspace_key)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The workspace id for log analytics
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceKey")
+    def workspace_key(self) -> str:
+        """
+        The workspace key for log analytics
+        """
+        return pulumi.get(self, "workspace_key")
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional[str]:
+        """
+        The log type to be used.
+        """
+        return pulumi.get(self, "log_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata for log analytics.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
 class LogAnalyticsResponse(dict):
     """
     Container group log analytics information.
@@ -1381,6 +2676,40 @@ class LogAnalyticsResponse(dict):
 
 
 @pulumi.output_type
+class PortInvokeResponseResult(dict):
+    """
+    The port exposed on the container group.
+    """
+    def __init__(__self__, *,
+                 port: int,
+                 protocol: Optional[str] = None):
+        """
+        The port exposed on the container group.
+        :param int port: The port number.
+        :param str protocol: The protocol associated with the port.
+        """
+        pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol associated with the port.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
 class PortResponse(dict):
     """
     The port exposed on the container group.
@@ -1415,6 +2744,53 @@ class PortResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceLimitsInvokeResponseResult(dict):
+    """
+    The resource limits.
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[float] = None,
+                 gpu: Optional['outputs.GpuResourceInvokeResponseResult'] = None,
+                 memory_in_gb: Optional[float] = None):
+        """
+        The resource limits.
+        :param float cpu: The CPU limit of this container instance.
+        :param 'GpuResourceInvokeResponseArgs' gpu: The GPU limit of this container instance.
+        :param float memory_in_gb: The memory limit in GB of this container instance.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if gpu is not None:
+            pulumi.set(__self__, "gpu", gpu)
+        if memory_in_gb is not None:
+            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        The CPU limit of this container instance.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def gpu(self) -> Optional['outputs.GpuResourceInvokeResponseResult']:
+        """
+        The GPU limit of this container instance.
+        """
+        return pulumi.get(self, "gpu")
+
+    @property
+    @pulumi.getter(name="memoryInGB")
+    def memory_in_gb(self) -> Optional[float]:
+        """
+        The memory limit in GB of this container instance.
+        """
+        return pulumi.get(self, "memory_in_gb")
 
 
 @pulumi.output_type
@@ -1468,6 +2844,51 @@ class ResourceLimitsResponse(dict):
 
 
 @pulumi.output_type
+class ResourceRequestsInvokeResponseResult(dict):
+    """
+    The resource requests.
+    """
+    def __init__(__self__, *,
+                 cpu: float,
+                 memory_in_gb: float,
+                 gpu: Optional['outputs.GpuResourceInvokeResponseResult'] = None):
+        """
+        The resource requests.
+        :param float cpu: The CPU request of this container instance.
+        :param float memory_in_gb: The memory request in GB of this container instance.
+        :param 'GpuResourceInvokeResponseArgs' gpu: The GPU request of this container instance.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+        if gpu is not None:
+            pulumi.set(__self__, "gpu", gpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> float:
+        """
+        The CPU request of this container instance.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="memoryInGB")
+    def memory_in_gb(self) -> float:
+        """
+        The memory request in GB of this container instance.
+        """
+        return pulumi.get(self, "memory_in_gb")
+
+    @property
+    @pulumi.getter
+    def gpu(self) -> Optional['outputs.GpuResourceInvokeResponseResult']:
+        """
+        The GPU request of this container instance.
+        """
+        return pulumi.get(self, "gpu")
+
+
+@pulumi.output_type
 class ResourceRequestsResponse(dict):
     """
     The resource requests.
@@ -1516,6 +2937,40 @@ class ResourceRequestsResponse(dict):
 
 
 @pulumi.output_type
+class ResourceRequirementsInvokeResponseResult(dict):
+    """
+    The resource requirements.
+    """
+    def __init__(__self__, *,
+                 requests: 'outputs.ResourceRequestsInvokeResponseResult',
+                 limits: Optional['outputs.ResourceLimitsInvokeResponseResult'] = None):
+        """
+        The resource requirements.
+        :param 'ResourceRequestsInvokeResponseArgs' requests: The resource requests of this container instance.
+        :param 'ResourceLimitsInvokeResponseArgs' limits: The resource limits of this container instance.
+        """
+        pulumi.set(__self__, "requests", requests)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> 'outputs.ResourceRequestsInvokeResponseResult':
+        """
+        The resource requests of this container instance.
+        """
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional['outputs.ResourceLimitsInvokeResponseResult']:
+        """
+        The resource limits of this container instance.
+        """
+        return pulumi.get(self, "limits")
+
+
+@pulumi.output_type
 class ResourceRequirementsResponse(dict):
     """
     The resource requirements.
@@ -1550,6 +3005,121 @@ class ResourceRequirementsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VolumeInvokeResponseResult(dict):
+    """
+    The properties of the volume.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 azure_file: Optional['outputs.AzureFileVolumeInvokeResponseResult'] = None,
+                 empty_dir: Optional[Any] = None,
+                 git_repo: Optional['outputs.GitRepoVolumeInvokeResponseResult'] = None,
+                 secret: Optional[Mapping[str, str]] = None):
+        """
+        The properties of the volume.
+        :param str name: The name of the volume.
+        :param 'AzureFileVolumeInvokeResponseArgs' azure_file: The Azure File volume.
+        :param Any empty_dir: The empty directory volume.
+        :param 'GitRepoVolumeInvokeResponseArgs' git_repo: The git repo volume.
+        :param Mapping[str, str] secret: The secret volume.
+        """
+        pulumi.set(__self__, "name", name)
+        if azure_file is not None:
+            pulumi.set(__self__, "azure_file", azure_file)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if git_repo is not None:
+            pulumi.set(__self__, "git_repo", git_repo)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> Optional['outputs.AzureFileVolumeInvokeResponseResult']:
+        """
+        The Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
+
+    @property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional[Any]:
+        """
+        The empty directory volume.
+        """
+        return pulumi.get(self, "empty_dir")
+
+    @property
+    @pulumi.getter(name="gitRepo")
+    def git_repo(self) -> Optional['outputs.GitRepoVolumeInvokeResponseResult']:
+        """
+        The git repo volume.
+        """
+        return pulumi.get(self, "git_repo")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[Mapping[str, str]]:
+        """
+        The secret volume.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class VolumeMountInvokeResponseResult(dict):
+    """
+    The properties of the volume mount.
+    """
+    def __init__(__self__, *,
+                 mount_path: str,
+                 name: str,
+                 read_only: Optional[bool] = None):
+        """
+        The properties of the volume mount.
+        :param str mount_path: The path within the container where the volume should be mounted. Must not contain colon (:).
+        :param str name: The name of the volume mount.
+        :param bool read_only: The flag indicating whether the volume mount is read-only.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "name", name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> str:
+        """
+        The path within the container where the volume should be mounted. Must not contain colon (:).
+        """
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the volume mount.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        The flag indicating whether the volume mount is read-only.
+        """
+        return pulumi.get(self, "read_only")
 
 
 @pulumi.output_type

@@ -68,7 +68,7 @@ class GetDiskPoolResult:
 
     @property
     @pulumi.getter
-    def disks(self) -> Optional[Sequence['outputs.DiskResponse']]:
+    def disks(self) -> Optional[Sequence['outputs.DiskInvokeResponseResult']]:
         """
         List of Azure managed disks to attach to a DiskPool
         """
@@ -108,7 +108,7 @@ class GetDiskPoolResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Sku description.
         """
@@ -132,7 +132,7 @@ class GetDiskPoolResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemMetadataResponse':
+    def system_data(self) -> 'outputs.SystemMetadataInvokeResponseResult':
         """
         Resource metadata required by ARM RPC
         """

@@ -111,7 +111,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[Sequence['outputs.AdditionalLocationResponse']]:
+    def additional_locations(self) -> Optional[Sequence['outputs.AdditionalLocationInvokeResponseResult']]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -119,7 +119,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[Sequence['outputs.CertificateConfigurationResponse']]:
+    def certificates(self) -> Optional[Sequence['outputs.CertificateConfigurationInvokeResponseResult']]:
         """
         List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         """
@@ -183,7 +183,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> Optional[Sequence['outputs.HostnameConfigurationResponse']]:
+    def hostname_configurations(self) -> Optional[Sequence['outputs.HostnameConfigurationInvokeResponseResult']]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -199,7 +199,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ApiManagementServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ApiManagementServiceIdentityInvokeResponseResult']:
         """
         Managed service identity of the Api Management service.
         """
@@ -295,7 +295,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesResponse':
+    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesInvokeResponseResult':
         """
         SKU properties of the API Management service.
         """
@@ -327,7 +327,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
+    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationInvokeResponseResult']:
         """
         Virtual network configuration of the API Management service.
         """

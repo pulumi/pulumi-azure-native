@@ -88,7 +88,7 @@ class GetJobScheduleResult:
 
     @property
     @pulumi.getter
-    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
+    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyInvokeResponseResult']:
         """
         Gets or sets the runbook.
         """
@@ -96,7 +96,7 @@ class GetJobScheduleResult:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ScheduleAssociationPropertyResponse']:
+    def schedule(self) -> Optional['outputs.ScheduleAssociationPropertyInvokeResponseResult']:
         """
         Gets or sets the schedule.
         """

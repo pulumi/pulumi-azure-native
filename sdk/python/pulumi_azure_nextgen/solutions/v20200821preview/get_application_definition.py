@@ -90,7 +90,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ApplicationDefinitionArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ApplicationDefinitionArtifactInvokeResponseResult']]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -98,7 +98,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[Sequence['outputs.ApplicationAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.ApplicationAuthorizationInvokeResponseResult']]:
         """
         The managed application provider authorizations.
         """
@@ -114,7 +114,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter(name="deploymentPolicy")
-    def deployment_policy(self) -> Optional['outputs.ApplicationDeploymentPolicyResponse']:
+    def deployment_policy(self) -> Optional['outputs.ApplicationDeploymentPolicyInvokeResponseResult']:
         """
         The managed application deployment policy.
         """
@@ -170,7 +170,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter(name="lockingPolicy")
-    def locking_policy(self) -> Optional['outputs.ApplicationPackageLockingPolicyDefinitionResponse']:
+    def locking_policy(self) -> Optional['outputs.ApplicationPackageLockingPolicyDefinitionInvokeResponseResult']:
         """
         The managed application locking policy.
         """
@@ -194,7 +194,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter(name="managementPolicy")
-    def management_policy(self) -> Optional['outputs.ApplicationManagementPolicyResponse']:
+    def management_policy(self) -> Optional['outputs.ApplicationManagementPolicyInvokeResponseResult']:
         """
         The managed application management policy that determines publisher's access to the managed resource group.
         """
@@ -210,7 +210,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter(name="notificationPolicy")
-    def notification_policy(self) -> Optional['outputs.ApplicationNotificationPolicyResponse']:
+    def notification_policy(self) -> Optional['outputs.ApplicationNotificationPolicyInvokeResponseResult']:
         """
         The managed application notification policy.
         """
@@ -226,7 +226,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional[Sequence['outputs.ApplicationPolicyResponse']]:
+    def policies(self) -> Optional[Sequence['outputs.ApplicationPolicyInvokeResponseResult']]:
         """
         The managed application provider policies.
         """
@@ -234,7 +234,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the resource.
         """

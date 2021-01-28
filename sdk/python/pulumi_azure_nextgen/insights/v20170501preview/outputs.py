@@ -10,11 +10,61 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'LogSettingsInvokeResponseResult',
     'LogSettingsResponse',
+    'MetricSettingsInvokeResponseResult',
     'MetricSettingsResponse',
+    'RetentionPolicyInvokeResponseResult',
     'RetentionPolicyResponse',
+    'SubscriptionLogSettingsInvokeResponseResult',
     'SubscriptionLogSettingsResponse',
 ]
+
+@pulumi.output_type
+class LogSettingsInvokeResponseResult(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyInvokeResponseResult'] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyInvokeResponseArgs' retention_policy: the retention policy for this log.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyInvokeResponseResult']:
+        """
+        the retention policy for this log.
+        """
+        return pulumi.get(self, "retention_policy")
+
 
 @pulumi.output_type
 class LogSettingsResponse(dict):
@@ -63,6 +113,64 @@ class LogSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MetricSettingsInvokeResponseResult(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyInvokeResponseResult'] = None,
+                 time_grain: Optional[str] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+        :param bool enabled: a value indicating whether this category is enabled.
+        :param str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyInvokeResponseArgs' retention_policy: the retention policy for this category.
+        :param str time_grain: the timegrain of the metric in ISO8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this category is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyInvokeResponseResult']:
+        """
+        the retention policy for this category.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[str]:
+        """
+        the timegrain of the metric in ISO8601 format.
+        """
+        return pulumi.get(self, "time_grain")
 
 
 @pulumi.output_type
@@ -127,6 +235,39 @@ class MetricSettingsResponse(dict):
 
 
 @pulumi.output_type
+class RetentionPolicyInvokeResponseResult(dict):
+    """
+    Specifies the retention policy for the log.
+    """
+    def __init__(__self__, *,
+                 days: int,
+                 enabled: bool):
+        """
+        Specifies the retention policy for the log.
+        :param int days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        :param bool enabled: a value indicating whether the retention policy is enabled.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> int:
+        """
+        the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether the retention policy is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class RetentionPolicyResponse(dict):
     """
     Specifies the retention policy for the log.
@@ -160,6 +301,40 @@ class RetentionPolicyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubscriptionLogSettingsInvokeResponseResult(dict):
+    """
+    Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None):
+        """
+        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category")
 
 
 @pulumi.output_type

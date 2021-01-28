@@ -45,7 +45,7 @@ class GetSecurityContactResult:
 
     @property
     @pulumi.getter(name="alertNotifications")
-    def alert_notifications(self) -> Optional['outputs.SecurityContactPropertiesResponseAlertNotifications']:
+    def alert_notifications(self) -> Optional['outputs.SecurityContactPropertiesInvokeResponseAlertNotificationsResult']:
         """
         Defines whether to send email notifications about new security alerts
         """
@@ -77,7 +77,7 @@ class GetSecurityContactResult:
 
     @property
     @pulumi.getter(name="notificationsByRole")
-    def notifications_by_role(self) -> Optional['outputs.SecurityContactPropertiesResponseNotificationsByRole']:
+    def notifications_by_role(self) -> Optional['outputs.SecurityContactPropertiesInvokeResponseNotificationsByRoleResult']:
         """
         Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
         """

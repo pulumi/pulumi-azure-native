@@ -54,7 +54,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="contactInformation")
-    def contact_information(self) -> 'outputs.ContactDetailsResponse':
+    def contact_information(self) -> 'outputs.ContactDetailsInvokeResponseResult':
         """
         The contact details.
         """
@@ -62,7 +62,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="currentStatus")
-    def current_status(self) -> Optional['outputs.OrderStatusResponse']:
+    def current_status(self) -> Optional['outputs.OrderStatusInvokeResponseResult']:
         """
         Current status of the order.
         """
@@ -70,7 +70,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="deliveryTrackingInfo")
-    def delivery_tracking_info(self) -> Sequence['outputs.TrackingInfoResponse']:
+    def delivery_tracking_info(self) -> Sequence['outputs.TrackingInfoInvokeResponseResult']:
         """
         Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         """
@@ -94,7 +94,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="orderHistory")
-    def order_history(self) -> Sequence['outputs.OrderStatusResponse']:
+    def order_history(self) -> Sequence['outputs.OrderStatusInvokeResponseResult']:
         """
         List of status changes in the order.
         """
@@ -102,7 +102,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="returnTrackingInfo")
-    def return_tracking_info(self) -> Sequence['outputs.TrackingInfoResponse']:
+    def return_tracking_info(self) -> Sequence['outputs.TrackingInfoInvokeResponseResult']:
         """
         Tracking information for the package returned from the customer whether it has an original or a replacement device.
         """
@@ -118,7 +118,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> 'outputs.AddressResponse':
+    def shipping_address(self) -> 'outputs.AddressInvokeResponseResult':
         """
         The shipping address.
         """

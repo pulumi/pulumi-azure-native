@@ -85,7 +85,7 @@ class GetContainerResult:
 
     @property
     @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
+    def refresh_details(self) -> 'outputs.RefreshDetailsInvokeResponseResult':
         """
         Details of the refresh job on this container.
         """

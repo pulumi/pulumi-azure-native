@@ -179,7 +179,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="syncStatus")
-    def sync_status(self) -> Optional['outputs.ServerEndpointHealthResponse']:
+    def sync_status(self) -> Optional['outputs.ServerEndpointHealthInvokeResponseResult']:
         """
         Server Endpoint properties.
         """

@@ -91,7 +91,7 @@ class GetEnterpriseChannelResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.EnterpriseChannelPropertiesResponse':
+    def properties(self) -> 'outputs.EnterpriseChannelPropertiesInvokeResponseResult':
         """
         The set of properties specific to an Enterprise Channel resource.
         """
@@ -99,7 +99,7 @@ class GetEnterpriseChannelResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the SKU of the resource.
         """

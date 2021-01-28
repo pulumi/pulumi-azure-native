@@ -87,7 +87,7 @@ class GetP2sVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="p2SVpnGateways")
-    def p2_s_vpn_gateways(self) -> Sequence['outputs.SubResourceResponse']:
+    def p2_s_vpn_gateways(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to P2SVpnGateways.
         """
@@ -95,7 +95,7 @@ class GetP2sVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigRadiusClientRootCertificates")
-    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]:
+    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigRadiusClientRootCertificateInvokeResponseResult']]:
         """
         Radius client root certificate of P2SVpnServerConfiguration.
         """
@@ -103,7 +103,7 @@ class GetP2sVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigRadiusServerRootCertificates")
-    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]:
+    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigRadiusServerRootCertificateInvokeResponseResult']]:
         """
         Radius Server root certificate of P2SVpnServerConfiguration.
         """
@@ -111,7 +111,7 @@ class GetP2sVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigVpnClientRevokedCertificates")
-    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]:
+    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRevokedCertificateInvokeResponseResult']]:
         """
         VPN client revoked certificate of P2SVpnServerConfiguration.
         """
@@ -119,7 +119,7 @@ class GetP2sVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigVpnClientRootCertificates")
-    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]:
+    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRootCertificateInvokeResponseResult']]:
         """
         VPN client root certificate of P2SVpnServerConfiguration.
         """
@@ -151,7 +151,7 @@ class GetP2sVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="vpnClientIpsecPolicies")
-    def vpn_client_ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+    def vpn_client_ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyInvokeResponseResult']]:
         """
         VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         """

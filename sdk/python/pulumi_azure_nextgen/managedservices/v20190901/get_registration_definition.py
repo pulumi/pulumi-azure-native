@@ -55,7 +55,7 @@ class GetRegistrationDefinitionResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanInvokeResponseResult']:
         """
         Plan details for the managed services.
         """
@@ -63,7 +63,7 @@ class GetRegistrationDefinitionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RegistrationDefinitionPropertiesResponse':
+    def properties(self) -> 'outputs.RegistrationDefinitionPropertiesInvokeResponseResult':
         """
         Properties of a registration definition.
         """

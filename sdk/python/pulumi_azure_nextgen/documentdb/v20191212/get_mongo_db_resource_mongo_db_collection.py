@@ -66,7 +66,7 @@ class GetMongoDBResourceMongoDBCollectionResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.MongoDBCollectionGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.MongoDBCollectionGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

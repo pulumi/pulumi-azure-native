@@ -81,7 +81,7 @@ class GetDedicatedHsmResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.NetworkProfileInvokeResponseResult']:
         """
         Specifies the network interfaces of the dedicated hsm.
         """
@@ -97,7 +97,7 @@ class GetDedicatedHsmResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         SKU details
         """

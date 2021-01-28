@@ -67,7 +67,7 @@ class GetIotHubResourceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ArmIdentityResponse']:
+    def identity(self) -> Optional['outputs.ArmIdentityInvokeResponseResult']:
         """
         The managed identities for the IotHub.
         """
@@ -91,7 +91,7 @@ class GetIotHubResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IotHubPropertiesResponse':
+    def properties(self) -> 'outputs.IotHubPropertiesInvokeResponseResult':
         """
         IotHub properties
         """
@@ -99,7 +99,7 @@ class GetIotHubResourceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IotHubSkuInfoResponse':
+    def sku(self) -> 'outputs.IotHubSkuInfoInvokeResponseResult':
         """
         IotHub SKU info
         """

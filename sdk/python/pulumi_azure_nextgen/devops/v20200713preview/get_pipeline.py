@@ -51,7 +51,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter(name="bootstrapConfiguration")
-    def bootstrap_configuration(self) -> 'outputs.BootstrapConfigurationResponse':
+    def bootstrap_configuration(self) -> 'outputs.BootstrapConfigurationInvokeResponseResult':
         """
         Configuration used to bootstrap the Pipeline.
         """
@@ -99,7 +99,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata pertaining to this resource.
         """

@@ -65,7 +65,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.VirtualMachineScaleSetIdentityResponse']:
+    def identity(self) -> Optional['outputs.VirtualMachineScaleSetIdentityInvokeResponseResult']:
         """
         The identity of the virtual machine scale set, if configured.
         """
@@ -105,7 +105,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The virtual machine scale set sku.
         """
@@ -129,7 +129,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter(name="upgradePolicy")
-    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyResponse']:
+    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyInvokeResponseResult']:
         """
         The upgrade policy.
         """
@@ -137,7 +137,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter(name="virtualMachineProfile")
-    def virtual_machine_profile(self) -> Optional['outputs.VirtualMachineScaleSetVMProfileResponse']:
+    def virtual_machine_profile(self) -> Optional['outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult']:
         """
         The virtual machine profile.
         """

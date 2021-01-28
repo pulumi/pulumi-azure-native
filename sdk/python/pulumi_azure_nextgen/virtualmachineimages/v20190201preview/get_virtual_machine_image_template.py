@@ -78,7 +78,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="lastRunStatus")
-    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusResponse':
+    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusInvokeResponseResult':
         """
         State of 'run' that is currently executing or was last executed.
         """
@@ -102,7 +102,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> 'outputs.ProvisioningErrorResponse':
+    def provisioning_error(self) -> 'outputs.ProvisioningErrorInvokeResponseResult':
         """
         Provisioning error, if any
         """

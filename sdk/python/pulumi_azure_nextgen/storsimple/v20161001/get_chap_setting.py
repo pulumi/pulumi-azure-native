@@ -52,7 +52,7 @@ class GetChapSettingResult:
 
     @property
     @pulumi.getter
-    def password(self) -> 'outputs.AsymmetricEncryptedSecretResponse':
+    def password(self) -> 'outputs.AsymmetricEncryptedSecretInvokeResponseResult':
         """
         The chap password.
         """

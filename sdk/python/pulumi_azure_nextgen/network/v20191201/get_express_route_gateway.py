@@ -54,7 +54,7 @@ class GetExpressRouteGatewayResult:
 
     @property
     @pulumi.getter(name="autoScaleConfiguration")
-    def auto_scale_configuration(self) -> Optional['outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration']:
+    def auto_scale_configuration(self) -> Optional['outputs.ExpressRouteGatewayPropertiesInvokeResponseAutoScaleConfigurationResult']:
         """
         Configuration for auto scaling.
         """
@@ -70,7 +70,7 @@ class GetExpressRouteGatewayResult:
 
     @property
     @pulumi.getter(name="expressRouteConnections")
-    def express_route_connections(self) -> Sequence['outputs.ExpressRouteConnectionResponse']:
+    def express_route_connections(self) -> Sequence['outputs.ExpressRouteConnectionInvokeResponseResult']:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
         """
@@ -126,7 +126,7 @@ class GetExpressRouteGatewayResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> 'outputs.VirtualHubIdResponse':
+    def virtual_hub(self) -> 'outputs.VirtualHubIdInvokeResponseResult':
         """
         The Virtual Hub where the ExpressRoute gateway is or will be deployed.
         """

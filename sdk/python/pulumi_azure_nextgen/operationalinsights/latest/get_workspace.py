@@ -117,7 +117,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceResponse']:
+    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceInvokeResponseResult']:
         """
         List of linked private link scope resources.
         """
@@ -157,7 +157,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.WorkspaceSkuResponse']:
+    def sku(self) -> Optional['outputs.WorkspaceSkuInvokeResponseResult']:
         """
         The SKU of the workspace.
         """
@@ -181,7 +181,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="workspaceCapping")
-    def workspace_capping(self) -> Optional['outputs.WorkspaceCappingResponse']:
+    def workspace_capping(self) -> Optional['outputs.WorkspaceCappingInvokeResponseResult']:
         """
         The daily volume cap for ingestion.
         """

@@ -57,7 +57,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="applicationGateways")
-    def application_gateways(self) -> Sequence['outputs.ApplicationGatewayResponse']:
+    def application_gateways(self) -> Sequence['outputs.ApplicationGatewayInvokeResponseResult']:
         """
         A collection of references to application gateways.
         """
@@ -65,7 +65,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[Sequence['outputs.WebApplicationFirewallCustomRuleResponse']]:
+    def custom_rules(self) -> Optional[Sequence['outputs.WebApplicationFirewallCustomRuleInvokeResponseResult']]:
         """
         Describes custom rules inside the policy.
         """
@@ -105,7 +105,7 @@ class GetWebApplicationFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.PolicySettingsInvokeResponseResult']:
         """
         Describes policySettings for policy.
         """

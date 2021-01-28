@@ -70,7 +70,7 @@ class GetLabAccountResult:
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultInvokeResponseResult':
         """
         The details of the latest operation. ex: status, error
         """
@@ -102,7 +102,7 @@ class GetLabAccountResult:
 
     @property
     @pulumi.getter(name="sizeConfiguration")
-    def size_configuration(self) -> 'outputs.SizeConfigurationPropertiesResponse':
+    def size_configuration(self) -> 'outputs.SizeConfigurationPropertiesInvokeResponseResult':
         """
         Represents the size configuration under the lab account
         """

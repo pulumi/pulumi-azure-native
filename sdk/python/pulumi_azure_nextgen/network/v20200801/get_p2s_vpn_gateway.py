@@ -114,7 +114,7 @@ class GetP2sVpnGatewayResult:
 
     @property
     @pulumi.getter(name="p2SConnectionConfigurations")
-    def p2_s_connection_configurations(self) -> Optional[Sequence['outputs.P2SConnectionConfigurationResponse']]:
+    def p2_s_connection_configurations(self) -> Optional[Sequence['outputs.P2SConnectionConfigurationInvokeResponseResult']]:
         """
         List of all p2s connection configurations of the gateway.
         """
@@ -146,7 +146,7 @@ class GetP2sVpnGatewayResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualHub to which the gateway belongs.
         """
@@ -154,7 +154,7 @@ class GetP2sVpnGatewayResult:
 
     @property
     @pulumi.getter(name="vpnClientConnectionHealth")
-    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthResponse':
+    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthInvokeResponseResult':
         """
         All P2S VPN clients' connection health status.
         """
@@ -170,7 +170,7 @@ class GetP2sVpnGatewayResult:
 
     @property
     @pulumi.getter(name="vpnServerConfiguration")
-    def vpn_server_configuration(self) -> Optional['outputs.SubResourceResponse']:
+    def vpn_server_configuration(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """

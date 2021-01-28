@@ -105,7 +105,7 @@ class GetApiOperationResult:
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestContractResponse']:
+    def request(self) -> Optional['outputs.RequestContractInvokeResponseResult']:
         """
         An entity containing request details.
         """
@@ -113,7 +113,7 @@ class GetApiOperationResult:
 
     @property
     @pulumi.getter
-    def responses(self) -> Optional[Sequence['outputs.ResponseContractResponse']]:
+    def responses(self) -> Optional[Sequence['outputs.ResponseContractInvokeResponseResult']]:
         """
         Array of Operation responses.
         """
@@ -121,7 +121,7 @@ class GetApiOperationResult:
 
     @property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
+    def template_parameters(self) -> Optional[Sequence['outputs.ParameterContractInvokeResponseResult']]:
         """
         Collection of URL template parameters.
         """

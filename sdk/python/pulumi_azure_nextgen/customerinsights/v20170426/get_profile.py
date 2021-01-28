@@ -127,7 +127,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[Sequence['outputs.PropertyDefinitionResponse']]:
+    def fields(self) -> Optional[Sequence['outputs.PropertyDefinitionInvokeResponseResult']]:
         """
         The properties of the Profile.
         """
@@ -215,7 +215,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="strongIds")
-    def strong_ids(self) -> Optional[Sequence['outputs.StrongIdResponse']]:
+    def strong_ids(self) -> Optional[Sequence['outputs.StrongIdInvokeResponseResult']]:
         """
         The strong IDs.
         """

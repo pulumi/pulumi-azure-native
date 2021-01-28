@@ -54,7 +54,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationResponse']:
+    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationInvokeResponseResult']:
         """
         The DeadLetter destination of the event subscription.
         """
@@ -70,7 +70,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+    def filter(self) -> Optional['outputs.EventSubscriptionFilterInvokeResponseResult']:
         """
         Information about the filter for the event subscription.
         """
@@ -110,7 +110,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="retryPolicy")
-    def retry_policy(self) -> Optional['outputs.RetryPolicyResponse']:
+    def retry_policy(self) -> Optional['outputs.RetryPolicyInvokeResponseResult']:
         """
         The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """

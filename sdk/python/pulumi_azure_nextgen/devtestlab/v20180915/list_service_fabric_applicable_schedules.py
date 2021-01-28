@@ -53,7 +53,7 @@ class ListServiceFabricApplicableSchedulesResult:
 
     @property
     @pulumi.getter(name="labVmsShutdown")
-    def lab_vms_shutdown(self) -> Optional['outputs.ScheduleResponse']:
+    def lab_vms_shutdown(self) -> Optional['outputs.ScheduleInvokeResponseResult']:
         """
         The auto-shutdown schedule, if one has been set at the lab or lab resource level.
         """
@@ -61,7 +61,7 @@ class ListServiceFabricApplicableSchedulesResult:
 
     @property
     @pulumi.getter(name="labVmsStartup")
-    def lab_vms_startup(self) -> Optional['outputs.ScheduleResponse']:
+    def lab_vms_startup(self) -> Optional['outputs.ScheduleInvokeResponseResult']:
         """
         The auto-startup schedule, if one has been set at the lab or lab resource level.
         """

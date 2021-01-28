@@ -103,7 +103,7 @@ class GetRunbookResult:
 
     @property
     @pulumi.getter
-    def draft(self) -> Optional['outputs.RunbookDraftResponse']:
+    def draft(self) -> Optional['outputs.RunbookDraftInvokeResponseResult']:
         """
         Gets or sets the draft runbook properties.
         """
@@ -199,7 +199,7 @@ class GetRunbookResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.RunbookParameterResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.RunbookParameterInvokeResponseResult']]:
         """
         Gets or sets the runbook parameters.
         """
@@ -215,7 +215,7 @@ class GetRunbookResult:
 
     @property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional['outputs.ContentLinkResponse']:
+    def publish_content_link(self) -> Optional['outputs.ContentLinkInvokeResponseResult']:
         """
         Gets or sets the published runbook content link.
         """

@@ -87,7 +87,7 @@ class GetIncidentResult:
 
     @property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> 'outputs.IncidentAdditionalDataResponse':
+    def additional_data(self) -> 'outputs.IncidentAdditionalDataInvokeResponseResult':
         """
         Additional data on the incident
         """
@@ -175,7 +175,7 @@ class GetIncidentResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Sequence['outputs.IncidentLabelResponse']]:
+    def labels(self) -> Optional[Sequence['outputs.IncidentLabelInvokeResponseResult']]:
         """
         List of labels relevant to this incident
         """
@@ -207,7 +207,7 @@ class GetIncidentResult:
 
     @property
     @pulumi.getter
-    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
+    def owner(self) -> Optional['outputs.IncidentOwnerInfoInvokeResponseResult']:
         """
         Describes a user that the incident is assigned to
         """

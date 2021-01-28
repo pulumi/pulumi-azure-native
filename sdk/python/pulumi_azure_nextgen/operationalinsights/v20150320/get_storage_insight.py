@@ -83,7 +83,7 @@ class GetStorageInsightResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.StorageInsightStatusResponse':
+    def status(self) -> 'outputs.StorageInsightStatusInvokeResponseResult':
         """
         The status of the storage insight
         """
@@ -91,7 +91,7 @@ class GetStorageInsightResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> 'outputs.StorageAccountResponse':
+    def storage_account(self) -> 'outputs.StorageAccountInvokeResponseResult':
         """
         The storage account connection details
         """

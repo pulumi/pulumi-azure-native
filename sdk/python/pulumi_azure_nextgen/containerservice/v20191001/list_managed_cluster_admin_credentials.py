@@ -27,7 +27,7 @@ class ListManagedClusterAdminCredentialsResult:
 
     @property
     @pulumi.getter
-    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponseResult']:
+    def kubeconfigs(self) -> Sequence['outputs.CredentialResultInvokeResponseResult']:
         """
         Base64-encoded Kubernetes configuration file.
         """

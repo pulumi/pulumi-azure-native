@@ -57,7 +57,7 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter(name="dataFlows")
-    def data_flows(self) -> Sequence['outputs.DataFlowResponse']:
+    def data_flows(self) -> Sequence['outputs.DataFlowInvokeResponseResult']:
         """
         The specification of data flows.
         """
@@ -65,7 +65,7 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional['outputs.DataCollectionRuleResponseDataSources']:
+    def data_sources(self) -> Optional['outputs.DataCollectionRuleInvokeResponseDataSourcesResult']:
         """
         The specification of data sources. 
         This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -82,7 +82,7 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter
-    def destinations(self) -> 'outputs.DataCollectionRuleResponseDestinations':
+    def destinations(self) -> 'outputs.DataCollectionRuleInvokeResponseDestinationsResult':
         """
         The specification of destinations.
         """

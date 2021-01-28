@@ -96,7 +96,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.VirtualMachineRunCommandInstanceViewResponse':
+    def instance_view(self) -> 'outputs.VirtualMachineRunCommandInstanceViewInvokeResponseResult':
         """
         The virtual machine run command instance view.
         """
@@ -128,7 +128,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.RunCommandInputParameterResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.RunCommandInputParameterInvokeResponseResult']]:
         """
         The parameters used by the script.
         """
@@ -136,7 +136,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
 
     @property
     @pulumi.getter(name="protectedParameters")
-    def protected_parameters(self) -> Optional[Sequence['outputs.RunCommandInputParameterResponse']]:
+    def protected_parameters(self) -> Optional[Sequence['outputs.RunCommandInputParameterInvokeResponseResult']]:
         """
         The parameters used by the script.
         """
@@ -168,7 +168,7 @@ class GetVirtualMachineRunCommandByVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.VirtualMachineRunCommandScriptSourceResponse']:
+    def source(self) -> Optional['outputs.VirtualMachineRunCommandScriptSourceInvokeResponseResult']:
         """
         The source of the run command script.
         """

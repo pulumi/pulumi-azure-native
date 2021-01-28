@@ -94,7 +94,7 @@ class GetReplicationResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.StatusResponse':
+    def status(self) -> 'outputs.StatusInvokeResponseResult':
         """
         The status of the replication at the time the operation was called.
         """
@@ -102,7 +102,7 @@ class GetReplicationResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

@@ -72,7 +72,7 @@ class GetNetworkFunctionResult:
 
     @property
     @pulumi.getter
-    def device(self) -> Optional['outputs.SubResourceResponse']:
+    def device(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference to the device resource.
         """
@@ -104,7 +104,7 @@ class GetNetworkFunctionResult:
 
     @property
     @pulumi.getter(name="managedApplication")
-    def managed_application(self) -> 'outputs.SubResourceResponse':
+    def managed_application(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         The resource URI of the managed application.
         """
@@ -128,7 +128,7 @@ class GetNetworkFunctionResult:
 
     @property
     @pulumi.getter(name="networkFunctionUserConfigurations")
-    def network_function_user_configurations(self) -> Optional[Sequence['outputs.NetworkFunctionUserConfigurationResponse']]:
+    def network_function_user_configurations(self) -> Optional[Sequence['outputs.NetworkFunctionUserConfigurationInvokeResponseResult']]:
         """
         The network function configurations from the user.
         """

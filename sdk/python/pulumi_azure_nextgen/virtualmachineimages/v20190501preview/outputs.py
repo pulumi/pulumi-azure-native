@@ -11,23 +11,111 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ImageTemplateFileCustomizerInvokeResponseResult',
     'ImageTemplateFileCustomizerResponse',
+    'ImageTemplateIdentityInvokeResponseResult',
+    'ImageTemplateIdentityInvokeResponseUserAssignedIdentitiesResult',
     'ImageTemplateIdentityResponse',
     'ImageTemplateIdentityResponseUserAssignedIdentities',
+    'ImageTemplateIsoSourceInvokeResponseResult',
     'ImageTemplateIsoSourceResponse',
+    'ImageTemplateLastRunStatusInvokeResponseResult',
     'ImageTemplateLastRunStatusResponse',
+    'ImageTemplateManagedImageDistributorInvokeResponseResult',
     'ImageTemplateManagedImageDistributorResponse',
+    'ImageTemplateManagedImageSourceInvokeResponseResult',
     'ImageTemplateManagedImageSourceResponse',
+    'ImageTemplatePlatformImageSourceInvokeResponseResult',
     'ImageTemplatePlatformImageSourceResponse',
+    'ImageTemplatePowerShellCustomizerInvokeResponseResult',
     'ImageTemplatePowerShellCustomizerResponse',
+    'ImageTemplateRestartCustomizerInvokeResponseResult',
     'ImageTemplateRestartCustomizerResponse',
+    'ImageTemplateSharedImageDistributorInvokeResponseResult',
     'ImageTemplateSharedImageDistributorResponse',
+    'ImageTemplateSharedImageVersionSourceInvokeResponseResult',
     'ImageTemplateSharedImageVersionSourceResponse',
+    'ImageTemplateShellCustomizerInvokeResponseResult',
     'ImageTemplateShellCustomizerResponse',
+    'ImageTemplateVhdDistributorInvokeResponseResult',
     'ImageTemplateVhdDistributorResponse',
+    'ImageTemplateVmProfileInvokeResponseResult',
     'ImageTemplateVmProfileResponse',
+    'ProvisioningErrorInvokeResponseResult',
     'ProvisioningErrorResponse',
 ]
+
+@pulumi.output_type
+class ImageTemplateFileCustomizerInvokeResponseResult(dict):
+    """
+    Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 destination: Optional[str] = None,
+                 name: Optional[str] = None,
+                 sha256_checksum: Optional[str] = None,
+                 source_uri: Optional[str] = None):
+        """
+        Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
+        :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'File'.
+        :param str destination: The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
+        :param str name: Friendly Name to provide context on what this customization step does
+        :param str sha256_checksum: SHA256 checksum of the file provided in the sourceUri field above
+        :param str source_uri: The URI of the file to be uploaded for customizing the VM. It can be a github link, SAS URI for Azure Storage, etc
+        """
+        pulumi.set(__self__, "type", 'File')
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'File'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        """
+        The absolute path to a file (with nested directory structures already created) where the file (from sourceUri) will be uploaded to in the VM
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this customization step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[str]:
+        """
+        SHA256 checksum of the file provided in the sourceUri field above
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[str]:
+        """
+        The URI of the file to be uploaded for customizing the VM. It can be a github link, SAS URI for Azure Storage, etc
+        """
+        return pulumi.get(self, "source_uri")
+
 
 @pulumi.output_type
 class ImageTemplateFileCustomizerResponse(dict):
@@ -105,6 +193,70 @@ class ImageTemplateFileCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateIdentityInvokeResponseResult(dict):
+    """
+    Identity for the image template.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ImageTemplateIdentityInvokeResponseUserAssignedIdentitiesResult']] = None):
+        """
+        Identity for the image template.
+        :param str type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
+        :param Mapping[str, 'ImageTemplateIdentityInvokeResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the image template. The type 'None' will remove any identities from the image template.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ImageTemplateIdentityInvokeResponseUserAssignedIdentitiesResult']]:
+        """
+        The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ImageTemplateIdentityInvokeResponseUserAssignedIdentitiesResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class ImageTemplateIdentityResponse(dict):
     """
     Identity for the image template.
@@ -175,6 +327,52 @@ class ImageTemplateIdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class ImageTemplateIsoSourceInvokeResponseResult(dict):
+    """
+    Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+    """
+    def __init__(__self__, *,
+                 sha256_checksum: str,
+                 source_uri: str,
+                 type: str):
+        """
+        Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+        :param str sha256_checksum: SHA256 Checksum of the ISO image.
+        :param str source_uri: URI to get the ISO image. This URI has to be accessible to the resource provider at the time of the image template creation.
+        :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'ISO'.
+        """
+        pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+        pulumi.set(__self__, "source_uri", source_uri)
+        pulumi.set(__self__, "type", 'ISO')
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> str:
+        """
+        SHA256 Checksum of the ISO image.
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> str:
+        """
+        URI to get the ISO image. This URI has to be accessible to the resource provider at the time of the image template creation.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of source image you want to start with.
+        Expected value is 'ISO'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ImageTemplateIsoSourceResponse(dict):
     """
     Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
@@ -221,6 +419,77 @@ class ImageTemplateIsoSourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageTemplateLastRunStatusInvokeResponseResult(dict):
+    """
+    Describes the latest status of running an image template
+    """
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 message: Optional[str] = None,
+                 run_state: Optional[str] = None,
+                 run_sub_state: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        Describes the latest status of running an image template
+        :param str end_time: End time of the last run (UTC)
+        :param str message: Verbose information about the last run state
+        :param str run_state: State of the last run
+        :param str run_sub_state: Sub-state of the last run
+        :param str start_time: Start time of the last run (UTC)
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if run_state is not None:
+            pulumi.set(__self__, "run_state", run_state)
+        if run_sub_state is not None:
+            pulumi.set(__self__, "run_sub_state", run_sub_state)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        End time of the last run (UTC)
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Verbose information about the last run state
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="runState")
+    def run_state(self) -> Optional[str]:
+        """
+        State of the last run
+        """
+        return pulumi.get(self, "run_state")
+
+    @property
+    @pulumi.getter(name="runSubState")
+    def run_sub_state(self) -> Optional[str]:
+        """
+        Sub-state of the last run
+        """
+        return pulumi.get(self, "run_sub_state")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time of the last run (UTC)
+        """
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type
@@ -298,6 +567,75 @@ class ImageTemplateLastRunStatusResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateManagedImageDistributorInvokeResponseResult(dict):
+    """
+    Distribute as a Managed Disk Image.
+    """
+    def __init__(__self__, *,
+                 image_id: str,
+                 location: str,
+                 run_output_name: str,
+                 type: str,
+                 artifact_tags: Optional[Mapping[str, str]] = None):
+        """
+        Distribute as a Managed Disk Image.
+        :param str image_id: Resource Id of the Managed Disk Image
+        :param str location: Azure location for the image, should match if image already exists
+        :param str run_output_name: The name to be used for the associated RunOutput.
+        :param str type: Type of distribution.
+               Expected value is 'ManagedImage'.
+        :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        """
+        pulumi.set(__self__, "image_id", image_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "run_output_name", run_output_name)
+        pulumi.set(__self__, "type", 'ManagedImage')
+        if artifact_tags is not None:
+            pulumi.set(__self__, "artifact_tags", artifact_tags)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> str:
+        """
+        Resource Id of the Managed Disk Image
+        """
+        return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Azure location for the image, should match if image already exists
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="runOutputName")
+    def run_output_name(self) -> str:
+        """
+        The name to be used for the associated RunOutput.
+        """
+        return pulumi.get(self, "run_output_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of distribution.
+        Expected value is 'ManagedImage'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="artifactTags")
+    def artifact_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        """
+        return pulumi.get(self, "artifact_tags")
+
+
+@pulumi.output_type
 class ImageTemplateManagedImageDistributorResponse(dict):
     """
     Distribute as a Managed Disk Image.
@@ -370,6 +708,41 @@ class ImageTemplateManagedImageDistributorResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateManagedImageSourceInvokeResponseResult(dict):
+    """
+    Describes an image source that is a managed image in customer subscription.
+    """
+    def __init__(__self__, *,
+                 image_id: str,
+                 type: str):
+        """
+        Describes an image source that is a managed image in customer subscription.
+        :param str image_id: ARM resource id of the managed image in customer subscription
+        :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'ManagedImage'.
+        """
+        pulumi.set(__self__, "image_id", image_id)
+        pulumi.set(__self__, "type", 'ManagedImage')
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> str:
+        """
+        ARM resource id of the managed image in customer subscription
+        """
+        return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of source image you want to start with.
+        Expected value is 'ManagedImage'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ImageTemplateManagedImageSourceResponse(dict):
     """
     Describes an image source that is a managed image in customer subscription.
@@ -405,6 +778,78 @@ class ImageTemplateManagedImageSourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageTemplatePlatformImageSourceInvokeResponseResult(dict):
+    """
+    Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 offer: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'PlatformImage'.
+        :param str offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        :param str publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        :param str sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        """
+        pulumi.set(__self__, "type", 'PlatformImage')
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of source image you want to start with.
+        Expected value is 'PlatformImage'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[str]:
+        """
+        Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -480,6 +925,102 @@ class ImageTemplatePlatformImageSourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageTemplatePowerShellCustomizerInvokeResponseResult(dict):
+    """
+    Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 inline: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 run_elevated: Optional[bool] = None,
+                 script_uri: Optional[str] = None,
+                 sha256_checksum: Optional[str] = None,
+                 valid_exit_codes: Optional[Sequence[int]] = None):
+        """
+        Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+        :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'PowerShell'.
+        :param Sequence[str] inline: Array of PowerShell commands to execute
+        :param str name: Friendly Name to provide context on what this customization step does
+        :param bool run_elevated: If specified, the PowerShell script will be run with elevated privileges
+        :param str script_uri: URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+        :param str sha256_checksum: SHA256 checksum of the power shell script provided in the scriptUri field above
+        :param Sequence[int] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
+        """
+        pulumi.set(__self__, "type", 'PowerShell')
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if run_elevated is not None:
+            pulumi.set(__self__, "run_elevated", run_elevated)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+        if valid_exit_codes is not None:
+            pulumi.set(__self__, "valid_exit_codes", valid_exit_codes)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'PowerShell'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[Sequence[str]]:
+        """
+        Array of PowerShell commands to execute
+        """
+        return pulumi.get(self, "inline")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this customization step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runElevated")
+    def run_elevated(self) -> Optional[bool]:
+        """
+        If specified, the PowerShell script will be run with elevated privileges
+        """
+        return pulumi.get(self, "run_elevated")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        """
+        URI of the PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+        """
+        return pulumi.get(self, "script_uri")
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[str]:
+        """
+        SHA256 checksum of the power shell script provided in the scriptUri field above
+        """
+        return pulumi.get(self, "sha256_checksum")
+
+    @property
+    @pulumi.getter(name="validExitCodes")
+    def valid_exit_codes(self) -> Optional[Sequence[int]]:
+        """
+        Valid exit codes for the PowerShell script. [Default: 0]
+        """
+        return pulumi.get(self, "valid_exit_codes")
 
 
 @pulumi.output_type
@@ -582,6 +1123,78 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateRestartCustomizerInvokeResponseResult(dict):
+    """
+    Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 name: Optional[str] = None,
+                 restart_check_command: Optional[str] = None,
+                 restart_command: Optional[str] = None,
+                 restart_timeout: Optional[str] = None):
+        """
+        Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
+        :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'WindowsRestart'.
+        :param str name: Friendly Name to provide context on what this customization step does
+        :param str restart_check_command: Command to check if restart succeeded [Default: '']
+        :param str restart_command: Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
+        :param str restart_timeout: Restart timeout specified as a string of magnitude and unit, e.g. '5m' (5 minutes) or '2h' (2 hours) [Default: '5m']
+        """
+        pulumi.set(__self__, "type", 'WindowsRestart')
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if restart_check_command is not None:
+            pulumi.set(__self__, "restart_check_command", restart_check_command)
+        if restart_command is not None:
+            pulumi.set(__self__, "restart_command", restart_command)
+        if restart_timeout is not None:
+            pulumi.set(__self__, "restart_timeout", restart_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'WindowsRestart'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this customization step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="restartCheckCommand")
+    def restart_check_command(self) -> Optional[str]:
+        """
+        Command to check if restart succeeded [Default: '']
+        """
+        return pulumi.get(self, "restart_check_command")
+
+    @property
+    @pulumi.getter(name="restartCommand")
+    def restart_command(self) -> Optional[str]:
+        """
+        Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
+        """
+        return pulumi.get(self, "restart_command")
+
+    @property
+    @pulumi.getter(name="restartTimeout")
+    def restart_timeout(self) -> Optional[str]:
+        """
+        Restart timeout specified as a string of magnitude and unit, e.g. '5m' (5 minutes) or '2h' (2 hours) [Default: '5m']
+        """
+        return pulumi.get(self, "restart_timeout")
+
+
+@pulumi.output_type
 class ImageTemplateRestartCustomizerResponse(dict):
     """
     Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
@@ -657,6 +1270,75 @@ class ImageTemplateRestartCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateSharedImageDistributorInvokeResponseResult(dict):
+    """
+    Distribute via Shared Image Gallery.
+    """
+    def __init__(__self__, *,
+                 gallery_image_id: str,
+                 replication_regions: Sequence[str],
+                 run_output_name: str,
+                 type: str,
+                 artifact_tags: Optional[Mapping[str, str]] = None):
+        """
+        Distribute via Shared Image Gallery.
+        :param str gallery_image_id: Resource Id of the Shared Image Gallery image
+        :param Sequence[str] replication_regions: A list of regions that the image will be replicated to
+        :param str run_output_name: The name to be used for the associated RunOutput.
+        :param str type: Type of distribution.
+               Expected value is 'SharedImage'.
+        :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        """
+        pulumi.set(__self__, "gallery_image_id", gallery_image_id)
+        pulumi.set(__self__, "replication_regions", replication_regions)
+        pulumi.set(__self__, "run_output_name", run_output_name)
+        pulumi.set(__self__, "type", 'SharedImage')
+        if artifact_tags is not None:
+            pulumi.set(__self__, "artifact_tags", artifact_tags)
+
+    @property
+    @pulumi.getter(name="galleryImageId")
+    def gallery_image_id(self) -> str:
+        """
+        Resource Id of the Shared Image Gallery image
+        """
+        return pulumi.get(self, "gallery_image_id")
+
+    @property
+    @pulumi.getter(name="replicationRegions")
+    def replication_regions(self) -> Sequence[str]:
+        """
+        A list of regions that the image will be replicated to
+        """
+        return pulumi.get(self, "replication_regions")
+
+    @property
+    @pulumi.getter(name="runOutputName")
+    def run_output_name(self) -> str:
+        """
+        The name to be used for the associated RunOutput.
+        """
+        return pulumi.get(self, "run_output_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of distribution.
+        Expected value is 'SharedImage'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="artifactTags")
+    def artifact_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        """
+        return pulumi.get(self, "artifact_tags")
+
+
+@pulumi.output_type
 class ImageTemplateSharedImageDistributorResponse(dict):
     """
     Distribute via Shared Image Gallery.
@@ -729,6 +1411,41 @@ class ImageTemplateSharedImageDistributorResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateSharedImageVersionSourceInvokeResponseResult(dict):
+    """
+    Describes an image source that is an image version in a shared image gallery.
+    """
+    def __init__(__self__, *,
+                 image_version_id: str,
+                 type: str):
+        """
+        Describes an image source that is an image version in a shared image gallery.
+        :param str image_version_id: ARM resource id of the image version in the shared image gallery
+        :param str type: Specifies the type of source image you want to start with.
+               Expected value is 'SharedImageVersion'.
+        """
+        pulumi.set(__self__, "image_version_id", image_version_id)
+        pulumi.set(__self__, "type", 'SharedImageVersion')
+
+    @property
+    @pulumi.getter(name="imageVersionId")
+    def image_version_id(self) -> str:
+        """
+        ARM resource id of the image version in the shared image gallery
+        """
+        return pulumi.get(self, "image_version_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of source image you want to start with.
+        Expected value is 'SharedImageVersion'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ImageTemplateSharedImageVersionSourceResponse(dict):
     """
     Describes an image source that is an image version in a shared image gallery.
@@ -764,6 +1481,78 @@ class ImageTemplateSharedImageVersionSourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageTemplateShellCustomizerInvokeResponseResult(dict):
+    """
+    Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 inline: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 script_uri: Optional[str] = None,
+                 sha256_checksum: Optional[str] = None):
+        """
+        Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'scriptUri' or 'inline' can be specified.
+        :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+               Expected value is 'Shell'.
+        :param Sequence[str] inline: Array of shell commands to execute
+        :param str name: Friendly Name to provide context on what this customization step does
+        :param str script_uri: URI of the shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+        :param str sha256_checksum: SHA256 checksum of the shell script provided in the scriptUri field
+        """
+        pulumi.set(__self__, "type", 'Shell')
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is not None:
+            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+        Expected value is 'Shell'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def inline(self) -> Optional[Sequence[str]]:
+        """
+        Array of shell commands to execute
+        """
+        return pulumi.get(self, "inline")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly Name to provide context on what this customization step does
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        """
+        URI of the shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+        """
+        return pulumi.get(self, "script_uri")
+
+    @property
+    @pulumi.getter(name="sha256Checksum")
+    def sha256_checksum(self) -> Optional[str]:
+        """
+        SHA256 checksum of the shell script provided in the scriptUri field
+        """
+        return pulumi.get(self, "sha256_checksum")
 
 
 @pulumi.output_type
@@ -842,6 +1631,53 @@ class ImageTemplateShellCustomizerResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateVhdDistributorInvokeResponseResult(dict):
+    """
+    Distribute via VHD in a storage account.
+    """
+    def __init__(__self__, *,
+                 run_output_name: str,
+                 type: str,
+                 artifact_tags: Optional[Mapping[str, str]] = None):
+        """
+        Distribute via VHD in a storage account.
+        :param str run_output_name: The name to be used for the associated RunOutput.
+        :param str type: Type of distribution.
+               Expected value is 'VHD'.
+        :param Mapping[str, str] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        """
+        pulumi.set(__self__, "run_output_name", run_output_name)
+        pulumi.set(__self__, "type", 'VHD')
+        if artifact_tags is not None:
+            pulumi.set(__self__, "artifact_tags", artifact_tags)
+
+    @property
+    @pulumi.getter(name="runOutputName")
+    def run_output_name(self) -> str:
+        """
+        The name to be used for the associated RunOutput.
+        """
+        return pulumi.get(self, "run_output_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of distribution.
+        Expected value is 'VHD'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="artifactTags")
+    def artifact_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags that will be applied to the artifact once it has been created/updated by the distributor.
+        """
+        return pulumi.get(self, "artifact_tags")
+
+
+@pulumi.output_type
 class ImageTemplateVhdDistributorResponse(dict):
     """
     Distribute via VHD in a storage account.
@@ -892,6 +1728,29 @@ class ImageTemplateVhdDistributorResponse(dict):
 
 
 @pulumi.output_type
+class ImageTemplateVmProfileInvokeResponseResult(dict):
+    """
+    Describes the virtual machine used to build, customize and capture images
+    """
+    def __init__(__self__, *,
+                 vm_size: Optional[str] = None):
+        """
+        Describes the virtual machine used to build, customize and capture images
+        :param str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+        """
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+        """
+        return pulumi.get(self, "vm_size")
+
+
+@pulumi.output_type
 class ImageTemplateVmProfileResponse(dict):
     """
     Describes the virtual machine used to build, customize and capture images
@@ -915,6 +1774,41 @@ class ImageTemplateVmProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ProvisioningErrorInvokeResponseResult(dict):
+    """
+    Describes the error happened when create or update an image template
+    """
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 provisioning_error_code: Optional[str] = None):
+        """
+        Describes the error happened when create or update an image template
+        :param str message: Verbose error message about the provisioning failure
+        :param str provisioning_error_code: Error code of the provisioning failure
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if provisioning_error_code is not None:
+            pulumi.set(__self__, "provisioning_error_code", provisioning_error_code)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Verbose error message about the provisioning failure
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="provisioningErrorCode")
+    def provisioning_error_code(self) -> Optional[str]:
+        """
+        Error code of the provisioning failure
+        """
+        return pulumi.get(self, "provisioning_error_code")
 
 
 @pulumi.output_type

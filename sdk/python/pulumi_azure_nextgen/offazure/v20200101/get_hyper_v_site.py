@@ -77,7 +77,7 @@ class GetHyperVSiteResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SitePropertiesResponse':
+    def properties(self) -> 'outputs.SitePropertiesInvokeResponseResult':
         """
         Nested properties of Hyper-V site.
         """

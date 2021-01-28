@@ -112,7 +112,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         The service principal that has read access to cloud-init and config blob.
         """
@@ -136,7 +136,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="nvaSku")
-    def nva_sku(self) -> Optional['outputs.VirtualApplianceSkuPropertiesResponse']:
+    def nva_sku(self) -> Optional['outputs.VirtualApplianceSkuPropertiesInvokeResponseResult']:
         """
         Network Virtual Appliance SKU.
         """
@@ -176,7 +176,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="virtualApplianceNics")
-    def virtual_appliance_nics(self) -> Sequence['outputs.VirtualApplianceNicPropertiesResponse']:
+    def virtual_appliance_nics(self) -> Sequence['outputs.VirtualApplianceNicPropertiesInvokeResponseResult']:
         """
         List of Virtual Appliance Network Interfaces.
         """
@@ -184,7 +184,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="virtualApplianceSites")
-    def virtual_appliance_sites(self) -> Sequence['outputs.SubResourceResponse']:
+    def virtual_appliance_sites(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to VirtualApplianceSite.
         """
@@ -192,7 +192,7 @@ class GetNetworkVirtualApplianceResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The Virtual Hub where Network Virtual Appliance is being deployed.
         """

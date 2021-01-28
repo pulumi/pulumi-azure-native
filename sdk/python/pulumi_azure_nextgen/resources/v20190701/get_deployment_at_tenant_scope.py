@@ -63,7 +63,7 @@ class GetDeploymentAtTenantScopeResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DeploymentPropertiesExtendedResponse':
+    def properties(self) -> 'outputs.DeploymentPropertiesExtendedInvokeResponseResult':
         """
         Deployment properties.
         """

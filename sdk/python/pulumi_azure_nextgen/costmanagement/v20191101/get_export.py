@@ -48,7 +48,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.ExportDefinitionResponse':
+    def definition(self) -> 'outputs.ExportDefinitionInvokeResponseResult':
         """
         Has definition for the export.
         """
@@ -56,7 +56,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ExportDeliveryInfoResponse':
+    def delivery_info(self) -> 'outputs.ExportDeliveryInfoInvokeResponseResult':
         """
         Has delivery information for the export.
         """
@@ -96,7 +96,7 @@ class GetExportResult:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ExportScheduleResponse']:
+    def schedule(self) -> Optional['outputs.ExportScheduleInvokeResponseResult']:
         """
         Has schedule information for the export.
         """

@@ -11,32 +11,161 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AssetItemInvokeResponseResult',
     'AssetItemResponse',
+    'AssetLocationInvokeResponseResult',
     'AssetLocationResponse',
+    'ColumnSpecificationInvokeResponseResult',
     'ColumnSpecificationResponse',
+    'CommitmentPlanInvokeResponseResult',
+    'CommitmentPlanPropertiesInvokeResponseResult',
     'CommitmentPlanPropertiesResponse',
     'CommitmentPlanResponse',
+    'DiagnosticsConfigurationInvokeResponseResult',
     'DiagnosticsConfigurationResponse',
+    'ExampleRequestInvokeResponseResult',
     'ExampleRequestResponse',
+    'GraphEdgeInvokeResponseResult',
     'GraphEdgeResponse',
+    'GraphNodeInvokeResponseResult',
     'GraphNodeResponse',
+    'GraphPackageInvokeResponseResult',
     'GraphPackageResponse',
+    'GraphParameterInvokeResponseResult',
+    'GraphParameterLinkInvokeResponseResult',
     'GraphParameterLinkResponse',
     'GraphParameterResponse',
+    'InputPortInvokeResponseResult',
     'InputPortResponse',
+    'MachineLearningWorkspaceInvokeResponseResult',
     'MachineLearningWorkspaceResponse',
+    'ModeValueInfoInvokeResponseResult',
     'ModeValueInfoResponse',
+    'ModuleAssetParameterInvokeResponseResult',
     'ModuleAssetParameterResponse',
+    'OutputPortInvokeResponseResult',
     'OutputPortResponse',
+    'PlanQuantityInvokeResponseResult',
     'PlanQuantityResponse',
+    'RealtimeConfigurationInvokeResponseResult',
     'RealtimeConfigurationResponse',
+    'ResourceSkuInvokeResponseResult',
     'ResourceSkuResponse',
+    'ServiceInputOutputSpecificationInvokeResponseResult',
     'ServiceInputOutputSpecificationResponse',
+    'StorageAccountInvokeResponseResult',
     'StorageAccountResponse',
+    'TableSpecificationInvokeResponseResult',
     'TableSpecificationResponse',
+    'WebServiceKeysInvokeResponseResult',
     'WebServiceKeysResponse',
+    'WebServicePropertiesForGraphInvokeResponseResult',
     'WebServicePropertiesForGraphResponse',
 ]
+
+@pulumi.output_type
+class AssetItemInvokeResponseResult(dict):
+    """
+    Information about an asset associated with the web service.
+    """
+    def __init__(__self__, *,
+                 location_info: 'outputs.AssetLocationInvokeResponseResult',
+                 name: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 input_ports: Optional[Mapping[str, 'outputs.InputPortInvokeResponseResult']] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 output_ports: Optional[Mapping[str, 'outputs.OutputPortInvokeResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.ModuleAssetParameterInvokeResponseResult']] = None):
+        """
+        Information about an asset associated with the web service.
+        :param 'AssetLocationInvokeResponseArgs' location_info: Access information for the asset.
+        :param str name: Asset's friendly name.
+        :param str type: Asset's type.
+        :param str id: Asset's Id.
+        :param Mapping[str, 'InputPortInvokeResponseArgs'] input_ports: Information about the asset's input ports.
+        :param Mapping[str, str] metadata: If the asset is a custom module, this holds the module's metadata.
+        :param Mapping[str, 'OutputPortInvokeResponseArgs'] output_ports: Information about the asset's output ports.
+        :param Sequence['ModuleAssetParameterInvokeResponseArgs'] parameters: If the asset is a custom module, this holds the module's parameters.
+        """
+        pulumi.set(__self__, "location_info", location_info)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if input_ports is not None:
+            pulumi.set(__self__, "input_ports", input_ports)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if output_ports is not None:
+            pulumi.set(__self__, "output_ports", output_ports)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="locationInfo")
+    def location_info(self) -> 'outputs.AssetLocationInvokeResponseResult':
+        """
+        Access information for the asset.
+        """
+        return pulumi.get(self, "location_info")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Asset's friendly name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Asset's type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Asset's Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inputPorts")
+    def input_ports(self) -> Optional[Mapping[str, 'outputs.InputPortInvokeResponseResult']]:
+        """
+        Information about the asset's input ports.
+        """
+        return pulumi.get(self, "input_ports")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        If the asset is a custom module, this holds the module's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="outputPorts")
+    def output_ports(self) -> Optional[Mapping[str, 'outputs.OutputPortInvokeResponseResult']]:
+        """
+        Information about the asset's output ports.
+        """
+        return pulumi.get(self, "output_ports")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ModuleAssetParameterInvokeResponseResult']]:
+        """
+        If the asset is a custom module, this holds the module's parameters.
+        """
+        return pulumi.get(self, "parameters")
+
 
 @pulumi.output_type
 class AssetItemResponse(dict):
@@ -146,6 +275,40 @@ class AssetItemResponse(dict):
 
 
 @pulumi.output_type
+class AssetLocationInvokeResponseResult(dict):
+    """
+    Describes the access location for a web service asset.
+    """
+    def __init__(__self__, *,
+                 uri: str,
+                 credentials: Optional[str] = None):
+        """
+        Describes the access location for a web service asset.
+        :param str uri: The URI where the asset is accessible from, (e.g. aml://abc for system assets or https://xyz for user assets
+        :param str credentials: Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
+        """
+        pulumi.set(__self__, "uri", uri)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI where the asset is accessible from, (e.g. aml://abc for system assets or https://xyz for user assets
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[str]:
+        """
+        Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
+        """
+        return pulumi.get(self, "credentials")
+
+
+@pulumi.output_type
 class AssetLocationResponse(dict):
     """
     Describes the access location for a web service asset.
@@ -180,6 +343,76 @@ class AssetLocationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ColumnSpecificationInvokeResponseResult(dict):
+    """
+    Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 enum: Optional[Sequence[Any]] = None,
+                 format: Optional[str] = None,
+                 x_ms_isnullable: Optional[bool] = None,
+                 x_ms_isordered: Optional[bool] = None):
+        """
+        Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+        :param str type: Data type of the column.
+        :param Sequence[Any] enum: If the data type is categorical, this provides the list of accepted categories.
+        :param str format: Additional format information for the data type.
+        :param bool x_ms_isnullable: Flag indicating if the type supports null values or not.
+        :param bool x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+        """
+        pulumi.set(__self__, "type", type)
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if x_ms_isnullable is not None:
+            pulumi.set(__self__, "x_ms_isnullable", x_ms_isnullable)
+        if x_ms_isordered is not None:
+            pulumi.set(__self__, "x_ms_isordered", x_ms_isordered)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enum(self) -> Optional[Sequence[Any]]:
+        """
+        If the data type is categorical, this provides the list of accepted categories.
+        """
+        return pulumi.get(self, "enum")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        Additional format information for the data type.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="xMsIsnullable")
+    def x_ms_isnullable(self) -> Optional[bool]:
+        """
+        Flag indicating if the type supports null values or not.
+        """
+        return pulumi.get(self, "x_ms_isnullable")
+
+    @property
+    @pulumi.getter(name="xMsIsordered")
+    def x_ms_isordered(self) -> Optional[bool]:
+        """
+        Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+        """
+        return pulumi.get(self, "x_ms_isordered")
 
 
 @pulumi.output_type
@@ -253,6 +486,149 @@ class ColumnSpecificationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CommitmentPlanInvokeResponseResult(dict):
+    """
+    Information about the machine learning commitment plan associated with the web service.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Information about the machine learning commitment plan associated with the web service.
+        :param str id: Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CommitmentPlanPropertiesInvokeResponseResult(dict):
+    """
+    Properties of an Azure ML commitment plan.
+    """
+    def __init__(__self__, *,
+                 charge_for_overage: bool,
+                 charge_for_plan: bool,
+                 creation_date: str,
+                 included_quantities: Mapping[str, 'outputs.PlanQuantityInvokeResponseResult'],
+                 max_association_limit: int,
+                 max_capacity_limit: int,
+                 min_capacity_limit: int,
+                 plan_meter: str,
+                 refill_frequency_in_days: int,
+                 suspend_plan_on_overage: bool):
+        """
+        Properties of an Azure ML commitment plan.
+        :param bool charge_for_overage: Indicates whether usage beyond the commitment plan's included quantities will be charged.
+        :param bool charge_for_plan: Indicates whether the commitment plan will incur a charge.
+        :param str creation_date: The date at which this commitment plan was created, in ISO 8601 format.
+        :param Mapping[str, 'PlanQuantityInvokeResponseArgs'] included_quantities: The included resource quantities this plan gives you.
+        :param int max_association_limit: The maximum number of commitment associations that can be children of this commitment plan.
+        :param int max_capacity_limit: The maximum scale-out capacity for this commitment plan.
+        :param int min_capacity_limit: The minimum scale-out capacity for this commitment plan.
+        :param str plan_meter: The Azure meter which will be used to charge for this commitment plan.
+        :param int refill_frequency_in_days: The frequency at which this commitment plan's included quantities are refilled.
+        :param bool suspend_plan_on_overage: Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
+        """
+        pulumi.set(__self__, "charge_for_overage", charge_for_overage)
+        pulumi.set(__self__, "charge_for_plan", charge_for_plan)
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "included_quantities", included_quantities)
+        pulumi.set(__self__, "max_association_limit", max_association_limit)
+        pulumi.set(__self__, "max_capacity_limit", max_capacity_limit)
+        pulumi.set(__self__, "min_capacity_limit", min_capacity_limit)
+        pulumi.set(__self__, "plan_meter", plan_meter)
+        pulumi.set(__self__, "refill_frequency_in_days", refill_frequency_in_days)
+        pulumi.set(__self__, "suspend_plan_on_overage", suspend_plan_on_overage)
+
+    @property
+    @pulumi.getter(name="chargeForOverage")
+    def charge_for_overage(self) -> bool:
+        """
+        Indicates whether usage beyond the commitment plan's included quantities will be charged.
+        """
+        return pulumi.get(self, "charge_for_overage")
+
+    @property
+    @pulumi.getter(name="chargeForPlan")
+    def charge_for_plan(self) -> bool:
+        """
+        Indicates whether the commitment plan will incur a charge.
+        """
+        return pulumi.get(self, "charge_for_plan")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
+        """
+        The date at which this commitment plan was created, in ISO 8601 format.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="includedQuantities")
+    def included_quantities(self) -> Mapping[str, 'outputs.PlanQuantityInvokeResponseResult']:
+        """
+        The included resource quantities this plan gives you.
+        """
+        return pulumi.get(self, "included_quantities")
+
+    @property
+    @pulumi.getter(name="maxAssociationLimit")
+    def max_association_limit(self) -> int:
+        """
+        The maximum number of commitment associations that can be children of this commitment plan.
+        """
+        return pulumi.get(self, "max_association_limit")
+
+    @property
+    @pulumi.getter(name="maxCapacityLimit")
+    def max_capacity_limit(self) -> int:
+        """
+        The maximum scale-out capacity for this commitment plan.
+        """
+        return pulumi.get(self, "max_capacity_limit")
+
+    @property
+    @pulumi.getter(name="minCapacityLimit")
+    def min_capacity_limit(self) -> int:
+        """
+        The minimum scale-out capacity for this commitment plan.
+        """
+        return pulumi.get(self, "min_capacity_limit")
+
+    @property
+    @pulumi.getter(name="planMeter")
+    def plan_meter(self) -> str:
+        """
+        The Azure meter which will be used to charge for this commitment plan.
+        """
+        return pulumi.get(self, "plan_meter")
+
+    @property
+    @pulumi.getter(name="refillFrequencyInDays")
+    def refill_frequency_in_days(self) -> int:
+        """
+        The frequency at which this commitment plan's included quantities are refilled.
+        """
+        return pulumi.get(self, "refill_frequency_in_days")
+
+    @property
+    @pulumi.getter(name="suspendPlanOnOverage")
+    def suspend_plan_on_overage(self) -> bool:
+        """
+        Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
+        """
+        return pulumi.get(self, "suspend_plan_on_overage")
 
 
 @pulumi.output_type
@@ -405,6 +781,40 @@ class CommitmentPlanResponse(dict):
 
 
 @pulumi.output_type
+class DiagnosticsConfigurationInvokeResponseResult(dict):
+    """
+    Diagnostics settings for an Azure ML web service.
+    """
+    def __init__(__self__, *,
+                 level: str,
+                 expiry: Optional[str] = None):
+        """
+        Diagnostics settings for an Azure ML web service.
+        :param str level: Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+        :param str expiry: Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+        """
+        pulumi.set(__self__, "level", level)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        """
+        Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+        """
+        return pulumi.get(self, "expiry")
+
+
+@pulumi.output_type
 class DiagnosticsConfigurationResponse(dict):
     """
     Diagnostics settings for an Azure ML web service.
@@ -439,6 +849,41 @@ class DiagnosticsConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExampleRequestInvokeResponseResult(dict):
+    """
+    Sample input data for the service's input(s).
+    """
+    def __init__(__self__, *,
+                 global_parameters: Optional[Mapping[str, Any]] = None,
+                 inputs: Optional[Mapping[str, Sequence[Sequence[Any]]]] = None):
+        """
+        Sample input data for the service's input(s).
+        :param Mapping[str, Any] global_parameters: Sample input data for the web service's global parameters
+        :param Mapping[str, Sequence[Sequence[Any]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        """
+        if global_parameters is not None:
+            pulumi.set(__self__, "global_parameters", global_parameters)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter(name="globalParameters")
+    def global_parameters(self) -> Optional[Mapping[str, Any]]:
+        """
+        Sample input data for the web service's global parameters
+        """
+        return pulumi.get(self, "global_parameters")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Mapping[str, Sequence[Sequence[Any]]]]:
+        """
+        Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        """
+        return pulumi.get(self, "inputs")
 
 
 @pulumi.output_type
@@ -477,6 +922,65 @@ class ExampleRequestResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphEdgeInvokeResponseResult(dict):
+    """
+    Defines an edge within the web service's graph.
+    """
+    def __init__(__self__, *,
+                 source_node_id: Optional[str] = None,
+                 source_port_id: Optional[str] = None,
+                 target_node_id: Optional[str] = None,
+                 target_port_id: Optional[str] = None):
+        """
+        Defines an edge within the web service's graph.
+        :param str source_node_id: The source graph node's identifier.
+        :param str source_port_id: The identifier of the source node's port that the edge connects from.
+        :param str target_node_id: The destination graph node's identifier.
+        :param str target_port_id: The identifier of the destination node's port that the edge connects into.
+        """
+        if source_node_id is not None:
+            pulumi.set(__self__, "source_node_id", source_node_id)
+        if source_port_id is not None:
+            pulumi.set(__self__, "source_port_id", source_port_id)
+        if target_node_id is not None:
+            pulumi.set(__self__, "target_node_id", target_node_id)
+        if target_port_id is not None:
+            pulumi.set(__self__, "target_port_id", target_port_id)
+
+    @property
+    @pulumi.getter(name="sourceNodeId")
+    def source_node_id(self) -> Optional[str]:
+        """
+        The source graph node's identifier.
+        """
+        return pulumi.get(self, "source_node_id")
+
+    @property
+    @pulumi.getter(name="sourcePortId")
+    def source_port_id(self) -> Optional[str]:
+        """
+        The identifier of the source node's port that the edge connects from.
+        """
+        return pulumi.get(self, "source_port_id")
+
+    @property
+    @pulumi.getter(name="targetNodeId")
+    def target_node_id(self) -> Optional[str]:
+        """
+        The destination graph node's identifier.
+        """
+        return pulumi.get(self, "target_node_id")
+
+    @property
+    @pulumi.getter(name="targetPortId")
+    def target_port_id(self) -> Optional[str]:
+        """
+        The identifier of the destination node's port that the edge connects into.
+        """
+        return pulumi.get(self, "target_port_id")
 
 
 @pulumi.output_type
@@ -542,6 +1046,65 @@ class GraphEdgeResponse(dict):
 
 
 @pulumi.output_type
+class GraphNodeInvokeResponseResult(dict):
+    """
+    Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+    """
+    def __init__(__self__, *,
+                 asset_id: Optional[str] = None,
+                 input_id: Optional[str] = None,
+                 output_id: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+        :param str asset_id: The id of the asset represented by this node.
+        :param str input_id: The id of the input element represented by this node.
+        :param str output_id: The id of the output element represented by this node.
+        :param Mapping[str, str] parameters: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
+        if input_id is not None:
+            pulumi.set(__self__, "input_id", input_id)
+        if output_id is not None:
+            pulumi.set(__self__, "output_id", output_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[str]:
+        """
+        The id of the asset represented by this node.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter(name="inputId")
+    def input_id(self) -> Optional[str]:
+        """
+        The id of the input element represented by this node.
+        """
+        return pulumi.get(self, "input_id")
+
+    @property
+    @pulumi.getter(name="outputId")
+    def output_id(self) -> Optional[str]:
+        """
+        The id of the output element represented by this node.
+        """
+        return pulumi.get(self, "output_id")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class GraphNodeResponse(dict):
     """
     Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
@@ -604,6 +1167,53 @@ class GraphNodeResponse(dict):
 
 
 @pulumi.output_type
+class GraphPackageInvokeResponseResult(dict):
+    """
+    Defines the graph of modules making up the machine learning solution.
+    """
+    def __init__(__self__, *,
+                 edges: Optional[Sequence['outputs.GraphEdgeInvokeResponseResult']] = None,
+                 graph_parameters: Optional[Mapping[str, 'outputs.GraphParameterInvokeResponseResult']] = None,
+                 nodes: Optional[Mapping[str, 'outputs.GraphNodeInvokeResponseResult']] = None):
+        """
+        Defines the graph of modules making up the machine learning solution.
+        :param Sequence['GraphEdgeInvokeResponseArgs'] edges: The list of edges making up the graph.
+        :param Mapping[str, 'GraphParameterInvokeResponseArgs'] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        :param Mapping[str, 'GraphNodeInvokeResponseArgs'] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+        if edges is not None:
+            pulumi.set(__self__, "edges", edges)
+        if graph_parameters is not None:
+            pulumi.set(__self__, "graph_parameters", graph_parameters)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter
+    def edges(self) -> Optional[Sequence['outputs.GraphEdgeInvokeResponseResult']]:
+        """
+        The list of edges making up the graph.
+        """
+        return pulumi.get(self, "edges")
+
+    @property
+    @pulumi.getter(name="graphParameters")
+    def graph_parameters(self) -> Optional[Mapping[str, 'outputs.GraphParameterInvokeResponseResult']]:
+        """
+        The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        """
+        return pulumi.get(self, "graph_parameters")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[Mapping[str, 'outputs.GraphNodeInvokeResponseResult']]:
+        """
+        The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+        return pulumi.get(self, "nodes")
+
+
+@pulumi.output_type
 class GraphPackageResponse(dict):
     """
     Defines the graph of modules making up the machine learning solution.
@@ -651,6 +1261,84 @@ class GraphPackageResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphParameterInvokeResponseResult(dict):
+    """
+    Defines a global parameter in the graph.
+    """
+    def __init__(__self__, *,
+                 links: Sequence['outputs.GraphParameterLinkInvokeResponseResult'],
+                 type: str,
+                 description: Optional[str] = None):
+        """
+        Defines a global parameter in the graph.
+        :param Sequence['GraphParameterLinkInvokeResponseArgs'] links: Association links for this parameter to nodes in the graph.
+        :param str type: Graph parameter's type.
+        :param str description: Description of this graph parameter.
+        """
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def links(self) -> Sequence['outputs.GraphParameterLinkInvokeResponseResult']:
+        """
+        Association links for this parameter to nodes in the graph.
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Graph parameter's type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of this graph parameter.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class GraphParameterLinkInvokeResponseResult(dict):
+    """
+    Association link for a graph global parameter to a node in the graph.
+    """
+    def __init__(__self__, *,
+                 node_id: str,
+                 parameter_key: str):
+        """
+        Association link for a graph global parameter to a node in the graph.
+        :param str node_id: The graph node's identifier
+        :param str parameter_key: The identifier of the node parameter that the global parameter maps to.
+        """
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "parameter_key", parameter_key)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        """
+        The graph node's identifier
+        """
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter(name="parameterKey")
+    def parameter_key(self) -> str:
+        """
+        The identifier of the node parameter that the global parameter maps to.
+        """
+        return pulumi.get(self, "parameter_key")
 
 
 @pulumi.output_type
@@ -738,6 +1426,31 @@ class GraphParameterResponse(dict):
 
 
 @pulumi.output_type
+class InputPortInvokeResponseResult(dict):
+    """
+    Asset input port
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Asset input port
+        :param str type: Port data type.
+        """
+        if type is None:
+            type = 'Dataset'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Port data type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class InputPortResponse(dict):
     """
     Asset input port
@@ -766,6 +1479,28 @@ class InputPortResponse(dict):
 
 
 @pulumi.output_type
+class MachineLearningWorkspaceInvokeResponseResult(dict):
+    """
+    Information about the machine learning workspace containing the experiment that is source for the web service.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Information about the machine learning workspace containing the experiment that is source for the web service.
+        :param str id: Specifies the workspace ID of the machine learning workspace associated with the web service
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the workspace ID of the machine learning workspace associated with the web service
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class MachineLearningWorkspaceResponse(dict):
     """
     Information about the machine learning workspace containing the experiment that is source for the web service.
@@ -788,6 +1523,41 @@ class MachineLearningWorkspaceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModeValueInfoInvokeResponseResult(dict):
+    """
+    Nested parameter definition.
+    """
+    def __init__(__self__, *,
+                 interface_string: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ModuleAssetParameterInvokeResponseResult']] = None):
+        """
+        Nested parameter definition.
+        :param str interface_string: The interface string name for the nested parameter.
+        :param Sequence['ModuleAssetParameterInvokeResponseArgs'] parameters: The definition of the parameter.
+        """
+        if interface_string is not None:
+            pulumi.set(__self__, "interface_string", interface_string)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="interfaceString")
+    def interface_string(self) -> Optional[str]:
+        """
+        The interface string name for the nested parameter.
+        """
+        return pulumi.get(self, "interface_string")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ModuleAssetParameterInvokeResponseResult']]:
+        """
+        The definition of the parameter.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -826,6 +1596,53 @@ class ModeValueInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModuleAssetParameterInvokeResponseResult(dict):
+    """
+    Parameter definition for a module asset.
+    """
+    def __init__(__self__, *,
+                 mode_values_info: Optional[Mapping[str, 'outputs.ModeValueInfoInvokeResponseResult']] = None,
+                 name: Optional[str] = None,
+                 parameter_type: Optional[str] = None):
+        """
+        Parameter definition for a module asset.
+        :param Mapping[str, 'ModeValueInfoInvokeResponseArgs'] mode_values_info: Definitions for nested interface parameters if this is a complex module parameter.
+        :param str name: Parameter name.
+        :param str parameter_type: Parameter type.
+        """
+        if mode_values_info is not None:
+            pulumi.set(__self__, "mode_values_info", mode_values_info)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameter_type is not None:
+            pulumi.set(__self__, "parameter_type", parameter_type)
+
+    @property
+    @pulumi.getter(name="modeValuesInfo")
+    def mode_values_info(self) -> Optional[Mapping[str, 'outputs.ModeValueInfoInvokeResponseResult']]:
+        """
+        Definitions for nested interface parameters if this is a complex module parameter.
+        """
+        return pulumi.get(self, "mode_values_info")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parameterType")
+    def parameter_type(self) -> Optional[str]:
+        """
+        Parameter type.
+        """
+        return pulumi.get(self, "parameter_type")
 
 
 @pulumi.output_type
@@ -879,6 +1696,31 @@ class ModuleAssetParameterResponse(dict):
 
 
 @pulumi.output_type
+class OutputPortInvokeResponseResult(dict):
+    """
+    Asset output port
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Asset output port
+        :param str type: Port data type.
+        """
+        if type is None:
+            type = 'Dataset'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Port data type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class OutputPortResponse(dict):
     """
     Asset output port
@@ -904,6 +1746,61 @@ class OutputPortResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PlanQuantityInvokeResponseResult(dict):
+    """
+    Represents the quantity a commitment plan provides of a metered resource.
+    """
+    def __init__(__self__, *,
+                 allowance: float,
+                 amount: float,
+                 included_quantity_meter: str,
+                 overage_meter: str):
+        """
+        Represents the quantity a commitment plan provides of a metered resource.
+        :param float allowance: The quantity added to the commitment plan at an interval specified by its allowance frequency.
+        :param float amount: The quantity available to the plan the last time usage was calculated.
+        :param str included_quantity_meter: The Azure meter for usage against included quantities.
+        :param str overage_meter: The Azure meter for usage which exceeds included quantities.
+        """
+        pulumi.set(__self__, "allowance", allowance)
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "included_quantity_meter", included_quantity_meter)
+        pulumi.set(__self__, "overage_meter", overage_meter)
+
+    @property
+    @pulumi.getter
+    def allowance(self) -> float:
+        """
+        The quantity added to the commitment plan at an interval specified by its allowance frequency.
+        """
+        return pulumi.get(self, "allowance")
+
+    @property
+    @pulumi.getter
+    def amount(self) -> float:
+        """
+        The quantity available to the plan the last time usage was calculated.
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter(name="includedQuantityMeter")
+    def included_quantity_meter(self) -> str:
+        """
+        The Azure meter for usage against included quantities.
+        """
+        return pulumi.get(self, "included_quantity_meter")
+
+    @property
+    @pulumi.getter(name="overageMeter")
+    def overage_meter(self) -> str:
+        """
+        The Azure meter for usage which exceeds included quantities.
+        """
+        return pulumi.get(self, "overage_meter")
 
 
 @pulumi.output_type
@@ -965,6 +1862,29 @@ class PlanQuantityResponse(dict):
 
 
 @pulumi.output_type
+class RealtimeConfigurationInvokeResponseResult(dict):
+    """
+    Holds the available configuration options for an Azure ML web service endpoint.
+    """
+    def __init__(__self__, *,
+                 max_concurrent_calls: Optional[int] = None):
+        """
+        Holds the available configuration options for an Azure ML web service endpoint.
+        :param int max_concurrent_calls: Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+        """
+        if max_concurrent_calls is not None:
+            pulumi.set(__self__, "max_concurrent_calls", max_concurrent_calls)
+
+    @property
+    @pulumi.getter(name="maxConcurrentCalls")
+    def max_concurrent_calls(self) -> Optional[int]:
+        """
+        Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+        """
+        return pulumi.get(self, "max_concurrent_calls")
+
+
+@pulumi.output_type
 class RealtimeConfigurationResponse(dict):
     """
     Holds the available configuration options for an Azure ML web service endpoint.
@@ -988,6 +1908,53 @@ class RealtimeConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceSkuInvokeResponseResult(dict):
+    """
+    The SKU of a resource.
+    """
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        The SKU of a resource.
+        :param int capacity: The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
+        :param str name: The SKU name. Along with tier, uniquely identifies the SKU.
+        :param str tier: The SKU tier. Along with name, uniquely identifies the SKU.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The SKU name. Along with tier, uniquely identifies the SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The SKU tier. Along with name, uniquely identifies the SKU.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -1038,6 +2005,65 @@ class ResourceSkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceInputOutputSpecificationInvokeResponseResult(dict):
+    """
+    The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+    """
+    def __init__(__self__, *,
+                 properties: Mapping[str, 'outputs.TableSpecificationInvokeResponseResult'],
+                 type: str,
+                 description: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+        :param Mapping[str, 'TableSpecificationInvokeResponseArgs'] properties: Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+        :param str type: The type of the entity described in swagger. Always 'object'.
+        :param str description: The description of the Swagger schema.
+        :param str title: The title of your Swagger schema.
+        """
+        pulumi.set(__self__, "properties", properties)
+        if type is None:
+            type = 'object'
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, 'outputs.TableSpecificationInvokeResponseResult']:
+        """
+        Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the entity described in swagger. Always 'object'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Swagger schema.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of your Swagger schema.
+        """
+        return pulumi.get(self, "title")
 
 
 @pulumi.output_type
@@ -1103,6 +2129,41 @@ class ServiceInputOutputSpecificationResponse(dict):
 
 
 @pulumi.output_type
+class StorageAccountInvokeResponseResult(dict):
+    """
+    Access information for a storage account.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Access information for a storage account.
+        :param str key: Specifies the key used to access the storage account.
+        :param str name: Specifies the name of the storage account.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Specifies the key used to access the storage account.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the name of the storage account.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class StorageAccountResponse(dict):
     """
     Access information for a storage account.
@@ -1138,6 +2199,78 @@ class StorageAccountResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TableSpecificationInvokeResponseResult(dict):
+    """
+    The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 format: Optional[str] = None,
+                 properties: Optional[Mapping[str, 'outputs.ColumnSpecificationInvokeResponseResult']] = None,
+                 title: Optional[str] = None):
+        """
+        The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+        :param str type: The type of the entity described in swagger.
+        :param str description: Swagger schema description.
+        :param str format: The format, if 'type' is not 'object'
+        :param Mapping[str, 'ColumnSpecificationInvokeResponseArgs'] properties: The set of columns within the data table.
+        :param str title: Swagger schema title.
+        """
+        if type is None:
+            type = 'object'
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the entity described in swagger.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Swagger schema description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        The format, if 'type' is not 'object'
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, 'outputs.ColumnSpecificationInvokeResponseResult']]:
+        """
+        The set of columns within the data table.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Swagger schema title.
+        """
+        return pulumi.get(self, "title")
 
 
 @pulumi.output_type
@@ -1216,6 +2349,41 @@ class TableSpecificationResponse(dict):
 
 
 @pulumi.output_type
+class WebServiceKeysInvokeResponseResult(dict):
+    """
+    Access keys for the web service calls.
+    """
+    def __init__(__self__, *,
+                 primary: Optional[str] = None,
+                 secondary: Optional[str] = None):
+        """
+        Access keys for the web service calls.
+        :param str primary: The primary access key.
+        :param str secondary: The secondary access key.
+        """
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if secondary is not None:
+            pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[str]:
+        """
+        The primary access key.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> Optional[str]:
+        """
+        The secondary access key.
+        """
+        return pulumi.get(self, "secondary")
+
+
+@pulumi.output_type
 class WebServiceKeysResponse(dict):
     """
     Access keys for the web service calls.
@@ -1251,6 +2419,266 @@ class WebServiceKeysResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebServicePropertiesForGraphInvokeResponseResult(dict):
+    """
+    Properties specific to a Graph based web service.
+    """
+    def __init__(__self__, *,
+                 created_on: str,
+                 modified_on: str,
+                 package_type: str,
+                 provisioning_state: str,
+                 swagger_location: str,
+                 assets: Optional[Mapping[str, 'outputs.AssetItemInvokeResponseResult']] = None,
+                 commitment_plan: Optional['outputs.CommitmentPlanInvokeResponseResult'] = None,
+                 description: Optional[str] = None,
+                 diagnostics: Optional['outputs.DiagnosticsConfigurationInvokeResponseResult'] = None,
+                 example_request: Optional['outputs.ExampleRequestInvokeResponseResult'] = None,
+                 expose_sample_data: Optional[bool] = None,
+                 input: Optional['outputs.ServiceInputOutputSpecificationInvokeResponseResult'] = None,
+                 keys: Optional['outputs.WebServiceKeysInvokeResponseResult'] = None,
+                 machine_learning_workspace: Optional['outputs.MachineLearningWorkspaceInvokeResponseResult'] = None,
+                 output: Optional['outputs.ServiceInputOutputSpecificationInvokeResponseResult'] = None,
+                 package: Optional['outputs.GraphPackageInvokeResponseResult'] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 read_only: Optional[bool] = None,
+                 realtime_configuration: Optional['outputs.RealtimeConfigurationInvokeResponseResult'] = None,
+                 storage_account: Optional['outputs.StorageAccountInvokeResponseResult'] = None,
+                 title: Optional[str] = None):
+        """
+        Properties specific to a Graph based web service.
+        :param str created_on: Read Only: The date and time when the web service was created.
+        :param str modified_on: Read Only: The date and time when the web service was last modified.
+        :param str package_type: Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+               Expected value is 'Graph'.
+        :param str provisioning_state: Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
+        :param str swagger_location: Read Only: Contains the URI of the swagger spec associated with this web service.
+        :param Mapping[str, 'AssetItemInvokeResponseArgs'] assets: Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+        :param 'CommitmentPlanInvokeResponseArgs' commitment_plan: Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+        :param str description: The description of the web service.
+        :param 'DiagnosticsConfigurationInvokeResponseArgs' diagnostics: Settings controlling the diagnostics traces collection for the web service.
+        :param 'ExampleRequestInvokeResponseArgs' example_request: Defines sample input data for one or more of the service's inputs.
+        :param bool expose_sample_data: When set to true, sample data is included in the web service's swagger definition. The default value is true.
+        :param 'ServiceInputOutputSpecificationInvokeResponseArgs' input: Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+        :param 'WebServiceKeysInvokeResponseArgs' keys: Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+        :param 'MachineLearningWorkspaceInvokeResponseArgs' machine_learning_workspace: Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+        :param 'ServiceInputOutputSpecificationInvokeResponseArgs' output: Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+        :param 'GraphPackageInvokeResponseArgs' package: The definition of the graph package making up this web service.
+        :param Mapping[str, str] parameters: The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+        :param bool read_only: When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
+        :param 'RealtimeConfigurationInvokeResponseArgs' realtime_configuration: Contains the configuration settings for the web service endpoint.
+        :param 'StorageAccountInvokeResponseArgs' storage_account: Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+        :param str title: The title of the web service.
+        """
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "package_type", 'Graph')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "swagger_location", swagger_location)
+        if assets is not None:
+            pulumi.set(__self__, "assets", assets)
+        if commitment_plan is not None:
+            pulumi.set(__self__, "commitment_plan", commitment_plan)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if example_request is not None:
+            pulumi.set(__self__, "example_request", example_request)
+        if expose_sample_data is not None:
+            pulumi.set(__self__, "expose_sample_data", expose_sample_data)
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+        if machine_learning_workspace is not None:
+            pulumi.set(__self__, "machine_learning_workspace", machine_learning_workspace)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+        if package is not None:
+            pulumi.set(__self__, "package", package)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if realtime_configuration is not None:
+            pulumi.set(__self__, "realtime_configuration", realtime_configuration)
+        if storage_account is not None:
+            pulumi.set(__self__, "storage_account", storage_account)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        Read Only: The date and time when the web service was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        Read Only: The date and time when the web service was last modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="packageType")
+    def package_type(self) -> str:
+        """
+        Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+        Expected value is 'Graph'.
+        """
+        return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="swaggerLocation")
+    def swagger_location(self) -> str:
+        """
+        Read Only: Contains the URI of the swagger spec associated with this web service.
+        """
+        return pulumi.get(self, "swagger_location")
+
+    @property
+    @pulumi.getter
+    def assets(self) -> Optional[Mapping[str, 'outputs.AssetItemInvokeResponseResult']]:
+        """
+        Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+        """
+        return pulumi.get(self, "assets")
+
+    @property
+    @pulumi.getter(name="commitmentPlan")
+    def commitment_plan(self) -> Optional['outputs.CommitmentPlanInvokeResponseResult']:
+        """
+        Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+        """
+        return pulumi.get(self, "commitment_plan")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the web service.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional['outputs.DiagnosticsConfigurationInvokeResponseResult']:
+        """
+        Settings controlling the diagnostics traces collection for the web service.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="exampleRequest")
+    def example_request(self) -> Optional['outputs.ExampleRequestInvokeResponseResult']:
+        """
+        Defines sample input data for one or more of the service's inputs.
+        """
+        return pulumi.get(self, "example_request")
+
+    @property
+    @pulumi.getter(name="exposeSampleData")
+    def expose_sample_data(self) -> Optional[bool]:
+        """
+        When set to true, sample data is included in the web service's swagger definition. The default value is true.
+        """
+        return pulumi.get(self, "expose_sample_data")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ServiceInputOutputSpecificationInvokeResponseResult']:
+        """
+        Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional['outputs.WebServiceKeysInvokeResponseResult']:
+        """
+        Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+        """
+        return pulumi.get(self, "keys")
+
+    @property
+    @pulumi.getter(name="machineLearningWorkspace")
+    def machine_learning_workspace(self) -> Optional['outputs.MachineLearningWorkspaceInvokeResponseResult']:
+        """
+        Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+        """
+        return pulumi.get(self, "machine_learning_workspace")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional['outputs.ServiceInputOutputSpecificationInvokeResponseResult']:
+        """
+        Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def package(self) -> Optional['outputs.GraphPackageInvokeResponseResult']:
+        """
+        The definition of the graph package making up this web service.
+        """
+        return pulumi.get(self, "package")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
+        """
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="realtimeConfiguration")
+    def realtime_configuration(self) -> Optional['outputs.RealtimeConfigurationInvokeResponseResult']:
+        """
+        Contains the configuration settings for the web service endpoint.
+        """
+        return pulumi.get(self, "realtime_configuration")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> Optional['outputs.StorageAccountInvokeResponseResult']:
+        """
+        Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+        """
+        return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the web service.
+        """
+        return pulumi.get(self, "title")
 
 
 @pulumi.output_type

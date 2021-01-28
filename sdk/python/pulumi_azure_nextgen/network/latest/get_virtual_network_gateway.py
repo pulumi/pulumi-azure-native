@@ -104,7 +104,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_settings(self) -> Optional['outputs.BgpSettingsInvokeResponseResult']:
         """
         Virtual network gateway's BGP speaker settings.
         """
@@ -112,7 +112,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="customRoutes")
-    def custom_routes(self) -> Optional['outputs.AddressSpaceResponse']:
+    def custom_routes(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         """
@@ -152,7 +152,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationInvokeResponseResult']:
         """
         The extended location of type local virtual network gateway.
         """
@@ -160,7 +160,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="gatewayDefaultSite")
-    def gateway_default_site(self) -> Optional['outputs.SubResourceResponse']:
+    def gateway_default_site(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         """
@@ -192,7 +192,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationInvokeResponseResult']]:
         """
         IP configurations for virtual network gateway.
         """
@@ -232,7 +232,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.VirtualNetworkGatewaySkuResponse']:
+    def sku(self) -> Optional['outputs.VirtualNetworkGatewaySkuInvokeResponseResult']:
         """
         The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         """
@@ -264,7 +264,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="vpnClientConfiguration")
-    def vpn_client_configuration(self) -> Optional['outputs.VpnClientConfigurationResponse']:
+    def vpn_client_configuration(self) -> Optional['outputs.VpnClientConfigurationInvokeResponseResult']:
         """
         The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         """

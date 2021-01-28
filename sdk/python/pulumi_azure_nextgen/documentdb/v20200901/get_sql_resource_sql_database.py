@@ -69,12 +69,12 @@ class GetSqlResourceSqlDatabaseResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.SqlDatabaseGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.SqlDatabaseGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.SqlDatabaseGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.SqlDatabaseGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

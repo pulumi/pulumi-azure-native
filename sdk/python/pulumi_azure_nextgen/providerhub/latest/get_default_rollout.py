@@ -63,12 +63,12 @@ class GetDefaultRolloutResult:
 
     @property
     @pulumi.getter
-    def specification(self) -> Optional['outputs.DefaultRolloutPropertiesResponseSpecification']:
+    def specification(self) -> Optional['outputs.DefaultRolloutPropertiesInvokeResponseSpecificationResult']:
         return pulumi.get(self, "specification")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['outputs.DefaultRolloutPropertiesResponseStatus']:
+    def status(self) -> Optional['outputs.DefaultRolloutPropertiesInvokeResponseStatusResult']:
         return pulumi.get(self, "status")
 
     @property

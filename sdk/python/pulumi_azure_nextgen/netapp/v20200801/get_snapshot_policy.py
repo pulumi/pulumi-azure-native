@@ -57,7 +57,7 @@ class GetSnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> Optional['outputs.DailyScheduleResponse']:
+    def daily_schedule(self) -> Optional['outputs.DailyScheduleInvokeResponseResult']:
         """
         Schedule for daily snapshots
         """
@@ -73,7 +73,7 @@ class GetSnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
+    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleInvokeResponseResult']:
         """
         Schedule for hourly snapshots
         """
@@ -97,7 +97,7 @@ class GetSnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> Optional['outputs.MonthlyScheduleResponse']:
+    def monthly_schedule(self) -> Optional['outputs.MonthlyScheduleInvokeResponseResult']:
         """
         Schedule for monthly snapshots
         """
@@ -137,7 +137,7 @@ class GetSnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> Optional['outputs.WeeklyScheduleResponse']:
+    def weekly_schedule(self) -> Optional['outputs.WeeklyScheduleInvokeResponseResult']:
         """
         Schedule for weekly snapshots
         """

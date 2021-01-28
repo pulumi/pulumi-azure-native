@@ -80,7 +80,7 @@ class GetIotHubResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IotHubPropertiesResponse':
+    def properties(self) -> 'outputs.IotHubPropertiesInvokeResponseResult':
         """
         IotHub properties
         """
@@ -88,7 +88,7 @@ class GetIotHubResourceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IotHubSkuInfoResponse':
+    def sku(self) -> 'outputs.IotHubSkuInfoInvokeResponseResult':
         """
         IotHub SKU info
         """

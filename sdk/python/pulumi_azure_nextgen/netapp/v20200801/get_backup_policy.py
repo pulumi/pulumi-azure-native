@@ -135,7 +135,7 @@ class GetBackupPolicyResult:
 
     @property
     @pulumi.getter(name="volumeBackups")
-    def volume_backups(self) -> Optional[Sequence['outputs.VolumeBackupsResponse']]:
+    def volume_backups(self) -> Optional[Sequence['outputs.VolumeBackupsInvokeResponseResult']]:
         """
         A list of volumes assigned to this policy
         """

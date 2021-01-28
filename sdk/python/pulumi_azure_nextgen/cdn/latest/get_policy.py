@@ -69,7 +69,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional['outputs.CustomRuleListResponse']:
+    def custom_rules(self) -> Optional['outputs.CustomRuleListInvokeResponseResult']:
         """
         Describes custom rules inside the policy.
         """
@@ -77,7 +77,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="endpointLinks")
-    def endpoint_links(self) -> Sequence['outputs.CdnEndpointResponse']:
+    def endpoint_links(self) -> Sequence['outputs.CdnEndpointInvokeResponseResult']:
         """
         Describes Azure CDN endpoints associated with this Web Application Firewall policy.
         """
@@ -109,7 +109,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListResponse']:
+    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListInvokeResponseResult']:
         """
         Describes managed rules inside the policy.
         """
@@ -125,7 +125,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.PolicySettingsInvokeResponseResult']:
         """
         Describes  policySettings for policy
         """
@@ -141,7 +141,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="rateLimitRules")
-    def rate_limit_rules(self) -> Optional['outputs.RateLimitRuleListResponse']:
+    def rate_limit_rules(self) -> Optional['outputs.RateLimitRuleListInvokeResponseResult']:
         """
         Describes rate limit rules inside the policy.
         """
@@ -154,7 +154,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         """
@@ -162,7 +162,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

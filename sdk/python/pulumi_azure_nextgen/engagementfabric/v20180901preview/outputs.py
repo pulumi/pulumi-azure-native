@@ -9,13 +9,14 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'ChannelTypeDescriptionResponseResult',
-    'KeyDescriptionResponseResult',
+    'ChannelTypeDescriptionInvokeResponseResult',
+    'KeyDescriptionInvokeResponseResult',
+    'SKUInvokeResponseResult',
     'SKUResponse',
 ]
 
 @pulumi.output_type
-class ChannelTypeDescriptionResponseResult(dict):
+class ChannelTypeDescriptionInvokeResponseResult(dict):
     """
     EngagementFabric channel description
     """
@@ -62,7 +63,7 @@ class ChannelTypeDescriptionResponseResult(dict):
 
 
 @pulumi.output_type
-class KeyDescriptionResponseResult(dict):
+class KeyDescriptionInvokeResponseResult(dict):
     """
     The description of the EngagementFabric account key
     """
@@ -103,6 +104,40 @@ class KeyDescriptionResponseResult(dict):
         The value of the key
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SKUInvokeResponseResult(dict):
+    """
+    The EngagementFabric SKU
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: Optional[str] = None):
+        """
+        The EngagementFabric SKU
+        :param str name: The name of the SKU
+        :param str tier: The price tier of the SKU
+        """
+        pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The price tier of the SKU
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

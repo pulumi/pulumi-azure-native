@@ -75,7 +75,7 @@ class GetDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[Sequence['outputs.LogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.LogSettingsInvokeResponseResult']]:
         """
         The list of logs settings.
         """

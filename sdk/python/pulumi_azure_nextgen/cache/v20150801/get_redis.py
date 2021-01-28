@@ -158,7 +158,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         What SKU of Redis cache to deploy.
         """

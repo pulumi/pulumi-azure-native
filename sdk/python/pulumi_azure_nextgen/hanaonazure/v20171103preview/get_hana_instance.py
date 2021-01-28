@@ -77,7 +77,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional['outputs.HardwareProfileResponse']:
+    def hardware_profile(self) -> Optional['outputs.HardwareProfileInvokeResponseResult']:
         """
         Specifies the hardware settings for the HANA instance.
         """
@@ -117,7 +117,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.NetworkProfileInvokeResponseResult']:
         """
         Specifies the network settings for the HANA instance.
         """
@@ -125,7 +125,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.OSProfileResponse']:
+    def os_profile(self) -> Optional['outputs.OSProfileInvokeResponseResult']:
         """
         Specifies the operating system settings for the HANA instance.
         """
@@ -165,7 +165,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+    def storage_profile(self) -> Optional['outputs.StorageProfileInvokeResponseResult']:
         """
         Specifies the storage settings for the HANA instance disks.
         """

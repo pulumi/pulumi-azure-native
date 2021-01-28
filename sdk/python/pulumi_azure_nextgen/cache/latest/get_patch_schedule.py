@@ -52,7 +52,7 @@ class GetPatchScheduleResult:
 
     @property
     @pulumi.getter(name="scheduleEntries")
-    def schedule_entries(self) -> Sequence['outputs.ScheduleEntryResponse']:
+    def schedule_entries(self) -> Sequence['outputs.ScheduleEntryInvokeResponseResult']:
         """
         List of patch schedules for a Redis cache.
         """

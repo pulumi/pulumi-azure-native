@@ -11,58 +11,95 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AccountCredentialDetailsResponseResult',
+    'AccountCredentialDetailsInvokeResponseResult',
+    'AdditionalErrorInfoInvokeResponseResult',
     'AdditionalErrorInfoResponse',
-    'ApplianceNetworkConfigurationResponseResult',
+    'ApplianceNetworkConfigurationInvokeResponseResult',
+    'AzureFileFilterDetailsInvokeResponseResult',
     'AzureFileFilterDetailsResponse',
+    'BlobFilterDetailsInvokeResponseResult',
     'BlobFilterDetailsResponse',
+    'CloudErrorInvokeResponseResult',
     'CloudErrorResponse',
+    'ContactDetailsInvokeResponseResult',
     'ContactDetailsResponse',
+    'CopyProgressInvokeResponseResult',
     'CopyProgressResponse',
+    'DataBoxAccountCopyLogDetailsInvokeResponseResult',
     'DataBoxAccountCopyLogDetailsResponse',
+    'DataBoxDiskCopyLogDetailsInvokeResponseResult',
     'DataBoxDiskCopyLogDetailsResponse',
+    'DataBoxDiskCopyProgressInvokeResponseResult',
     'DataBoxDiskCopyProgressResponse',
+    'DataBoxDiskJobDetailsInvokeResponseResult',
     'DataBoxDiskJobDetailsResponse',
-    'DataBoxDiskJobSecretsResponseResult',
+    'DataBoxDiskJobSecretsInvokeResponseResult',
+    'DataBoxHeavyAccountCopyLogDetailsInvokeResponseResult',
     'DataBoxHeavyAccountCopyLogDetailsResponse',
+    'DataBoxHeavyJobDetailsInvokeResponseResult',
     'DataBoxHeavyJobDetailsResponse',
-    'DataBoxHeavyJobSecretsResponseResult',
-    'DataBoxHeavySecretResponseResult',
+    'DataBoxHeavyJobSecretsInvokeResponseResult',
+    'DataBoxHeavySecretInvokeResponseResult',
+    'DataBoxJobDetailsInvokeResponseResult',
     'DataBoxJobDetailsResponse',
-    'DataBoxSecretResponseResult',
+    'DataBoxSecretInvokeResponseResult',
+    'DataExportDetailsInvokeResponseResult',
     'DataExportDetailsResponse',
+    'DataImportDetailsInvokeResponseResult',
     'DataImportDetailsResponse',
-    'DataboxJobSecretsResponseResult',
-    'DcAccessSecurityCodeResponseResult',
-    'DiskSecretResponseResult',
+    'DataboxJobSecretsInvokeResponseResult',
+    'DcAccessSecurityCodeInvokeResponseResult',
+    'DiskSecretInvokeResponseResult',
+    'EncryptionPreferencesInvokeResponseResult',
     'EncryptionPreferencesResponse',
+    'FilterFileDetailsInvokeResponseResult',
     'FilterFileDetailsResponse',
+    'IdentityPropertiesInvokeResponseResult',
     'IdentityPropertiesResponse',
+    'JobDeliveryInfoInvokeResponseResult',
     'JobDeliveryInfoResponse',
+    'JobStagesInvokeResponseResult',
     'JobStagesResponse',
+    'KeyEncryptionKeyInvokeResponseResult',
     'KeyEncryptionKeyResponse',
+    'ManagedDiskDetailsInvokeResponseResult',
     'ManagedDiskDetailsResponse',
+    'NotificationPreferenceInvokeResponseResult',
     'NotificationPreferenceResponse',
+    'PackageShippingDetailsInvokeResponseResult',
     'PackageShippingDetailsResponse',
+    'PreferencesInvokeResponseResult',
     'PreferencesResponse',
+    'ResourceIdentityInvokeResponseResult',
     'ResourceIdentityResponse',
-    'ShareCredentialDetailsResponseResult',
+    'ShareCredentialDetailsInvokeResponseResult',
+    'ShippingAddressInvokeResponseResult',
     'ShippingAddressResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'StorageAccountDetailsInvokeResponseResult',
     'StorageAccountDetailsResponse',
+    'TransferAllDetailsInvokeResponseResult',
     'TransferAllDetailsResponse',
+    'TransferConfigurationInvokeResponseResult',
+    'TransferConfigurationInvokeResponseTransferAllDetailsResult',
+    'TransferConfigurationInvokeResponseTransferFilterDetailsResult',
     'TransferConfigurationResponse',
     'TransferConfigurationResponseTransferAllDetails',
     'TransferConfigurationResponseTransferFilterDetails',
+    'TransferFilterDetailsInvokeResponseResult',
     'TransferFilterDetailsResponse',
+    'TransportPreferencesInvokeResponseResult',
     'TransportPreferencesResponse',
-    'UnencryptedCredentialsResponseResult',
+    'UnencryptedCredentialsInvokeResponseResult',
+    'UserAssignedIdentityInvokeResponseResult',
     'UserAssignedIdentityResponse',
+    'UserAssignedPropertiesInvokeResponseResult',
     'UserAssignedPropertiesResponse',
 ]
 
 @pulumi.output_type
-class AccountCredentialDetailsResponseResult(dict):
+class AccountCredentialDetailsInvokeResponseResult(dict):
     """
     Credential details of the account.
     """
@@ -70,13 +107,13 @@ class AccountCredentialDetailsResponseResult(dict):
                  account_connection_string: str,
                  account_name: str,
                  data_account_type: str,
-                 share_credential_details: Sequence['outputs.ShareCredentialDetailsResponseResult']):
+                 share_credential_details: Sequence['outputs.ShareCredentialDetailsInvokeResponseResult']):
         """
         Credential details of the account.
         :param str account_connection_string: Connection string of the account endpoint to use the account as a storage endpoint on the device.
         :param str account_name: Name of the account.
         :param str data_account_type: Type of the account.
-        :param Sequence['ShareCredentialDetailsResponseArgs'] share_credential_details: Per share level unencrypted access credentials.
+        :param Sequence['ShareCredentialDetailsInvokeResponseArgs'] share_credential_details: Per share level unencrypted access credentials.
         """
         pulumi.set(__self__, "account_connection_string", account_connection_string)
         pulumi.set(__self__, "account_name", account_name)
@@ -109,11 +146,46 @@ class AccountCredentialDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="shareCredentialDetails")
-    def share_credential_details(self) -> Sequence['outputs.ShareCredentialDetailsResponseResult']:
+    def share_credential_details(self) -> Sequence['outputs.ShareCredentialDetailsInvokeResponseResult']:
         """
         Per share level unencrypted access credentials.
         """
         return pulumi.get(self, "share_credential_details")
+
+
+@pulumi.output_type
+class AdditionalErrorInfoInvokeResponseResult(dict):
+    """
+    Additional error info.
+    """
+    def __init__(__self__, *,
+                 info: Optional[Any] = None,
+                 type: Optional[str] = None):
+        """
+        Additional error info.
+        :param Any info: Additional error info.
+        :param str type: Additional error type.
+        """
+        if info is not None:
+            pulumi.set(__self__, "info", info)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Optional[Any]:
+        """
+        Additional error info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Additional error type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -155,7 +227,7 @@ class AdditionalErrorInfoResponse(dict):
 
 
 @pulumi.output_type
-class ApplianceNetworkConfigurationResponseResult(dict):
+class ApplianceNetworkConfigurationInvokeResponseResult(dict):
     """
     The Network Adapter configuration of a DataBox.
     """
@@ -185,6 +257,53 @@ class ApplianceNetworkConfigurationResponseResult(dict):
         Name of the network.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AzureFileFilterDetailsInvokeResponseResult(dict):
+    """
+    Filter details to transfer Azure files
+    """
+    def __init__(__self__, *,
+                 file_path_list: Optional[Sequence[str]] = None,
+                 file_prefix_list: Optional[Sequence[str]] = None,
+                 file_share_list: Optional[Sequence[str]] = None):
+        """
+        Filter details to transfer Azure files
+        :param Sequence[str] file_path_list: List of full path of the files to be transferred.
+        :param Sequence[str] file_prefix_list: Prefix list of the Azure files to be transferred.
+        :param Sequence[str] file_share_list: List of file shares to be transferred.
+        """
+        if file_path_list is not None:
+            pulumi.set(__self__, "file_path_list", file_path_list)
+        if file_prefix_list is not None:
+            pulumi.set(__self__, "file_prefix_list", file_prefix_list)
+        if file_share_list is not None:
+            pulumi.set(__self__, "file_share_list", file_share_list)
+
+    @property
+    @pulumi.getter(name="filePathList")
+    def file_path_list(self) -> Optional[Sequence[str]]:
+        """
+        List of full path of the files to be transferred.
+        """
+        return pulumi.get(self, "file_path_list")
+
+    @property
+    @pulumi.getter(name="filePrefixList")
+    def file_prefix_list(self) -> Optional[Sequence[str]]:
+        """
+        Prefix list of the Azure files to be transferred.
+        """
+        return pulumi.get(self, "file_prefix_list")
+
+    @property
+    @pulumi.getter(name="fileShareList")
+    def file_share_list(self) -> Optional[Sequence[str]]:
+        """
+        List of file shares to be transferred.
+        """
+        return pulumi.get(self, "file_share_list")
 
 
 @pulumi.output_type
@@ -238,6 +357,53 @@ class AzureFileFilterDetailsResponse(dict):
 
 
 @pulumi.output_type
+class BlobFilterDetailsInvokeResponseResult(dict):
+    """
+    Filter details to transfer Azure Blobs
+    """
+    def __init__(__self__, *,
+                 blob_path_list: Optional[Sequence[str]] = None,
+                 blob_prefix_list: Optional[Sequence[str]] = None,
+                 container_list: Optional[Sequence[str]] = None):
+        """
+        Filter details to transfer Azure Blobs
+        :param Sequence[str] blob_path_list: List of full path of the blobs to be transferred.
+        :param Sequence[str] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
+        :param Sequence[str] container_list: List of blob containers to be transferred.
+        """
+        if blob_path_list is not None:
+            pulumi.set(__self__, "blob_path_list", blob_path_list)
+        if blob_prefix_list is not None:
+            pulumi.set(__self__, "blob_prefix_list", blob_prefix_list)
+        if container_list is not None:
+            pulumi.set(__self__, "container_list", container_list)
+
+    @property
+    @pulumi.getter(name="blobPathList")
+    def blob_path_list(self) -> Optional[Sequence[str]]:
+        """
+        List of full path of the blobs to be transferred.
+        """
+        return pulumi.get(self, "blob_path_list")
+
+    @property
+    @pulumi.getter(name="blobPrefixList")
+    def blob_prefix_list(self) -> Optional[Sequence[str]]:
+        """
+        Prefix list of the Azure blobs to be transferred.
+        """
+        return pulumi.get(self, "blob_prefix_list")
+
+    @property
+    @pulumi.getter(name="containerList")
+    def container_list(self) -> Optional[Sequence[str]]:
+        """
+        List of blob containers to be transferred.
+        """
+        return pulumi.get(self, "container_list")
+
+
+@pulumi.output_type
 class BlobFilterDetailsResponse(dict):
     """
     Filter details to transfer Azure Blobs
@@ -285,6 +451,75 @@ class BlobFilterDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CloudErrorInvokeResponseResult(dict):
+    """
+    Cloud error.
+    """
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.AdditionalErrorInfoInvokeResponseResult'],
+                 details: Sequence['outputs.CloudErrorInvokeResponseResult'],
+                 code: Optional[str] = None,
+                 message: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        Cloud error.
+        :param Sequence['AdditionalErrorInfoInvokeResponseArgs'] additional_info: Cloud error additional info.
+        :param Sequence['CloudErrorInvokeResponseArgs'] details: Cloud error details.
+        :param str code: Cloud error code.
+        :param str message: Cloud error message.
+        :param str target: Cloud error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "details", details)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.AdditionalErrorInfoInvokeResponseResult']:
+        """
+        Cloud error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.CloudErrorInvokeResponseResult']:
+        """
+        Cloud error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Cloud error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Cloud error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Cloud error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -357,6 +592,86 @@ class CloudErrorResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContactDetailsInvokeResponseResult(dict):
+    """
+    Contact Details.
+    """
+    def __init__(__self__, *,
+                 contact_name: str,
+                 email_list: Sequence[str],
+                 phone: str,
+                 mobile: Optional[str] = None,
+                 notification_preference: Optional[Sequence['outputs.NotificationPreferenceInvokeResponseResult']] = None,
+                 phone_extension: Optional[str] = None):
+        """
+        Contact Details.
+        :param str contact_name: Contact name of the person.
+        :param Sequence[str] email_list: List of Email-ids to be notified about job progress.
+        :param str phone: Phone number of the contact person.
+        :param str mobile: Mobile number of the contact person.
+        :param Sequence['NotificationPreferenceInvokeResponseArgs'] notification_preference: Notification preference for a job stage.
+        :param str phone_extension: Phone extension number of the contact person.
+        """
+        pulumi.set(__self__, "contact_name", contact_name)
+        pulumi.set(__self__, "email_list", email_list)
+        pulumi.set(__self__, "phone", phone)
+        if mobile is not None:
+            pulumi.set(__self__, "mobile", mobile)
+        if notification_preference is not None:
+            pulumi.set(__self__, "notification_preference", notification_preference)
+        if phone_extension is not None:
+            pulumi.set(__self__, "phone_extension", phone_extension)
+
+    @property
+    @pulumi.getter(name="contactName")
+    def contact_name(self) -> str:
+        """
+        Contact name of the person.
+        """
+        return pulumi.get(self, "contact_name")
+
+    @property
+    @pulumi.getter(name="emailList")
+    def email_list(self) -> Sequence[str]:
+        """
+        List of Email-ids to be notified about job progress.
+        """
+        return pulumi.get(self, "email_list")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> str:
+        """
+        Phone number of the contact person.
+        """
+        return pulumi.get(self, "phone")
+
+    @property
+    @pulumi.getter
+    def mobile(self) -> Optional[str]:
+        """
+        Mobile number of the contact person.
+        """
+        return pulumi.get(self, "mobile")
+
+    @property
+    @pulumi.getter(name="notificationPreference")
+    def notification_preference(self) -> Optional[Sequence['outputs.NotificationPreferenceInvokeResponseResult']]:
+        """
+        Notification preference for a job stage.
+        """
+        return pulumi.get(self, "notification_preference")
+
+    @property
+    @pulumi.getter(name="phoneExtension")
+    def phone_extension(self) -> Optional[str]:
+        """
+        Phone extension number of the contact person.
+        """
+        return pulumi.get(self, "phone_extension")
 
 
 @pulumi.output_type
@@ -440,6 +755,184 @@ class ContactDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CopyProgressInvokeResponseResult(dict):
+    """
+    Copy progress.
+    """
+    def __init__(__self__, *,
+                 account_id: str,
+                 bytes_processed: float,
+                 data_account_type: str,
+                 directories_errored_out: float,
+                 files_errored_out: float,
+                 files_processed: float,
+                 invalid_directories_processed: float,
+                 invalid_file_bytes_uploaded: float,
+                 invalid_files_processed: float,
+                 is_enumeration_in_progress: bool,
+                 renamed_container_count: float,
+                 storage_account_name: str,
+                 total_bytes_to_process: float,
+                 total_files_to_process: float,
+                 transfer_type: str):
+        """
+        Copy progress.
+        :param str account_id: Id of the account where the data needs to be uploaded.
+        :param float bytes_processed: To indicate bytes transferred.
+        :param str data_account_type: Data Account Type.
+        :param float directories_errored_out: To indicate directories errored out in the job.
+        :param float files_errored_out: Number of files which could not be copied
+        :param float files_processed: Number of files processed
+        :param float invalid_directories_processed: To indicate directories renamed
+        :param float invalid_file_bytes_uploaded: Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+        :param float invalid_files_processed: Number of files not adhering to azure naming conventions which were processed by automatic renaming
+        :param bool is_enumeration_in_progress: To indicate if enumeration of data is in progress. 
+               Until this is true, the TotalBytesToProcess may not be valid.
+        :param float renamed_container_count: Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+        :param str storage_account_name: Name of the storage account. This will be empty for data account types other than storage account.
+        :param float total_bytes_to_process: Total amount of data to be processed by the job.
+        :param float total_files_to_process: Total files to process
+        :param str transfer_type: Transfer type of data
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "bytes_processed", bytes_processed)
+        pulumi.set(__self__, "data_account_type", data_account_type)
+        pulumi.set(__self__, "directories_errored_out", directories_errored_out)
+        pulumi.set(__self__, "files_errored_out", files_errored_out)
+        pulumi.set(__self__, "files_processed", files_processed)
+        pulumi.set(__self__, "invalid_directories_processed", invalid_directories_processed)
+        pulumi.set(__self__, "invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
+        pulumi.set(__self__, "invalid_files_processed", invalid_files_processed)
+        pulumi.set(__self__, "is_enumeration_in_progress", is_enumeration_in_progress)
+        pulumi.set(__self__, "renamed_container_count", renamed_container_count)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "total_bytes_to_process", total_bytes_to_process)
+        pulumi.set(__self__, "total_files_to_process", total_files_to_process)
+        pulumi.set(__self__, "transfer_type", transfer_type)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        Id of the account where the data needs to be uploaded.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="bytesProcessed")
+    def bytes_processed(self) -> float:
+        """
+        To indicate bytes transferred.
+        """
+        return pulumi.get(self, "bytes_processed")
+
+    @property
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> str:
+        """
+        Data Account Type.
+        """
+        return pulumi.get(self, "data_account_type")
+
+    @property
+    @pulumi.getter(name="directoriesErroredOut")
+    def directories_errored_out(self) -> float:
+        """
+        To indicate directories errored out in the job.
+        """
+        return pulumi.get(self, "directories_errored_out")
+
+    @property
+    @pulumi.getter(name="filesErroredOut")
+    def files_errored_out(self) -> float:
+        """
+        Number of files which could not be copied
+        """
+        return pulumi.get(self, "files_errored_out")
+
+    @property
+    @pulumi.getter(name="filesProcessed")
+    def files_processed(self) -> float:
+        """
+        Number of files processed
+        """
+        return pulumi.get(self, "files_processed")
+
+    @property
+    @pulumi.getter(name="invalidDirectoriesProcessed")
+    def invalid_directories_processed(self) -> float:
+        """
+        To indicate directories renamed
+        """
+        return pulumi.get(self, "invalid_directories_processed")
+
+    @property
+    @pulumi.getter(name="invalidFileBytesUploaded")
+    def invalid_file_bytes_uploaded(self) -> float:
+        """
+        Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+        """
+        return pulumi.get(self, "invalid_file_bytes_uploaded")
+
+    @property
+    @pulumi.getter(name="invalidFilesProcessed")
+    def invalid_files_processed(self) -> float:
+        """
+        Number of files not adhering to azure naming conventions which were processed by automatic renaming
+        """
+        return pulumi.get(self, "invalid_files_processed")
+
+    @property
+    @pulumi.getter(name="isEnumerationInProgress")
+    def is_enumeration_in_progress(self) -> bool:
+        """
+        To indicate if enumeration of data is in progress. 
+        Until this is true, the TotalBytesToProcess may not be valid.
+        """
+        return pulumi.get(self, "is_enumeration_in_progress")
+
+    @property
+    @pulumi.getter(name="renamedContainerCount")
+    def renamed_container_count(self) -> float:
+        """
+        Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+        """
+        return pulumi.get(self, "renamed_container_count")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Name of the storage account. This will be empty for data account types other than storage account.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="totalBytesToProcess")
+    def total_bytes_to_process(self) -> float:
+        """
+        Total amount of data to be processed by the job.
+        """
+        return pulumi.get(self, "total_bytes_to_process")
+
+    @property
+    @pulumi.getter(name="totalFilesToProcess")
+    def total_files_to_process(self) -> float:
+        """
+        Total files to process
+        """
+        return pulumi.get(self, "total_files_to_process")
+
+    @property
+    @pulumi.getter(name="transferType")
+    def transfer_type(self) -> str:
+        """
+        Transfer type of data
+        """
+        return pulumi.get(self, "transfer_type")
 
 
 @pulumi.output_type
@@ -624,6 +1117,63 @@ class CopyProgressResponse(dict):
 
 
 @pulumi.output_type
+class DataBoxAccountCopyLogDetailsInvokeResponseResult(dict):
+    """
+    Copy log details for a storage account of a DataBox job
+    """
+    def __init__(__self__, *,
+                 account_name: str,
+                 copy_log_details_type: str,
+                 copy_log_link: str,
+                 copy_verbose_log_link: str):
+        """
+        Copy log details for a storage account of a DataBox job
+        :param str account_name: Account name.
+        :param str copy_log_details_type: Indicates the type of job details.
+               Expected value is 'DataBox'.
+        :param str copy_log_link: Link for copy logs.
+        :param str copy_verbose_log_link: Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "copy_log_details_type", 'DataBox')
+        pulumi.set(__self__, "copy_log_link", copy_log_link)
+        pulumi.set(__self__, "copy_verbose_log_link", copy_verbose_log_link)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="copyLogDetailsType")
+    def copy_log_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBox'.
+        """
+        return pulumi.get(self, "copy_log_details_type")
+
+    @property
+    @pulumi.getter(name="copyLogLink")
+    def copy_log_link(self) -> str:
+        """
+        Link for copy logs.
+        """
+        return pulumi.get(self, "copy_log_link")
+
+    @property
+    @pulumi.getter(name="copyVerboseLogLink")
+    def copy_verbose_log_link(self) -> str:
+        """
+        Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+        """
+        return pulumi.get(self, "copy_verbose_log_link")
+
+
+@pulumi.output_type
 class DataBoxAccountCopyLogDetailsResponse(dict):
     """
     Copy log details for a storage account of a DataBox job
@@ -681,6 +1231,63 @@ class DataBoxAccountCopyLogDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxDiskCopyLogDetailsInvokeResponseResult(dict):
+    """
+    Copy Log Details for a disk
+    """
+    def __init__(__self__, *,
+                 copy_log_details_type: str,
+                 disk_serial_number: str,
+                 error_log_link: str,
+                 verbose_log_link: str):
+        """
+        Copy Log Details for a disk
+        :param str copy_log_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxDisk'.
+        :param str disk_serial_number: Disk Serial Number.
+        :param str error_log_link: Link for copy error logs.
+        :param str verbose_log_link: Link for copy verbose logs.
+        """
+        pulumi.set(__self__, "copy_log_details_type", 'DataBoxDisk')
+        pulumi.set(__self__, "disk_serial_number", disk_serial_number)
+        pulumi.set(__self__, "error_log_link", error_log_link)
+        pulumi.set(__self__, "verbose_log_link", verbose_log_link)
+
+    @property
+    @pulumi.getter(name="copyLogDetailsType")
+    def copy_log_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBoxDisk'.
+        """
+        return pulumi.get(self, "copy_log_details_type")
+
+    @property
+    @pulumi.getter(name="diskSerialNumber")
+    def disk_serial_number(self) -> str:
+        """
+        Disk Serial Number.
+        """
+        return pulumi.get(self, "disk_serial_number")
+
+    @property
+    @pulumi.getter(name="errorLogLink")
+    def error_log_link(self) -> str:
+        """
+        Link for copy error logs.
+        """
+        return pulumi.get(self, "error_log_link")
+
+    @property
+    @pulumi.getter(name="verboseLogLink")
+    def verbose_log_link(self) -> str:
+        """
+        Link for copy verbose logs.
+        """
+        return pulumi.get(self, "verbose_log_link")
 
 
 @pulumi.output_type
@@ -744,6 +1351,61 @@ class DataBoxDiskCopyLogDetailsResponse(dict):
 
 
 @pulumi.output_type
+class DataBoxDiskCopyProgressInvokeResponseResult(dict):
+    """
+    DataBox Disk Copy Progress
+    """
+    def __init__(__self__, *,
+                 bytes_copied: float,
+                 percent_complete: int,
+                 serial_number: str,
+                 status: str):
+        """
+        DataBox Disk Copy Progress
+        :param float bytes_copied: Bytes copied during the copy of disk.
+        :param int percent_complete: Indicates the percentage completed for the copy of the disk.
+        :param str serial_number: The serial number of the disk
+        :param str status: The Status of the copy
+        """
+        pulumi.set(__self__, "bytes_copied", bytes_copied)
+        pulumi.set(__self__, "percent_complete", percent_complete)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="bytesCopied")
+    def bytes_copied(self) -> float:
+        """
+        Bytes copied during the copy of disk.
+        """
+        return pulumi.get(self, "bytes_copied")
+
+    @property
+    @pulumi.getter(name="percentComplete")
+    def percent_complete(self) -> int:
+        """
+        Indicates the percentage completed for the copy of the disk.
+        """
+        return pulumi.get(self, "percent_complete")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The serial number of the disk
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The Status of the copy
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class DataBoxDiskCopyProgressResponse(dict):
     """
     DataBox Disk Copy Progress
@@ -799,6 +1461,225 @@ class DataBoxDiskCopyProgressResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxDiskJobDetailsInvokeResponseResult(dict):
+    """
+    DataBox Disk Job Details.
+    """
+    def __init__(__self__, *,
+                 chain_of_custody_sas_key: str,
+                 contact_details: 'outputs.ContactDetailsInvokeResponseResult',
+                 copy_log_details: Sequence[Any],
+                 copy_progress: Sequence['outputs.DataBoxDiskCopyProgressInvokeResponseResult'],
+                 delivery_package: 'outputs.PackageShippingDetailsInvokeResponseResult',
+                 disks_and_size_details: Mapping[str, int],
+                 job_details_type: str,
+                 job_stages: Sequence['outputs.JobStagesInvokeResponseResult'],
+                 return_package: 'outputs.PackageShippingDetailsInvokeResponseResult',
+                 reverse_shipment_label_sas_key: str,
+                 data_export_details: Optional[Sequence['outputs.DataExportDetailsInvokeResponseResult']] = None,
+                 data_import_details: Optional[Sequence['outputs.DataImportDetailsInvokeResponseResult']] = None,
+                 expected_data_size_in_terabytes: Optional[int] = None,
+                 key_encryption_key: Optional['outputs.KeyEncryptionKeyInvokeResponseResult'] = None,
+                 passkey: Optional[str] = None,
+                 preferences: Optional['outputs.PreferencesInvokeResponseResult'] = None,
+                 preferred_disks: Optional[Mapping[str, int]] = None,
+                 shipping_address: Optional['outputs.ShippingAddressInvokeResponseResult'] = None):
+        """
+        DataBox Disk Job Details.
+        :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
+        :param 'ContactDetailsInvokeResponseArgs' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsInvokeResponseArgs', 'DataBoxDiskCopyLogDetailsInvokeResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs']] copy_log_details: List of copy log details.
+        :param Sequence['DataBoxDiskCopyProgressInvokeResponseArgs'] copy_progress: Copy progress per disk.
+        :param 'PackageShippingDetailsInvokeResponseArgs' delivery_package: Delivery package shipping details.
+        :param Mapping[str, int] disks_and_size_details: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+        :param str job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxDisk'.
+        :param Sequence['JobStagesInvokeResponseArgs'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsInvokeResponseArgs' return_package: Return package shipping details.
+        :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
+        :param Sequence['DataExportDetailsInvokeResponseArgs'] data_export_details: Details of the data to be exported from azure.
+        :param Sequence['DataImportDetailsInvokeResponseArgs'] data_import_details: Details of the data to be imported into azure.
+        :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'KeyEncryptionKeyInvokeResponseArgs' key_encryption_key: Details about which key encryption type is being used.
+        :param str passkey: User entered passkey for DataBox Disk job.
+        :param 'PreferencesInvokeResponseArgs' preferences: Preferences for the order.
+        :param Mapping[str, int] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        :param 'ShippingAddressInvokeResponseArgs' shipping_address: Shipping address of the customer.
+        """
+        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "copy_log_details", copy_log_details)
+        pulumi.set(__self__, "copy_progress", copy_progress)
+        pulumi.set(__self__, "delivery_package", delivery_package)
+        pulumi.set(__self__, "disks_and_size_details", disks_and_size_details)
+        pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
+        pulumi.set(__self__, "job_stages", job_stages)
+        pulumi.set(__self__, "return_package", return_package)
+        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if expected_data_size_in_terabytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if passkey is not None:
+            pulumi.set(__self__, "passkey", passkey)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if preferred_disks is not None:
+            pulumi.set(__self__, "preferred_disks", preferred_disks)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="chainOfCustodySasKey")
+    def chain_of_custody_sas_key(self) -> str:
+        """
+        Shared access key to download the chain of custody logs
+        """
+        return pulumi.get(self, "chain_of_custody_sas_key")
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> 'outputs.ContactDetailsInvokeResponseResult':
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
+    @pulumi.getter(name="copyLogDetails")
+    def copy_log_details(self) -> Sequence[Any]:
+        """
+        List of copy log details.
+        """
+        return pulumi.get(self, "copy_log_details")
+
+    @property
+    @pulumi.getter(name="copyProgress")
+    def copy_progress(self) -> Sequence['outputs.DataBoxDiskCopyProgressInvokeResponseResult']:
+        """
+        Copy progress per disk.
+        """
+        return pulumi.get(self, "copy_progress")
+
+    @property
+    @pulumi.getter(name="deliveryPackage")
+    def delivery_package(self) -> 'outputs.PackageShippingDetailsInvokeResponseResult':
+        """
+        Delivery package shipping details.
+        """
+        return pulumi.get(self, "delivery_package")
+
+    @property
+    @pulumi.getter(name="disksAndSizeDetails")
+    def disks_and_size_details(self) -> Mapping[str, int]:
+        """
+        Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+        """
+        return pulumi.get(self, "disks_and_size_details")
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBoxDisk'.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @property
+    @pulumi.getter(name="jobStages")
+    def job_stages(self) -> Sequence['outputs.JobStagesInvokeResponseResult']:
+        """
+        List of stages that run in the job.
+        """
+        return pulumi.get(self, "job_stages")
+
+    @property
+    @pulumi.getter(name="returnPackage")
+    def return_package(self) -> 'outputs.PackageShippingDetailsInvokeResponseResult':
+        """
+        Return package shipping details.
+        """
+        return pulumi.get(self, "return_package")
+
+    @property
+    @pulumi.getter(name="reverseShipmentLabelSasKey")
+    def reverse_shipment_label_sas_key(self) -> str:
+        """
+        Shared access key to download the return shipment label
+        """
+        return pulumi.get(self, "reverse_shipment_label_sas_key")
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[Sequence['outputs.DataExportDetailsInvokeResponseResult']]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[Sequence['outputs.DataImportDetailsInvokeResponseResult']]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTerabytes")
+    def expected_data_size_in_terabytes(self) -> Optional[int]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyEncryptionKeyInvokeResponseResult']:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @property
+    @pulumi.getter
+    def passkey(self) -> Optional[str]:
+        """
+        User entered passkey for DataBox Disk job.
+        """
+        return pulumi.get(self, "passkey")
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional['outputs.PreferencesInvokeResponseResult']:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @property
+    @pulumi.getter(name="preferredDisks")
+    def preferred_disks(self) -> Optional[Mapping[str, int]]:
+        """
+        User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        """
+        return pulumi.get(self, "preferred_disks")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional['outputs.ShippingAddressInvokeResponseResult']:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
 
 
 @pulumi.output_type
@@ -1024,22 +1905,22 @@ class DataBoxDiskJobDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxDiskJobSecretsResponseResult(dict):
+class DataBoxDiskJobSecretsInvokeResponseResult(dict):
     """
     The secrets related to disk job.
     """
     def __init__(__self__, *,
-                 dc_access_security_code: 'outputs.DcAccessSecurityCodeResponseResult',
-                 disk_secrets: Sequence['outputs.DiskSecretResponseResult'],
-                 error: 'outputs.CloudErrorResponse',
+                 dc_access_security_code: 'outputs.DcAccessSecurityCodeInvokeResponseResult',
+                 disk_secrets: Sequence['outputs.DiskSecretInvokeResponseResult'],
+                 error: 'outputs.CloudErrorInvokeResponseResult',
                  is_passkey_user_defined: bool,
                  job_secrets_type: str,
                  pass_key: str):
         """
         The secrets related to disk job.
-        :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
-        :param Sequence['DiskSecretResponseArgs'] disk_secrets: Contains the list of secrets object for that device.
-        :param 'CloudErrorResponseArgs' error: Error while fetching the secrets.
+        :param 'DcAccessSecurityCodeInvokeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
+        :param Sequence['DiskSecretInvokeResponseArgs'] disk_secrets: Contains the list of secrets object for that device.
+        :param 'CloudErrorInvokeResponseArgs' error: Error while fetching the secrets.
         :param bool is_passkey_user_defined: Whether passkey was provided by user.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxDisk'.
@@ -1054,7 +1935,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
-    def dc_access_security_code(self) -> 'outputs.DcAccessSecurityCodeResponseResult':
+    def dc_access_security_code(self) -> 'outputs.DcAccessSecurityCodeInvokeResponseResult':
         """
         Dc Access Security Code for Customer Managed Shipping
         """
@@ -1062,7 +1943,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="diskSecrets")
-    def disk_secrets(self) -> Sequence['outputs.DiskSecretResponseResult']:
+    def disk_secrets(self) -> Sequence['outputs.DiskSecretInvokeResponseResult']:
         """
         Contains the list of secrets object for that device.
         """
@@ -1070,7 +1951,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.CloudErrorResponse':
+    def error(self) -> 'outputs.CloudErrorInvokeResponseResult':
         """
         Error while fetching the secrets.
         """
@@ -1100,6 +1981,63 @@ class DataBoxDiskJobSecretsResponseResult(dict):
         PassKey for the disk Job.
         """
         return pulumi.get(self, "pass_key")
+
+
+@pulumi.output_type
+class DataBoxHeavyAccountCopyLogDetailsInvokeResponseResult(dict):
+    """
+    Copy log details for a storage account for Databox heavy
+    """
+    def __init__(__self__, *,
+                 account_name: str,
+                 copy_log_details_type: str,
+                 copy_log_link: Sequence[str],
+                 copy_verbose_log_link: Sequence[str]):
+        """
+        Copy log details for a storage account for Databox heavy
+        :param str account_name: Account name.
+        :param str copy_log_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxHeavy'.
+        :param Sequence[str] copy_log_link: Link for copy logs.
+        :param Sequence[str] copy_verbose_log_link: Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "copy_log_details_type", 'DataBoxHeavy')
+        pulumi.set(__self__, "copy_log_link", copy_log_link)
+        pulumi.set(__self__, "copy_verbose_log_link", copy_verbose_log_link)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="copyLogDetailsType")
+    def copy_log_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBoxHeavy'.
+        """
+        return pulumi.get(self, "copy_log_details_type")
+
+    @property
+    @pulumi.getter(name="copyLogLink")
+    def copy_log_link(self) -> Sequence[str]:
+        """
+        Link for copy logs.
+        """
+        return pulumi.get(self, "copy_log_link")
+
+    @property
+    @pulumi.getter(name="copyVerboseLogLink")
+    def copy_verbose_log_link(self) -> Sequence[str]:
+        """
+        Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+        """
+        return pulumi.get(self, "copy_verbose_log_link")
 
 
 @pulumi.output_type
@@ -1160,6 +2098,202 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxHeavyJobDetailsInvokeResponseResult(dict):
+    """
+    Databox Heavy Device Job Details
+    """
+    def __init__(__self__, *,
+                 chain_of_custody_sas_key: str,
+                 contact_details: 'outputs.ContactDetailsInvokeResponseResult',
+                 copy_log_details: Sequence[Any],
+                 copy_progress: Sequence['outputs.CopyProgressInvokeResponseResult'],
+                 delivery_package: 'outputs.PackageShippingDetailsInvokeResponseResult',
+                 job_details_type: str,
+                 job_stages: Sequence['outputs.JobStagesInvokeResponseResult'],
+                 return_package: 'outputs.PackageShippingDetailsInvokeResponseResult',
+                 reverse_shipment_label_sas_key: str,
+                 data_export_details: Optional[Sequence['outputs.DataExportDetailsInvokeResponseResult']] = None,
+                 data_import_details: Optional[Sequence['outputs.DataImportDetailsInvokeResponseResult']] = None,
+                 device_password: Optional[str] = None,
+                 expected_data_size_in_terabytes: Optional[int] = None,
+                 key_encryption_key: Optional['outputs.KeyEncryptionKeyInvokeResponseResult'] = None,
+                 preferences: Optional['outputs.PreferencesInvokeResponseResult'] = None,
+                 shipping_address: Optional['outputs.ShippingAddressInvokeResponseResult'] = None):
+        """
+        Databox Heavy Device Job Details
+        :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
+        :param 'ContactDetailsInvokeResponseArgs' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsInvokeResponseArgs', 'DataBoxDiskCopyLogDetailsInvokeResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs']] copy_log_details: List of copy log details.
+        :param Sequence['CopyProgressInvokeResponseArgs'] copy_progress: Copy progress per account.
+        :param 'PackageShippingDetailsInvokeResponseArgs' delivery_package: Delivery package shipping details.
+        :param str job_details_type: Indicates the type of job details.
+               Expected value is 'DataBoxHeavy'.
+        :param Sequence['JobStagesInvokeResponseArgs'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsInvokeResponseArgs' return_package: Return package shipping details.
+        :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
+        :param Sequence['DataExportDetailsInvokeResponseArgs'] data_export_details: Details of the data to be exported from azure.
+        :param Sequence['DataImportDetailsInvokeResponseArgs'] data_import_details: Details of the data to be imported into azure.
+        :param str device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'KeyEncryptionKeyInvokeResponseArgs' key_encryption_key: Details about which key encryption type is being used.
+        :param 'PreferencesInvokeResponseArgs' preferences: Preferences for the order.
+        :param 'ShippingAddressInvokeResponseArgs' shipping_address: Shipping address of the customer.
+        """
+        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "copy_log_details", copy_log_details)
+        pulumi.set(__self__, "copy_progress", copy_progress)
+        pulumi.set(__self__, "delivery_package", delivery_package)
+        pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
+        pulumi.set(__self__, "job_stages", job_stages)
+        pulumi.set(__self__, "return_package", return_package)
+        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if device_password is not None:
+            pulumi.set(__self__, "device_password", device_password)
+        if expected_data_size_in_terabytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="chainOfCustodySasKey")
+    def chain_of_custody_sas_key(self) -> str:
+        """
+        Shared access key to download the chain of custody logs
+        """
+        return pulumi.get(self, "chain_of_custody_sas_key")
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> 'outputs.ContactDetailsInvokeResponseResult':
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
+    @pulumi.getter(name="copyLogDetails")
+    def copy_log_details(self) -> Sequence[Any]:
+        """
+        List of copy log details.
+        """
+        return pulumi.get(self, "copy_log_details")
+
+    @property
+    @pulumi.getter(name="copyProgress")
+    def copy_progress(self) -> Sequence['outputs.CopyProgressInvokeResponseResult']:
+        """
+        Copy progress per account.
+        """
+        return pulumi.get(self, "copy_progress")
+
+    @property
+    @pulumi.getter(name="deliveryPackage")
+    def delivery_package(self) -> 'outputs.PackageShippingDetailsInvokeResponseResult':
+        """
+        Delivery package shipping details.
+        """
+        return pulumi.get(self, "delivery_package")
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBoxHeavy'.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @property
+    @pulumi.getter(name="jobStages")
+    def job_stages(self) -> Sequence['outputs.JobStagesInvokeResponseResult']:
+        """
+        List of stages that run in the job.
+        """
+        return pulumi.get(self, "job_stages")
+
+    @property
+    @pulumi.getter(name="returnPackage")
+    def return_package(self) -> 'outputs.PackageShippingDetailsInvokeResponseResult':
+        """
+        Return package shipping details.
+        """
+        return pulumi.get(self, "return_package")
+
+    @property
+    @pulumi.getter(name="reverseShipmentLabelSasKey")
+    def reverse_shipment_label_sas_key(self) -> str:
+        """
+        Shared access key to download the return shipment label
+        """
+        return pulumi.get(self, "reverse_shipment_label_sas_key")
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[Sequence['outputs.DataExportDetailsInvokeResponseResult']]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[Sequence['outputs.DataImportDetailsInvokeResponseResult']]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @property
+    @pulumi.getter(name="devicePassword")
+    def device_password(self) -> Optional[str]:
+        """
+        Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "device_password")
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTerabytes")
+    def expected_data_size_in_terabytes(self) -> Optional[int]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyEncryptionKeyInvokeResponseResult']:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional['outputs.PreferencesInvokeResponseResult']:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional['outputs.ShippingAddressInvokeResponseResult']:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
 
 
 @pulumi.output_type
@@ -1362,20 +2496,20 @@ class DataBoxHeavyJobDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxHeavyJobSecretsResponseResult(dict):
+class DataBoxHeavyJobSecretsInvokeResponseResult(dict):
     """
     The secrets related to a databox heavy job.
     """
     def __init__(__self__, *,
-                 cabinet_pod_secrets: Sequence['outputs.DataBoxHeavySecretResponseResult'],
-                 dc_access_security_code: 'outputs.DcAccessSecurityCodeResponseResult',
-                 error: 'outputs.CloudErrorResponse',
+                 cabinet_pod_secrets: Sequence['outputs.DataBoxHeavySecretInvokeResponseResult'],
+                 dc_access_security_code: 'outputs.DcAccessSecurityCodeInvokeResponseResult',
+                 error: 'outputs.CloudErrorInvokeResponseResult',
                  job_secrets_type: str):
         """
         The secrets related to a databox heavy job.
-        :param Sequence['DataBoxHeavySecretResponseArgs'] cabinet_pod_secrets: Contains the list of secret objects for a databox heavy job.
-        :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
-        :param 'CloudErrorResponseArgs' error: Error while fetching the secrets.
+        :param Sequence['DataBoxHeavySecretInvokeResponseArgs'] cabinet_pod_secrets: Contains the list of secret objects for a databox heavy job.
+        :param 'DcAccessSecurityCodeInvokeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
+        :param 'CloudErrorInvokeResponseArgs' error: Error while fetching the secrets.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxHeavy'.
         """
@@ -1386,7 +2520,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="cabinetPodSecrets")
-    def cabinet_pod_secrets(self) -> Sequence['outputs.DataBoxHeavySecretResponseResult']:
+    def cabinet_pod_secrets(self) -> Sequence['outputs.DataBoxHeavySecretInvokeResponseResult']:
         """
         Contains the list of secret objects for a databox heavy job.
         """
@@ -1394,7 +2528,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
-    def dc_access_security_code(self) -> 'outputs.DcAccessSecurityCodeResponseResult':
+    def dc_access_security_code(self) -> 'outputs.DcAccessSecurityCodeInvokeResponseResult':
         """
         Dc Access Security Code for Customer Managed Shipping
         """
@@ -1402,7 +2536,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.CloudErrorResponse':
+    def error(self) -> 'outputs.CloudErrorInvokeResponseResult':
         """
         Error while fetching the secrets.
         """
@@ -1419,23 +2553,23 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
 
 @pulumi.output_type
-class DataBoxHeavySecretResponseResult(dict):
+class DataBoxHeavySecretInvokeResponseResult(dict):
     """
     The secrets related to a databox heavy.
     """
     def __init__(__self__, *,
-                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponseResult'],
+                 account_credential_details: Sequence['outputs.AccountCredentialDetailsInvokeResponseResult'],
                  device_password: str,
                  device_serial_number: str,
                  encoded_validation_cert_pub_key: str,
-                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponseResult']):
+                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationInvokeResponseResult']):
         """
         The secrets related to a databox heavy.
-        :param Sequence['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param Sequence['AccountCredentialDetailsInvokeResponseArgs'] account_credential_details: Per account level access credentials.
         :param str device_password: Password for out of the box experience on device.
         :param str device_serial_number: Serial number of the assigned device.
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
-        :param Sequence['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        :param Sequence['ApplianceNetworkConfigurationInvokeResponseArgs'] network_configurations: Network configuration of the appliance.
         """
         pulumi.set(__self__, "account_credential_details", account_credential_details)
         pulumi.set(__self__, "device_password", device_password)
@@ -1445,7 +2579,7 @@ class DataBoxHeavySecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
-    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponseResult']:
+    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsInvokeResponseResult']:
         """
         Per account level access credentials.
         """
@@ -1477,11 +2611,207 @@ class DataBoxHeavySecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponseResult']:
+    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationInvokeResponseResult']:
         """
         Network configuration of the appliance.
         """
         return pulumi.get(self, "network_configurations")
+
+
+@pulumi.output_type
+class DataBoxJobDetailsInvokeResponseResult(dict):
+    """
+    Databox Job Details
+    """
+    def __init__(__self__, *,
+                 chain_of_custody_sas_key: str,
+                 contact_details: 'outputs.ContactDetailsInvokeResponseResult',
+                 copy_log_details: Sequence[Any],
+                 copy_progress: Sequence['outputs.CopyProgressInvokeResponseResult'],
+                 delivery_package: 'outputs.PackageShippingDetailsInvokeResponseResult',
+                 job_details_type: str,
+                 job_stages: Sequence['outputs.JobStagesInvokeResponseResult'],
+                 return_package: 'outputs.PackageShippingDetailsInvokeResponseResult',
+                 reverse_shipment_label_sas_key: str,
+                 data_export_details: Optional[Sequence['outputs.DataExportDetailsInvokeResponseResult']] = None,
+                 data_import_details: Optional[Sequence['outputs.DataImportDetailsInvokeResponseResult']] = None,
+                 device_password: Optional[str] = None,
+                 expected_data_size_in_terabytes: Optional[int] = None,
+                 key_encryption_key: Optional['outputs.KeyEncryptionKeyInvokeResponseResult'] = None,
+                 preferences: Optional['outputs.PreferencesInvokeResponseResult'] = None,
+                 shipping_address: Optional['outputs.ShippingAddressInvokeResponseResult'] = None):
+        """
+        Databox Job Details
+        :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
+        :param 'ContactDetailsInvokeResponseArgs' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsInvokeResponseArgs', 'DataBoxDiskCopyLogDetailsInvokeResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs']] copy_log_details: List of copy log details.
+        :param Sequence['CopyProgressInvokeResponseArgs'] copy_progress: Copy progress per storage account.
+        :param 'PackageShippingDetailsInvokeResponseArgs' delivery_package: Delivery package shipping details.
+        :param str job_details_type: Indicates the type of job details.
+               Expected value is 'DataBox'.
+        :param Sequence['JobStagesInvokeResponseArgs'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsInvokeResponseArgs' return_package: Return package shipping details.
+        :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
+        :param Sequence['DataExportDetailsInvokeResponseArgs'] data_export_details: Details of the data to be exported from azure.
+        :param Sequence['DataImportDetailsInvokeResponseArgs'] data_import_details: Details of the data to be imported into azure.
+        :param str device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'KeyEncryptionKeyInvokeResponseArgs' key_encryption_key: Details about which key encryption type is being used.
+        :param 'PreferencesInvokeResponseArgs' preferences: Preferences for the order.
+        :param 'ShippingAddressInvokeResponseArgs' shipping_address: Shipping address of the customer.
+        """
+        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "copy_log_details", copy_log_details)
+        pulumi.set(__self__, "copy_progress", copy_progress)
+        pulumi.set(__self__, "delivery_package", delivery_package)
+        pulumi.set(__self__, "job_details_type", 'DataBox')
+        pulumi.set(__self__, "job_stages", job_stages)
+        pulumi.set(__self__, "return_package", return_package)
+        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if device_password is not None:
+            pulumi.set(__self__, "device_password", device_password)
+        if expected_data_size_in_terabytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="chainOfCustodySasKey")
+    def chain_of_custody_sas_key(self) -> str:
+        """
+        Shared access key to download the chain of custody logs
+        """
+        return pulumi.get(self, "chain_of_custody_sas_key")
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> 'outputs.ContactDetailsInvokeResponseResult':
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
+    @pulumi.getter(name="copyLogDetails")
+    def copy_log_details(self) -> Sequence[Any]:
+        """
+        List of copy log details.
+        """
+        return pulumi.get(self, "copy_log_details")
+
+    @property
+    @pulumi.getter(name="copyProgress")
+    def copy_progress(self) -> Sequence['outputs.CopyProgressInvokeResponseResult']:
+        """
+        Copy progress per storage account.
+        """
+        return pulumi.get(self, "copy_progress")
+
+    @property
+    @pulumi.getter(name="deliveryPackage")
+    def delivery_package(self) -> 'outputs.PackageShippingDetailsInvokeResponseResult':
+        """
+        Delivery package shipping details.
+        """
+        return pulumi.get(self, "delivery_package")
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        Expected value is 'DataBox'.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @property
+    @pulumi.getter(name="jobStages")
+    def job_stages(self) -> Sequence['outputs.JobStagesInvokeResponseResult']:
+        """
+        List of stages that run in the job.
+        """
+        return pulumi.get(self, "job_stages")
+
+    @property
+    @pulumi.getter(name="returnPackage")
+    def return_package(self) -> 'outputs.PackageShippingDetailsInvokeResponseResult':
+        """
+        Return package shipping details.
+        """
+        return pulumi.get(self, "return_package")
+
+    @property
+    @pulumi.getter(name="reverseShipmentLabelSasKey")
+    def reverse_shipment_label_sas_key(self) -> str:
+        """
+        Shared access key to download the return shipment label
+        """
+        return pulumi.get(self, "reverse_shipment_label_sas_key")
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[Sequence['outputs.DataExportDetailsInvokeResponseResult']]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[Sequence['outputs.DataImportDetailsInvokeResponseResult']]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @property
+    @pulumi.getter(name="devicePassword")
+    def device_password(self) -> Optional[str]:
+        """
+        Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "device_password")
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTerabytes")
+    def expected_data_size_in_terabytes(self) -> Optional[int]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyEncryptionKeyInvokeResponseResult']:
+        """
+        Details about which key encryption type is being used.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional['outputs.PreferencesInvokeResponseResult']:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional['outputs.ShippingAddressInvokeResponseResult']:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
 
 
 @pulumi.output_type
@@ -1684,23 +3014,23 @@ class DataBoxJobDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataBoxSecretResponseResult(dict):
+class DataBoxSecretInvokeResponseResult(dict):
     """
     The secrets related to a DataBox.
     """
     def __init__(__self__, *,
-                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponseResult'],
+                 account_credential_details: Sequence['outputs.AccountCredentialDetailsInvokeResponseResult'],
                  device_password: str,
                  device_serial_number: str,
                  encoded_validation_cert_pub_key: str,
-                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponseResult']):
+                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationInvokeResponseResult']):
         """
         The secrets related to a DataBox.
-        :param Sequence['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param Sequence['AccountCredentialDetailsInvokeResponseArgs'] account_credential_details: Per account level access credentials.
         :param str device_password: Password for out of the box experience on device.
         :param str device_serial_number: Serial number of the assigned device.
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
-        :param Sequence['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        :param Sequence['ApplianceNetworkConfigurationInvokeResponseArgs'] network_configurations: Network configuration of the appliance.
         """
         pulumi.set(__self__, "account_credential_details", account_credential_details)
         pulumi.set(__self__, "device_password", device_password)
@@ -1710,7 +3040,7 @@ class DataBoxSecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
-    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponseResult']:
+    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsInvokeResponseResult']:
         """
         Per account level access credentials.
         """
@@ -1742,11 +3072,56 @@ class DataBoxSecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponseResult']:
+    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationInvokeResponseResult']:
         """
         Network configuration of the appliance.
         """
         return pulumi.get(self, "network_configurations")
+
+
+@pulumi.output_type
+class DataExportDetailsInvokeResponseResult(dict):
+    """
+    Details of the data to be used for exporting data from azure.
+    """
+    def __init__(__self__, *,
+                 account_details: Any,
+                 transfer_configuration: 'outputs.TransferConfigurationInvokeResponseResult',
+                 log_collection_level: Optional[str] = None):
+        """
+        Details of the data to be used for exporting data from azure.
+        :param Union['ManagedDiskDetailsInvokeResponseArgs', 'StorageAccountDetailsInvokeResponseArgs'] account_details: Account details of the data to be transferred
+        :param 'TransferConfigurationInvokeResponseArgs' transfer_configuration: Configuration for the data transfer.
+        :param str log_collection_level: Level of the logs to be collected.
+        """
+        pulumi.set(__self__, "account_details", account_details)
+        pulumi.set(__self__, "transfer_configuration", transfer_configuration)
+        if log_collection_level is not None:
+            pulumi.set(__self__, "log_collection_level", log_collection_level)
+
+    @property
+    @pulumi.getter(name="accountDetails")
+    def account_details(self) -> Any:
+        """
+        Account details of the data to be transferred
+        """
+        return pulumi.get(self, "account_details")
+
+    @property
+    @pulumi.getter(name="transferConfiguration")
+    def transfer_configuration(self) -> 'outputs.TransferConfigurationInvokeResponseResult':
+        """
+        Configuration for the data transfer.
+        """
+        return pulumi.get(self, "transfer_configuration")
+
+    @property
+    @pulumi.getter(name="logCollectionLevel")
+    def log_collection_level(self) -> Optional[str]:
+        """
+        Level of the logs to be collected.
+        """
+        return pulumi.get(self, "log_collection_level")
 
 
 @pulumi.output_type
@@ -1798,6 +3173,28 @@ class DataExportDetailsResponse(dict):
 
 
 @pulumi.output_type
+class DataImportDetailsInvokeResponseResult(dict):
+    """
+    Details of the data to be used for importing data to azure.
+    """
+    def __init__(__self__, *,
+                 account_details: Any):
+        """
+        Details of the data to be used for importing data to azure.
+        :param Union['ManagedDiskDetailsInvokeResponseArgs', 'StorageAccountDetailsInvokeResponseArgs'] account_details: Account details of the data to be transferred
+        """
+        pulumi.set(__self__, "account_details", account_details)
+
+    @property
+    @pulumi.getter(name="accountDetails")
+    def account_details(self) -> Any:
+        """
+        Account details of the data to be transferred
+        """
+        return pulumi.get(self, "account_details")
+
+
+@pulumi.output_type
 class DataImportDetailsResponse(dict):
     """
     Details of the data to be used for importing data to azure.
@@ -1823,22 +3220,22 @@ class DataImportDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataboxJobSecretsResponseResult(dict):
+class DataboxJobSecretsInvokeResponseResult(dict):
     """
     The secrets related to a databox job.
     """
     def __init__(__self__, *,
-                 dc_access_security_code: 'outputs.DcAccessSecurityCodeResponseResult',
-                 error: 'outputs.CloudErrorResponse',
+                 dc_access_security_code: 'outputs.DcAccessSecurityCodeInvokeResponseResult',
+                 error: 'outputs.CloudErrorInvokeResponseResult',
                  job_secrets_type: str,
-                 pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponseResult']] = None):
+                 pod_secrets: Optional[Sequence['outputs.DataBoxSecretInvokeResponseResult']] = None):
         """
         The secrets related to a databox job.
-        :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
-        :param 'CloudErrorResponseArgs' error: Error while fetching the secrets.
+        :param 'DcAccessSecurityCodeInvokeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
+        :param 'CloudErrorInvokeResponseArgs' error: Error while fetching the secrets.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBox'.
-        :param Sequence['DataBoxSecretResponseArgs'] pod_secrets: Contains the list of secret objects for a job.
+        :param Sequence['DataBoxSecretInvokeResponseArgs'] pod_secrets: Contains the list of secret objects for a job.
         """
         pulumi.set(__self__, "dc_access_security_code", dc_access_security_code)
         pulumi.set(__self__, "error", error)
@@ -1848,7 +3245,7 @@ class DataboxJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
-    def dc_access_security_code(self) -> 'outputs.DcAccessSecurityCodeResponseResult':
+    def dc_access_security_code(self) -> 'outputs.DcAccessSecurityCodeInvokeResponseResult':
         """
         Dc Access Security Code for Customer Managed Shipping
         """
@@ -1856,7 +3253,7 @@ class DataboxJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.CloudErrorResponse':
+    def error(self) -> 'outputs.CloudErrorInvokeResponseResult':
         """
         Error while fetching the secrets.
         """
@@ -1873,7 +3270,7 @@ class DataboxJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="podSecrets")
-    def pod_secrets(self) -> Optional[Sequence['outputs.DataBoxSecretResponseResult']]:
+    def pod_secrets(self) -> Optional[Sequence['outputs.DataBoxSecretInvokeResponseResult']]:
         """
         Contains the list of secret objects for a job.
         """
@@ -1881,7 +3278,7 @@ class DataboxJobSecretsResponseResult(dict):
 
 
 @pulumi.output_type
-class DcAccessSecurityCodeResponseResult(dict):
+class DcAccessSecurityCodeInvokeResponseResult(dict):
     """
     Dc access security code
     """
@@ -1916,7 +3313,7 @@ class DcAccessSecurityCodeResponseResult(dict):
 
 
 @pulumi.output_type
-class DiskSecretResponseResult(dict):
+class DiskSecretInvokeResponseResult(dict):
     """
     Contains all the secrets of a Disk.
     """
@@ -1949,6 +3346,29 @@ class DiskSecretResponseResult(dict):
 
 
 @pulumi.output_type
+class EncryptionPreferencesInvokeResponseResult(dict):
+    """
+    Preferences related to the Encryption.
+    """
+    def __init__(__self__, *,
+                 double_encryption: Optional[str] = None):
+        """
+        Preferences related to the Encryption.
+        :param str double_encryption: Defines secondary layer of software-based encryption enablement.
+        """
+        if double_encryption is not None:
+            pulumi.set(__self__, "double_encryption", double_encryption)
+
+    @property
+    @pulumi.getter(name="doubleEncryption")
+    def double_encryption(self) -> Optional[str]:
+        """
+        Defines secondary layer of software-based encryption enablement.
+        """
+        return pulumi.get(self, "double_encryption")
+
+
+@pulumi.output_type
 class EncryptionPreferencesResponse(dict):
     """
     Preferences related to the Encryption.
@@ -1972,6 +3392,39 @@ class EncryptionPreferencesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FilterFileDetailsInvokeResponseResult(dict):
+    """
+    Details of the filter files to be used for data transfer.
+    """
+    def __init__(__self__, *,
+                 filter_file_path: str,
+                 filter_file_type: str):
+        """
+        Details of the filter files to be used for data transfer.
+        :param str filter_file_path: Path of the file that contains the details of all items to transfer.
+        :param str filter_file_type: Type of the filter file.
+        """
+        pulumi.set(__self__, "filter_file_path", filter_file_path)
+        pulumi.set(__self__, "filter_file_type", filter_file_type)
+
+    @property
+    @pulumi.getter(name="filterFilePath")
+    def filter_file_path(self) -> str:
+        """
+        Path of the file that contains the details of all items to transfer.
+        """
+        return pulumi.get(self, "filter_file_path")
+
+    @property
+    @pulumi.getter(name="filterFileType")
+    def filter_file_type(self) -> str:
+        """
+        Type of the filter file.
+        """
+        return pulumi.get(self, "filter_file_type")
 
 
 @pulumi.output_type
@@ -2008,6 +3461,41 @@ class FilterFileDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IdentityPropertiesInvokeResponseResult(dict):
+    """
+    Managed identity properties.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned: Optional['outputs.UserAssignedPropertiesInvokeResponseResult'] = None):
+        """
+        Managed identity properties.
+        :param str type: Managed service identity type.
+        :param 'UserAssignedPropertiesInvokeResponseArgs' user_assigned: User assigned identity properties.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned is not None:
+            pulumi.set(__self__, "user_assigned", user_assigned)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Managed service identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssigned")
+    def user_assigned(self) -> Optional['outputs.UserAssignedPropertiesInvokeResponseResult']:
+        """
+        User assigned identity properties.
+        """
+        return pulumi.get(self, "user_assigned")
 
 
 @pulumi.output_type
@@ -2049,6 +3537,29 @@ class IdentityPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class JobDeliveryInfoInvokeResponseResult(dict):
+    """
+    Additional delivery info.
+    """
+    def __init__(__self__, *,
+                 scheduled_date_time: Optional[str] = None):
+        """
+        Additional delivery info.
+        :param str scheduled_date_time: Scheduled date time.
+        """
+        if scheduled_date_time is not None:
+            pulumi.set(__self__, "scheduled_date_time", scheduled_date_time)
+
+    @property
+    @pulumi.getter(name="scheduledDateTime")
+    def scheduled_date_time(self) -> Optional[str]:
+        """
+        Scheduled date time.
+        """
+        return pulumi.get(self, "scheduled_date_time")
+
+
+@pulumi.output_type
 class JobDeliveryInfoResponse(dict):
     """
     Additional delivery info.
@@ -2072,6 +3583,72 @@ class JobDeliveryInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobStagesInvokeResponseResult(dict):
+    """
+    Job stages.
+    """
+    def __init__(__self__, *,
+                 display_name: str,
+                 job_stage_details: Any,
+                 stage_name: str,
+                 stage_status: str,
+                 stage_time: str):
+        """
+        Job stages.
+        :param str display_name: Display name of the job stage.
+        :param Any job_stage_details: Job Stage Details
+        :param str stage_name: Name of the job stage.
+        :param str stage_status: Status of the job stage.
+        :param str stage_time: Time for the job stage in UTC ISO 8601 format.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "job_stage_details", job_stage_details)
+        pulumi.set(__self__, "stage_name", stage_name)
+        pulumi.set(__self__, "stage_status", stage_status)
+        pulumi.set(__self__, "stage_time", stage_time)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Display name of the job stage.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="jobStageDetails")
+    def job_stage_details(self) -> Any:
+        """
+        Job Stage Details
+        """
+        return pulumi.get(self, "job_stage_details")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> str:
+        """
+        Name of the job stage.
+        """
+        return pulumi.get(self, "stage_name")
+
+    @property
+    @pulumi.getter(name="stageStatus")
+    def stage_status(self) -> str:
+        """
+        Status of the job stage.
+        """
+        return pulumi.get(self, "stage_status")
+
+    @property
+    @pulumi.getter(name="stageTime")
+    def stage_time(self) -> str:
+        """
+        Time for the job stage in UTC ISO 8601 format.
+        """
+        return pulumi.get(self, "stage_time")
 
 
 @pulumi.output_type
@@ -2144,6 +3721,64 @@ class JobStagesResponse(dict):
 
 
 @pulumi.output_type
+class KeyEncryptionKeyInvokeResponseResult(dict):
+    """
+    Encryption key containing details about key to encrypt different keys.
+    """
+    def __init__(__self__, *,
+                 kek_type: str,
+                 identity_properties: Optional['outputs.IdentityPropertiesInvokeResponseResult'] = None,
+                 kek_url: Optional[str] = None,
+                 kek_vault_resource_id: Optional[str] = None):
+        """
+        Encryption key containing details about key to encrypt different keys.
+        :param str kek_type: Type of encryption key used for key encryption.
+        :param 'IdentityPropertiesInvokeResponseArgs' identity_properties: Managed identity properties used for key encryption.
+        :param str kek_url: Key encryption key. It is required in case of Customer managed KekType.
+        :param str kek_vault_resource_id: Kek vault resource id. It is required in case of Customer managed KekType.
+        """
+        pulumi.set(__self__, "kek_type", kek_type)
+        if identity_properties is not None:
+            pulumi.set(__self__, "identity_properties", identity_properties)
+        if kek_url is not None:
+            pulumi.set(__self__, "kek_url", kek_url)
+        if kek_vault_resource_id is not None:
+            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+
+    @property
+    @pulumi.getter(name="kekType")
+    def kek_type(self) -> str:
+        """
+        Type of encryption key used for key encryption.
+        """
+        return pulumi.get(self, "kek_type")
+
+    @property
+    @pulumi.getter(name="identityProperties")
+    def identity_properties(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
+        """
+        Managed identity properties used for key encryption.
+        """
+        return pulumi.get(self, "identity_properties")
+
+    @property
+    @pulumi.getter(name="kekUrl")
+    def kek_url(self) -> Optional[str]:
+        """
+        Key encryption key. It is required in case of Customer managed KekType.
+        """
+        return pulumi.get(self, "kek_url")
+
+    @property
+    @pulumi.getter(name="kekVaultResourceID")
+    def kek_vault_resource_id(self) -> Optional[str]:
+        """
+        Kek vault resource id. It is required in case of Customer managed KekType.
+        """
+        return pulumi.get(self, "kek_vault_resource_id")
+
+
+@pulumi.output_type
 class KeyEncryptionKeyResponse(dict):
     """
     Encryption key containing details about key to encrypt different keys.
@@ -2202,6 +3837,64 @@ class KeyEncryptionKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedDiskDetailsInvokeResponseResult(dict):
+    """
+    Details of the managed disks.
+    """
+    def __init__(__self__, *,
+                 data_account_type: str,
+                 resource_group_id: str,
+                 staging_storage_account_id: str,
+                 share_password: Optional[str] = None):
+        """
+        Details of the managed disks.
+        :param str data_account_type: Account Type of the data to be transferred.
+               Expected value is 'ManagedDisk'.
+        :param str resource_group_id: Resource Group Id of the compute disks.
+        :param str staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
+        :param str share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        pulumi.set(__self__, "data_account_type", 'ManagedDisk')
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
+        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        if share_password is not None:
+            pulumi.set(__self__, "share_password", share_password)
+
+    @property
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> str:
+        """
+        Account Type of the data to be transferred.
+        Expected value is 'ManagedDisk'.
+        """
+        return pulumi.get(self, "data_account_type")
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> str:
+        """
+        Resource Group Id of the compute disks.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @property
+    @pulumi.getter(name="stagingStorageAccountId")
+    def staging_storage_account_id(self) -> str:
+        """
+        Resource Id of the storage account that can be used to copy the vhd for staging.
+        """
+        return pulumi.get(self, "staging_storage_account_id")
+
+    @property
+    @pulumi.getter(name="sharePassword")
+    def share_password(self) -> Optional[str]:
+        """
+        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "share_password")
 
 
 @pulumi.output_type
@@ -2266,6 +3959,39 @@ class ManagedDiskDetailsResponse(dict):
 
 
 @pulumi.output_type
+class NotificationPreferenceInvokeResponseResult(dict):
+    """
+    Notification preference for a job stage.
+    """
+    def __init__(__self__, *,
+                 send_notification: bool,
+                 stage_name: str):
+        """
+        Notification preference for a job stage.
+        :param bool send_notification: Notification is required or not.
+        :param str stage_name: Name of the stage.
+        """
+        pulumi.set(__self__, "send_notification", send_notification)
+        pulumi.set(__self__, "stage_name", stage_name)
+
+    @property
+    @pulumi.getter(name="sendNotification")
+    def send_notification(self) -> bool:
+        """
+        Notification is required or not.
+        """
+        return pulumi.get(self, "send_notification")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> str:
+        """
+        Name of the stage.
+        """
+        return pulumi.get(self, "stage_name")
+
+
+@pulumi.output_type
 class NotificationPreferenceResponse(dict):
     """
     Notification preference for a job stage.
@@ -2299,6 +4025,50 @@ class NotificationPreferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PackageShippingDetailsInvokeResponseResult(dict):
+    """
+    Shipping details.
+    """
+    def __init__(__self__, *,
+                 carrier_name: str,
+                 tracking_id: str,
+                 tracking_url: str):
+        """
+        Shipping details.
+        :param str carrier_name: Name of the carrier.
+        :param str tracking_id: Tracking Id of shipment.
+        :param str tracking_url: Url where shipment can be tracked.
+        """
+        pulumi.set(__self__, "carrier_name", carrier_name)
+        pulumi.set(__self__, "tracking_id", tracking_id)
+        pulumi.set(__self__, "tracking_url", tracking_url)
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> str:
+        """
+        Name of the carrier.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @property
+    @pulumi.getter(name="trackingId")
+    def tracking_id(self) -> str:
+        """
+        Tracking Id of shipment.
+        """
+        return pulumi.get(self, "tracking_id")
+
+    @property
+    @pulumi.getter(name="trackingUrl")
+    def tracking_url(self) -> str:
+        """
+        Url where shipment can be tracked.
+        """
+        return pulumi.get(self, "tracking_url")
 
 
 @pulumi.output_type
@@ -2349,6 +4119,53 @@ class PackageShippingDetailsResponse(dict):
 
 
 @pulumi.output_type
+class PreferencesInvokeResponseResult(dict):
+    """
+    Preferences related to the order
+    """
+    def __init__(__self__, *,
+                 encryption_preferences: Optional['outputs.EncryptionPreferencesInvokeResponseResult'] = None,
+                 preferred_data_center_region: Optional[Sequence[str]] = None,
+                 transport_preferences: Optional['outputs.TransportPreferencesInvokeResponseResult'] = None):
+        """
+        Preferences related to the order
+        :param 'EncryptionPreferencesInvokeResponseArgs' encryption_preferences: Preferences related to the Encryption.
+        :param Sequence[str] preferred_data_center_region: Preferred data center region.
+        :param 'TransportPreferencesInvokeResponseArgs' transport_preferences: Preferences related to the shipment logistics of the sku.
+        """
+        if encryption_preferences is not None:
+            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+        if preferred_data_center_region is not None:
+            pulumi.set(__self__, "preferred_data_center_region", preferred_data_center_region)
+        if transport_preferences is not None:
+            pulumi.set(__self__, "transport_preferences", transport_preferences)
+
+    @property
+    @pulumi.getter(name="encryptionPreferences")
+    def encryption_preferences(self) -> Optional['outputs.EncryptionPreferencesInvokeResponseResult']:
+        """
+        Preferences related to the Encryption.
+        """
+        return pulumi.get(self, "encryption_preferences")
+
+    @property
+    @pulumi.getter(name="preferredDataCenterRegion")
+    def preferred_data_center_region(self) -> Optional[Sequence[str]]:
+        """
+        Preferred data center region.
+        """
+        return pulumi.get(self, "preferred_data_center_region")
+
+    @property
+    @pulumi.getter(name="transportPreferences")
+    def transport_preferences(self) -> Optional['outputs.TransportPreferencesInvokeResponseResult']:
+        """
+        Preferences related to the shipment logistics of the sku.
+        """
+        return pulumi.get(self, "transport_preferences")
+
+
+@pulumi.output_type
 class PreferencesResponse(dict):
     """
     Preferences related to the order
@@ -2396,6 +4213,63 @@ class PreferencesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceIdentityInvokeResponseResult(dict):
+    """
+    Msi identity details of the resource
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityInvokeResponseResult']] = None):
+        """
+        Msi identity details of the resource
+        :param str principal_id: Service Principal Id backing the Msi
+        :param str tenant_id: Home Tenant Id
+        :param str type: Identity type
+        :param Mapping[str, 'UserAssignedIdentityInvokeResponseArgs'] user_assigned_identities: User Assigned Identities
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Service Principal Id backing the Msi
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Home Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Identity type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityInvokeResponseResult']]:
+        """
+        User Assigned Identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -2459,7 +4333,7 @@ class ResourceIdentityResponse(dict):
 
 
 @pulumi.output_type
-class ShareCredentialDetailsResponseResult(dict):
+class ShareCredentialDetailsInvokeResponseResult(dict):
     """
     Credential details of the shares in account.
     """
@@ -2522,6 +4396,135 @@ class ShareCredentialDetailsResponseResult(dict):
         User name for the share.
         """
         return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class ShippingAddressInvokeResponseResult(dict):
+    """
+    Shipping address where customer wishes to receive the device.
+    """
+    def __init__(__self__, *,
+                 country: str,
+                 street_address1: str,
+                 address_type: Optional[str] = None,
+                 city: Optional[str] = None,
+                 company_name: Optional[str] = None,
+                 postal_code: Optional[str] = None,
+                 state_or_province: Optional[str] = None,
+                 street_address2: Optional[str] = None,
+                 street_address3: Optional[str] = None,
+                 zip_extended_code: Optional[str] = None):
+        """
+        Shipping address where customer wishes to receive the device.
+        :param str country: Name of the Country.
+        :param str street_address1: Street Address line 1.
+        :param str address_type: Type of address.
+        :param str city: Name of the City.
+        :param str company_name: Name of the company.
+        :param str postal_code: Postal code.
+        :param str state_or_province: Name of the State or Province.
+        :param str street_address2: Street Address line 2.
+        :param str street_address3: Street Address line 3.
+        :param str zip_extended_code: Extended Zip Code.
+        """
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "street_address1", street_address1)
+        if address_type is not None:
+            pulumi.set(__self__, "address_type", address_type)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if company_name is not None:
+            pulumi.set(__self__, "company_name", company_name)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address2 is not None:
+            pulumi.set(__self__, "street_address2", street_address2)
+        if street_address3 is not None:
+            pulumi.set(__self__, "street_address3", street_address3)
+        if zip_extended_code is not None:
+            pulumi.set(__self__, "zip_extended_code", zip_extended_code)
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        """
+        Name of the Country.
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> str:
+        """
+        Street Address line 1.
+        """
+        return pulumi.get(self, "street_address1")
+
+    @property
+    @pulumi.getter(name="addressType")
+    def address_type(self) -> Optional[str]:
+        """
+        Type of address.
+        """
+        return pulumi.get(self, "address_type")
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        Name of the City.
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter(name="companyName")
+    def company_name(self) -> Optional[str]:
+        """
+        Name of the company.
+        """
+        return pulumi.get(self, "company_name")
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[str]:
+        """
+        Postal code.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[str]:
+        """
+        Name of the State or Province.
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @property
+    @pulumi.getter(name="streetAddress2")
+    def street_address2(self) -> Optional[str]:
+        """
+        Street Address line 2.
+        """
+        return pulumi.get(self, "street_address2")
+
+    @property
+    @pulumi.getter(name="streetAddress3")
+    def street_address3(self) -> Optional[str]:
+        """
+        Street Address line 3.
+        """
+        return pulumi.get(self, "street_address3")
+
+    @property
+    @pulumi.getter(name="zipExtendedCode")
+    def zip_extended_code(self) -> Optional[str]:
+        """
+        Extended Zip Code.
+        """
+        return pulumi.get(self, "zip_extended_code")
 
 
 @pulumi.output_type
@@ -2657,6 +4660,52 @@ class ShippingAddressResponse(dict):
 
 
 @pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The Sku.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 display_name: Optional[str] = None,
+                 family: Optional[str] = None):
+        """
+        The Sku.
+        :param str name: The sku name.
+        :param str display_name: The display name of the sku.
+        :param str family: The sku family.
+        """
+        pulumi.set(__self__, "name", name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The sku name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the sku.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        The sku family.
+        """
+        return pulumi.get(self, "family")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The Sku.
@@ -2703,6 +4752,53 @@ class SkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageAccountDetailsInvokeResponseResult(dict):
+    """
+    Details for the storage account.
+    """
+    def __init__(__self__, *,
+                 data_account_type: str,
+                 storage_account_id: str,
+                 share_password: Optional[str] = None):
+        """
+        Details for the storage account.
+        :param str data_account_type: Account Type of the data to be transferred.
+               Expected value is 'StorageAccount'.
+        :param str storage_account_id: Storage Account Resource Id.
+        :param str share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        pulumi.set(__self__, "data_account_type", 'StorageAccount')
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if share_password is not None:
+            pulumi.set(__self__, "share_password", share_password)
+
+    @property
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> str:
+        """
+        Account Type of the data to be transferred.
+        Expected value is 'StorageAccount'.
+        """
+        return pulumi.get(self, "data_account_type")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        Storage Account Resource Id.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="sharePassword")
+    def share_password(self) -> Optional[str]:
+        """
+        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "share_password")
 
 
 @pulumi.output_type
@@ -2756,6 +4852,52 @@ class StorageAccountDetailsResponse(dict):
 
 
 @pulumi.output_type
+class TransferAllDetailsInvokeResponseResult(dict):
+    """
+    Details to transfer all data.
+    """
+    def __init__(__self__, *,
+                 data_account_type: str,
+                 transfer_all_blobs: Optional[bool] = None,
+                 transfer_all_files: Optional[bool] = None):
+        """
+        Details to transfer all data.
+        :param str data_account_type: Type of the account of data
+        :param bool transfer_all_blobs: To indicate if all Azure blobs have to be transferred
+        :param bool transfer_all_files: To indicate if all Azure Files have to be transferred
+        """
+        pulumi.set(__self__, "data_account_type", data_account_type)
+        if transfer_all_blobs is not None:
+            pulumi.set(__self__, "transfer_all_blobs", transfer_all_blobs)
+        if transfer_all_files is not None:
+            pulumi.set(__self__, "transfer_all_files", transfer_all_files)
+
+    @property
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> str:
+        """
+        Type of the account of data
+        """
+        return pulumi.get(self, "data_account_type")
+
+    @property
+    @pulumi.getter(name="transferAllBlobs")
+    def transfer_all_blobs(self) -> Optional[bool]:
+        """
+        To indicate if all Azure blobs have to be transferred
+        """
+        return pulumi.get(self, "transfer_all_blobs")
+
+    @property
+    @pulumi.getter(name="transferAllFiles")
+    def transfer_all_files(self) -> Optional[bool]:
+        """
+        To indicate if all Azure Files have to be transferred
+        """
+        return pulumi.get(self, "transfer_all_files")
+
+
+@pulumi.output_type
 class TransferAllDetailsResponse(dict):
     """
     Details to transfer all data.
@@ -2802,6 +4944,98 @@ class TransferAllDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TransferConfigurationInvokeResponseResult(dict):
+    """
+    Configuration for defining the transfer of data.
+    """
+    def __init__(__self__, *,
+                 transfer_configuration_type: str,
+                 transfer_all_details: Optional['outputs.TransferConfigurationInvokeResponseTransferAllDetailsResult'] = None,
+                 transfer_filter_details: Optional['outputs.TransferConfigurationInvokeResponseTransferFilterDetailsResult'] = None):
+        """
+        Configuration for defining the transfer of data.
+        :param str transfer_configuration_type: Type of the configuration for transfer.
+        :param 'TransferConfigurationInvokeResponseTransferAllDetailsArgs' transfer_all_details: Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+        :param 'TransferConfigurationInvokeResponseTransferFilterDetailsArgs' transfer_filter_details: Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+        """
+        pulumi.set(__self__, "transfer_configuration_type", transfer_configuration_type)
+        if transfer_all_details is not None:
+            pulumi.set(__self__, "transfer_all_details", transfer_all_details)
+        if transfer_filter_details is not None:
+            pulumi.set(__self__, "transfer_filter_details", transfer_filter_details)
+
+    @property
+    @pulumi.getter(name="transferConfigurationType")
+    def transfer_configuration_type(self) -> str:
+        """
+        Type of the configuration for transfer.
+        """
+        return pulumi.get(self, "transfer_configuration_type")
+
+    @property
+    @pulumi.getter(name="transferAllDetails")
+    def transfer_all_details(self) -> Optional['outputs.TransferConfigurationInvokeResponseTransferAllDetailsResult']:
+        """
+        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+        """
+        return pulumi.get(self, "transfer_all_details")
+
+    @property
+    @pulumi.getter(name="transferFilterDetails")
+    def transfer_filter_details(self) -> Optional['outputs.TransferConfigurationInvokeResponseTransferFilterDetailsResult']:
+        """
+        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+        """
+        return pulumi.get(self, "transfer_filter_details")
+
+
+@pulumi.output_type
+class TransferConfigurationInvokeResponseTransferAllDetailsResult(dict):
+    """
+    Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+    """
+    def __init__(__self__, *,
+                 include: Optional['outputs.TransferAllDetailsInvokeResponseResult'] = None):
+        """
+        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+        :param 'TransferAllDetailsInvokeResponseArgs' include: Details to transfer all data.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional['outputs.TransferAllDetailsInvokeResponseResult']:
+        """
+        Details to transfer all data.
+        """
+        return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class TransferConfigurationInvokeResponseTransferFilterDetailsResult(dict):
+    """
+    Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+    """
+    def __init__(__self__, *,
+                 include: Optional['outputs.TransferFilterDetailsInvokeResponseResult'] = None):
+        """
+        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+        :param 'TransferFilterDetailsInvokeResponseArgs' include: Details of the filtering the transfer of data.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional['outputs.TransferFilterDetailsInvokeResponseResult']:
+        """
+        Details of the filtering the transfer of data.
+        """
+        return pulumi.get(self, "include")
 
 
 @pulumi.output_type
@@ -2906,6 +5140,64 @@ class TransferConfigurationResponseTransferFilterDetails(dict):
 
 
 @pulumi.output_type
+class TransferFilterDetailsInvokeResponseResult(dict):
+    """
+    Details of the filtering the transfer of data.
+    """
+    def __init__(__self__, *,
+                 data_account_type: str,
+                 azure_file_filter_details: Optional['outputs.AzureFileFilterDetailsInvokeResponseResult'] = None,
+                 blob_filter_details: Optional['outputs.BlobFilterDetailsInvokeResponseResult'] = None,
+                 filter_file_details: Optional[Sequence['outputs.FilterFileDetailsInvokeResponseResult']] = None):
+        """
+        Details of the filtering the transfer of data.
+        :param str data_account_type: Type of the account of data.
+        :param 'AzureFileFilterDetailsInvokeResponseArgs' azure_file_filter_details: Filter details to transfer Azure files.
+        :param 'BlobFilterDetailsInvokeResponseArgs' blob_filter_details: Filter details to transfer blobs.
+        :param Sequence['FilterFileDetailsInvokeResponseArgs'] filter_file_details: Details of the filter files to be used for data transfer.
+        """
+        pulumi.set(__self__, "data_account_type", data_account_type)
+        if azure_file_filter_details is not None:
+            pulumi.set(__self__, "azure_file_filter_details", azure_file_filter_details)
+        if blob_filter_details is not None:
+            pulumi.set(__self__, "blob_filter_details", blob_filter_details)
+        if filter_file_details is not None:
+            pulumi.set(__self__, "filter_file_details", filter_file_details)
+
+    @property
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> str:
+        """
+        Type of the account of data.
+        """
+        return pulumi.get(self, "data_account_type")
+
+    @property
+    @pulumi.getter(name="azureFileFilterDetails")
+    def azure_file_filter_details(self) -> Optional['outputs.AzureFileFilterDetailsInvokeResponseResult']:
+        """
+        Filter details to transfer Azure files.
+        """
+        return pulumi.get(self, "azure_file_filter_details")
+
+    @property
+    @pulumi.getter(name="blobFilterDetails")
+    def blob_filter_details(self) -> Optional['outputs.BlobFilterDetailsInvokeResponseResult']:
+        """
+        Filter details to transfer blobs.
+        """
+        return pulumi.get(self, "blob_filter_details")
+
+    @property
+    @pulumi.getter(name="filterFileDetails")
+    def filter_file_details(self) -> Optional[Sequence['outputs.FilterFileDetailsInvokeResponseResult']]:
+        """
+        Details of the filter files to be used for data transfer.
+        """
+        return pulumi.get(self, "filter_file_details")
+
+
+@pulumi.output_type
 class TransferFilterDetailsResponse(dict):
     """
     Details of the filtering the transfer of data.
@@ -2967,6 +5259,28 @@ class TransferFilterDetailsResponse(dict):
 
 
 @pulumi.output_type
+class TransportPreferencesInvokeResponseResult(dict):
+    """
+    Preferences related to the shipment logistics of the sku
+    """
+    def __init__(__self__, *,
+                 preferred_shipment_type: str):
+        """
+        Preferences related to the shipment logistics of the sku
+        :param str preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
+        """
+        pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
+
+    @property
+    @pulumi.getter(name="preferredShipmentType")
+    def preferred_shipment_type(self) -> str:
+        """
+        Indicates Shipment Logistics type that the customer preferred.
+        """
+        return pulumi.get(self, "preferred_shipment_type")
+
+
+@pulumi.output_type
 class TransportPreferencesResponse(dict):
     """
     Preferences related to the shipment logistics of the sku
@@ -2992,7 +5306,7 @@ class TransportPreferencesResponse(dict):
 
 
 @pulumi.output_type
-class UnencryptedCredentialsResponseResult(dict):
+class UnencryptedCredentialsInvokeResponseResult(dict):
     """
     Unencrypted credentials for accessing device.
     """
@@ -3002,7 +5316,7 @@ class UnencryptedCredentialsResponseResult(dict):
         """
         Unencrypted credentials for accessing device.
         :param str job_name: Name of the job.
-        :param Union['DataBoxDiskJobSecretsResponseArgs', 'DataBoxHeavyJobSecretsResponseArgs', 'DataboxJobSecretsResponseArgs'] job_secrets: Secrets related to this job.
+        :param Union['DataBoxDiskJobSecretsInvokeResponseArgs', 'DataBoxHeavyJobSecretsInvokeResponseArgs', 'DataboxJobSecretsInvokeResponseArgs'] job_secrets: Secrets related to this job.
         """
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "job_secrets", job_secrets)
@@ -3022,6 +5336,39 @@ class UnencryptedCredentialsResponseResult(dict):
         Secrets related to this job.
         """
         return pulumi.get(self, "job_secrets")
+
+
+@pulumi.output_type
+class UserAssignedIdentityInvokeResponseResult(dict):
+    """
+    Class defining User assigned identity details.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Class defining User assigned identity details.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -3058,6 +5405,29 @@ class UserAssignedIdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAssignedPropertiesInvokeResponseResult(dict):
+    """
+    User assigned identity properties.
+    """
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None):
+        """
+        User assigned identity properties.
+        :param str resource_id: Arm resource id for user assigned identity to be used to fetch MSI token.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Arm resource id for user assigned identity to be used to fetch MSI token.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

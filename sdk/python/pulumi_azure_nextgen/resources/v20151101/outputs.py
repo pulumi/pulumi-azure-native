@@ -11,16 +11,72 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BasicDependencyInvokeResponseResult',
     'BasicDependencyResponse',
+    'DependencyInvokeResponseResult',
     'DependencyResponse',
+    'DeploymentPropertiesExtendedInvokeResponseResult',
     'DeploymentPropertiesExtendedResponse',
+    'ParametersLinkInvokeResponseResult',
     'ParametersLinkResponse',
+    'PlanInvokeResponseResult',
     'PlanResponse',
+    'ProviderInvokeResponseResult',
+    'ProviderResourceTypeInvokeResponseResult',
     'ProviderResourceTypeResponse',
     'ProviderResponse',
+    'ResourceGroupPropertiesInvokeResponseResult',
     'ResourceGroupPropertiesResponse',
+    'TemplateLinkInvokeResponseResult',
     'TemplateLinkResponse',
 ]
+
+@pulumi.output_type
+class BasicDependencyInvokeResponseResult(dict):
+    """
+    Deployment dependency information.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 resource_name: Optional[str] = None,
+                 resource_type: Optional[str] = None):
+        """
+        Deployment dependency information.
+        :param str id: Gets or sets the ID of the dependency.
+        :param str resource_name: Gets or sets the dependency resource name.
+        :param str resource_type: Gets or sets the dependency resource type.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the ID of the dependency.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the dependency resource name.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        Gets or sets the dependency resource type.
+        """
+        return pulumi.get(self, "resource_type")
+
 
 @pulumi.output_type
 class BasicDependencyResponse(dict):
@@ -70,6 +126,65 @@ class BasicDependencyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DependencyInvokeResponseResult(dict):
+    """
+    Deployment dependency information.
+    """
+    def __init__(__self__, *,
+                 depends_on: Optional[Sequence['outputs.BasicDependencyInvokeResponseResult']] = None,
+                 id: Optional[str] = None,
+                 resource_name: Optional[str] = None,
+                 resource_type: Optional[str] = None):
+        """
+        Deployment dependency information.
+        :param Sequence['BasicDependencyInvokeResponseArgs'] depends_on: Gets the list of dependencies.
+        :param str id: Gets or sets the ID of the dependency.
+        :param str resource_name: Gets or sets the dependency resource name.
+        :param str resource_type: Gets or sets the dependency resource type.
+        """
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.BasicDependencyInvokeResponseResult']]:
+        """
+        Gets the list of dependencies.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the ID of the dependency.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the dependency resource name.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        Gets or sets the dependency resource type.
+        """
+        return pulumi.get(self, "resource_type")
 
 
 @pulumi.output_type
@@ -132,6 +247,149 @@ class DependencyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeploymentPropertiesExtendedInvokeResponseResult(dict):
+    """
+    Deployment properties with additional details.
+    """
+    def __init__(__self__, *,
+                 correlation_id: Optional[str] = None,
+                 dependencies: Optional[Sequence['outputs.DependencyInvokeResponseResult']] = None,
+                 mode: Optional[str] = None,
+                 outputs: Optional[Any] = None,
+                 parameters: Optional[Any] = None,
+                 parameters_link: Optional['outputs.ParametersLinkInvokeResponseResult'] = None,
+                 providers: Optional[Sequence['outputs.ProviderInvokeResponseResult']] = None,
+                 provisioning_state: Optional[str] = None,
+                 template: Optional[Any] = None,
+                 template_link: Optional['outputs.TemplateLinkInvokeResponseResult'] = None,
+                 timestamp: Optional[str] = None):
+        """
+        Deployment properties with additional details.
+        :param str correlation_id: Gets or sets the correlation ID of the deployment.
+        :param Sequence['DependencyInvokeResponseArgs'] dependencies: Gets the list of deployment dependencies.
+        :param str mode: Gets or sets the deployment mode.
+        :param Any outputs: Gets or sets key/value pairs that represent deployment output.
+        :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
+        :param 'ParametersLinkInvokeResponseArgs' parameters_link: Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
+        :param Sequence['ProviderInvokeResponseArgs'] providers: Gets the list of resource providers needed for the deployment.
+        :param str provisioning_state: Gets or sets the state of the provisioning.
+        :param Any template: Gets or sets the template content. Use only one of Template or TemplateLink.
+        :param 'TemplateLinkInvokeResponseArgs' template_link: Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
+        :param str timestamp: Gets or sets the timestamp of the template deployment.
+        """
+        if correlation_id is not None:
+            pulumi.set(__self__, "correlation_id", correlation_id)
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if parameters_link is not None:
+            pulumi.set(__self__, "parameters_link", parameters_link)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if template_link is not None:
+            pulumi.set(__self__, "template_link", template_link)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> Optional[str]:
+        """
+        Gets or sets the correlation ID of the deployment.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[Sequence['outputs.DependencyInvokeResponseResult']]:
+        """
+        Gets the list of deployment dependencies.
+        """
+        return pulumi.get(self, "dependencies")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Gets or sets the deployment mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[Any]:
+        """
+        Gets or sets key/value pairs that represent deployment output.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        Deployment parameters. Use only one of Parameters or ParametersLink.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="parametersLink")
+    def parameters_link(self) -> Optional['outputs.ParametersLinkInvokeResponseResult']:
+        """
+        Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
+        """
+        return pulumi.get(self, "parameters_link")
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[Sequence['outputs.ProviderInvokeResponseResult']]:
+        """
+        Gets the list of resource providers needed for the deployment.
+        """
+        return pulumi.get(self, "providers")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Gets or sets the state of the provisioning.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[Any]:
+        """
+        Gets or sets the template content. Use only one of Template or TemplateLink.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter(name="templateLink")
+    def template_link(self) -> Optional['outputs.TemplateLinkInvokeResponseResult']:
+        """
+        Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
+        """
+        return pulumi.get(self, "template_link")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional[str]:
+        """
+        Gets or sets the timestamp of the template deployment.
+        """
+        return pulumi.get(self, "timestamp")
 
 
 @pulumi.output_type
@@ -281,6 +539,40 @@ class DeploymentPropertiesExtendedResponse(dict):
 
 
 @pulumi.output_type
+class ParametersLinkInvokeResponseResult(dict):
+    """
+    Entity representing the reference to the deployment parameters.
+    """
+    def __init__(__self__, *,
+                 uri: str,
+                 content_version: Optional[str] = None):
+        """
+        Entity representing the reference to the deployment parameters.
+        :param str uri: URI referencing the template.
+        :param str content_version: If included it must match the ContentVersion in the template.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if content_version is not None:
+            pulumi.set(__self__, "content_version", content_version)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        URI referencing the template.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="contentVersion")
+    def content_version(self) -> Optional[str]:
+        """
+        If included it must match the ContentVersion in the template.
+        """
+        return pulumi.get(self, "content_version")
+
+
+@pulumi.output_type
 class ParametersLinkResponse(dict):
     """
     Entity representing the reference to the deployment parameters.
@@ -315,6 +607,65 @@ class ParametersLinkResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PlanInvokeResponseResult(dict):
+    """
+    Plan for the resource.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 product: Optional[str] = None,
+                 promotion_code: Optional[str] = None,
+                 publisher: Optional[str] = None):
+        """
+        Plan for the resource.
+        :param str name: Gets or sets the plan ID.
+        :param str product: Gets or sets the offer ID.
+        :param str promotion_code: Gets or sets the promotion code.
+        :param str publisher: Gets or sets the publisher ID.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the plan ID.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        Gets or sets the offer ID.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        Gets or sets the promotion code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        Gets or sets the publisher ID.
+        """
+        return pulumi.get(self, "publisher")
 
 
 @pulumi.output_type
@@ -377,6 +728,124 @@ class PlanResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ProviderInvokeResponseResult(dict):
+    """
+    Resource provider information.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 namespace: Optional[str] = None,
+                 registration_state: Optional[str] = None,
+                 resource_types: Optional[Sequence['outputs.ProviderResourceTypeInvokeResponseResult']] = None):
+        """
+        Resource provider information.
+        :param str id: Gets or sets the provider id.
+        :param str namespace: Gets or sets the namespace of the provider.
+        :param str registration_state: Gets or sets the registration state of the provider.
+        :param Sequence['ProviderResourceTypeInvokeResponseArgs'] resource_types: Gets or sets the collection of provider resource types.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if registration_state is not None:
+            pulumi.set(__self__, "registration_state", registration_state)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the provider id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Gets or sets the namespace of the provider.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="registrationState")
+    def registration_state(self) -> Optional[str]:
+        """
+        Gets or sets the registration state of the provider.
+        """
+        return pulumi.get(self, "registration_state")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence['outputs.ProviderResourceTypeInvokeResponseResult']]:
+        """
+        Gets or sets the collection of provider resource types.
+        """
+        return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class ProviderResourceTypeInvokeResponseResult(dict):
+    """
+    Resource type managed by the resource provider.
+    """
+    def __init__(__self__, *,
+                 api_versions: Optional[Sequence[str]] = None,
+                 locations: Optional[Sequence[str]] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 resource_type: Optional[str] = None):
+        """
+        Resource type managed by the resource provider.
+        :param Sequence[str] api_versions: Gets or sets the api version.
+        :param Sequence[str] locations: Gets or sets the collection of locations where this resource type can be created in.
+        :param Mapping[str, str] properties: Gets or sets the properties.
+        :param str resource_type: Gets or sets the resource type.
+        """
+        if api_versions is not None:
+            pulumi.set(__self__, "api_versions", api_versions)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="apiVersions")
+    def api_versions(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the api version.
+        """
+        return pulumi.get(self, "api_versions")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the collection of locations where this resource type can be created in.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        Gets or sets the resource type.
+        """
+        return pulumi.get(self, "resource_type")
 
 
 @pulumi.output_type
@@ -504,6 +973,28 @@ class ProviderResponse(dict):
 
 
 @pulumi.output_type
+class ResourceGroupPropertiesInvokeResponseResult(dict):
+    """
+    The resource group properties.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str):
+        """
+        The resource group properties.
+        :param str provisioning_state: Gets resource group provisioning state.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets resource group provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
 class ResourceGroupPropertiesResponse(dict):
     """
     The resource group properties.
@@ -526,6 +1017,40 @@ class ResourceGroupPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TemplateLinkInvokeResponseResult(dict):
+    """
+    Entity representing the reference to the template.
+    """
+    def __init__(__self__, *,
+                 uri: str,
+                 content_version: Optional[str] = None):
+        """
+        Entity representing the reference to the template.
+        :param str uri: URI referencing the template.
+        :param str content_version: If included it must match the ContentVersion in the template.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if content_version is not None:
+            pulumi.set(__self__, "content_version", content_version)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        URI referencing the template.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="contentVersion")
+    def content_version(self) -> Optional[str]:
+        """
+        If included it must match the ContentVersion in the template.
+        """
+        return pulumi.get(self, "content_version")
 
 
 @pulumi.output_type

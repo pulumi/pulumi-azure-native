@@ -91,7 +91,7 @@ class GetTemplateSpecResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -115,7 +115,7 @@ class GetTemplateSpecResult:
 
     @property
     @pulumi.getter
-    def versions(self) -> Mapping[str, 'outputs.TemplateSpecVersionInfoResponse']:
+    def versions(self) -> Mapping[str, 'outputs.TemplateSpecVersionInfoInvokeResponseResult']:
         """
         High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
         """

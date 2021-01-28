@@ -38,7 +38,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EntityInfoResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.EntityInfoInvokeResponseResult']]:
         """
         The list of entities.
         """

@@ -69,7 +69,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="backendPools")
-    def backend_pools(self) -> Optional[Sequence['outputs.BackendPoolResponse']]:
+    def backend_pools(self) -> Optional[Sequence['outputs.BackendPoolInvokeResponseResult']]:
         """
         Backend pools available to routing rules.
         """
@@ -101,7 +101,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> Optional[Sequence['outputs.FrontendEndpointResponse']]:
+    def frontend_endpoints(self) -> Optional[Sequence['outputs.FrontendEndpointInvokeResponseResult']]:
         """
         Frontend endpoints available to routing rules.
         """
@@ -109,7 +109,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional[Sequence['outputs.HealthProbeSettingsModelResponse']]:
+    def health_probe_settings(self) -> Optional[Sequence['outputs.HealthProbeSettingsModelInvokeResponseResult']]:
         """
         Health probe settings associated with this Front Door instance.
         """
@@ -125,7 +125,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="loadBalancingSettings")
-    def load_balancing_settings(self) -> Optional[Sequence['outputs.LoadBalancingSettingsModelResponse']]:
+    def load_balancing_settings(self) -> Optional[Sequence['outputs.LoadBalancingSettingsModelInvokeResponseResult']]:
         """
         Load balancing settings associated with this Front Door instance.
         """
@@ -165,7 +165,7 @@ class GetFrontDoorResult:
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[Sequence['outputs.RoutingRuleResponse']]:
+    def routing_rules(self) -> Optional[Sequence['outputs.RoutingRuleInvokeResponseResult']]:
         """
         Routing rules associated with this Front Door.
         """

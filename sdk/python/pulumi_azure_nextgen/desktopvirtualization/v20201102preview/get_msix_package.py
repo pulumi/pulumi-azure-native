@@ -122,7 +122,7 @@ class GetMSIXPackageResult:
 
     @property
     @pulumi.getter(name="packageApplications")
-    def package_applications(self) -> Optional[Sequence['outputs.MsixPackageApplicationsResponse']]:
+    def package_applications(self) -> Optional[Sequence['outputs.MsixPackageApplicationsInvokeResponseResult']]:
         """
         List of package applications. 
         """
@@ -130,7 +130,7 @@ class GetMSIXPackageResult:
 
     @property
     @pulumi.getter(name="packageDependencies")
-    def package_dependencies(self) -> Optional[Sequence['outputs.MsixPackageDependenciesResponse']]:
+    def package_dependencies(self) -> Optional[Sequence['outputs.MsixPackageDependenciesInvokeResponseResult']]:
         """
         List of package dependencies. 
         """

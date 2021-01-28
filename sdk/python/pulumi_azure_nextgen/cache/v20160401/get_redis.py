@@ -78,7 +78,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="accessKeys")
-    def access_keys(self) -> 'outputs.RedisAccessKeysResponse':
+    def access_keys(self) -> 'outputs.RedisAccessKeysInvokeResponseResult':
         """
         The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         """
@@ -166,7 +166,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the Redis cache to deploy.
         """

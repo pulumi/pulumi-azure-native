@@ -69,7 +69,7 @@ class GetSolutionResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.SolutionPlanResponse']:
+    def plan(self) -> Optional['outputs.SolutionPlanInvokeResponseResult']:
         """
         Plan for solution object supported by the OperationsManagement resource provider.
         """
@@ -77,7 +77,7 @@ class GetSolutionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SolutionPropertiesResponse':
+    def properties(self) -> 'outputs.SolutionPropertiesInvokeResponseResult':
         """
         Properties for solution object supported by the OperationsManagement resource provider.
         """

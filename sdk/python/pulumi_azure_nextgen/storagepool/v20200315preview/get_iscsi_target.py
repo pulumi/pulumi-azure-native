@@ -85,7 +85,7 @@ class GetIscsiTargetResult:
 
     @property
     @pulumi.getter
-    def tpgs(self) -> Sequence['outputs.TargetPortalGroupResponse']:
+    def tpgs(self) -> Sequence['outputs.TargetPortalGroupInvokeResponseResult']:
         """
         list of iSCSI target portal groups
         """

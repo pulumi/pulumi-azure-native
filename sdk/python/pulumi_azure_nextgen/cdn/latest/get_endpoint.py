@@ -107,7 +107,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="defaultOriginGroup")
-    def default_origin_group(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def default_origin_group(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
         """
         A reference to the origin group.
         """
@@ -115,7 +115,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional['outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy']:
+    def delivery_policy(self) -> Optional['outputs.EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyResult']:
         """
         A policy that specifies the delivery rules to be used for an endpoint.
         """
@@ -123,7 +123,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="geoFilters")
-    def geo_filters(self) -> Optional[Sequence['outputs.GeoFilterResponse']]:
+    def geo_filters(self) -> Optional[Sequence['outputs.GeoFilterInvokeResponseResult']]:
         """
         List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         """
@@ -195,7 +195,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> Optional[Sequence['outputs.DeepCreatedOriginGroupResponse']]:
+    def origin_groups(self) -> Optional[Sequence['outputs.DeepCreatedOriginGroupInvokeResponseResult']]:
         """
         The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         """
@@ -219,7 +219,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> Sequence['outputs.DeepCreatedOriginResponse']:
+    def origins(self) -> Sequence['outputs.DeepCreatedOriginInvokeResponseResult']:
         """
         The source of the content being delivered via CDN.
         """
@@ -259,7 +259,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """
@@ -283,7 +283,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="urlSigningKeys")
-    def url_signing_keys(self) -> Optional[Sequence['outputs.UrlSigningKeyResponse']]:
+    def url_signing_keys(self) -> Optional[Sequence['outputs.UrlSigningKeyInvokeResponseResult']]:
         """
         List of keys used to validate the signed URL hashes.
         """
@@ -291,7 +291,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="webApplicationFirewallPolicyLink")
-    def web_application_firewall_policy_link(self) -> Optional['outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink']:
+    def web_application_firewall_policy_link(self) -> Optional['outputs.EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkResult']:
         """
         Defines the Web Application Firewall policy for the endpoint (if applicable)
         """

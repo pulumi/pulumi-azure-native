@@ -152,7 +152,7 @@ class GetSiteResult:
 
     @property
     @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> Optional['outputs.CloningInfoResponse']:
+    def cloning_info(self) -> Optional['outputs.CloningInfoInvokeResponseResult']:
         """
         This is only valid for web app creation. If specified, web app is cloned from 
                     a source web app
@@ -202,7 +202,7 @@ class GetSiteResult:
 
     @property
     @pulumi.getter(name="hostNameSslStates")
-    def host_name_ssl_states(self) -> Optional[Sequence['outputs.HostNameSslStateResponse']]:
+    def host_name_ssl_states(self) -> Optional[Sequence['outputs.HostNameSslStateInvokeResponseResult']]:
         """
         Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
         """
@@ -227,7 +227,7 @@ class GetSiteResult:
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileInvokeResponseResult']:
         """
         Specification for the hosting environment (App Service Environment) to use for the web app
         """
@@ -342,7 +342,7 @@ class GetSiteResult:
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional['outputs.SiteConfigResponse']:
+    def site_config(self) -> Optional['outputs.SiteConfigInvokeResponseResult']:
         """
         Configuration of web app
         """

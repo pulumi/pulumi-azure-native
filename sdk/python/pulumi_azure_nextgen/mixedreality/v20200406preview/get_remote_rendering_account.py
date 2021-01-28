@@ -72,7 +72,7 @@ class GetRemoteRenderingAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.RemoteRenderingAccountResponseIdentity']:
+    def identity(self) -> Optional['outputs.RemoteRenderingAccountInvokeResponseIdentityResult']:
         return pulumi.get(self, "identity")
 
     @property

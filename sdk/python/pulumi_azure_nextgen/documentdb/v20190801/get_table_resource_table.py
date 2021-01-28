@@ -66,7 +66,7 @@ class GetTableResourceTableResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.TableGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.TableGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

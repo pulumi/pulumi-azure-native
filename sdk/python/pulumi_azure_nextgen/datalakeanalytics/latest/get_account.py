@@ -122,7 +122,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="computePolicies")
-    def compute_policies(self) -> Sequence['outputs.ComputePolicyResponse']:
+    def compute_policies(self) -> Sequence['outputs.ComputePolicyInvokeResponseResult']:
         """
         The list of compute policies associated with this account.
         """
@@ -146,7 +146,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="dataLakeStoreAccounts")
-    def data_lake_store_accounts(self) -> Sequence['outputs.DataLakeStoreAccountInformationResponse']:
+    def data_lake_store_accounts(self) -> Sequence['outputs.DataLakeStoreAccountInformationInvokeResponseResult']:
         """
         The list of Data Lake Store accounts associated with this account.
         """
@@ -186,7 +186,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Sequence['outputs.FirewallRuleResponse']:
+    def firewall_rules(self) -> Sequence['outputs.FirewallRuleInvokeResponseResult']:
         """
         The list of firewall rules associated with this account.
         """
@@ -202,7 +202,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="hiveMetastores")
-    def hive_metastores(self) -> Sequence['outputs.HiveMetastoreResponse']:
+    def hive_metastores(self) -> Sequence['outputs.HiveMetastoreInvokeResponseResult']:
         """
         The list of hiveMetastores associated with this account.
         """
@@ -306,7 +306,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Sequence['outputs.StorageAccountInformationResponse']:
+    def storage_accounts(self) -> Sequence['outputs.StorageAccountInformationInvokeResponseResult']:
         """
         The list of Azure Blob Storage accounts associated with this account.
         """
@@ -346,7 +346,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Sequence['outputs.VirtualNetworkRuleResponse']:
+    def virtual_network_rules(self) -> Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']:
         """
         The list of virtualNetwork rules associated with this account.
         """

@@ -66,7 +66,7 @@ class GetCloudServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CloudServicePropertiesResponse':
+    def properties(self) -> 'outputs.CloudServicePropertiesInvokeResponseResult':
         """
         Cloud service properties
         """

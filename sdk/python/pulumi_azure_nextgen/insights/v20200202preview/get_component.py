@@ -244,7 +244,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceResponse']:
+    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceInvokeResponseResult']:
         """
         List of linked private link scope resources.
         """

@@ -56,7 +56,7 @@ class GetMachineLearningDatastoreResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -80,7 +80,7 @@ class GetMachineLearningDatastoreResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DatastoreResponse':
+    def properties(self) -> 'outputs.DatastoreInvokeResponseResult':
         """
         Datastore properties
         """
@@ -88,7 +88,7 @@ class GetMachineLearningDatastoreResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the workspace.
         """

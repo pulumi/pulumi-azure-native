@@ -96,7 +96,7 @@ class GetHybridUseBenefitResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         Hybrid use benefit SKU
         """

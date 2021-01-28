@@ -39,7 +39,7 @@ class GetPredictionTrainingResultsResult:
 
     @property
     @pulumi.getter(name="canonicalProfiles")
-    def canonical_profiles(self) -> Sequence['outputs.CanonicalProfileDefinitionResponseResult']:
+    def canonical_profiles(self) -> Sequence['outputs.CanonicalProfileDefinitionInvokeResponseResult']:
         """
         Canonical profiles.
         """
@@ -47,7 +47,7 @@ class GetPredictionTrainingResultsResult:
 
     @property
     @pulumi.getter(name="predictionDistribution")
-    def prediction_distribution(self) -> 'outputs.PredictionDistributionDefinitionResponseResult':
+    def prediction_distribution(self) -> 'outputs.PredictionDistributionDefinitionInvokeResponseResult':
         """
         Prediction distribution.
         """

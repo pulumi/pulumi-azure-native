@@ -75,7 +75,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ApplicationArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ApplicationArtifactInvokeResponseResult']]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -83,7 +83,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Sequence['outputs.ApplicationProviderAuthorizationResponse']:
+    def authorizations(self) -> Sequence['outputs.ApplicationProviderAuthorizationInvokeResponseResult']:
         """
         The managed application provider authorizations.
         """
@@ -123,7 +123,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -187,7 +187,7 @@ class GetApplicationDefinitionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the resource.
         """

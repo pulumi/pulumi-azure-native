@@ -209,7 +209,7 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter(name="tokenBodyParameters")
-    def token_body_parameters(self) -> Optional[Sequence['outputs.TokenBodyParameterContractResponse']]:
+    def token_body_parameters(self) -> Optional[Sequence['outputs.TokenBodyParameterContractInvokeResponseResult']]:
         """
         Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         """

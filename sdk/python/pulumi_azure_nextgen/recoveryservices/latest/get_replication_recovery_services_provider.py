@@ -63,7 +63,7 @@ class GetReplicationRecoveryServicesProviderResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RecoveryServicesProviderPropertiesResponse':
+    def properties(self) -> 'outputs.RecoveryServicesProviderPropertiesInvokeResponseResult':
         """
         Provider properties.
         """

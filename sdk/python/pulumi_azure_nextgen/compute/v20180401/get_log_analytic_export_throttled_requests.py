@@ -27,7 +27,7 @@ class GetLogAnalyticExportThrottledRequestsResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.LogAnalyticsOutputResponseResult':
+    def properties(self) -> 'outputs.LogAnalyticsOutputInvokeResponseResult':
         """
         LogAnalyticsOutput
         """

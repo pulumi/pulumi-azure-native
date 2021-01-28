@@ -56,7 +56,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityDetailsResponse']:
+    def identity(self) -> Optional['outputs.IdentityDetailsInvokeResponseResult']:
         """
         Specifies the job identity details
         """
@@ -80,7 +80,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.JobDetailsResponse':
+    def properties(self) -> 'outputs.JobDetailsInvokeResponseResult':
         """
         Specifies the job properties
         """
@@ -88,7 +88,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         SystemData of ImportExport Jobs.
         """

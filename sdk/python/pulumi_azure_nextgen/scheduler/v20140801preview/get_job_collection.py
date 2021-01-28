@@ -63,7 +63,7 @@ class GetJobCollectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.JobCollectionPropertiesResponse':
+    def properties(self) -> 'outputs.JobCollectionPropertiesInvokeResponseResult':
         """
         Gets or sets the job collection properties.
         """

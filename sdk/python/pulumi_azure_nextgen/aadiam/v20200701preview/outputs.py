@@ -9,8 +9,27 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'AzureADMetricsPropertiesFormatInvokeResponseResult',
     'AzureADMetricsPropertiesFormatResponse',
 ]
+
+@pulumi.output_type
+class AzureADMetricsPropertiesFormatInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 provisioning_state: str):
+        """
+        :param str provisioning_state: The provisioning state of the resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
 
 @pulumi.output_type
 class AzureADMetricsPropertiesFormatResponse(dict):

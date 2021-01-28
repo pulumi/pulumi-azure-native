@@ -88,7 +88,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ServicesPropertiesResponse':
+    def properties(self) -> 'outputs.ServicesPropertiesInvokeResponseResult':
         """
         The common properties of a service.
         """

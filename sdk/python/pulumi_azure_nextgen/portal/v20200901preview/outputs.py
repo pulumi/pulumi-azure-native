@@ -10,14 +10,65 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'DashboardLensInvokeResponseResult',
     'DashboardLensResponse',
+    'DashboardPartsInvokeResponseResult',
+    'DashboardPartsInvokeResponsePositionResult',
     'DashboardPartsResponse',
     'DashboardPartsResponsePosition',
+    'MarkdownPartMetadataInvokeResponseResult',
+    'MarkdownPartMetadataInvokeResponseContentResult',
+    'MarkdownPartMetadataInvokeResponseSettingsResult',
     'MarkdownPartMetadataResponse',
     'MarkdownPartMetadataResponseContent',
     'MarkdownPartMetadataResponseSettings',
-    'ViolationResponseResult',
+    'ViolationInvokeResponseResult',
 ]
+
+@pulumi.output_type
+class DashboardLensInvokeResponseResult(dict):
+    """
+    A dashboard lens.
+    """
+    def __init__(__self__, *,
+                 order: int,
+                 parts: Sequence['outputs.DashboardPartsInvokeResponseResult'],
+                 metadata: Optional[Mapping[str, Any]] = None):
+        """
+        A dashboard lens.
+        :param int order: The lens order.
+        :param Sequence['DashboardPartsInvokeResponseArgs'] parts: The dashboard parts.
+        :param Mapping[str, Any] metadata: The dashboard len's metadata.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "parts", parts)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The lens order.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def parts(self) -> Sequence['outputs.DashboardPartsInvokeResponseResult']:
+        """
+        The dashboard parts.
+        """
+        return pulumi.get(self, "parts")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The dashboard len's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
 
 @pulumi.output_type
 class DashboardLensResponse(dict):
@@ -65,6 +116,107 @@ class DashboardLensResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardPartsInvokeResponseResult(dict):
+    """
+    A dashboard part.
+    """
+    def __init__(__self__, *,
+                 position: 'outputs.DashboardPartsInvokeResponsePositionResult',
+                 metadata: Optional['outputs.MarkdownPartMetadataInvokeResponseResult'] = None):
+        """
+        A dashboard part.
+        :param 'DashboardPartsInvokeResponsePositionArgs' position: The dashboard's part position.
+        :param 'MarkdownPartMetadataInvokeResponseArgs' metadata: The dashboard part's metadata.
+        """
+        pulumi.set(__self__, "position", position)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def position(self) -> 'outputs.DashboardPartsInvokeResponsePositionResult':
+        """
+        The dashboard's part position.
+        """
+        return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MarkdownPartMetadataInvokeResponseResult']:
+        """
+        The dashboard part's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class DashboardPartsInvokeResponsePositionResult(dict):
+    """
+    The dashboard's part position.
+    """
+    def __init__(__self__, *,
+                 col_span: int,
+                 row_span: int,
+                 x: int,
+                 y: int,
+                 metadata: Optional[Mapping[str, Any]] = None):
+        """
+        The dashboard's part position.
+        :param int col_span: The dashboard's part column span.
+        :param int row_span: The dashboard's part row span.
+        :param int x: The dashboard's part x coordinate.
+        :param int y: The dashboard's part y coordinate.
+        :param Mapping[str, Any] metadata: The dashboard part's metadata.
+        """
+        pulumi.set(__self__, "col_span", col_span)
+        pulumi.set(__self__, "row_span", row_span)
+        pulumi.set(__self__, "x", x)
+        pulumi.set(__self__, "y", y)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="colSpan")
+    def col_span(self) -> int:
+        """
+        The dashboard's part column span.
+        """
+        return pulumi.get(self, "col_span")
+
+    @property
+    @pulumi.getter(name="rowSpan")
+    def row_span(self) -> int:
+        """
+        The dashboard's part row span.
+        """
+        return pulumi.get(self, "row_span")
+
+    @property
+    @pulumi.getter
+    def x(self) -> int:
+        """
+        The dashboard's part x coordinate.
+        """
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> int:
+        """
+        The dashboard's part y coordinate.
+        """
+        return pulumi.get(self, "y")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The dashboard part's metadata.
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -175,6 +327,100 @@ class DashboardPartsResponsePosition(dict):
 
 
 @pulumi.output_type
+class MarkdownPartMetadataInvokeResponseResult(dict):
+    """
+    Markdown part metadata.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 inputs: Optional[Sequence[Any]] = None,
+                 settings: Optional['outputs.MarkdownPartMetadataInvokeResponseSettingsResult'] = None):
+        """
+        Markdown part metadata.
+        :param str type: The type of dashboard part.
+               Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+        :param Sequence[Any] inputs: Input to dashboard part.
+        :param 'MarkdownPartMetadataInvokeResponseSettingsArgs' settings: Markdown part settings.
+        """
+        pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of dashboard part.
+        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence[Any]]:
+        """
+        Input to dashboard part.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.MarkdownPartMetadataInvokeResponseSettingsResult']:
+        """
+        Markdown part settings.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataInvokeResponseContentResult(dict):
+    """
+    The content of markdown part.
+    """
+    def __init__(__self__, *,
+                 settings: Optional['outputs.MarkdownPartMetadataInvokeResponseSettingsResult'] = None):
+        """
+        The content of markdown part.
+        :param 'MarkdownPartMetadataInvokeResponseSettingsArgs' settings: The setting of the content of markdown part.
+        """
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.MarkdownPartMetadataInvokeResponseSettingsResult']:
+        """
+        The setting of the content of markdown part.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataInvokeResponseSettingsResult(dict):
+    """
+    Markdown part settings.
+    """
+    def __init__(__self__, *,
+                 content: Optional['outputs.MarkdownPartMetadataInvokeResponseContentResult'] = None):
+        """
+        Markdown part settings.
+        :param 'MarkdownPartMetadataInvokeResponseContentArgs' content: The content of markdown part.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional['outputs.MarkdownPartMetadataInvokeResponseContentResult']:
+        """
+        The content of markdown part.
+        """
+        return pulumi.get(self, "content")
+
+
+@pulumi.output_type
 class MarkdownPartMetadataResponse(dict):
     """
     Markdown part metadata.
@@ -278,7 +524,7 @@ class MarkdownPartMetadataResponseSettings(dict):
 
 
 @pulumi.output_type
-class ViolationResponseResult(dict):
+class ViolationInvokeResponseResult(dict):
     """
     Violation information.
     """

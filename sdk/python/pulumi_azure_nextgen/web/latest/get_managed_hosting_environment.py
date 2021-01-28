@@ -193,7 +193,7 @@ class GetManagedHostingEnvironmentResult:
 
     @property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional['outputs.VirtualNetworkProfileResponse']:
+    def virtual_network(self) -> Optional['outputs.VirtualNetworkProfileInvokeResponseResult']:
         """
         Description of the managed hosting environment's virtual network
         """

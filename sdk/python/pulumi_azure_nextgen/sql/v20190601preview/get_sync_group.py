@@ -127,7 +127,7 @@ class GetSyncGroupResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional['outputs.SyncGroupSchemaResponse']:
+    def schema(self) -> Optional['outputs.SyncGroupSchemaInvokeResponseResult']:
         """
         Sync schema of the sync group.
         """

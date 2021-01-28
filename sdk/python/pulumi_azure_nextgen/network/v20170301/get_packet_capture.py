@@ -67,7 +67,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[Sequence['outputs.PacketCaptureFilterResponse']]:
+    def filters(self) -> Optional[Sequence['outputs.PacketCaptureFilterInvokeResponseResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -96,7 +96,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationResponse':
+    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationInvokeResponseResult':
         """
         Describes the storage location for a packet capture session.
         """

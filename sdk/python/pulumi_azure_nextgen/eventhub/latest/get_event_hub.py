@@ -54,7 +54,7 @@ class GetEventHubResult:
 
     @property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional['outputs.CaptureDescriptionResponse']:
+    def capture_description(self) -> Optional['outputs.CaptureDescriptionInvokeResponseResult']:
         """
         Properties of capture description
         """

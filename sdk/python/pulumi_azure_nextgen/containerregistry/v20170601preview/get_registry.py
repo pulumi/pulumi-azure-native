@@ -116,7 +116,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The SKU of the container registry.
         """
@@ -124,7 +124,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.StatusResponse':
+    def status(self) -> 'outputs.StatusInvokeResponseResult':
         """
         The status of the container registry at the time the operation was called.
         """
@@ -132,7 +132,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesResponse']:
+    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesInvokeResponseResult']:
         """
         The properties of the storage account for the container registry. Only applicable to Basic SKU.
         """

@@ -112,7 +112,7 @@ class GetWatchlistResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional['outputs.UserInfoResponse']:
+    def created_by(self) -> Optional['outputs.UserInfoInvokeResponseResult']:
         """
         Describes a user that created the watchlist
         """
@@ -240,7 +240,7 @@ class GetWatchlistResult:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional['outputs.UserInfoResponse']:
+    def updated_by(self) -> Optional['outputs.UserInfoInvokeResponseResult']:
         """
         Describes a user that updated the watchlist
         """

@@ -66,7 +66,7 @@ class GetPrivateAtlaseResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PrivateAtlasPropertiesResponse':
+    def properties(self) -> 'outputs.PrivateAtlasPropertiesInvokeResponseResult':
         """
         The Private Atlas resource properties.
         """

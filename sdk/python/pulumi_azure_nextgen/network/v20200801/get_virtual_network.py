@@ -78,7 +78,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         """
@@ -86,7 +86,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="bgpCommunities")
-    def bgp_communities(self) -> Optional['outputs.VirtualNetworkBgpCommunitiesResponse']:
+    def bgp_communities(self) -> Optional['outputs.VirtualNetworkBgpCommunitiesInvokeResponseResult']:
         """
         Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
         """
@@ -94,7 +94,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="ddosProtectionPlan")
-    def ddos_protection_plan(self) -> Optional['outputs.SubResourceResponse']:
+    def ddos_protection_plan(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The DDoS protection plan associated with the virtual network.
         """
@@ -102,7 +102,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional['outputs.DhcpOptionsResponse']:
+    def dhcp_options(self) -> Optional['outputs.DhcpOptionsInvokeResponseResult']:
         """
         The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         """
@@ -134,7 +134,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationInvokeResponseResult']:
         """
         The extended location of the virtual network.
         """
@@ -150,7 +150,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="ipAllocations")
-    def ip_allocations(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def ip_allocations(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         Array of IpAllocation which reference this VNET.
         """
@@ -190,7 +190,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[Sequence['outputs.SubnetResponse']]:
+    def subnets(self) -> Optional[Sequence['outputs.SubnetInvokeResponseResult']]:
         """
         A list of subnets in a Virtual Network.
         """
@@ -214,7 +214,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="virtualNetworkPeerings")
-    def virtual_network_peerings(self) -> Optional[Sequence['outputs.VirtualNetworkPeeringResponse']]:
+    def virtual_network_peerings(self) -> Optional[Sequence['outputs.VirtualNetworkPeeringInvokeResponseResult']]:
         """
         A list of peerings in a Virtual Network.
         """

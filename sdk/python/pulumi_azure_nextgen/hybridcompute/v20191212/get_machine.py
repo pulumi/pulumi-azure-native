@@ -108,7 +108,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
+    def error_details(self) -> Sequence['outputs.ErrorDetailInvokeResponseResult']:
         """
         Details about the error state.
         """
@@ -116,7 +116,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewInvokeResponseResult']]:
         """
         Machine Extensions information
         """
@@ -132,7 +132,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.MachineResponseIdentity']:
+    def identity(self) -> Optional['outputs.MachineInvokeResponseIdentityResult']:
         return pulumi.get(self, "identity")
 
     @property
@@ -153,7 +153,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional['outputs.LocationDataResponse']:
+    def location_data(self) -> Optional['outputs.LocationDataInvokeResponseResult']:
         """
         Metadata pertaining to the geographic location of the resource.
         """
@@ -185,7 +185,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.MachinePropertiesResponseOsProfile']:
+    def os_profile(self) -> Optional['outputs.MachinePropertiesInvokeResponseOsProfileResult']:
         """
         Specifies the operating system settings for the hybrid machine.
         """

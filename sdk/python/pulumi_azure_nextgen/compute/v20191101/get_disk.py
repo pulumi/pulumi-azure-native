@@ -102,7 +102,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> 'outputs.CreationDataInvokeResponseResult':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -166,7 +166,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionInvokeResponseResult']:
         """
         Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         """
@@ -174,7 +174,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="encryptionSettingsCollection")
-    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
+    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionInvokeResponseResult']:
         """
         Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
@@ -254,7 +254,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="shareInfo")
-    def share_info(self) -> Sequence['outputs.ShareInfoElementResponse']:
+    def share_info(self) -> Sequence['outputs.ShareInfoElementInvokeResponseResult']:
         """
         Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         """
@@ -262,7 +262,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.DiskSkuResponse']:
+    def sku(self) -> Optional['outputs.DiskSkuInvokeResponseResult']:
         """
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         """

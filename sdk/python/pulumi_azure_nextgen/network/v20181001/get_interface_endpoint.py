@@ -60,7 +60,7 @@ class GetInterfaceEndpointResult:
 
     @property
     @pulumi.getter(name="endpointService")
-    def endpoint_service(self) -> Optional['outputs.EndpointServiceResponse']:
+    def endpoint_service(self) -> Optional['outputs.EndpointServiceInvokeResponseResult']:
         """
         A reference to the service being brought into the virtual network.
         """
@@ -108,7 +108,7 @@ class GetInterfaceEndpointResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceInvokeResponseResult']:
         """
         Gets an array of references to the network interfaces created for this interface endpoint.
         """
@@ -132,7 +132,7 @@ class GetInterfaceEndpointResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubnetResponse']:
+    def subnet(self) -> Optional['outputs.SubnetInvokeResponseResult']:
         """
         The ID of the subnet from which the private IP will be allocated.
         """

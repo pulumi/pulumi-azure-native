@@ -97,7 +97,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.ConnectionMonitorDestinationResponse']:
+    def destination(self) -> Optional['outputs.ConnectionMonitorDestinationInvokeResponseResult']:
         """
         Describes the destination of connection monitor.
         """
@@ -105,7 +105,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[Sequence['outputs.ConnectionMonitorEndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.ConnectionMonitorEndpointInvokeResponseResult']]:
         """
         List of connection monitor endpoints.
         """
@@ -169,7 +169,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[Sequence['outputs.ConnectionMonitorOutputResponse']]:
+    def outputs(self) -> Optional[Sequence['outputs.ConnectionMonitorOutputInvokeResponseResult']]:
         """
         List of connection monitor outputs.
         """
@@ -185,7 +185,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.ConnectionMonitorSourceResponse']:
+    def source(self) -> Optional['outputs.ConnectionMonitorSourceInvokeResponseResult']:
         """
         Describes the source of connection monitor.
         """
@@ -209,7 +209,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter(name="testConfigurations")
-    def test_configurations(self) -> Optional[Sequence['outputs.ConnectionMonitorTestConfigurationResponse']]:
+    def test_configurations(self) -> Optional[Sequence['outputs.ConnectionMonitorTestConfigurationInvokeResponseResult']]:
         """
         List of connection monitor test configurations.
         """
@@ -217,7 +217,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter(name="testGroups")
-    def test_groups(self) -> Optional[Sequence['outputs.ConnectionMonitorTestGroupResponse']]:
+    def test_groups(self) -> Optional[Sequence['outputs.ConnectionMonitorTestGroupInvokeResponseResult']]:
         """
         List of connection monitor test groups.
         """

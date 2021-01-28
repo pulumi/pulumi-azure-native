@@ -51,7 +51,7 @@ class GetDelegatedSubnetServiceDetailsResult:
 
     @property
     @pulumi.getter(name="controllerDetails")
-    def controller_details(self) -> Optional['outputs.ControllerDetailsResponse']:
+    def controller_details(self) -> Optional['outputs.ControllerDetailsInvokeResponseResult']:
         """
         controller details
         """
@@ -99,7 +99,7 @@ class GetDelegatedSubnetServiceDetailsResult:
 
     @property
     @pulumi.getter(name="subnetDetails")
-    def subnet_details(self) -> Optional['outputs.SubnetDetailsResponse']:
+    def subnet_details(self) -> Optional['outputs.SubnetDetailsInvokeResponseResult']:
         """
         orchestrator details
         """

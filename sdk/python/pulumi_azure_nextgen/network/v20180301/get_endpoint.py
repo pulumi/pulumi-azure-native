@@ -63,7 +63,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']]:
+    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesInvokeResponseCustomHeadersResult']]:
         """
         List of custom headers.
         """

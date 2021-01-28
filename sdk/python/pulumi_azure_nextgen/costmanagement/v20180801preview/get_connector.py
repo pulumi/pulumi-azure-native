@@ -69,7 +69,7 @@ class GetConnectorResult:
 
     @property
     @pulumi.getter
-    def collection(self) -> 'outputs.ConnectorCollectionInfoResponse':
+    def collection(self) -> 'outputs.ConnectorCollectionInfoInvokeResponseResult':
         """
         Collection information
         """

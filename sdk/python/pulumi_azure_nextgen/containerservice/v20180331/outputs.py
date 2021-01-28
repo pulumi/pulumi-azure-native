@@ -11,16 +11,57 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ContainerServiceLinuxProfileInvokeResponseResult',
     'ContainerServiceLinuxProfileResponse',
+    'ContainerServiceNetworkProfileInvokeResponseResult',
     'ContainerServiceNetworkProfileResponse',
+    'ContainerServiceSshConfigurationInvokeResponseResult',
     'ContainerServiceSshConfigurationResponse',
+    'ContainerServiceSshPublicKeyInvokeResponseResult',
     'ContainerServiceSshPublicKeyResponse',
-    'CredentialResultResponseResult',
+    'CredentialResultInvokeResponseResult',
+    'ManagedClusterAADProfileInvokeResponseResult',
     'ManagedClusterAADProfileResponse',
+    'ManagedClusterAddonProfileInvokeResponseResult',
     'ManagedClusterAddonProfileResponse',
+    'ManagedClusterAgentPoolProfileInvokeResponseResult',
     'ManagedClusterAgentPoolProfileResponse',
+    'ManagedClusterServicePrincipalProfileInvokeResponseResult',
     'ManagedClusterServicePrincipalProfileResponse',
 ]
+
+@pulumi.output_type
+class ContainerServiceLinuxProfileInvokeResponseResult(dict):
+    """
+    Profile for Linux VMs in the container service cluster.
+    """
+    def __init__(__self__, *,
+                 admin_username: str,
+                 ssh: 'outputs.ContainerServiceSshConfigurationInvokeResponseResult'):
+        """
+        Profile for Linux VMs in the container service cluster.
+        :param str admin_username: The administrator username to use for Linux VMs.
+        :param 'ContainerServiceSshConfigurationInvokeResponseArgs' ssh: SSH configuration for Linux-based VMs running on Azure.
+        """
+        pulumi.set(__self__, "admin_username", admin_username)
+        pulumi.set(__self__, "ssh", ssh)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> str:
+        """
+        The administrator username to use for Linux VMs.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter
+    def ssh(self) -> 'outputs.ContainerServiceSshConfigurationInvokeResponseResult':
+        """
+        SSH configuration for Linux-based VMs running on Azure.
+        """
+        return pulumi.get(self, "ssh")
+
 
 @pulumi.output_type
 class ContainerServiceLinuxProfileResponse(dict):
@@ -56,6 +97,99 @@ class ContainerServiceLinuxProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerServiceNetworkProfileInvokeResponseResult(dict):
+    """
+    Profile of network configuration.
+    """
+    def __init__(__self__, *,
+                 dns_service_ip: Optional[str] = None,
+                 docker_bridge_cidr: Optional[str] = None,
+                 network_plugin: Optional[str] = None,
+                 network_policy: Optional[str] = None,
+                 pod_cidr: Optional[str] = None,
+                 service_cidr: Optional[str] = None):
+        """
+        Profile of network configuration.
+        :param str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        :param str docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        :param str network_plugin: Network plugin used for building Kubernetes network.
+        :param str network_policy: Network policy used for building Kubernetes network.
+        :param str pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+        :param str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        if dns_service_ip is None:
+            dns_service_ip = '10.0.0.10'
+        if dns_service_ip is not None:
+            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if docker_bridge_cidr is None:
+            docker_bridge_cidr = '172.17.0.1/16'
+        if docker_bridge_cidr is not None:
+            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if network_plugin is None:
+            network_plugin = 'kubenet'
+        if network_plugin is not None:
+            pulumi.set(__self__, "network_plugin", network_plugin)
+        if network_policy is not None:
+            pulumi.set(__self__, "network_policy", network_policy)
+        if pod_cidr is None:
+            pod_cidr = '10.244.0.0/16'
+        if pod_cidr is not None:
+            pulumi.set(__self__, "pod_cidr", pod_cidr)
+        if service_cidr is None:
+            service_cidr = '10.0.0.0/16'
+        if service_cidr is not None:
+            pulumi.set(__self__, "service_cidr", service_cidr)
+
+    @property
+    @pulumi.getter(name="dnsServiceIP")
+    def dns_service_ip(self) -> Optional[str]:
+        """
+        An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        return pulumi.get(self, "dns_service_ip")
+
+    @property
+    @pulumi.getter(name="dockerBridgeCidr")
+    def docker_bridge_cidr(self) -> Optional[str]:
+        """
+        A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        """
+        return pulumi.get(self, "docker_bridge_cidr")
+
+    @property
+    @pulumi.getter(name="networkPlugin")
+    def network_plugin(self) -> Optional[str]:
+        """
+        Network plugin used for building Kubernetes network.
+        """
+        return pulumi.get(self, "network_plugin")
+
+    @property
+    @pulumi.getter(name="networkPolicy")
+    def network_policy(self) -> Optional[str]:
+        """
+        Network policy used for building Kubernetes network.
+        """
+        return pulumi.get(self, "network_policy")
+
+    @property
+    @pulumi.getter(name="podCidr")
+    def pod_cidr(self) -> Optional[str]:
+        """
+        A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+        """
+        return pulumi.get(self, "pod_cidr")
+
+    @property
+    @pulumi.getter(name="serviceCidr")
+    def service_cidr(self) -> Optional[str]:
+        """
+        A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        return pulumi.get(self, "service_cidr")
 
 
 @pulumi.output_type
@@ -155,6 +289,28 @@ class ContainerServiceNetworkProfileResponse(dict):
 
 
 @pulumi.output_type
+class ContainerServiceSshConfigurationInvokeResponseResult(dict):
+    """
+    SSH configuration for Linux-based VMs running on Azure.
+    """
+    def __init__(__self__, *,
+                 public_keys: Sequence['outputs.ContainerServiceSshPublicKeyInvokeResponseResult']):
+        """
+        SSH configuration for Linux-based VMs running on Azure.
+        :param Sequence['ContainerServiceSshPublicKeyInvokeResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        """
+        pulumi.set(__self__, "public_keys", public_keys)
+
+    @property
+    @pulumi.getter(name="publicKeys")
+    def public_keys(self) -> Sequence['outputs.ContainerServiceSshPublicKeyInvokeResponseResult']:
+        """
+        The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        """
+        return pulumi.get(self, "public_keys")
+
+
+@pulumi.output_type
 class ContainerServiceSshConfigurationResponse(dict):
     """
     SSH configuration for Linux-based VMs running on Azure.
@@ -177,6 +333,28 @@ class ContainerServiceSshConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerServiceSshPublicKeyInvokeResponseResult(dict):
+    """
+    Contains information about SSH certificate public key data.
+    """
+    def __init__(__self__, *,
+                 key_data: str):
+        """
+        Contains information about SSH certificate public key data.
+        :param str key_data: Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        """
+        pulumi.set(__self__, "key_data", key_data)
+
+    @property
+    @pulumi.getter(name="keyData")
+    def key_data(self) -> str:
+        """
+        Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        """
+        return pulumi.get(self, "key_data")
 
 
 @pulumi.output_type
@@ -205,7 +383,7 @@ class ContainerServiceSshPublicKeyResponse(dict):
 
 
 @pulumi.output_type
-class CredentialResultResponseResult(dict):
+class CredentialResultInvokeResponseResult(dict):
     """
     The credential result response.
     """
@@ -235,6 +413,63 @@ class CredentialResultResponseResult(dict):
         Base64-encoded Kubernetes configuration file.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ManagedClusterAADProfileInvokeResponseResult(dict):
+    """
+    AADProfile specifies attributes for Azure Active Directory integration.
+    """
+    def __init__(__self__, *,
+                 client_app_id: str,
+                 server_app_id: str,
+                 server_app_secret: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        AADProfile specifies attributes for Azure Active Directory integration.
+        :param str client_app_id: The client AAD application ID.
+        :param str server_app_id: The server AAD application ID.
+        :param str server_app_secret: The server AAD application secret.
+        :param str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+        pulumi.set(__self__, "client_app_id", client_app_id)
+        pulumi.set(__self__, "server_app_id", server_app_id)
+        if server_app_secret is not None:
+            pulumi.set(__self__, "server_app_secret", server_app_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientAppID")
+    def client_app_id(self) -> str:
+        """
+        The client AAD application ID.
+        """
+        return pulumi.get(self, "client_app_id")
+
+    @property
+    @pulumi.getter(name="serverAppID")
+    def server_app_id(self) -> str:
+        """
+        The server AAD application ID.
+        """
+        return pulumi.get(self, "server_app_id")
+
+    @property
+    @pulumi.getter(name="serverAppSecret")
+    def server_app_secret(self) -> Optional[str]:
+        """
+        The server AAD application secret.
+        """
+        return pulumi.get(self, "server_app_secret")
+
+    @property
+    @pulumi.getter(name="tenantID")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -298,6 +533,40 @@ class ManagedClusterAADProfileResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterAddonProfileInvokeResponseResult(dict):
+    """
+    A Kubernetes add-on profile for a managed cluster.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 config: Optional[Mapping[str, str]] = None):
+        """
+        A Kubernetes add-on profile for a managed cluster.
+        :param bool enabled: Whether the add-on is enabled or not.
+        :param Mapping[str, str] config: Key-value pairs for configuring an add-on.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the add-on is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value pairs for configuring an add-on.
+        """
+        return pulumi.get(self, "config")
+
+
+@pulumi.output_type
 class ManagedClusterAddonProfileResponse(dict):
     """
     A Kubernetes add-on profile for a managed cluster.
@@ -332,6 +601,112 @@ class ManagedClusterAddonProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterAgentPoolProfileInvokeResponseResult(dict):
+    """
+    Profile for the container service agent pool.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 storage_profile: str,
+                 vm_size: str,
+                 count: Optional[int] = None,
+                 max_pods: Optional[int] = None,
+                 os_disk_size_gb: Optional[int] = None,
+                 os_type: Optional[str] = None,
+                 vnet_subnet_id: Optional[str] = None):
+        """
+        Profile for the container service agent pool.
+        :param str name: Unique name of the agent pool profile in the context of the subscription and resource group.
+        :param str storage_profile: Storage profile specifies what kind of storage used. Defaults to ManagedDisks.
+        :param str vm_size: Size of agent VMs.
+        :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param int max_pods: Maximum number of pods that can run on a node.
+        :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_profile", storage_profile)
+        pulumi.set(__self__, "vm_size", vm_size)
+        if count is None:
+            count = 1
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if max_pods is not None:
+            pulumi.set(__self__, "max_pods", max_pods)
+        if os_disk_size_gb is not None:
+            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if vnet_subnet_id is not None:
+            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Unique name of the agent pool profile in the context of the subscription and resource group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> str:
+        """
+        Storage profile specifies what kind of storage used. Defaults to ManagedDisks.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> str:
+        """
+        Size of agent VMs.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="maxPods")
+    def max_pods(self) -> Optional[int]:
+        """
+        Maximum number of pods that can run on a node.
+        """
+        return pulumi.get(self, "max_pods")
+
+    @property
+    @pulumi.getter(name="osDiskSizeGB")
+    def os_disk_size_gb(self) -> Optional[int]:
+        """
+        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        """
+        return pulumi.get(self, "os_disk_size_gb")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="vnetSubnetID")
+    def vnet_subnet_id(self) -> Optional[str]:
+        """
+        VNet SubnetID specifies the VNet's subnet identifier.
+        """
+        return pulumi.get(self, "vnet_subnet_id")
 
 
 @pulumi.output_type
@@ -441,6 +816,40 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterServicePrincipalProfileInvokeResponseResult(dict):
+    """
+    Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 secret: Optional[str] = None):
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        :param str client_id: The ID for the service principal.
+        :param str secret: The secret password associated with the service principal in plain text.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The ID for the service principal.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        The secret password associated with the service principal in plain text.
+        """
+        return pulumi.get(self, "secret")
 
 
 @pulumi.output_type

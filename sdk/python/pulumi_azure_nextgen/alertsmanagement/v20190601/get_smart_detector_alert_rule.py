@@ -63,7 +63,7 @@ class GetSmartDetectorAlertRuleResult:
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> 'outputs.ActionGroupsInformationResponse':
+    def action_groups(self) -> 'outputs.ActionGroupsInformationInvokeResponseResult':
         """
         The alert rule actions.
         """
@@ -79,7 +79,7 @@ class GetSmartDetectorAlertRuleResult:
 
     @property
     @pulumi.getter
-    def detector(self) -> 'outputs.DetectorResponse':
+    def detector(self) -> 'outputs.DetectorInvokeResponseResult':
         """
         The alert rule's detector.
         """
@@ -151,7 +151,7 @@ class GetSmartDetectorAlertRuleResult:
 
     @property
     @pulumi.getter
-    def throttling(self) -> Optional['outputs.ThrottlingInformationResponse']:
+    def throttling(self) -> Optional['outputs.ThrottlingInformationInvokeResponseResult']:
         """
         The alert rule throttling information.
         """

@@ -122,7 +122,7 @@ class GetAssessmentMetadataInSubscriptionResult:
 
     @property
     @pulumi.getter(name="partnerData")
-    def partner_data(self) -> Optional['outputs.SecurityAssessmentMetadataPartnerDataResponse']:
+    def partner_data(self) -> Optional['outputs.SecurityAssessmentMetadataPartnerDataInvokeResponseResult']:
         """
         Describes the partner that created the assessment
         """

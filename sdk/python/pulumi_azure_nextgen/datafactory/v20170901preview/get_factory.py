@@ -70,7 +70,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.FactoryIdentityResponse']:
+    def identity(self) -> Optional['outputs.FactoryIdentityInvokeResponseResult']:
         """
         Managed service identity of the factory.
         """
@@ -126,7 +126,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter(name="vstsConfiguration")
-    def vsts_configuration(self) -> Optional['outputs.FactoryVSTSConfigurationResponse']:
+    def vsts_configuration(self) -> Optional['outputs.FactoryVSTSConfigurationInvokeResponseResult']:
         """
         VSTS repo information of the factory.
         """

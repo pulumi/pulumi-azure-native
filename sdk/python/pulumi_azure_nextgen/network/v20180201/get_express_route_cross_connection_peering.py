@@ -110,7 +110,7 @@ class GetExpressRouteCrossConnectionPeeringResult:
 
     @property
     @pulumi.getter(name="ipv6PeeringConfig")
-    def ipv6_peering_config(self) -> Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']:
+    def ipv6_peering_config(self) -> Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult']:
         """
         The IPv6 peering configuration.
         """
@@ -126,7 +126,7 @@ class GetExpressRouteCrossConnectionPeeringResult:
 
     @property
     @pulumi.getter(name="microsoftPeeringConfig")
-    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
+    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult']:
         """
         The Microsoft peering configuration.
         """

@@ -122,7 +122,7 @@ class GetWebAppVnetConnectionSlotResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Sequence['outputs.VnetRouteResponse']:
+    def routes(self) -> Sequence['outputs.VnetRouteInvokeResponseResult']:
         """
         The routes that this Virtual Network connection uses.
         """

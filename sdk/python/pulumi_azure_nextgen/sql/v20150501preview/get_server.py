@@ -92,7 +92,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The Azure Active Directory identity of the server.
         """

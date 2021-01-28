@@ -66,7 +66,7 @@ class GetActionRuleByNameResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ActionRulePropertiesResponse':
+    def properties(self) -> 'outputs.ActionRulePropertiesInvokeResponseResult':
         """
         Action rule properties defining scope, conditions, suppression logic for action rule
         """

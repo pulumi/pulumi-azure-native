@@ -120,7 +120,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="caffe2Settings")
-    def caffe2_settings(self) -> Optional['outputs.Caffe2SettingsResponse']:
+    def caffe2_settings(self) -> Optional['outputs.Caffe2SettingsInvokeResponseResult']:
         """
         Caffe2 job settings.
         """
@@ -128,7 +128,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="caffeSettings")
-    def caffe_settings(self) -> Optional['outputs.CaffeSettingsResponse']:
+    def caffe_settings(self) -> Optional['outputs.CaffeSettingsInvokeResponseResult']:
         """
         Caffe job settings.
         """
@@ -136,7 +136,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="chainerSettings")
-    def chainer_settings(self) -> Optional['outputs.ChainerSettingsResponse']:
+    def chainer_settings(self) -> Optional['outputs.ChainerSettingsInvokeResponseResult']:
         """
         Chainer job settings.
         """
@@ -144,7 +144,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def cluster(self) -> Optional['outputs.ResourceIdResponse']:
+    def cluster(self) -> Optional['outputs.ResourceIdInvokeResponseResult']:
         """
         Resource ID of the cluster associated with the job.
         """
@@ -152,7 +152,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="cntkSettings")
-    def cntk_settings(self) -> Optional['outputs.CNTKsettingsResponse']:
+    def cntk_settings(self) -> Optional['outputs.CNTKsettingsInvokeResponseResult']:
         """
         CNTK (aka Microsoft Cognitive Toolkit) job settings.
         """
@@ -160,7 +160,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def constraints(self) -> Optional['outputs.JobPropertiesResponseConstraints']:
+    def constraints(self) -> Optional['outputs.JobPropertiesInvokeResponseConstraintsResult']:
         """
         Constraints associated with the Job.
         """
@@ -168,7 +168,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="containerSettings")
-    def container_settings(self) -> Optional['outputs.ContainerSettingsResponse']:
+    def container_settings(self) -> Optional['outputs.ContainerSettingsInvokeResponseResult']:
         """
         If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
         """
@@ -184,7 +184,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="customMpiSettings")
-    def custom_mpi_settings(self) -> Optional['outputs.CustomMpiSettingsResponse']:
+    def custom_mpi_settings(self) -> Optional['outputs.CustomMpiSettingsInvokeResponseResult']:
         """
         Custom MPI job settings.
         """
@@ -192,7 +192,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="customToolkitSettings")
-    def custom_toolkit_settings(self) -> Optional['outputs.CustomToolkitSettingsResponse']:
+    def custom_toolkit_settings(self) -> Optional['outputs.CustomToolkitSettingsInvokeResponseResult']:
         """
         Custom tool kit job settings.
         """
@@ -200,7 +200,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableInvokeResponseResult']]:
         """
         A collection of user defined environment variables to be setup for the job.
         """
@@ -208,7 +208,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="executionInfo")
-    def execution_info(self) -> Optional['outputs.JobPropertiesResponseExecutionInfo']:
+    def execution_info(self) -> Optional['outputs.JobPropertiesInvokeResponseExecutionInfoResult']:
         """
         Information about the execution of a job.
         """
@@ -232,7 +232,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="horovodSettings")
-    def horovod_settings(self) -> Optional['outputs.HorovodSettingsResponse']:
+    def horovod_settings(self) -> Optional['outputs.HorovodSettingsInvokeResponseResult']:
         """
         Specifies the settings for Horovod job.
         """
@@ -248,7 +248,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="inputDirectories")
-    def input_directories(self) -> Optional[Sequence['outputs.InputDirectoryResponse']]:
+    def input_directories(self) -> Optional[Sequence['outputs.InputDirectoryInvokeResponseResult']]:
         """
         A list of input directories for the job.
         """
@@ -264,7 +264,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="jobPreparation")
-    def job_preparation(self) -> Optional['outputs.JobPreparationResponse']:
+    def job_preparation(self) -> Optional['outputs.JobPreparationInvokeResponseResult']:
         """
         The specified actions will run on all the nodes that are part of the job
         """
@@ -272,7 +272,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="mountVolumes")
-    def mount_volumes(self) -> Optional['outputs.MountVolumesResponse']:
+    def mount_volumes(self) -> Optional['outputs.MountVolumesInvokeResponseResult']:
         """
         Collection of mount volumes available to the job during execution. These volumes are mounted before the job execution and unmounted after the job completion. The volumes are mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
         """
@@ -296,7 +296,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="outputDirectories")
-    def output_directories(self) -> Optional[Sequence['outputs.OutputDirectoryResponse']]:
+    def output_directories(self) -> Optional[Sequence['outputs.OutputDirectoryInvokeResponseResult']]:
         """
         A list of output directories for the job.
         """
@@ -320,7 +320,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="pyTorchSettings")
-    def py_torch_settings(self) -> Optional['outputs.PyTorchSettingsResponse']:
+    def py_torch_settings(self) -> Optional['outputs.PyTorchSettingsInvokeResponseResult']:
         """
         pyTorch job settings.
         """
@@ -336,7 +336,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[Sequence['outputs.EnvironmentVariableWithSecretValueResponse']]:
+    def secrets(self) -> Optional[Sequence['outputs.EnvironmentVariableWithSecretValueInvokeResponseResult']]:
         """
         A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
         """
@@ -352,7 +352,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="tensorFlowSettings")
-    def tensor_flow_settings(self) -> Optional['outputs.TensorFlowSettingsResponse']:
+    def tensor_flow_settings(self) -> Optional['outputs.TensorFlowSettingsInvokeResponseResult']:
         """
         TensorFlow job settings.
         """

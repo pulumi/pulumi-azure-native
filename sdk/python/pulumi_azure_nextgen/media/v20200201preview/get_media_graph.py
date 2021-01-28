@@ -91,7 +91,7 @@ class GetMediaGraphResult:
 
     @property
     @pulumi.getter
-    def sinks(self) -> Sequence['outputs.MediaGraphAssetSinkResponse']:
+    def sinks(self) -> Sequence['outputs.MediaGraphAssetSinkInvokeResponseResult']:
         """
         Media Graph sinks.
         """
@@ -99,7 +99,7 @@ class GetMediaGraphResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Sequence['outputs.MediaGraphRtspSourceResponse']:
+    def sources(self) -> Sequence['outputs.MediaGraphRtspSourceInvokeResponseResult']:
         """
         Media Graph sources.
         """

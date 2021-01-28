@@ -69,7 +69,7 @@ class GetConnectedRegistryResult:
 
     @property
     @pulumi.getter
-    def activation(self) -> 'outputs.ActivationPropertiesResponse':
+    def activation(self) -> 'outputs.ActivationPropertiesInvokeResponseResult':
         """
         The activation properties of the connected registry.
         """
@@ -109,7 +109,7 @@ class GetConnectedRegistryResult:
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional['outputs.LoggingPropertiesResponse']:
+    def logging(self) -> Optional['outputs.LoggingPropertiesInvokeResponseResult']:
         """
         The logging properties of the connected registry.
         """
@@ -117,7 +117,7 @@ class GetConnectedRegistryResult:
 
     @property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> Optional['outputs.LoginServerPropertiesResponse']:
+    def login_server(self) -> Optional['outputs.LoginServerPropertiesInvokeResponseResult']:
         """
         The login server properties of the connected registry.
         """
@@ -141,7 +141,7 @@ class GetConnectedRegistryResult:
 
     @property
     @pulumi.getter
-    def parent(self) -> 'outputs.ParentPropertiesResponse':
+    def parent(self) -> 'outputs.ParentPropertiesInvokeResponseResult':
         """
         The parent of the connected registry.
         """
@@ -157,7 +157,7 @@ class GetConnectedRegistryResult:
 
     @property
     @pulumi.getter(name="statusDetails")
-    def status_details(self) -> Sequence['outputs.StatusDetailPropertiesResponse']:
+    def status_details(self) -> Sequence['outputs.StatusDetailPropertiesInvokeResponseResult']:
         """
         The list of current statuses of the connected registry.
         """
@@ -165,7 +165,7 @@ class GetConnectedRegistryResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

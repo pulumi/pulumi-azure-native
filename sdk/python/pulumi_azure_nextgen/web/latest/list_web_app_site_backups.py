@@ -38,7 +38,7 @@ class ListWebAppSiteBackupsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.BackupItemResponseResult']:
+    def value(self) -> Sequence['outputs.BackupItemInvokeResponseResult']:
         """
         Collection of resources.
         """

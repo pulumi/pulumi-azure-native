@@ -11,45 +11,116 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AutoScaleSettingsInvokeResponseResult',
     'AutoScaleSettingsResponse',
+    'AzureBlobFileSystemReferenceInvokeResponseResult',
     'AzureBlobFileSystemReferenceResponse',
+    'AzureFileShareReferenceInvokeResponseResult',
     'AzureFileShareReferenceResponse',
+    'AzureStorageCredentialsInfoInvokeResponseResult',
     'AzureStorageCredentialsInfoResponse',
+    'BatchAIErrorInvokeResponseResult',
     'BatchAIErrorResponse',
+    'CNTKsettingsInvokeResponseResult',
     'CNTKsettingsResponse',
+    'CaffeSettingsInvokeResponseResult',
     'CaffeSettingsResponse',
+    'ChainerSettingsInvokeResponseResult',
     'ChainerSettingsResponse',
+    'ContainerSettingsInvokeResponseResult',
     'ContainerSettingsResponse',
+    'CustomToolkitSettingsInvokeResponseResult',
     'CustomToolkitSettingsResponse',
+    'DataDisksInvokeResponseResult',
     'DataDisksResponse',
+    'EnvironmentSettingInvokeResponseResult',
     'EnvironmentSettingResponse',
-    'FileResponseResult',
+    'FileInvokeResponseResult',
+    'FileServerReferenceInvokeResponseResult',
     'FileServerReferenceResponse',
+    'ImageReferenceInvokeResponseResult',
     'ImageReferenceResponse',
+    'ImageSourceRegistryInvokeResponseResult',
     'ImageSourceRegistryResponse',
+    'InputDirectoryInvokeResponseResult',
     'InputDirectoryResponse',
+    'JobPreparationInvokeResponseResult',
     'JobPreparationResponse',
+    'JobPropertiesInvokeResponseConstraintsResult',
+    'JobPropertiesInvokeResponseExecutionInfoResult',
     'JobPropertiesResponseConstraints',
     'JobPropertiesResponseExecutionInfo',
+    'KeyVaultSecretReferenceInvokeResponseResult',
     'KeyVaultSecretReferenceResponse',
+    'ManualScaleSettingsInvokeResponseResult',
     'ManualScaleSettingsResponse',
+    'MountSettingsInvokeResponseResult',
     'MountSettingsResponse',
+    'MountVolumesInvokeResponseResult',
     'MountVolumesResponse',
+    'NameValuePairInvokeResponseResult',
     'NameValuePairResponse',
+    'NodeSetupInvokeResponseResult',
     'NodeSetupResponse',
+    'NodeStateCountsInvokeResponseResult',
     'NodeStateCountsResponse',
+    'OutputDirectoryInvokeResponseResult',
     'OutputDirectoryResponse',
+    'PrivateRegistryCredentialsInvokeResponseResult',
     'PrivateRegistryCredentialsResponse',
-    'RemoteLoginInformationResponseResult',
+    'RemoteLoginInformationInvokeResponseResult',
+    'ResourceIdInvokeResponseResult',
     'ResourceIdResponse',
+    'ScaleSettingsInvokeResponseResult',
     'ScaleSettingsResponse',
+    'SetupTaskInvokeResponseResult',
     'SetupTaskResponse',
+    'SshConfigurationInvokeResponseResult',
     'SshConfigurationResponse',
+    'TensorFlowSettingsInvokeResponseResult',
     'TensorFlowSettingsResponse',
+    'UnmanagedFileSystemReferenceInvokeResponseResult',
     'UnmanagedFileSystemReferenceResponse',
+    'UserAccountSettingsInvokeResponseResult',
     'UserAccountSettingsResponse',
+    'VirtualMachineConfigurationInvokeResponseResult',
     'VirtualMachineConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AutoScaleSettingsInvokeResponseResult(dict):
+    """
+    The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
+    """
+    def __init__(__self__, *,
+                 maximum_node_count: int,
+                 minimum_node_count: int,
+                 initial_node_count: Optional[int] = None):
+        """
+        The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
+        """
+        pulumi.set(__self__, "maximum_node_count", maximum_node_count)
+        pulumi.set(__self__, "minimum_node_count", minimum_node_count)
+        if initial_node_count is None:
+            initial_node_count = 0
+        if initial_node_count is not None:
+            pulumi.set(__self__, "initial_node_count", initial_node_count)
+
+    @property
+    @pulumi.getter(name="maximumNodeCount")
+    def maximum_node_count(self) -> int:
+        return pulumi.get(self, "maximum_node_count")
+
+    @property
+    @pulumi.getter(name="minimumNodeCount")
+    def minimum_node_count(self) -> int:
+        return pulumi.get(self, "minimum_node_count")
+
+    @property
+    @pulumi.getter(name="initialNodeCount")
+    def initial_node_count(self) -> Optional[int]:
+        return pulumi.get(self, "initial_node_count")
+
 
 @pulumi.output_type
 class AutoScaleSettingsResponse(dict):
@@ -87,6 +158,61 @@ class AutoScaleSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureBlobFileSystemReferenceInvokeResponseResult(dict):
+    """
+    Provides required information, for the service to be able to mount Azure Blob Storage container on the cluster nodes.
+    """
+    def __init__(__self__, *,
+                 account_name: str,
+                 container_name: str,
+                 credentials: 'outputs.AzureStorageCredentialsInfoInvokeResponseResult',
+                 relative_mount_path: str,
+                 mount_options: Optional[str] = None):
+        """
+        Provides required information, for the service to be able to mount Azure Blob Storage container on the cluster nodes.
+        :param 'AzureStorageCredentialsInfoInvokeResponseArgs' credentials: Credentials to access Azure File Share.
+        :param str relative_mount_path: Note that all blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.AzureStorageCredentialsInfoInvokeResponseResult':
+        """
+        Credentials to access Azure File Share.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        Note that all blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        return pulumi.get(self, "mount_options")
 
 
 @pulumi.output_type
@@ -145,6 +271,81 @@ class AzureBlobFileSystemReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureFileShareReferenceInvokeResponseResult(dict):
+    """
+    Details of the Azure File Share to mount on the cluster.
+    """
+    def __init__(__self__, *,
+                 account_name: str,
+                 azure_file_url: str,
+                 credentials: 'outputs.AzureStorageCredentialsInfoInvokeResponseResult',
+                 relative_mount_path: str,
+                 directory_mode: Optional[str] = None,
+                 file_mode: Optional[str] = None):
+        """
+        Details of the Azure File Share to mount on the cluster.
+        :param 'AzureStorageCredentialsInfoInvokeResponseArgs' credentials: Credentials to access Azure File Share.
+        :param str relative_mount_path: Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        :param str directory_mode: Default value is 0777. Valid only if OS is linux.
+        :param str file_mode: Default value is 0777. Valid only if OS is linux.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "azure_file_url", azure_file_url)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if directory_mode is None:
+            directory_mode = '0777'
+        if directory_mode is not None:
+            pulumi.set(__self__, "directory_mode", directory_mode)
+        if file_mode is None:
+            file_mode = '0777'
+        if file_mode is not None:
+            pulumi.set(__self__, "file_mode", file_mode)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="azureFileUrl")
+    def azure_file_url(self) -> str:
+        return pulumi.get(self, "azure_file_url")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.AzureStorageCredentialsInfoInvokeResponseResult':
+        """
+        Credentials to access Azure File Share.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter(name="directoryMode")
+    def directory_mode(self) -> Optional[str]:
+        """
+        Default value is 0777. Valid only if OS is linux.
+        """
+        return pulumi.get(self, "directory_mode")
+
+    @property
+    @pulumi.getter(name="fileMode")
+    def file_mode(self) -> Optional[str]:
+        """
+        Default value is 0777. Valid only if OS is linux.
+        """
+        return pulumi.get(self, "file_mode")
 
 
 @pulumi.output_type
@@ -226,6 +427,41 @@ class AzureFileShareReferenceResponse(dict):
 
 
 @pulumi.output_type
+class AzureStorageCredentialsInfoInvokeResponseResult(dict):
+    """
+    Credentials to access Azure File Share.
+    """
+    def __init__(__self__, *,
+                 account_key: Optional[str] = None,
+                 account_key_secret_reference: Optional['outputs.KeyVaultSecretReferenceInvokeResponseResult'] = None):
+        """
+        Credentials to access Azure File Share.
+        :param str account_key: One of accountKey or accountKeySecretReference must be specified.
+        :param 'KeyVaultSecretReferenceInvokeResponseArgs' account_key_secret_reference: Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if account_key_secret_reference is not None:
+            pulumi.set(__self__, "account_key_secret_reference", account_key_secret_reference)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[str]:
+        """
+        One of accountKey or accountKeySecretReference must be specified.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountKeySecretReference")
+    def account_key_secret_reference(self) -> Optional['outputs.KeyVaultSecretReferenceInvokeResponseResult']:
+        """
+        Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
+        """
+        return pulumi.get(self, "account_key_secret_reference")
+
+
+@pulumi.output_type
 class AzureStorageCredentialsInfoResponse(dict):
     """
     Credentials to access Azure File Share.
@@ -261,6 +497,53 @@ class AzureStorageCredentialsInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BatchAIErrorInvokeResponseResult(dict):
+    """
+    An error response from the Batch AI service.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.NameValuePairInvokeResponseResult']] = None,
+                 message: Optional[str] = None):
+        """
+        An error response from the Batch AI service.
+        :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        :param Sequence['NameValuePairInvokeResponseArgs'] details: A list of additional details about the error.
+        :param str message: A message describing the error, intended to be suitable for display in a user interface.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.NameValuePairInvokeResponseResult']]:
+        """
+        A list of additional details about the error.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        A message describing the error, intended to be suitable for display in a user interface.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -311,6 +594,85 @@ class BatchAIErrorResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CNTKsettingsInvokeResponseResult(dict):
+    """
+    Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+    """
+    def __init__(__self__, *,
+                 command_line_args: Optional[str] = None,
+                 config_file_path: Optional[str] = None,
+                 language_type: Optional[str] = None,
+                 process_count: Optional[int] = None,
+                 python_interpreter_path: Optional[str] = None,
+                 python_script_file_path: Optional[str] = None):
+        """
+        Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+        :param str config_file_path: This property can be specified only if the languageType is 'BrainScript'.
+        :param str language_type: Valid values are 'BrainScript' or 'Python'.
+        :param int process_count: The default value for this property is equal to nodeCount property
+        :param str python_interpreter_path: This property can be specified only if the languageType is 'Python'.
+        :param str python_script_file_path: This property can be specified only if the languageType is 'Python'.
+        """
+        if command_line_args is not None:
+            pulumi.set(__self__, "command_line_args", command_line_args)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if language_type is not None:
+            pulumi.set(__self__, "language_type", language_type)
+        if process_count is not None:
+            pulumi.set(__self__, "process_count", process_count)
+        if python_interpreter_path is not None:
+            pulumi.set(__self__, "python_interpreter_path", python_interpreter_path)
+        if python_script_file_path is not None:
+            pulumi.set(__self__, "python_script_file_path", python_script_file_path)
+
+    @property
+    @pulumi.getter(name="commandLineArgs")
+    def command_line_args(self) -> Optional[str]:
+        return pulumi.get(self, "command_line_args")
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[str]:
+        """
+        This property can be specified only if the languageType is 'BrainScript'.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @property
+    @pulumi.getter(name="languageType")
+    def language_type(self) -> Optional[str]:
+        """
+        Valid values are 'BrainScript' or 'Python'.
+        """
+        return pulumi.get(self, "language_type")
+
+    @property
+    @pulumi.getter(name="processCount")
+    def process_count(self) -> Optional[int]:
+        """
+        The default value for this property is equal to nodeCount property
+        """
+        return pulumi.get(self, "process_count")
+
+    @property
+    @pulumi.getter(name="pythonInterpreterPath")
+    def python_interpreter_path(self) -> Optional[str]:
+        """
+        This property can be specified only if the languageType is 'Python'.
+        """
+        return pulumi.get(self, "python_interpreter_path")
+
+    @property
+    @pulumi.getter(name="pythonScriptFilePath")
+    def python_script_file_path(self) -> Optional[str]:
+        """
+        This property can be specified only if the languageType is 'Python'.
+        """
+        return pulumi.get(self, "python_script_file_path")
 
 
 @pulumi.output_type
@@ -396,6 +758,73 @@ class CNTKsettingsResponse(dict):
 
 
 @pulumi.output_type
+class CaffeSettingsInvokeResponseResult(dict):
+    """
+    Specifies the settings for Caffe job.
+    """
+    def __init__(__self__, *,
+                 command_line_args: Optional[str] = None,
+                 config_file_path: Optional[str] = None,
+                 process_count: Optional[int] = None,
+                 python_interpreter_path: Optional[str] = None,
+                 python_script_file_path: Optional[str] = None):
+        """
+        Specifies the settings for Caffe job.
+        :param str config_file_path: This property cannot be specified if pythonScriptFilePath is specified.
+        :param int process_count: The default value for this property is equal to nodeCount property
+        :param str python_interpreter_path: This property can be specified only if the pythonScriptFilePath is specified.
+        :param str python_script_file_path: This property cannot be specified if configFilePath is specified.
+        """
+        if command_line_args is not None:
+            pulumi.set(__self__, "command_line_args", command_line_args)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if process_count is not None:
+            pulumi.set(__self__, "process_count", process_count)
+        if python_interpreter_path is not None:
+            pulumi.set(__self__, "python_interpreter_path", python_interpreter_path)
+        if python_script_file_path is not None:
+            pulumi.set(__self__, "python_script_file_path", python_script_file_path)
+
+    @property
+    @pulumi.getter(name="commandLineArgs")
+    def command_line_args(self) -> Optional[str]:
+        return pulumi.get(self, "command_line_args")
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[str]:
+        """
+        This property cannot be specified if pythonScriptFilePath is specified.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @property
+    @pulumi.getter(name="processCount")
+    def process_count(self) -> Optional[int]:
+        """
+        The default value for this property is equal to nodeCount property
+        """
+        return pulumi.get(self, "process_count")
+
+    @property
+    @pulumi.getter(name="pythonInterpreterPath")
+    def python_interpreter_path(self) -> Optional[str]:
+        """
+        This property can be specified only if the pythonScriptFilePath is specified.
+        """
+        return pulumi.get(self, "python_interpreter_path")
+
+    @property
+    @pulumi.getter(name="pythonScriptFilePath")
+    def python_script_file_path(self) -> Optional[str]:
+        """
+        This property cannot be specified if configFilePath is specified.
+        """
+        return pulumi.get(self, "python_script_file_path")
+
+
+@pulumi.output_type
 class CaffeSettingsResponse(dict):
     """
     Specifies the settings for Caffe job.
@@ -466,6 +895,52 @@ class CaffeSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ChainerSettingsInvokeResponseResult(dict):
+    """
+    Specifies the settings for Chainer job.
+    """
+    def __init__(__self__, *,
+                 python_script_file_path: str,
+                 command_line_args: Optional[str] = None,
+                 process_count: Optional[int] = None,
+                 python_interpreter_path: Optional[str] = None):
+        """
+        Specifies the settings for Chainer job.
+        :param int process_count: The default value for this property is equal to nodeCount property
+        """
+        pulumi.set(__self__, "python_script_file_path", python_script_file_path)
+        if command_line_args is not None:
+            pulumi.set(__self__, "command_line_args", command_line_args)
+        if process_count is not None:
+            pulumi.set(__self__, "process_count", process_count)
+        if python_interpreter_path is not None:
+            pulumi.set(__self__, "python_interpreter_path", python_interpreter_path)
+
+    @property
+    @pulumi.getter(name="pythonScriptFilePath")
+    def python_script_file_path(self) -> str:
+        return pulumi.get(self, "python_script_file_path")
+
+    @property
+    @pulumi.getter(name="commandLineArgs")
+    def command_line_args(self) -> Optional[str]:
+        return pulumi.get(self, "command_line_args")
+
+    @property
+    @pulumi.getter(name="processCount")
+    def process_count(self) -> Optional[int]:
+        """
+        The default value for this property is equal to nodeCount property
+        """
+        return pulumi.get(self, "process_count")
+
+    @property
+    @pulumi.getter(name="pythonInterpreterPath")
+    def python_interpreter_path(self) -> Optional[str]:
+        return pulumi.get(self, "python_interpreter_path")
+
+
+@pulumi.output_type
 class ChainerSettingsResponse(dict):
     """
     Specifies the settings for Chainer job.
@@ -515,6 +990,28 @@ class ChainerSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ContainerSettingsInvokeResponseResult(dict):
+    """
+    Settings for the container to be downloaded.
+    """
+    def __init__(__self__, *,
+                 image_source_registry: 'outputs.ImageSourceRegistryInvokeResponseResult'):
+        """
+        Settings for the container to be downloaded.
+        :param 'ImageSourceRegistryInvokeResponseArgs' image_source_registry: Details of the container image such as name, URL and credentials.
+        """
+        pulumi.set(__self__, "image_source_registry", image_source_registry)
+
+    @property
+    @pulumi.getter(name="imageSourceRegistry")
+    def image_source_registry(self) -> 'outputs.ImageSourceRegistryInvokeResponseResult':
+        """
+        Details of the container image such as name, URL and credentials.
+        """
+        return pulumi.get(self, "image_source_registry")
+
+
+@pulumi.output_type
 class ContainerSettingsResponse(dict):
     """
     Settings for the container to be downloaded.
@@ -540,6 +1037,25 @@ class ContainerSettingsResponse(dict):
 
 
 @pulumi.output_type
+class CustomToolkitSettingsInvokeResponseResult(dict):
+    """
+    Specifies the settings for a custom tool kit job.
+    """
+    def __init__(__self__, *,
+                 command_line: Optional[str] = None):
+        """
+        Specifies the settings for a custom tool kit job.
+        """
+        if command_line is not None:
+            pulumi.set(__self__, "command_line", command_line)
+
+    @property
+    @pulumi.getter(name="commandLine")
+    def command_line(self) -> Optional[str]:
+        return pulumi.get(self, "command_line")
+
+
+@pulumi.output_type
 class CustomToolkitSettingsResponse(dict):
     """
     Specifies the settings for a custom tool kit job.
@@ -559,6 +1075,47 @@ class CustomToolkitSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataDisksInvokeResponseResult(dict):
+    """
+    Settings for the data disk which would be created for the File Server.
+    """
+    def __init__(__self__, *,
+                 caching_type: str,
+                 disk_count: int,
+                 disk_size_in_gb: int,
+                 storage_account_type: str):
+        """
+        Settings for the data disk which would be created for the File Server.
+        """
+        if caching_type is None:
+            caching_type = 'none'
+        pulumi.set(__self__, "caching_type", caching_type)
+        pulumi.set(__self__, "disk_count", disk_count)
+        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter(name="cachingType")
+    def caching_type(self) -> str:
+        return pulumi.get(self, "caching_type")
+
+    @property
+    @pulumi.getter(name="diskCount")
+    def disk_count(self) -> int:
+        return pulumi.get(self, "disk_count")
+
+    @property
+    @pulumi.getter(name="diskSizeInGB")
+    def disk_size_in_gb(self) -> int:
+        return pulumi.get(self, "disk_size_in_gb")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> str:
+        return pulumi.get(self, "storage_account_type")
 
 
 @pulumi.output_type
@@ -606,6 +1163,32 @@ class DataDisksResponse(dict):
 
 
 @pulumi.output_type
+class EnvironmentSettingInvokeResponseResult(dict):
+    """
+    A collection of environment variables to set.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: Optional[str] = None):
+        """
+        A collection of environment variables to set.
+        """
+        pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EnvironmentSettingResponse(dict):
     """
     A collection of environment variables to set.
@@ -635,7 +1218,7 @@ class EnvironmentSettingResponse(dict):
 
 
 @pulumi.output_type
-class FileResponseResult(dict):
+class FileInvokeResponseResult(dict):
     """
     Properties of the file.
     """
@@ -689,6 +1272,59 @@ class FileResponseResult(dict):
         The time at which the file was last modified.
         """
         return pulumi.get(self, "last_modified")
+
+
+@pulumi.output_type
+class FileServerReferenceInvokeResponseResult(dict):
+    """
+    Provides required information, for the service to be able to mount Azure FileShare on the cluster nodes.
+    """
+    def __init__(__self__, *,
+                 file_server: 'outputs.ResourceIdInvokeResponseResult',
+                 relative_mount_path: str,
+                 mount_options: Optional[str] = None,
+                 source_directory: Optional[str] = None):
+        """
+        Provides required information, for the service to be able to mount Azure FileShare on the cluster nodes.
+        :param 'ResourceIdInvokeResponseArgs' file_server: Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        :param str relative_mount_path: Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        :param str source_directory: If this property is not specified, the entire File Server will be mounted.
+        """
+        pulumi.set(__self__, "file_server", file_server)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+        if source_directory is not None:
+            pulumi.set(__self__, "source_directory", source_directory)
+
+    @property
+    @pulumi.getter(name="fileServer")
+    def file_server(self) -> 'outputs.ResourceIdInvokeResponseResult':
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        """
+        return pulumi.get(self, "file_server")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        return pulumi.get(self, "mount_options")
+
+    @property
+    @pulumi.getter(name="sourceDirectory")
+    def source_directory(self) -> Optional[str]:
+        """
+        If this property is not specified, the entire File Server will be mounted.
+        """
+        return pulumi.get(self, "source_directory")
 
 
 @pulumi.output_type
@@ -748,6 +1384,46 @@ class FileServerReferenceResponse(dict):
 
 
 @pulumi.output_type
+class ImageReferenceInvokeResponseResult(dict):
+    """
+    The image reference.
+    """
+    def __init__(__self__, *,
+                 offer: str,
+                 publisher: str,
+                 sku: str,
+                 version: Optional[str] = None):
+        """
+        The image reference.
+        """
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sku", sku)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> str:
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class ImageReferenceResponse(dict):
     """
     The image reference.
@@ -788,6 +1464,44 @@ class ImageReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImageSourceRegistryInvokeResponseResult(dict):
+    """
+    Details of the container image such as name, URL and credentials.
+    """
+    def __init__(__self__, *,
+                 image: str,
+                 credentials: Optional['outputs.PrivateRegistryCredentialsInvokeResponseResult'] = None,
+                 server_url: Optional[str] = None):
+        """
+        Details of the container image such as name, URL and credentials.
+        :param 'PrivateRegistryCredentialsInvokeResponseArgs' credentials: Credentials to access a container image in a private repository.
+        """
+        pulumi.set(__self__, "image", image)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.PrivateRegistryCredentialsInvokeResponseResult']:
+        """
+        Credentials to access a container image in a private repository.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[str]:
+        return pulumi.get(self, "server_url")
 
 
 @pulumi.output_type
@@ -832,6 +1546,35 @@ class ImageSourceRegistryResponse(dict):
 
 
 @pulumi.output_type
+class InputDirectoryInvokeResponseResult(dict):
+    """
+    Input directory for the job.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 path: str):
+        """
+        Input directory for the job.
+        :param str id: It will be available for the job as an environment variable under AZ_BATCHAI_INPUT_id. The service will also provide the following  environment variable: AZ_BATCHAI_PREV_OUTPUT_Name. The value of the variable will be populated if the job is being retried after a previous failure, otherwise it will be set to nothing.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        It will be available for the job as an environment variable under AZ_BATCHAI_INPUT_id. The service will also provide the following  environment variable: AZ_BATCHAI_PREV_OUTPUT_Name. The value of the variable will be populated if the job is being retried after a previous failure, otherwise it will be set to nothing.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class InputDirectoryResponse(dict):
     """
     Input directory for the job.
@@ -864,6 +1607,28 @@ class InputDirectoryResponse(dict):
 
 
 @pulumi.output_type
+class JobPreparationInvokeResponseResult(dict):
+    """
+    Specifies the settings for job preparation.
+    """
+    def __init__(__self__, *,
+                 command_line: str):
+        """
+        Specifies the settings for job preparation.
+        :param str command_line: If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
+        """
+        pulumi.set(__self__, "command_line", command_line)
+
+    @property
+    @pulumi.getter(name="commandLine")
+    def command_line(self) -> str:
+        """
+        If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
+        """
+        return pulumi.get(self, "command_line")
+
+
+@pulumi.output_type
 class JobPreparationResponse(dict):
     """
     Specifies the settings for job preparation.
@@ -886,6 +1651,85 @@ class JobPreparationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobPropertiesInvokeResponseConstraintsResult(dict):
+    """
+    Constraints associated with the Job.
+    """
+    def __init__(__self__, *,
+                 max_wall_clock_time: Optional[str] = None):
+        """
+        Constraints associated with the Job.
+        :param str max_wall_clock_time: Default Value = 1 week.
+        """
+        if max_wall_clock_time is None:
+            max_wall_clock_time = '7.00:00:00'
+        if max_wall_clock_time is not None:
+            pulumi.set(__self__, "max_wall_clock_time", max_wall_clock_time)
+
+    @property
+    @pulumi.getter(name="maxWallClockTime")
+    def max_wall_clock_time(self) -> Optional[str]:
+        """
+        Default Value = 1 week.
+        """
+        return pulumi.get(self, "max_wall_clock_time")
+
+
+@pulumi.output_type
+class JobPropertiesInvokeResponseExecutionInfoResult(dict):
+    """
+    Contains information about the execution of a job in the Azure Batch service.
+    """
+    def __init__(__self__, *,
+                 start_time: str,
+                 end_time: Optional[str] = None,
+                 errors: Optional[Sequence['outputs.BatchAIErrorInvokeResponseResult']] = None,
+                 exit_code: Optional[int] = None):
+        """
+        Contains information about the execution of a job in the Azure Batch service.
+        :param str start_time: 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+        :param str end_time: This property is only returned if the job is in completed state.
+        :param int exit_code: This property is only returned if the job is in completed state.
+        """
+        pulumi.set(__self__, "start_time", start_time)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if exit_code is not None:
+            pulumi.set(__self__, "exit_code", exit_code)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        This property is only returned if the job is in completed state.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.BatchAIErrorInvokeResponseResult']]:
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="exitCode")
+    def exit_code(self) -> Optional[int]:
+        """
+        This property is only returned if the job is in completed state.
+        """
+        return pulumi.get(self, "exit_code")
 
 
 @pulumi.output_type
@@ -974,6 +1818,35 @@ class JobPropertiesResponseExecutionInfo(dict):
 
 
 @pulumi.output_type
+class KeyVaultSecretReferenceInvokeResponseResult(dict):
+    """
+    Describes a reference to Key Vault Secret.
+    """
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault: 'outputs.ResourceIdInvokeResponseResult'):
+        """
+        Describes a reference to Key Vault Secret.
+        :param 'ResourceIdInvokeResponseArgs' source_vault: Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault", source_vault)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVault")
+    def source_vault(self) -> 'outputs.ResourceIdInvokeResponseResult':
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        """
+        return pulumi.get(self, "source_vault")
+
+
+@pulumi.output_type
 class KeyVaultSecretReferenceResponse(dict):
     """
     Describes a reference to Key Vault Secret.
@@ -1003,6 +1876,44 @@ class KeyVaultSecretReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManualScaleSettingsInvokeResponseResult(dict):
+    """
+    Manual scale settings for the cluster.
+    """
+    def __init__(__self__, *,
+                 target_node_count: int,
+                 node_deallocation_option: Optional[str] = None):
+        """
+        Manual scale settings for the cluster.
+        :param int target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
+        :param str node_deallocation_option: The default value is requeue.
+        """
+        if target_node_count is None:
+            target_node_count = 0
+        pulumi.set(__self__, "target_node_count", target_node_count)
+        if node_deallocation_option is None:
+            node_deallocation_option = 'requeue'
+        if node_deallocation_option is not None:
+            pulumi.set(__self__, "node_deallocation_option", node_deallocation_option)
+
+    @property
+    @pulumi.getter(name="targetNodeCount")
+    def target_node_count(self) -> int:
+        """
+        Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
+        """
+        return pulumi.get(self, "target_node_count")
+
+    @property
+    @pulumi.getter(name="nodeDeallocationOption")
+    def node_deallocation_option(self) -> Optional[str]:
+        """
+        The default value is requeue.
+        """
+        return pulumi.get(self, "node_deallocation_option")
 
 
 @pulumi.output_type
@@ -1044,6 +1955,49 @@ class ManualScaleSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MountSettingsInvokeResponseResult(dict):
+    """
+    Details of the File Server.
+    """
+    def __init__(__self__, *,
+                 file_server_internal_ip: Optional[str] = None,
+                 file_server_public_ip: Optional[str] = None,
+                 file_server_type: Optional[str] = None,
+                 mount_point: Optional[str] = None):
+        """
+        Details of the File Server.
+        """
+        if file_server_internal_ip is not None:
+            pulumi.set(__self__, "file_server_internal_ip", file_server_internal_ip)
+        if file_server_public_ip is not None:
+            pulumi.set(__self__, "file_server_public_ip", file_server_public_ip)
+        if file_server_type is not None:
+            pulumi.set(__self__, "file_server_type", file_server_type)
+        if mount_point is not None:
+            pulumi.set(__self__, "mount_point", mount_point)
+
+    @property
+    @pulumi.getter(name="fileServerInternalIP")
+    def file_server_internal_ip(self) -> Optional[str]:
+        return pulumi.get(self, "file_server_internal_ip")
+
+    @property
+    @pulumi.getter(name="fileServerPublicIP")
+    def file_server_public_ip(self) -> Optional[str]:
+        return pulumi.get(self, "file_server_public_ip")
+
+    @property
+    @pulumi.getter(name="fileServerType")
+    def file_server_type(self) -> Optional[str]:
+        return pulumi.get(self, "file_server_type")
+
+    @property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> Optional[str]:
+        return pulumi.get(self, "mount_point")
 
 
 @pulumi.output_type
@@ -1090,6 +2044,57 @@ class MountSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MountVolumesInvokeResponseResult(dict):
+    """
+    Details of volumes to mount on the cluster.
+    """
+    def __init__(__self__, *,
+                 azure_blob_file_systems: Optional[Sequence['outputs.AzureBlobFileSystemReferenceInvokeResponseResult']] = None,
+                 azure_file_shares: Optional[Sequence['outputs.AzureFileShareReferenceInvokeResponseResult']] = None,
+                 file_servers: Optional[Sequence['outputs.FileServerReferenceInvokeResponseResult']] = None,
+                 unmanaged_file_systems: Optional[Sequence['outputs.UnmanagedFileSystemReferenceInvokeResponseResult']] = None):
+        """
+        Details of volumes to mount on the cluster.
+        :param Sequence['AzureBlobFileSystemReferenceInvokeResponseArgs'] azure_blob_file_systems: References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+        :param Sequence['AzureFileShareReferenceInvokeResponseArgs'] azure_file_shares: References to Azure File Shares that are to be mounted to the cluster nodes.
+        """
+        if azure_blob_file_systems is not None:
+            pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
+        if azure_file_shares is not None:
+            pulumi.set(__self__, "azure_file_shares", azure_file_shares)
+        if file_servers is not None:
+            pulumi.set(__self__, "file_servers", file_servers)
+        if unmanaged_file_systems is not None:
+            pulumi.set(__self__, "unmanaged_file_systems", unmanaged_file_systems)
+
+    @property
+    @pulumi.getter(name="azureBlobFileSystems")
+    def azure_blob_file_systems(self) -> Optional[Sequence['outputs.AzureBlobFileSystemReferenceInvokeResponseResult']]:
+        """
+        References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+        """
+        return pulumi.get(self, "azure_blob_file_systems")
+
+    @property
+    @pulumi.getter(name="azureFileShares")
+    def azure_file_shares(self) -> Optional[Sequence['outputs.AzureFileShareReferenceInvokeResponseResult']]:
+        """
+        References to Azure File Shares that are to be mounted to the cluster nodes.
+        """
+        return pulumi.get(self, "azure_file_shares")
+
+    @property
+    @pulumi.getter(name="fileServers")
+    def file_servers(self) -> Optional[Sequence['outputs.FileServerReferenceInvokeResponseResult']]:
+        return pulumi.get(self, "file_servers")
+
+    @property
+    @pulumi.getter(name="unmanagedFileSystems")
+    def unmanaged_file_systems(self) -> Optional[Sequence['outputs.UnmanagedFileSystemReferenceInvokeResponseResult']]:
+        return pulumi.get(self, "unmanaged_file_systems")
 
 
 @pulumi.output_type
@@ -1147,6 +2152,33 @@ class MountVolumesResponse(dict):
 
 
 @pulumi.output_type
+class NameValuePairInvokeResponseResult(dict):
+    """
+    Represents a name-value pair.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Represents a name-value pair.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class NameValuePairResponse(dict):
     """
     Represents a name-value pair.
@@ -1174,6 +2206,41 @@ class NameValuePairResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NodeSetupInvokeResponseResult(dict):
+    """
+    Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+    """
+    def __init__(__self__, *,
+                 mount_volumes: Optional['outputs.MountVolumesInvokeResponseResult'] = None,
+                 setup_task: Optional['outputs.SetupTaskInvokeResponseResult'] = None):
+        """
+        Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+        :param 'MountVolumesInvokeResponseArgs' mount_volumes: Details of volumes to mount on the cluster.
+        :param 'SetupTaskInvokeResponseArgs' setup_task: Specifies a setup task which can be used to customize the compute nodes of the cluster.
+        """
+        if mount_volumes is not None:
+            pulumi.set(__self__, "mount_volumes", mount_volumes)
+        if setup_task is not None:
+            pulumi.set(__self__, "setup_task", setup_task)
+
+    @property
+    @pulumi.getter(name="mountVolumes")
+    def mount_volumes(self) -> Optional['outputs.MountVolumesInvokeResponseResult']:
+        """
+        Details of volumes to mount on the cluster.
+        """
+        return pulumi.get(self, "mount_volumes")
+
+    @property
+    @pulumi.getter(name="setupTask")
+    def setup_task(self) -> Optional['outputs.SetupTaskInvokeResponseResult']:
+        """
+        Specifies a setup task which can be used to customize the compute nodes of the cluster.
+        """
+        return pulumi.get(self, "setup_task")
 
 
 @pulumi.output_type
@@ -1212,6 +2279,52 @@ class NodeSetupResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NodeStateCountsInvokeResponseResult(dict):
+    """
+    Counts of various compute node states on the cluster.
+    """
+    def __init__(__self__, *,
+                 idle_node_count: int,
+                 leaving_node_count: int,
+                 preparing_node_count: int,
+                 running_node_count: int,
+                 unusable_node_count: int):
+        """
+        Counts of various compute node states on the cluster.
+        """
+        pulumi.set(__self__, "idle_node_count", idle_node_count)
+        pulumi.set(__self__, "leaving_node_count", leaving_node_count)
+        pulumi.set(__self__, "preparing_node_count", preparing_node_count)
+        pulumi.set(__self__, "running_node_count", running_node_count)
+        pulumi.set(__self__, "unusable_node_count", unusable_node_count)
+
+    @property
+    @pulumi.getter(name="idleNodeCount")
+    def idle_node_count(self) -> int:
+        return pulumi.get(self, "idle_node_count")
+
+    @property
+    @pulumi.getter(name="leavingNodeCount")
+    def leaving_node_count(self) -> int:
+        return pulumi.get(self, "leaving_node_count")
+
+    @property
+    @pulumi.getter(name="preparingNodeCount")
+    def preparing_node_count(self) -> int:
+        return pulumi.get(self, "preparing_node_count")
+
+    @property
+    @pulumi.getter(name="runningNodeCount")
+    def running_node_count(self) -> int:
+        return pulumi.get(self, "running_node_count")
+
+    @property
+    @pulumi.getter(name="unusableNodeCount")
+    def unusable_node_count(self) -> int:
+        return pulumi.get(self, "unusable_node_count")
 
 
 @pulumi.output_type
@@ -1261,6 +2374,79 @@ class NodeStateCountsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OutputDirectoryInvokeResponseResult(dict):
+    """
+    Output directory for the job.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 path_prefix: str,
+                 create_new: Optional[bool] = None,
+                 path_suffix: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Output directory for the job.
+        :param str id: It will be available for the job as an environment variable under AZ_BATCHAI_OUTPUT_id.
+        :param str path_prefix: NOTE: This is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs.
+        :param bool create_new: Default is true. If false, then the directory is not created and can be any directory path that the user specifies.
+        :param str path_suffix: The suffix path where the output directory will be created.
+        :param str type: Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "path_prefix", path_prefix)
+        if create_new is None:
+            create_new = True
+        if create_new is not None:
+            pulumi.set(__self__, "create_new", create_new)
+        if path_suffix is not None:
+            pulumi.set(__self__, "path_suffix", path_suffix)
+        if type is None:
+            type = 'custom'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        It will be available for the job as an environment variable under AZ_BATCHAI_OUTPUT_id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="pathPrefix")
+    def path_prefix(self) -> str:
+        """
+        NOTE: This is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs.
+        """
+        return pulumi.get(self, "path_prefix")
+
+    @property
+    @pulumi.getter(name="createNew")
+    def create_new(self) -> Optional[bool]:
+        """
+        Default is true. If false, then the directory is not created and can be any directory path that the user specifies.
+        """
+        return pulumi.get(self, "create_new")
+
+    @property
+    @pulumi.getter(name="pathSuffix")
+    def path_suffix(self) -> Optional[str]:
+        """
+        The suffix path where the output directory will be created.
+        """
+        return pulumi.get(self, "path_suffix")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1340,6 +2526,48 @@ class OutputDirectoryResponse(dict):
 
 
 @pulumi.output_type
+class PrivateRegistryCredentialsInvokeResponseResult(dict):
+    """
+    Credentials to access a container image in a private repository.
+    """
+    def __init__(__self__, *,
+                 username: str,
+                 password: Optional[str] = None,
+                 password_secret_reference: Optional['outputs.KeyVaultSecretReferenceInvokeResponseResult'] = None):
+        """
+        Credentials to access a container image in a private repository.
+        :param str password: One of password or passwordSecretReference must be specified.
+        :param 'KeyVaultSecretReferenceInvokeResponseArgs' password_secret_reference: Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
+        """
+        pulumi.set(__self__, "username", username)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if password_secret_reference is not None:
+            pulumi.set(__self__, "password_secret_reference", password_secret_reference)
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        One of password or passwordSecretReference must be specified.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="passwordSecretReference")
+    def password_secret_reference(self) -> Optional['outputs.KeyVaultSecretReferenceInvokeResponseResult']:
+        """
+        Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
+        """
+        return pulumi.get(self, "password_secret_reference")
+
+
+@pulumi.output_type
 class PrivateRegistryCredentialsResponse(dict):
     """
     Credentials to access a container image in a private repository.
@@ -1385,7 +2613,7 @@ class PrivateRegistryCredentialsResponse(dict):
 
 
 @pulumi.output_type
-class RemoteLoginInformationResponseResult(dict):
+class RemoteLoginInformationInvokeResponseResult(dict):
     """
     Contains remote login details to SSH/RDP to a compute node in cluster.
     """
@@ -1425,6 +2653,28 @@ class RemoteLoginInformationResponseResult(dict):
 
 
 @pulumi.output_type
+class ResourceIdInvokeResponseResult(dict):
+    """
+    Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        :param str id: The ID of the resource
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ResourceIdResponse(dict):
     """
     Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
@@ -1447,6 +2697,41 @@ class ResourceIdResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ScaleSettingsInvokeResponseResult(dict):
+    """
+    At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+    """
+    def __init__(__self__, *,
+                 auto_scale: Optional['outputs.AutoScaleSettingsInvokeResponseResult'] = None,
+                 manual: Optional['outputs.ManualScaleSettingsInvokeResponseResult'] = None):
+        """
+        At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        :param 'AutoScaleSettingsInvokeResponseArgs' auto_scale: The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
+        :param 'ManualScaleSettingsInvokeResponseArgs' manual: Manual scale settings for the cluster.
+        """
+        if auto_scale is not None:
+            pulumi.set(__self__, "auto_scale", auto_scale)
+        if manual is not None:
+            pulumi.set(__self__, "manual", manual)
+
+    @property
+    @pulumi.getter(name="autoScale")
+    def auto_scale(self) -> Optional['outputs.AutoScaleSettingsInvokeResponseResult']:
+        """
+        The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
+        """
+        return pulumi.get(self, "auto_scale")
+
+    @property
+    @pulumi.getter
+    def manual(self) -> Optional['outputs.ManualScaleSettingsInvokeResponseResult']:
+        """
+        Manual scale settings for the cluster.
+        """
+        return pulumi.get(self, "manual")
 
 
 @pulumi.output_type
@@ -1485,6 +2770,53 @@ class ScaleSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SetupTaskInvokeResponseResult(dict):
+    """
+    Specifies a setup task which can be used to customize the compute nodes of the cluster.
+    """
+    def __init__(__self__, *,
+                 command_line: str,
+                 std_out_err_path_prefix: str,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentSettingInvokeResponseResult']] = None,
+                 run_elevated: Optional[bool] = None):
+        """
+        Specifies a setup task which can be used to customize the compute nodes of the cluster.
+        :param str std_out_err_path_prefix: The path where the Batch AI service will upload the stdout and stderror of setup task.
+        """
+        pulumi.set(__self__, "command_line", command_line)
+        pulumi.set(__self__, "std_out_err_path_prefix", std_out_err_path_prefix)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if run_elevated is None:
+            run_elevated = False
+        if run_elevated is not None:
+            pulumi.set(__self__, "run_elevated", run_elevated)
+
+    @property
+    @pulumi.getter(name="commandLine")
+    def command_line(self) -> str:
+        return pulumi.get(self, "command_line")
+
+    @property
+    @pulumi.getter(name="stdOutErrPathPrefix")
+    def std_out_err_path_prefix(self) -> str:
+        """
+        The path where the Batch AI service will upload the stdout and stderror of setup task.
+        """
+        return pulumi.get(self, "std_out_err_path_prefix")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentSettingInvokeResponseResult']]:
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="runElevated")
+    def run_elevated(self) -> Optional[bool]:
+        return pulumi.get(self, "run_elevated")
 
 
 @pulumi.output_type
@@ -1538,6 +2870,40 @@ class SetupTaskResponse(dict):
 
 
 @pulumi.output_type
+class SshConfigurationInvokeResponseResult(dict):
+    """
+    SSH configuration settings for the VM
+    """
+    def __init__(__self__, *,
+                 user_account_settings: 'outputs.UserAccountSettingsInvokeResponseResult',
+                 public_ips_to_allow: Optional[Sequence[str]] = None):
+        """
+        SSH configuration settings for the VM
+        :param 'UserAccountSettingsInvokeResponseArgs' user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
+        :param Sequence[str] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of publicIPs that can be specified are 400.
+        """
+        pulumi.set(__self__, "user_account_settings", user_account_settings)
+        if public_ips_to_allow is not None:
+            pulumi.set(__self__, "public_ips_to_allow", public_ips_to_allow)
+
+    @property
+    @pulumi.getter(name="userAccountSettings")
+    def user_account_settings(self) -> 'outputs.UserAccountSettingsInvokeResponseResult':
+        """
+        Settings for user account that gets created on each on the nodes of a cluster.
+        """
+        return pulumi.get(self, "user_account_settings")
+
+    @property
+    @pulumi.getter(name="publicIPsToAllow")
+    def public_ips_to_allow(self) -> Optional[Sequence[str]]:
+        """
+        Default value is '*' can be used to match all source IPs. Maximum number of publicIPs that can be specified are 400.
+        """
+        return pulumi.get(self, "public_ips_to_allow")
+
+
+@pulumi.output_type
 class SshConfigurationResponse(dict):
     """
     SSH configuration settings for the VM
@@ -1572,6 +2938,87 @@ class SshConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TensorFlowSettingsInvokeResponseResult(dict):
+    """
+    Specifies the settings for TensorFlow job.
+    """
+    def __init__(__self__, *,
+                 master_command_line_args: str,
+                 python_script_file_path: str,
+                 parameter_server_command_line_args: Optional[str] = None,
+                 parameter_server_count: Optional[int] = None,
+                 python_interpreter_path: Optional[str] = None,
+                 worker_command_line_args: Optional[str] = None,
+                 worker_count: Optional[int] = None):
+        """
+        Specifies the settings for TensorFlow job.
+        :param str parameter_server_command_line_args: This property is optional for single machine training.
+        :param int parameter_server_count: If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
+        :param str worker_command_line_args: This property is optional for single machine training.
+        :param int worker_count: If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
+        """
+        pulumi.set(__self__, "master_command_line_args", master_command_line_args)
+        pulumi.set(__self__, "python_script_file_path", python_script_file_path)
+        if parameter_server_command_line_args is not None:
+            pulumi.set(__self__, "parameter_server_command_line_args", parameter_server_command_line_args)
+        if parameter_server_count is not None:
+            pulumi.set(__self__, "parameter_server_count", parameter_server_count)
+        if python_interpreter_path is not None:
+            pulumi.set(__self__, "python_interpreter_path", python_interpreter_path)
+        if worker_command_line_args is not None:
+            pulumi.set(__self__, "worker_command_line_args", worker_command_line_args)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="masterCommandLineArgs")
+    def master_command_line_args(self) -> str:
+        return pulumi.get(self, "master_command_line_args")
+
+    @property
+    @pulumi.getter(name="pythonScriptFilePath")
+    def python_script_file_path(self) -> str:
+        return pulumi.get(self, "python_script_file_path")
+
+    @property
+    @pulumi.getter(name="parameterServerCommandLineArgs")
+    def parameter_server_command_line_args(self) -> Optional[str]:
+        """
+        This property is optional for single machine training.
+        """
+        return pulumi.get(self, "parameter_server_command_line_args")
+
+    @property
+    @pulumi.getter(name="parameterServerCount")
+    def parameter_server_count(self) -> Optional[int]:
+        """
+        If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
+        """
+        return pulumi.get(self, "parameter_server_count")
+
+    @property
+    @pulumi.getter(name="pythonInterpreterPath")
+    def python_interpreter_path(self) -> Optional[str]:
+        return pulumi.get(self, "python_interpreter_path")
+
+    @property
+    @pulumi.getter(name="workerCommandLineArgs")
+    def worker_command_line_args(self) -> Optional[str]:
+        """
+        This property is optional for single machine training.
+        """
+        return pulumi.get(self, "worker_command_line_args")
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[int]:
+        """
+        If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
+        """
+        return pulumi.get(self, "worker_count")
 
 
 @pulumi.output_type
@@ -1659,6 +3106,35 @@ class TensorFlowSettingsResponse(dict):
 
 
 @pulumi.output_type
+class UnmanagedFileSystemReferenceInvokeResponseResult(dict):
+    """
+    Details of the file system to mount on the compute cluster nodes.
+    """
+    def __init__(__self__, *,
+                 mount_command: str,
+                 relative_mount_path: str):
+        """
+        Details of the file system to mount on the compute cluster nodes.
+        :param str relative_mount_path: Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        """
+        pulumi.set(__self__, "mount_command", mount_command)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+
+    @property
+    @pulumi.getter(name="mountCommand")
+    def mount_command(self) -> str:
+        return pulumi.get(self, "mount_command")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+
+@pulumi.output_type
 class UnmanagedFileSystemReferenceResponse(dict):
     """
     Details of the file system to mount on the compute cluster nodes.
@@ -1688,6 +3164,40 @@ class UnmanagedFileSystemReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAccountSettingsInvokeResponseResult(dict):
+    """
+    Settings for user account that gets created on each on the nodes of a cluster.
+    """
+    def __init__(__self__, *,
+                 admin_user_name: str,
+                 admin_user_password: Optional[str] = None,
+                 admin_user_ssh_public_key: Optional[str] = None):
+        """
+        Settings for user account that gets created on each on the nodes of a cluster.
+        """
+        pulumi.set(__self__, "admin_user_name", admin_user_name)
+        if admin_user_password is not None:
+            pulumi.set(__self__, "admin_user_password", admin_user_password)
+        if admin_user_ssh_public_key is not None:
+            pulumi.set(__self__, "admin_user_ssh_public_key", admin_user_ssh_public_key)
+
+    @property
+    @pulumi.getter(name="adminUserName")
+    def admin_user_name(self) -> str:
+        return pulumi.get(self, "admin_user_name")
+
+    @property
+    @pulumi.getter(name="adminUserPassword")
+    def admin_user_password(self) -> Optional[str]:
+        return pulumi.get(self, "admin_user_password")
+
+    @property
+    @pulumi.getter(name="adminUserSshPublicKey")
+    def admin_user_ssh_public_key(self) -> Optional[str]:
+        return pulumi.get(self, "admin_user_ssh_public_key")
 
 
 @pulumi.output_type
@@ -1725,6 +3235,29 @@ class UserAccountSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineConfigurationInvokeResponseResult(dict):
+    """
+    Settings for OS image.
+    """
+    def __init__(__self__, *,
+                 image_reference: Optional['outputs.ImageReferenceInvokeResponseResult'] = None):
+        """
+        Settings for OS image.
+        :param 'ImageReferenceInvokeResponseArgs' image_reference: The image reference.
+        """
+        if image_reference is not None:
+            pulumi.set(__self__, "image_reference", image_reference)
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> Optional['outputs.ImageReferenceInvokeResponseResult']:
+        """
+        The image reference.
+        """
+        return pulumi.get(self, "image_reference")
 
 
 @pulumi.output_type

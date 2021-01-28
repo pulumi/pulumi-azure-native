@@ -9,9 +9,58 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedResult',
     'LogAnalyticsQueryPackQueryPropertiesResponseRelated',
+    'SystemDataInvokeResponseResult',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedResult(dict):
+    """
+    The related metadata items for the function.
+    """
+    def __init__(__self__, *,
+                 categories: Optional[Sequence[str]] = None,
+                 resource_types: Optional[Sequence[str]] = None,
+                 solutions: Optional[Sequence[str]] = None):
+        """
+        The related metadata items for the function.
+        :param Sequence[str] categories: The related categories for the function.
+        :param Sequence[str] resource_types: The related resource types for the function.
+        :param Sequence[str] solutions: The related Log Analytics solutions for the function.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if solutions is not None:
+            pulumi.set(__self__, "solutions", solutions)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[Sequence[str]]:
+        """
+        The related categories for the function.
+        """
+        return pulumi.get(self, "categories")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        """
+        The related resource types for the function.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter
+    def solutions(self) -> Optional[Sequence[str]]:
+        """
+        The related Log Analytics solutions for the function.
+        """
+        return pulumi.get(self, "solutions")
+
 
 @pulumi.output_type
 class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
@@ -61,6 +110,89 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataInvokeResponseResult(dict):
+    """
+    Read only system data
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Read only system data
+        :param str created_at: The timestamp of resource creation (UTC)
+        :param str created_by: An identifier for the identity that created the resource
+        :param str created_by_type: The type of identity that created the resource
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: An identifier for the identity that last modified the resource
+        :param str last_modified_by_type: The type of identity that last modified the resource
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC)
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        An identifier for the identity that created the resource
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        An identifier for the identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

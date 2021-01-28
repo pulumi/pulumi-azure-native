@@ -105,7 +105,7 @@ class GetAvailabilitySetResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Sku of the availability set
         """
@@ -113,7 +113,7 @@ class GetAvailabilitySetResult:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Sequence['outputs.InstanceViewStatusResponse']:
+    def statuses(self) -> Sequence['outputs.InstanceViewStatusInvokeResponseResult']:
         """
         The resource status information.
         """
@@ -137,7 +137,7 @@ class GetAvailabilitySetResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def virtual_machines(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         A list of references to all virtual machines in the availability set.
         """

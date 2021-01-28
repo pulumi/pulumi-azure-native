@@ -51,7 +51,7 @@ class GetStreamingPolicyResult:
 
     @property
     @pulumi.getter(name="commonEncryptionCbcs")
-    def common_encryption_cbcs(self) -> Optional['outputs.CommonEncryptionCbcsResponse']:
+    def common_encryption_cbcs(self) -> Optional['outputs.CommonEncryptionCbcsInvokeResponseResult']:
         """
         Configuration of CommonEncryptionCbcs
         """
@@ -59,7 +59,7 @@ class GetStreamingPolicyResult:
 
     @property
     @pulumi.getter(name="commonEncryptionCenc")
-    def common_encryption_cenc(self) -> Optional['outputs.CommonEncryptionCencResponse']:
+    def common_encryption_cenc(self) -> Optional['outputs.CommonEncryptionCencInvokeResponseResult']:
         """
         Configuration of CommonEncryptionCenc
         """
@@ -83,7 +83,7 @@ class GetStreamingPolicyResult:
 
     @property
     @pulumi.getter(name="envelopeEncryption")
-    def envelope_encryption(self) -> Optional['outputs.EnvelopeEncryptionResponse']:
+    def envelope_encryption(self) -> Optional['outputs.EnvelopeEncryptionInvokeResponseResult']:
         """
         Configuration of EnvelopeEncryption
         """
@@ -107,7 +107,7 @@ class GetStreamingPolicyResult:
 
     @property
     @pulumi.getter(name="noEncryption")
-    def no_encryption(self) -> Optional['outputs.NoEncryptionResponse']:
+    def no_encryption(self) -> Optional['outputs.NoEncryptionInvokeResponseResult']:
         """
         Configurations of NoEncryption
         """

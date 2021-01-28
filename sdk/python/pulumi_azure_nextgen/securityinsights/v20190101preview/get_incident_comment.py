@@ -48,7 +48,7 @@ class GetIncidentCommentResult:
 
     @property
     @pulumi.getter
-    def author(self) -> 'outputs.ClientInfoResponse':
+    def author(self) -> 'outputs.ClientInfoInvokeResponseResult':
         """
         Describes the client that created the comment
         """

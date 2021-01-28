@@ -104,7 +104,7 @@ class ListSiteBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponseResult']]:
+    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingInvokeResponseResult']]:
         """
         List of databases included in the backup
         """
@@ -250,8 +250,8 @@ class AwaitableListSiteBackupStatusSecretsSlotResult(ListSiteBackupStatusSecrets
 
 
 def list_site_backup_status_secrets_slot(backup_id: Optional[str] = None,
-                                         backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
-                                         databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
+                                         backup_schedule: Optional[pulumi.InputType['BackupScheduleInvokeArgs']] = None,
+                                         databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSettingInvokeArgs']]] = None,
                                          enabled: Optional[bool] = None,
                                          id: Optional[str] = None,
                                          kind: Optional[str] = None,
@@ -267,8 +267,8 @@ def list_site_backup_status_secrets_slot(backup_id: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str backup_id: Id of backup
-    :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically
-    :param Sequence[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup
+    :param pulumi.InputType['BackupScheduleInvokeArgs'] backup_schedule: Schedule for the backup if it is executed periodically
+    :param Sequence[pulumi.InputType['DatabaseBackupSettingInvokeArgs']] databases: Databases included in the backup
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
     :param str id: Resource Id
     :param str kind: Kind of resource

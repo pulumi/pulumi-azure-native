@@ -88,7 +88,7 @@ class GetObjectReplicationPolicyResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ObjectReplicationPolicyRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.ObjectReplicationPolicyRuleInvokeResponseResult']]:
         """
         The storage account object replication rules.
         """

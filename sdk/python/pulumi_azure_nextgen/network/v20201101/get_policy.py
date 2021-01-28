@@ -69,7 +69,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional['outputs.CustomRuleListResponse']:
+    def custom_rules(self) -> Optional['outputs.CustomRuleListInvokeResponseResult']:
         """
         Describes custom rules inside the policy.
         """
@@ -85,7 +85,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="frontendEndpointLinks")
-    def frontend_endpoint_links(self) -> Sequence['outputs.FrontendEndpointLinkResponse']:
+    def frontend_endpoint_links(self) -> Sequence['outputs.FrontendEndpointLinkInvokeResponseResult']:
         """
         Describes Frontend Endpoints associated with this Web Application Firewall policy.
         """
@@ -109,7 +109,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListResponse']:
+    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListInvokeResponseResult']:
         """
         Describes managed rules inside the policy.
         """
@@ -125,7 +125,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.PolicySettingsInvokeResponseResult']:
         """
         Describes settings for the policy.
         """
@@ -146,7 +146,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="routingRuleLinks")
-    def routing_rule_links(self) -> Sequence['outputs.RoutingRuleLinkResponse']:
+    def routing_rule_links(self) -> Sequence['outputs.RoutingRuleLinkInvokeResponseResult']:
         """
         Describes Routing Rules associated with this Web Application Firewall policy.
         """
@@ -154,7 +154,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="securityPolicyLinks")
-    def security_policy_links(self) -> Sequence['outputs.SecurityPolicyLinkResponse']:
+    def security_policy_links(self) -> Sequence['outputs.SecurityPolicyLinkInvokeResponseResult']:
         """
         Describes Security Policy associated with this Web Application Firewall policy.
         """
@@ -162,7 +162,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         """

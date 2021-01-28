@@ -86,7 +86,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="directoryServicesSettings")
-    def directory_services_settings(self) -> Optional['outputs.CacheDirectorySettingsResponse']:
+    def directory_services_settings(self) -> Optional['outputs.CacheDirectorySettingsInvokeResponseResult']:
         """
         Specifies Directory Services settings of the cache.
         """
@@ -94,7 +94,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional['outputs.CacheEncryptionSettingsResponse']:
+    def encryption_settings(self) -> Optional['outputs.CacheEncryptionSettingsInvokeResponseResult']:
         """
         Specifies encryption settings of the cache.
         """
@@ -102,7 +102,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def health(self) -> 'outputs.CacheHealthResponse':
+    def health(self) -> 'outputs.CacheHealthInvokeResponseResult':
         """
         Health of the Cache.
         """
@@ -118,7 +118,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.CacheIdentityResponse']:
+    def identity(self) -> Optional['outputs.CacheIdentityInvokeResponseResult']:
         """
         The identity of the cache, if configured.
         """
@@ -150,7 +150,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="networkSettings")
-    def network_settings(self) -> Optional['outputs.CacheNetworkSettingsResponse']:
+    def network_settings(self) -> Optional['outputs.CacheNetworkSettingsInvokeResponseResult']:
         """
         Specifies network settings of the cache.
         """
@@ -166,7 +166,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="securitySettings")
-    def security_settings(self) -> Optional['outputs.CacheSecuritySettingsResponse']:
+    def security_settings(self) -> Optional['outputs.CacheSecuritySettingsInvokeResponseResult']:
         """
         Specifies security settings of the cache.
         """
@@ -174,7 +174,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.CacheResponseSku']:
+    def sku(self) -> Optional['outputs.CacheInvokeResponseSkuResult']:
         """
         SKU for the Cache.
         """
@@ -190,7 +190,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system meta data relating to this resource.
         """
@@ -214,7 +214,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="upgradeStatus")
-    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
+    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusInvokeResponseResult']:
         """
         Upgrade status of the Cache.
         """

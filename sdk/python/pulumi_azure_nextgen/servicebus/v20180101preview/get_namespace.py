@@ -74,7 +74,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionInvokeResponseResult']:
         """
         Properties of BYOK Encryption description
         """
@@ -90,7 +90,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         Properties of BYOK Identity description
         """
@@ -138,7 +138,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SBSkuResponse']:
+    def sku(self) -> Optional['outputs.SBSkuInvokeResponseResult']:
         """
         Properties of SKU
         """

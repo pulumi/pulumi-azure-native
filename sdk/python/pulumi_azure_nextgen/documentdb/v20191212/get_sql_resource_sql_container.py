@@ -66,7 +66,7 @@ class GetSqlResourceSqlContainerResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.SqlContainerGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.SqlContainerGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

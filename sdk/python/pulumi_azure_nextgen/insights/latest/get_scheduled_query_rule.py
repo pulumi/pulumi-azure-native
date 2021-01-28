@@ -157,7 +157,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+    def schedule(self) -> Optional['outputs.ScheduleInvokeResponseResult']:
         """
         Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         """
@@ -165,7 +165,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.SourceResponse':
+    def source(self) -> 'outputs.SourceInvokeResponseResult':
         """
         Data Source against which rule will Query Data
         """

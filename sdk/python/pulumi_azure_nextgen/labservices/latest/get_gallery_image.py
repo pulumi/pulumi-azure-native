@@ -115,7 +115,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter(name="imageReference")
-    def image_reference(self) -> 'outputs.GalleryImageReferenceResponse':
+    def image_reference(self) -> 'outputs.GalleryImageReferenceInvokeResponseResult':
         """
         The image reference of the gallery image.
         """
@@ -147,7 +147,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultInvokeResponseResult':
         """
         The details of the latest operation. ex: status, error
         """

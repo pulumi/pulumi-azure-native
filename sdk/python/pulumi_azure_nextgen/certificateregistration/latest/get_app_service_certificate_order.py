@@ -118,7 +118,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[Mapping[str, 'outputs.AppServiceCertificateResponse']]:
+    def certificates(self) -> Optional[Mapping[str, 'outputs.AppServiceCertificateInvokeResponseResult']]:
         """
         State of the Key Vault secret.
         """
@@ -166,7 +166,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter
-    def intermediate(self) -> 'outputs.CertificateDetailsResponse':
+    def intermediate(self) -> 'outputs.CertificateDetailsInvokeResponseResult':
         """
         Intermediate certificate.
         """
@@ -246,7 +246,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter
-    def root(self) -> 'outputs.CertificateDetailsResponse':
+    def root(self) -> 'outputs.CertificateDetailsInvokeResponseResult':
         """
         Root certificate.
         """
@@ -262,7 +262,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter(name="signedCertificate")
-    def signed_certificate(self) -> 'outputs.CertificateDetailsResponse':
+    def signed_certificate(self) -> 'outputs.CertificateDetailsInvokeResponseResult':
         """
         Signed certificate.
         """
@@ -278,7 +278,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

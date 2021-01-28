@@ -89,7 +89,7 @@ class GetCloudConnectorResult:
 
     @property
     @pulumi.getter(name="collectionInfo")
-    def collection_info(self) -> 'outputs.ConnectorCollectionInfoResponse':
+    def collection_info(self) -> 'outputs.ConnectorCollectionInfoInvokeResponseResult':
         """
         Collection information
         """

@@ -38,7 +38,7 @@ class ListDomainRecommendationsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.NameIdentifierResponseResult']:
+    def value(self) -> Sequence['outputs.NameIdentifierInvokeResponseResult']:
         """
         Collection of resources.
         """

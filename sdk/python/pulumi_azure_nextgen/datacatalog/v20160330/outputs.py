@@ -10,8 +10,44 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'PrincipalsInvokeResponseResult',
     'PrincipalsResponse',
 ]
+
+@pulumi.output_type
+class PrincipalsInvokeResponseResult(dict):
+    """
+    User principals.
+    """
+    def __init__(__self__, *,
+                 object_id: Optional[str] = None,
+                 upn: Optional[str] = None):
+        """
+        User principals.
+        :param str object_id: Object Id for the user
+        :param str upn: UPN of the user.
+        """
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if upn is not None:
+            pulumi.set(__self__, "upn", upn)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        Object Id for the user
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter
+    def upn(self) -> Optional[str]:
+        """
+        UPN of the user.
+        """
+        return pulumi.get(self, "upn")
+
 
 @pulumi.output_type
 class PrincipalsResponse(dict):

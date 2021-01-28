@@ -116,7 +116,7 @@ class GetCustomIPPrefixResult:
 
     @property
     @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> Sequence['outputs.SubResourceResponse']:
+    def public_ip_prefixes(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         The list of all referenced PublicIpPrefixes.
         """

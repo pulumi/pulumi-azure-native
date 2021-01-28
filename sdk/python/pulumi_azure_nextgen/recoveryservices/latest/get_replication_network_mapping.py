@@ -63,7 +63,7 @@ class GetReplicationNetworkMappingResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NetworkMappingPropertiesResponse':
+    def properties(self) -> 'outputs.NetworkMappingPropertiesInvokeResponseResult':
         """
         The Network Mapping Properties.
         """

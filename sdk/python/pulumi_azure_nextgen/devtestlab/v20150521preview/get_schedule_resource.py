@@ -60,7 +60,7 @@ class GetScheduleResourceResult:
 
     @property
     @pulumi.getter(name="dailyRecurrence")
-    def daily_recurrence(self) -> Optional['outputs.DayDetailsResponse']:
+    def daily_recurrence(self) -> Optional['outputs.DayDetailsInvokeResponseResult']:
         """
         The daily recurrence of the schedule.
         """
@@ -68,7 +68,7 @@ class GetScheduleResourceResult:
 
     @property
     @pulumi.getter(name="hourlyRecurrence")
-    def hourly_recurrence(self) -> Optional['outputs.HourDetailsResponse']:
+    def hourly_recurrence(self) -> Optional['outputs.HourDetailsInvokeResponseResult']:
         """
         The hourly recurrence of the schedule.
         """
@@ -148,7 +148,7 @@ class GetScheduleResourceResult:
 
     @property
     @pulumi.getter(name="weeklyRecurrence")
-    def weekly_recurrence(self) -> Optional['outputs.WeekDetailsResponse']:
+    def weekly_recurrence(self) -> Optional['outputs.WeekDetailsInvokeResponseResult']:
         """
         The weekly recurrence of the schedule.
         """

@@ -51,7 +51,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional['outputs.ApplicationLogsConfigResponse']:
+    def application_logs(self) -> Optional['outputs.ApplicationLogsConfigInvokeResponseResult']:
         """
         Application logs configuration.
         """
@@ -59,7 +59,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
 
     @property
     @pulumi.getter(name="detailedErrorMessages")
-    def detailed_error_messages(self) -> Optional['outputs.EnabledConfigResponse']:
+    def detailed_error_messages(self) -> Optional['outputs.EnabledConfigInvokeResponseResult']:
         """
         Detailed error messages configuration.
         """
@@ -67,7 +67,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
 
     @property
     @pulumi.getter(name="failedRequestsTracing")
-    def failed_requests_tracing(self) -> Optional['outputs.EnabledConfigResponse']:
+    def failed_requests_tracing(self) -> Optional['outputs.EnabledConfigInvokeResponseResult']:
         """
         Failed requests tracing configuration.
         """
@@ -75,7 +75,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional['outputs.HttpLogsConfigResponse']:
+    def http_logs(self) -> Optional['outputs.HttpLogsConfigInvokeResponseResult']:
         """
         HTTP logs configuration.
         """
@@ -107,7 +107,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

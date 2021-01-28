@@ -116,7 +116,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter(name="destinationApplicationSecurityGroups")
-    def destination_application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+    def destination_application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupInvokeResponseResult']]:
         """
         The application security group specified as destination.
         """
@@ -212,7 +212,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter(name="sourceApplicationSecurityGroups")
-    def source_application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+    def source_application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupInvokeResponseResult']]:
         """
         The application security group specified as source.
         """

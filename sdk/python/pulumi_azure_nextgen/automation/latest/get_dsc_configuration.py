@@ -152,7 +152,7 @@ class GetDscConfigurationResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.DscConfigurationParameterResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.DscConfigurationParameterInvokeResponseResult']]:
         """
         Gets or sets the configuration parameters.
         """
@@ -168,7 +168,7 @@ class GetDscConfigurationResult:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.ContentSourceResponse']:
+    def source(self) -> Optional['outputs.ContentSourceInvokeResponseResult']:
         """
         Gets or sets the source.
         """

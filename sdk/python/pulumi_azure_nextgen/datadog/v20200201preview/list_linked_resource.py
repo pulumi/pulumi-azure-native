@@ -38,7 +38,7 @@ class ListLinkedResourceResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.LinkedResourceResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.LinkedResourceInvokeResponseResult']]:
         """
         Results of a list operation.
         """

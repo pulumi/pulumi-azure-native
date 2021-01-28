@@ -91,7 +91,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedIdentityInvokeResponseResult']:
         """
         Describes the managed identities for an Azure resource.
         """
@@ -107,7 +107,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="managedIdentities")
-    def managed_identities(self) -> Optional[Sequence['outputs.ApplicationUserAssignedIdentityResponse']]:
+    def managed_identities(self) -> Optional[Sequence['outputs.ApplicationUserAssignedIdentityInvokeResponseResult']]:
         """
         List of user assigned identities for the application, each mapped to a friendly name.
         """
@@ -123,7 +123,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[Sequence['outputs.ApplicationMetricDescriptionResponse']]:
+    def metrics(self) -> Optional[Sequence['outputs.ApplicationMetricDescriptionInvokeResponseResult']]:
         """
         List of application capacity metric description.
         """
@@ -203,7 +203,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="upgradePolicy")
-    def upgrade_policy(self) -> Optional['outputs.ApplicationUpgradePolicyResponse']:
+    def upgrade_policy(self) -> Optional['outputs.ApplicationUpgradePolicyInvokeResponseResult']:
         """
         Describes the policy for a monitored application upgrade.
         """

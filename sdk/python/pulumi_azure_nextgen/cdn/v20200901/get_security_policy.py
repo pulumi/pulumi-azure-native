@@ -66,7 +66,7 @@ class GetSecurityPolicyResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.SecurityPolicyWebApplicationFirewallParametersResponse']:
+    def parameters(self) -> Optional['outputs.SecurityPolicyWebApplicationFirewallParametersInvokeResponseResult']:
         """
         object which contains security policy parameters
         """
@@ -82,7 +82,7 @@ class GetSecurityPolicyResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

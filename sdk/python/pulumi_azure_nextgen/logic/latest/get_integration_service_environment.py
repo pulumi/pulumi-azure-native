@@ -69,7 +69,7 @@ class GetIntegrationServiceEnvironmentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IntegrationServiceEnvironmentPropertiesResponse':
+    def properties(self) -> 'outputs.IntegrationServiceEnvironmentPropertiesInvokeResponseResult':
         """
         The integration service environment properties.
         """
@@ -77,7 +77,7 @@ class GetIntegrationServiceEnvironmentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.IntegrationServiceEnvironmentSkuResponse']:
+    def sku(self) -> Optional['outputs.IntegrationServiceEnvironmentSkuInvokeResponseResult']:
         """
         The sku.
         """

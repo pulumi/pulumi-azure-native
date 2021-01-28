@@ -10,13 +10,63 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AzureSkuInvokeResponseResult',
     'AzureSkuResponse',
-    'DatabasePrincipalResponseResult',
+    'DatabasePrincipalInvokeResponseResult',
+    'DatabaseStatisticsInvokeResponseResult',
     'DatabaseStatisticsResponse',
+    'OptimizedAutoscaleInvokeResponseResult',
     'OptimizedAutoscaleResponse',
+    'TrustedExternalTenantInvokeResponseResult',
     'TrustedExternalTenantResponse',
+    'VirtualNetworkConfigurationInvokeResponseResult',
     'VirtualNetworkConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AzureSkuInvokeResponseResult(dict):
+    """
+    Azure SKU definition.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str,
+                 capacity: Optional[int] = None):
+        """
+        Azure SKU definition.
+        :param str name: SKU name.
+        :param str tier: SKU tier.
+        :param int capacity: The number of instances of the cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The number of instances of the cluster.
+        """
+        return pulumi.get(self, "capacity")
+
 
 @pulumi.output_type
 class AzureSkuResponse(dict):
@@ -67,7 +117,7 @@ class AzureSkuResponse(dict):
 
 
 @pulumi.output_type
-class DatabasePrincipalResponseResult(dict):
+class DatabasePrincipalInvokeResponseResult(dict):
     """
     A class representing database principal entity.
     """
@@ -158,6 +208,29 @@ class DatabasePrincipalResponseResult(dict):
 
 
 @pulumi.output_type
+class DatabaseStatisticsInvokeResponseResult(dict):
+    """
+    A class that contains database statistics information.
+    """
+    def __init__(__self__, *,
+                 size: Optional[float] = None):
+        """
+        A class that contains database statistics information.
+        :param float size: The database size - the total size of compressed data and index in bytes.
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[float]:
+        """
+        The database size - the total size of compressed data and index in bytes.
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
 class DatabaseStatisticsResponse(dict):
     """
     A class that contains database statistics information.
@@ -181,6 +254,61 @@ class DatabaseStatisticsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OptimizedAutoscaleInvokeResponseResult(dict):
+    """
+    A class that contains the optimized auto scale definition.
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 maximum: int,
+                 minimum: int,
+                 version: int):
+        """
+        A class that contains the optimized auto scale definition.
+        :param bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        :param int maximum: Maximum allowed instances count.
+        :param int minimum: Minimum allowed instances count.
+        :param int version: The version of the template defined, for instance 1.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        Maximum allowed instances count.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        Minimum allowed instances count.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        The version of the template defined, for instance 1.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -242,6 +370,29 @@ class OptimizedAutoscaleResponse(dict):
 
 
 @pulumi.output_type
+class TrustedExternalTenantInvokeResponseResult(dict):
+    """
+    Represents a tenant ID that is trusted by the cluster.
+    """
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        Represents a tenant ID that is trusted by the cluster.
+        :param str value: GUID representing an external tenant.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        GUID representing an external tenant.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TrustedExternalTenantResponse(dict):
     """
     Represents a tenant ID that is trusted by the cluster.
@@ -265,6 +416,50 @@ class TrustedExternalTenantResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkConfigurationInvokeResponseResult(dict):
+    """
+    A class that contains virtual network definition.
+    """
+    def __init__(__self__, *,
+                 data_management_public_ip_id: str,
+                 engine_public_ip_id: str,
+                 subnet_id: str):
+        """
+        A class that contains virtual network definition.
+        :param str data_management_public_ip_id: Data management's service public IP address resource id.
+        :param str engine_public_ip_id: Engine service's public IP address resource id.
+        :param str subnet_id: The subnet resource id.
+        """
+        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
+        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="dataManagementPublicIpId")
+    def data_management_public_ip_id(self) -> str:
+        """
+        Data management's service public IP address resource id.
+        """
+        return pulumi.get(self, "data_management_public_ip_id")
+
+    @property
+    @pulumi.getter(name="enginePublicIpId")
+    def engine_public_ip_id(self) -> str:
+        """
+        Engine service's public IP address resource id.
+        """
+        return pulumi.get(self, "engine_public_ip_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The subnet resource id.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

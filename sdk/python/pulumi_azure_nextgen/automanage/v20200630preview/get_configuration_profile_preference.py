@@ -66,7 +66,7 @@ class GetConfigurationProfilePreferenceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConfigurationProfilePreferencePropertiesResponse':
+    def properties(self) -> 'outputs.ConfigurationProfilePreferencePropertiesInvokeResponseResult':
         """
         Properties of the configuration profile preference.
         """

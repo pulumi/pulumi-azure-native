@@ -86,7 +86,7 @@ class GetDdosCustomPolicyResult:
 
     @property
     @pulumi.getter(name="protocolCustomSettings")
-    def protocol_custom_settings(self) -> Optional[Sequence['outputs.ProtocolCustomSettingsFormatResponse']]:
+    def protocol_custom_settings(self) -> Optional[Sequence['outputs.ProtocolCustomSettingsFormatInvokeResponseResult']]:
         """
         The protocol-specific DDoS policy customization parameters.
         """
@@ -102,7 +102,7 @@ class GetDdosCustomPolicyResult:
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> Sequence['outputs.SubResourceResponse']:
+    def public_ip_addresses(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
         """

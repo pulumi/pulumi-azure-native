@@ -54,7 +54,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter
-    def hosts(self) -> Sequence['outputs.SubResourceReadOnlyResponse']:
+    def hosts(self) -> Sequence['outputs.SubResourceReadOnlyInvokeResponseResult']:
         """
         A list of references to all dedicated hosts in the dedicated host group.
         """
@@ -70,7 +70,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.DedicatedHostGroupInstanceViewResponse':
+    def instance_view(self) -> 'outputs.DedicatedHostGroupInstanceViewInvokeResponseResult':
         """
         The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
         """

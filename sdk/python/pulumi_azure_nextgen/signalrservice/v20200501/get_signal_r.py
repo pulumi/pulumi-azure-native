@@ -81,7 +81,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional['outputs.SignalRCorsSettingsResponse']:
+    def cors(self) -> Optional['outputs.SignalRCorsSettingsInvokeResponseResult']:
         """
         Cross-Origin Resource Sharing (CORS) settings.
         """
@@ -97,7 +97,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[Sequence['outputs.SignalRFeatureResponse']]:
+    def features(self) -> Optional[Sequence['outputs.SignalRFeatureInvokeResponseResult']]:
         """
         List of SignalR featureFlags. e.g. ServiceMode.
         
@@ -159,7 +159,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter(name="networkACLs")
-    def network_acls(self) -> Optional['outputs.SignalRNetworkACLsResponse']:
+    def network_acls(self) -> Optional['outputs.SignalRNetworkACLsInvokeResponseResult']:
         """
         Network ACLs
         """
@@ -167,7 +167,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         Private endpoint connections to the SignalR resource.
         """
@@ -199,7 +199,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> Optional['outputs.ResourceSkuInvokeResponseResult']:
         """
         The billing information of the resource.(e.g. Free, Standard)
         """
@@ -223,7 +223,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def upstream(self) -> Optional['outputs.ServerlessUpstreamSettingsResponse']:
+    def upstream(self) -> Optional['outputs.ServerlessUpstreamSettingsInvokeResponseResult']:
         """
         Upstream settings when the Azure SignalR is in server-less mode.
         """

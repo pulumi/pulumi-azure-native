@@ -52,7 +52,7 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult':
         """
         Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         """

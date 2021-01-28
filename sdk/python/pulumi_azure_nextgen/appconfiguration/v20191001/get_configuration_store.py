@@ -78,7 +78,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The managed identity information, if configured.
         """
@@ -110,7 +110,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The sku of the configuration store.
         """

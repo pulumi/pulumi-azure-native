@@ -51,7 +51,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter(name="bootstrapConfiguration")
-    def bootstrap_configuration(self) -> 'outputs.BootstrapConfigurationResponse':
+    def bootstrap_configuration(self) -> 'outputs.BootstrapConfigurationInvokeResponseResult':
         """
         Configuration used to bootstrap the Pipeline.
         """
@@ -83,7 +83,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def organization(self) -> 'outputs.OrganizationReferenceResponse':
+    def organization(self) -> 'outputs.OrganizationReferenceInvokeResponseResult':
         """
         Reference to the Azure DevOps Organization containing the Pipeline.
         """
@@ -99,7 +99,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def project(self) -> 'outputs.ProjectReferenceResponse':
+    def project(self) -> 'outputs.ProjectReferenceInvokeResponseResult':
         """
         Reference to the Azure DevOps Project containing the Pipeline.
         """

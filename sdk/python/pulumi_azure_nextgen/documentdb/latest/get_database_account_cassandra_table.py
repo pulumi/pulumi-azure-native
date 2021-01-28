@@ -77,7 +77,7 @@ class GetDatabaseAccountCassandraTableResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional['outputs.CassandraSchemaResponse']:
+    def schema(self) -> Optional['outputs.CassandraSchemaInvokeResponseResult']:
         """
         Schema of the Cosmos DB Cassandra table
         """

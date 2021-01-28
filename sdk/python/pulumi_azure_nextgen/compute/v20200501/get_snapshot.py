@@ -84,7 +84,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> 'outputs.CreationDataInvokeResponseResult':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -116,7 +116,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionInvokeResponseResult']:
         """
         Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         """
@@ -124,7 +124,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="encryptionSettingsCollection")
-    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
+    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionInvokeResponseResult']:
         """
         Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
@@ -204,7 +204,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
+    def sku(self) -> Optional['outputs.SnapshotSkuInvokeResponseResult']:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         """

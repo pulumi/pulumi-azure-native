@@ -11,67 +11,145 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiPropertiesInvokeResponseResult',
     'ApiPropertiesResponse',
+    'AutoscaleSettingsInvokeResponseResult',
     'AutoscaleSettingsResponse',
+    'CapabilityInvokeResponseResult',
     'CapabilityResponse',
+    'CassandraKeyspaceGetPropertiesInvokeResponseOptionsResult',
+    'CassandraKeyspaceGetPropertiesInvokeResponseResourceResult',
     'CassandraKeyspaceGetPropertiesResponseOptions',
     'CassandraKeyspaceGetPropertiesResponseResource',
+    'CassandraPartitionKeyInvokeResponseResult',
     'CassandraPartitionKeyResponse',
+    'CassandraSchemaInvokeResponseResult',
     'CassandraSchemaResponse',
+    'CassandraTableGetPropertiesInvokeResponseOptionsResult',
+    'CassandraTableGetPropertiesInvokeResponseResourceResult',
     'CassandraTableGetPropertiesResponseOptions',
     'CassandraTableGetPropertiesResponseResource',
+    'ClusterKeyInvokeResponseResult',
     'ClusterKeyResponse',
+    'ColumnInvokeResponseResult',
     'ColumnResponse',
+    'CompositePathInvokeResponseResult',
     'CompositePathResponse',
+    'ConflictResolutionPolicyInvokeResponseResult',
     'ConflictResolutionPolicyResponse',
+    'ConsistencyPolicyInvokeResponseResult',
     'ConsistencyPolicyResponse',
+    'ContainerPartitionKeyInvokeResponseResult',
     'ContainerPartitionKeyResponse',
+    'ContinuousModeBackupPolicyInvokeResponseResult',
     'ContinuousModeBackupPolicyResponse',
+    'CorsPolicyInvokeResponseResult',
     'CorsPolicyResponse',
-    'DatabaseAccountConnectionStringResponseResult',
+    'DatabaseAccountConnectionStringInvokeResponseResult',
+    'DatabaseRestoreResourceInvokeResponseResult',
     'DatabaseRestoreResourceResponse',
+    'ExcludedPathInvokeResponseResult',
     'ExcludedPathResponse',
+    'FailoverPolicyInvokeResponseResult',
     'FailoverPolicyResponse',
+    'GremlinDatabaseGetPropertiesInvokeResponseOptionsResult',
+    'GremlinDatabaseGetPropertiesInvokeResponseResourceResult',
     'GremlinDatabaseGetPropertiesResponseOptions',
     'GremlinDatabaseGetPropertiesResponseResource',
+    'GremlinGraphGetPropertiesInvokeResponseOptionsResult',
+    'GremlinGraphGetPropertiesInvokeResponseResourceResult',
     'GremlinGraphGetPropertiesResponseOptions',
     'GremlinGraphGetPropertiesResponseResource',
+    'IncludedPathInvokeResponseResult',
     'IncludedPathResponse',
+    'IndexesInvokeResponseResult',
     'IndexesResponse',
+    'IndexingPolicyInvokeResponseResult',
     'IndexingPolicyResponse',
+    'IpAddressOrRangeInvokeResponseResult',
     'IpAddressOrRangeResponse',
+    'LocationInvokeResponseResult',
     'LocationResponse',
+    'ManagedServiceIdentityInvokeResponseResult',
+    'ManagedServiceIdentityInvokeResponseUserAssignedIdentitiesResult',
     'ManagedServiceIdentityResponse',
     'ManagedServiceIdentityResponseUserAssignedIdentities',
+    'MongoDBCollectionGetPropertiesInvokeResponseOptionsResult',
+    'MongoDBCollectionGetPropertiesInvokeResponseResourceResult',
     'MongoDBCollectionGetPropertiesResponseOptions',
     'MongoDBCollectionGetPropertiesResponseResource',
+    'MongoDBDatabaseGetPropertiesInvokeResponseOptionsResult',
+    'MongoDBDatabaseGetPropertiesInvokeResponseResourceResult',
     'MongoDBDatabaseGetPropertiesResponseOptions',
     'MongoDBDatabaseGetPropertiesResponseResource',
+    'MongoIndexInvokeResponseResult',
+    'MongoIndexKeysInvokeResponseResult',
     'MongoIndexKeysResponse',
+    'MongoIndexOptionsInvokeResponseResult',
     'MongoIndexOptionsResponse',
     'MongoIndexResponse',
+    'PeriodicModeBackupPolicyInvokeResponseResult',
     'PeriodicModeBackupPolicyResponse',
+    'PeriodicModePropertiesInvokeResponseResult',
     'PeriodicModePropertiesResponse',
+    'PermissionInvokeResponseResult',
     'PermissionResponse',
+    'PrivateEndpointConnectionInvokeResponseResult',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointPropertyInvokeResponseResult',
     'PrivateEndpointPropertyResponse',
+    'PrivateLinkServiceConnectionStatePropertyInvokeResponseResult',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'RestoreParametersInvokeResponseResult',
     'RestoreParametersResponse',
+    'SpatialSpecInvokeResponseResult',
     'SpatialSpecResponse',
+    'SqlContainerGetPropertiesInvokeResponseOptionsResult',
+    'SqlContainerGetPropertiesInvokeResponseResourceResult',
     'SqlContainerGetPropertiesResponseOptions',
     'SqlContainerGetPropertiesResponseResource',
+    'SqlDatabaseGetPropertiesInvokeResponseOptionsResult',
+    'SqlDatabaseGetPropertiesInvokeResponseResourceResult',
     'SqlDatabaseGetPropertiesResponseOptions',
     'SqlDatabaseGetPropertiesResponseResource',
+    'SqlStoredProcedureGetPropertiesInvokeResponseResourceResult',
     'SqlStoredProcedureGetPropertiesResponseResource',
+    'SqlTriggerGetPropertiesInvokeResponseResourceResult',
     'SqlTriggerGetPropertiesResponseResource',
+    'SqlUserDefinedFunctionGetPropertiesInvokeResponseResourceResult',
     'SqlUserDefinedFunctionGetPropertiesResponseResource',
+    'SystemDataInvokeResponseResult',
     'SystemDataResponse',
+    'TableGetPropertiesInvokeResponseOptionsResult',
+    'TableGetPropertiesInvokeResponseResourceResult',
     'TableGetPropertiesResponseOptions',
     'TableGetPropertiesResponseResource',
+    'UniqueKeyInvokeResponseResult',
+    'UniqueKeyPolicyInvokeResponseResult',
     'UniqueKeyPolicyResponse',
     'UniqueKeyResponse',
+    'VirtualNetworkRuleInvokeResponseResult',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class ApiPropertiesInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 server_version: Optional[str] = None):
+        """
+        :param str server_version: Describes the ServerVersion of an a MongoDB account.
+        """
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        Describes the ServerVersion of an a MongoDB account.
+        """
+        return pulumi.get(self, "server_version")
+
 
 @pulumi.output_type
 class ApiPropertiesResponse(dict):
@@ -96,6 +174,25 @@ class ApiPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class AutoscaleSettingsInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[int] = None):
+        """
+        :param int max_throughput: Represents maximum throughput, the resource can scale up to.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[int]:
+        """
+        Represents maximum throughput, the resource can scale up to.
+        """
+        return pulumi.get(self, "max_throughput")
+
+
+@pulumi.output_type
 class AutoscaleSettingsResponse(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
@@ -115,6 +212,29 @@ class AutoscaleSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CapabilityInvokeResponseResult(dict):
+    """
+    Cosmos DB capability object
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Cosmos DB capability object
+        :param str name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -141,6 +261,88 @@ class CapabilityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraKeyspaceGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class CassandraKeyspaceGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Cassandra keyspace
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Cassandra keyspace
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
 
 @pulumi.output_type
@@ -232,6 +434,29 @@ class CassandraKeyspaceGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class CassandraPartitionKeyInvokeResponseResult(dict):
+    """
+    Cosmos DB Cassandra table partition key
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Cosmos DB Cassandra table partition key
+        :param str name: Name of the Cosmos DB Cassandra table partition key
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Cosmos DB Cassandra table partition key
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class CassandraPartitionKeyResponse(dict):
     """
     Cosmos DB Cassandra table partition key
@@ -255,6 +480,53 @@ class CassandraPartitionKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraSchemaInvokeResponseResult(dict):
+    """
+    Cosmos DB Cassandra table schema
+    """
+    def __init__(__self__, *,
+                 cluster_keys: Optional[Sequence['outputs.ClusterKeyInvokeResponseResult']] = None,
+                 columns: Optional[Sequence['outputs.ColumnInvokeResponseResult']] = None,
+                 partition_keys: Optional[Sequence['outputs.CassandraPartitionKeyInvokeResponseResult']] = None):
+        """
+        Cosmos DB Cassandra table schema
+        :param Sequence['ClusterKeyInvokeResponseArgs'] cluster_keys: List of cluster key.
+        :param Sequence['ColumnInvokeResponseArgs'] columns: List of Cassandra table columns.
+        :param Sequence['CassandraPartitionKeyInvokeResponseArgs'] partition_keys: List of partition key.
+        """
+        if cluster_keys is not None:
+            pulumi.set(__self__, "cluster_keys", cluster_keys)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+
+    @property
+    @pulumi.getter(name="clusterKeys")
+    def cluster_keys(self) -> Optional[Sequence['outputs.ClusterKeyInvokeResponseResult']]:
+        """
+        List of cluster key.
+        """
+        return pulumi.get(self, "cluster_keys")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.ColumnInvokeResponseResult']]:
+        """
+        List of Cassandra table columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[Sequence['outputs.CassandraPartitionKeyInvokeResponseResult']]:
+        """
+        List of partition key.
+        """
+        return pulumi.get(self, "partition_keys")
 
 
 @pulumi.output_type
@@ -305,6 +577,124 @@ class CassandraSchemaResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraTableGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class CassandraTableGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 analytical_storage_ttl: Optional[int] = None,
+                 default_ttl: Optional[int] = None,
+                 schema: Optional['outputs.CassandraSchemaInvokeResponseResult'] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Cassandra table
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param int analytical_storage_ttl: Analytical TTL.
+        :param int default_ttl: Time to live of the Cosmos DB Cassandra table
+        :param 'CassandraSchemaInvokeResponseArgs' schema: Schema of the Cosmos DB Cassandra table
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Cassandra table
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[int]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[int]:
+        """
+        Time to live of the Cosmos DB Cassandra table
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional['outputs.CassandraSchemaInvokeResponseResult']:
+        """
+        Schema of the Cosmos DB Cassandra table
+        """
+        return pulumi.get(self, "schema")
 
 
 @pulumi.output_type
@@ -432,6 +822,41 @@ class CassandraTableGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class ClusterKeyInvokeResponseResult(dict):
+    """
+    Cosmos DB Cassandra table cluster key
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 order_by: Optional[str] = None):
+        """
+        Cosmos DB Cassandra table cluster key
+        :param str name: Name of the Cosmos DB Cassandra table cluster key
+        :param str order_by: Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if order_by is not None:
+            pulumi.set(__self__, "order_by", order_by)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Cosmos DB Cassandra table cluster key
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orderBy")
+    def order_by(self) -> Optional[str]:
+        """
+        Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+        """
+        return pulumi.get(self, "order_by")
+
+
+@pulumi.output_type
 class ClusterKeyResponse(dict):
     """
     Cosmos DB Cassandra table cluster key
@@ -467,6 +892,41 @@ class ClusterKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ColumnInvokeResponseResult(dict):
+    """
+    Cosmos DB Cassandra table column
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Cosmos DB Cassandra table column
+        :param str name: Name of the Cosmos DB Cassandra table column
+        :param str type: Type of the Cosmos DB Cassandra table column
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Cosmos DB Cassandra table column
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the Cosmos DB Cassandra table column
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -508,6 +968,37 @@ class ColumnResponse(dict):
 
 
 @pulumi.output_type
+class CompositePathInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 order: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        :param str order: Sort order for composite paths.
+        :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        """
+        Sort order for composite paths.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class CompositePathResponse(dict):
     def __init__(__self__, *,
                  order: Optional[str] = None,
@@ -539,6 +1030,55 @@ class CompositePathResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConflictResolutionPolicyInvokeResponseResult(dict):
+    """
+    The conflict resolution policy for the container.
+    """
+    def __init__(__self__, *,
+                 conflict_resolution_path: Optional[str] = None,
+                 conflict_resolution_procedure: Optional[str] = None,
+                 mode: Optional[str] = None):
+        """
+        The conflict resolution policy for the container.
+        :param str conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
+        :param str conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
+        :param str mode: Indicates the conflict resolution mode.
+        """
+        if conflict_resolution_path is not None:
+            pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
+        if conflict_resolution_procedure is not None:
+            pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+        if mode is None:
+            mode = 'LastWriterWins'
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="conflictResolutionPath")
+    def conflict_resolution_path(self) -> Optional[str]:
+        """
+        The conflict resolution path in the case of LastWriterWins mode.
+        """
+        return pulumi.get(self, "conflict_resolution_path")
+
+    @property
+    @pulumi.getter(name="conflictResolutionProcedure")
+    def conflict_resolution_procedure(self) -> Optional[str]:
+        """
+        The procedure to resolve conflicts in the case of custom mode.
+        """
+        return pulumi.get(self, "conflict_resolution_procedure")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Indicates the conflict resolution mode.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -594,6 +1134,52 @@ class ConflictResolutionPolicyResponse(dict):
 
 
 @pulumi.output_type
+class ConsistencyPolicyInvokeResponseResult(dict):
+    """
+    The consistency policy for the Cosmos DB database account.
+    """
+    def __init__(__self__, *,
+                 default_consistency_level: str,
+                 max_interval_in_seconds: Optional[int] = None,
+                 max_staleness_prefix: Optional[float] = None):
+        """
+        The consistency policy for the Cosmos DB database account.
+        :param str default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
+        :param int max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param float max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
+        if max_interval_in_seconds is not None:
+            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
+        if max_staleness_prefix is not None:
+            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+
+    @property
+    @pulumi.getter(name="defaultConsistencyLevel")
+    def default_consistency_level(self) -> str:
+        """
+        The default consistency level and configuration settings of the Cosmos DB account.
+        """
+        return pulumi.get(self, "default_consistency_level")
+
+    @property
+    @pulumi.getter(name="maxIntervalInSeconds")
+    def max_interval_in_seconds(self) -> Optional[int]:
+        """
+        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        return pulumi.get(self, "max_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="maxStalenessPrefix")
+    def max_staleness_prefix(self) -> Optional[float]:
+        """
+        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        return pulumi.get(self, "max_staleness_prefix")
+
+
+@pulumi.output_type
 class ConsistencyPolicyResponse(dict):
     """
     The consistency policy for the Cosmos DB database account.
@@ -640,6 +1226,55 @@ class ConsistencyPolicyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerPartitionKeyInvokeResponseResult(dict):
+    """
+    The configuration of the partition key to be used for partitioning data into multiple partitions
+    """
+    def __init__(__self__, *,
+                 kind: Optional[str] = None,
+                 paths: Optional[Sequence[str]] = None,
+                 version: Optional[int] = None):
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param str kind: Indicates the kind of algorithm used for partitioning
+        :param Sequence[str] paths: List of paths using which data within the container can be partitioned
+        :param int version: Indicates the version of the partition key definition
+        """
+        if kind is None:
+            kind = 'Hash'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Indicates the kind of algorithm used for partitioning
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[Sequence[str]]:
+        """
+        List of paths using which data within the container can be partitioned
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[int]:
+        """
+        Indicates the version of the partition key definition
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -695,6 +1330,30 @@ class ContainerPartitionKeyResponse(dict):
 
 
 @pulumi.output_type
+class ContinuousModeBackupPolicyInvokeResponseResult(dict):
+    """
+    The object representing continuous mode backup policy.
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        The object representing continuous mode backup policy.
+        :param str type: Describes the mode of backups.
+               Expected value is 'Continuous'.
+        """
+        pulumi.set(__self__, "type", 'Continuous')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Describes the mode of backups.
+        Expected value is 'Continuous'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ContinuousModeBackupPolicyResponse(dict):
     """
     The object representing continuous mode backup policy.
@@ -719,6 +1378,76 @@ class ContinuousModeBackupPolicyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CorsPolicyInvokeResponseResult(dict):
+    """
+    The CORS policy for the Cosmos DB database account.
+    """
+    def __init__(__self__, *,
+                 allowed_origins: str,
+                 allowed_headers: Optional[str] = None,
+                 allowed_methods: Optional[str] = None,
+                 exposed_headers: Optional[str] = None,
+                 max_age_in_seconds: Optional[float] = None):
+        """
+        The CORS policy for the Cosmos DB database account.
+        :param str allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
+        :param str allowed_headers: The request headers that the origin domain may specify on the CORS request.
+        :param str allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        :param str exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+        :param float max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> str:
+        """
+        The origin domains that are permitted to make a request against the service via CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[str]:
+        """
+        The request headers that the origin domain may specify on the CORS request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[str]:
+        """
+        The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[str]:
+        """
+        The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[float]:
+        """
+        The maximum amount time that a browser should cache the preflight OPTIONS request.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
 
 
 @pulumi.output_type
@@ -795,7 +1524,7 @@ class CorsPolicyResponse(dict):
 
 
 @pulumi.output_type
-class DatabaseAccountConnectionStringResponseResult(dict):
+class DatabaseAccountConnectionStringInvokeResponseResult(dict):
     """
     Connection string for the Cosmos DB account
     """
@@ -825,6 +1554,41 @@ class DatabaseAccountConnectionStringResponseResult(dict):
         Description of the connection string
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class DatabaseRestoreResourceInvokeResponseResult(dict):
+    """
+    Specific Databases to restore.
+    """
+    def __init__(__self__, *,
+                 collection_names: Optional[Sequence[str]] = None,
+                 database_name: Optional[str] = None):
+        """
+        Specific Databases to restore.
+        :param Sequence[str] collection_names: The names of the collections available for restore.
+        :param str database_name: The name of the database available for restore.
+        """
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[Sequence[str]]:
+        """
+        The names of the collections available for restore.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the database available for restore.
+        """
+        return pulumi.get(self, "database_name")
 
 
 @pulumi.output_type
@@ -866,6 +1630,25 @@ class DatabaseRestoreResourceResponse(dict):
 
 
 @pulumi.output_type
+class ExcludedPathInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None):
+        """
+        :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class ExcludedPathResponse(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None):
@@ -885,6 +1668,52 @@ class ExcludedPathResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FailoverPolicyInvokeResponseResult(dict):
+    """
+    The failover policy for a given region of a database account.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 failover_priority: Optional[int] = None,
+                 location_name: Optional[str] = None):
+        """
+        The failover policy for a given region of a database account.
+        :param str id: The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+        :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        :param str location_name: The name of the region in which the database account exists.
+        """
+        pulumi.set(__self__, "id", id)
+        if failover_priority is not None:
+            pulumi.set(__self__, "failover_priority", failover_priority)
+        if location_name is not None:
+            pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="failoverPriority")
+    def failover_priority(self) -> Optional[int]:
+        """
+        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        """
+        return pulumi.get(self, "failover_priority")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> Optional[str]:
+        """
+        The name of the region in which the database account exists.
+        """
+        return pulumi.get(self, "location_name")
 
 
 @pulumi.output_type
@@ -934,6 +1763,88 @@ class FailoverPolicyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GremlinDatabaseGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class GremlinDatabaseGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Gremlin database
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Gremlin database
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
 
 @pulumi.output_type
@@ -1022,6 +1933,148 @@ class GremlinDatabaseGetPropertiesResponseResource(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GremlinGraphGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class GremlinGraphGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyInvokeResponseResult'] = None,
+                 default_ttl: Optional[int] = None,
+                 indexing_policy: Optional['outputs.IndexingPolicyInvokeResponseResult'] = None,
+                 partition_key: Optional['outputs.ContainerPartitionKeyInvokeResponseResult'] = None,
+                 unique_key_policy: Optional['outputs.UniqueKeyPolicyInvokeResponseResult'] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB Gremlin graph
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param 'ConflictResolutionPolicyInvokeResponseArgs' conflict_resolution_policy: The conflict resolution policy for the graph.
+        :param int default_ttl: Default time to live
+        :param 'IndexingPolicyInvokeResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+        :param 'ContainerPartitionKeyInvokeResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'UniqueKeyPolicyInvokeResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if conflict_resolution_policy is not None:
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if indexing_policy is not None:
+            pulumi.set(__self__, "indexing_policy", indexing_policy)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
+        if unique_key_policy is not None:
+            pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB Gremlin graph
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyInvokeResponseResult']:
+        """
+        The conflict resolution policy for the graph.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[int]:
+        """
+        Default time to live
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter(name="indexingPolicy")
+    def indexing_policy(self) -> Optional['outputs.IndexingPolicyInvokeResponseResult']:
+        """
+        The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+        """
+        return pulumi.get(self, "indexing_policy")
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyInvokeResponseResult']:
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        return pulumi.get(self, "partition_key")
+
+    @property
+    @pulumi.getter(name="uniqueKeyPolicy")
+    def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyInvokeResponseResult']:
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        return pulumi.get(self, "unique_key_policy")
 
 
 @pulumi.output_type
@@ -1173,6 +2226,41 @@ class GremlinGraphGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class IncludedPathInvokeResponseResult(dict):
+    """
+    The paths that are included in indexing
+    """
+    def __init__(__self__, *,
+                 indexes: Optional[Sequence['outputs.IndexesInvokeResponseResult']] = None,
+                 path: Optional[str] = None):
+        """
+        The paths that are included in indexing
+        :param Sequence['IndexesInvokeResponseArgs'] indexes: List of indexes for this path
+        :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[Sequence['outputs.IndexesInvokeResponseResult']]:
+        """
+        List of indexes for this path
+        """
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class IncludedPathResponse(dict):
     """
     The paths that are included in indexing
@@ -1208,6 +2296,57 @@ class IncludedPathResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IndexesInvokeResponseResult(dict):
+    """
+    The indexes for the path.
+    """
+    def __init__(__self__, *,
+                 data_type: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 precision: Optional[int] = None):
+        """
+        The indexes for the path.
+        :param str data_type: The datatype for which the indexing behavior is applied to.
+        :param str kind: Indicates the type of index.
+        :param int precision: The precision of the index. -1 is maximum precision.
+        """
+        if data_type is None:
+            data_type = 'String'
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if kind is None:
+            kind = 'Hash'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        The datatype for which the indexing behavior is applied to.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Indicates the type of index.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[int]:
+        """
+        The precision of the index. -1 is maximum precision.
+        """
+        return pulumi.get(self, "precision")
 
 
 @pulumi.output_type
@@ -1262,6 +2401,91 @@ class IndexesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IndexingPolicyInvokeResponseResult(dict):
+    """
+    Cosmos DB indexing policy
+    """
+    def __init__(__self__, *,
+                 automatic: Optional[bool] = None,
+                 composite_indexes: Optional[Sequence[Sequence['outputs.CompositePathInvokeResponseResult']]] = None,
+                 excluded_paths: Optional[Sequence['outputs.ExcludedPathInvokeResponseResult']] = None,
+                 included_paths: Optional[Sequence['outputs.IncludedPathInvokeResponseResult']] = None,
+                 indexing_mode: Optional[str] = None,
+                 spatial_indexes: Optional[Sequence['outputs.SpatialSpecInvokeResponseResult']] = None):
+        """
+        Cosmos DB indexing policy
+        :param bool automatic: Indicates if the indexing policy is automatic
+        :param Sequence[Sequence['CompositePathInvokeResponseArgs']] composite_indexes: List of composite path list
+        :param Sequence['ExcludedPathInvokeResponseArgs'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['IncludedPathInvokeResponseArgs'] included_paths: List of paths to include in the indexing
+        :param str indexing_mode: Indicates the indexing mode.
+        :param Sequence['SpatialSpecInvokeResponseArgs'] spatial_indexes: List of spatial specifics
+        """
+        if automatic is not None:
+            pulumi.set(__self__, "automatic", automatic)
+        if composite_indexes is not None:
+            pulumi.set(__self__, "composite_indexes", composite_indexes)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is None:
+            indexing_mode = 'Consistent'
+        if indexing_mode is not None:
+            pulumi.set(__self__, "indexing_mode", indexing_mode)
+        if spatial_indexes is not None:
+            pulumi.set(__self__, "spatial_indexes", spatial_indexes)
+
+    @property
+    @pulumi.getter
+    def automatic(self) -> Optional[bool]:
+        """
+        Indicates if the indexing policy is automatic
+        """
+        return pulumi.get(self, "automatic")
+
+    @property
+    @pulumi.getter(name="compositeIndexes")
+    def composite_indexes(self) -> Optional[Sequence[Sequence['outputs.CompositePathInvokeResponseResult']]]:
+        """
+        List of composite path list
+        """
+        return pulumi.get(self, "composite_indexes")
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[Sequence['outputs.ExcludedPathInvokeResponseResult']]:
+        """
+        List of paths to exclude from indexing
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[Sequence['outputs.IncludedPathInvokeResponseResult']]:
+        """
+        List of paths to include in the indexing
+        """
+        return pulumi.get(self, "included_paths")
+
+    @property
+    @pulumi.getter(name="indexingMode")
+    def indexing_mode(self) -> Optional[str]:
+        """
+        Indicates the indexing mode.
+        """
+        return pulumi.get(self, "indexing_mode")
+
+    @property
+    @pulumi.getter(name="spatialIndexes")
+    def spatial_indexes(self) -> Optional[Sequence['outputs.SpatialSpecInvokeResponseResult']]:
+        """
+        List of spatial specifics
+        """
+        return pulumi.get(self, "spatial_indexes")
 
 
 @pulumi.output_type
@@ -1353,6 +2577,29 @@ class IndexingPolicyResponse(dict):
 
 
 @pulumi.output_type
+class IpAddressOrRangeInvokeResponseResult(dict):
+    """
+    IpAddressOrRange object
+    """
+    def __init__(__self__, *,
+                 ip_address_or_range: Optional[str] = None):
+        """
+        IpAddressOrRange object
+        :param str ip_address_or_range: A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+        """
+        if ip_address_or_range is not None:
+            pulumi.set(__self__, "ip_address_or_range", ip_address_or_range)
+
+    @property
+    @pulumi.getter(name="ipAddressOrRange")
+    def ip_address_or_range(self) -> Optional[str]:
+        """
+        A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+        """
+        return pulumi.get(self, "ip_address_or_range")
+
+
+@pulumi.output_type
 class IpAddressOrRangeResponse(dict):
     """
     IpAddressOrRange object
@@ -1376,6 +2623,86 @@ class IpAddressOrRangeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LocationInvokeResponseResult(dict):
+    """
+    A region in which the Azure Cosmos DB database account is deployed.
+    """
+    def __init__(__self__, *,
+                 document_endpoint: str,
+                 id: str,
+                 provisioning_state: str,
+                 failover_priority: Optional[int] = None,
+                 is_zone_redundant: Optional[bool] = None,
+                 location_name: Optional[str] = None):
+        """
+        A region in which the Azure Cosmos DB database account is deployed.
+        :param str document_endpoint: The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+        :param str id: The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+        :param str provisioning_state: The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+        :param int failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        :param bool is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
+        :param str location_name: The name of the region.
+        """
+        pulumi.set(__self__, "document_endpoint", document_endpoint)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if failover_priority is not None:
+            pulumi.set(__self__, "failover_priority", failover_priority)
+        if is_zone_redundant is not None:
+            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
+        if location_name is not None:
+            pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="documentEndpoint")
+    def document_endpoint(self) -> str:
+        """
+        The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+        """
+        return pulumi.get(self, "document_endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="failoverPriority")
+    def failover_priority(self) -> Optional[int]:
+        """
+        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        """
+        return pulumi.get(self, "failover_priority")
+
+    @property
+    @pulumi.getter(name="isZoneRedundant")
+    def is_zone_redundant(self) -> Optional[bool]:
+        """
+        Flag to indicate whether or not this region is an AvailabilityZone region
+        """
+        return pulumi.get(self, "is_zone_redundant")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> Optional[str]:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "location_name")
 
 
 @pulumi.output_type
@@ -1459,6 +2786,92 @@ class LocationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedServiceIdentityInvokeResponseResult(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityInvokeResponseUserAssignedIdentitiesResult']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param Mapping[str, 'ManagedServiceIdentityInvokeResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedServiceIdentityInvokeResponseUserAssignedIdentitiesResult']]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityInvokeResponseUserAssignedIdentitiesResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -1551,6 +2964,124 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MongoDBCollectionGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class MongoDBCollectionGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 analytical_storage_ttl: Optional[int] = None,
+                 indexes: Optional[Sequence['outputs.MongoIndexInvokeResponseResult']] = None,
+                 shard_key: Optional[Mapping[str, str]] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB MongoDB collection
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param int analytical_storage_ttl: Analytical TTL.
+        :param Sequence['MongoIndexInvokeResponseArgs'] indexes: List of index keys
+        :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if shard_key is not None:
+            pulumi.set(__self__, "shard_key", shard_key)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB MongoDB collection
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[int]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[Sequence['outputs.MongoIndexInvokeResponseResult']]:
+        """
+        List of index keys
+        """
+        return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter(name="shardKey")
+    def shard_key(self) -> Optional[Mapping[str, str]]:
+        """
+        A key-value pair of shard keys to be applied for the request.
+        """
+        return pulumi.get(self, "shard_key")
 
 
 @pulumi.output_type
@@ -1678,6 +3209,88 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class MongoDBDatabaseGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class MongoDBDatabaseGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB MongoDB database
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB MongoDB database
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+
+@pulumi.output_type
 class MongoDBDatabaseGetPropertiesResponseOptions(dict):
     def __init__(__self__, *,
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
@@ -1766,6 +3379,64 @@ class MongoDBDatabaseGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class MongoIndexInvokeResponseResult(dict):
+    """
+    Cosmos DB MongoDB collection index key
+    """
+    def __init__(__self__, *,
+                 key: Optional['outputs.MongoIndexKeysInvokeResponseResult'] = None,
+                 options: Optional['outputs.MongoIndexOptionsInvokeResponseResult'] = None):
+        """
+        Cosmos DB MongoDB collection index key
+        :param 'MongoIndexKeysInvokeResponseArgs' key: Cosmos DB MongoDB collection index keys
+        :param 'MongoIndexOptionsInvokeResponseArgs' options: Cosmos DB MongoDB collection index key options
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional['outputs.MongoIndexKeysInvokeResponseResult']:
+        """
+        Cosmos DB MongoDB collection index keys
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.MongoIndexOptionsInvokeResponseResult']:
+        """
+        Cosmos DB MongoDB collection index key options
+        """
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class MongoIndexKeysInvokeResponseResult(dict):
+    """
+    Cosmos DB MongoDB collection resource object
+    """
+    def __init__(__self__, *,
+                 keys: Optional[Sequence[str]] = None):
+        """
+        Cosmos DB MongoDB collection resource object
+        :param Sequence[str] keys: List of keys for each MongoDB collection in the Azure Cosmos DB service
+        """
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Sequence[str]]:
+        """
+        List of keys for each MongoDB collection in the Azure Cosmos DB service
+        """
+        return pulumi.get(self, "keys")
+
+
+@pulumi.output_type
 class MongoIndexKeysResponse(dict):
     """
     Cosmos DB MongoDB collection resource object
@@ -1789,6 +3460,41 @@ class MongoIndexKeysResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MongoIndexOptionsInvokeResponseResult(dict):
+    """
+    Cosmos DB MongoDB collection index options
+    """
+    def __init__(__self__, *,
+                 expire_after_seconds: Optional[int] = None,
+                 unique: Optional[bool] = None):
+        """
+        Cosmos DB MongoDB collection index options
+        :param int expire_after_seconds: Expire after seconds
+        :param bool unique: Is unique or not
+        """
+        if expire_after_seconds is not None:
+            pulumi.set(__self__, "expire_after_seconds", expire_after_seconds)
+        if unique is not None:
+            pulumi.set(__self__, "unique", unique)
+
+    @property
+    @pulumi.getter(name="expireAfterSeconds")
+    def expire_after_seconds(self) -> Optional[int]:
+        """
+        Expire after seconds
+        """
+        return pulumi.get(self, "expire_after_seconds")
+
+    @property
+    @pulumi.getter
+    def unique(self) -> Optional[bool]:
+        """
+        Is unique or not
+        """
+        return pulumi.get(self, "unique")
 
 
 @pulumi.output_type
@@ -1868,6 +3574,42 @@ class MongoIndexResponse(dict):
 
 
 @pulumi.output_type
+class PeriodicModeBackupPolicyInvokeResponseResult(dict):
+    """
+    The object representing periodic mode backup policy.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 periodic_mode_properties: Optional['outputs.PeriodicModePropertiesInvokeResponseResult'] = None):
+        """
+        The object representing periodic mode backup policy.
+        :param str type: Describes the mode of backups.
+               Expected value is 'Periodic'.
+        :param 'PeriodicModePropertiesInvokeResponseArgs' periodic_mode_properties: Configuration values for periodic mode backup
+        """
+        pulumi.set(__self__, "type", 'Periodic')
+        if periodic_mode_properties is not None:
+            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Describes the mode of backups.
+        Expected value is 'Periodic'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="periodicModeProperties")
+    def periodic_mode_properties(self) -> Optional['outputs.PeriodicModePropertiesInvokeResponseResult']:
+        """
+        Configuration values for periodic mode backup
+        """
+        return pulumi.get(self, "periodic_mode_properties")
+
+
+@pulumi.output_type
 class PeriodicModeBackupPolicyResponse(dict):
     """
     The object representing periodic mode backup policy.
@@ -1904,6 +3646,41 @@ class PeriodicModeBackupPolicyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PeriodicModePropertiesInvokeResponseResult(dict):
+    """
+    Configuration values for periodic mode backup
+    """
+    def __init__(__self__, *,
+                 backup_interval_in_minutes: Optional[int] = None,
+                 backup_retention_interval_in_hours: Optional[int] = None):
+        """
+        Configuration values for periodic mode backup
+        :param int backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param int backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        """
+        if backup_interval_in_minutes is not None:
+            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+        if backup_retention_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+
+    @property
+    @pulumi.getter(name="backupIntervalInMinutes")
+    def backup_interval_in_minutes(self) -> Optional[int]:
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        return pulumi.get(self, "backup_interval_in_minutes")
+
+    @property
+    @pulumi.getter(name="backupRetentionIntervalInHours")
+    def backup_retention_interval_in_hours(self) -> Optional[int]:
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        return pulumi.get(self, "backup_retention_interval_in_hours")
 
 
 @pulumi.output_type
@@ -1945,6 +3722,41 @@ class PeriodicModePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PermissionInvokeResponseResult(dict):
+    """
+    The set of data plane operations permitted through this Role Definition.
+    """
+    def __init__(__self__, *,
+                 data_actions: Optional[Sequence[str]] = None,
+                 not_data_actions: Optional[Sequence[str]] = None):
+        """
+        The set of data plane operations permitted through this Role Definition.
+        :param Sequence[str] data_actions: An array of data actions that are allowed.
+        :param Sequence[str] not_data_actions: An array of data actions that are denied.
+        """
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[Sequence[str]]:
+        """
+        An array of data actions that are allowed.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[Sequence[str]]:
+        """
+        An array of data actions that are denied.
+        """
+        return pulumi.get(self, "not_data_actions")
+
+
+@pulumi.output_type
 class PermissionResponse(dict):
     """
     The set of data plane operations permitted through this Role Definition.
@@ -1980,6 +3792,74 @@ class PermissionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionInvokeResponseResult(dict):
+    """
+    A private endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointPropertyInvokeResponseResult'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult'] = None):
+        """
+        A private endpoint connection
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointPropertyInvokeResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyInvokeResponseResult']:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult']:
+        """
+        Connection State of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -2054,6 +3934,29 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointPropertyInvokeResponseResult(dict):
+    """
+    Private endpoint which the connection belongs to.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Private endpoint which the connection belongs to.
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class PrivateEndpointPropertyResponse(dict):
     """
     Private endpoint which the connection belongs to.
@@ -2077,6 +3980,40 @@ class PrivateEndpointPropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStatePropertyInvokeResponseResult(dict):
+    """
+    Connection State of the Private Endpoint Connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: str,
+                 status: Optional[str] = None):
+        """
+        Connection State of the Private Endpoint Connection.
+        :param str actions_required: Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2114,6 +4051,65 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestoreParametersInvokeResponseResult(dict):
+    """
+    Parameters to indicate the information about the restore.
+    """
+    def __init__(__self__, *,
+                 databases_to_restore: Optional[Sequence['outputs.DatabaseRestoreResourceInvokeResponseResult']] = None,
+                 restore_mode: Optional[str] = None,
+                 restore_source: Optional[str] = None,
+                 restore_timestamp_in_utc: Optional[str] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param Sequence['DatabaseRestoreResourceInvokeResponseArgs'] databases_to_restore: List of specific databases available for restore.
+        :param str restore_mode: Describes the mode of the restore.
+        :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        """
+        if databases_to_restore is not None:
+            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+        if restore_mode is not None:
+            pulumi.set(__self__, "restore_mode", restore_mode)
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+
+    @property
+    @pulumi.getter(name="databasesToRestore")
+    def databases_to_restore(self) -> Optional[Sequence['outputs.DatabaseRestoreResourceInvokeResponseResult']]:
+        """
+        List of specific databases available for restore.
+        """
+        return pulumi.get(self, "databases_to_restore")
+
+    @property
+    @pulumi.getter(name="restoreMode")
+    def restore_mode(self) -> Optional[str]:
+        """
+        Describes the mode of the restore.
+        """
+        return pulumi.get(self, "restore_mode")
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[str]:
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        return pulumi.get(self, "restore_source")
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[str]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
 
 
 @pulumi.output_type
@@ -2179,6 +4175,37 @@ class RestoreParametersResponse(dict):
 
 
 @pulumi.output_type
+class SpatialSpecInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None,
+                 types: Optional[Sequence[str]] = None):
+        """
+        :param str path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        :param Sequence[str] types: List of path's spatial type
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence[str]]:
+        """
+        List of path's spatial type
+        """
+        return pulumi.get(self, "types")
+
+
+@pulumi.output_type
 class SpatialSpecResponse(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None,
@@ -2210,6 +4237,148 @@ class SpatialSpecResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class SqlContainerGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyInvokeResponseResult'] = None,
+                 default_ttl: Optional[int] = None,
+                 indexing_policy: Optional['outputs.IndexingPolicyInvokeResponseResult'] = None,
+                 partition_key: Optional['outputs.ContainerPartitionKeyInvokeResponseResult'] = None,
+                 unique_key_policy: Optional['outputs.UniqueKeyPolicyInvokeResponseResult'] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB SQL container
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param 'ConflictResolutionPolicyInvokeResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
+        :param int default_ttl: Default time to live
+        :param 'IndexingPolicyInvokeResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        :param 'ContainerPartitionKeyInvokeResponseArgs' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'UniqueKeyPolicyInvokeResponseArgs' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if conflict_resolution_policy is not None:
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if indexing_policy is not None:
+            pulumi.set(__self__, "indexing_policy", indexing_policy)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
+        if unique_key_policy is not None:
+            pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB SQL container
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyInvokeResponseResult']:
+        """
+        The conflict resolution policy for the container.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[int]:
+        """
+        Default time to live
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter(name="indexingPolicy")
+    def indexing_policy(self) -> Optional['outputs.IndexingPolicyInvokeResponseResult']:
+        """
+        The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        """
+        return pulumi.get(self, "indexing_policy")
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyInvokeResponseResult']:
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        return pulumi.get(self, "partition_key")
+
+    @property
+    @pulumi.getter(name="uniqueKeyPolicy")
+    def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyInvokeResponseResult']:
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        return pulumi.get(self, "unique_key_policy")
 
 
 @pulumi.output_type
@@ -2361,6 +4530,112 @@ class SqlContainerGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class SqlDatabaseGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class SqlDatabaseGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 colls: Optional[str] = None,
+                 users: Optional[str] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB SQL database
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str colls: A system generated property that specified the addressable path of the collections resource.
+        :param str users: A system generated property that specifies the addressable path of the users resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if colls is not None:
+            pulumi.set(__self__, "colls", colls)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB SQL database
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
+    def colls(self) -> Optional[str]:
+        """
+        A system generated property that specified the addressable path of the collections resource.
+        """
+        return pulumi.get(self, "colls")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[str]:
+        """
+        A system generated property that specifies the addressable path of the users resource.
+        """
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
 class SqlDatabaseGetPropertiesResponseOptions(dict):
     def __init__(__self__, *,
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
@@ -2473,6 +4748,69 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class SqlStoredProcedureGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 body: Optional[str] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB SQL storedProcedure
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str body: Body of the Stored Procedure
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB SQL storedProcedure
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Body of the Stored Procedure
+        """
+        return pulumi.get(self, "body")
+
+
+@pulumi.output_type
 class SqlStoredProcedureGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
@@ -2536,6 +4874,93 @@ class SqlStoredProcedureGetPropertiesResponseResource(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlTriggerGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 body: Optional[str] = None,
+                 trigger_operation: Optional[str] = None,
+                 trigger_type: Optional[str] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB SQL trigger
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str body: Body of the Trigger
+        :param str trigger_operation: The operation the trigger is associated with
+        :param str trigger_type: Type of the Trigger
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if trigger_operation is not None:
+            pulumi.set(__self__, "trigger_operation", trigger_operation)
+        if trigger_type is not None:
+            pulumi.set(__self__, "trigger_type", trigger_type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB SQL trigger
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Body of the Trigger
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="triggerOperation")
+    def trigger_operation(self) -> Optional[str]:
+        """
+        The operation the trigger is associated with
+        """
+        return pulumi.get(self, "trigger_operation")
+
+    @property
+    @pulumi.getter(name="triggerType")
+    def trigger_type(self) -> Optional[str]:
+        """
+        Type of the Trigger
+        """
+        return pulumi.get(self, "trigger_type")
 
 
 @pulumi.output_type
@@ -2629,6 +5054,69 @@ class SqlTriggerGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class SqlUserDefinedFunctionGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any,
+                 body: Optional[str] = None):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB SQL userDefinedFunction
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str body: Body of the User Defined Function
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB SQL userDefinedFunction
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Body of the User Defined Function
+        """
+        return pulumi.get(self, "body")
+
+
+@pulumi.output_type
 class SqlUserDefinedFunctionGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
                  etag: str,
@@ -2692,6 +5180,89 @@ class SqlUserDefinedFunctionGetPropertiesResponseResource(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataInvokeResponseResult(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -2778,6 +5349,88 @@ class SystemDataResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TableGetPropertiesInvokeResponseOptionsResult(dict):
+    def __init__(__self__, *,
+                 autoscale_settings: Optional['outputs.AutoscaleSettingsInvokeResponseResult'] = None,
+                 throughput: Optional[int] = None):
+        """
+        :param 'AutoscaleSettingsInvokeResponseArgs' autoscale_settings: Specifies the Autoscale settings.
+        :param int throughput: Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional['outputs.AutoscaleSettingsInvokeResponseResult']:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+        """
+        return pulumi.get(self, "throughput")
+
+
+@pulumi.output_type
+class TableGetPropertiesInvokeResponseResourceResult(dict):
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 rid: str,
+                 ts: Any):
+        """
+        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
+        :param str id: Name of the Cosmos DB table
+        :param str rid: A system generated property. A unique identifier.
+        :param Any ts: A system generated property that denotes the last updated timestamp of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "rid", rid)
+        pulumi.set(__self__, "ts", ts)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Name of the Cosmos DB table
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rid(self) -> str:
+        """
+        A system generated property. A unique identifier.
+        """
+        return pulumi.get(self, "rid")
+
+    @property
+    @pulumi.getter
+    def ts(self) -> Any:
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
+        return pulumi.get(self, "ts")
 
 
 @pulumi.output_type
@@ -2869,6 +5522,52 @@ class TableGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class UniqueKeyInvokeResponseResult(dict):
+    """
+    The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+    """
+    def __init__(__self__, *,
+                 paths: Optional[Sequence[str]] = None):
+        """
+        The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param Sequence[str] paths: List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[Sequence[str]]:
+        """
+        List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+        return pulumi.get(self, "paths")
+
+
+@pulumi.output_type
+class UniqueKeyPolicyInvokeResponseResult(dict):
+    """
+    The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+    """
+    def __init__(__self__, *,
+                 unique_keys: Optional[Sequence['outputs.UniqueKeyInvokeResponseResult']] = None):
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param Sequence['UniqueKeyInvokeResponseArgs'] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        """
+        if unique_keys is not None:
+            pulumi.set(__self__, "unique_keys", unique_keys)
+
+    @property
+    @pulumi.getter(name="uniqueKeys")
+    def unique_keys(self) -> Optional[Sequence['outputs.UniqueKeyInvokeResponseResult']]:
+        """
+        List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        """
+        return pulumi.get(self, "unique_keys")
+
+
+@pulumi.output_type
 class UniqueKeyPolicyResponse(dict):
     """
     The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -2918,6 +5617,41 @@ class UniqueKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkRuleInvokeResponseResult(dict):
+    """
+    Virtual Network ACL Rule object
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 ignore_missing_v_net_service_endpoint: Optional[bool] = None):
+        """
+        Virtual Network ACL Rule object
+        :param str id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+        :param bool ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ignore_missing_v_net_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ignoreMissingVNetServiceEndpoint")
+    def ignore_missing_v_net_service_endpoint(self) -> Optional[bool]:
+        """
+        Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+        return pulumi.get(self, "ignore_missing_v_net_service_endpoint")
 
 
 @pulumi.output_type

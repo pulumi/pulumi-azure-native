@@ -27,7 +27,7 @@ class ListGlobalUserEnvironmentsResult:
 
     @property
     @pulumi.getter
-    def environments(self) -> Optional[Sequence['outputs.EnvironmentDetailsResponseResult']]:
+    def environments(self) -> Optional[Sequence['outputs.EnvironmentDetailsInvokeResponseResult']]:
         """
         List of all the environments
         """

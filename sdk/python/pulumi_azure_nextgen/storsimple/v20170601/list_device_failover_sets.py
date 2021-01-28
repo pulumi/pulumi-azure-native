@@ -27,7 +27,7 @@ class ListDeviceFailoverSetsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.FailoverSetResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.FailoverSetInvokeResponseResult']]:
         """
         The list of failover sets.
         """

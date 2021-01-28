@@ -50,7 +50,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.AccountIdentityResponse']:
+    def identity(self) -> Optional['outputs.AccountIdentityInvokeResponseResult']:
         """
         The identity of the Automanage account.
         """

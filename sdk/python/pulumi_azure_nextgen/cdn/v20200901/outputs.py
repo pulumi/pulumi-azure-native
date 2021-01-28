@@ -11,86 +11,211 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AFDDomainHttpsParametersInvokeResponseResult',
     'AFDDomainHttpsParametersResponse',
+    'CacheExpirationActionParametersInvokeResponseResult',
     'CacheExpirationActionParametersResponse',
+    'CacheKeyQueryStringActionParametersInvokeResponseResult',
     'CacheKeyQueryStringActionParametersResponse',
+    'CdnEndpointInvokeResponseResult',
     'CdnEndpointResponse',
+    'CompressionSettingsInvokeResponseResult',
     'CompressionSettingsResponse',
+    'CookiesMatchConditionParametersInvokeResponseResult',
     'CookiesMatchConditionParametersResponse',
+    'CustomRuleInvokeResponseResult',
+    'CustomRuleListInvokeResponseResult',
     'CustomRuleListResponse',
     'CustomRuleResponse',
+    'CustomerCertificateParametersInvokeResponseResult',
     'CustomerCertificateParametersResponse',
+    'DeepCreatedOriginGroupInvokeResponseResult',
     'DeepCreatedOriginGroupResponse',
+    'DeepCreatedOriginInvokeResponseResult',
     'DeepCreatedOriginResponse',
+    'DeliveryRuleCacheExpirationActionInvokeResponseResult',
     'DeliveryRuleCacheExpirationActionResponse',
+    'DeliveryRuleCacheKeyQueryStringActionInvokeResponseResult',
     'DeliveryRuleCacheKeyQueryStringActionResponse',
+    'DeliveryRuleCookiesConditionInvokeResponseResult',
     'DeliveryRuleCookiesConditionResponse',
+    'DeliveryRuleHttpVersionConditionInvokeResponseResult',
     'DeliveryRuleHttpVersionConditionResponse',
+    'DeliveryRuleInvokeResponseResult',
+    'DeliveryRuleIsDeviceConditionInvokeResponseResult',
     'DeliveryRuleIsDeviceConditionResponse',
+    'DeliveryRulePostArgsConditionInvokeResponseResult',
     'DeliveryRulePostArgsConditionResponse',
+    'DeliveryRuleQueryStringConditionInvokeResponseResult',
     'DeliveryRuleQueryStringConditionResponse',
+    'DeliveryRuleRemoteAddressConditionInvokeResponseResult',
     'DeliveryRuleRemoteAddressConditionResponse',
+    'DeliveryRuleRequestBodyConditionInvokeResponseResult',
     'DeliveryRuleRequestBodyConditionResponse',
+    'DeliveryRuleRequestHeaderActionInvokeResponseResult',
     'DeliveryRuleRequestHeaderActionResponse',
+    'DeliveryRuleRequestHeaderConditionInvokeResponseResult',
     'DeliveryRuleRequestHeaderConditionResponse',
+    'DeliveryRuleRequestMethodConditionInvokeResponseResult',
     'DeliveryRuleRequestMethodConditionResponse',
+    'DeliveryRuleRequestSchemeConditionInvokeResponseResult',
     'DeliveryRuleRequestSchemeConditionResponse',
+    'DeliveryRuleRequestUriConditionInvokeResponseResult',
     'DeliveryRuleRequestUriConditionResponse',
     'DeliveryRuleResponse',
+    'DeliveryRuleResponseHeaderActionInvokeResponseResult',
     'DeliveryRuleResponseHeaderActionResponse',
+    'DeliveryRuleUrlFileExtensionConditionInvokeResponseResult',
     'DeliveryRuleUrlFileExtensionConditionResponse',
+    'DeliveryRuleUrlFileNameConditionInvokeResponseResult',
     'DeliveryRuleUrlFileNameConditionResponse',
+    'DeliveryRuleUrlPathConditionInvokeResponseResult',
     'DeliveryRuleUrlPathConditionResponse',
+    'DomainValidationPropertiesInvokeResponseResult',
     'DomainValidationPropertiesResponse',
+    'EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyResult',
+    'EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkResult',
     'EndpointPropertiesUpdateParametersResponseDeliveryPolicy',
     'EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink',
+    'GeoFilterInvokeResponseResult',
     'GeoFilterResponse',
+    'HeaderActionParametersInvokeResponseResult',
     'HeaderActionParametersResponse',
+    'HealthProbeParametersInvokeResponseResult',
     'HealthProbeParametersResponse',
+    'HttpErrorRangeParametersInvokeResponseResult',
     'HttpErrorRangeParametersResponse',
+    'HttpVersionMatchConditionParametersInvokeResponseResult',
     'HttpVersionMatchConditionParametersResponse',
+    'IsDeviceMatchConditionParametersInvokeResponseResult',
     'IsDeviceMatchConditionParametersResponse',
+    'KeyVaultSigningKeyParametersInvokeResponseResult',
     'KeyVaultSigningKeyParametersResponse',
+    'LoadBalancingSettingsParametersInvokeResponseResult',
     'LoadBalancingSettingsParametersResponse',
+    'ManagedCertificateParametersInvokeResponseResult',
     'ManagedCertificateParametersResponse',
+    'ManagedRuleGroupOverrideInvokeResponseResult',
     'ManagedRuleGroupOverrideResponse',
+    'ManagedRuleOverrideInvokeResponseResult',
     'ManagedRuleOverrideResponse',
+    'ManagedRuleSetInvokeResponseResult',
+    'ManagedRuleSetListInvokeResponseResult',
     'ManagedRuleSetListResponse',
     'ManagedRuleSetResponse',
+    'MatchConditionInvokeResponseResult',
     'MatchConditionResponse',
+    'OriginGroupOverrideActionInvokeResponseResult',
+    'OriginGroupOverrideActionParametersInvokeResponseResult',
     'OriginGroupOverrideActionParametersResponse',
     'OriginGroupOverrideActionResponse',
+    'PolicySettingsInvokeResponseResult',
     'PolicySettingsResponse',
+    'PostArgsMatchConditionParametersInvokeResponseResult',
     'PostArgsMatchConditionParametersResponse',
+    'QueryStringMatchConditionParametersInvokeResponseResult',
     'QueryStringMatchConditionParametersResponse',
+    'RateLimitRuleInvokeResponseResult',
+    'RateLimitRuleListInvokeResponseResult',
     'RateLimitRuleListResponse',
     'RateLimitRuleResponse',
+    'RemoteAddressMatchConditionParametersInvokeResponseResult',
     'RemoteAddressMatchConditionParametersResponse',
+    'RequestBodyMatchConditionParametersInvokeResponseResult',
     'RequestBodyMatchConditionParametersResponse',
+    'RequestHeaderMatchConditionParametersInvokeResponseResult',
     'RequestHeaderMatchConditionParametersResponse',
+    'RequestMethodMatchConditionParametersInvokeResponseResult',
     'RequestMethodMatchConditionParametersResponse',
+    'RequestSchemeMatchConditionParametersInvokeResponseResult',
     'RequestSchemeMatchConditionParametersResponse',
+    'RequestUriMatchConditionParametersInvokeResponseResult',
     'RequestUriMatchConditionParametersResponse',
+    'ResourceReferenceInvokeResponseResult',
     'ResourceReferenceResponse',
+    'ResponseBasedOriginErrorDetectionParametersInvokeResponseResult',
     'ResponseBasedOriginErrorDetectionParametersResponse',
+    'SecurityPolicyWebApplicationFirewallAssociationInvokeResponseResult',
     'SecurityPolicyWebApplicationFirewallAssociationResponse',
+    'SecurityPolicyWebApplicationFirewallParametersInvokeResponseResult',
     'SecurityPolicyWebApplicationFirewallParametersResponse',
+    'SharedPrivateLinkResourcePropertiesInvokeResponseResult',
     'SharedPrivateLinkResourcePropertiesResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'SystemDataInvokeResponseResult',
     'SystemDataResponse',
+    'UrlFileExtensionMatchConditionParametersInvokeResponseResult',
     'UrlFileExtensionMatchConditionParametersResponse',
+    'UrlFileNameMatchConditionParametersInvokeResponseResult',
     'UrlFileNameMatchConditionParametersResponse',
+    'UrlPathMatchConditionParametersInvokeResponseResult',
     'UrlPathMatchConditionParametersResponse',
+    'UrlRedirectActionInvokeResponseResult',
+    'UrlRedirectActionParametersInvokeResponseResult',
     'UrlRedirectActionParametersResponse',
     'UrlRedirectActionResponse',
+    'UrlRewriteActionInvokeResponseResult',
+    'UrlRewriteActionParametersInvokeResponseResult',
     'UrlRewriteActionParametersResponse',
     'UrlRewriteActionResponse',
+    'UrlSigningActionInvokeResponseResult',
+    'UrlSigningActionParametersInvokeResponseResult',
     'UrlSigningActionParametersResponse',
     'UrlSigningActionResponse',
+    'UrlSigningKeyInvokeResponseResult',
+    'UrlSigningKeyParametersInvokeResponseResult',
     'UrlSigningKeyParametersResponse',
     'UrlSigningKeyResponse',
+    'UrlSigningParamIdentifierInvokeResponseResult',
     'UrlSigningParamIdentifierResponse',
 ]
+
+@pulumi.output_type
+class AFDDomainHttpsParametersInvokeResponseResult(dict):
+    """
+    The JSON object that contains the properties to secure a domain.
+    """
+    def __init__(__self__, *,
+                 certificate_type: str,
+                 minimum_tls_version: Optional[str] = None,
+                 secret: Optional['outputs.ResourceReferenceInvokeResponseResult'] = None):
+        """
+        The JSON object that contains the properties to secure a domain.
+        :param str certificate_type: Defines the source of the SSL certificate.
+        :param str minimum_tls_version: TLS protocol version that will be used for Https
+        :param 'ResourceReferenceInvokeResponseArgs' secret: Resource reference to the secret. ie. subs/rg/profile/secret
+        """
+        pulumi.set(__self__, "certificate_type", certificate_type)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> str:
+        """
+        Defines the source of the SSL certificate.
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[str]:
+        """
+        TLS protocol version that will be used for Https
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
+        """
+        Resource reference to the secret. ie. subs/rg/profile/secret
+        """
+        return pulumi.get(self, "secret")
+
 
 @pulumi.output_type
 class AFDDomainHttpsParametersResponse(dict):
@@ -139,6 +264,58 @@ class AFDDomainHttpsParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CacheExpirationActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the cache expiration action.
+    """
+    def __init__(__self__, *,
+                 cache_behavior: str,
+                 cache_type: str,
+                 odata_type: str,
+                 cache_duration: Optional[str] = None):
+        """
+        Defines the parameters for the cache expiration action.
+        :param str cache_behavior: Caching behavior for the requests
+        :param str cache_type: The level at which the content needs to be cached.
+        :param str cache_duration: The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+        """
+        pulumi.set(__self__, "cache_behavior", cache_behavior)
+        pulumi.set(__self__, "cache_type", cache_type)
+        pulumi.set(__self__, "odata_type", odata_type)
+        if cache_duration is not None:
+            pulumi.set(__self__, "cache_duration", cache_duration)
+
+    @property
+    @pulumi.getter(name="cacheBehavior")
+    def cache_behavior(self) -> str:
+        """
+        Caching behavior for the requests
+        """
+        return pulumi.get(self, "cache_behavior")
+
+    @property
+    @pulumi.getter(name="cacheType")
+    def cache_type(self) -> str:
+        """
+        The level at which the content needs to be cached.
+        """
+        return pulumi.get(self, "cache_type")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> Optional[str]:
+        """
+        The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+        """
+        return pulumi.get(self, "cache_duration")
 
 
 @pulumi.output_type
@@ -197,6 +374,47 @@ class CacheExpirationActionParametersResponse(dict):
 
 
 @pulumi.output_type
+class CacheKeyQueryStringActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the cache-key query string action.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 query_string_behavior: str,
+                 query_parameters: Optional[str] = None):
+        """
+        Defines the parameters for the cache-key query string action.
+        :param str query_string_behavior: Caching behavior for the requests
+        :param str query_parameters: query parameters to include or exclude (comma separated).
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="queryStringBehavior")
+    def query_string_behavior(self) -> str:
+        """
+        Caching behavior for the requests
+        """
+        return pulumi.get(self, "query_string_behavior")
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[str]:
+        """
+        query parameters to include or exclude (comma separated).
+        """
+        return pulumi.get(self, "query_parameters")
+
+
+@pulumi.output_type
 class CacheKeyQueryStringActionParametersResponse(dict):
     """
     Defines the parameters for the cache-key query string action.
@@ -241,6 +459,29 @@ class CacheKeyQueryStringActionParametersResponse(dict):
 
 
 @pulumi.output_type
+class CdnEndpointInvokeResponseResult(dict):
+    """
+    Defines the ARM Resource ID for the linked endpoints
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Defines the ARM Resource ID for the linked endpoints
+        :param str id: ARM Resource ID string.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ARM Resource ID string.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class CdnEndpointResponse(dict):
     """
     Defines the ARM Resource ID for the linked endpoints
@@ -264,6 +505,41 @@ class CdnEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CompressionSettingsInvokeResponseResult(dict):
+    """
+    settings for compression.
+    """
+    def __init__(__self__, *,
+                 content_types_to_compress: Optional[Sequence[str]] = None,
+                 is_compression_enabled: Optional[bool] = None):
+        """
+        settings for compression.
+        :param Sequence[str] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
+        :param bool is_compression_enabled: Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+        if content_types_to_compress is not None:
+            pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
+        if is_compression_enabled is not None:
+            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+
+    @property
+    @pulumi.getter(name="contentTypesToCompress")
+    def content_types_to_compress(self) -> Optional[Sequence[str]]:
+        """
+        List of content types on which compression applies. The value should be a valid MIME type.
+        """
+        return pulumi.get(self, "content_types_to_compress")
+
+    @property
+    @pulumi.getter(name="isCompressionEnabled")
+    def is_compression_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+        return pulumi.get(self, "is_compression_enabled")
 
 
 @pulumi.output_type
@@ -302,6 +578,83 @@ class CompressionSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CookiesMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for Cookies match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for Cookies match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of Cookies to be matched
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of Cookies to be matched
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -382,6 +735,96 @@ class CookiesMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CustomRuleInvokeResponseResult(dict):
+    """
+    Defines the common attributes for a custom rule that can be included in a waf policy
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 match_conditions: Sequence['outputs.MatchConditionInvokeResponseResult'],
+                 name: str,
+                 priority: int,
+                 enabled_state: Optional[str] = None):
+        """
+        Defines the common attributes for a custom rule that can be included in a waf policy
+        :param str action: Describes what action to be applied when rule matches
+        :param Sequence['MatchConditionInvokeResponseArgs'] match_conditions: List of match conditions.
+        :param str name: Defines the name of the custom rule
+        :param int priority: Defines in what order this rule be evaluated in the overall list of custom rules
+        :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Describes what action to be applied when rule matches
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Sequence['outputs.MatchConditionInvokeResponseResult']:
+        """
+        List of match conditions.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Defines the name of the custom rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Defines in what order this rule be evaluated in the overall list of custom rules
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        return pulumi.get(self, "enabled_state")
+
+
+@pulumi.output_type
+class CustomRuleListInvokeResponseResult(dict):
+    """
+    Defines contents of custom rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.CustomRuleInvokeResponseResult']] = None):
+        """
+        Defines contents of custom rules
+        :param Sequence['CustomRuleInvokeResponseArgs'] rules: List of rules
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.CustomRuleInvokeResponseResult']]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
@@ -481,6 +924,89 @@ class CustomRuleResponse(dict):
 
 
 @pulumi.output_type
+class CustomerCertificateParametersInvokeResponseResult(dict):
+    """
+    Customer Certificate used for https
+    """
+    def __init__(__self__, *,
+                 secret_source: 'outputs.ResourceReferenceInvokeResponseResult',
+                 type: str,
+                 certificate_authority: Optional[str] = None,
+                 secret_version: Optional[str] = None,
+                 subject_alternative_names: Optional[Sequence[str]] = None,
+                 use_latest_version: Optional[bool] = None):
+        """
+        Customer Certificate used for https
+        :param 'ResourceReferenceInvokeResponseArgs' secret_source: Resource reference to the KV secret
+        :param str type: The type of the Secret to create.
+               Expected value is 'CustomerCertificate'.
+        :param str certificate_authority: Certificate issuing authority.
+        :param str secret_version: Version of the secret to be used
+        :param Sequence[str] subject_alternative_names: The list of SANs.
+        :param bool use_latest_version: Whether to use the latest version for the certificate
+        """
+        pulumi.set(__self__, "secret_source", secret_source)
+        pulumi.set(__self__, "type", 'CustomerCertificate')
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        if use_latest_version is not None:
+            pulumi.set(__self__, "use_latest_version", use_latest_version)
+
+    @property
+    @pulumi.getter(name="secretSource")
+    def secret_source(self) -> 'outputs.ResourceReferenceInvokeResponseResult':
+        """
+        Resource reference to the KV secret
+        """
+        return pulumi.get(self, "secret_source")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Secret to create.
+        Expected value is 'CustomerCertificate'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional[str]:
+        """
+        Certificate issuing authority.
+        """
+        return pulumi.get(self, "certificate_authority")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        Version of the secret to be used
+        """
+        return pulumi.get(self, "secret_version")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[Sequence[str]]:
+        """
+        The list of SANs.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    @property
+    @pulumi.getter(name="useLatestVersion")
+    def use_latest_version(self) -> Optional[bool]:
+        """
+        Whether to use the latest version for the certificate
+        """
+        return pulumi.get(self, "use_latest_version")
+
+
+@pulumi.output_type
 class CustomerCertificateParametersResponse(dict):
     """
     Customer Certificate used for https
@@ -567,6 +1093,75 @@ class CustomerCertificateParametersResponse(dict):
 
 
 @pulumi.output_type
+class DeepCreatedOriginGroupInvokeResponseResult(dict):
+    """
+    The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 origins: Sequence['outputs.ResourceReferenceInvokeResponseResult'],
+                 health_probe_settings: Optional['outputs.HealthProbeParametersInvokeResponseResult'] = None,
+                 response_based_origin_error_detection_settings: Optional['outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult'] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[int] = None):
+        """
+        The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+        :param str name: Origin group name which must be unique within the endpoint.
+        :param Sequence['ResourceReferenceInvokeResponseArgs'] origins: The source of the content being delivered via CDN within given origin group.
+        :param 'HealthProbeParametersInvokeResponseArgs' health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
+        :param 'ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs' response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        :param int traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origins", origins)
+        if health_probe_settings is not None:
+            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if response_based_origin_error_detection_settings is not None:
+            pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
+        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
+            pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Origin group name which must be unique within the endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Sequence['outputs.ResourceReferenceInvokeResponseResult']:
+        """
+        The source of the content being delivered via CDN within given origin group.
+        """
+        return pulumi.get(self, "origins")
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional['outputs.HealthProbeParametersInvokeResponseResult']:
+        """
+        Health probe settings to the origin that is used to determine the health of the origin.
+        """
+        return pulumi.get(self, "health_probe_settings")
+
+    @property
+    @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
+    def response_based_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult']:
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        """
+        return pulumi.get(self, "response_based_origin_error_detection_settings")
+
+    @property
+    @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[int]:
+        """
+        Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        """
+        return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
+
+
+@pulumi.output_type
 class DeepCreatedOriginGroupResponse(dict):
     """
     The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
@@ -636,6 +1231,159 @@ class DeepCreatedOriginGroupResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeepCreatedOriginInvokeResponseResult(dict):
+    """
+    The main origin of CDN content which is added when creating a CDN endpoint.
+    """
+    def __init__(__self__, *,
+                 host_name: str,
+                 name: str,
+                 enabled: Optional[bool] = None,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
+                 origin_host_header: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 private_link_alias: Optional[str] = None,
+                 private_link_approval_message: Optional[str] = None,
+                 private_link_location: Optional[str] = None,
+                 private_link_resource_id: Optional[str] = None,
+                 weight: Optional[int] = None):
+        """
+        The main origin of CDN content which is added when creating a CDN endpoint.
+        :param str host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+        :param str name: Origin name which must be unique within the endpoint. 
+        :param bool enabled: Origin is enabled for load balancing or not. By default, origin is always enabled.
+        :param int http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param int https_port: The value of the HTTPS port. Must be between 1 and 65535.
+        :param str origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+        :param int priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+        :param str private_link_alias: The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+        :param str private_link_approval_message: A custom message to be included in the approval request to connect to the Private Link.
+        :param str private_link_location: The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+        :param str private_link_resource_id: The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+        :param int weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "name", name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if origin_host_header is not None:
+            pulumi.set(__self__, "origin_host_header", origin_host_header)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if private_link_alias is not None:
+            pulumi.set(__self__, "private_link_alias", private_link_alias)
+        if private_link_approval_message is not None:
+            pulumi.set(__self__, "private_link_approval_message", private_link_approval_message)
+        if private_link_location is not None:
+            pulumi.set(__self__, "private_link_location", private_link_location)
+        if private_link_resource_id is not None:
+            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Origin name which must be unique within the endpoint. 
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Origin is enabled for load balancing or not. By default, origin is always enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[int]:
+        """
+        The value of the HTTP port. Must be between 1 and 65535.
+        """
+        return pulumi.get(self, "http_port")
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[int]:
+        """
+        The value of the HTTPS port. Must be between 1 and 65535.
+        """
+        return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter(name="originHostHeader")
+    def origin_host_header(self) -> Optional[str]:
+        """
+        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+        """
+        return pulumi.get(self, "origin_host_header")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="privateLinkAlias")
+    def private_link_alias(self) -> Optional[str]:
+        """
+        The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+        """
+        return pulumi.get(self, "private_link_alias")
+
+    @property
+    @pulumi.getter(name="privateLinkApprovalMessage")
+    def private_link_approval_message(self) -> Optional[str]:
+        """
+        A custom message to be included in the approval request to connect to the Private Link.
+        """
+        return pulumi.get(self, "private_link_approval_message")
+
+    @property
+    @pulumi.getter(name="privateLinkLocation")
+    def private_link_location(self) -> Optional[str]:
+        """
+        The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+        """
+        return pulumi.get(self, "private_link_location")
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> Optional[str]:
+        """
+        The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -795,6 +1543,41 @@ class DeepCreatedOriginResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleCacheExpirationActionInvokeResponseResult(dict):
+    """
+    Defines the cache expiration action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.CacheExpirationActionParametersInvokeResponseResult'):
+        """
+        Defines the cache expiration action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'CacheExpiration'.
+        :param 'CacheExpirationActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'CacheExpiration')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'CacheExpiration'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.CacheExpirationActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleCacheExpirationActionResponse(dict):
     """
     Defines the cache expiration action for the delivery rule.
@@ -830,6 +1613,41 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleCacheKeyQueryStringActionInvokeResponseResult(dict):
+    """
+    Defines the cache-key query string action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.CacheKeyQueryStringActionParametersInvokeResponseResult'):
+        """
+        Defines the cache-key query string action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'CacheKeyQueryString'.
+        :param 'CacheKeyQueryStringActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'CacheKeyQueryString')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'CacheKeyQueryString'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.CacheKeyQueryStringActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -871,6 +1689,41 @@ class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleCookiesConditionInvokeResponseResult(dict):
+    """
+    Defines the Cookies condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.CookiesMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the Cookies condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'Cookies'.
+        :param 'CookiesMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'Cookies')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'Cookies'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.CookiesMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleCookiesConditionResponse(dict):
     """
     Defines the Cookies condition for the delivery rule.
@@ -906,6 +1759,41 @@ class DeliveryRuleCookiesConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleHttpVersionConditionInvokeResponseResult(dict):
+    """
+    Defines the HttpVersion condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.HttpVersionMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the HttpVersion condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'HttpVersion'.
+        :param 'HttpVersionMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'HttpVersion')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'HttpVersion'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.HttpVersionMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -947,6 +1835,98 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleInvokeResponseResult(dict):
+    """
+    A rule that specifies a set of actions and conditions
+    """
+    def __init__(__self__, *,
+                 actions: Sequence[Any],
+                 order: int,
+                 conditions: Optional[Sequence[Any]] = None,
+                 name: Optional[str] = None):
+        """
+        A rule that specifies a set of actions and conditions
+        :param Sequence[Union['DeliveryRuleCacheExpirationActionInvokeResponseArgs', 'DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs', 'DeliveryRuleRequestHeaderActionInvokeResponseArgs', 'DeliveryRuleResponseHeaderActionInvokeResponseArgs', 'OriginGroupOverrideActionInvokeResponseArgs', 'UrlRedirectActionInvokeResponseArgs', 'UrlRewriteActionInvokeResponseArgs', 'UrlSigningActionInvokeResponseArgs']] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param int order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param Sequence[Union['DeliveryRuleCookiesConditionInvokeResponseArgs', 'DeliveryRuleHttpVersionConditionInvokeResponseArgs', 'DeliveryRuleIsDeviceConditionInvokeResponseArgs', 'DeliveryRulePostArgsConditionInvokeResponseArgs', 'DeliveryRuleQueryStringConditionInvokeResponseArgs', 'DeliveryRuleRemoteAddressConditionInvokeResponseArgs', 'DeliveryRuleRequestBodyConditionInvokeResponseArgs', 'DeliveryRuleRequestHeaderConditionInvokeResponseArgs', 'DeliveryRuleRequestMethodConditionInvokeResponseArgs', 'DeliveryRuleRequestSchemeConditionInvokeResponseArgs', 'DeliveryRuleRequestUriConditionInvokeResponseArgs', 'DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs', 'DeliveryRuleUrlFileNameConditionInvokeResponseArgs', 'DeliveryRuleUrlPathConditionInvokeResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
+        :param str name: Name of the rule
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "order", order)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[Any]:
+        """
+        A list of actions that are executed when all the conditions of a rule are satisfied.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence[Any]]:
+        """
+        A list of conditions that must be matched for the actions to be executed
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DeliveryRuleIsDeviceConditionInvokeResponseResult(dict):
+    """
+    Defines the IsDevice condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.IsDeviceMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the IsDevice condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'IsDevice'.
+        :param 'IsDeviceMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'IsDevice')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'IsDevice'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.IsDeviceMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleIsDeviceConditionResponse(dict):
     """
     Defines the IsDevice condition for the delivery rule.
@@ -982,6 +1962,41 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRulePostArgsConditionInvokeResponseResult(dict):
+    """
+    Defines the PostArgs condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.PostArgsMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the PostArgs condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'PostArgs'.
+        :param 'PostArgsMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'PostArgs')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'PostArgs'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.PostArgsMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1023,6 +2038,41 @@ class DeliveryRulePostArgsConditionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleQueryStringConditionInvokeResponseResult(dict):
+    """
+    Defines the QueryString condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.QueryStringMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the QueryString condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'QueryString'.
+        :param 'QueryStringMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'QueryString')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'QueryString'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.QueryStringMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleQueryStringConditionResponse(dict):
     """
     Defines the QueryString condition for the delivery rule.
@@ -1058,6 +2108,41 @@ class DeliveryRuleQueryStringConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleRemoteAddressConditionInvokeResponseResult(dict):
+    """
+    Defines the RemoteAddress condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.RemoteAddressMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the RemoteAddress condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RemoteAddress'.
+        :param 'RemoteAddressMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'RemoteAddress')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RemoteAddress'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.RemoteAddressMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1099,6 +2184,41 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleRequestBodyConditionInvokeResponseResult(dict):
+    """
+    Defines the RequestBody condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.RequestBodyMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the RequestBody condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestBody'.
+        :param 'RequestBodyMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'RequestBody')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestBody'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.RequestBodyMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleRequestBodyConditionResponse(dict):
     """
     Defines the RequestBody condition for the delivery rule.
@@ -1134,6 +2254,41 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleRequestHeaderActionInvokeResponseResult(dict):
+    """
+    Defines the request header action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.HeaderActionParametersInvokeResponseResult'):
+        """
+        Defines the request header action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'ModifyRequestHeader'.
+        :param 'HeaderActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'ModifyRequestHeader')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'ModifyRequestHeader'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.HeaderActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1175,6 +2330,41 @@ class DeliveryRuleRequestHeaderActionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleRequestHeaderConditionInvokeResponseResult(dict):
+    """
+    Defines the RequestHeader condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.RequestHeaderMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the RequestHeader condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestHeader'.
+        :param 'RequestHeaderMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'RequestHeader')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestHeader'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.RequestHeaderMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleRequestHeaderConditionResponse(dict):
     """
     Defines the RequestHeader condition for the delivery rule.
@@ -1210,6 +2400,41 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleRequestMethodConditionInvokeResponseResult(dict):
+    """
+    Defines the RequestMethod condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.RequestMethodMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the RequestMethod condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestMethod'.
+        :param 'RequestMethodMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'RequestMethod')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestMethod'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.RequestMethodMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1251,6 +2476,41 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleRequestSchemeConditionInvokeResponseResult(dict):
+    """
+    Defines the RequestScheme condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.RequestSchemeMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the RequestScheme condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestScheme'.
+        :param 'RequestSchemeMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'RequestScheme')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestScheme'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.RequestSchemeMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleRequestSchemeConditionResponse(dict):
     """
     Defines the RequestScheme condition for the delivery rule.
@@ -1286,6 +2546,41 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleRequestUriConditionInvokeResponseResult(dict):
+    """
+    Defines the RequestUri condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.RequestUriMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the RequestUri condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'RequestUri'.
+        :param 'RequestUriMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'RequestUri')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'RequestUri'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.RequestUriMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1387,6 +2682,41 @@ class DeliveryRuleResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleResponseHeaderActionInvokeResponseResult(dict):
+    """
+    Defines the response header action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.HeaderActionParametersInvokeResponseResult'):
+        """
+        Defines the response header action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'ModifyResponseHeader'.
+        :param 'HeaderActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'ModifyResponseHeader')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'ModifyResponseHeader'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.HeaderActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleResponseHeaderActionResponse(dict):
     """
     Defines the response header action for the delivery rule.
@@ -1422,6 +2752,41 @@ class DeliveryRuleResponseHeaderActionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleUrlFileExtensionConditionInvokeResponseResult(dict):
+    """
+    Defines the UrlFileExtension condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlFileExtensionMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the UrlFileExtension condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileExtension'.
+        :param 'UrlFileExtensionMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'UrlFileExtension')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'UrlFileExtension'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlFileExtensionMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1463,6 +2828,41 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
 
 
 @pulumi.output_type
+class DeliveryRuleUrlFileNameConditionInvokeResponseResult(dict):
+    """
+    Defines the UrlFileName condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlFileNameMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the UrlFileName condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlFileName'.
+        :param 'UrlFileNameMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'UrlFileName')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'UrlFileName'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlFileNameMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DeliveryRuleUrlFileNameConditionResponse(dict):
     """
     Defines the UrlFileName condition for the delivery rule.
@@ -1498,6 +2898,41 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleUrlPathConditionInvokeResponseResult(dict):
+    """
+    Defines the UrlPath condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlPathMatchConditionParametersInvokeResponseResult'):
+        """
+        Defines the UrlPath condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+               Expected value is 'UrlPath'.
+        :param 'UrlPathMatchConditionParametersInvokeResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'UrlPath')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        Expected value is 'UrlPath'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlPathMatchConditionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -1539,6 +2974,39 @@ class DeliveryRuleUrlPathConditionResponse(dict):
 
 
 @pulumi.output_type
+class DomainValidationPropertiesInvokeResponseResult(dict):
+    """
+    The JSON object that contains the properties to validate a domain.
+    """
+    def __init__(__self__, *,
+                 expiration_date: str,
+                 validation_token: str):
+        """
+        The JSON object that contains the properties to validate a domain.
+        :param str expiration_date: The date time that the token expires
+        :param str validation_token: Challenge used for DNS TXT record or file based validation
+        """
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        pulumi.set(__self__, "validation_token", validation_token)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        The date time that the token expires
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="validationToken")
+    def validation_token(self) -> str:
+        """
+        Challenge used for DNS TXT record or file based validation
+        """
+        return pulumi.get(self, "validation_token")
+
+
+@pulumi.output_type
 class DomainValidationPropertiesResponse(dict):
     """
     The JSON object that contains the properties to validate a domain.
@@ -1572,6 +3040,63 @@ class DomainValidationPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyResult(dict):
+    """
+    A policy that specifies the delivery rules to be used for an endpoint.
+    """
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.DeliveryRuleInvokeResponseResult'],
+                 description: Optional[str] = None):
+        """
+        A policy that specifies the delivery rules to be used for an endpoint.
+        :param Sequence['DeliveryRuleInvokeResponseArgs'] rules: A list of the delivery rules.
+        :param str description: User-friendly description of the policy.
+        """
+        pulumi.set(__self__, "rules", rules)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.DeliveryRuleInvokeResponseResult']:
+        """
+        A list of the delivery rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        User-friendly description of the policy.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkResult(dict):
+    """
+    Defines the Web Application Firewall policy for the endpoint (if applicable)
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Defines the Web Application Firewall policy for the endpoint (if applicable)
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -1638,6 +3163,50 @@ class EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink
 
 
 @pulumi.output_type
+class GeoFilterInvokeResponseResult(dict):
+    """
+    Rules defining user's geo access within a CDN endpoint.
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 country_codes: Sequence[str],
+                 relative_path: str):
+        """
+        Rules defining user's geo access within a CDN endpoint.
+        :param str action: Action of the geo filter, i.e. allow or block access.
+        :param Sequence[str] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        :param str relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "country_codes", country_codes)
+        pulumi.set(__self__, "relative_path", relative_path)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Action of the geo filter, i.e. allow or block access.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="countryCodes")
+    def country_codes(self) -> Sequence[str]:
+        """
+        Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        """
+        return pulumi.get(self, "country_codes")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> str:
+        """
+        Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+        """
+        return pulumi.get(self, "relative_path")
+
+
+@pulumi.output_type
 class GeoFilterResponse(dict):
     """
     Rules defining user's geo access within a CDN endpoint.
@@ -1682,6 +3251,58 @@ class GeoFilterResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HeaderActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the request header action.
+    """
+    def __init__(__self__, *,
+                 header_action: str,
+                 header_name: str,
+                 odata_type: str,
+                 value: Optional[str] = None):
+        """
+        Defines the parameters for the request header action.
+        :param str header_action: Action to perform
+        :param str header_name: Name of the header to modify
+        :param str value: Value for the specified action
+        """
+        pulumi.set(__self__, "header_action", header_action)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "odata_type", odata_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerAction")
+    def header_action(self) -> str:
+        """
+        Action to perform
+        """
+        return pulumi.get(self, "header_action")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        """
+        Name of the header to modify
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value for the specified action
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1737,6 +3358,65 @@ class HeaderActionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HealthProbeParametersInvokeResponseResult(dict):
+    """
+    The JSON object that contains the properties to send health probes to origin.
+    """
+    def __init__(__self__, *,
+                 probe_interval_in_seconds: Optional[int] = None,
+                 probe_path: Optional[str] = None,
+                 probe_protocol: Optional[str] = None,
+                 probe_request_type: Optional[str] = None):
+        """
+        The JSON object that contains the properties to send health probes to origin.
+        :param int probe_interval_in_seconds: The number of seconds between health probes.Default is 240sec.
+        :param str probe_path: The path relative to the origin that is used to determine the health of the origin.
+        :param str probe_protocol: Protocol to use for health probe.
+        :param str probe_request_type: The type of health probe request that is made.
+        """
+        if probe_interval_in_seconds is not None:
+            pulumi.set(__self__, "probe_interval_in_seconds", probe_interval_in_seconds)
+        if probe_path is not None:
+            pulumi.set(__self__, "probe_path", probe_path)
+        if probe_protocol is not None:
+            pulumi.set(__self__, "probe_protocol", probe_protocol)
+        if probe_request_type is not None:
+            pulumi.set(__self__, "probe_request_type", probe_request_type)
+
+    @property
+    @pulumi.getter(name="probeIntervalInSeconds")
+    def probe_interval_in_seconds(self) -> Optional[int]:
+        """
+        The number of seconds between health probes.Default is 240sec.
+        """
+        return pulumi.get(self, "probe_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="probePath")
+    def probe_path(self) -> Optional[str]:
+        """
+        The path relative to the origin that is used to determine the health of the origin.
+        """
+        return pulumi.get(self, "probe_path")
+
+    @property
+    @pulumi.getter(name="probeProtocol")
+    def probe_protocol(self) -> Optional[str]:
+        """
+        Protocol to use for health probe.
+        """
+        return pulumi.get(self, "probe_protocol")
+
+    @property
+    @pulumi.getter(name="probeRequestType")
+    def probe_request_type(self) -> Optional[str]:
+        """
+        The type of health probe request that is made.
+        """
+        return pulumi.get(self, "probe_request_type")
 
 
 @pulumi.output_type
@@ -1802,6 +3482,41 @@ class HealthProbeParametersResponse(dict):
 
 
 @pulumi.output_type
+class HttpErrorRangeParametersInvokeResponseResult(dict):
+    """
+    The JSON object that represents the range for http status codes
+    """
+    def __init__(__self__, *,
+                 begin: Optional[int] = None,
+                 end: Optional[int] = None):
+        """
+        The JSON object that represents the range for http status codes
+        :param int begin: The inclusive start of the http status code range.
+        :param int end: The inclusive end of the http status code range.
+        """
+        if begin is not None:
+            pulumi.set(__self__, "begin", begin)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+
+    @property
+    @pulumi.getter
+    def begin(self) -> Optional[int]:
+        """
+        The inclusive start of the http status code range.
+        """
+        return pulumi.get(self, "begin")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[int]:
+        """
+        The inclusive end of the http status code range.
+        """
+        return pulumi.get(self, "end")
+
+
+@pulumi.output_type
 class HttpErrorRangeParametersResponse(dict):
     """
     The JSON object that represents the range for http status codes
@@ -1837,6 +3552,59 @@ class HttpErrorRangeParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HttpVersionMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for HttpVersion match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None):
+        """
+        Defines the parameters for HttpVersion match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
 
 
 @pulumi.output_type
@@ -1893,6 +3661,71 @@ class HttpVersionMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IsDeviceMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for IsDevice match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for IsDevice match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -1961,6 +3794,79 @@ class IsDeviceMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultSigningKeyParametersInvokeResponseResult(dict):
+    """
+    Describes the parameters for using a user's KeyVault for URL Signing Key.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 resource_group_name: str,
+                 secret_name: str,
+                 secret_version: str,
+                 subscription_id: str,
+                 vault_name: str):
+        """
+        Describes the parameters for using a user's KeyVault for URL Signing Key.
+        :param str resource_group_name: Resource group of the user's Key Vault containing the secret
+        :param str secret_name: The name of secret in Key Vault.
+        :param str secret_version: The version(GUID) of secret in Key Vault.
+        :param str subscription_id: Subscription Id of the user's Key Vault containing the secret
+        :param str vault_name: The name of the user's Key Vault containing the secret
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "secret_version", secret_version)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "vault_name", vault_name)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Resource group of the user's Key Vault containing the secret
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of secret in Key Vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> str:
+        """
+        The version(GUID) of secret in Key Vault.
+        """
+        return pulumi.get(self, "secret_version")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Subscription Id of the user's Key Vault containing the secret
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> str:
+        """
+        The name of the user's Key Vault containing the secret
+        """
+        return pulumi.get(self, "vault_name")
 
 
 @pulumi.output_type
@@ -2040,6 +3946,53 @@ class KeyVaultSigningKeyParametersResponse(dict):
 
 
 @pulumi.output_type
+class LoadBalancingSettingsParametersInvokeResponseResult(dict):
+    """
+    Round-Robin load balancing settings for a backend pool
+    """
+    def __init__(__self__, *,
+                 additional_latency_in_milliseconds: Optional[int] = None,
+                 sample_size: Optional[int] = None,
+                 successful_samples_required: Optional[int] = None):
+        """
+        Round-Robin load balancing settings for a backend pool
+        :param int additional_latency_in_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        :param int sample_size: The number of samples to consider for load balancing decisions
+        :param int successful_samples_required: The number of samples within the sample period that must succeed
+        """
+        if additional_latency_in_milliseconds is not None:
+            pulumi.set(__self__, "additional_latency_in_milliseconds", additional_latency_in_milliseconds)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if successful_samples_required is not None:
+            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter(name="additionalLatencyInMilliseconds")
+    def additional_latency_in_milliseconds(self) -> Optional[int]:
+        """
+        The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        """
+        return pulumi.get(self, "additional_latency_in_milliseconds")
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[int]:
+        """
+        The number of samples to consider for load balancing decisions
+        """
+        return pulumi.get(self, "sample_size")
+
+    @property
+    @pulumi.getter(name="successfulSamplesRequired")
+    def successful_samples_required(self) -> Optional[int]:
+        """
+        The number of samples within the sample period that must succeed
+        """
+        return pulumi.get(self, "successful_samples_required")
+
+
+@pulumi.output_type
 class LoadBalancingSettingsParametersResponse(dict):
     """
     Round-Robin load balancing settings for a backend pool
@@ -2090,6 +4043,30 @@ class LoadBalancingSettingsParametersResponse(dict):
 
 
 @pulumi.output_type
+class ManagedCertificateParametersInvokeResponseResult(dict):
+    """
+    Managed Certificate used for https
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        Managed Certificate used for https
+        :param str type: The type of the Secret to create.
+               Expected value is 'ManagedCertificate'.
+        """
+        pulumi.set(__self__, "type", 'ManagedCertificate')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Secret to create.
+        Expected value is 'ManagedCertificate'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ManagedCertificateParametersResponse(dict):
     """
     Managed Certificate used for https
@@ -2114,6 +4091,40 @@ class ManagedCertificateParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedRuleGroupOverrideInvokeResponseResult(dict):
+    """
+    Defines a managed rule group override setting.
+    """
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 rules: Optional[Sequence['outputs.ManagedRuleOverrideInvokeResponseResult']] = None):
+        """
+        Defines a managed rule group override setting.
+        :param str rule_group_name: Describes the managed rule group within the rule set to override
+        :param Sequence['ManagedRuleOverrideInvokeResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        Describes the managed rule group within the rule set to override
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ManagedRuleOverrideInvokeResponseResult']]:
+        """
+        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
@@ -2151,6 +4162,52 @@ class ManagedRuleGroupOverrideResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedRuleOverrideInvokeResponseResult(dict):
+    """
+    Defines a managed rule group override setting.
+    """
+    def __init__(__self__, *,
+                 rule_id: str,
+                 action: Optional[str] = None,
+                 enabled_state: Optional[str] = None):
+        """
+        Defines a managed rule group override setting.
+        :param str rule_id: Identifier for the managed rule.
+        :param str action: Describes the override action to be applied when rule matches.
+        :param str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> str:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Describes the override action to be applied when rule matches.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        """
+        return pulumi.get(self, "enabled_state")
 
 
 @pulumi.output_type
@@ -2200,6 +4257,86 @@ class ManagedRuleOverrideResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedRuleSetInvokeResponseResult(dict):
+    """
+    Defines a managed rule set.
+    """
+    def __init__(__self__, *,
+                 rule_set_type: str,
+                 rule_set_version: str,
+                 anomaly_score: Optional[int] = None,
+                 rule_group_overrides: Optional[Sequence['outputs.ManagedRuleGroupOverrideInvokeResponseResult']] = None):
+        """
+        Defines a managed rule set.
+        :param str rule_set_type: Defines the rule set type to use.
+        :param str rule_set_version: Defines the version of the rule set to use.
+        :param int anomaly_score: Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+        :param Sequence['ManagedRuleGroupOverrideInvokeResponseArgs'] rule_group_overrides: Defines the rule overrides to apply to the rule set.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if anomaly_score is not None:
+            pulumi.set(__self__, "anomaly_score", anomaly_score)
+        if rule_group_overrides is not None:
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        Defines the rule set type to use.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> str:
+        """
+        Defines the version of the rule set to use.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @property
+    @pulumi.getter(name="anomalyScore")
+    def anomaly_score(self) -> Optional[int]:
+        """
+        Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+        """
+        return pulumi.get(self, "anomaly_score")
+
+    @property
+    @pulumi.getter(name="ruleGroupOverrides")
+    def rule_group_overrides(self) -> Optional[Sequence['outputs.ManagedRuleGroupOverrideInvokeResponseResult']]:
+        """
+        Defines the rule overrides to apply to the rule set.
+        """
+        return pulumi.get(self, "rule_group_overrides")
+
+
+@pulumi.output_type
+class ManagedRuleSetListInvokeResponseResult(dict):
+    """
+    Defines the list of managed rule sets for the policy.
+    """
+    def __init__(__self__, *,
+                 managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetInvokeResponseResult']] = None):
+        """
+        Defines the list of managed rule sets for the policy.
+        :param Sequence['ManagedRuleSetInvokeResponseArgs'] managed_rule_sets: List of rule sets.
+        """
+        if managed_rule_sets is not None:
+            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+
+    @property
+    @pulumi.getter(name="managedRuleSets")
+    def managed_rule_sets(self) -> Optional[Sequence['outputs.ManagedRuleSetInvokeResponseResult']]:
+        """
+        List of rule sets.
+        """
+        return pulumi.get(self, "managed_rule_sets")
 
 
 @pulumi.output_type
@@ -2289,6 +4426,86 @@ class ManagedRuleSetResponse(dict):
 
 
 @pulumi.output_type
+class MatchConditionInvokeResponseResult(dict):
+    """
+    Define match conditions
+    """
+    def __init__(__self__, *,
+                 match_value: Sequence[str],
+                 match_variable: str,
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Define match conditions
+        :param Sequence[str] match_value: List of possible match values.
+        :param str match_variable: Match variable to compare against.
+        :param str operator: Describes operator to be matched
+        :param bool negate_condition: Describes if the result of this condition should be negated.
+        :param str selector: Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+        :param Sequence[str] transforms: List of transforms.
+        """
+        pulumi.set(__self__, "match_value", match_value)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValue")
+    def match_value(self) -> Sequence[str]:
+        """
+        List of possible match values.
+        """
+        return pulumi.get(self, "match_value")
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        Match variable to compare against.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if the result of this condition should be negated.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms.
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
 class MatchConditionResponse(dict):
     """
     Define match conditions
@@ -2372,6 +4589,70 @@ class MatchConditionResponse(dict):
 
 
 @pulumi.output_type
+class OriginGroupOverrideActionInvokeResponseResult(dict):
+    """
+    Defines the origin group override action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.OriginGroupOverrideActionParametersInvokeResponseResult'):
+        """
+        Defines the origin group override action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'OriginGroupOverride'.
+        :param 'OriginGroupOverrideActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'OriginGroupOverride')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'OriginGroupOverride'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.OriginGroupOverrideActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class OriginGroupOverrideActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the origin group override action.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 origin_group: 'outputs.ResourceReferenceInvokeResponseResult'):
+        """
+        Defines the parameters for the origin group override action.
+        :param 'ResourceReferenceInvokeResponseArgs' origin_group: defines the OriginGroup that would override the DefaultOriginGroup.
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "origin_group", origin_group)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="originGroup")
+    def origin_group(self) -> 'outputs.ResourceReferenceInvokeResponseResult':
+        """
+        defines the OriginGroup that would override the DefaultOriginGroup.
+        """
+        return pulumi.get(self, "origin_group")
+
+
+@pulumi.output_type
 class OriginGroupOverrideActionParametersResponse(dict):
     """
     Defines the parameters for the origin group override action.
@@ -2439,6 +4720,77 @@ class OriginGroupOverrideActionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PolicySettingsInvokeResponseResult(dict):
+    """
+    Defines contents of a web application firewall global configuration
+    """
+    def __init__(__self__, *,
+                 default_custom_block_response_body: Optional[str] = None,
+                 default_custom_block_response_status_code: Optional[int] = None,
+                 default_redirect_url: Optional[str] = None,
+                 enabled_state: Optional[str] = None,
+                 mode: Optional[str] = None):
+        """
+        Defines contents of a web application firewall global configuration
+        :param str default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        :param int default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
+        :param str default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
+        :param str enabled_state: describes if the policy is in enabled state or disabled state
+        :param str mode: Describes if it is in detection mode or prevention mode at policy level.
+        """
+        if default_custom_block_response_body is not None:
+            pulumi.set(__self__, "default_custom_block_response_body", default_custom_block_response_body)
+        if default_custom_block_response_status_code is not None:
+            pulumi.set(__self__, "default_custom_block_response_status_code", default_custom_block_response_status_code)
+        if default_redirect_url is not None:
+            pulumi.set(__self__, "default_redirect_url", default_redirect_url)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="defaultCustomBlockResponseBody")
+    def default_custom_block_response_body(self) -> Optional[str]:
+        """
+        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        """
+        return pulumi.get(self, "default_custom_block_response_body")
+
+    @property
+    @pulumi.getter(name="defaultCustomBlockResponseStatusCode")
+    def default_custom_block_response_status_code(self) -> Optional[int]:
+        """
+        If the action type is block, this field defines the default customer overridable http response status code.
+        """
+        return pulumi.get(self, "default_custom_block_response_status_code")
+
+    @property
+    @pulumi.getter(name="defaultRedirectUrl")
+    def default_redirect_url(self) -> Optional[str]:
+        """
+        If action type is redirect, this field represents the default redirect URL for the client.
+        """
+        return pulumi.get(self, "default_redirect_url")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        describes if the policy is in enabled state or disabled state
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -2513,6 +4865,83 @@ class PolicySettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PostArgsMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for PostArgs match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for PostArgs match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of PostArg to be matched
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of PostArg to be matched
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -2596,6 +5025,71 @@ class PostArgsMatchConditionParametersResponse(dict):
 
 
 @pulumi.output_type
+class QueryStringMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for QueryString match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for QueryString match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
 class QueryStringMatchConditionParametersResponse(dict):
     """
     Defines the parameters for QueryString match conditions
@@ -2661,6 +5155,118 @@ class QueryStringMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RateLimitRuleInvokeResponseResult(dict):
+    """
+    Defines a rate limiting rule that can be included in a waf policy
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 match_conditions: Sequence['outputs.MatchConditionInvokeResponseResult'],
+                 name: str,
+                 priority: int,
+                 rate_limit_duration_in_minutes: int,
+                 rate_limit_threshold: int,
+                 enabled_state: Optional[str] = None):
+        """
+        Defines a rate limiting rule that can be included in a waf policy
+        :param str action: Describes what action to be applied when rule matches
+        :param Sequence['MatchConditionInvokeResponseArgs'] match_conditions: List of match conditions.
+        :param str name: Defines the name of the custom rule
+        :param int priority: Defines in what order this rule be evaluated in the overall list of custom rules
+        :param int rate_limit_duration_in_minutes: Defines rate limit duration. Default is 1 minute.
+        :param int rate_limit_threshold: Defines rate limit threshold.
+        :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
+        pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Describes what action to be applied when rule matches
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Sequence['outputs.MatchConditionInvokeResponseResult']:
+        """
+        List of match conditions.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Defines the name of the custom rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Defines in what order this rule be evaluated in the overall list of custom rules
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="rateLimitDurationInMinutes")
+    def rate_limit_duration_in_minutes(self) -> int:
+        """
+        Defines rate limit duration. Default is 1 minute.
+        """
+        return pulumi.get(self, "rate_limit_duration_in_minutes")
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> int:
+        """
+        Defines rate limit threshold.
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        return pulumi.get(self, "enabled_state")
+
+
+@pulumi.output_type
+class RateLimitRuleListInvokeResponseResult(dict):
+    """
+    Defines contents of rate limit rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[Sequence['outputs.RateLimitRuleInvokeResponseResult']] = None):
+        """
+        Defines contents of rate limit rules
+        :param Sequence['RateLimitRuleInvokeResponseArgs'] rules: List of rules
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.RateLimitRuleInvokeResponseResult']]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
@@ -2782,6 +5388,71 @@ class RateLimitRuleResponse(dict):
 
 
 @pulumi.output_type
+class RemoteAddressMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for RemoteAddress match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for RemoteAddress match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
 class RemoteAddressMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RemoteAddress match conditions
@@ -2850,6 +5521,71 @@ class RemoteAddressMatchConditionParametersResponse(dict):
 
 
 @pulumi.output_type
+class RequestBodyMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for RequestBody match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for RequestBody match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
 class RequestBodyMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestBody match conditions
@@ -2915,6 +5651,83 @@ class RequestBodyMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RequestHeaderMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for RequestHeader match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for RequestHeader match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of Header to be matched
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of Header to be matched
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -2998,6 +5811,59 @@ class RequestHeaderMatchConditionParametersResponse(dict):
 
 
 @pulumi.output_type
+class RequestMethodMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for RequestMethod match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None):
+        """
+        Defines the parameters for RequestMethod match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+
+@pulumi.output_type
 class RequestMethodMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestMethod match conditions
@@ -3054,6 +5920,59 @@ class RequestMethodMatchConditionParametersResponse(dict):
 
 
 @pulumi.output_type
+class RequestSchemeMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for RequestScheme match conditions 
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None):
+        """
+        Defines the parameters for RequestScheme match conditions 
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+
+@pulumi.output_type
 class RequestSchemeMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestScheme match conditions 
@@ -3107,6 +6026,71 @@ class RequestSchemeMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RequestUriMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for RequestUri match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for RequestUri match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -3178,6 +6162,29 @@ class RequestUriMatchConditionParametersResponse(dict):
 
 
 @pulumi.output_type
+class ResourceReferenceInvokeResponseResult(dict):
+    """
+    Reference to another resource.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Reference to another resource.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ResourceReferenceResponse(dict):
     """
     Reference to another resource.
@@ -3201,6 +6208,53 @@ class ResourceReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponseBasedOriginErrorDetectionParametersInvokeResponseResult(dict):
+    """
+    The JSON object that contains the properties to determine origin health using real requests/responses.
+    """
+    def __init__(__self__, *,
+                 http_error_ranges: Optional[Sequence['outputs.HttpErrorRangeParametersInvokeResponseResult']] = None,
+                 response_based_detected_error_types: Optional[str] = None,
+                 response_based_failover_threshold_percentage: Optional[int] = None):
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses.
+        :param Sequence['HttpErrorRangeParametersInvokeResponseArgs'] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        :param str response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
+        :param int response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
+        """
+        if http_error_ranges is not None:
+            pulumi.set(__self__, "http_error_ranges", http_error_ranges)
+        if response_based_detected_error_types is not None:
+            pulumi.set(__self__, "response_based_detected_error_types", response_based_detected_error_types)
+        if response_based_failover_threshold_percentage is not None:
+            pulumi.set(__self__, "response_based_failover_threshold_percentage", response_based_failover_threshold_percentage)
+
+    @property
+    @pulumi.getter(name="httpErrorRanges")
+    def http_error_ranges(self) -> Optional[Sequence['outputs.HttpErrorRangeParametersInvokeResponseResult']]:
+        """
+        The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        """
+        return pulumi.get(self, "http_error_ranges")
+
+    @property
+    @pulumi.getter(name="responseBasedDetectedErrorTypes")
+    def response_based_detected_error_types(self) -> Optional[str]:
+        """
+        Type of response errors for real user requests for which origin will be deemed unhealthy
+        """
+        return pulumi.get(self, "response_based_detected_error_types")
+
+    @property
+    @pulumi.getter(name="responseBasedFailoverThresholdPercentage")
+    def response_based_failover_threshold_percentage(self) -> Optional[int]:
+        """
+        The percentage of failed requests in the sample where failover should trigger.
+        """
+        return pulumi.get(self, "response_based_failover_threshold_percentage")
 
 
 @pulumi.output_type
@@ -3254,6 +6308,41 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
 
 
 @pulumi.output_type
+class SecurityPolicyWebApplicationFirewallAssociationInvokeResponseResult(dict):
+    """
+    settings for security policy patterns to match
+    """
+    def __init__(__self__, *,
+                 domains: Optional[Sequence['outputs.ResourceReferenceInvokeResponseResult']] = None,
+                 patterns_to_match: Optional[Sequence[str]] = None):
+        """
+        settings for security policy patterns to match
+        :param Sequence['ResourceReferenceInvokeResponseArgs'] domains: List of domains.
+        :param Sequence[str] patterns_to_match: List of paths
+        """
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if patterns_to_match is not None:
+            pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Optional[Sequence['outputs.ResourceReferenceInvokeResponseResult']]:
+        """
+        List of domains.
+        """
+        return pulumi.get(self, "domains")
+
+    @property
+    @pulumi.getter(name="patternsToMatch")
+    def patterns_to_match(self) -> Optional[Sequence[str]]:
+        """
+        List of paths
+        """
+        return pulumi.get(self, "patterns_to_match")
+
+
+@pulumi.output_type
 class SecurityPolicyWebApplicationFirewallAssociationResponse(dict):
     """
     settings for security policy patterns to match
@@ -3289,6 +6378,54 @@ class SecurityPolicyWebApplicationFirewallAssociationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityPolicyWebApplicationFirewallParametersInvokeResponseResult(dict):
+    """
+    The json object containing security policy waf parameters
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 associations: Optional[Sequence['outputs.SecurityPolicyWebApplicationFirewallAssociationInvokeResponseResult']] = None,
+                 waf_policy: Optional['outputs.ResourceReferenceInvokeResponseResult'] = None):
+        """
+        The json object containing security policy waf parameters
+        :param str type: The type of the Security policy to create.
+               Expected value is 'WebApplicationFirewall'.
+        :param Sequence['SecurityPolicyWebApplicationFirewallAssociationInvokeResponseArgs'] associations: Waf associations
+        :param 'ResourceReferenceInvokeResponseArgs' waf_policy: Resource ID.
+        """
+        pulumi.set(__self__, "type", 'WebApplicationFirewall')
+        if associations is not None:
+            pulumi.set(__self__, "associations", associations)
+        if waf_policy is not None:
+            pulumi.set(__self__, "waf_policy", waf_policy)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Security policy to create.
+        Expected value is 'WebApplicationFirewall'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def associations(self) -> Optional[Sequence['outputs.SecurityPolicyWebApplicationFirewallAssociationInvokeResponseResult']]:
+        """
+        Waf associations
+        """
+        return pulumi.get(self, "associations")
+
+    @property
+    @pulumi.getter(name="wafPolicy")
+    def waf_policy(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "waf_policy")
 
 
 @pulumi.output_type
@@ -3340,6 +6477,77 @@ class SecurityPolicyWebApplicationFirewallParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SharedPrivateLinkResourcePropertiesInvokeResponseResult(dict):
+    """
+    Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+    """
+    def __init__(__self__, *,
+                 group_id: Optional[str] = None,
+                 private_link: Optional['outputs.ResourceReferenceInvokeResponseResult'] = None,
+                 private_link_location: Optional[str] = None,
+                 request_message: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
+        :param str group_id: The group id from the provider of resource the shared private link resource is for.
+        :param 'ResourceReferenceInvokeResponseArgs' private_link: The resource id of the resource the shared private link resource is for.
+        :param str private_link_location: The location of the shared private link resource
+        :param str request_message: The request message for requesting approval of the shared private link resource.
+        :param str status: Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if private_link is not None:
+            pulumi.set(__self__, "private_link", private_link)
+        if private_link_location is not None:
+            pulumi.set(__self__, "private_link_location", private_link_location)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        The group id from the provider of resource the shared private link resource is for.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="privateLink")
+    def private_link(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
+        """
+        The resource id of the resource the shared private link resource is for.
+        """
+        return pulumi.get(self, "private_link")
+
+    @property
+    @pulumi.getter(name="privateLinkLocation")
+    def private_link_location(self) -> Optional[str]:
+        """
+        The location of the shared private link resource
+        """
+        return pulumi.get(self, "private_link_location")
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[str]:
+        """
+        The request message for requesting approval of the shared private link resource.
+        """
+        return pulumi.get(self, "request_message")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -3417,6 +6625,29 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        :param str name: Name of the pricing tier.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the pricing tier.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
@@ -3440,6 +6671,89 @@ class SkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataInvokeResponseResult(dict):
+    """
+    Read only system data
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Read only system data
+        :param str created_at: The timestamp of resource creation (UTC)
+        :param str created_by: An identifier for the identity that created the resource
+        :param str created_by_type: The type of identity that created the resource
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: An identifier for the identity that last modified the resource
+        :param str last_modified_by_type: The type of identity that last modified the resource
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC)
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        An identifier for the identity that created the resource
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        An identifier for the identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -3529,6 +6843,71 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class UrlFileExtensionMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for UrlFileExtension match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for UrlFileExtension match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
 class UrlFileExtensionMatchConditionParametersResponse(dict):
     """
     Defines the parameters for UrlFileExtension match conditions
@@ -3594,6 +6973,71 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UrlFileNameMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for UrlFilename match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for UrlFilename match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
 
 
 @pulumi.output_type
@@ -3665,6 +7109,71 @@ class UrlFileNameMatchConditionParametersResponse(dict):
 
 
 @pulumi.output_type
+class UrlPathMatchConditionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for UrlPath match conditions
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Defines the parameters for UrlPath match conditions
+        :param str operator: Describes operator to be matched
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param Sequence[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        The match value for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
 class UrlPathMatchConditionParametersResponse(dict):
     """
     Defines the parameters for UrlPath match conditions
@@ -3730,6 +7239,130 @@ class UrlPathMatchConditionParametersResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UrlRedirectActionInvokeResponseResult(dict):
+    """
+    Defines the url redirect action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlRedirectActionParametersInvokeResponseResult'):
+        """
+        Defines the url redirect action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'UrlRedirect'.
+        :param 'UrlRedirectActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'UrlRedirect')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlRedirect'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlRedirectActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class UrlRedirectActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the url redirect action.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 redirect_type: str,
+                 custom_fragment: Optional[str] = None,
+                 custom_hostname: Optional[str] = None,
+                 custom_path: Optional[str] = None,
+                 custom_query_string: Optional[str] = None,
+                 destination_protocol: Optional[str] = None):
+        """
+        Defines the parameters for the url redirect action.
+        :param str redirect_type: The redirect type the rule will use when redirecting traffic.
+        :param str custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+        :param str custom_hostname: Host to redirect. Leave empty to use the incoming host as the destination host.
+        :param str custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+        :param str custom_query_string: The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+        :param str destination_protocol: Protocol to use for the redirect. The default value is MatchRequest
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "redirect_type", redirect_type)
+        if custom_fragment is not None:
+            pulumi.set(__self__, "custom_fragment", custom_fragment)
+        if custom_hostname is not None:
+            pulumi.set(__self__, "custom_hostname", custom_hostname)
+        if custom_path is not None:
+            pulumi.set(__self__, "custom_path", custom_path)
+        if custom_query_string is not None:
+            pulumi.set(__self__, "custom_query_string", custom_query_string)
+        if destination_protocol is not None:
+            pulumi.set(__self__, "destination_protocol", destination_protocol)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> str:
+        """
+        The redirect type the rule will use when redirecting traffic.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @property
+    @pulumi.getter(name="customFragment")
+    def custom_fragment(self) -> Optional[str]:
+        """
+        Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+        """
+        return pulumi.get(self, "custom_fragment")
+
+    @property
+    @pulumi.getter(name="customHostname")
+    def custom_hostname(self) -> Optional[str]:
+        """
+        Host to redirect. Leave empty to use the incoming host as the destination host.
+        """
+        return pulumi.get(self, "custom_hostname")
+
+    @property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> Optional[str]:
+        """
+        The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+        """
+        return pulumi.get(self, "custom_path")
+
+    @property
+    @pulumi.getter(name="customQueryString")
+    def custom_query_string(self) -> Optional[str]:
+        """
+        The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+        """
+        return pulumi.get(self, "custom_query_string")
+
+    @property
+    @pulumi.getter(name="destinationProtocol")
+    def destination_protocol(self) -> Optional[str]:
+        """
+        Protocol to use for the redirect. The default value is MatchRequest
+        """
+        return pulumi.get(self, "destination_protocol")
 
 
 @pulumi.output_type
@@ -3863,6 +7496,93 @@ class UrlRedirectActionResponse(dict):
 
 
 @pulumi.output_type
+class UrlRewriteActionInvokeResponseResult(dict):
+    """
+    Defines the url rewrite action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlRewriteActionParametersInvokeResponseResult'):
+        """
+        Defines the url rewrite action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'UrlRewrite'.
+        :param 'UrlRewriteActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'UrlRewrite')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlRewrite'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlRewriteActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class UrlRewriteActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the url rewrite action.
+    """
+    def __init__(__self__, *,
+                 destination: str,
+                 odata_type: str,
+                 source_pattern: str,
+                 preserve_unmatched_path: Optional[bool] = None):
+        """
+        Defines the parameters for the url rewrite action.
+        :param str destination: Define the relative URL to which the above requests will be rewritten by.
+        :param str source_pattern: define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+        :param bool preserve_unmatched_path: Whether to preserve unmatched path. Default value is true.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "source_pattern", source_pattern)
+        if preserve_unmatched_path is not None:
+            pulumi.set(__self__, "preserve_unmatched_path", preserve_unmatched_path)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Define the relative URL to which the above requests will be rewritten by.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="sourcePattern")
+    def source_pattern(self) -> str:
+        """
+        define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+        """
+        return pulumi.get(self, "source_pattern")
+
+    @property
+    @pulumi.getter(name="preserveUnmatchedPath")
+    def preserve_unmatched_path(self) -> Optional[bool]:
+        """
+        Whether to preserve unmatched path. Default value is true.
+        """
+        return pulumi.get(self, "preserve_unmatched_path")
+
+
+@pulumi.output_type
 class UrlRewriteActionParametersResponse(dict):
     """
     Defines the parameters for the url rewrite action.
@@ -3956,6 +7676,83 @@ class UrlRewriteActionResponse(dict):
 
 
 @pulumi.output_type
+class UrlSigningActionInvokeResponseResult(dict):
+    """
+    Defines the url signing action for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlSigningActionParametersInvokeResponseResult'):
+        """
+        Defines the url signing action for the delivery rule.
+        :param str name: The name of the action for the delivery rule.
+               Expected value is 'UrlSigning'.
+        :param 'UrlSigningActionParametersInvokeResponseArgs' parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'UrlSigning')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlSigning'.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlSigningActionParametersInvokeResponseResult':
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class UrlSigningActionParametersInvokeResponseResult(dict):
+    """
+    Defines the parameters for the Url Signing action.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 algorithm: Optional[str] = None,
+                 parameter_name_override: Optional[Sequence['outputs.UrlSigningParamIdentifierInvokeResponseResult']] = None):
+        """
+        Defines the parameters for the Url Signing action.
+        :param str algorithm: Algorithm to use for URL signing
+        :param Sequence['UrlSigningParamIdentifierInvokeResponseArgs'] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
+        """
+        pulumi.set(__self__, "odata_type", odata_type)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if parameter_name_override is not None:
+            pulumi.set(__self__, "parameter_name_override", parameter_name_override)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[str]:
+        """
+        Algorithm to use for URL signing
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="parameterNameOverride")
+    def parameter_name_override(self) -> Optional[Sequence['outputs.UrlSigningParamIdentifierInvokeResponseResult']]:
+        """
+        Defines which query string parameters in the url to be considered for expires, key id etc. 
+        """
+        return pulumi.get(self, "parameter_name_override")
+
+
+@pulumi.output_type
 class UrlSigningActionParametersResponse(dict):
     """
     Defines the parameters for the Url Signing action.
@@ -4036,6 +7833,97 @@ class UrlSigningActionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UrlSigningKeyInvokeResponseResult(dict):
+    """
+    Url signing key
+    """
+    def __init__(__self__, *,
+                 key_id: str,
+                 key_source_parameters: 'outputs.KeyVaultSigningKeyParametersInvokeResponseResult'):
+        """
+        Url signing key
+        :param str key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+        :param 'KeyVaultSigningKeyParametersInvokeResponseArgs' key_source_parameters: Defines the parameters for using customer key vault for Url Signing Key.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "key_source_parameters", key_source_parameters)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="keySourceParameters")
+    def key_source_parameters(self) -> 'outputs.KeyVaultSigningKeyParametersInvokeResponseResult':
+        """
+        Defines the parameters for using customer key vault for Url Signing Key.
+        """
+        return pulumi.get(self, "key_source_parameters")
+
+
+@pulumi.output_type
+class UrlSigningKeyParametersInvokeResponseResult(dict):
+    """
+    Url signing key parameters
+    """
+    def __init__(__self__, *,
+                 key_id: str,
+                 secret_source: 'outputs.ResourceReferenceInvokeResponseResult',
+                 type: str,
+                 secret_version: Optional[str] = None):
+        """
+        Url signing key parameters
+        :param str key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+        :param 'ResourceReferenceInvokeResponseArgs' secret_source: Resource reference to the KV secret
+        :param str type: The type of the Secret to create.
+               Expected value is 'UrlSigningKey'.
+        :param str secret_version: Version of the secret to be used
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "secret_source", secret_source)
+        pulumi.set(__self__, "type", 'UrlSigningKey')
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="secretSource")
+    def secret_source(self) -> 'outputs.ResourceReferenceInvokeResponseResult':
+        """
+        Resource reference to the KV secret
+        """
+        return pulumi.get(self, "secret_source")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Secret to create.
+        Expected value is 'UrlSigningKey'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        Version of the secret to be used
+        """
+        return pulumi.get(self, "secret_version")
 
 
 @pulumi.output_type
@@ -4133,6 +8021,39 @@ class UrlSigningKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UrlSigningParamIdentifierInvokeResponseResult(dict):
+    """
+    Defines how to identify a parameter for a specific purpose e.g. expires
+    """
+    def __init__(__self__, *,
+                 param_indicator: str,
+                 param_name: str):
+        """
+        Defines how to identify a parameter for a specific purpose e.g. expires
+        :param str param_indicator: Indicates the purpose of the parameter
+        :param str param_name: Parameter name
+        """
+        pulumi.set(__self__, "param_indicator", param_indicator)
+        pulumi.set(__self__, "param_name", param_name)
+
+    @property
+    @pulumi.getter(name="paramIndicator")
+    def param_indicator(self) -> str:
+        """
+        Indicates the purpose of the parameter
+        """
+        return pulumi.get(self, "param_indicator")
+
+    @property
+    @pulumi.getter(name="paramName")
+    def param_name(self) -> str:
+        """
+        Parameter name
+        """
+        return pulumi.get(self, "param_name")
 
 
 @pulumi.output_type

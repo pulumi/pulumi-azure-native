@@ -75,7 +75,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="cloudConnectors")
-    def cloud_connectors(self) -> Optional['outputs.CloudConnectorsResponse']:
+    def cloud_connectors(self) -> Optional['outputs.CloudConnectorsInvokeResponseResult']:
         """
         Cloud connectors.
         External cloud identifier used as part of scanning configuration.
@@ -108,7 +108,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> 'outputs.AccountPropertiesResponseEndpoints':
+    def endpoints(self) -> 'outputs.AccountPropertiesInvokeResponseEndpointsResult':
         """
         The URIs that are the public endpoints of the account.
         """
@@ -132,7 +132,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         Identity Info on the tracked resource
         """
@@ -148,7 +148,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="managedResources")
-    def managed_resources(self) -> 'outputs.AccountPropertiesResponseManagedResources':
+    def managed_resources(self) -> 'outputs.AccountPropertiesInvokeResponseManagedResourcesResult':
         """
         Gets the resource identifiers of the managed resources.
         """
@@ -164,7 +164,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         Gets the private endpoint connections information.
         """
@@ -188,7 +188,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.AccountSkuResponse']:
+    def sku(self) -> Optional['outputs.AccountSkuInvokeResponseResult']:
         """
         Gets or sets the Sku.
         """

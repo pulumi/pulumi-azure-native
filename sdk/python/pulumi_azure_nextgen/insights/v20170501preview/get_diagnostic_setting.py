@@ -89,7 +89,7 @@ class GetDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[Sequence['outputs.LogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.LogSettingsInvokeResponseResult']]:
         """
         The list of logs settings.
         """
@@ -97,7 +97,7 @@ class GetDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[Sequence['outputs.MetricSettingsResponse']]:
+    def metrics(self) -> Optional[Sequence['outputs.MetricSettingsInvokeResponseResult']]:
         """
         The list of metric settings.
         """

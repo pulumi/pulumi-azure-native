@@ -58,7 +58,7 @@ class GetManagedInstancePrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.ManagedInstancePrivateEndpointPropertyResponse']:
+    def private_endpoint(self) -> Optional['outputs.ManagedInstancePrivateEndpointPropertyInvokeResponseResult']:
         """
         Private endpoint which the connection belongs to.
         """
@@ -66,7 +66,7 @@ class GetManagedInstancePrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse']:
+    def private_link_service_connection_state(self) -> Optional['outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseResult']:
         """
         Connection State of the Private Endpoint Connection.
         """

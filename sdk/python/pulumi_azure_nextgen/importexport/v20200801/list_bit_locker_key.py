@@ -27,7 +27,7 @@ class ListBitLockerKeyResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.DriveBitLockerKeyResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.DriveBitLockerKeyInvokeResponseResult']]:
         """
         drive status
         """

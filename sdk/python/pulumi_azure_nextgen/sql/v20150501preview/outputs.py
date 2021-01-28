@@ -11,15 +11,46 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'FailoverGroupReadOnlyEndpointInvokeResponseResult',
     'FailoverGroupReadOnlyEndpointResponse',
+    'FailoverGroupReadWriteEndpointInvokeResponseResult',
     'FailoverGroupReadWriteEndpointResponse',
+    'PartnerInfoInvokeResponseResult',
     'PartnerInfoResponse',
+    'ResourceIdentityInvokeResponseResult',
     'ResourceIdentityResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'SyncGroupSchemaInvokeResponseResult',
     'SyncGroupSchemaResponse',
+    'SyncGroupSchemaTableColumnInvokeResponseResult',
     'SyncGroupSchemaTableColumnResponse',
+    'SyncGroupSchemaTableInvokeResponseResult',
     'SyncGroupSchemaTableResponse',
 ]
+
+@pulumi.output_type
+class FailoverGroupReadOnlyEndpointInvokeResponseResult(dict):
+    """
+    Read-only endpoint of the failover group instance.
+    """
+    def __init__(__self__, *,
+                 failover_policy: Optional[str] = None):
+        """
+        Read-only endpoint of the failover group instance.
+        :param str failover_policy: Failover policy of the read-only endpoint for the failover group.
+        """
+        if failover_policy is not None:
+            pulumi.set(__self__, "failover_policy", failover_policy)
+
+    @property
+    @pulumi.getter(name="failoverPolicy")
+    def failover_policy(self) -> Optional[str]:
+        """
+        Failover policy of the read-only endpoint for the failover group.
+        """
+        return pulumi.get(self, "failover_policy")
+
 
 @pulumi.output_type
 class FailoverGroupReadOnlyEndpointResponse(dict):
@@ -45,6 +76,40 @@ class FailoverGroupReadOnlyEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FailoverGroupReadWriteEndpointInvokeResponseResult(dict):
+    """
+    Read-write endpoint of the failover group instance.
+    """
+    def __init__(__self__, *,
+                 failover_policy: str,
+                 failover_with_data_loss_grace_period_minutes: Optional[int] = None):
+        """
+        Read-write endpoint of the failover group instance.
+        :param str failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        :param int failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+        pulumi.set(__self__, "failover_policy", failover_policy)
+        if failover_with_data_loss_grace_period_minutes is not None:
+            pulumi.set(__self__, "failover_with_data_loss_grace_period_minutes", failover_with_data_loss_grace_period_minutes)
+
+    @property
+    @pulumi.getter(name="failoverPolicy")
+    def failover_policy(self) -> str:
+        """
+        Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+        return pulumi.get(self, "failover_policy")
+
+    @property
+    @pulumi.getter(name="failoverWithDataLossGracePeriodMinutes")
+    def failover_with_data_loss_grace_period_minutes(self) -> Optional[int]:
+        """
+        Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        """
+        return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
 
 
 @pulumi.output_type
@@ -82,6 +147,50 @@ class FailoverGroupReadWriteEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PartnerInfoInvokeResponseResult(dict):
+    """
+    Partner server information for the failover group.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 location: str,
+                 replication_role: str):
+        """
+        Partner server information for the failover group.
+        :param str id: Resource identifier of the partner server.
+        :param str location: Geo location of the partner server.
+        :param str replication_role: Replication role of the partner server.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "replication_role", replication_role)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource identifier of the partner server.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Geo location of the partner server.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="replicationRole")
+    def replication_role(self) -> str:
+        """
+        Replication role of the partner server.
+        """
+        return pulumi.get(self, "replication_role")
 
 
 @pulumi.output_type
@@ -132,6 +241,51 @@ class PartnerInfoResponse(dict):
 
 
 @pulumi.output_type
+class ResourceIdentityInvokeResponseResult(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str principal_id: The Azure Active Directory principal id.
+        :param str tenant_id: The Azure Active Directory tenant id.
+        :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory principal id.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ResourceIdentityResponse(dict):
     """
     Azure Active Directory identity configuration for a resource.
@@ -177,6 +331,76 @@ class ResourceIdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    An ARM Resource SKU.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        An ARM Resource SKU.
+        :param str name: The name of the SKU, typically, a letter + Number code, e.g. P3.
+        :param int capacity: Capacity of the particular SKU.
+        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param str size: Size of the particular SKU
+        :param str tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU, typically, a letter + Number code, e.g. P3.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        Capacity of the particular SKU.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        Size of the particular SKU
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier or edition of the particular SKU, e.g. Basic, Premium.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -253,6 +477,41 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
+class SyncGroupSchemaInvokeResponseResult(dict):
+    """
+    Properties of sync group schema.
+    """
+    def __init__(__self__, *,
+                 master_sync_member_name: Optional[str] = None,
+                 tables: Optional[Sequence['outputs.SyncGroupSchemaTableInvokeResponseResult']] = None):
+        """
+        Properties of sync group schema.
+        :param str master_sync_member_name: Name of master sync member where the schema is from.
+        :param Sequence['SyncGroupSchemaTableInvokeResponseArgs'] tables: List of tables in sync group schema.
+        """
+        if master_sync_member_name is not None:
+            pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="masterSyncMemberName")
+    def master_sync_member_name(self) -> Optional[str]:
+        """
+        Name of master sync member where the schema is from.
+        """
+        return pulumi.get(self, "master_sync_member_name")
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[Sequence['outputs.SyncGroupSchemaTableInvokeResponseResult']]:
+        """
+        List of tables in sync group schema.
+        """
+        return pulumi.get(self, "tables")
+
+
+@pulumi.output_type
 class SyncGroupSchemaResponse(dict):
     """
     Properties of sync group schema.
@@ -288,6 +547,53 @@ class SyncGroupSchemaResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyncGroupSchemaTableColumnInvokeResponseResult(dict):
+    """
+    Properties of column in sync group table.
+    """
+    def __init__(__self__, *,
+                 data_size: Optional[str] = None,
+                 data_type: Optional[str] = None,
+                 quoted_name: Optional[str] = None):
+        """
+        Properties of column in sync group table.
+        :param str data_size: Data size of the column.
+        :param str data_type: Data type of the column.
+        :param str quoted_name: Quoted name of sync group table column.
+        """
+        if data_size is not None:
+            pulumi.set(__self__, "data_size", data_size)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if quoted_name is not None:
+            pulumi.set(__self__, "quoted_name", quoted_name)
+
+    @property
+    @pulumi.getter(name="dataSize")
+    def data_size(self) -> Optional[str]:
+        """
+        Data size of the column.
+        """
+        return pulumi.get(self, "data_size")
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter(name="quotedName")
+    def quoted_name(self) -> Optional[str]:
+        """
+        Quoted name of sync group table column.
+        """
+        return pulumi.get(self, "quoted_name")
 
 
 @pulumi.output_type
@@ -338,6 +644,41 @@ class SyncGroupSchemaTableColumnResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyncGroupSchemaTableInvokeResponseResult(dict):
+    """
+    Properties of table in sync group schema.
+    """
+    def __init__(__self__, *,
+                 columns: Optional[Sequence['outputs.SyncGroupSchemaTableColumnInvokeResponseResult']] = None,
+                 quoted_name: Optional[str] = None):
+        """
+        Properties of table in sync group schema.
+        :param Sequence['SyncGroupSchemaTableColumnInvokeResponseArgs'] columns: List of columns in sync group schema.
+        :param str quoted_name: Quoted name of sync group schema table.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if quoted_name is not None:
+            pulumi.set(__self__, "quoted_name", quoted_name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.SyncGroupSchemaTableColumnInvokeResponseResult']]:
+        """
+        List of columns in sync group schema.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="quotedName")
+    def quoted_name(self) -> Optional[str]:
+        """
+        Quoted name of sync group schema table.
+        """
+        return pulumi.get(self, "quoted_name")
 
 
 @pulumi.output_type

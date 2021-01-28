@@ -133,7 +133,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigurations")
-    def p2_s_vpn_server_configurations(self) -> Optional[Sequence['outputs.P2SVpnServerConfigurationResponse']]:
+    def p2_s_vpn_server_configurations(self) -> Optional[Sequence['outputs.P2SVpnServerConfigurationInvokeResponseResult']]:
         """
         list of all P2SVpnServerConfigurations associated with the virtual wan.
         """
@@ -173,7 +173,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="virtualHubs")
-    def virtual_hubs(self) -> Sequence['outputs.SubResourceResponse']:
+    def virtual_hubs(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of VirtualHubs in the VirtualWAN.
         """
@@ -181,7 +181,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="vpnSites")
-    def vpn_sites(self) -> Sequence['outputs.SubResourceResponse']:
+    def vpn_sites(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         return pulumi.get(self, "vpn_sites")
 
 

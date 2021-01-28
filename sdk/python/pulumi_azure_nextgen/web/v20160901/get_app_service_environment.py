@@ -168,7 +168,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
+    def cluster_settings(self) -> Optional[Sequence['outputs.NameValuePairInvokeResponseResult']]:
         """
         Custom settings for changing the behavior of the App Service Environment.
         """
@@ -217,7 +217,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="environmentCapacities")
-    def environment_capacities(self) -> Sequence['outputs.StampCapacityResponse']:
+    def environment_capacities(self) -> Sequence['outputs.StampCapacityInvokeResponseResult']:
         """
         Current total, used, and available worker capacities.
         """
@@ -337,7 +337,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="networkAccessControlList")
-    def network_access_control_list(self) -> Optional[Sequence['outputs.NetworkAccessControlEntryResponse']]:
+    def network_access_control_list(self) -> Optional[Sequence['outputs.NetworkAccessControlEntryInvokeResponseResult']]:
         """
         Access control list for controlling traffic to the App Service Environment.
         """
@@ -418,7 +418,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="vipMappings")
-    def vip_mappings(self) -> Sequence['outputs.VirtualIPMappingResponse']:
+    def vip_mappings(self) -> Sequence['outputs.VirtualIPMappingInvokeResponseResult']:
         """
         Description of IP SSL mapping for the App Service Environment.
         """
@@ -426,7 +426,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> 'outputs.VirtualNetworkProfileResponse':
+    def virtual_network(self) -> 'outputs.VirtualNetworkProfileInvokeResponseResult':
         """
         Description of the Virtual Network.
         """
@@ -458,7 +458,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="workerPools")
-    def worker_pools(self) -> Sequence['outputs.WorkerPoolResponse']:
+    def worker_pools(self) -> Sequence['outputs.WorkerPoolInvokeResponseResult']:
         """
         Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
         """

@@ -52,7 +52,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RoleAssignmentPropertiesWithScopeResponse':
+    def properties(self) -> 'outputs.RoleAssignmentPropertiesWithScopeInvokeResponseResult':
         """
         Role assignment properties.
         """

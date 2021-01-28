@@ -94,7 +94,7 @@ class GetLogProfileResult:
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> 'outputs.RetentionPolicyResponse':
+    def retention_policy(self) -> 'outputs.RetentionPolicyInvokeResponseResult':
         """
         the retention policy for the events in the log.
         """

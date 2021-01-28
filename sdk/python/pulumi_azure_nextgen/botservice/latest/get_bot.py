@@ -91,7 +91,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BotPropertiesResponse':
+    def properties(self) -> 'outputs.BotPropertiesInvokeResponseResult':
         """
         The set of properties specific to bot resource
         """
@@ -99,7 +99,7 @@ class GetBotResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the SKU of the resource.
         """

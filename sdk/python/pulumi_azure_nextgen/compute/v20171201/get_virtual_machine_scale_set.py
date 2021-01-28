@@ -83,7 +83,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.VirtualMachineScaleSetIdentityResponse']:
+    def identity(self) -> Optional['outputs.VirtualMachineScaleSetIdentityInvokeResponseResult']:
         """
         The identity of the virtual machine scale set, if configured.
         """
@@ -115,7 +115,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanInvokeResponseResult']:
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
@@ -147,7 +147,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The virtual machine scale set sku.
         """
@@ -179,7 +179,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter(name="upgradePolicy")
-    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyResponse']:
+    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyInvokeResponseResult']:
         """
         The upgrade policy.
         """
@@ -187,7 +187,7 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter(name="virtualMachineProfile")
-    def virtual_machine_profile(self) -> Optional['outputs.VirtualMachineScaleSetVMProfileResponse']:
+    def virtual_machine_profile(self) -> Optional['outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult']:
         """
         The virtual machine profile.
         """

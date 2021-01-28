@@ -98,7 +98,7 @@ class GetAssignmentResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.ManagedServiceIdentityResponse':
+    def identity(self) -> 'outputs.ManagedServiceIdentityInvokeResponseResult':
         """
         Managed identity for this blueprint assignment.
         """
@@ -114,7 +114,7 @@ class GetAssignmentResult:
 
     @property
     @pulumi.getter
-    def locks(self) -> Optional['outputs.AssignmentLockSettingsResponse']:
+    def locks(self) -> Optional['outputs.AssignmentLockSettingsInvokeResponseResult']:
         """
         Defines how resources deployed by a blueprint assignment are locked.
         """
@@ -130,7 +130,7 @@ class GetAssignmentResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, 'outputs.ParameterValueResponse']:
+    def parameters(self) -> Mapping[str, 'outputs.ParameterValueInvokeResponseResult']:
         """
         Blueprint assignment parameter values.
         """
@@ -146,7 +146,7 @@ class GetAssignmentResult:
 
     @property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Mapping[str, 'outputs.ResourceGroupValueResponse']:
+    def resource_groups(self) -> Mapping[str, 'outputs.ResourceGroupValueInvokeResponseResult']:
         """
         Names and locations of resource group placeholders.
         """
@@ -162,7 +162,7 @@ class GetAssignmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.AssignmentStatusResponse':
+    def status(self) -> 'outputs.AssignmentStatusInvokeResponseResult':
         """
         Status of blueprint assignment. This field is readonly.
         """

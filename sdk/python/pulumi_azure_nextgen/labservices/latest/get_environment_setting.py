@@ -109,7 +109,7 @@ class GetEnvironmentSettingResult:
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultInvokeResponseResult':
         """
         The details of the latest operation. ex: status, error
         """
@@ -149,7 +149,7 @@ class GetEnvironmentSettingResult:
 
     @property
     @pulumi.getter(name="resourceSettings")
-    def resource_settings(self) -> 'outputs.ResourceSettingsResponse':
+    def resource_settings(self) -> 'outputs.ResourceSettingsInvokeResponseResult':
         """
         The resource specific settings
         """

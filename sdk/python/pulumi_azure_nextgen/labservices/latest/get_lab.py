@@ -112,7 +112,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultInvokeResponseResult':
         """
         The details of the latest operation. ex: status, error
         """

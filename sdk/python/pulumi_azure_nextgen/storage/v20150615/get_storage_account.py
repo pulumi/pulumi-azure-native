@@ -88,7 +88,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional['outputs.CustomDomainResponse']:
+    def custom_domain(self) -> Optional['outputs.CustomDomainInvokeResponseResult']:
         """
         The custom domain the user assigned to this storage account.
         """
@@ -128,7 +128,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="primaryEndpoints")
-    def primary_endpoints(self) -> Optional['outputs.EndpointsResponse']:
+    def primary_endpoints(self) -> Optional['outputs.EndpointsInvokeResponseResult']:
         """
         The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         """
@@ -152,7 +152,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="secondaryEndpoints")
-    def secondary_endpoints(self) -> Optional['outputs.EndpointsResponse']:
+    def secondary_endpoints(self) -> Optional['outputs.EndpointsInvokeResponseResult']:
         """
         The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         """

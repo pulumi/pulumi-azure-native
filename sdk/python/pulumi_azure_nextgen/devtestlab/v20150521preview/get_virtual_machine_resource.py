@@ -99,7 +99,7 @@ class GetVirtualMachineResourceResult:
 
     @property
     @pulumi.getter(name="artifactDeploymentStatus")
-    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']:
+    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesInvokeResponseResult']:
         """
         The artifact deployment status for the virtual machine.
         """
@@ -107,7 +107,7 @@ class GetVirtualMachineResourceResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesInvokeResponseResult']]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -163,7 +163,7 @@ class GetVirtualMachineResourceResult:
 
     @property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional['outputs.GalleryImageReferenceResponse']:
+    def gallery_image_reference(self) -> Optional['outputs.GalleryImageReferenceInvokeResponseResult']:
         """
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """

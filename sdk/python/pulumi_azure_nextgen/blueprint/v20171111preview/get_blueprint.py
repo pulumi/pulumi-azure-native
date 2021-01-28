@@ -97,7 +97,7 @@ class GetBlueprintResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionInvokeResponseResult']]:
         """
         Parameters required by this Blueprint definition.
         """
@@ -105,7 +105,7 @@ class GetBlueprintResult:
 
     @property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[Mapping[str, 'outputs.ResourceGroupDefinitionResponse']]:
+    def resource_groups(self) -> Optional[Mapping[str, 'outputs.ResourceGroupDefinitionInvokeResponseResult']]:
         """
         Resource group placeholders defined by this Blueprint definition.
         """
@@ -113,7 +113,7 @@ class GetBlueprintResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.BlueprintStatusResponse':
+    def status(self) -> 'outputs.BlueprintStatusInvokeResponseResult':
         """
         Status of the Blueprint. This field is readonly.
         """

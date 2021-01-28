@@ -50,7 +50,7 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.ManagedIdentityPropertiesInvokeResponseResult']:
         """
         The Managed Identity type of the app resource
         """
@@ -74,7 +74,7 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.AppResourcePropertiesResponse':
+    def properties(self) -> 'outputs.AppResourcePropertiesInvokeResponseResult':
         """
         Properties of the App resource
         """

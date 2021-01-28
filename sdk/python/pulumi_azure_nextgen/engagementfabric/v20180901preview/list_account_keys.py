@@ -27,7 +27,7 @@ class ListAccountKeysResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.KeyDescriptionResponseResult']:
+    def value(self) -> Sequence['outputs.KeyDescriptionInvokeResponseResult']:
         """
         Account keys
         """

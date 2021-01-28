@@ -54,7 +54,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.AccountEncryptionResponse']:
+    def encryption(self) -> Optional['outputs.AccountEncryptionInvokeResponseResult']:
         """
         The account encryption properties.
         """
@@ -70,7 +70,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.MediaServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.MediaServiceIdentityInvokeResponseResult']:
         """
         The Managed Identity for the Media Services account.
         """
@@ -102,7 +102,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountInvokeResponseResult']]:
         """
         The storage accounts for this resource.
         """

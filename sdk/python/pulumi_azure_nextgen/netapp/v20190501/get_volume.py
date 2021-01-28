@@ -88,7 +88,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+    def export_policy(self) -> Optional['outputs.VolumePropertiesInvokeResponseExportPolicyResult']:
         """
         Set of export policy rules
         """
@@ -120,7 +120,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesResponse']]:
+    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesInvokeResponseResult']]:
         """
         List of mount targets
         """

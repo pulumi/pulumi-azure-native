@@ -97,7 +97,7 @@ class GetLoggerResult:
 
     @property
     @pulumi.getter
-    def sampling(self) -> Optional['outputs.LoggerSamplingContractResponse']:
+    def sampling(self) -> Optional['outputs.LoggerSamplingContractInvokeResponseResult']:
         """
         Sampling settings for an ApplicationInsights logger.
         """

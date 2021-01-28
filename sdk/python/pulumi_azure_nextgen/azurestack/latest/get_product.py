@@ -98,7 +98,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def compatibility(self) -> Optional['outputs.CompatibilityResponseResult']:
+    def compatibility(self) -> Optional['outputs.CompatibilityInvokeResponseResult']:
         """
         Product compatibility with current device.
         """
@@ -138,7 +138,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="iconUris")
-    def icon_uris(self) -> Optional['outputs.IconUrisResponseResult']:
+    def icon_uris(self) -> Optional['outputs.IconUrisInvokeResponseResult']:
         """
         Additional links available for this product.
         """
@@ -162,7 +162,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.ProductLinkResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.ProductLinkInvokeResponseResult']]:
         """
         Additional links available for this product.
         """
@@ -218,7 +218,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="productProperties")
-    def product_properties(self) -> Optional['outputs.ProductPropertiesResponseResult']:
+    def product_properties(self) -> Optional['outputs.ProductPropertiesInvokeResponseResult']:
         """
         Additional properties for the product.
         """

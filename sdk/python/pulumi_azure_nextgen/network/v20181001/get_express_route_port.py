@@ -91,7 +91,7 @@ class GetExpressRoutePortResult:
 
     @property
     @pulumi.getter
-    def circuits(self) -> Sequence['outputs.SubResourceResponse']:
+    def circuits(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         """
@@ -131,7 +131,7 @@ class GetExpressRoutePortResult:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.ExpressRouteLinkResponse']]:
+    def links(self) -> Optional[Sequence['outputs.ExpressRouteLinkInvokeResponseResult']]:
         """
         The set of physical links of the ExpressRoutePort resource
         """

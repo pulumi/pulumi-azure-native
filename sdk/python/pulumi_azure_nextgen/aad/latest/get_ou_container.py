@@ -66,7 +66,7 @@ class GetOuContainerResult:
 
     @property
     @pulumi.getter
-    def accounts(self) -> Optional[Sequence['outputs.ContainerAccountResponse']]:
+    def accounts(self) -> Optional[Sequence['outputs.ContainerAccountInvokeResponseResult']]:
         """
         The list of container accounts
         """

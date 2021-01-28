@@ -96,7 +96,7 @@ class GetBandwidthScheduleResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Bandwidth object related to ASE resource
         """

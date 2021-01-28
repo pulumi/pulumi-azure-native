@@ -121,7 +121,7 @@ class GetVirtualNetworkPeeringResult:
 
     @property
     @pulumi.getter(name="remoteAddressSpace")
-    def remote_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def remote_address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The reference of the remote virtual network address space.
         """
@@ -129,7 +129,7 @@ class GetVirtualNetworkPeeringResult:
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def remote_virtual_network(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         """

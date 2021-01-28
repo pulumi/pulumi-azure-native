@@ -52,7 +52,7 @@ class GetCostAllocationRuleResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CostAllocationRulePropertiesResponse':
+    def properties(self) -> 'outputs.CostAllocationRulePropertiesInvokeResponseResult':
         """
         Cost allocation rule properties
         """

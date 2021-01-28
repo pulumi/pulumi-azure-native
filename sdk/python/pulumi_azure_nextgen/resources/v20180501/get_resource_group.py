@@ -77,7 +77,7 @@ class GetResourceGroupResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ResourceGroupPropertiesResponse':
+    def properties(self) -> 'outputs.ResourceGroupPropertiesInvokeResponseResult':
         """
         The resource group properties.
         """

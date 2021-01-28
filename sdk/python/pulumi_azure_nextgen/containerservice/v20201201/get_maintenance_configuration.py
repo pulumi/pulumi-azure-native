@@ -58,7 +58,7 @@ class GetMaintenanceConfigurationResult:
 
     @property
     @pulumi.getter(name="notAllowedTime")
-    def not_allowed_time(self) -> Optional[Sequence['outputs.TimeSpanResponse']]:
+    def not_allowed_time(self) -> Optional[Sequence['outputs.TimeSpanInvokeResponseResult']]:
         """
         Time slots on which upgrade is not allowed.
         """
@@ -66,7 +66,7 @@ class GetMaintenanceConfigurationResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system meta data relating to this resource.
         """
@@ -74,7 +74,7 @@ class GetMaintenanceConfigurationResult:
 
     @property
     @pulumi.getter(name="timeInWeek")
-    def time_in_week(self) -> Optional[Sequence['outputs.TimeInWeekResponse']]:
+    def time_in_week(self) -> Optional[Sequence['outputs.TimeInWeekInvokeResponseResult']]:
         """
         Weekday time slots allowed to upgrade.
         """

@@ -282,7 +282,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="recommendedIndex")
-    def recommended_index(self) -> Sequence['outputs.RecommendedIndexResponse']:
+    def recommended_index(self) -> Sequence['outputs.RecommendedIndexInvokeResponseResult']:
         """
         The recommended indices for this database.
         """
@@ -350,7 +350,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="serviceTierAdvisors")
-    def service_tier_advisors(self) -> Sequence['outputs.ServiceTierAdvisorResponse']:
+    def service_tier_advisors(self) -> Sequence['outputs.ServiceTierAdvisorInvokeResponseResult']:
         """
         The list of service tier advisors for this database. Expanded property
         """
@@ -390,7 +390,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="transparentDataEncryption")
-    def transparent_data_encryption(self) -> Sequence['outputs.TransparentDataEncryptionResponse']:
+    def transparent_data_encryption(self) -> Sequence['outputs.TransparentDataEncryptionInvokeResponseResult']:
         """
         The transparent data encryption info for this database.
         """

@@ -10,8 +10,32 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'DscConfigurationAssociationPropertyInvokeResponseResult',
     'DscConfigurationAssociationPropertyResponse',
 ]
+
+@pulumi.output_type
+class DscConfigurationAssociationPropertyInvokeResponseResult(dict):
+    """
+    The Dsc configuration property associated with the entity.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The Dsc configuration property associated with the entity.
+        :param str name: Gets or sets the name of the Dsc configuration.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the Dsc configuration.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class DscConfigurationAssociationPropertyResponse(dict):

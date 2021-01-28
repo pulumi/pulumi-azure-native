@@ -102,7 +102,7 @@ class GetBackupScheduleResult:
 
     @property
     @pulumi.getter(name="scheduleRecurrence")
-    def schedule_recurrence(self) -> 'outputs.ScheduleRecurrenceResponse':
+    def schedule_recurrence(self) -> 'outputs.ScheduleRecurrenceInvokeResponseResult':
         """
         The schedule recurrence.
         """

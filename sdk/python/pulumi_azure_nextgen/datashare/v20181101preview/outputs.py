@@ -10,12 +10,58 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'IdentityInvokeResponseResult',
     'IdentityResponse',
-    'ScheduledSourceSynchronizationSettingResponseResult',
-    'ShareSubscriptionSynchronizationResponseResult',
-    'ShareSynchronizationResponseResult',
-    'SynchronizationDetailsResponseResult',
+    'ScheduledSourceSynchronizationSettingInvokeResponseResult',
+    'ShareSubscriptionSynchronizationInvokeResponseResult',
+    'ShareSynchronizationInvokeResponseResult',
+    'SynchronizationDetailsInvokeResponseResult',
 ]
+
+@pulumi.output_type
+class IdentityInvokeResponseResult(dict):
+    """
+    Identity of resource
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity of resource
+        :param str principal_id: service principal Id
+        :param str tenant_id: Tenant Id
+        :param str type: Identity Type
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        service principal Id
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Identity Type
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class IdentityResponse(dict):
@@ -66,7 +112,7 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class ScheduledSourceSynchronizationSettingResponseResult(dict):
+class ScheduledSourceSynchronizationSettingInvokeResponseResult(dict):
     """
     A type of synchronization setting based on schedule
     """
@@ -114,7 +160,7 @@ class ScheduledSourceSynchronizationSettingResponseResult(dict):
 
 
 @pulumi.output_type
-class ShareSubscriptionSynchronizationResponseResult(dict):
+class ShareSubscriptionSynchronizationInvokeResponseResult(dict):
     """
     A ShareSubscriptionSynchronization data transfer object.
     """
@@ -202,7 +248,7 @@ class ShareSubscriptionSynchronizationResponseResult(dict):
 
 
 @pulumi.output_type
-class ShareSynchronizationResponseResult(dict):
+class ShareSynchronizationInvokeResponseResult(dict):
     """
     A ShareSynchronization data transfer object.
     """
@@ -332,7 +378,7 @@ class ShareSynchronizationResponseResult(dict):
 
 
 @pulumi.output_type
-class SynchronizationDetailsResponseResult(dict):
+class SynchronizationDetailsInvokeResponseResult(dict):
     """
     Synchronization details at data set level
     """

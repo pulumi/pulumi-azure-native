@@ -59,7 +59,7 @@ class GetInstanceFailoverGroupResult:
 
     @property
     @pulumi.getter(name="managedInstancePairs")
-    def managed_instance_pairs(self) -> Sequence['outputs.ManagedInstancePairInfoResponse']:
+    def managed_instance_pairs(self) -> Sequence['outputs.ManagedInstancePairInfoInvokeResponseResult']:
         """
         List of managed instance pairs in the failover group.
         """
@@ -75,7 +75,7 @@ class GetInstanceFailoverGroupResult:
 
     @property
     @pulumi.getter(name="partnerRegions")
-    def partner_regions(self) -> Sequence['outputs.PartnerRegionInfoResponse']:
+    def partner_regions(self) -> Sequence['outputs.PartnerRegionInfoInvokeResponseResult']:
         """
         Partner region information for the failover group.
         """
@@ -83,7 +83,7 @@ class GetInstanceFailoverGroupResult:
 
     @property
     @pulumi.getter(name="readOnlyEndpoint")
-    def read_only_endpoint(self) -> Optional['outputs.InstanceFailoverGroupReadOnlyEndpointResponse']:
+    def read_only_endpoint(self) -> Optional['outputs.InstanceFailoverGroupReadOnlyEndpointInvokeResponseResult']:
         """
         Read-only endpoint of the failover group instance.
         """
@@ -91,7 +91,7 @@ class GetInstanceFailoverGroupResult:
 
     @property
     @pulumi.getter(name="readWriteEndpoint")
-    def read_write_endpoint(self) -> 'outputs.InstanceFailoverGroupReadWriteEndpointResponse':
+    def read_write_endpoint(self) -> 'outputs.InstanceFailoverGroupReadWriteEndpointInvokeResponseResult':
         """
         Read-write endpoint of the failover group instance.
         """

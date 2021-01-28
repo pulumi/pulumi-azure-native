@@ -78,7 +78,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def links(self) -> 'outputs.AssessmentLinksResponse':
+    def links(self) -> 'outputs.AssessmentLinksInvokeResponseResult':
         """
         Links relevant to the assessment
         """
@@ -86,7 +86,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional['outputs.SecurityAssessmentMetadataPropertiesResponse']:
+    def metadata(self) -> Optional['outputs.SecurityAssessmentMetadataPropertiesInvokeResponseResult']:
         """
         Describes properties of an assessment metadata.
         """
@@ -102,7 +102,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter(name="partnersData")
-    def partners_data(self) -> Optional['outputs.SecurityAssessmentPartnerDataResponse']:
+    def partners_data(self) -> Optional['outputs.SecurityAssessmentPartnerDataInvokeResponseResult']:
         """
         Data regarding 3rd party partner integration
         """
@@ -118,7 +118,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.AssessmentStatusResponse':
+    def status(self) -> 'outputs.AssessmentStatusInvokeResponseResult':
         """
         The result of the assessment
         """

@@ -93,7 +93,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.WebTestPropertiesResponseConfiguration']:
+    def configuration(self) -> Optional['outputs.WebTestPropertiesInvokeResponseConfigurationResult']:
         """
         An XML configuration specification for a WebTest.
         """
@@ -101,7 +101,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter(name="contentValidation")
-    def content_validation(self) -> Optional['outputs.WebTestPropertiesResponseContentValidation']:
+    def content_validation(self) -> Optional['outputs.WebTestPropertiesInvokeResponseContentValidationResult']:
         """
         The collection of content validation properties
         """
@@ -173,7 +173,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> Sequence['outputs.WebTestGeolocationResponse']:
+    def locations(self) -> Sequence['outputs.WebTestGeolocationInvokeResponseResult']:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
         """
@@ -197,7 +197,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.WebTestPropertiesResponseRequest']:
+    def request(self) -> Optional['outputs.WebTestPropertiesInvokeResponseRequestResult']:
         """
         The collection of request properties
         """

@@ -56,7 +56,7 @@ class GetDeploymentScriptResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         """
@@ -88,7 +88,7 @@ class GetDeploymentScriptResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata related to this resource.
         """

@@ -66,7 +66,7 @@ class GetGremlinResourceGremlinGraphResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.GremlinGraphGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.GremlinGraphGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

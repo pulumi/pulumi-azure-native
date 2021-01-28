@@ -96,7 +96,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.IpTagInvokeResponseResult']]:
         """
         The list of tags associated with the public IP prefix.
         """
@@ -104,7 +104,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfiguration")
-    def load_balancer_frontend_ip_configuration(self) -> 'outputs.SubResourceResponse':
+    def load_balancer_frontend_ip_configuration(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         The reference to load balancer frontend IP configuration associated with the public IP prefix.
         """
@@ -152,7 +152,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> Sequence['outputs.ReferencedPublicIpAddressResponse']:
+    def public_ip_addresses(self) -> Sequence['outputs.ReferencedPublicIpAddressInvokeResponseResult']:
         """
         The list of all referenced PublicIPAddresses.
         """
@@ -168,7 +168,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PublicIPPrefixSkuResponse']:
+    def sku(self) -> Optional['outputs.PublicIPPrefixSkuInvokeResponseResult']:
         """
         The public IP prefix SKU.
         """

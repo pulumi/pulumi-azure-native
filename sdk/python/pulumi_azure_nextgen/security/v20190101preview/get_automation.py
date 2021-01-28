@@ -124,7 +124,7 @@ class GetAutomationResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[Sequence['outputs.AutomationScopeResponse']]:
+    def scopes(self) -> Optional[Sequence['outputs.AutomationScopeInvokeResponseResult']]:
         """
         A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         """
@@ -132,7 +132,7 @@ class GetAutomationResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[Sequence['outputs.AutomationSourceResponse']]:
+    def sources(self) -> Optional[Sequence['outputs.AutomationSourceInvokeResponseResult']]:
         """
         A collection of the source event types which evaluate the security automation set of rules.
         """

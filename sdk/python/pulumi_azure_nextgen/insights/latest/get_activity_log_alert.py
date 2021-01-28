@@ -54,7 +54,7 @@ class GetActivityLogAlertResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> 'outputs.ActivityLogAlertActionListResponse':
+    def actions(self) -> 'outputs.ActivityLogAlertActionListInvokeResponseResult':
         """
         The actions that will activate when the condition is met.
         """
@@ -62,7 +62,7 @@ class GetActivityLogAlertResult:
 
     @property
     @pulumi.getter
-    def condition(self) -> 'outputs.ActivityLogAlertAllOfConditionResponse':
+    def condition(self) -> 'outputs.ActivityLogAlertAllOfConditionInvokeResponseResult':
         """
         The condition that will cause this alert to activate.
         """

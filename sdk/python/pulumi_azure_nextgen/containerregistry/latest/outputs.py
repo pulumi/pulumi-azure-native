@@ -11,49 +11,79 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActorResponseResult',
+    'ActorInvokeResponseResult',
+    'AgentPropertiesInvokeResponseResult',
     'AgentPropertiesResponse',
+    'ArgumentInvokeResponseResult',
     'ArgumentResponse',
+    'AuthInfoInvokeResponseResult',
     'AuthInfoResponse',
+    'BaseImageDependencyInvokeResponseResult',
     'BaseImageDependencyResponse',
+    'BaseImageTriggerInvokeResponseResult',
     'BaseImageTriggerResponse',
+    'CredentialsInvokeResponseResult',
     'CredentialsResponse',
+    'CustomRegistryCredentialsInvokeResponseResult',
     'CustomRegistryCredentialsResponse',
+    'DockerBuildStepInvokeResponseResult',
     'DockerBuildStepResponse',
+    'EncodedTaskStepInvokeResponseResult',
     'EncodedTaskStepResponse',
-    'EventContentResponseResult',
-    'EventRequestMessageResponseResult',
-    'EventResponseResult',
-    'EventResponseMessageResponseResult',
+    'EventContentInvokeResponseResult',
+    'EventInvokeResponseResult',
+    'EventRequestMessageInvokeResponseResult',
+    'EventResponseMessageInvokeResponseResult',
+    'FileTaskStepInvokeResponseResult',
     'FileTaskStepResponse',
+    'IPRuleInvokeResponseResult',
     'IPRuleResponse',
+    'IdentityPropertiesInvokeResponseResult',
     'IdentityPropertiesResponse',
+    'NetworkRuleSetInvokeResponseResult',
     'NetworkRuleSetResponse',
+    'PlatformPropertiesInvokeResponseResult',
     'PlatformPropertiesResponse',
+    'PoliciesInvokeResponseResult',
     'PoliciesResponse',
+    'QuarantinePolicyInvokeResponseResult',
     'QuarantinePolicyResponse',
-    'RegistryPasswordResponseResult',
-    'RequestResponseResult',
+    'RegistryPasswordInvokeResponseResult',
+    'RequestInvokeResponseResult',
+    'RetentionPolicyInvokeResponseResult',
     'RetentionPolicyResponse',
+    'SecretObjectInvokeResponseResult',
     'SecretObjectResponse',
+    'SetValueInvokeResponseResult',
     'SetValueResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'SourceInvokeResponseResult',
+    'SourcePropertiesInvokeResponseResult',
     'SourcePropertiesResponse',
+    'SourceRegistryCredentialsInvokeResponseResult',
     'SourceRegistryCredentialsResponse',
-    'SourceResponseResult',
+    'SourceTriggerInvokeResponseResult',
     'SourceTriggerResponse',
+    'StatusInvokeResponseResult',
     'StatusResponse',
+    'StorageAccountPropertiesInvokeResponseResult',
     'StorageAccountPropertiesResponse',
-    'TargetResponseResult',
+    'TargetInvokeResponseResult',
+    'TimerTriggerInvokeResponseResult',
     'TimerTriggerResponse',
+    'TriggerPropertiesInvokeResponseResult',
     'TriggerPropertiesResponse',
+    'TrustPolicyInvokeResponseResult',
     'TrustPolicyResponse',
+    'UserIdentityPropertiesInvokeResponseResult',
     'UserIdentityPropertiesResponse',
+    'VirtualNetworkRuleInvokeResponseResult',
     'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
-class ActorResponseResult(dict):
+class ActorInvokeResponseResult(dict):
     """
     The agent that initiated the event. For most situations, this could be from the authorization context of the request.
     """
@@ -73,6 +103,29 @@ class ActorResponseResult(dict):
         The subject or username associated with the request context that generated the event.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AgentPropertiesInvokeResponseResult(dict):
+    """
+    The properties that determine the run agent configuration.
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[int] = None):
+        """
+        The properties that determine the run agent configuration.
+        :param int cpu: The CPU configuration in terms of number of cores required for the run.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[int]:
+        """
+        The CPU configuration in terms of number of cores required for the run.
+        """
+        return pulumi.get(self, "cpu")
 
 
 @pulumi.output_type
@@ -99,6 +152,53 @@ class AgentPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ArgumentInvokeResponseResult(dict):
+    """
+    The properties of a run argument.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 is_secret: Optional[bool] = None):
+        """
+        The properties of a run argument.
+        :param str name: The name of the argument.
+        :param str value: The value of the argument.
+        :param bool is_secret: Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the argument.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the argument.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[bool]:
+        """
+        Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        return pulumi.get(self, "is_secret")
 
 
 @pulumi.output_type
@@ -149,6 +249,75 @@ class ArgumentResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AuthInfoInvokeResponseResult(dict):
+    """
+    The authorization properties for accessing the source code repository.
+    """
+    def __init__(__self__, *,
+                 token: str,
+                 token_type: str,
+                 expires_in: Optional[int] = None,
+                 refresh_token: Optional[str] = None,
+                 scope: Optional[str] = None):
+        """
+        The authorization properties for accessing the source code repository.
+        :param str token: The access token used to access the source control provider.
+        :param str token_type: The type of Auth token.
+        :param int expires_in: Time in seconds that the token remains valid
+        :param str refresh_token: The refresh token used to refresh the access token.
+        :param str scope: The scope of the access token.
+        """
+        pulumi.set(__self__, "token", token)
+        pulumi.set(__self__, "token_type", token_type)
+        if expires_in is not None:
+            pulumi.set(__self__, "expires_in", expires_in)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        The access token used to access the source control provider.
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> str:
+        """
+        The type of Auth token.
+        """
+        return pulumi.get(self, "token_type")
+
+    @property
+    @pulumi.getter(name="expiresIn")
+    def expires_in(self) -> Optional[int]:
+        """
+        Time in seconds that the token remains valid
+        """
+        return pulumi.get(self, "expires_in")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        """
+        The refresh token used to refresh the access token.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The scope of the access token.
+        """
+        return pulumi.get(self, "scope")
 
 
 @pulumi.output_type
@@ -221,6 +390,77 @@ class AuthInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BaseImageDependencyInvokeResponseResult(dict):
+    """
+    Properties that describe a base image dependency.
+    """
+    def __init__(__self__, *,
+                 digest: Optional[str] = None,
+                 registry: Optional[str] = None,
+                 repository: Optional[str] = None,
+                 tag: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Properties that describe a base image dependency.
+        :param str digest: The sha256-based digest of the image manifest.
+        :param str registry: The registry login server.
+        :param str repository: The repository name.
+        :param str tag: The tag name.
+        :param str type: The type of the base image dependency.
+        """
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if registry is not None:
+            pulumi.set(__self__, "registry", registry)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[str]:
+        """
+        The sha256-based digest of the image manifest.
+        """
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter
+    def registry(self) -> Optional[str]:
+        """
+        The registry login server.
+        """
+        return pulumi.get(self, "registry")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        The repository name.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[str]:
+        """
+        The tag name.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the base image dependency.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -298,6 +538,53 @@ class BaseImageDependencyResponse(dict):
 
 
 @pulumi.output_type
+class BaseImageTriggerInvokeResponseResult(dict):
+    """
+    The trigger based on base image dependency.
+    """
+    def __init__(__self__, *,
+                 base_image_trigger_type: str,
+                 name: str,
+                 status: Optional[str] = None):
+        """
+        The trigger based on base image dependency.
+        :param str base_image_trigger_type: The type of the auto trigger for base image dependency updates.
+        :param str name: The name of the trigger.
+        :param str status: The current status of trigger.
+        """
+        pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
+        pulumi.set(__self__, "name", name)
+        if status is None:
+            status = 'Enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="baseImageTriggerType")
+    def base_image_trigger_type(self) -> str:
+        """
+        The type of the auto trigger for base image dependency updates.
+        """
+        return pulumi.get(self, "base_image_trigger_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the trigger.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The current status of trigger.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class BaseImageTriggerResponse(dict):
     """
     The trigger based on base image dependency.
@@ -348,6 +635,45 @@ class BaseImageTriggerResponse(dict):
 
 
 @pulumi.output_type
+class CredentialsInvokeResponseResult(dict):
+    """
+    The parameters that describes a set of credentials that will be used when a run is invoked.
+    """
+    def __init__(__self__, *,
+                 custom_registries: Optional[Mapping[str, 'outputs.CustomRegistryCredentialsInvokeResponseResult']] = None,
+                 source_registry: Optional['outputs.SourceRegistryCredentialsInvokeResponseResult'] = None):
+        """
+        The parameters that describes a set of credentials that will be used when a run is invoked.
+        :param Mapping[str, 'CustomRegistryCredentialsInvokeResponseArgs'] custom_registries: Describes the credential parameters for accessing other custom registries. The key
+               for the dictionary item will be the registry login server (myregistry.azurecr.io) and
+               the value of the item will be the registry credentials for accessing the registry.
+        :param 'SourceRegistryCredentialsInvokeResponseArgs' source_registry: Describes the credential parameters for accessing the source registry.
+        """
+        if custom_registries is not None:
+            pulumi.set(__self__, "custom_registries", custom_registries)
+        if source_registry is not None:
+            pulumi.set(__self__, "source_registry", source_registry)
+
+    @property
+    @pulumi.getter(name="customRegistries")
+    def custom_registries(self) -> Optional[Mapping[str, 'outputs.CustomRegistryCredentialsInvokeResponseResult']]:
+        """
+        Describes the credential parameters for accessing other custom registries. The key
+        for the dictionary item will be the registry login server (myregistry.azurecr.io) and
+        the value of the item will be the registry credentials for accessing the registry.
+        """
+        return pulumi.get(self, "custom_registries")
+
+    @property
+    @pulumi.getter(name="sourceRegistry")
+    def source_registry(self) -> Optional['outputs.SourceRegistryCredentialsInvokeResponseResult']:
+        """
+        Describes the credential parameters for accessing the source registry.
+        """
+        return pulumi.get(self, "source_registry")
+
+
+@pulumi.output_type
 class CredentialsResponse(dict):
     """
     The parameters that describes a set of credentials that will be used when a run is invoked.
@@ -387,6 +713,63 @@ class CredentialsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CustomRegistryCredentialsInvokeResponseResult(dict):
+    """
+    Describes the credentials that will be used to access a custom registry during a run.
+    """
+    def __init__(__self__, *,
+                 identity: Optional[str] = None,
+                 password: Optional['outputs.SecretObjectInvokeResponseResult'] = None,
+                 user_name: Optional['outputs.SecretObjectInvokeResponseResult'] = None):
+        """
+        Describes the credentials that will be used to access a custom registry during a run.
+        :param str identity: Indicates the managed identity assigned to the custom credential. If a user-assigned identity
+               this value is the Client ID. If a system-assigned identity, the value will be `system`. In
+               the case of a system-assigned identity, the Client ID will be determined by the runner. This
+               identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
+               source of authentication used for accessing the registry.
+        :param 'SecretObjectInvokeResponseArgs' password: The password for logging into the custom registry. The password is a secret 
+               object that allows multiple ways of providing the value for it.
+        :param 'SecretObjectInvokeResponseArgs' user_name: The username for logging into the custom registry.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        Indicates the managed identity assigned to the custom credential. If a user-assigned identity
+        this value is the Client ID. If a system-assigned identity, the value will be `system`. In
+        the case of a system-assigned identity, the Client ID will be determined by the runner. This
+        identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
+        source of authentication used for accessing the registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional['outputs.SecretObjectInvokeResponseResult']:
+        """
+        The password for logging into the custom registry. The password is a secret 
+        object that allows multiple ways of providing the value for it.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional['outputs.SecretObjectInvokeResponseResult']:
+        """
+        The username for logging into the custom registry.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -447,6 +830,140 @@ class CustomRegistryCredentialsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DockerBuildStepInvokeResponseResult(dict):
+    """
+    The Docker build step.
+    """
+    def __init__(__self__, *,
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyInvokeResponseResult'],
+                 docker_file_path: str,
+                 type: str,
+                 arguments: Optional[Sequence['outputs.ArgumentInvokeResponseResult']] = None,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 image_names: Optional[Sequence[str]] = None,
+                 is_push_enabled: Optional[bool] = None,
+                 no_cache: Optional[bool] = None,
+                 target: Optional[str] = None):
+        """
+        The Docker build step.
+        :param Sequence['BaseImageDependencyInvokeResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param str docker_file_path: The Docker file path relative to the source context.
+        :param str type: The type of the step.
+               Expected value is 'Docker'.
+        :param Sequence['ArgumentInvokeResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
+        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param str context_path: The URL(absolute or relative) of the source context for the task step.
+        :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
+        :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
+        :param str target: The name of the target build stage for the docker build.
+        """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
+        pulumi.set(__self__, "docker_file_path", docker_file_path)
+        pulumi.set(__self__, "type", 'Docker')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is None:
+            is_push_enabled = True
+        if is_push_enabled is not None:
+            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is None:
+            no_cache = False
+        if no_cache is not None:
+            pulumi.set(__self__, "no_cache", no_cache)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyInvokeResponseResult']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
+
+    @property
+    @pulumi.getter(name="dockerFilePath")
+    def docker_file_path(self) -> str:
+        """
+        The Docker file path relative to the source context.
+        """
+        return pulumi.get(self, "docker_file_path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step.
+        Expected value is 'Docker'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[Sequence['outputs.ArgumentInvokeResponseResult']]:
+        """
+        The collection of override arguments to be used when executing this build step.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[Sequence[str]]:
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @property
+    @pulumi.getter(name="noCache")
+    def no_cache(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        return pulumi.get(self, "no_cache")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -587,6 +1104,100 @@ class DockerBuildStepResponse(dict):
 
 
 @pulumi.output_type
+class EncodedTaskStepInvokeResponseResult(dict):
+    """
+    The properties of a encoded task step.
+    """
+    def __init__(__self__, *,
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyInvokeResponseResult'],
+                 encoded_task_content: str,
+                 type: str,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 encoded_values_content: Optional[str] = None,
+                 values: Optional[Sequence['outputs.SetValueInvokeResponseResult']] = None):
+        """
+        The properties of a encoded task step.
+        :param Sequence['BaseImageDependencyInvokeResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param str encoded_task_content: Base64 encoded value of the template/definition file content.
+        :param str type: The type of the step.
+               Expected value is 'EncodedTask'.
+        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param str context_path: The URL(absolute or relative) of the source context for the task step.
+        :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
+        :param Sequence['SetValueInvokeResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
+        pulumi.set(__self__, "encoded_task_content", encoded_task_content)
+        pulumi.set(__self__, "type", 'EncodedTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if encoded_values_content is not None:
+            pulumi.set(__self__, "encoded_values_content", encoded_values_content)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyInvokeResponseResult']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
+
+    @property
+    @pulumi.getter(name="encodedTaskContent")
+    def encoded_task_content(self) -> str:
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        return pulumi.get(self, "encoded_task_content")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step.
+        Expected value is 'EncodedTask'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="encodedValuesContent")
+    def encoded_values_content(self) -> Optional[str]:
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        return pulumi.get(self, "encoded_values_content")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.SetValueInvokeResponseResult']]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class EncodedTaskStepResponse(dict):
     """
     The properties of a encoded task step.
@@ -684,26 +1295,26 @@ class EncodedTaskStepResponse(dict):
 
 
 @pulumi.output_type
-class EventContentResponseResult(dict):
+class EventContentInvokeResponseResult(dict):
     """
     The content of the event request message.
     """
     def __init__(__self__, *,
                  action: Optional[str] = None,
-                 actor: Optional['outputs.ActorResponseResult'] = None,
+                 actor: Optional['outputs.ActorInvokeResponseResult'] = None,
                  id: Optional[str] = None,
-                 request: Optional['outputs.RequestResponseResult'] = None,
-                 source: Optional['outputs.SourceResponseResult'] = None,
-                 target: Optional['outputs.TargetResponseResult'] = None,
+                 request: Optional['outputs.RequestInvokeResponseResult'] = None,
+                 source: Optional['outputs.SourceInvokeResponseResult'] = None,
+                 target: Optional['outputs.TargetInvokeResponseResult'] = None,
                  timestamp: Optional[str] = None):
         """
         The content of the event request message.
         :param str action: The action that encompasses the provided event.
-        :param 'ActorResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+        :param 'ActorInvokeResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param str id: The event ID.
-        :param 'RequestResponseArgs' request: The request that generated the event.
-        :param 'SourceResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-        :param 'TargetResponseArgs' target: The target of the event.
+        :param 'RequestInvokeResponseArgs' request: The request that generated the event.
+        :param 'SourceInvokeResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+        :param 'TargetInvokeResponseArgs' target: The target of the event.
         :param str timestamp: The time at which the event occurred.
         """
         if action is not None:
@@ -731,7 +1342,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def actor(self) -> Optional['outputs.ActorResponseResult']:
+    def actor(self) -> Optional['outputs.ActorInvokeResponseResult']:
         """
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         """
@@ -747,7 +1358,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestResponseResult']:
+    def request(self) -> Optional['outputs.RequestInvokeResponseResult']:
         """
         The request that generated the event.
         """
@@ -755,7 +1366,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.SourceResponseResult']:
+    def source(self) -> Optional['outputs.SourceInvokeResponseResult']:
         """
         The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
         """
@@ -763,7 +1374,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.TargetResponseResult']:
+    def target(self) -> Optional['outputs.TargetInvokeResponseResult']:
         """
         The target of the event.
         """
@@ -779,19 +1390,66 @@ class EventContentResponseResult(dict):
 
 
 @pulumi.output_type
-class EventRequestMessageResponseResult(dict):
+class EventInvokeResponseResult(dict):
+    """
+    The event for a webhook.
+    """
+    def __init__(__self__, *,
+                 event_request_message: Optional['outputs.EventRequestMessageInvokeResponseResult'] = None,
+                 event_response_message: Optional['outputs.EventResponseMessageInvokeResponseResult'] = None,
+                 id: Optional[str] = None):
+        """
+        The event for a webhook.
+        :param 'EventRequestMessageInvokeResponseArgs' event_request_message: The event request message sent to the service URI.
+        :param 'EventResponseMessageInvokeResponseArgs' event_response_message: The event response message received from the service URI.
+        :param str id: The event ID.
+        """
+        if event_request_message is not None:
+            pulumi.set(__self__, "event_request_message", event_request_message)
+        if event_response_message is not None:
+            pulumi.set(__self__, "event_response_message", event_response_message)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="eventRequestMessage")
+    def event_request_message(self) -> Optional['outputs.EventRequestMessageInvokeResponseResult']:
+        """
+        The event request message sent to the service URI.
+        """
+        return pulumi.get(self, "event_request_message")
+
+    @property
+    @pulumi.getter(name="eventResponseMessage")
+    def event_response_message(self) -> Optional['outputs.EventResponseMessageInvokeResponseResult']:
+        """
+        The event response message received from the service URI.
+        """
+        return pulumi.get(self, "event_response_message")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The event ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class EventRequestMessageInvokeResponseResult(dict):
     """
     The event request message sent to the service URI.
     """
     def __init__(__self__, *,
-                 content: Optional['outputs.EventContentResponseResult'] = None,
+                 content: Optional['outputs.EventContentInvokeResponseResult'] = None,
                  headers: Optional[Mapping[str, str]] = None,
                  method: Optional[str] = None,
                  request_uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The event request message sent to the service URI.
-        :param 'EventContentResponseArgs' content: The content of the event request message.
+        :param 'EventContentInvokeResponseArgs' content: The content of the event request message.
         :param Mapping[str, str] headers: The headers of the event request message.
         :param str method: The HTTP method used to send the event request message.
         :param str request_uri: The URI used to send the event request message.
@@ -810,7 +1468,7 @@ class EventRequestMessageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.EventContentResponseResult']:
+    def content(self) -> Optional['outputs.EventContentInvokeResponseResult']:
         """
         The content of the event request message.
         """
@@ -850,54 +1508,7 @@ class EventRequestMessageResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseResult(dict):
-    """
-    The event for a webhook.
-    """
-    def __init__(__self__, *,
-                 event_request_message: Optional['outputs.EventRequestMessageResponseResult'] = None,
-                 event_response_message: Optional['outputs.EventResponseMessageResponseResult'] = None,
-                 id: Optional[str] = None):
-        """
-        The event for a webhook.
-        :param 'EventRequestMessageResponseArgs' event_request_message: The event request message sent to the service URI.
-        :param 'EventResponseMessageResponseArgs' event_response_message: The event response message received from the service URI.
-        :param str id: The event ID.
-        """
-        if event_request_message is not None:
-            pulumi.set(__self__, "event_request_message", event_request_message)
-        if event_response_message is not None:
-            pulumi.set(__self__, "event_response_message", event_response_message)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="eventRequestMessage")
-    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponseResult']:
-        """
-        The event request message sent to the service URI.
-        """
-        return pulumi.get(self, "event_request_message")
-
-    @property
-    @pulumi.getter(name="eventResponseMessage")
-    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponseResult']:
-        """
-        The event response message received from the service URI.
-        """
-        return pulumi.get(self, "event_response_message")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The event ID.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class EventResponseMessageResponseResult(dict):
+class EventResponseMessageInvokeResponseResult(dict):
     """
     The event response message received from the service URI.
     """
@@ -965,6 +1576,100 @@ class EventResponseMessageResponseResult(dict):
         The HTTP message version.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FileTaskStepInvokeResponseResult(dict):
+    """
+    The properties of a task step.
+    """
+    def __init__(__self__, *,
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyInvokeResponseResult'],
+                 task_file_path: str,
+                 type: str,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 values: Optional[Sequence['outputs.SetValueInvokeResponseResult']] = None,
+                 values_file_path: Optional[str] = None):
+        """
+        The properties of a task step.
+        :param Sequence['BaseImageDependencyInvokeResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param str task_file_path: The task template/definition file path relative to the source context.
+        :param str type: The type of the step.
+               Expected value is 'FileTask'.
+        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param str context_path: The URL(absolute or relative) of the source context for the task step.
+        :param Sequence['SetValueInvokeResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param str values_file_path: The task values/parameters file path relative to the source context.
+        """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
+        pulumi.set(__self__, "task_file_path", task_file_path)
+        pulumi.set(__self__, "type", 'FileTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if values_file_path is not None:
+            pulumi.set(__self__, "values_file_path", values_file_path)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyInvokeResponseResult']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
+
+    @property
+    @pulumi.getter(name="taskFilePath")
+    def task_file_path(self) -> str:
+        """
+        The task template/definition file path relative to the source context.
+        """
+        return pulumi.get(self, "task_file_path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step.
+        Expected value is 'FileTask'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.SetValueInvokeResponseResult']]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter(name="valuesFilePath")
+    def values_file_path(self) -> Optional[str]:
+        """
+        The task values/parameters file path relative to the source context.
+        """
+        return pulumi.get(self, "values_file_path")
 
 
 @pulumi.output_type
@@ -1065,6 +1770,42 @@ class FileTaskStepResponse(dict):
 
 
 @pulumi.output_type
+class IPRuleInvokeResponseResult(dict):
+    """
+    IP rule with specific IP or IP range in CIDR format.
+    """
+    def __init__(__self__, *,
+                 i_p_address_or_range: str,
+                 action: Optional[str] = None):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        :param str action: The action of IP ACL rule.
+        """
+        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="iPAddressOrRange")
+    def i_p_address_or_range(self) -> str:
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        return pulumi.get(self, "i_p_address_or_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of IP ACL rule.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
 class IPRuleResponse(dict):
     """
     IP rule with specific IP or IP range in CIDR format.
@@ -1101,6 +1842,71 @@ class IPRuleResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IdentityPropertiesInvokeResponseResult(dict):
+    """
+    Managed identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesInvokeResponseResult']] = None):
+        """
+        Managed identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        :param Mapping[str, 'UserIdentityPropertiesInvokeResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
+               dictionary key references will be ARM resource ids in the form: 
+               '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+                   providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesInvokeResponseResult']]:
+        """
+        The list of user identities associated with the resource. The user identity 
+        dictionary key references will be ARM resource ids in the form: 
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -1172,6 +1978,54 @@ class IdentityPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class NetworkRuleSetInvokeResponseResult(dict):
+    """
+    The network rule set for a container registry.
+    """
+    def __init__(__self__, *,
+                 default_action: str,
+                 ip_rules: Optional[Sequence['outputs.IPRuleInvokeResponseResult']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']] = None):
+        """
+        The network rule set for a container registry.
+        :param str default_action: The default action of allow or deny when no other rules match.
+        :param Sequence['IPRuleInvokeResponseArgs'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleInvokeResponseArgs'] virtual_network_rules: The virtual network rules.
+        """
+        if default_action is None:
+            default_action = 'Allow'
+        pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleInvokeResponseResult']]:
+        """
+        The IP ACL rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']]:
+        """
+        The virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+
+@pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     The network rule set for a container registry.
@@ -1223,6 +2077,52 @@ class NetworkRuleSetResponse(dict):
 
 
 @pulumi.output_type
+class PlatformPropertiesInvokeResponseResult(dict):
+    """
+    The platform properties against which the run has to happen.
+    """
+    def __init__(__self__, *,
+                 os: str,
+                 architecture: Optional[str] = None,
+                 variant: Optional[str] = None):
+        """
+        The platform properties against which the run has to happen.
+        :param str os: The operating system type required for the run.
+        :param str architecture: The OS architecture.
+        :param str variant: Variant of the CPU.
+        """
+        pulumi.set(__self__, "os", os)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
+        if variant is not None:
+            pulumi.set(__self__, "variant", variant)
+
+    @property
+    @pulumi.getter
+    def os(self) -> str:
+        """
+        The operating system type required for the run.
+        """
+        return pulumi.get(self, "os")
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[str]:
+        """
+        The OS architecture.
+        """
+        return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter
+    def variant(self) -> Optional[str]:
+        """
+        Variant of the CPU.
+        """
+        return pulumi.get(self, "variant")
+
+
+@pulumi.output_type
 class PlatformPropertiesResponse(dict):
     """
     The platform properties against which the run has to happen.
@@ -1269,6 +2169,53 @@ class PlatformPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PoliciesInvokeResponseResult(dict):
+    """
+    The policies for a container registry.
+    """
+    def __init__(__self__, *,
+                 quarantine_policy: Optional['outputs.QuarantinePolicyInvokeResponseResult'] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyInvokeResponseResult'] = None,
+                 trust_policy: Optional['outputs.TrustPolicyInvokeResponseResult'] = None):
+        """
+        The policies for a container registry.
+        :param 'QuarantinePolicyInvokeResponseArgs' quarantine_policy: The quarantine policy for a container registry.
+        :param 'RetentionPolicyInvokeResponseArgs' retention_policy: The retention policy for a container registry.
+        :param 'TrustPolicyInvokeResponseArgs' trust_policy: The content trust policy for a container registry.
+        """
+        if quarantine_policy is not None:
+            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if trust_policy is not None:
+            pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="quarantinePolicy")
+    def quarantine_policy(self) -> Optional['outputs.QuarantinePolicyInvokeResponseResult']:
+        """
+        The quarantine policy for a container registry.
+        """
+        return pulumi.get(self, "quarantine_policy")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyInvokeResponseResult']:
+        """
+        The retention policy for a container registry.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="trustPolicy")
+    def trust_policy(self) -> Optional['outputs.TrustPolicyInvokeResponseResult']:
+        """
+        The content trust policy for a container registry.
+        """
+        return pulumi.get(self, "trust_policy")
 
 
 @pulumi.output_type
@@ -1322,6 +2269,31 @@ class PoliciesResponse(dict):
 
 
 @pulumi.output_type
+class QuarantinePolicyInvokeResponseResult(dict):
+    """
+    The quarantine policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        The quarantine policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class QuarantinePolicyResponse(dict):
     """
     The quarantine policy for a container registry.
@@ -1350,7 +2322,7 @@ class QuarantinePolicyResponse(dict):
 
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordInvokeResponseResult(dict):
     """
     The login password for the container registry.
     """
@@ -1385,7 +2357,7 @@ class RegistryPasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RequestResponseResult(dict):
+class RequestInvokeResponseResult(dict):
     """
     The request that generated the event.
     """
@@ -1456,6 +2428,56 @@ class RequestResponseResult(dict):
 
 
 @pulumi.output_type
+class RetentionPolicyInvokeResponseResult(dict):
+    """
+    The retention policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 last_updated_time: str,
+                 days: Optional[int] = None,
+                 status: Optional[str] = None):
+        """
+        The retention policy for a container registry.
+        :param str last_updated_time: The timestamp when the policy was last updated.
+        :param int days: The number of days to retain an untagged manifest after which it gets purged.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if days is None:
+            days = 7
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        The timestamp when the policy was last updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class RetentionPolicyResponse(dict):
     """
     The retention policy for a container registry.
@@ -1509,6 +2531,47 @@ class RetentionPolicyResponse(dict):
 
 
 @pulumi.output_type
+class SecretObjectInvokeResponseResult(dict):
+    """
+    Describes the properties of a secret object value.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Describes the properties of a secret object value.
+        :param str type: The type of the secret object which determines how the value of the secret object has to be
+               interpreted.
+        :param str value: The value of the secret. The format of this value will be determined
+               based on the type of the secret object. If the type is Opaque, the value will be
+               used as is without any modification.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the secret object which determines how the value of the secret object has to be
+        interpreted.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the secret. The format of this value will be determined
+        based on the type of the secret object. If the type is Opaque, the value will be
+        used as is without any modification.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class SecretObjectResponse(dict):
     """
     Describes the properties of a secret object value.
@@ -1550,6 +2613,53 @@ class SecretObjectResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SetValueInvokeResponseResult(dict):
+    """
+    The properties of a overridable value that can be passed to a task template.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 is_secret: Optional[bool] = None):
+        """
+        The properties of a overridable value that can be passed to a task template.
+        :param str name: The name of the overridable value.
+        :param str value: The overridable value.
+        :param bool is_secret: Flag to indicate whether the value represents a secret or not.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the overridable value.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The overridable value.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[bool]:
+        """
+        Flag to indicate whether the value represents a secret or not.
+        """
+        return pulumi.get(self, "is_secret")
 
 
 @pulumi.output_type
@@ -1603,6 +2713,39 @@ class SetValueResponse(dict):
 
 
 @pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The SKU of a container registry.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU of a container registry.
+        :param str name: The SKU name of the container registry. Required for registry creation.
+        :param str tier: The SKU tier based on the SKU name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The SKU of a container registry.
@@ -1636,6 +2779,100 @@ class SkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SourceInvokeResponseResult(dict):
+    """
+    The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+    """
+    def __init__(__self__, *,
+                 addr: Optional[str] = None,
+                 instance_id: Optional[str] = None):
+        """
+        The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+        :param str addr: The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
+        :param str instance_id: The running instance of an application. Changes after each restart.
+        """
+        if addr is not None:
+            pulumi.set(__self__, "addr", addr)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+
+    @property
+    @pulumi.getter
+    def addr(self) -> Optional[str]:
+        """
+        The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
+        """
+        return pulumi.get(self, "addr")
+
+    @property
+    @pulumi.getter(name="instanceID")
+    def instance_id(self) -> Optional[str]:
+        """
+        The running instance of an application. Changes after each restart.
+        """
+        return pulumi.get(self, "instance_id")
+
+
+@pulumi.output_type
+class SourcePropertiesInvokeResponseResult(dict):
+    """
+    The properties of the source code repository.
+    """
+    def __init__(__self__, *,
+                 repository_url: str,
+                 source_control_type: str,
+                 branch: Optional[str] = None,
+                 source_control_auth_properties: Optional['outputs.AuthInfoInvokeResponseResult'] = None):
+        """
+        The properties of the source code repository.
+        :param str repository_url: The full URL to the source code repository
+        :param str source_control_type: The type of source control service.
+        :param str branch: The branch name of the source code.
+        :param 'AuthInfoInvokeResponseArgs' source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
+               webhooks for notifications.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+        pulumi.set(__self__, "source_control_type", source_control_type)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if source_control_auth_properties is not None:
+            pulumi.set(__self__, "source_control_auth_properties", source_control_auth_properties)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        """
+        The full URL to the source code repository
+        """
+        return pulumi.get(self, "repository_url")
+
+    @property
+    @pulumi.getter(name="sourceControlType")
+    def source_control_type(self) -> str:
+        """
+        The type of source control service.
+        """
+        return pulumi.get(self, "source_control_type")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        The branch name of the source code.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="sourceControlAuthProperties")
+    def source_control_auth_properties(self) -> Optional['outputs.AuthInfoInvokeResponseResult']:
+        """
+        The authorization properties for accessing the source code repository and to set up
+        webhooks for notifications.
+        """
+        return pulumi.get(self, "source_control_auth_properties")
 
 
 @pulumi.output_type
@@ -1701,6 +2938,33 @@ class SourcePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class SourceRegistryCredentialsInvokeResponseResult(dict):
+    """
+    Describes the credential parameters for accessing the source registry.
+    """
+    def __init__(__self__, *,
+                 login_mode: Optional[str] = None):
+        """
+        Describes the credential parameters for accessing the source registry.
+        :param str login_mode: The authentication mode which determines the source registry login scope. The credentials for the source registry
+               will be generated using the given scope. These credentials will be used to login to
+               the source registry during the run.
+        """
+        if login_mode is not None:
+            pulumi.set(__self__, "login_mode", login_mode)
+
+    @property
+    @pulumi.getter(name="loginMode")
+    def login_mode(self) -> Optional[str]:
+        """
+        The authentication mode which determines the source registry login scope. The credentials for the source registry
+        will be generated using the given scope. These credentials will be used to login to
+        the source registry during the run.
+        """
+        return pulumi.get(self, "login_mode")
+
+
+@pulumi.output_type
 class SourceRegistryCredentialsResponse(dict):
     """
     Describes the credential parameters for accessing the source registry.
@@ -1731,38 +2995,61 @@ class SourceRegistryCredentialsResponse(dict):
 
 
 @pulumi.output_type
-class SourceResponseResult(dict):
+class SourceTriggerInvokeResponseResult(dict):
     """
-    The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+    The properties of a source based trigger.
     """
     def __init__(__self__, *,
-                 addr: Optional[str] = None,
-                 instance_id: Optional[str] = None):
+                 name: str,
+                 source_repository: 'outputs.SourcePropertiesInvokeResponseResult',
+                 source_trigger_events: Sequence[str],
+                 status: Optional[str] = None):
         """
-        The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-        :param str addr: The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
-        :param str instance_id: The running instance of an application. Changes after each restart.
+        The properties of a source based trigger.
+        :param str name: The name of the trigger.
+        :param 'SourcePropertiesInvokeResponseArgs' source_repository: The properties that describes the source(code) for the task.
+        :param Sequence[str] source_trigger_events: The source event corresponding to the trigger.
+        :param str status: The current status of trigger.
         """
-        if addr is not None:
-            pulumi.set(__self__, "addr", addr)
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_repository", source_repository)
+        pulumi.set(__self__, "source_trigger_events", source_trigger_events)
+        if status is None:
+            status = 'Enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def addr(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
+        The name of the trigger.
         """
-        return pulumi.get(self, "addr")
+        return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="instanceID")
-    def instance_id(self) -> Optional[str]:
+    @pulumi.getter(name="sourceRepository")
+    def source_repository(self) -> 'outputs.SourcePropertiesInvokeResponseResult':
         """
-        The running instance of an application. Changes after each restart.
+        The properties that describes the source(code) for the task.
         """
-        return pulumi.get(self, "instance_id")
+        return pulumi.get(self, "source_repository")
+
+    @property
+    @pulumi.getter(name="sourceTriggerEvents")
+    def source_trigger_events(self) -> Sequence[str]:
+        """
+        The source event corresponding to the trigger.
+        """
+        return pulumi.get(self, "source_trigger_events")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The current status of trigger.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -1827,6 +3114,50 @@ class SourceTriggerResponse(dict):
 
 
 @pulumi.output_type
+class StatusInvokeResponseResult(dict):
+    """
+    The status of an Azure resource at the time the operation was called.
+    """
+    def __init__(__self__, *,
+                 display_status: str,
+                 message: str,
+                 timestamp: str):
+        """
+        The status of an Azure resource at the time the operation was called.
+        :param str display_status: The short label for the status.
+        :param str message: The detailed message for the status, including alerts and error messages.
+        :param str timestamp: The timestamp when the status was changed to the current value.
+        """
+        pulumi.set(__self__, "display_status", display_status)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> str:
+        """
+        The short label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The detailed message for the status, including alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        The timestamp when the status was changed to the current value.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
 class StatusResponse(dict):
     """
     The status of an Azure resource at the time the operation was called.
@@ -1874,6 +3205,28 @@ class StatusResponse(dict):
 
 
 @pulumi.output_type
+class StorageAccountPropertiesInvokeResponseResult(dict):
+    """
+    The properties of a storage account for a container registry. Only applicable to Classic SKU.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The properties of a storage account for a container registry. Only applicable to Classic SKU.
+        :param str id: The resource ID of the storage account.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of the storage account.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class StorageAccountPropertiesResponse(dict):
     """
     The properties of a storage account for a container registry. Only applicable to Classic SKU.
@@ -1899,7 +3252,7 @@ class StorageAccountPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class TargetResponseResult(dict):
+class TargetInvokeResponseResult(dict):
     """
     The target of the event.
     """
@@ -2018,6 +3371,53 @@ class TargetResponseResult(dict):
 
 
 @pulumi.output_type
+class TimerTriggerInvokeResponseResult(dict):
+    """
+    The properties of a timer trigger.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 schedule: str,
+                 status: Optional[str] = None):
+        """
+        The properties of a timer trigger.
+        :param str name: The name of the trigger.
+        :param str schedule: The CRON expression for the task schedule
+        :param str status: The current status of trigger.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        if status is None:
+            status = 'Enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the trigger.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        """
+        The CRON expression for the task schedule
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The current status of trigger.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class TimerTriggerResponse(dict):
     """
     The properties of a timer trigger.
@@ -2065,6 +3465,53 @@ class TimerTriggerResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TriggerPropertiesInvokeResponseResult(dict):
+    """
+    The properties of a trigger.
+    """
+    def __init__(__self__, *,
+                 base_image_trigger: Optional['outputs.BaseImageTriggerInvokeResponseResult'] = None,
+                 source_triggers: Optional[Sequence['outputs.SourceTriggerInvokeResponseResult']] = None,
+                 timer_triggers: Optional[Sequence['outputs.TimerTriggerInvokeResponseResult']] = None):
+        """
+        The properties of a trigger.
+        :param 'BaseImageTriggerInvokeResponseArgs' base_image_trigger: The trigger based on base image dependencies.
+        :param Sequence['SourceTriggerInvokeResponseArgs'] source_triggers: The collection of triggers based on source code repository.
+        :param Sequence['TimerTriggerInvokeResponseArgs'] timer_triggers: The collection of timer triggers.
+        """
+        if base_image_trigger is not None:
+            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
+        if source_triggers is not None:
+            pulumi.set(__self__, "source_triggers", source_triggers)
+        if timer_triggers is not None:
+            pulumi.set(__self__, "timer_triggers", timer_triggers)
+
+    @property
+    @pulumi.getter(name="baseImageTrigger")
+    def base_image_trigger(self) -> Optional['outputs.BaseImageTriggerInvokeResponseResult']:
+        """
+        The trigger based on base image dependencies.
+        """
+        return pulumi.get(self, "base_image_trigger")
+
+    @property
+    @pulumi.getter(name="sourceTriggers")
+    def source_triggers(self) -> Optional[Sequence['outputs.SourceTriggerInvokeResponseResult']]:
+        """
+        The collection of triggers based on source code repository.
+        """
+        return pulumi.get(self, "source_triggers")
+
+    @property
+    @pulumi.getter(name="timerTriggers")
+    def timer_triggers(self) -> Optional[Sequence['outputs.TimerTriggerInvokeResponseResult']]:
+        """
+        The collection of timer triggers.
+        """
+        return pulumi.get(self, "timer_triggers")
 
 
 @pulumi.output_type
@@ -2118,6 +3565,45 @@ class TriggerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class TrustPolicyInvokeResponseResult(dict):
+    """
+    The content trust policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The content trust policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        :param str type: The type of trust policy.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of trust policy.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class TrustPolicyResponse(dict):
     """
     The content trust policy for a container registry.
@@ -2160,6 +3646,37 @@ class TrustPolicyResponse(dict):
 
 
 @pulumi.output_type
+class UserIdentityPropertiesInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 principal_id: Optional[str] = None):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class UserIdentityPropertiesResponse(dict):
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
@@ -2191,6 +3708,42 @@ class UserIdentityPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkRuleInvokeResponseResult(dict):
+    """
+    Virtual network rule.
+    """
+    def __init__(__self__, *,
+                 virtual_network_resource_id: str,
+                 action: Optional[str] = None):
+        """
+        Virtual network rule.
+        :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        :param str action: The action of virtual network rule.
+        """
+        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="virtualNetworkResourceId")
+    def virtual_network_resource_id(self) -> str:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "virtual_network_resource_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of virtual network rule.
+        """
+        return pulumi.get(self, "action")
 
 
 @pulumi.output_type

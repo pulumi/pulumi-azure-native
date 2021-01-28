@@ -84,7 +84,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter
-    def containers(self) -> Sequence['outputs.ContainerResponse']:
+    def containers(self) -> Sequence['outputs.ContainerInvokeResponseResult']:
         """
         The containers within the container group.
         """
@@ -92,7 +92,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter
-    def diagnostics(self) -> Optional['outputs.ContainerGroupDiagnosticsResponse']:
+    def diagnostics(self) -> Optional['outputs.ContainerGroupDiagnosticsInvokeResponseResult']:
         """
         The diagnostic information for a container group.
         """
@@ -100,7 +100,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional['outputs.DnsConfigurationResponse']:
+    def dns_config(self) -> Optional['outputs.DnsConfigurationInvokeResponseResult']:
         """
         The DNS config information for a container group.
         """
@@ -108,7 +108,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="encryptionProperties")
-    def encryption_properties(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+    def encryption_properties(self) -> Optional['outputs.EncryptionPropertiesInvokeResponseResult']:
         """
         The encryption properties for a container group.
         """
@@ -124,7 +124,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ContainerGroupIdentityResponse']:
+    def identity(self) -> Optional['outputs.ContainerGroupIdentityInvokeResponseResult']:
         """
         The identity of the container group, if configured.
         """
@@ -132,7 +132,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="imageRegistryCredentials")
-    def image_registry_credentials(self) -> Optional[Sequence['outputs.ImageRegistryCredentialResponse']]:
+    def image_registry_credentials(self) -> Optional[Sequence['outputs.ImageRegistryCredentialInvokeResponseResult']]:
         """
         The image registry credentials by which the container group is created from.
         """
@@ -140,7 +140,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="initContainers")
-    def init_containers(self) -> Optional[Sequence['outputs.InitContainerDefinitionResponse']]:
+    def init_containers(self) -> Optional[Sequence['outputs.InitContainerDefinitionInvokeResponseResult']]:
         """
         The init containers for a container group.
         """
@@ -148,7 +148,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.ContainerGroupResponseInstanceView':
+    def instance_view(self) -> 'outputs.ContainerGroupInvokeResponseInstanceViewResult':
         """
         The instance view of the container group. Only valid in response.
         """
@@ -156,7 +156,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional['outputs.IpAddressResponse']:
+    def ip_address(self) -> Optional['outputs.IpAddressInvokeResponseResult']:
         """
         The IP address type of the container group.
         """
@@ -180,7 +180,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.ContainerGroupNetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.ContainerGroupNetworkProfileInvokeResponseResult']:
         """
         The network profile information for a container group.
         """
@@ -239,7 +239,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.VolumeResponse']]:
+    def volumes(self) -> Optional[Sequence['outputs.VolumeInvokeResponseResult']]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """

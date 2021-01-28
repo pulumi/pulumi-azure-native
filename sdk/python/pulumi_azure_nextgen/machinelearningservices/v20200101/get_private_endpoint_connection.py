@@ -62,7 +62,7 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -86,7 +86,7 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointInvokeResponseResult']:
         """
         The resource of private end point.
         """
@@ -94,7 +94,7 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateInvokeResponseResult':
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -110,7 +110,7 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the workspace.
         """

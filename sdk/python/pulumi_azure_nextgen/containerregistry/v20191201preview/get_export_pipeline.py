@@ -59,7 +59,7 @@ class GetExportPipelineResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         """
         The identity of the export pipeline.
         """
@@ -99,7 +99,7 @@ class GetExportPipelineResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -107,7 +107,7 @@ class GetExportPipelineResult:
 
     @property
     @pulumi.getter
-    def target(self) -> 'outputs.ExportPipelineTargetPropertiesResponse':
+    def target(self) -> 'outputs.ExportPipelineTargetPropertiesInvokeResponseResult':
         """
         The target properties of the export pipeline.
         """

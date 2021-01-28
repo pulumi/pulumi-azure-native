@@ -51,7 +51,7 @@ class GetHyperVCollectorResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CollectorPropertiesResponse':
+    def properties(self) -> 'outputs.CollectorPropertiesInvokeResponseResult':
         return pulumi.get(self, "properties")
 
     @property

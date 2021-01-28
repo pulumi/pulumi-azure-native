@@ -60,7 +60,7 @@ class GetStorageAccountCredentialResult:
 
     @property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def account_key(self) -> Optional['outputs.AsymmetricEncryptedSecretInvokeResponseResult']:
         """
         Encrypted storage key.
         """
@@ -132,7 +132,7 @@ class GetStorageAccountCredentialResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         StorageAccountCredential object
         """

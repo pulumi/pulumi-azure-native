@@ -66,7 +66,7 @@ class GetIntegrationAccountBatchConfigurationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BatchConfigurationPropertiesResponse':
+    def properties(self) -> 'outputs.BatchConfigurationPropertiesInvokeResponseResult':
         """
         The batch configuration properties.
         """

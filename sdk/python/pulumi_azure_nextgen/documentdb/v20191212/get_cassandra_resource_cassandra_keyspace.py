@@ -66,7 +66,7 @@ class GetCassandraResourceCassandraKeyspaceResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.CassandraKeyspaceGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.CassandraKeyspaceGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

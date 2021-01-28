@@ -124,7 +124,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         """

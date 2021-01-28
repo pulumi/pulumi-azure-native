@@ -69,7 +69,7 @@ class GetManagedHsmResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ManagedHsmPropertiesResponse':
+    def properties(self) -> 'outputs.ManagedHsmPropertiesInvokeResponseResult':
         """
         Properties of the managed HSM
         """
@@ -77,7 +77,7 @@ class GetManagedHsmResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ManagedHsmSkuResponse']:
+    def sku(self) -> Optional['outputs.ManagedHsmSkuInvokeResponseResult']:
         """
         SKU details
         """

@@ -63,7 +63,7 @@ class GetIntegrationAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.IntegrationAccountSkuResponse']:
+    def sku(self) -> Optional['outputs.IntegrationAccountSkuInvokeResponseResult']:
         """
         The sku.
         """

@@ -94,7 +94,7 @@ class GetServerFarmResult:
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileInvokeResponseResult']:
         """
         Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         """
@@ -175,7 +175,7 @@ class GetServerFarmResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+    def sku(self) -> Optional['outputs.SkuDescriptionInvokeResponseResult']:
         """
         Describes a sku for a scalable resource
         """

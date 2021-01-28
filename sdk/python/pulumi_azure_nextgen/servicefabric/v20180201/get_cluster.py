@@ -113,7 +113,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="availableClusterVersions")
-    def available_cluster_versions(self) -> Sequence['outputs.ClusterVersionDetailsResponse']:
+    def available_cluster_versions(self) -> Sequence['outputs.ClusterVersionDetailsInvokeResponseResult']:
         """
         The Service Fabric runtime versions available for this cluster.
         """
@@ -121,7 +121,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
+    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryInvokeResponseResult']:
         """
         The AAD authentication settings of the cluster.
         """
@@ -129,7 +129,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
+    def certificate(self) -> Optional['outputs.CertificateDescriptionInvokeResponseResult']:
         """
         The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
         """
@@ -137,7 +137,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="certificateCommonNames")
-    def certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesResponse']:
+    def certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesInvokeResponseResult']:
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
@@ -145,7 +145,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clientCertificateCommonNames")
-    def client_certificate_common_names(self) -> Optional[Sequence['outputs.ClientCertificateCommonNameResponse']]:
+    def client_certificate_common_names(self) -> Optional[Sequence['outputs.ClientCertificateCommonNameInvokeResponseResult']]:
         """
         The list of client certificates referenced by common name that are allowed to manage the cluster.
         """
@@ -153,7 +153,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clientCertificateThumbprints")
-    def client_certificate_thumbprints(self) -> Optional[Sequence['outputs.ClientCertificateThumbprintResponse']]:
+    def client_certificate_thumbprints(self) -> Optional[Sequence['outputs.ClientCertificateThumbprintInvokeResponseResult']]:
         """
         The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         """
@@ -204,7 +204,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="diagnosticsStorageAccountConfig")
-    def diagnostics_storage_account_config(self) -> Optional['outputs.DiagnosticsStorageAccountConfigResponse']:
+    def diagnostics_storage_account_config(self) -> Optional['outputs.DiagnosticsStorageAccountConfigInvokeResponseResult']:
         """
         The storage account information for storing Service Fabric diagnostic logs.
         """
@@ -212,7 +212,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]:
+    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionInvokeResponseResult']]:
         """
         The list of custom fabric settings to configure the cluster.
         """
@@ -252,7 +252,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> Sequence['outputs.NodeTypeDescriptionResponse']:
+    def node_types(self) -> Sequence['outputs.NodeTypeDescriptionInvokeResponseResult']:
         """
         The list of node types in the cluster.
         """
@@ -282,7 +282,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="reverseProxyCertificate")
-    def reverse_proxy_certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
+    def reverse_proxy_certificate(self) -> Optional['outputs.CertificateDescriptionInvokeResponseResult']:
         """
         The server certificate used by reverse proxy.
         """
@@ -290,7 +290,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="reverseProxyCertificateCommonNames")
-    def reverse_proxy_certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesResponse']:
+    def reverse_proxy_certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesInvokeResponseResult']:
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
@@ -314,7 +314,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="upgradeDescription")
-    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyResponse']:
+    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyInvokeResponseResult']:
         """
         The policy to use when upgrading the cluster.
         """

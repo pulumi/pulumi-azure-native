@@ -77,7 +77,7 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PrivateEndpointConnectionResponse':
+    def properties(self) -> 'outputs.PrivateEndpointConnectionInvokeResponseResult':
         """
         PrivateEndpointConnectionResource properties
         """

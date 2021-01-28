@@ -69,7 +69,7 @@ class GetLedgerResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.LedgerPropertiesResponse':
+    def properties(self) -> 'outputs.LedgerPropertiesInvokeResponseResult':
         """
         Properties of Confidential Ledger Resource.
         """
@@ -77,7 +77,7 @@ class GetLedgerResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource
         """

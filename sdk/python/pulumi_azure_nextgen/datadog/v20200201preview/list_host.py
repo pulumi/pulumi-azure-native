@@ -38,7 +38,7 @@ class ListHostResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.DatadogHostResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.DatadogHostInvokeResponseResult']]:
         """
         Results of a list operation.
         """

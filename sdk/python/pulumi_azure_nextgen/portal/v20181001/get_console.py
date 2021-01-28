@@ -27,7 +27,7 @@ class GetConsoleResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConsolePropertiesResponse':
+    def properties(self) -> 'outputs.ConsolePropertiesInvokeResponseResult':
         """
         Cloud shell console properties.
         """

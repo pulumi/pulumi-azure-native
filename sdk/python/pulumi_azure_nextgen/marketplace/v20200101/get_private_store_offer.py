@@ -122,7 +122,7 @@ class GetPrivateStoreOfferResult:
 
     @property
     @pulumi.getter
-    def plans(self) -> Optional[Sequence['outputs.PlanResponse']]:
+    def plans(self) -> Optional[Sequence['outputs.PlanInvokeResponseResult']]:
         """
         Offer plans
         """

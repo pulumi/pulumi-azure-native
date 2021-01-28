@@ -100,7 +100,7 @@ class GetBuildTaskResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> 'outputs.PlatformPropertiesResponse':
+    def platform(self) -> 'outputs.PlatformPropertiesInvokeResponseResult':
         """
         The platform properties against which the build has to happen.
         """
@@ -116,7 +116,7 @@ class GetBuildTaskResult:
 
     @property
     @pulumi.getter(name="sourceRepository")
-    def source_repository(self) -> 'outputs.SourceRepositoryPropertiesResponse':
+    def source_repository(self) -> 'outputs.SourceRepositoryPropertiesInvokeResponseResult':
         """
         The properties that describes the source(code) for the build task.
         """

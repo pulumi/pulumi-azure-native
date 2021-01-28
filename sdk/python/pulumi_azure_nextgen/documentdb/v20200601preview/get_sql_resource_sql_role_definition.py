@@ -66,7 +66,7 @@ class GetSqlResourceSqlRoleDefinitionResult:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[Sequence['outputs.PermissionResponse']]:
+    def permissions(self) -> Optional[Sequence['outputs.PermissionInvokeResponseResult']]:
         """
         The set of operations allowed through this Role Definition.
         """

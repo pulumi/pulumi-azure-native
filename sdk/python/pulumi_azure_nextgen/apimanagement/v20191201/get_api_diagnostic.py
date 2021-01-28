@@ -65,7 +65,7 @@ class GetApiDiagnosticResult:
 
     @property
     @pulumi.getter
-    def backend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
+    def backend(self) -> Optional['outputs.PipelineDiagnosticSettingsInvokeResponseResult']:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         """
@@ -73,7 +73,7 @@ class GetApiDiagnosticResult:
 
     @property
     @pulumi.getter
-    def frontend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
+    def frontend(self) -> Optional['outputs.PipelineDiagnosticSettingsInvokeResponseResult']:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         """
@@ -121,7 +121,7 @@ class GetApiDiagnosticResult:
 
     @property
     @pulumi.getter
-    def sampling(self) -> Optional['outputs.SamplingSettingsResponse']:
+    def sampling(self) -> Optional['outputs.SamplingSettingsInvokeResponseResult']:
         """
         Sampling settings for Diagnostic.
         """

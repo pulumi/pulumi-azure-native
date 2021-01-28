@@ -121,7 +121,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileInvokeResponseResult']:
         """
         Specification for the App Service Environment to use for the App Service plan.
         """
@@ -242,7 +242,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+    def sku(self) -> Optional['outputs.SkuDescriptionInvokeResponseResult']:
         """
         Description of a SKU for a scalable resource.
         """
@@ -274,7 +274,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

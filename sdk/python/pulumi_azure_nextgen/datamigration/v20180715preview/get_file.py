@@ -63,7 +63,7 @@ class GetFileResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProjectFilePropertiesResponse':
+    def properties(self) -> 'outputs.ProjectFilePropertiesInvokeResponseResult':
         """
         Custom file properties
         """

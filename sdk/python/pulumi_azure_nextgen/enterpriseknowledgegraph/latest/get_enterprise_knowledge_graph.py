@@ -69,7 +69,7 @@ class GetEnterpriseKnowledgeGraphResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.EnterpriseKnowledgeGraphPropertiesResponse':
+    def properties(self) -> 'outputs.EnterpriseKnowledgeGraphPropertiesInvokeResponseResult':
         """
         The set of properties specific to EnterpriseKnowledgeGraph resource
         """
@@ -77,7 +77,7 @@ class GetEnterpriseKnowledgeGraphResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the SKU of the resource.
         """

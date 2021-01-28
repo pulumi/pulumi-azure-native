@@ -72,7 +72,7 @@ class GetServerDetailsResult:
 
     @property
     @pulumi.getter(name="asAdministrators")
-    def as_administrators(self) -> Optional['outputs.ServerAdministratorsResponse']:
+    def as_administrators(self) -> Optional['outputs.ServerAdministratorsInvokeResponseResult']:
         """
         A collection of AS server administrators
         """
@@ -88,7 +88,7 @@ class GetServerDetailsResult:
 
     @property
     @pulumi.getter(name="gatewayDetails")
-    def gateway_details(self) -> Optional['outputs.GatewayDetailsResponse']:
+    def gateway_details(self) -> Optional['outputs.GatewayDetailsInvokeResponseResult']:
         """
         The gateway details configured for the AS server.
         """
@@ -104,7 +104,7 @@ class GetServerDetailsResult:
 
     @property
     @pulumi.getter(name="ipV4FirewallSettings")
-    def ip_v4_firewall_settings(self) -> Optional['outputs.IPv4FirewallSettingsResponse']:
+    def ip_v4_firewall_settings(self) -> Optional['outputs.IPv4FirewallSettingsInvokeResponseResult']:
         """
         The firewall settings for the AS server.
         """
@@ -168,7 +168,7 @@ class GetServerDetailsResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ResourceSkuResponse':
+    def sku(self) -> 'outputs.ResourceSkuInvokeResponseResult':
         """
         The SKU of the Analysis Services resource.
         """

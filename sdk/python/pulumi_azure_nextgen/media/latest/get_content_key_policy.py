@@ -88,7 +88,7 @@ class GetContentKeyPolicyResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Sequence['outputs.ContentKeyPolicyOptionResponse']:
+    def options(self) -> Sequence['outputs.ContentKeyPolicyOptionInvokeResponseResult']:
         """
         The Key Policy options.
         """

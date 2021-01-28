@@ -95,7 +95,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="cloudTieringStatus")
-    def cloud_tiering_status(self) -> 'outputs.ServerEndpointCloudTieringStatusResponse':
+    def cloud_tiering_status(self) -> 'outputs.ServerEndpointCloudTieringStatusInvokeResponseResult':
         """
         Cloud tiering status. Only populated if cloud tiering is enabled.
         """
@@ -199,7 +199,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="recallStatus")
-    def recall_status(self) -> 'outputs.ServerEndpointRecallStatusResponse':
+    def recall_status(self) -> 'outputs.ServerEndpointRecallStatusInvokeResponseResult':
         """
         Recall status. Only populated if cloud tiering is enabled.
         """
@@ -223,7 +223,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="syncStatus")
-    def sync_status(self) -> 'outputs.ServerEndpointSyncStatusResponse':
+    def sync_status(self) -> 'outputs.ServerEndpointSyncStatusInvokeResponseResult':
         """
         Server Endpoint sync status
         """

@@ -9,9 +9,30 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'PrivateEndpointPropertyInvokeResponseResult',
     'PrivateEndpointPropertyResponse',
+    'PrivateLinkServiceConnectionStatePropertyInvokeResponseResult',
     'PrivateLinkServiceConnectionStatePropertyResponse',
 ]
+
+@pulumi.output_type
+class PrivateEndpointPropertyInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class PrivateEndpointPropertyResponse(dict):
@@ -33,6 +54,46 @@ class PrivateEndpointPropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStatePropertyInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: str):
+        """
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

@@ -67,7 +67,7 @@ class GetGalleryResult:
 
     @property
     @pulumi.getter
-    def identifier(self) -> Optional['outputs.GalleryIdentifierResponse']:
+    def identifier(self) -> Optional['outputs.GalleryIdentifierInvokeResponseResult']:
         """
         Describes the gallery unique name.
         """
@@ -99,7 +99,7 @@ class GetGalleryResult:
 
     @property
     @pulumi.getter(name="sharingProfile")
-    def sharing_profile(self) -> Optional['outputs.SharingProfileResponse']:
+    def sharing_profile(self) -> Optional['outputs.SharingProfileInvokeResponseResult']:
         """
         Profile for gallery sharing to subscription or tenant
         """

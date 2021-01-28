@@ -179,7 +179,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyInvokeResponseResult']]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -187,7 +187,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="localNetworkGateway2")
-    def local_network_gateway2(self) -> Optional['outputs.LocalNetworkGatewayResponse']:
+    def local_network_gateway2(self) -> Optional['outputs.LocalNetworkGatewayInvokeResponseResult']:
         """
         The reference to local network gateway resource.
         """
@@ -211,7 +211,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter
-    def peer(self) -> Optional['outputs.SubResourceResponse']:
+    def peer(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference to peerings resource.
         """
@@ -259,7 +259,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="tunnelConnectionStatus")
-    def tunnel_connection_status(self) -> Sequence['outputs.TunnelConnectionHealthResponse']:
+    def tunnel_connection_status(self) -> Sequence['outputs.TunnelConnectionHealthInvokeResponseResult']:
         """
         Collection of all tunnels' connection health status.
         """
@@ -283,7 +283,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="virtualNetworkGateway1")
-    def virtual_network_gateway1(self) -> 'outputs.VirtualNetworkGatewayResponse':
+    def virtual_network_gateway1(self) -> 'outputs.VirtualNetworkGatewayInvokeResponseResult':
         """
         The reference to virtual network gateway resource.
         """
@@ -291,7 +291,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="virtualNetworkGateway2")
-    def virtual_network_gateway2(self) -> Optional['outputs.VirtualNetworkGatewayResponse']:
+    def virtual_network_gateway2(self) -> Optional['outputs.VirtualNetworkGatewayInvokeResponseResult']:
         """
         The reference to virtual network gateway resource.
         """

@@ -54,7 +54,7 @@ class GetServiceFabricResult:
 
     @property
     @pulumi.getter(name="applicableSchedule")
-    def applicable_schedule(self) -> 'outputs.ApplicableScheduleResponse':
+    def applicable_schedule(self) -> 'outputs.ApplicableScheduleInvokeResponseResult':
         """
         The applicable schedule for the virtual machine.
         """

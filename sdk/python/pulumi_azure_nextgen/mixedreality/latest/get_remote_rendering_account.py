@@ -84,7 +84,7 @@ class GetRemoteRenderingAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity associated with this account
         """
@@ -92,7 +92,7 @@ class GetRemoteRenderingAccountResult:
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional['outputs.SkuResponse']:
+    def kind(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The kind of account, if supported
         """
@@ -116,7 +116,7 @@ class GetRemoteRenderingAccountResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.IdentityResponse']:
+    def plan(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The plan associated with this account
         """
@@ -124,7 +124,7 @@ class GetRemoteRenderingAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku associated with this account
         """
@@ -132,7 +132,7 @@ class GetRemoteRenderingAccountResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         System metadata for this account
         """

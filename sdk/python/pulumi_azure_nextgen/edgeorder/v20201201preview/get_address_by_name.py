@@ -48,7 +48,7 @@ class GetAddressByNameResult:
 
     @property
     @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> 'outputs.ContactDetailsResponse':
+    def contact_details(self) -> 'outputs.ContactDetailsInvokeResponseResult':
         """
         Contact details for the address
         """
@@ -80,7 +80,7 @@ class GetAddressByNameResult:
 
     @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional['outputs.ShippingAddressResponse']:
+    def shipping_address(self) -> Optional['outputs.ShippingAddressInvokeResponseResult']:
         """
         Shipping details for the address
         """
@@ -88,7 +88,7 @@ class GetAddressByNameResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Represents resource creation and update time
         """

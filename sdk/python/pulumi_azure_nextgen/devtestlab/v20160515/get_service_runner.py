@@ -50,7 +50,7 @@ class GetServiceRunnerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         """
         The identity of the resource.
         """

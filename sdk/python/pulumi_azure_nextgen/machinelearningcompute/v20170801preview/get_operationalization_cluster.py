@@ -72,7 +72,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="appInsights")
-    def app_insights(self) -> Optional['outputs.AppInsightsPropertiesResponse']:
+    def app_insights(self) -> Optional['outputs.AppInsightsPropertiesInvokeResponseResult']:
         """
         AppInsights configuration.
         """
@@ -88,7 +88,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="containerRegistry")
-    def container_registry(self) -> Optional['outputs.ContainerRegistryPropertiesResponse']:
+    def container_registry(self) -> Optional['outputs.ContainerRegistryPropertiesInvokeResponseResult']:
         """
         Container Registry properties.
         """
@@ -96,7 +96,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="containerService")
-    def container_service(self) -> Optional['outputs.AcsClusterPropertiesResponse']:
+    def container_service(self) -> Optional['outputs.AcsClusterPropertiesInvokeResponseResult']:
         """
         Parameters for the Azure Container Service cluster.
         """
@@ -120,7 +120,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="globalServiceConfiguration")
-    def global_service_configuration(self) -> Optional['outputs.GlobalServiceConfigurationResponse']:
+    def global_service_configuration(self) -> Optional['outputs.GlobalServiceConfigurationInvokeResponseResult']:
         """
         Contains global configuration for the web services in the cluster.
         """
@@ -160,7 +160,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> Sequence['outputs.ErrorResponseWrapperResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.ErrorResponseWrapperInvokeResponseResult']:
         """
         List of provisioning errors reported by the resource provider.
         """
@@ -176,7 +176,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesResponse']:
+    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesInvokeResponseResult']:
         """
         Storage Account properties.
         """

@@ -56,7 +56,7 @@ class GetGremlinResourceGremlinDatabaseResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -80,12 +80,12 @@ class GetGremlinResourceGremlinDatabaseResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.GremlinDatabaseGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.GremlinDatabaseGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.GremlinDatabaseGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.GremlinDatabaseGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

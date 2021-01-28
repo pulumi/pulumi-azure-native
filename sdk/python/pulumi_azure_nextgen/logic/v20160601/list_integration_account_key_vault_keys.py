@@ -39,7 +39,7 @@ class ListIntegrationAccountKeyVaultKeysResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.KeyVaultKeyResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.KeyVaultKeyInvokeResponseResult']]:
         """
         The key vault keys.
         """
@@ -57,7 +57,7 @@ class AwaitableListIntegrationAccountKeyVaultKeysResult(ListIntegrationAccountKe
 
 
 def list_integration_account_key_vault_keys(integration_account_name: Optional[str] = None,
-                                            key_vault: Optional[pulumi.InputType['KeyVaultReferenceArgs']] = None,
+                                            key_vault: Optional[pulumi.InputType['KeyVaultReferenceInvokeArgs']] = None,
                                             resource_group_name: Optional[str] = None,
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
@@ -65,7 +65,7 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param pulumi.InputType['KeyVaultReferenceArgs'] key_vault: The key vault reference.
+    :param pulumi.InputType['KeyVaultReferenceInvokeArgs'] key_vault: The key vault reference.
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """

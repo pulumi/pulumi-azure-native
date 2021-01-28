@@ -11,14 +11,78 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'MediaGraphAssetSinkInvokeResponseResult',
     'MediaGraphAssetSinkResponse',
+    'MediaGraphClearEndpointInvokeResponseResult',
     'MediaGraphClearEndpointResponse',
+    'MediaGraphPemCertificateListInvokeResponseResult',
     'MediaGraphPemCertificateListResponse',
+    'MediaGraphRtspSourceInvokeResponseResult',
     'MediaGraphRtspSourceResponse',
+    'MediaGraphTlsEndpointInvokeResponseResult',
     'MediaGraphTlsEndpointResponse',
+    'MediaGraphTlsValidationOptionsInvokeResponseResult',
     'MediaGraphTlsValidationOptionsResponse',
+    'MediaGraphUsernamePasswordCredentialsInvokeResponseResult',
     'MediaGraphUsernamePasswordCredentialsResponse',
 ]
+
+@pulumi.output_type
+class MediaGraphAssetSinkInvokeResponseResult(dict):
+    """
+    Asset sink.
+    """
+    def __init__(__self__, *,
+                 asset_name: str,
+                 inputs: Sequence[str],
+                 name: str,
+                 odata_type: str):
+        """
+        Asset sink.
+        :param str asset_name: Asset name.
+        :param Sequence[str] inputs: Sink inputs.
+        :param str name: Sink name.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
+        """
+        pulumi.set(__self__, "asset_name", asset_name)
+        pulumi.set(__self__, "inputs", inputs)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphAssetSink')
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
+        """
+        Asset name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Sequence[str]:
+        """
+        Sink inputs.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Sink name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
+        """
+        return pulumi.get(self, "odata_type")
+
 
 @pulumi.output_type
 class MediaGraphAssetSinkResponse(dict):
@@ -81,6 +145,53 @@ class MediaGraphAssetSinkResponse(dict):
 
 
 @pulumi.output_type
+class MediaGraphClearEndpointInvokeResponseResult(dict):
+    """
+    An endpoint to connect to with no encryption in transit.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 url: str,
+                 credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsInvokeResponseResult'] = None):
+        """
+        An endpoint to connect to with no encryption in transit.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
+        :param str url: Url for the endpoint.
+        :param 'MediaGraphUsernamePasswordCredentialsInvokeResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
+        pulumi.set(__self__, "url", url)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Url for the endpoint.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.MediaGraphUsernamePasswordCredentialsInvokeResponseResult']:
+        """
+        Polymorphic credentials to present to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
+
+
+@pulumi.output_type
 class MediaGraphClearEndpointResponse(dict):
     """
     An endpoint to connect to with no encryption in transit.
@@ -131,6 +242,41 @@ class MediaGraphClearEndpointResponse(dict):
 
 
 @pulumi.output_type
+class MediaGraphPemCertificateListInvokeResponseResult(dict):
+    """
+    A list of PEM formatted certificates.
+    """
+    def __init__(__self__, *,
+                 certificates: Sequence[str],
+                 odata_type: str):
+        """
+        A list of PEM formatted certificates.
+        :param Sequence[str] certificates: PEM formatted public certificates, one per entry.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
+        """
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence[str]:
+        """
+        PEM formatted public certificates, one per entry.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
+        """
+        return pulumi.get(self, "odata_type")
+
+
+@pulumi.output_type
 class MediaGraphPemCertificateListResponse(dict):
     """
     A list of PEM formatted certificates.
@@ -166,6 +312,63 @@ class MediaGraphPemCertificateListResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MediaGraphRtspSourceInvokeResponseResult(dict):
+    """
+    RTSP source.
+    """
+    def __init__(__self__, *,
+                 endpoint: Any,
+                 name: str,
+                 odata_type: str,
+                 transport: str):
+        """
+        RTSP source.
+        :param Union['MediaGraphClearEndpointInvokeResponseArgs', 'MediaGraphTlsEndpointInvokeResponseArgs'] endpoint: RTSP endpoint of the stream being connected to.
+        :param str name: Source name.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+        :param str transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
+        pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Any:
+        """
+        RTSP endpoint of the stream being connected to.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Source name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+        """
+        return pulumi.get(self, "transport")
 
 
 @pulumi.output_type
@@ -226,6 +429,77 @@ class MediaGraphRtspSourceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MediaGraphTlsEndpointInvokeResponseResult(dict):
+    """
+    An endpoint which must be connected over TLS/SSL.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 url: str,
+                 credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsInvokeResponseResult'] = None,
+                 trusted_certificates: Optional['outputs.MediaGraphPemCertificateListInvokeResponseResult'] = None,
+                 validation_options: Optional['outputs.MediaGraphTlsValidationOptionsInvokeResponseResult'] = None):
+        """
+        An endpoint which must be connected over TLS/SSL.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
+        :param str url: Url for the endpoint.
+        :param 'MediaGraphUsernamePasswordCredentialsInvokeResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
+        :param 'MediaGraphPemCertificateListInvokeResponseArgs' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
+        :param 'MediaGraphTlsValidationOptionsInvokeResponseArgs' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
+        pulumi.set(__self__, "url", url)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if trusted_certificates is not None:
+            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Url for the endpoint.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.MediaGraphUsernamePasswordCredentialsInvokeResponseResult']:
+        """
+        Polymorphic credentials to present to the endpoint.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="trustedCertificates")
+    def trusted_certificates(self) -> Optional['outputs.MediaGraphPemCertificateListInvokeResponseResult']:
+        """
+        What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
+        """
+        return pulumi.get(self, "trusted_certificates")
+
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional['outputs.MediaGraphTlsValidationOptionsInvokeResponseResult']:
+        """
+        Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        """
+        return pulumi.get(self, "validation_options")
 
 
 @pulumi.output_type
@@ -303,6 +577,39 @@ class MediaGraphTlsEndpointResponse(dict):
 
 
 @pulumi.output_type
+class MediaGraphTlsValidationOptionsInvokeResponseResult(dict):
+    """
+    Options for controlling the authentication of TLS endpoints.
+    """
+    def __init__(__self__, *,
+                 ignore_hostname: bool,
+                 ignore_signature: bool):
+        """
+        Options for controlling the authentication of TLS endpoints.
+        :param bool ignore_hostname: Ignore the host name (common name) during validation.
+        :param bool ignore_signature: Ignore the integrity of the certificate chain at the current time.
+        """
+        pulumi.set(__self__, "ignore_hostname", ignore_hostname)
+        pulumi.set(__self__, "ignore_signature", ignore_signature)
+
+    @property
+    @pulumi.getter(name="ignoreHostname")
+    def ignore_hostname(self) -> bool:
+        """
+        Ignore the host name (common name) during validation.
+        """
+        return pulumi.get(self, "ignore_hostname")
+
+    @property
+    @pulumi.getter(name="ignoreSignature")
+    def ignore_signature(self) -> bool:
+        """
+        Ignore the integrity of the certificate chain at the current time.
+        """
+        return pulumi.get(self, "ignore_signature")
+
+
+@pulumi.output_type
 class MediaGraphTlsValidationOptionsResponse(dict):
     """
     Options for controlling the authentication of TLS endpoints.
@@ -336,6 +643,52 @@ class MediaGraphTlsValidationOptionsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MediaGraphUsernamePasswordCredentialsInvokeResponseResult(dict):
+    """
+    Username/password credential pair.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 password: str,
+                 username: str):
+        """
+        Username/password credential pair.
+        :param str odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
+        :param str password: Password for a username/password pair.
+        :param str username: Username for a username/password pair.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password for a username/password pair.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Username for a username/password pair.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

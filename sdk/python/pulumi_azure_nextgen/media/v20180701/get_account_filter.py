@@ -42,7 +42,7 @@ class GetAccountFilterResult:
 
     @property
     @pulumi.getter(name="firstQuality")
-    def first_quality(self) -> Optional['outputs.FirstQualityResponse']:
+    def first_quality(self) -> Optional['outputs.FirstQualityInvokeResponseResult']:
         """
         The first quality.
         """
@@ -66,7 +66,7 @@ class GetAccountFilterResult:
 
     @property
     @pulumi.getter(name="presentationTimeRange")
-    def presentation_time_range(self) -> Optional['outputs.PresentationTimeRangeResponse']:
+    def presentation_time_range(self) -> Optional['outputs.PresentationTimeRangeInvokeResponseResult']:
         """
         The presentation time range.
         """
@@ -74,7 +74,7 @@ class GetAccountFilterResult:
 
     @property
     @pulumi.getter
-    def tracks(self) -> Optional[Sequence['outputs.FilterTrackSelectionResponse']]:
+    def tracks(self) -> Optional[Sequence['outputs.FilterTrackSelectionInvokeResponseResult']]:
         """
         The tracks selection conditions.
         """

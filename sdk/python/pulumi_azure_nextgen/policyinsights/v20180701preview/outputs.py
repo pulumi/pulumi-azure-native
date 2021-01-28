@@ -10,29 +10,31 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'ErrorDefinitionResponseResult',
-    'RemediationDeploymentResponseResult',
+    'ErrorDefinitionInvokeResponseResult',
+    'RemediationDeploymentInvokeResponseResult',
+    'RemediationDeploymentSummaryInvokeResponseResult',
     'RemediationDeploymentSummaryResponse',
+    'RemediationFiltersInvokeResponseResult',
     'RemediationFiltersResponse',
-    'TypedErrorInfoResponseResult',
+    'TypedErrorInfoInvokeResponseResult',
 ]
 
 @pulumi.output_type
-class ErrorDefinitionResponseResult(dict):
+class ErrorDefinitionInvokeResponseResult(dict):
     """
     Error definition.
     """
     def __init__(__self__, *,
-                 additional_info: Sequence['outputs.TypedErrorInfoResponseResult'],
+                 additional_info: Sequence['outputs.TypedErrorInfoInvokeResponseResult'],
                  code: str,
-                 details: Sequence['outputs.ErrorDefinitionResponseResult'],
+                 details: Sequence['outputs.ErrorDefinitionInvokeResponseResult'],
                  message: str,
                  target: str):
         """
         Error definition.
-        :param Sequence['TypedErrorInfoResponseArgs'] additional_info: Additional scenario specific error details.
+        :param Sequence['TypedErrorInfoInvokeResponseArgs'] additional_info: Additional scenario specific error details.
         :param str code: Service specific error code which serves as the substatus for the HTTP error code.
-        :param Sequence['ErrorDefinitionResponseArgs'] details: Internal error details.
+        :param Sequence['ErrorDefinitionInvokeResponseArgs'] details: Internal error details.
         :param str message: Description of the error.
         :param str target: The target of the error.
         """
@@ -44,7 +46,7 @@ class ErrorDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Sequence['outputs.TypedErrorInfoResponseResult']:
+    def additional_info(self) -> Sequence['outputs.TypedErrorInfoInvokeResponseResult']:
         """
         Additional scenario specific error details.
         """
@@ -60,7 +62,7 @@ class ErrorDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Sequence['outputs.ErrorDefinitionResponseResult']:
+    def details(self) -> Sequence['outputs.ErrorDefinitionInvokeResponseResult']:
         """
         Internal error details.
         """
@@ -84,14 +86,14 @@ class ErrorDefinitionResponseResult(dict):
 
 
 @pulumi.output_type
-class RemediationDeploymentResponseResult(dict):
+class RemediationDeploymentInvokeResponseResult(dict):
     """
     Details of a single deployment created by the remediation.
     """
     def __init__(__self__, *,
                  created_on: str,
                  deployment_id: str,
-                 error: 'outputs.ErrorDefinitionResponseResult',
+                 error: 'outputs.ErrorDefinitionInvokeResponseResult',
                  last_updated_on: str,
                  remediated_resource_id: str,
                  resource_location: str,
@@ -100,7 +102,7 @@ class RemediationDeploymentResponseResult(dict):
         Details of a single deployment created by the remediation.
         :param str created_on: The time at which the remediation was created.
         :param str deployment_id: Resource ID of the template deployment that will remediate the resource.
-        :param 'ErrorDefinitionResponseArgs' error: Error encountered while remediated the resource.
+        :param 'ErrorDefinitionInvokeResponseArgs' error: Error encountered while remediated the resource.
         :param str last_updated_on: The time at which the remediation deployment was last updated.
         :param str remediated_resource_id: Resource ID of the resource that is being remediated by the deployment.
         :param str resource_location: Location of the resource that is being remediated.
@@ -132,7 +134,7 @@ class RemediationDeploymentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDefinitionResponseResult':
+    def error(self) -> 'outputs.ErrorDefinitionInvokeResponseResult':
         """
         Error encountered while remediated the resource.
         """
@@ -169,6 +171,53 @@ class RemediationDeploymentResponseResult(dict):
         Status of the remediation deployment.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RemediationDeploymentSummaryInvokeResponseResult(dict):
+    """
+    The deployment status summary for all deployments created by the remediation.
+    """
+    def __init__(__self__, *,
+                 failed_deployments: Optional[int] = None,
+                 successful_deployments: Optional[int] = None,
+                 total_deployments: Optional[int] = None):
+        """
+        The deployment status summary for all deployments created by the remediation.
+        :param int failed_deployments: The number of deployments required by the remediation that have failed.
+        :param int successful_deployments: The number of deployments required by the remediation that have succeeded.
+        :param int total_deployments: The number of deployments required by the remediation.
+        """
+        if failed_deployments is not None:
+            pulumi.set(__self__, "failed_deployments", failed_deployments)
+        if successful_deployments is not None:
+            pulumi.set(__self__, "successful_deployments", successful_deployments)
+        if total_deployments is not None:
+            pulumi.set(__self__, "total_deployments", total_deployments)
+
+    @property
+    @pulumi.getter(name="failedDeployments")
+    def failed_deployments(self) -> Optional[int]:
+        """
+        The number of deployments required by the remediation that have failed.
+        """
+        return pulumi.get(self, "failed_deployments")
+
+    @property
+    @pulumi.getter(name="successfulDeployments")
+    def successful_deployments(self) -> Optional[int]:
+        """
+        The number of deployments required by the remediation that have succeeded.
+        """
+        return pulumi.get(self, "successful_deployments")
+
+    @property
+    @pulumi.getter(name="totalDeployments")
+    def total_deployments(self) -> Optional[int]:
+        """
+        The number of deployments required by the remediation.
+        """
+        return pulumi.get(self, "total_deployments")
 
 
 @pulumi.output_type
@@ -222,6 +271,29 @@ class RemediationDeploymentSummaryResponse(dict):
 
 
 @pulumi.output_type
+class RemediationFiltersInvokeResponseResult(dict):
+    """
+    The filters that will be applied to determine which resources to remediate.
+    """
+    def __init__(__self__, *,
+                 locations: Optional[Sequence[str]] = None):
+        """
+        The filters that will be applied to determine which resources to remediate.
+        :param Sequence[str] locations: The resource locations that will be remediated.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        The resource locations that will be remediated.
+        """
+        return pulumi.get(self, "locations")
+
+
+@pulumi.output_type
 class RemediationFiltersResponse(dict):
     """
     The filters that will be applied to determine which resources to remediate.
@@ -248,7 +320,7 @@ class RemediationFiltersResponse(dict):
 
 
 @pulumi.output_type
-class TypedErrorInfoResponseResult(dict):
+class TypedErrorInfoInvokeResponseResult(dict):
     """
     Scenario specific error details.
     """

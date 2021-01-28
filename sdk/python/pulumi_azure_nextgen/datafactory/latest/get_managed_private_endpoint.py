@@ -63,7 +63,7 @@ class GetManagedPrivateEndpointResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ManagedPrivateEndpointResponse':
+    def properties(self) -> 'outputs.ManagedPrivateEndpointInvokeResponseResult':
         """
         Managed private endpoint properties.
         """

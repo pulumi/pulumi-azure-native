@@ -63,7 +63,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="customDnsConfigs")
-    def custom_dns_configs(self) -> Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']]:
+    def custom_dns_configs(self) -> Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatInvokeResponseResult']]:
         """
         An array of custom dns configurations.
         """
@@ -79,7 +79,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationInvokeResponseResult']:
         """
         The extended location of the load balancer.
         """
@@ -103,7 +103,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionInvokeResponseResult']]:
         """
         A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         """
@@ -119,7 +119,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceInvokeResponseResult']:
         """
         An array of references to the network interfaces created for this private endpoint.
         """
@@ -127,7 +127,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="privateLinkServiceConnections")
-    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionInvokeResponseResult']]:
         """
         A grouping of information about the connection to the remote resource.
         """
@@ -143,7 +143,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubnetResponse']:
+    def subnet(self) -> Optional['outputs.SubnetInvokeResponseResult']:
         """
         The ID of the subnet from which the private IP will be allocated.
         """

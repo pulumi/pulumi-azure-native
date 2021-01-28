@@ -55,7 +55,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional['outputs.ResourceLocationDataContractResponse']:
+    def location_data(self) -> Optional['outputs.ResourceLocationDataContractInvokeResponseResult']:
         """
         Gateway location.
         """

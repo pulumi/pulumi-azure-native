@@ -51,7 +51,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="azureFileParameters")
-    def azure_file_parameters(self) -> Optional['outputs.VolumeProviderParametersAzureFileResponse']:
+    def azure_file_parameters(self) -> Optional['outputs.VolumeProviderParametersAzureFileInvokeResponseResult']:
         """
         This type describes a volume provided by an Azure Files file share.
         """

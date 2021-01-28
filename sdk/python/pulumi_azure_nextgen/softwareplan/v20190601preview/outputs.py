@@ -9,8 +9,32 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The SKU to be applied for this resource
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The SKU to be applied for this resource
+        :param str name: Name of the SKU to be applied
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the SKU to be applied
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class SkuResponse(dict):

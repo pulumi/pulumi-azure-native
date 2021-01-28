@@ -121,7 +121,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="apiVersionSet")
-    def api_version_set(self) -> Optional['outputs.ApiVersionSetContractDetailsResponse']:
+    def api_version_set(self) -> Optional['outputs.ApiVersionSetContractDetailsInvokeResponseResult']:
         """
         An API Version Set contains the common configuration for a set of API Versions relating 
         """
@@ -137,7 +137,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="authenticationSettings")
-    def authentication_settings(self) -> Optional['outputs.AuthenticationSettingsContractResponse']:
+    def authentication_settings(self) -> Optional['outputs.AuthenticationSettingsContractInvokeResponseResult']:
         """
         Collection of authentication settings included into this API.
         """
@@ -217,7 +217,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="subscriptionKeyParameterNames")
-    def subscription_key_parameter_names(self) -> Optional['outputs.SubscriptionKeyParameterNamesContractResponse']:
+    def subscription_key_parameter_names(self) -> Optional['outputs.SubscriptionKeyParameterNamesContractInvokeResponseResult']:
         """
         Protocols over which API is made available.
         """

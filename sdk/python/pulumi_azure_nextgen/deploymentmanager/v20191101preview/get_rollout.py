@@ -90,7 +90,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -114,7 +114,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter(name="operationInfo")
-    def operation_info(self) -> 'outputs.RolloutOperationInfoResponseResult':
+    def operation_info(self) -> 'outputs.RolloutOperationInfoInvokeResponseResult':
         """
         Operational information of the rollout.
         """
@@ -122,7 +122,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter
-    def services(self) -> Sequence['outputs.ServiceResponseResult']:
+    def services(self) -> Sequence['outputs.ServiceInvokeResponseResult']:
         """
         The detailed information on the services being deployed.
         """
@@ -138,7 +138,7 @@ class GetRolloutResult:
 
     @property
     @pulumi.getter(name="stepGroups")
-    def step_groups(self) -> Sequence['outputs.StepGroupResponse']:
+    def step_groups(self) -> Sequence['outputs.StepGroupInvokeResponseResult']:
         """
         The list of step groups that define the orchestration.
         """

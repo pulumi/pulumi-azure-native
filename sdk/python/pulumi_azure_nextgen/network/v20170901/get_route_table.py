@@ -91,7 +91,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.RouteResponse']]:
+    def routes(self) -> Optional[Sequence['outputs.RouteInvokeResponseResult']]:
         """
         Collection of routes contained within a route table.
         """
@@ -99,7 +99,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.SubnetResponse']:
+    def subnets(self) -> Sequence['outputs.SubnetInvokeResponseResult']:
         """
         A collection of references to subnets.
         """

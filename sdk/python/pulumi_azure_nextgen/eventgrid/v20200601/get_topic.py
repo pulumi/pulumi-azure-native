@@ -79,7 +79,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[Sequence['outputs.InboundIpRuleResponse']]:
+    def inbound_ip_rules(self) -> Optional[Sequence['outputs.InboundIpRuleInvokeResponseResult']]:
         """
         This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         """
@@ -95,7 +95,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> Optional['outputs.JsonInputSchemaMappingResponse']:
+    def input_schema_mapping(self) -> Optional['outputs.JsonInputSchemaMappingInvokeResponseResult']:
         """
         This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         """
@@ -127,7 +127,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']]:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property

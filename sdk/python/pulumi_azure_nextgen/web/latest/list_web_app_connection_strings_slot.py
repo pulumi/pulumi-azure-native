@@ -66,7 +66,7 @@ class ListWebAppConnectionStringsSlotResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, 'outputs.ConnStringValueTypePairResponseResult']:
+    def properties(self) -> Mapping[str, 'outputs.ConnStringValueTypePairInvokeResponseResult']:
         """
         Connection strings.
         """
@@ -74,7 +74,7 @@ class ListWebAppConnectionStringsSlotResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

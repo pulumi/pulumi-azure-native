@@ -11,18 +11,64 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'NetworkACLInvokeResponseResult',
     'NetworkACLResponse',
+    'PrivateEndpointACLInvokeResponseResult',
     'PrivateEndpointACLResponse',
+    'PrivateEndpointConnectionInvokeResponseResult',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointInvokeResponseResult',
     'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateInvokeResponseResult',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceSkuInvokeResponseResult',
     'ResourceSkuResponse',
+    'ServerlessUpstreamSettingsInvokeResponseResult',
     'ServerlessUpstreamSettingsResponse',
+    'SignalRCorsSettingsInvokeResponseResult',
     'SignalRCorsSettingsResponse',
+    'SignalRFeatureInvokeResponseResult',
     'SignalRFeatureResponse',
+    'SignalRNetworkACLsInvokeResponseResult',
     'SignalRNetworkACLsResponse',
+    'UpstreamTemplateInvokeResponseResult',
     'UpstreamTemplateResponse',
 ]
+
+@pulumi.output_type
+class NetworkACLInvokeResponseResult(dict):
+    """
+    Network ACL
+    """
+    def __init__(__self__, *,
+                 allow: Optional[Sequence[str]] = None,
+                 deny: Optional[Sequence[str]] = None):
+        """
+        Network ACL
+        :param Sequence[str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param Sequence[str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if deny is not None:
+            pulumi.set(__self__, "deny", deny)
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[Sequence[str]]:
+        """
+        Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        return pulumi.get(self, "allow")
+
+    @property
+    @pulumi.getter
+    def deny(self) -> Optional[Sequence[str]]:
+        """
+        Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        return pulumi.get(self, "deny")
+
 
 @pulumi.output_type
 class NetworkACLResponse(dict):
@@ -60,6 +106,52 @@ class NetworkACLResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointACLInvokeResponseResult(dict):
+    """
+    ACL for a private endpoint
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 allow: Optional[Sequence[str]] = None,
+                 deny: Optional[Sequence[str]] = None):
+        """
+        ACL for a private endpoint
+        :param str name: Name of the private endpoint connection
+        :param Sequence[str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param Sequence[str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        pulumi.set(__self__, "name", name)
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if deny is not None:
+            pulumi.set(__self__, "deny", deny)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the private endpoint connection
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[Sequence[str]]:
+        """
+        Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        return pulumi.get(self, "allow")
+
+    @property
+    @pulumi.getter
+    def deny(self) -> Optional[Sequence[str]]:
+        """
+        Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        """
+        return pulumi.get(self, "deny")
 
 
 @pulumi.output_type
@@ -109,6 +201,85 @@ class PrivateEndpointACLResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionInvokeResponseResult(dict):
+    """
+    A private endpoint connection to SignalR resource
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointInvokeResponseResult'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult'] = None):
+        """
+        A private endpoint connection to SignalR resource
+        :param str id: Fully qualified resource Id for the resource.
+        :param str name: The name of the resource.
+        :param str provisioning_state: Provisioning state of the private endpoint connection
+        :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        :param 'PrivateEndpointInvokeResponseArgs' private_endpoint: Private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateInvokeResponseArgs' private_link_service_connection_state: Connection state
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointInvokeResponseResult']:
+        """
+        Private endpoint associated with the private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult']:
+        """
+        Connection state
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -194,6 +365,29 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointInvokeResponseResult(dict):
+    """
+    Private endpoint
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Private endpoint
+        :param str id: Full qualified Id of the private endpoint
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Full qualified Id of the private endpoint
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     Private endpoint
@@ -217,6 +411,53 @@ class PrivateEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateInvokeResponseResult(dict):
+    """
+    Connection state of the private endpoint connection
+    """
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Connection state of the private endpoint connection
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -267,6 +508,90 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceSkuInvokeResponseResult(dict):
+    """
+    The billing information of the SignalR resource.
+    """
+    def __init__(__self__, *,
+                 family: str,
+                 name: str,
+                 size: str,
+                 capacity: Optional[int] = None,
+                 tier: Optional[str] = None):
+        """
+        The billing information of the SignalR resource.
+        :param str family: Not used. Retained for future use.
+        :param str name: The name of the SKU. Required.
+               
+               Allowed values: Standard_S1, Free_F1
+        :param str size: Not used. Retained for future use.
+        :param int capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
+               
+               If present, following values are allowed:
+                   Free: 1
+                   Standard: 1,2,5,10,20,50,100
+        :param str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
+               
+               `Basic` is deprecated, use `Standard` instead.
+        """
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        Not used. Retained for future use.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU. Required.
+        
+        Allowed values: Standard_S1, Free_F1
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> str:
+        """
+        Not used. Retained for future use.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        Optional, integer. The unit count of SignalR resource. 1 by default.
+        
+        If present, following values are allowed:
+            Free: 1
+            Standard: 1,2,5,10,20,50,100
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Optional tier of this particular SKU. 'Standard' or 'Free'. 
+        
+        `Basic` is deprecated, use `Standard` instead.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -357,6 +682,29 @@ class ResourceSkuResponse(dict):
 
 
 @pulumi.output_type
+class ServerlessUpstreamSettingsInvokeResponseResult(dict):
+    """
+    The settings for the Upstream when the Azure SignalR is in server-less mode.
+    """
+    def __init__(__self__, *,
+                 templates: Optional[Sequence['outputs.UpstreamTemplateInvokeResponseResult']] = None):
+        """
+        The settings for the Upstream when the Azure SignalR is in server-less mode.
+        :param Sequence['UpstreamTemplateInvokeResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        """
+        if templates is not None:
+            pulumi.set(__self__, "templates", templates)
+
+    @property
+    @pulumi.getter
+    def templates(self) -> Optional[Sequence['outputs.UpstreamTemplateInvokeResponseResult']]:
+        """
+        Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        """
+        return pulumi.get(self, "templates")
+
+
+@pulumi.output_type
 class ServerlessUpstreamSettingsResponse(dict):
     """
     The settings for the Upstream when the Azure SignalR is in server-less mode.
@@ -383,6 +731,29 @@ class ServerlessUpstreamSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SignalRCorsSettingsInvokeResponseResult(dict):
+    """
+    Cross-Origin Resource Sharing (CORS) settings.
+    """
+    def __init__(__self__, *,
+                 allowed_origins: Optional[Sequence[str]] = None):
+        """
+        Cross-Origin Resource Sharing (CORS) settings.
+        :param Sequence[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+        """
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+
+@pulumi.output_type
 class SignalRCorsSettingsResponse(dict):
     """
     Cross-Origin Resource Sharing (CORS) settings.
@@ -406,6 +777,55 @@ class SignalRCorsSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SignalRFeatureInvokeResponseResult(dict):
+    """
+    Feature of a SignalR resource, which controls the SignalR runtime behavior.
+    """
+    def __init__(__self__, *,
+                 flag: str,
+                 value: str,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        Feature of a SignalR resource, which controls the SignalR runtime behavior.
+        :param str flag: FeatureFlags is the supported features of Azure SignalR service.
+               - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+               - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+        :param str value: Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+        :param Mapping[str, str] properties: Optional properties related to this feature.
+        """
+        pulumi.set(__self__, "flag", flag)
+        pulumi.set(__self__, "value", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def flag(self) -> str:
+        """
+        FeatureFlags is the supported features of Azure SignalR service.
+        - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+        - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+        """
+        return pulumi.get(self, "flag")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Optional properties related to this feature.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -461,6 +881,55 @@ class SignalRFeatureResponse(dict):
 
 
 @pulumi.output_type
+class SignalRNetworkACLsInvokeResponseResult(dict):
+    """
+    Network ACLs for SignalR
+    """
+    def __init__(__self__, *,
+                 default_action: Optional[str] = None,
+                 private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLInvokeResponseResult']] = None,
+                 public_network: Optional['outputs.NetworkACLInvokeResponseResult'] = None):
+        """
+        Network ACLs for SignalR
+        :param str default_action: Default action when no other rule matches
+        :param Sequence['PrivateEndpointACLInvokeResponseArgs'] private_endpoints: ACLs for requests from private endpoints
+        :param 'NetworkACLInvokeResponseArgs' public_network: ACL for requests from public network
+        """
+        if default_action is None:
+            default_action = 'Deny'
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if private_endpoints is not None:
+            pulumi.set(__self__, "private_endpoints", private_endpoints)
+        if public_network is not None:
+            pulumi.set(__self__, "public_network", public_network)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        Default action when no other rule matches
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="privateEndpoints")
+    def private_endpoints(self) -> Optional[Sequence['outputs.PrivateEndpointACLInvokeResponseResult']]:
+        """
+        ACLs for requests from private endpoints
+        """
+        return pulumi.get(self, "private_endpoints")
+
+    @property
+    @pulumi.getter(name="publicNetwork")
+    def public_network(self) -> Optional['outputs.NetworkACLInvokeResponseResult']:
+        """
+        ACL for requests from public network
+        """
+        return pulumi.get(self, "public_network")
+
+
+@pulumi.output_type
 class SignalRNetworkACLsResponse(dict):
     """
     Network ACLs for SignalR
@@ -510,6 +979,92 @@ class SignalRNetworkACLsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UpstreamTemplateInvokeResponseResult(dict):
+    """
+    Upstream template item settings. It defines the Upstream URL of the incoming requests.
+    The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
+    """
+    def __init__(__self__, *,
+                 url_template: str,
+                 category_pattern: Optional[str] = None,
+                 event_pattern: Optional[str] = None,
+                 hub_pattern: Optional[str] = None):
+        """
+        Upstream template item settings. It defines the Upstream URL of the incoming requests.
+        The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
+        :param str url_template: Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+               For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+        :param str category_pattern: Gets or sets the matching pattern for category names. If not set, it matches any category.
+               There are 3 kind of patterns supported:
+                   1. "*", it to matches any category name
+                   2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+                   3. The single category name, for example, "connections", it matches the category "connections"
+        :param str event_pattern: Gets or sets the matching pattern for event names. If not set, it matches any event.
+               There are 3 kind of patterns supported:
+                   1. "*", it to matches any event name
+                   2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+                   3. The single event name, for example, "connect", it matches "connect"
+        :param str hub_pattern: Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+               There are 3 kind of patterns supported:
+                   1. "*", it to matches any hub name
+                   2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+                   3. The single hub name, for example, "hub1", it matches "hub1"
+        """
+        pulumi.set(__self__, "url_template", url_template)
+        if category_pattern is not None:
+            pulumi.set(__self__, "category_pattern", category_pattern)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
+        if hub_pattern is not None:
+            pulumi.set(__self__, "hub_pattern", hub_pattern)
+
+    @property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> str:
+        """
+        Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+        For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+        """
+        return pulumi.get(self, "url_template")
+
+    @property
+    @pulumi.getter(name="categoryPattern")
+    def category_pattern(self) -> Optional[str]:
+        """
+        Gets or sets the matching pattern for category names. If not set, it matches any category.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any category name
+            2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+            3. The single category name, for example, "connections", it matches the category "connections"
+        """
+        return pulumi.get(self, "category_pattern")
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[str]:
+        """
+        Gets or sets the matching pattern for event names. If not set, it matches any event.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any event name
+            2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+            3. The single event name, for example, "connect", it matches "connect"
+        """
+        return pulumi.get(self, "event_pattern")
+
+    @property
+    @pulumi.getter(name="hubPattern")
+    def hub_pattern(self) -> Optional[str]:
+        """
+        Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+        There are 3 kind of patterns supported:
+            1. "*", it to matches any hub name
+            2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+            3. The single hub name, for example, "hub1", it matches "hub1"
+        """
+        return pulumi.get(self, "hub_pattern")
 
 
 @pulumi.output_type

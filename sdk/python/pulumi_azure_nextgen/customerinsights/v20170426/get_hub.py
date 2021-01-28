@@ -62,7 +62,7 @@ class GetHubResult:
 
     @property
     @pulumi.getter(name="hubBillingInfo")
-    def hub_billing_info(self) -> Optional['outputs.HubBillingInfoFormatResponse']:
+    def hub_billing_info(self) -> Optional['outputs.HubBillingInfoFormatInvokeResponseResult']:
         """
         Billing settings of the hub.
         """

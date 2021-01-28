@@ -77,7 +77,7 @@ class GetConnectionGatewayResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConnectionGatewayDefinitionResponseProperties':
+    def properties(self) -> 'outputs.ConnectionGatewayDefinitionInvokeResponsePropertiesResult':
         return pulumi.get(self, "properties")
 
     @property

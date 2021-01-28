@@ -151,7 +151,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="virtualHubs")
-    def virtual_hubs(self) -> Sequence['outputs.SubResourceResponse']:
+    def virtual_hubs(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of VirtualHubs in the VirtualWAN.
         """
@@ -159,7 +159,7 @@ class GetVirtualWanResult:
 
     @property
     @pulumi.getter(name="vpnSites")
-    def vpn_sites(self) -> Sequence['outputs.SubResourceResponse']:
+    def vpn_sites(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of VpnSites in the VirtualWAN.
         """

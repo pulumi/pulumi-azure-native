@@ -102,7 +102,7 @@ class GetPolicyDefinitionResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueInvokeResponseResult']]:
         """
         The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         """

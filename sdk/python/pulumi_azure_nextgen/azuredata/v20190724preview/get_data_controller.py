@@ -69,7 +69,7 @@ class GetDataControllerResult:
 
     @property
     @pulumi.getter(name="onPremiseProperty")
-    def on_premise_property(self) -> 'outputs.OnPremisePropertyResponse':
+    def on_premise_property(self) -> 'outputs.OnPremisePropertyInvokeResponseResult':
         """
         Properties from the on premise data controller
         """
@@ -77,7 +77,7 @@ class GetDataControllerResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

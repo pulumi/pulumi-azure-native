@@ -44,7 +44,7 @@ class GetJobTargetGroupResult:
 
     @property
     @pulumi.getter
-    def members(self) -> Sequence['outputs.JobTargetResponse']:
+    def members(self) -> Sequence['outputs.JobTargetInvokeResponseResult']:
         """
         Members of the target group.
         """

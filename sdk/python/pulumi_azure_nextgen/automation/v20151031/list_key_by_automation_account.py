@@ -24,7 +24,7 @@ class ListKeyByAutomationAccountResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[Sequence['outputs.KeyResponseResult']]:
+    def keys(self) -> Optional[Sequence['outputs.KeyInvokeResponseResult']]:
         """
         Lists the automation keys.
         """

@@ -66,7 +66,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SecretPropertiesResponse':
+    def properties(self) -> 'outputs.SecretPropertiesInvokeResponseResult':
         """
         Properties of the secret
         """

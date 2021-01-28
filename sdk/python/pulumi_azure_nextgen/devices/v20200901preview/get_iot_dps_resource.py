@@ -67,7 +67,7 @@ class GetIotDpsResourceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ArmIdentityResponse']:
+    def identity(self) -> Optional['outputs.ArmIdentityInvokeResponseResult']:
         """
         The managed identities for the IotDps instance.
         """
@@ -91,7 +91,7 @@ class GetIotDpsResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IotDpsPropertiesDescriptionResponse':
+    def properties(self) -> 'outputs.IotDpsPropertiesDescriptionInvokeResponseResult':
         """
         Service specific properties for a provisioning service
         """
@@ -99,7 +99,7 @@ class GetIotDpsResourceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IotDpsSkuInfoResponse':
+    def sku(self) -> 'outputs.IotDpsSkuInfoInvokeResponseResult':
         """
         Sku info for a provisioning Service.
         """

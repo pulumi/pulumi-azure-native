@@ -66,7 +66,7 @@ class ListWebAppAzureStorageAccountsSlotResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, 'outputs.AzureStorageInfoValueResponseResult']:
+    def properties(self) -> Mapping[str, 'outputs.AzureStorageInfoValueInvokeResponseResult']:
         """
         Azure storage accounts.
         """
@@ -74,7 +74,7 @@ class ListWebAppAzureStorageAccountsSlotResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

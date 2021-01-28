@@ -63,7 +63,7 @@ class GetReplicationMigrationItemResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MigrationItemPropertiesResponse':
+    def properties(self) -> 'outputs.MigrationItemPropertiesInvokeResponseResult':
         """
         The migration item properties.
         """

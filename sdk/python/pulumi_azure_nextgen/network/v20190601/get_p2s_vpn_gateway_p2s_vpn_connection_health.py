@@ -63,7 +63,7 @@ class GetP2sVpnGatewayP2sVpnConnectionHealthResult:
 
     @property
     @pulumi.getter(name="customRoutes")
-    def custom_routes(self) -> Optional['outputs.AddressSpaceResponse']:
+    def custom_routes(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
         """
@@ -103,7 +103,7 @@ class GetP2sVpnGatewayP2sVpnConnectionHealthResult:
 
     @property
     @pulumi.getter(name="p2SVpnServerConfiguration")
-    def p2_s_vpn_server_configuration(self) -> Optional['outputs.SubResourceResponse']:
+    def p2_s_vpn_server_configuration(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
@@ -135,7 +135,7 @@ class GetP2sVpnGatewayP2sVpnConnectionHealthResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualHub to which the gateway belongs.
         """
@@ -143,7 +143,7 @@ class GetP2sVpnGatewayP2sVpnConnectionHealthResult:
 
     @property
     @pulumi.getter(name="vpnClientAddressPool")
-    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceResponse']:
+    def vpn_client_address_pool(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The reference of the address space resource which represents Address space for P2S VpnClient.
         """
@@ -151,7 +151,7 @@ class GetP2sVpnGatewayP2sVpnConnectionHealthResult:
 
     @property
     @pulumi.getter(name="vpnClientConnectionHealth")
-    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthResponse':
+    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthInvokeResponseResult':
         """
         All P2S VPN clients' connection health status.
         """

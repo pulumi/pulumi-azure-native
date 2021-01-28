@@ -11,26 +11,36 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'EnvironmentDetailsResponseResult',
+    'EnvironmentDetailsInvokeResponseResult',
+    'EnvironmentSizeInvokeResponseResult',
     'EnvironmentSizeResponse',
+    'GalleryImageReferenceInvokeResponseResult',
     'GalleryImageReferenceResponse',
-    'LabDetailsResponseResult',
+    'LabDetailsInvokeResponseResult',
+    'LatestOperationResultInvokeResponseResult',
     'LatestOperationResultResponse',
+    'NetworkInterfaceInvokeResponseResult',
     'NetworkInterfaceResponse',
-    'OperationBatchStatusResponseItemResponseResult',
+    'OperationBatchStatusResponseItemInvokeResponseResult',
+    'ReferenceVmInvokeResponseResult',
     'ReferenceVmResponse',
-    'RegionalAvailabilityResponseResult',
+    'RegionalAvailabilityInvokeResponseResult',
+    'ResourceSetInvokeResponseResult',
     'ResourceSetResponse',
+    'ResourceSettingsInvokeResponseResult',
     'ResourceSettingsResponse',
-    'SizeAvailabilityResponseResult',
+    'SizeAvailabilityInvokeResponseResult',
+    'SizeConfigurationPropertiesInvokeResponseResult',
     'SizeConfigurationPropertiesResponse',
+    'SizeInfoInvokeResponseResult',
     'SizeInfoResponse',
-    'VirtualMachineDetailsResponseResult',
+    'VirtualMachineDetailsInvokeResponseResult',
+    'VmStateDetailsInvokeResponseResult',
     'VmStateDetailsResponse',
 ]
 
 @pulumi.output_type
-class EnvironmentDetailsResponseResult(dict):
+class EnvironmentDetailsInvokeResponseResult(dict):
     """
     This represents the details about a User's environment and its state.
     """
@@ -38,23 +48,23 @@ class EnvironmentDetailsResponseResult(dict):
                  description: str,
                  environment_state: str,
                  id: str,
-                 latest_operation_result: 'outputs.LatestOperationResultResponse',
+                 latest_operation_result: 'outputs.LatestOperationResultInvokeResponseResult',
                  name: str,
                  password_last_reset: str,
                  provisioning_state: str,
                  total_usage: str,
-                 virtual_machine_details: 'outputs.VirtualMachineDetailsResponseResult'):
+                 virtual_machine_details: 'outputs.VirtualMachineDetailsInvokeResponseResult'):
         """
         This represents the details about a User's environment and its state.
         :param str description: Description of the Environment
         :param str environment_state: Publishing state of the environment setting Possible values are Creating, Created, Failed
         :param str id: Resource Id of the environment
-        :param 'LatestOperationResultResponseArgs' latest_operation_result: The details of the latest operation. ex: status, error
+        :param 'LatestOperationResultInvokeResponseArgs' latest_operation_result: The details of the latest operation. ex: status, error
         :param str name: Name of the Environment
         :param str password_last_reset: When the password was last reset on the environment.
         :param str provisioning_state: The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
         :param str total_usage: How long the environment has been used by a lab user
-        :param 'VirtualMachineDetailsResponseArgs' virtual_machine_details: Details of backing DTL virtual machine with compute and network details.
+        :param 'VirtualMachineDetailsInvokeResponseArgs' virtual_machine_details: Details of backing DTL virtual machine with compute and network details.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "environment_state", environment_state)
@@ -92,7 +102,7 @@ class EnvironmentDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultInvokeResponseResult':
         """
         The details of the latest operation. ex: status, error
         """
@@ -132,11 +142,79 @@ class EnvironmentDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="virtualMachineDetails")
-    def virtual_machine_details(self) -> 'outputs.VirtualMachineDetailsResponseResult':
+    def virtual_machine_details(self) -> 'outputs.VirtualMachineDetailsInvokeResponseResult':
         """
         Details of backing DTL virtual machine with compute and network details.
         """
         return pulumi.get(self, "virtual_machine_details")
+
+
+@pulumi.output_type
+class EnvironmentSizeInvokeResponseResult(dict):
+    """
+    Represents a size category supported by this Lab Account (small, medium or large)
+    """
+    def __init__(__self__, *,
+                 max_price: float,
+                 min_memory: float,
+                 min_number_of_cores: int,
+                 name: Optional[str] = None,
+                 vm_sizes: Optional[Sequence['outputs.SizeInfoInvokeResponseResult']] = None):
+        """
+        Represents a size category supported by this Lab Account (small, medium or large)
+        :param float max_price: The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
+        :param float min_memory: The amount of memory available (in GB). This is the minimum amount of memory within this tier.
+        :param int min_number_of_cores: The number of cores a VM of this size has. This is the minimum number of cores within this tier.
+        :param str name: The size category
+        :param Sequence['SizeInfoInvokeResponseArgs'] vm_sizes: Represents a set of compute sizes that can serve this given size type
+        """
+        pulumi.set(__self__, "max_price", max_price)
+        pulumi.set(__self__, "min_memory", min_memory)
+        pulumi.set(__self__, "min_number_of_cores", min_number_of_cores)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if vm_sizes is not None:
+            pulumi.set(__self__, "vm_sizes", vm_sizes)
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> float:
+        """
+        The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
+        """
+        return pulumi.get(self, "max_price")
+
+    @property
+    @pulumi.getter(name="minMemory")
+    def min_memory(self) -> float:
+        """
+        The amount of memory available (in GB). This is the minimum amount of memory within this tier.
+        """
+        return pulumi.get(self, "min_memory")
+
+    @property
+    @pulumi.getter(name="minNumberOfCores")
+    def min_number_of_cores(self) -> int:
+        """
+        The number of cores a VM of this size has. This is the minimum number of cores within this tier.
+        """
+        return pulumi.get(self, "min_number_of_cores")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The size category
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="vmSizes")
+    def vm_sizes(self) -> Optional[Sequence['outputs.SizeInfoInvokeResponseResult']]:
+        """
+        Represents a set of compute sizes that can serve this given size type
+        """
+        return pulumi.get(self, "vm_sizes")
 
 
 @pulumi.output_type
@@ -208,6 +286,77 @@ class EnvironmentSizeResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GalleryImageReferenceInvokeResponseResult(dict):
+    """
+    The reference information for an Azure Marketplace image.
+    """
+    def __init__(__self__, *,
+                 offer: Optional[str] = None,
+                 os_type: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The reference information for an Azure Marketplace image.
+        :param str offer: The offer of the gallery image.
+        :param str os_type: The OS type of the gallery image.
+        :param str publisher: The publisher of the gallery image.
+        :param str sku: The SKU of the gallery image.
+        :param str version: The version of the gallery image.
+        """
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[str]:
+        """
+        The offer of the gallery image.
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The OS type of the gallery image.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The publisher of the gallery image.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        The SKU of the gallery image.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the gallery image.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -285,7 +434,7 @@ class GalleryImageReferenceResponse(dict):
 
 
 @pulumi.output_type
-class LabDetailsResponseResult(dict):
+class LabDetailsInvokeResponseResult(dict):
     """
     This represents the details about a lab that the User is in, and its state.
     """
@@ -340,6 +489,83 @@ class LabDetailsResponseResult(dict):
         The provisioning state of the lab.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class LatestOperationResultInvokeResponseResult(dict):
+    """
+    Details of the status of an operation.
+    """
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 http_method: str,
+                 operation_url: str,
+                 request_uri: str,
+                 status: str):
+        """
+        Details of the status of an operation.
+        :param str error_code: Error code on failure.
+        :param str error_message: The error message.
+        :param str http_method: The HttpMethod - PUT/POST/DELETE for the operation.
+        :param str operation_url: The URL to use to check long-running operation status
+        :param str request_uri: Request URI of the operation.
+        :param str status: The current status of the operation.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "http_method", http_method)
+        pulumi.set(__self__, "operation_url", operation_url)
+        pulumi.set(__self__, "request_uri", request_uri)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        Error code on failure.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> str:
+        """
+        The HttpMethod - PUT/POST/DELETE for the operation.
+        """
+        return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter(name="operationUrl")
+    def operation_url(self) -> str:
+        """
+        The URL to use to check long-running operation status
+        """
+        return pulumi.get(self, "operation_url")
+
+    @property
+    @pulumi.getter(name="requestUri")
+    def request_uri(self) -> str:
+        """
+        Request URI of the operation.
+        """
+        return pulumi.get(self, "request_uri")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The current status of the operation.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -423,6 +649,61 @@ class LatestOperationResultResponse(dict):
 
 
 @pulumi.output_type
+class NetworkInterfaceInvokeResponseResult(dict):
+    """
+    Network details of the environment
+    """
+    def __init__(__self__, *,
+                 private_ip_address: str,
+                 rdp_authority: str,
+                 ssh_authority: str,
+                 username: str):
+        """
+        Network details of the environment
+        :param str private_ip_address: PrivateIp address of the Compute VM
+        :param str rdp_authority: Connection information for Windows
+        :param str ssh_authority: Connection information for Linux
+        :param str username: Username of the VM
+        """
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "rdp_authority", rdp_authority)
+        pulumi.set(__self__, "ssh_authority", ssh_authority)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        PrivateIp address of the Compute VM
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="rdpAuthority")
+    def rdp_authority(self) -> str:
+        """
+        Connection information for Windows
+        """
+        return pulumi.get(self, "rdp_authority")
+
+    @property
+    @pulumi.getter(name="sshAuthority")
+    def ssh_authority(self) -> str:
+        """
+        Connection information for Linux
+        """
+        return pulumi.get(self, "ssh_authority")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Username of the VM
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class NetworkInterfaceResponse(dict):
     """
     Network details of the environment
@@ -481,7 +762,7 @@ class NetworkInterfaceResponse(dict):
 
 
 @pulumi.output_type
-class OperationBatchStatusResponseItemResponseResult(dict):
+class OperationBatchStatusResponseItemInvokeResponseResult(dict):
     """
     Represents the status of an operation that used the batch API.
     """
@@ -511,6 +792,62 @@ class OperationBatchStatusResponseItemResponseResult(dict):
         status of the long running operation for an environment
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ReferenceVmInvokeResponseResult(dict):
+    """
+    Details of a Reference Vm
+    """
+    def __init__(__self__, *,
+                 user_name: str,
+                 vm_resource_id: str,
+                 vm_state_details: 'outputs.VmStateDetailsInvokeResponseResult',
+                 password: Optional[str] = None):
+        """
+        Details of a Reference Vm
+        :param str user_name: The username of the virtual machine
+        :param str vm_resource_id: VM resource Id for the environment
+        :param 'VmStateDetailsInvokeResponseArgs' vm_state_details: The state details for the reference virtual machine.
+        :param str password: The password of the virtual machine. This will be set to null in GET resource API
+        """
+        pulumi.set(__self__, "user_name", user_name)
+        pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+        pulumi.set(__self__, "vm_state_details", vm_state_details)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The username of the virtual machine
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="vmResourceId")
+    def vm_resource_id(self) -> str:
+        """
+        VM resource Id for the environment
+        """
+        return pulumi.get(self, "vm_resource_id")
+
+    @property
+    @pulumi.getter(name="vmStateDetails")
+    def vm_state_details(self) -> 'outputs.VmStateDetailsInvokeResponseResult':
+        """
+        The state details for the reference virtual machine.
+        """
+        return pulumi.get(self, "vm_state_details")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password of the virtual machine. This will be set to null in GET resource API
+        """
+        return pulumi.get(self, "password")
 
 
 @pulumi.output_type
@@ -573,17 +910,17 @@ class ReferenceVmResponse(dict):
 
 
 @pulumi.output_type
-class RegionalAvailabilityResponseResult(dict):
+class RegionalAvailabilityInvokeResponseResult(dict):
     """
     The availability information of sizes across regions
     """
     def __init__(__self__, *,
                  region: Optional[str] = None,
-                 size_availabilities: Optional[Sequence['outputs.SizeAvailabilityResponseResult']] = None):
+                 size_availabilities: Optional[Sequence['outputs.SizeAvailabilityInvokeResponseResult']] = None):
         """
         The availability information of sizes across regions
         :param str region: Corresponding region
-        :param Sequence['SizeAvailabilityResponseArgs'] size_availabilities: List of all the size information for the region
+        :param Sequence['SizeAvailabilityInvokeResponseArgs'] size_availabilities: List of all the size information for the region
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -600,11 +937,46 @@ class RegionalAvailabilityResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeAvailabilities")
-    def size_availabilities(self) -> Optional[Sequence['outputs.SizeAvailabilityResponseResult']]:
+    def size_availabilities(self) -> Optional[Sequence['outputs.SizeAvailabilityInvokeResponseResult']]:
         """
         List of all the size information for the region
         """
         return pulumi.get(self, "size_availabilities")
+
+
+@pulumi.output_type
+class ResourceSetInvokeResponseResult(dict):
+    """
+    Represents a VM and the setting Id it was created for.
+    """
+    def __init__(__self__, *,
+                 resource_setting_id: Optional[str] = None,
+                 vm_resource_id: Optional[str] = None):
+        """
+        Represents a VM and the setting Id it was created for.
+        :param str resource_setting_id: resourceSettingId for the environment
+        :param str vm_resource_id: VM resource Id for the environment
+        """
+        if resource_setting_id is not None:
+            pulumi.set(__self__, "resource_setting_id", resource_setting_id)
+        if vm_resource_id is not None:
+            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+
+    @property
+    @pulumi.getter(name="resourceSettingId")
+    def resource_setting_id(self) -> Optional[str]:
+        """
+        resourceSettingId for the environment
+        """
+        return pulumi.get(self, "resource_setting_id")
+
+    @property
+    @pulumi.getter(name="vmResourceId")
+    def vm_resource_id(self) -> Optional[str]:
+        """
+        VM resource Id for the environment
+        """
+        return pulumi.get(self, "vm_resource_id")
 
 
 @pulumi.output_type
@@ -643,6 +1015,85 @@ class ResourceSetResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceSettingsInvokeResponseResult(dict):
+    """
+    Represents resource specific settings
+    """
+    def __init__(__self__, *,
+                 cores: int,
+                 id: str,
+                 image_name: str,
+                 reference_vm: 'outputs.ReferenceVmInvokeResponseResult',
+                 gallery_image_resource_id: Optional[str] = None,
+                 size: Optional[str] = None):
+        """
+        Represents resource specific settings
+        :param int cores: The translated compute cores of the virtual machine
+        :param str id: The unique id of the resource setting
+        :param str image_name: The name of the image used to created the environment setting
+        :param 'ReferenceVmInvokeResponseArgs' reference_vm: Details specific to Reference Vm
+        :param str gallery_image_resource_id: The resource id of the gallery image used for creating the virtual machine
+        :param str size: The size of the virtual machine
+        """
+        pulumi.set(__self__, "cores", cores)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "reference_vm", reference_vm)
+        if gallery_image_resource_id is not None:
+            pulumi.set(__self__, "gallery_image_resource_id", gallery_image_resource_id)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def cores(self) -> int:
+        """
+        The translated compute cores of the virtual machine
+        """
+        return pulumi.get(self, "cores")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique id of the resource setting
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The name of the image used to created the environment setting
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="referenceVm")
+    def reference_vm(self) -> 'outputs.ReferenceVmInvokeResponseResult':
+        """
+        Details specific to Reference Vm
+        """
+        return pulumi.get(self, "reference_vm")
+
+    @property
+    @pulumi.getter(name="galleryImageResourceId")
+    def gallery_image_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the gallery image used for creating the virtual machine
+        """
+        return pulumi.get(self, "gallery_image_resource_id")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The size of the virtual machine
+        """
+        return pulumi.get(self, "size")
 
 
 @pulumi.output_type
@@ -728,7 +1179,7 @@ class ResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
-class SizeAvailabilityResponseResult(dict):
+class SizeAvailabilityInvokeResponseResult(dict):
     """
     Represents the size information
     """
@@ -763,6 +1214,29 @@ class SizeAvailabilityResponseResult(dict):
 
 
 @pulumi.output_type
+class SizeConfigurationPropertiesInvokeResponseResult(dict):
+    """
+    Represents the size configuration under the lab account
+    """
+    def __init__(__self__, *,
+                 environment_sizes: Optional[Sequence['outputs.EnvironmentSizeInvokeResponseResult']] = None):
+        """
+        Represents the size configuration under the lab account
+        :param Sequence['EnvironmentSizeInvokeResponseArgs'] environment_sizes: Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
+        """
+        if environment_sizes is not None:
+            pulumi.set(__self__, "environment_sizes", environment_sizes)
+
+    @property
+    @pulumi.getter(name="environmentSizes")
+    def environment_sizes(self) -> Optional[Sequence['outputs.EnvironmentSizeInvokeResponseResult']]:
+        """
+        Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
+        """
+        return pulumi.get(self, "environment_sizes")
+
+
+@pulumi.output_type
 class SizeConfigurationPropertiesResponse(dict):
     """
     Represents the size configuration under the lab account
@@ -786,6 +1260,65 @@ class SizeConfigurationPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SizeInfoInvokeResponseResult(dict):
+    """
+    Contains detailed information about a size
+    """
+    def __init__(__self__, *,
+                 compute_size: Optional[str] = None,
+                 memory: Optional[float] = None,
+                 number_of_cores: Optional[int] = None,
+                 price: Optional[float] = None):
+        """
+        Contains detailed information about a size
+        :param str compute_size: Represents the actual compute size, e.g. Standard_A2_v2.
+        :param float memory: The amount of memory available (in GB).
+        :param int number_of_cores: The number of cores a VM of this size has.
+        :param float price: The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
+        """
+        if compute_size is not None:
+            pulumi.set(__self__, "compute_size", compute_size)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if number_of_cores is not None:
+            pulumi.set(__self__, "number_of_cores", number_of_cores)
+        if price is not None:
+            pulumi.set(__self__, "price", price)
+
+    @property
+    @pulumi.getter(name="computeSize")
+    def compute_size(self) -> Optional[str]:
+        """
+        Represents the actual compute size, e.g. Standard_A2_v2.
+        """
+        return pulumi.get(self, "compute_size")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[float]:
+        """
+        The amount of memory available (in GB).
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter(name="numberOfCores")
+    def number_of_cores(self) -> Optional[int]:
+        """
+        The number of cores a VM of this size has.
+        """
+        return pulumi.get(self, "number_of_cores")
+
+    @property
+    @pulumi.getter
+    def price(self) -> Optional[float]:
+        """
+        The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
+        """
+        return pulumi.get(self, "price")
 
 
 @pulumi.output_type
@@ -851,7 +1384,7 @@ class SizeInfoResponse(dict):
 
 
 @pulumi.output_type
-class VirtualMachineDetailsResponseResult(dict):
+class VirtualMachineDetailsInvokeResponseResult(dict):
     """
     Details of the backing virtual machine.
     """
@@ -925,6 +1458,61 @@ class VirtualMachineDetailsResponseResult(dict):
         Compute VM login user name
         """
         return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class VmStateDetailsInvokeResponseResult(dict):
+    """
+    Details about the state of the reference virtual machine.
+    """
+    def __init__(__self__, *,
+                 last_known_power_state: str,
+                 power_state: str,
+                 rdp_authority: str,
+                 ssh_authority: str):
+        """
+        Details about the state of the reference virtual machine.
+        :param str last_known_power_state: Last known compute power state captured in DTL
+        :param str power_state: The power state of the reference virtual machine.
+        :param str rdp_authority: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+        :param str ssh_authority: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+        """
+        pulumi.set(__self__, "last_known_power_state", last_known_power_state)
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "rdp_authority", rdp_authority)
+        pulumi.set(__self__, "ssh_authority", ssh_authority)
+
+    @property
+    @pulumi.getter(name="lastKnownPowerState")
+    def last_known_power_state(self) -> str:
+        """
+        Last known compute power state captured in DTL
+        """
+        return pulumi.get(self, "last_known_power_state")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        The power state of the reference virtual machine.
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
+    @pulumi.getter(name="rdpAuthority")
+    def rdp_authority(self) -> str:
+        """
+        The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+        """
+        return pulumi.get(self, "rdp_authority")
+
+    @property
+    @pulumi.getter(name="sshAuthority")
+    def ssh_authority(self) -> str:
+        """
+        The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+        """
+        return pulumi.get(self, "ssh_authority")
 
 
 @pulumi.output_type

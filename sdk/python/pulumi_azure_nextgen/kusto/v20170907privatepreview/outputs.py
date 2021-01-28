@@ -10,11 +10,55 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AzureSkuInvokeResponseResult',
     'AzureSkuResponse',
-    'DatabasePrincipalResponseResult',
+    'DatabasePrincipalInvokeResponseResult',
+    'DatabaseStatisticsInvokeResponseResult',
     'DatabaseStatisticsResponse',
+    'TrustedExternalTenantInvokeResponseResult',
     'TrustedExternalTenantResponse',
 ]
+
+@pulumi.output_type
+class AzureSkuInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str,
+                 capacity: Optional[int] = None):
+        """
+        :param str name: SKU name.
+        :param str tier: SKU tier.
+        :param int capacity: SKU capacity.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        SKU capacity.
+        """
+        return pulumi.get(self, "capacity")
+
 
 @pulumi.output_type
 class AzureSkuResponse(dict):
@@ -61,7 +105,7 @@ class AzureSkuResponse(dict):
 
 
 @pulumi.output_type
-class DatabasePrincipalResponseResult(dict):
+class DatabasePrincipalInvokeResponseResult(dict):
     def __init__(__self__, *,
                  name: str,
                  role: str,
@@ -137,6 +181,25 @@ class DatabasePrincipalResponseResult(dict):
 
 
 @pulumi.output_type
+class DatabaseStatisticsInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 size: Optional[float] = None):
+        """
+        :param float size: The database size - the total size of compressed data and index in bytes.
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[float]:
+        """
+        The database size - the total size of compressed data and index in bytes.
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
 class DatabaseStatisticsResponse(dict):
     def __init__(__self__, *,
                  size: Optional[float] = None):
@@ -156,6 +219,25 @@ class DatabaseStatisticsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TrustedExternalTenantInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        :param str value: GUID representing an external tenant.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        GUID representing an external tenant.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

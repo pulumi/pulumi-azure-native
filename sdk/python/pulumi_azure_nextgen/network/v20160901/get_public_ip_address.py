@@ -66,7 +66,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.PublicIPAddressDnsSettingsResponse']:
+    def dns_settings(self) -> Optional['outputs.PublicIPAddressDnsSettingsInvokeResponseResult']:
         """
         The FQDN of the DNS record associated with the public IP address.
         """
@@ -103,7 +103,7 @@ class GetPublicIPAddressResult:
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> 'outputs.IPConfigurationResponse':
+    def ip_configuration(self) -> 'outputs.IPConfigurationInvokeResponseResult':
         """
         IPConfiguration
         """

@@ -66,7 +66,7 @@ class GetPartnerTopicEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationResponse']:
+    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationInvokeResponseResult']:
         """
         The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -75,7 +75,7 @@ class GetPartnerTopicEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="deadLetterWithResourceIdentity")
-    def dead_letter_with_resource_identity(self) -> Optional['outputs.DeadLetterWithResourceIdentityResponse']:
+    def dead_letter_with_resource_identity(self) -> Optional['outputs.DeadLetterWithResourceIdentityInvokeResponseResult']:
         """
         The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -84,7 +84,7 @@ class GetPartnerTopicEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="deliveryWithResourceIdentity")
-    def delivery_with_resource_identity(self) -> Optional['outputs.DeliveryWithResourceIdentityResponse']:
+    def delivery_with_resource_identity(self) -> Optional['outputs.DeliveryWithResourceIdentityInvokeResponseResult']:
         """
         Information about the destination where events have to be delivered for the event subscription.
         Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -118,7 +118,7 @@ class GetPartnerTopicEventSubscriptionResult:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+    def filter(self) -> Optional['outputs.EventSubscriptionFilterInvokeResponseResult']:
         """
         Information about the filter for the event subscription.
         """
@@ -158,7 +158,7 @@ class GetPartnerTopicEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="retryPolicy")
-    def retry_policy(self) -> Optional['outputs.RetryPolicyResponse']:
+    def retry_policy(self) -> Optional['outputs.RetryPolicyInvokeResponseResult']:
         """
         The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """

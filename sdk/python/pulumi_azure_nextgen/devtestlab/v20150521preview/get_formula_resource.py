@@ -84,7 +84,7 @@ class GetFormulaResourceResult:
 
     @property
     @pulumi.getter(name="formulaContent")
-    def formula_content(self) -> Optional['outputs.LabVirtualMachineResponse']:
+    def formula_content(self) -> Optional['outputs.LabVirtualMachineInvokeResponseResult']:
         """
         The content of the formula.
         """
@@ -148,7 +148,7 @@ class GetFormulaResourceResult:
 
     @property
     @pulumi.getter
-    def vm(self) -> Optional['outputs.FormulaPropertiesFromVmResponse']:
+    def vm(self) -> Optional['outputs.FormulaPropertiesFromVmInvokeResponseResult']:
         """
         Information about a VM from which a formula is to be created.
         """

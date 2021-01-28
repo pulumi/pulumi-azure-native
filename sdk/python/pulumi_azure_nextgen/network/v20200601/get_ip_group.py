@@ -59,7 +59,7 @@ class GetIpGroupResult:
 
     @property
     @pulumi.getter
-    def firewalls(self) -> Sequence['outputs.SubResourceResponse']:
+    def firewalls(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to Azure resources that this IpGroups is associated with.
         """

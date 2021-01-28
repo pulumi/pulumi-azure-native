@@ -86,7 +86,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter
-    def modules(self) -> Optional[Sequence['outputs.ModuleResponse']]:
+    def modules(self) -> Optional[Sequence['outputs.ModuleInvokeResponseResult']]:
         """
         Optional set of redis modules to enable in this database - modules can only be added at creation time.
         """

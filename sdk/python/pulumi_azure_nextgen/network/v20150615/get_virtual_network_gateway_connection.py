@@ -148,7 +148,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="localNetworkGateway2")
-    def local_network_gateway2(self) -> Optional['outputs.LocalNetworkGatewayResponse']:
+    def local_network_gateway2(self) -> Optional['outputs.LocalNetworkGatewayInvokeResponseResult']:
         """
         A common class for general resource information
         """
@@ -172,7 +172,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter
-    def peer(self) -> Optional['outputs.SubResourceResponse']:
+    def peer(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference to peerings resource.
         """
@@ -228,7 +228,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="virtualNetworkGateway1")
-    def virtual_network_gateway1(self) -> Optional['outputs.VirtualNetworkGatewayResponse']:
+    def virtual_network_gateway1(self) -> Optional['outputs.VirtualNetworkGatewayInvokeResponseResult']:
         """
         A common class for general resource information
         """
@@ -236,7 +236,7 @@ class GetVirtualNetworkGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="virtualNetworkGateway2")
-    def virtual_network_gateway2(self) -> Optional['outputs.VirtualNetworkGatewayResponse']:
+    def virtual_network_gateway2(self) -> Optional['outputs.VirtualNetworkGatewayInvokeResponseResult']:
         """
         A common class for general resource information
         """

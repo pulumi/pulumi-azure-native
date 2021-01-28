@@ -83,7 +83,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> Sequence['outputs.ExpressRouteCircuitPeeringResponse']:
+    def peerings(self) -> Sequence['outputs.ExpressRouteCircuitPeeringInvokeResponseResult']:
         """
         A collection of references to express route circuit peerings.
         """
@@ -99,7 +99,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.RouteFilterRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.RouteFilterRuleInvokeResponseResult']]:
         """
         Collection of RouteFilterRules contained within a route filter.
         """

@@ -11,57 +11,128 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AutoPausePropertiesInvokeResponseResult',
     'AutoPausePropertiesResponse',
+    'AutoScalePropertiesInvokeResponseResult',
     'AutoScalePropertiesResponse',
+    'CmdkeySetupInvokeResponseResult',
     'CmdkeySetupResponse',
+    'ComponentSetupInvokeResponseResult',
     'ComponentSetupResponse',
+    'CustomerManagedKeyDetailsInvokeResponseResult',
     'CustomerManagedKeyDetailsResponse',
+    'DataLakeStorageAccountDetailsInvokeResponseResult',
     'DataLakeStorageAccountDetailsResponse',
+    'DynamicExecutorAllocationInvokeResponseResult',
     'DynamicExecutorAllocationResponse',
+    'EncryptionDetailsInvokeResponseResult',
     'EncryptionDetailsResponse',
+    'EntityReferenceInvokeResponseResult',
     'EntityReferenceResponse',
+    'EnvironmentVariableSetupInvokeResponseResult',
     'EnvironmentVariableSetupResponse',
+    'IntegrationRuntimeComputePropertiesInvokeResponseResult',
     'IntegrationRuntimeComputePropertiesResponse',
+    'IntegrationRuntimeCustomSetupScriptPropertiesInvokeResponseResult',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
+    'IntegrationRuntimeDataFlowPropertiesInvokeResponseResult',
     'IntegrationRuntimeDataFlowPropertiesResponse',
+    'IntegrationRuntimeDataProxyPropertiesInvokeResponseResult',
     'IntegrationRuntimeDataProxyPropertiesResponse',
+    'IntegrationRuntimeSsisCatalogInfoInvokeResponseResult',
     'IntegrationRuntimeSsisCatalogInfoResponse',
+    'IntegrationRuntimeSsisPropertiesInvokeResponseResult',
     'IntegrationRuntimeSsisPropertiesResponse',
+    'IntegrationRuntimeVNetPropertiesInvokeResponseResult',
     'IntegrationRuntimeVNetPropertiesResponse',
+    'LibraryRequirementsInvokeResponseResult',
     'LibraryRequirementsResponse',
+    'LinkedIntegrationRuntimeInvokeResponseResult',
+    'LinkedIntegrationRuntimeKeyAuthorizationInvokeResponseResult',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
+    'LinkedIntegrationRuntimeRbacAuthorizationInvokeResponseResult',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
-    'LinkedIntegrationRuntimeResponseResult',
+    'ManagedIdentityInvokeResponseResult',
     'ManagedIdentityResponse',
-    'ManagedIntegrationRuntimeErrorResponseResult',
-    'ManagedIntegrationRuntimeNodeResponseResult',
-    'ManagedIntegrationRuntimeOperationResultResponseResult',
+    'ManagedIntegrationRuntimeErrorInvokeResponseResult',
+    'ManagedIntegrationRuntimeInvokeResponseResult',
+    'ManagedIntegrationRuntimeNodeInvokeResponseResult',
+    'ManagedIntegrationRuntimeOperationResultInvokeResponseResult',
     'ManagedIntegrationRuntimeResponse',
-    'ManagedIntegrationRuntimeStatusResponseResult',
+    'ManagedIntegrationRuntimeStatusInvokeResponseResult',
+    'ManagedVirtualNetworkSettingsInvokeResponseResult',
     'ManagedVirtualNetworkSettingsResponse',
+    'PrivateEndpointConnectionForPrivateLinkHubBasicInvokeResponseResult',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
+    'PrivateEndpointConnectionInvokeResponseResult',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointInvokeResponseResult',
     'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateInvokeResponseResult',
     'PrivateLinkServiceConnectionStateResponse',
+    'PurviewConfigurationInvokeResponseResult',
     'PurviewConfigurationResponse',
+    'SecureStringInvokeResponseResult',
     'SecureStringResponse',
-    'SelfHostedIntegrationRuntimeNodeResponseResult',
+    'SelfHostedIntegrationRuntimeInvokeResponseResult',
+    'SelfHostedIntegrationRuntimeNodeInvokeResponseResult',
     'SelfHostedIntegrationRuntimeResponse',
-    'SelfHostedIntegrationRuntimeStatusResponseResult',
+    'SelfHostedIntegrationRuntimeStatusInvokeResponseResult',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'SqlPoolVulnerabilityAssessmentRuleBaselineItemInvokeResponseResult',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
-    'SsisEnvironmentReferenceResponseResult',
-    'SsisEnvironmentResponseResult',
-    'SsisFolderResponseResult',
-    'SsisPackageResponseResult',
-    'SsisParameterResponseResult',
-    'SsisProjectResponseResult',
-    'SsisVariableResponseResult',
+    'SsisEnvironmentInvokeResponseResult',
+    'SsisEnvironmentReferenceInvokeResponseResult',
+    'SsisFolderInvokeResponseResult',
+    'SsisPackageInvokeResponseResult',
+    'SsisParameterInvokeResponseResult',
+    'SsisProjectInvokeResponseResult',
+    'SsisVariableInvokeResponseResult',
+    'VirtualNetworkProfileInvokeResponseResult',
     'VirtualNetworkProfileResponse',
+    'VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseResult',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
+    'WorkspaceKeyDetailsInvokeResponseResult',
     'WorkspaceKeyDetailsResponse',
+    'WorkspaceRepositoryConfigurationInvokeResponseResult',
     'WorkspaceRepositoryConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AutoPausePropertiesInvokeResponseResult(dict):
+    """
+    Auto-pausing properties of a Big Data pool powered by Apache Spark
+    """
+    def __init__(__self__, *,
+                 delay_in_minutes: Optional[int] = None,
+                 enabled: Optional[bool] = None):
+        """
+        Auto-pausing properties of a Big Data pool powered by Apache Spark
+        :param int delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
+        :param bool enabled: Whether auto-pausing is enabled for the Big Data pool.
+        """
+        if delay_in_minutes is not None:
+            pulumi.set(__self__, "delay_in_minutes", delay_in_minutes)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="delayInMinutes")
+    def delay_in_minutes(self) -> Optional[int]:
+        """
+        Number of minutes of idle time before the Big Data pool is automatically paused.
+        """
+        return pulumi.get(self, "delay_in_minutes")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether auto-pausing is enabled for the Big Data pool.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class AutoPausePropertiesResponse(dict):
@@ -99,6 +170,53 @@ class AutoPausePropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutoScalePropertiesInvokeResponseResult(dict):
+    """
+    Auto-scaling properties of a Big Data pool powered by Apache Spark
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 max_node_count: Optional[int] = None,
+                 min_node_count: Optional[int] = None):
+        """
+        Auto-scaling properties of a Big Data pool powered by Apache Spark
+        :param bool enabled: Whether automatic scaling is enabled for the Big Data pool.
+        :param int max_node_count: The maximum number of nodes the Big Data pool can support.
+        :param int min_node_count: The minimum number of nodes the Big Data pool can support.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if max_node_count is not None:
+            pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is not None:
+            pulumi.set(__self__, "min_node_count", min_node_count)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether automatic scaling is enabled for the Big Data pool.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maxNodeCount")
+    def max_node_count(self) -> Optional[int]:
+        """
+        The maximum number of nodes the Big Data pool can support.
+        """
+        return pulumi.get(self, "max_node_count")
+
+    @property
+    @pulumi.getter(name="minNodeCount")
+    def min_node_count(self) -> Optional[int]:
+        """
+        The minimum number of nodes the Big Data pool can support.
+        """
+        return pulumi.get(self, "min_node_count")
 
 
 @pulumi.output_type
@@ -149,6 +267,63 @@ class AutoScalePropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CmdkeySetupInvokeResponseResult(dict):
+    """
+    The custom setup of running cmdkey commands.
+    """
+    def __init__(__self__, *,
+                 password: 'outputs.SecureStringInvokeResponseResult',
+                 target_name: Any,
+                 type: str,
+                 user_name: Any):
+        """
+        The custom setup of running cmdkey commands.
+        :param 'SecureStringInvokeResponseArgs' password: The password of data source access.
+        :param Any target_name: The server name of data source access.
+        :param str type: The type of custom setup.
+               Expected value is 'CmdkeySetup'.
+        :param Any user_name: The user name of data source access.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "type", 'CmdkeySetup')
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def password(self) -> 'outputs.SecureStringInvokeResponseResult':
+        """
+        The password of data source access.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> Any:
+        """
+        The server name of data source access.
+        """
+        return pulumi.get(self, "target_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of custom setup.
+        Expected value is 'CmdkeySetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Any:
+        """
+        The user name of data source access.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -212,6 +387,53 @@ class CmdkeySetupResponse(dict):
 
 
 @pulumi.output_type
+class ComponentSetupInvokeResponseResult(dict):
+    """
+    The custom setup of installing 3rd party components.
+    """
+    def __init__(__self__, *,
+                 component_name: str,
+                 type: str,
+                 license_key: Optional['outputs.SecureStringInvokeResponseResult'] = None):
+        """
+        The custom setup of installing 3rd party components.
+        :param str component_name: The name of the 3rd party component.
+        :param str type: The type of custom setup.
+               Expected value is 'ComponentSetup'.
+        :param 'SecureStringInvokeResponseArgs' license_key: The license key to activate the component.
+        """
+        pulumi.set(__self__, "component_name", component_name)
+        pulumi.set(__self__, "type", 'ComponentSetup')
+        if license_key is not None:
+            pulumi.set(__self__, "license_key", license_key)
+
+    @property
+    @pulumi.getter(name="componentName")
+    def component_name(self) -> str:
+        """
+        The name of the 3rd party component.
+        """
+        return pulumi.get(self, "component_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of custom setup.
+        Expected value is 'ComponentSetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="licenseKey")
+    def license_key(self) -> Optional['outputs.SecureStringInvokeResponseResult']:
+        """
+        The license key to activate the component.
+        """
+        return pulumi.get(self, "license_key")
+
+
+@pulumi.output_type
 class ComponentSetupResponse(dict):
     """
     The custom setup of installing 3rd party components.
@@ -262,6 +484,40 @@ class ComponentSetupResponse(dict):
 
 
 @pulumi.output_type
+class CustomerManagedKeyDetailsInvokeResponseResult(dict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 key: Optional['outputs.WorkspaceKeyDetailsInvokeResponseResult'] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param str status: The customer managed key status on the workspace
+        :param 'WorkspaceKeyDetailsInvokeResponseArgs' key: The key object of the workspace
+        """
+        pulumi.set(__self__, "status", status)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The customer managed key status on the workspace
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional['outputs.WorkspaceKeyDetailsInvokeResponseResult']:
+        """
+        The key object of the workspace
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
 class CustomerManagedKeyDetailsResponse(dict):
     """
     Details of the customer managed key associated with the workspace
@@ -296,6 +552,41 @@ class CustomerManagedKeyDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataLakeStorageAccountDetailsInvokeResponseResult(dict):
+    """
+    Details of the data lake storage account associated with the workspace
+    """
+    def __init__(__self__, *,
+                 account_url: Optional[str] = None,
+                 filesystem: Optional[str] = None):
+        """
+        Details of the data lake storage account associated with the workspace
+        :param str account_url: Account URL
+        :param str filesystem: Filesystem name
+        """
+        if account_url is not None:
+            pulumi.set(__self__, "account_url", account_url)
+        if filesystem is not None:
+            pulumi.set(__self__, "filesystem", filesystem)
+
+    @property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> Optional[str]:
+        """
+        Account URL
+        """
+        return pulumi.get(self, "account_url")
+
+    @property
+    @pulumi.getter
+    def filesystem(self) -> Optional[str]:
+        """
+        Filesystem name
+        """
+        return pulumi.get(self, "filesystem")
 
 
 @pulumi.output_type
@@ -337,6 +628,29 @@ class DataLakeStorageAccountDetailsResponse(dict):
 
 
 @pulumi.output_type
+class DynamicExecutorAllocationInvokeResponseResult(dict):
+    """
+    Dynamic Executor Allocation Properties
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Dynamic Executor Allocation Properties
+        :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
@@ -360,6 +674,40 @@ class DynamicExecutorAllocationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionDetailsInvokeResponseResult(dict):
+    """
+    Details of the encryption associated with the workspace
+    """
+    def __init__(__self__, *,
+                 double_encryption_enabled: bool,
+                 cmk: Optional['outputs.CustomerManagedKeyDetailsInvokeResponseResult'] = None):
+        """
+        Details of the encryption associated with the workspace
+        :param bool double_encryption_enabled: Double Encryption enabled
+        :param 'CustomerManagedKeyDetailsInvokeResponseArgs' cmk: Customer Managed Key Details
+        """
+        pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+        if cmk is not None:
+            pulumi.set(__self__, "cmk", cmk)
+
+    @property
+    @pulumi.getter(name="doubleEncryptionEnabled")
+    def double_encryption_enabled(self) -> bool:
+        """
+        Double Encryption enabled
+        """
+        return pulumi.get(self, "double_encryption_enabled")
+
+    @property
+    @pulumi.getter
+    def cmk(self) -> Optional['outputs.CustomerManagedKeyDetailsInvokeResponseResult']:
+        """
+        Customer Managed Key Details
+        """
+        return pulumi.get(self, "cmk")
 
 
 @pulumi.output_type
@@ -400,6 +748,41 @@ class EncryptionDetailsResponse(dict):
 
 
 @pulumi.output_type
+class EntityReferenceInvokeResponseResult(dict):
+    """
+    The entity reference.
+    """
+    def __init__(__self__, *,
+                 reference_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The entity reference.
+        :param str reference_name: The name of this referenced entity.
+        :param str type: The type of this referenced entity.
+        """
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[str]:
+        """
+        The name of this referenced entity.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of this referenced entity.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class EntityReferenceResponse(dict):
     """
     The entity reference.
@@ -435,6 +818,52 @@ class EntityReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EnvironmentVariableSetupInvokeResponseResult(dict):
+    """
+    The custom setup of setting environment variable.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 variable_name: str,
+                 variable_value: str):
+        """
+        The custom setup of setting environment variable.
+        :param str type: The type of custom setup.
+               Expected value is 'EnvironmentVariableSetup'.
+        :param str variable_name: The name of the environment variable.
+        :param str variable_value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "type", 'EnvironmentVariableSetup')
+        pulumi.set(__self__, "variable_name", variable_name)
+        pulumi.set(__self__, "variable_value", variable_value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of custom setup.
+        Expected value is 'EnvironmentVariableSetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @property
+    @pulumi.getter(name="variableValue")
+    def variable_value(self) -> str:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "variable_value")
 
 
 @pulumi.output_type
@@ -484,6 +913,89 @@ class EnvironmentVariableSetupResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeComputePropertiesInvokeResponseResult(dict):
+    """
+    The compute resource properties for managed integration runtime.
+    """
+    def __init__(__self__, *,
+                 data_flow_properties: Optional['outputs.IntegrationRuntimeDataFlowPropertiesInvokeResponseResult'] = None,
+                 location: Optional[str] = None,
+                 max_parallel_executions_per_node: Optional[int] = None,
+                 node_size: Optional[str] = None,
+                 number_of_nodes: Optional[int] = None,
+                 v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesInvokeResponseResult'] = None):
+        """
+        The compute resource properties for managed integration runtime.
+        :param 'IntegrationRuntimeDataFlowPropertiesInvokeResponseArgs' data_flow_properties: Data flow properties for managed integration runtime.
+        :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
+        :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
+        :param str node_size: The node size requirement to managed integration runtime.
+        :param int number_of_nodes: The required number of nodes for managed integration runtime.
+        :param 'IntegrationRuntimeVNetPropertiesInvokeResponseArgs' v_net_properties: VNet properties for managed integration runtime.
+        """
+        if data_flow_properties is not None:
+            pulumi.set(__self__, "data_flow_properties", data_flow_properties)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_parallel_executions_per_node is not None:
+            pulumi.set(__self__, "max_parallel_executions_per_node", max_parallel_executions_per_node)
+        if node_size is not None:
+            pulumi.set(__self__, "node_size", node_size)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if v_net_properties is not None:
+            pulumi.set(__self__, "v_net_properties", v_net_properties)
+
+    @property
+    @pulumi.getter(name="dataFlowProperties")
+    def data_flow_properties(self) -> Optional['outputs.IntegrationRuntimeDataFlowPropertiesInvokeResponseResult']:
+        """
+        Data flow properties for managed integration runtime.
+        """
+        return pulumi.get(self, "data_flow_properties")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxParallelExecutionsPerNode")
+    def max_parallel_executions_per_node(self) -> Optional[int]:
+        """
+        Maximum parallel executions count per node for managed integration runtime.
+        """
+        return pulumi.get(self, "max_parallel_executions_per_node")
+
+    @property
+    @pulumi.getter(name="nodeSize")
+    def node_size(self) -> Optional[str]:
+        """
+        The node size requirement to managed integration runtime.
+        """
+        return pulumi.get(self, "node_size")
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[int]:
+        """
+        The required number of nodes for managed integration runtime.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+    @property
+    @pulumi.getter(name="vNetProperties")
+    def v_net_properties(self) -> Optional['outputs.IntegrationRuntimeVNetPropertiesInvokeResponseResult']:
+        """
+        VNet properties for managed integration runtime.
+        """
+        return pulumi.get(self, "v_net_properties")
 
 
 @pulumi.output_type
@@ -573,6 +1085,41 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationRuntimeCustomSetupScriptPropertiesInvokeResponseResult(dict):
+    """
+    Custom setup script properties for a managed dedicated integration runtime.
+    """
+    def __init__(__self__, *,
+                 blob_container_uri: Optional[str] = None,
+                 sas_token: Optional['outputs.SecureStringInvokeResponseResult'] = None):
+        """
+        Custom setup script properties for a managed dedicated integration runtime.
+        :param str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
+        :param 'SecureStringInvokeResponseArgs' sas_token: The SAS token of the Azure blob container.
+        """
+        if blob_container_uri is not None:
+            pulumi.set(__self__, "blob_container_uri", blob_container_uri)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+
+    @property
+    @pulumi.getter(name="blobContainerUri")
+    def blob_container_uri(self) -> Optional[str]:
+        """
+        The URI of the Azure blob container that contains the custom setup script.
+        """
+        return pulumi.get(self, "blob_container_uri")
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional['outputs.SecureStringInvokeResponseResult']:
+        """
+        The SAS token of the Azure blob container.
+        """
+        return pulumi.get(self, "sas_token")
+
+
+@pulumi.output_type
 class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
     """
     Custom setup script properties for a managed dedicated integration runtime.
@@ -608,6 +1155,53 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeDataFlowPropertiesInvokeResponseResult(dict):
+    """
+    Data flow properties for managed integration runtime.
+    """
+    def __init__(__self__, *,
+                 compute_type: Optional[str] = None,
+                 core_count: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
+        """
+        Data flow properties for managed integration runtime.
+        :param str compute_type: Compute type of the cluster which will execute data flow job.
+        :param int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
+        """
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[str]:
+        """
+        Compute type of the cluster which will execute data flow job.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[int]:
+        """
+        Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        """
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[int]:
+        """
+        Time to live (in minutes) setting of the cluster which will execute data flow job.
+        """
+        return pulumi.get(self, "time_to_live")
 
 
 @pulumi.output_type
@@ -661,6 +1255,53 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationRuntimeDataProxyPropertiesInvokeResponseResult(dict):
+    """
+    Data proxy properties for a managed dedicated integration runtime.
+    """
+    def __init__(__self__, *,
+                 connect_via: Optional['outputs.EntityReferenceInvokeResponseResult'] = None,
+                 path: Optional[str] = None,
+                 staging_linked_service: Optional['outputs.EntityReferenceInvokeResponseResult'] = None):
+        """
+        Data proxy properties for a managed dedicated integration runtime.
+        :param 'EntityReferenceInvokeResponseArgs' connect_via: The self-hosted integration runtime reference.
+        :param str path: The path to contain the staged data in the Blob storage.
+        :param 'EntityReferenceInvokeResponseArgs' staging_linked_service: The staging linked service reference.
+        """
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if staging_linked_service is not None:
+            pulumi.set(__self__, "staging_linked_service", staging_linked_service)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.EntityReferenceInvokeResponseResult']:
+        """
+        The self-hosted integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to contain the staged data in the Blob storage.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="stagingLinkedService")
+    def staging_linked_service(self) -> Optional['outputs.EntityReferenceInvokeResponseResult']:
+        """
+        The staging linked service reference.
+        """
+        return pulumi.get(self, "staging_linked_service")
+
+
+@pulumi.output_type
 class IntegrationRuntimeDataProxyPropertiesResponse(dict):
     """
     Data proxy properties for a managed dedicated integration runtime.
@@ -708,6 +1349,65 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisCatalogInfoInvokeResponseResult(dict):
+    """
+    Catalog information for managed dedicated integration runtime.
+    """
+    def __init__(__self__, *,
+                 catalog_admin_password: Optional['outputs.SecureStringInvokeResponseResult'] = None,
+                 catalog_admin_user_name: Optional[str] = None,
+                 catalog_pricing_tier: Optional[str] = None,
+                 catalog_server_endpoint: Optional[str] = None):
+        """
+        Catalog information for managed dedicated integration runtime.
+        :param 'SecureStringInvokeResponseArgs' catalog_admin_password: The password of the administrator user account of the catalog database.
+        :param str catalog_admin_user_name: The administrator user name of catalog database.
+        :param str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+        :param str catalog_server_endpoint: The catalog database server URL.
+        """
+        if catalog_admin_password is not None:
+            pulumi.set(__self__, "catalog_admin_password", catalog_admin_password)
+        if catalog_admin_user_name is not None:
+            pulumi.set(__self__, "catalog_admin_user_name", catalog_admin_user_name)
+        if catalog_pricing_tier is not None:
+            pulumi.set(__self__, "catalog_pricing_tier", catalog_pricing_tier)
+        if catalog_server_endpoint is not None:
+            pulumi.set(__self__, "catalog_server_endpoint", catalog_server_endpoint)
+
+    @property
+    @pulumi.getter(name="catalogAdminPassword")
+    def catalog_admin_password(self) -> Optional['outputs.SecureStringInvokeResponseResult']:
+        """
+        The password of the administrator user account of the catalog database.
+        """
+        return pulumi.get(self, "catalog_admin_password")
+
+    @property
+    @pulumi.getter(name="catalogAdminUserName")
+    def catalog_admin_user_name(self) -> Optional[str]:
+        """
+        The administrator user name of catalog database.
+        """
+        return pulumi.get(self, "catalog_admin_user_name")
+
+    @property
+    @pulumi.getter(name="catalogPricingTier")
+    def catalog_pricing_tier(self) -> Optional[str]:
+        """
+        The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+        """
+        return pulumi.get(self, "catalog_pricing_tier")
+
+    @property
+    @pulumi.getter(name="catalogServerEndpoint")
+    def catalog_server_endpoint(self) -> Optional[str]:
+        """
+        The catalog database server URL.
+        """
+        return pulumi.get(self, "catalog_server_endpoint")
 
 
 @pulumi.output_type
@@ -770,6 +1470,89 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisPropertiesInvokeResponseResult(dict):
+    """
+    SSIS properties for managed integration runtime.
+    """
+    def __init__(__self__, *,
+                 catalog_info: Optional['outputs.IntegrationRuntimeSsisCatalogInfoInvokeResponseResult'] = None,
+                 custom_setup_script_properties: Optional['outputs.IntegrationRuntimeCustomSetupScriptPropertiesInvokeResponseResult'] = None,
+                 data_proxy_properties: Optional['outputs.IntegrationRuntimeDataProxyPropertiesInvokeResponseResult'] = None,
+                 edition: Optional[str] = None,
+                 express_custom_setup_properties: Optional[Sequence[Any]] = None,
+                 license_type: Optional[str] = None):
+        """
+        SSIS properties for managed integration runtime.
+        :param 'IntegrationRuntimeSsisCatalogInfoInvokeResponseArgs' catalog_info: Catalog information for managed dedicated integration runtime.
+        :param 'IntegrationRuntimeCustomSetupScriptPropertiesInvokeResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeDataProxyPropertiesInvokeResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
+        :param str edition: The edition for the SSIS Integration Runtime
+        :param Sequence[Union['CmdkeySetupInvokeResponseArgs', 'ComponentSetupInvokeResponseArgs', 'EnvironmentVariableSetupInvokeResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param str license_type: License type for bringing your own license scenario.
+        """
+        if catalog_info is not None:
+            pulumi.set(__self__, "catalog_info", catalog_info)
+        if custom_setup_script_properties is not None:
+            pulumi.set(__self__, "custom_setup_script_properties", custom_setup_script_properties)
+        if data_proxy_properties is not None:
+            pulumi.set(__self__, "data_proxy_properties", data_proxy_properties)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if express_custom_setup_properties is not None:
+            pulumi.set(__self__, "express_custom_setup_properties", express_custom_setup_properties)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+
+    @property
+    @pulumi.getter(name="catalogInfo")
+    def catalog_info(self) -> Optional['outputs.IntegrationRuntimeSsisCatalogInfoInvokeResponseResult']:
+        """
+        Catalog information for managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "catalog_info")
+
+    @property
+    @pulumi.getter(name="customSetupScriptProperties")
+    def custom_setup_script_properties(self) -> Optional['outputs.IntegrationRuntimeCustomSetupScriptPropertiesInvokeResponseResult']:
+        """
+        Custom setup script properties for a managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "custom_setup_script_properties")
+
+    @property
+    @pulumi.getter(name="dataProxyProperties")
+    def data_proxy_properties(self) -> Optional['outputs.IntegrationRuntimeDataProxyPropertiesInvokeResponseResult']:
+        """
+        Data proxy properties for a managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "data_proxy_properties")
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[str]:
+        """
+        The edition for the SSIS Integration Runtime
+        """
+        return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="expressCustomSetupProperties")
+    def express_custom_setup_properties(self) -> Optional[Sequence[Any]]:
+        """
+        Custom setup without script properties for a SSIS integration runtime.
+        """
+        return pulumi.get(self, "express_custom_setup_properties")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        License type for bringing your own license scenario.
+        """
+        return pulumi.get(self, "license_type")
 
 
 @pulumi.output_type
@@ -859,6 +1642,53 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class IntegrationRuntimeVNetPropertiesInvokeResponseResult(dict):
+    """
+    VNet properties for managed integration runtime.
+    """
+    def __init__(__self__, *,
+                 public_ips: Optional[Sequence[str]] = None,
+                 subnet: Optional[str] = None,
+                 v_net_id: Optional[str] = None):
+        """
+        VNet properties for managed integration runtime.
+        :param Sequence[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
+        :param str subnet: The name of the subnet this integration runtime will join.
+        :param str v_net_id: The ID of the VNet that this integration runtime will join.
+        """
+        if public_ips is not None:
+            pulumi.set(__self__, "public_ips", public_ips)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if v_net_id is not None:
+            pulumi.set(__self__, "v_net_id", v_net_id)
+
+    @property
+    @pulumi.getter(name="publicIPs")
+    def public_ips(self) -> Optional[Sequence[str]]:
+        """
+        Resource IDs of the public IP addresses that this integration runtime will use.
+        """
+        return pulumi.get(self, "public_ips")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[str]:
+        """
+        The name of the subnet this integration runtime will join.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="vNetId")
+    def v_net_id(self) -> Optional[str]:
+        """
+        The ID of the VNet that this integration runtime will join.
+        """
+        return pulumi.get(self, "v_net_id")
+
+
+@pulumi.output_type
 class IntegrationRuntimeVNetPropertiesResponse(dict):
     """
     VNet properties for managed integration runtime.
@@ -906,6 +1736,52 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LibraryRequirementsInvokeResponseResult(dict):
+    """
+    Library requirements for a Big Data pool powered by Apache Spark
+    """
+    def __init__(__self__, *,
+                 time: str,
+                 content: Optional[str] = None,
+                 filename: Optional[str] = None):
+        """
+        Library requirements for a Big Data pool powered by Apache Spark
+        :param str time: The last update time of the library requirements file.
+        :param str content: The library requirements.
+        :param str filename: The filename of the library requirements file.
+        """
+        pulumi.set(__self__, "time", time)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The last update time of the library requirements file.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The library requirements.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the library requirements file.
+        """
+        return pulumi.get(self, "filename")
 
 
 @pulumi.output_type
@@ -958,83 +1834,7 @@ class LibraryRequirementsResponse(dict):
 
 
 @pulumi.output_type
-class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
-    """
-    The key authorization type integration runtime.
-    """
-    def __init__(__self__, *,
-                 authorization_type: str,
-                 key: 'outputs.SecureStringResponse'):
-        """
-        The key authorization type integration runtime.
-        :param str authorization_type: The authorization type for integration runtime sharing.
-               Expected value is 'Key'.
-        :param 'SecureStringResponseArgs' key: The key used for authorization.
-        """
-        pulumi.set(__self__, "authorization_type", 'Key')
-        pulumi.set(__self__, "key", key)
-
-    @property
-    @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> str:
-        """
-        The authorization type for integration runtime sharing.
-        Expected value is 'Key'.
-        """
-        return pulumi.get(self, "authorization_type")
-
-    @property
-    @pulumi.getter
-    def key(self) -> 'outputs.SecureStringResponse':
-        """
-        The key used for authorization.
-        """
-        return pulumi.get(self, "key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
-    """
-    The role based access control (RBAC) authorization type integration runtime.
-    """
-    def __init__(__self__, *,
-                 authorization_type: str,
-                 resource_id: str):
-        """
-        The role based access control (RBAC) authorization type integration runtime.
-        :param str authorization_type: The authorization type for integration runtime sharing.
-               Expected value is 'RBAC'.
-        :param str resource_id: The resource identifier of the integration runtime to be shared.
-        """
-        pulumi.set(__self__, "authorization_type", 'RBAC')
-        pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> str:
-        """
-        The authorization type for integration runtime sharing.
-        Expected value is 'RBAC'.
-        """
-        return pulumi.get(self, "authorization_type")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
-        """
-        The resource identifier of the integration runtime to be shared.
-        """
-        return pulumi.get(self, "resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class LinkedIntegrationRuntimeResponseResult(dict):
+class LinkedIntegrationRuntimeInvokeResponseResult(dict):
     """
     The linked integration runtime information.
     """
@@ -1100,6 +1900,197 @@ class LinkedIntegrationRuntimeResponseResult(dict):
 
 
 @pulumi.output_type
+class LinkedIntegrationRuntimeKeyAuthorizationInvokeResponseResult(dict):
+    """
+    The key authorization type integration runtime.
+    """
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 key: 'outputs.SecureStringInvokeResponseResult'):
+        """
+        The key authorization type integration runtime.
+        :param str authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'Key'.
+        :param 'SecureStringInvokeResponseArgs' key: The key used for authorization.
+        """
+        pulumi.set(__self__, "authorization_type", 'Key')
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'Key'.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> 'outputs.SecureStringInvokeResponseResult':
+        """
+        The key used for authorization.
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
+    """
+    The key authorization type integration runtime.
+    """
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 key: 'outputs.SecureStringResponse'):
+        """
+        The key authorization type integration runtime.
+        :param str authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'Key'.
+        :param 'SecureStringResponseArgs' key: The key used for authorization.
+        """
+        pulumi.set(__self__, "authorization_type", 'Key')
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'Key'.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> 'outputs.SecureStringResponse':
+        """
+        The key used for authorization.
+        """
+        return pulumi.get(self, "key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinkedIntegrationRuntimeRbacAuthorizationInvokeResponseResult(dict):
+    """
+    The role based access control (RBAC) authorization type integration runtime.
+    """
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 resource_id: str):
+        """
+        The role based access control (RBAC) authorization type integration runtime.
+        :param str authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'RBAC'.
+        :param str resource_id: The resource identifier of the integration runtime to be shared.
+        """
+        pulumi.set(__self__, "authorization_type", 'RBAC')
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'RBAC'.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource identifier of the integration runtime to be shared.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
+    """
+    The role based access control (RBAC) authorization type integration runtime.
+    """
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 resource_id: str):
+        """
+        The role based access control (RBAC) authorization type integration runtime.
+        :param str authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'RBAC'.
+        :param str resource_id: The resource identifier of the integration runtime to be shared.
+        """
+        pulumi.set(__self__, "authorization_type", 'RBAC')
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'RBAC'.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource identifier of the integration runtime to be shared.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedIdentityInvokeResponseResult(dict):
+    """
+    The workspace managed identity
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        The workspace managed identity
+        :param str principal_id: The principal ID of the workspace managed identity
+        :param str tenant_id: The tenant ID of the workspace managed identity
+        :param str type: The type of managed identity for the workspace
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the workspace managed identity
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the workspace managed identity
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity for the workspace
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ManagedIdentityResponse(dict):
     """
     The workspace managed identity
@@ -1148,7 +2139,7 @@ class ManagedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeErrorResponseResult(dict):
+class ManagedIntegrationRuntimeErrorInvokeResponseResult(dict):
     """
     Error definition for managed integration runtime.
     """
@@ -1203,19 +2194,90 @@ class ManagedIntegrationRuntimeErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeNodeResponseResult(dict):
+class ManagedIntegrationRuntimeInvokeResponseResult(dict):
+    """
+    Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+    """
+    def __init__(__self__, *,
+                 state: str,
+                 type: str,
+                 compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesInvokeResponseResult'] = None,
+                 description: Optional[str] = None,
+                 ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesInvokeResponseResult'] = None):
+        """
+        Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+        :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
+        :param str type: Type of integration runtime.
+               Expected value is 'Managed'.
+        :param 'IntegrationRuntimeComputePropertiesInvokeResponseArgs' compute_properties: The compute resource for managed integration runtime.
+        :param str description: Integration runtime description.
+        :param 'IntegrationRuntimeSsisPropertiesInvokeResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "type", 'Managed')
+        if compute_properties is not None:
+            pulumi.set(__self__, "compute_properties", compute_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ssis_properties is not None:
+            pulumi.set(__self__, "ssis_properties", ssis_properties)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Integration runtime state, only valid for managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of integration runtime.
+        Expected value is 'Managed'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="computeProperties")
+    def compute_properties(self) -> Optional['outputs.IntegrationRuntimeComputePropertiesInvokeResponseResult']:
+        """
+        The compute resource for managed integration runtime.
+        """
+        return pulumi.get(self, "compute_properties")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Integration runtime description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ssisProperties")
+    def ssis_properties(self) -> Optional['outputs.IntegrationRuntimeSsisPropertiesInvokeResponseResult']:
+        """
+        SSIS properties for managed integration runtime.
+        """
+        return pulumi.get(self, "ssis_properties")
+
+
+@pulumi.output_type
+class ManagedIntegrationRuntimeNodeInvokeResponseResult(dict):
     """
     Properties of integration runtime node.
     """
     def __init__(__self__, *,
                  node_id: str,
                  status: str,
-                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorInvokeResponseResult']] = None):
         """
         Properties of integration runtime node.
         :param str node_id: The managed integration runtime node id.
         :param str status: The managed integration runtime node status.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        :param Sequence['ManagedIntegrationRuntimeErrorInvokeResponseArgs'] errors: The errors that occurred on this integration runtime node.
         """
         pulumi.set(__self__, "node_id", node_id)
         pulumi.set(__self__, "status", status)
@@ -1240,7 +2302,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorInvokeResponseResult']]:
         """
         The errors that occurred on this integration runtime node.
         """
@@ -1248,7 +2310,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+class ManagedIntegrationRuntimeOperationResultInvokeResponseResult(dict):
     """
     Properties of managed integration runtime operation result.
     """
@@ -1399,25 +2461,25 @@ class ManagedIntegrationRuntimeResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeStatusResponseResult(dict):
+class ManagedIntegrationRuntimeStatusInvokeResponseResult(dict):
     """
     Managed integration runtime status.
     """
     def __init__(__self__, *,
                  create_time: str,
                  data_factory_name: str,
-                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
-                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
-                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultInvokeResponseResult',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeInvokeResponseResult'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorInvokeResponseResult'],
                  state: str,
                  type: str):
         """
         Managed integration runtime status.
         :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param str data_factory_name: The workspace name which the integration runtime belong to.
-        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param 'ManagedIntegrationRuntimeOperationResultInvokeResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeInvokeResponseArgs'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorInvokeResponseArgs'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
@@ -1448,7 +2510,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="lastOperation")
-    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultInvokeResponseResult':
         """
         The last operation result that occurred on this integration runtime.
         """
@@ -1456,7 +2518,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeInvokeResponseResult']:
         """
         The list of nodes for managed integration runtime.
         """
@@ -1464,7 +2526,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="otherErrors")
-    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorInvokeResponseResult']:
         """
         The errors that occurred on this integration runtime.
         """
@@ -1486,6 +2548,53 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ManagedVirtualNetworkSettingsInvokeResponseResult(dict):
+    """
+    Managed Virtual Network Settings
+    """
+    def __init__(__self__, *,
+                 allowed_aad_tenant_ids_for_linking: Optional[Sequence[str]] = None,
+                 linked_access_check_on_target_resource: Optional[bool] = None,
+                 prevent_data_exfiltration: Optional[bool] = None):
+        """
+        Managed Virtual Network Settings
+        :param Sequence[str] allowed_aad_tenant_ids_for_linking: Allowed Aad Tenant Ids For Linking
+        :param bool linked_access_check_on_target_resource: Linked Access Check On Target Resource
+        :param bool prevent_data_exfiltration: Prevent Data Exfiltration
+        """
+        if allowed_aad_tenant_ids_for_linking is not None:
+            pulumi.set(__self__, "allowed_aad_tenant_ids_for_linking", allowed_aad_tenant_ids_for_linking)
+        if linked_access_check_on_target_resource is not None:
+            pulumi.set(__self__, "linked_access_check_on_target_resource", linked_access_check_on_target_resource)
+        if prevent_data_exfiltration is not None:
+            pulumi.set(__self__, "prevent_data_exfiltration", prevent_data_exfiltration)
+
+    @property
+    @pulumi.getter(name="allowedAadTenantIdsForLinking")
+    def allowed_aad_tenant_ids_for_linking(self) -> Optional[Sequence[str]]:
+        """
+        Allowed Aad Tenant Ids For Linking
+        """
+        return pulumi.get(self, "allowed_aad_tenant_ids_for_linking")
+
+    @property
+    @pulumi.getter(name="linkedAccessCheckOnTargetResource")
+    def linked_access_check_on_target_resource(self) -> Optional[bool]:
+        """
+        Linked Access Check On Target Resource
+        """
+        return pulumi.get(self, "linked_access_check_on_target_resource")
+
+    @property
+    @pulumi.getter(name="preventDataExfiltration")
+    def prevent_data_exfiltration(self) -> Optional[bool]:
+        """
+        Prevent Data Exfiltration
+        """
+        return pulumi.get(self, "prevent_data_exfiltration")
 
 
 @pulumi.output_type
@@ -1536,6 +2645,63 @@ class ManagedVirtualNetworkSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionForPrivateLinkHubBasicInvokeResponseResult(dict):
+    """
+    Private Endpoint Connection For Private Link Hub - Basic
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointInvokeResponseResult'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult'] = None):
+        """
+        Private Endpoint Connection For Private Link Hub - Basic
+        :param str id: identifier
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param 'PrivateEndpointInvokeResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateInvokeResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointInvokeResponseResult']:
+        """
+        The private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -1596,6 +2762,85 @@ class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionInvokeResponseResult(dict):
+    """
+    A private endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointInvokeResponseResult'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult'] = None):
+        """
+        A private endpoint connection
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointInvokeResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateInvokeResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointInvokeResponseResult']:
+        """
+        The private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -1681,6 +2926,28 @@ class PrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointInvokeResponseResult(dict):
+    """
+    Private endpoint details
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Private endpoint details
+        :param str id: Resource id of the private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     Private endpoint details
@@ -1703,6 +2970,52 @@ class PrivateEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateInvokeResponseResult(dict):
+    """
+    Connection state details of the private endpoint
+    """
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Connection state details of the private endpoint
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -1755,6 +3068,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class PurviewConfigurationInvokeResponseResult(dict):
+    """
+    Purview Configuration
+    """
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[str] = None):
+        """
+        Purview Configuration
+        :param str purview_resource_id: Purview Resource ID
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[str]:
+        """
+        Purview Resource ID
+        """
+        return pulumi.get(self, "purview_resource_id")
+
+
+@pulumi.output_type
 class PurviewConfigurationResponse(dict):
     """
     Purview Configuration
@@ -1778,6 +3114,41 @@ class PurviewConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecureStringInvokeResponseResult(dict):
+    """
+    Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+        :param str type: Type of the secret.
+               Expected value is 'SecureString'.
+        :param str value: Value of secure string.
+        """
+        pulumi.set(__self__, "type", 'SecureString')
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the secret.
+        Expected value is 'SecureString'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of secure string.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1819,7 +3190,55 @@ class SecureStringResponse(dict):
 
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+class SelfHostedIntegrationRuntimeInvokeResponseResult(dict):
+    """
+    Self-hosted integration runtime.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 linked_info: Optional[Any] = None):
+        """
+        Self-hosted integration runtime.
+        :param str type: Type of integration runtime.
+               Expected value is 'SelfHosted'.
+        :param str description: Integration runtime description.
+        :param Union['LinkedIntegrationRuntimeKeyAuthorizationInvokeResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationInvokeResponseArgs'] linked_info: Linked integration runtime type from data factory
+        """
+        pulumi.set(__self__, "type", 'SelfHosted')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_info is not None:
+            pulumi.set(__self__, "linked_info", linked_info)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of integration runtime.
+        Expected value is 'SelfHosted'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Integration runtime description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="linkedInfo")
+    def linked_info(self) -> Optional[Any]:
+        """
+        Linked integration runtime type from data factory
+        """
+        return pulumi.get(self, "linked_info")
+
+
+@pulumi.output_type
+class SelfHostedIntegrationRuntimeNodeInvokeResponseResult(dict):
     """
     Properties of Self-hosted integration runtime node.
     """
@@ -2079,7 +3498,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
 
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+class SelfHostedIntegrationRuntimeStatusInvokeResponseResult(dict):
     """
     Self-hosted integration runtime status.
     """
@@ -2102,8 +3521,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  update_delay_offset: str,
                  version: str,
                  version_status: str,
-                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
-                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None):
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeInvokeResponseResult']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeInvokeResponseResult']] = None):
         """
         Self-hosted integration runtime status.
         :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
@@ -2125,8 +3544,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
-        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
-        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        :param Sequence['LinkedIntegrationRuntimeInvokeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeInvokeResponseArgs'] nodes: The list of nodes for this integration runtime.
         """
         pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "auto_update_eta", auto_update_eta)
@@ -2298,7 +3717,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeInvokeResponseResult']]:
         """
         The list of linked integration runtimes that are created to share with this integration runtime.
         """
@@ -2306,11 +3725,58 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeInvokeResponseResult']]:
         """
         The list of nodes for this integration runtime.
         """
         return pulumi.get(self, "nodes")
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    SQL pool SKU
+    """
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        SQL pool SKU
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param str name: The SKU name
+        :param str tier: The service tier
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The SKU name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The service tier
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -2364,6 +3830,28 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
+class SqlPoolVulnerabilityAssessmentRuleBaselineItemInvokeResponseResult(dict):
+    """
+    Properties for an Sql pool vulnerability assessment rule baseline's result.
+    """
+    def __init__(__self__, *,
+                 result: Sequence[str]):
+        """
+        Properties for an Sql pool vulnerability assessment rule baseline's result.
+        :param Sequence[str] result: The rule baseline result
+        """
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Sequence[str]:
+        """
+        The rule baseline result
+        """
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
 class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
     """
     Properties for an Sql pool vulnerability assessment rule baseline's result.
@@ -2389,7 +3877,91 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentReferenceResponseResult(dict):
+class SsisEnvironmentInvokeResponseResult(dict):
+    """
+    Ssis environment.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 description: Optional[str] = None,
+                 folder_id: Optional[float] = None,
+                 id: Optional[float] = None,
+                 name: Optional[str] = None,
+                 variables: Optional[Sequence['outputs.SsisVariableInvokeResponseResult']] = None):
+        """
+        Ssis environment.
+        :param str type: Type of metadata.
+               Expected value is 'Environment'.
+        :param str description: Metadata description.
+        :param float folder_id: Folder id which contains environment.
+        :param float id: Metadata id.
+        :param str name: Metadata name.
+        :param Sequence['SsisVariableInvokeResponseArgs'] variables: Variable in environment
+        """
+        pulumi.set(__self__, "type", 'Environment')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder_id is not None:
+            pulumi.set(__self__, "folder_id", folder_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of metadata.
+        Expected value is 'Environment'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Metadata description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="folderId")
+    def folder_id(self) -> Optional[float]:
+        """
+        Folder id which contains environment.
+        """
+        return pulumi.get(self, "folder_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[float]:
+        """
+        Metadata id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Metadata name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Sequence['outputs.SsisVariableInvokeResponseResult']]:
+        """
+        Variable in environment
+        """
+        return pulumi.get(self, "variables")
+
+
+@pulumi.output_type
+class SsisEnvironmentReferenceInvokeResponseResult(dict):
     """
     Ssis environment reference.
     """
@@ -2448,91 +4020,7 @@ class SsisEnvironmentReferenceResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentResponseResult(dict):
-    """
-    Ssis environment.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 description: Optional[str] = None,
-                 folder_id: Optional[float] = None,
-                 id: Optional[float] = None,
-                 name: Optional[str] = None,
-                 variables: Optional[Sequence['outputs.SsisVariableResponseResult']] = None):
-        """
-        Ssis environment.
-        :param str type: Type of metadata.
-               Expected value is 'Environment'.
-        :param str description: Metadata description.
-        :param float folder_id: Folder id which contains environment.
-        :param float id: Metadata id.
-        :param str name: Metadata name.
-        :param Sequence['SsisVariableResponseArgs'] variables: Variable in environment
-        """
-        pulumi.set(__self__, "type", 'Environment')
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if folder_id is not None:
-            pulumi.set(__self__, "folder_id", folder_id)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if variables is not None:
-            pulumi.set(__self__, "variables", variables)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of metadata.
-        Expected value is 'Environment'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Metadata description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="folderId")
-    def folder_id(self) -> Optional[float]:
-        """
-        Folder id which contains environment.
-        """
-        return pulumi.get(self, "folder_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[float]:
-        """
-        Metadata id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Metadata name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponseResult']]:
-        """
-        Variable in environment
-        """
-        return pulumi.get(self, "variables")
-
-
-@pulumi.output_type
-class SsisFolderResponseResult(dict):
+class SsisFolderInvokeResponseResult(dict):
     """
     Ssis folder.
     """
@@ -2592,7 +4080,7 @@ class SsisFolderResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisPackageResponseResult(dict):
+class SsisPackageInvokeResponseResult(dict):
     """
     Ssis Package.
     """
@@ -2602,7 +4090,7 @@ class SsisPackageResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterInvokeResponseResult']] = None,
                  project_id: Optional[float] = None,
                  project_version: Optional[float] = None):
         """
@@ -2613,7 +4101,7 @@ class SsisPackageResponseResult(dict):
         :param float folder_id: Folder id which contains package.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in package
+        :param Sequence['SsisParameterInvokeResponseArgs'] parameters: Parameters in package
         :param float project_id: Project id which contains package.
         :param float project_version: Project version which contains package.
         """
@@ -2676,7 +4164,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterInvokeResponseResult']]:
         """
         Parameters in package
         """
@@ -2700,7 +4188,7 @@ class SsisPackageResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisParameterResponseResult(dict):
+class SsisParameterInvokeResponseResult(dict):
     """
     Ssis parameter.
     """
@@ -2855,29 +4343,29 @@ class SsisParameterResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisProjectResponseResult(dict):
+class SsisProjectInvokeResponseResult(dict):
     """
     Ssis project.
     """
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']] = None,
+                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceInvokeResponseResult']] = None,
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterInvokeResponseResult']] = None,
                  version: Optional[float] = None):
         """
         Ssis project.
         :param str type: Type of metadata.
                Expected value is 'Project'.
         :param str description: Metadata description.
-        :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
+        :param Sequence['SsisEnvironmentReferenceInvokeResponseArgs'] environment_refs: Environment reference in project
         :param float folder_id: Folder id which contains project.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in project
+        :param Sequence['SsisParameterInvokeResponseArgs'] parameters: Parameters in project
         :param float version: Project version.
         """
         pulumi.set(__self__, "type", 'Project')
@@ -2915,7 +4403,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter(name="environmentRefs")
-    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']]:
+    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceInvokeResponseResult']]:
         """
         Environment reference in project
         """
@@ -2947,7 +4435,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterInvokeResponseResult']]:
         """
         Parameters in project
         """
@@ -2963,7 +4451,7 @@ class SsisProjectResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisVariableResponseResult(dict):
+class SsisVariableInvokeResponseResult(dict):
     """
     Ssis variable.
     """
@@ -3058,6 +4546,29 @@ class SsisVariableResponseResult(dict):
 
 
 @pulumi.output_type
+class VirtualNetworkProfileInvokeResponseResult(dict):
+    """
+    Virtual Network Profile
+    """
+    def __init__(__self__, *,
+                 compute_subnet_id: Optional[str] = None):
+        """
+        Virtual Network Profile
+        :param str compute_subnet_id: Subnet ID used for computes in workspace
+        """
+        if compute_subnet_id is not None:
+            pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
+
+    @property
+    @pulumi.getter(name="computeSubnetId")
+    def compute_subnet_id(self) -> Optional[str]:
+        """
+        Subnet ID used for computes in workspace
+        """
+        return pulumi.get(self, "compute_subnet_id")
+
+
+@pulumi.output_type
 class VirtualNetworkProfileResponse(dict):
     """
     Virtual Network Profile
@@ -3081,6 +4592,55 @@ class VirtualNetworkProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseResult(dict):
+    """
+    Properties of a Vulnerability Assessment recurring scans.
+    """
+    def __init__(__self__, *,
+                 email_subscription_admins: Optional[bool] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 is_enabled: Optional[bool] = None):
+        """
+        Properties of a Vulnerability Assessment recurring scans.
+        :param bool email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
+        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param bool is_enabled: Recurring scans state.
+        """
+        if email_subscription_admins is None:
+            email_subscription_admins = True
+        if email_subscription_admins is not None:
+            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdmins")
+    def email_subscription_admins(self) -> Optional[bool]:
+        """
+        Specifies that the schedule scan notification will be is sent to the subscription administrators.
+        """
+        return pulumi.get(self, "email_subscription_admins")
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[Sequence[str]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Recurring scans state.
+        """
+        return pulumi.get(self, "is_enabled")
 
 
 @pulumi.output_type
@@ -3136,6 +4696,41 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class WorkspaceKeyDetailsInvokeResponseResult(dict):
+    """
+    Details of the customer managed key associated with the workspace
+    """
+    def __init__(__self__, *,
+                 key_vault_url: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Details of the customer managed key associated with the workspace
+        :param str key_vault_url: Workspace Key sub-resource key vault url
+        :param str name: Workspace Key sub-resource name
+        """
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="keyVaultUrl")
+    def key_vault_url(self) -> Optional[str]:
+        """
+        Workspace Key sub-resource key vault url
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Workspace Key sub-resource name
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class WorkspaceKeyDetailsResponse(dict):
     """
     Details of the customer managed key associated with the workspace
@@ -3171,6 +4766,125 @@ class WorkspaceKeyDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkspaceRepositoryConfigurationInvokeResponseResult(dict):
+    """
+    Git integration settings
+    """
+    def __init__(__self__, *,
+                 account_name: Optional[str] = None,
+                 collaboration_branch: Optional[str] = None,
+                 host_name: Optional[str] = None,
+                 last_commit_id: Optional[str] = None,
+                 project_name: Optional[str] = None,
+                 repository_name: Optional[str] = None,
+                 root_folder: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Git integration settings
+        :param str account_name: Account name
+        :param str collaboration_branch: Collaboration branch
+        :param str host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param str last_commit_id: The last commit ID
+        :param str project_name: VSTS project name
+        :param str repository_name: Repository name
+        :param str root_folder: Root folder to use in the repository
+        :param str tenant_id: The VSTS tenant ID
+        :param str type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if collaboration_branch is not None:
+            pulumi.set(__self__, "collaboration_branch", collaboration_branch)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if root_folder is not None:
+            pulumi.set(__self__, "root_folder", root_folder)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="collaborationBranch")
+    def collaboration_branch(self) -> Optional[str]:
+        """
+        Collaboration branch
+        """
+        return pulumi.get(self, "collaboration_branch")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        GitHub Enterprise host name. For example: https://github.mydomain.com
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[str]:
+        """
+        The last commit ID
+        """
+        return pulumi.get(self, "last_commit_id")
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[str]:
+        """
+        VSTS project name
+        """
+        return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        Repository name
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="rootFolder")
+    def root_folder(self) -> Optional[str]:
+        """
+        Root folder to use in the repository
+        """
+        return pulumi.get(self, "root_folder")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The VSTS tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

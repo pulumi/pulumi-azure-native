@@ -52,7 +52,7 @@ class GetBackupScheduleGroupResult:
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> 'outputs.TimeResponse':
+    def start_time(self) -> 'outputs.TimeInvokeResponseResult':
         """
         The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """

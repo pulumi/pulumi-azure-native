@@ -48,7 +48,7 @@ class GetReportConfigByResourceGroupNameResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.ReportConfigDefinitionResponse':
+    def definition(self) -> 'outputs.ReportConfigDefinitionInvokeResponseResult':
         """
         Has definition for the report config.
         """
@@ -56,7 +56,7 @@ class GetReportConfigByResourceGroupNameResult:
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ReportConfigDeliveryInfoResponse':
+    def delivery_info(self) -> 'outputs.ReportConfigDeliveryInfoInvokeResponseResult':
         """
         Has delivery information for the report config.
         """
@@ -88,7 +88,7 @@ class GetReportConfigByResourceGroupNameResult:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ReportConfigScheduleResponse']:
+    def schedule(self) -> Optional['outputs.ReportConfigScheduleInvokeResponseResult']:
         """
         Has schedule information for the report config.
         """

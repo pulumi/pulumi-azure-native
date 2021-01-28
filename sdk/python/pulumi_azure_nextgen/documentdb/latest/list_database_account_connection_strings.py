@@ -27,7 +27,7 @@ class ListDatabaseAccountConnectionStringsResult:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[Sequence['outputs.DatabaseAccountConnectionStringResponseResult']]:
+    def connection_strings(self) -> Optional[Sequence['outputs.DatabaseAccountConnectionStringInvokeResponseResult']]:
         """
         An array that contains the connection strings for the Cosmos DB account.
         """

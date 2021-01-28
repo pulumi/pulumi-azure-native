@@ -94,7 +94,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ClusterSkuResponse']:
+    def sku(self) -> Optional['outputs.ClusterSkuInvokeResponseResult']:
         """
         Properties of the cluster SKU.
         """

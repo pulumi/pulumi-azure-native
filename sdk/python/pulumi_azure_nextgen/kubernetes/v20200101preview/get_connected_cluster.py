@@ -81,7 +81,7 @@ class GetConnectedClusterResult:
 
     @property
     @pulumi.getter(name="aadProfile")
-    def aad_profile(self) -> 'outputs.ConnectedClusterAADProfileResponse':
+    def aad_profile(self) -> 'outputs.ConnectedClusterAADProfileInvokeResponseResult':
         """
         AAD profile of the connected cluster.
         """
@@ -129,7 +129,7 @@ class GetConnectedClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.ConnectedClusterIdentityResponse':
+    def identity(self) -> 'outputs.ConnectedClusterIdentityInvokeResponseResult':
         """
         The identity of the connected cluster.
         """

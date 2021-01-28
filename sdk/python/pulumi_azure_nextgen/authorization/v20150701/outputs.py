@@ -9,9 +9,46 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'PermissionInvokeResponseResult',
     'PermissionResponse',
+    'RoleAssignmentPropertiesWithScopeInvokeResponseResult',
     'RoleAssignmentPropertiesWithScopeResponse',
 ]
+
+@pulumi.output_type
+class PermissionInvokeResponseResult(dict):
+    """
+    Role definition permissions.
+    """
+    def __init__(__self__, *,
+                 actions: Optional[Sequence[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None):
+        """
+        Role definition permissions.
+        :param Sequence[str] actions: Allowed actions.
+        :param Sequence[str] not_actions: Denied actions.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if not_actions is not None:
+            pulumi.set(__self__, "not_actions", not_actions)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[str]]:
+        """
+        Allowed actions.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="notActions")
+    def not_actions(self) -> Optional[Sequence[str]]:
+        """
+        Denied actions.
+        """
+        return pulumi.get(self, "not_actions")
+
 
 @pulumi.output_type
 class PermissionResponse(dict):
@@ -49,6 +86,53 @@ class PermissionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RoleAssignmentPropertiesWithScopeInvokeResponseResult(dict):
+    """
+    Role assignment properties with scope.
+    """
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 role_definition_id: Optional[str] = None,
+                 scope: Optional[str] = None):
+        """
+        Role assignment properties with scope.
+        :param str principal_id: The principal ID.
+        :param str role_definition_id: The role definition ID.
+        :param str scope: The role assignment scope.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> Optional[str]:
+        """
+        The role definition ID.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The role assignment scope.
+        """
+        return pulumi.get(self, "scope")
 
 
 @pulumi.output_type

@@ -63,7 +63,7 @@ class GetReplicationRecoveryPlanResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RecoveryPlanPropertiesResponse':
+    def properties(self) -> 'outputs.RecoveryPlanPropertiesInvokeResponseResult':
         """
         The custom details.
         """

@@ -9,8 +9,42 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'StorageAccountPropertiesInvokeResponseResult',
     'StorageAccountPropertiesResponse',
 ]
+
+@pulumi.output_type
+class StorageAccountPropertiesInvokeResponseResult(dict):
+    """
+    The properties of a storage account for a container registry.
+    """
+    def __init__(__self__, *,
+                 access_key: str,
+                 name: str):
+        """
+        The properties of a storage account for a container registry.
+        :param str access_key: The access key to the storage account.
+        :param str name: The name of the storage account.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> str:
+        """
+        The access key to the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class StorageAccountPropertiesResponse(dict):

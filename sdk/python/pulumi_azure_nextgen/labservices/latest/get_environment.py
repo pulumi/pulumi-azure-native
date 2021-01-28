@@ -123,7 +123,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> 'outputs.LatestOperationResultInvokeResponseResult':
         """
         The details of the latest operation. ex: status, error
         """
@@ -147,7 +147,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> 'outputs.NetworkInterfaceResponse':
+    def network_interface(self) -> 'outputs.NetworkInterfaceInvokeResponseResult':
         """
         Network details of the environment
         """
@@ -171,7 +171,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="resourceSets")
-    def resource_sets(self) -> Optional['outputs.ResourceSetResponse']:
+    def resource_sets(self) -> Optional['outputs.ResourceSetInvokeResponseResult']:
         """
         The set of a VM and the setting id it was created for
         """

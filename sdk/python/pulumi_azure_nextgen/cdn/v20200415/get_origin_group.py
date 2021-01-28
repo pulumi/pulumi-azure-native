@@ -51,7 +51,7 @@ class GetOriginGroupResult:
 
     @property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional['outputs.HealthProbeParametersResponse']:
+    def health_probe_settings(self) -> Optional['outputs.HealthProbeParametersInvokeResponseResult']:
         """
         Health probe settings to the origin that is used to determine the health of the origin.
         """
@@ -75,7 +75,7 @@ class GetOriginGroupResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> Sequence['outputs.ResourceReferenceResponse']:
+    def origins(self) -> Sequence['outputs.ResourceReferenceInvokeResponseResult']:
         """
         The source of the content being delivered via CDN within given origin group.
         """
@@ -99,7 +99,7 @@ class GetOriginGroupResult:
 
     @property
     @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
-    def response_based_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse']:
+    def response_based_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult']:
         """
         The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         """

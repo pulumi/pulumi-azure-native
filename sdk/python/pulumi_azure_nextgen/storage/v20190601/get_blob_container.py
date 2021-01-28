@@ -148,7 +148,7 @@ class GetBlobContainerResult:
 
     @property
     @pulumi.getter(name="immutabilityPolicy")
-    def immutability_policy(self) -> 'outputs.ImmutabilityPolicyPropertiesResponse':
+    def immutability_policy(self) -> 'outputs.ImmutabilityPolicyPropertiesInvokeResponseResult':
         """
         The ImmutabilityPolicy property of the container.
         """
@@ -188,7 +188,7 @@ class GetBlobContainerResult:
 
     @property
     @pulumi.getter(name="legalHold")
-    def legal_hold(self) -> 'outputs.LegalHoldPropertiesResponse':
+    def legal_hold(self) -> 'outputs.LegalHoldPropertiesInvokeResponseResult':
         """
         The LegalHold property of the container.
         """

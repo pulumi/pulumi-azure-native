@@ -68,7 +68,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def health(self) -> 'outputs.CacheHealthResponse':
+    def health(self) -> 'outputs.CacheHealthInvokeResponseResult':
         """
         Health of the cache.
         """
@@ -116,7 +116,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.CacheResponseSku']:
+    def sku(self) -> Optional['outputs.CacheInvokeResponseSkuResult']:
         """
         Sku for the cache.
         """
@@ -148,7 +148,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="upgradeStatus")
-    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
+    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusInvokeResponseResult']:
         """
         Upgrade status of the cache.
         """

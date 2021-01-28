@@ -107,7 +107,7 @@ class GetHubRouteTableResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.HubRouteResponse']]:
+    def routes(self) -> Optional[Sequence['outputs.HubRouteInvokeResponseResult']]:
         """
         List of all routes.
         """

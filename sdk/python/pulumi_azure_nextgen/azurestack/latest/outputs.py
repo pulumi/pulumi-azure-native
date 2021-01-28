@@ -11,17 +11,17 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CompatibilityResponseResult',
-    'DataDiskImageResponseResult',
-    'IconUrisResponseResult',
-    'OsDiskImageResponseResult',
-    'ProductLinkResponseResult',
-    'ProductPropertiesResponseResult',
-    'ProductResponseResult',
+    'CompatibilityInvokeResponseResult',
+    'DataDiskImageInvokeResponseResult',
+    'IconUrisInvokeResponseResult',
+    'OsDiskImageInvokeResponseResult',
+    'ProductInvokeResponseResult',
+    'ProductLinkInvokeResponseResult',
+    'ProductPropertiesInvokeResponseResult',
 ]
 
 @pulumi.output_type
-class CompatibilityResponseResult(dict):
+class CompatibilityInvokeResponseResult(dict):
     """
     Product compatibility
     """
@@ -80,7 +80,7 @@ class CompatibilityResponseResult(dict):
 
 
 @pulumi.output_type
-class DataDiskImageResponseResult(dict):
+class DataDiskImageInvokeResponseResult(dict):
     """
     Data disk image.
     """
@@ -113,7 +113,7 @@ class DataDiskImageResponseResult(dict):
 
 
 @pulumi.output_type
-class IconUrisResponseResult(dict):
+class IconUrisInvokeResponseResult(dict):
     """
     Links to product icons.
     """
@@ -184,7 +184,7 @@ class IconUrisResponseResult(dict):
 
 
 @pulumi.output_type
-class OsDiskImageResponseResult(dict):
+class OsDiskImageInvokeResponseResult(dict):
     """
     OS disk image.
     """
@@ -217,65 +217,7 @@ class OsDiskImageResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductLinkResponseResult(dict):
-    """
-    Link with additional information about a product.
-    """
-    def __init__(__self__, *,
-                 display_name: Optional[str] = None,
-                 uri: Optional[str] = None):
-        """
-        Link with additional information about a product.
-        :param str display_name: The description of the link.
-        :param str uri: The URI corresponding to the link.
-        """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        The description of the link.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        The URI corresponding to the link.
-        """
-        return pulumi.get(self, "uri")
-
-
-@pulumi.output_type
-class ProductPropertiesResponseResult(dict):
-    """
-    Additional properties of the product
-    """
-    def __init__(__self__, *,
-                 version: Optional[str] = None):
-        """
-        Additional properties of the product
-        :param str version: The version.
-        """
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        The version.
-        """
-        return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class ProductResponseResult(dict):
+class ProductInvokeResponseResult(dict):
     """
     Product information.
     """
@@ -284,20 +226,20 @@ class ProductResponseResult(dict):
                  name: str,
                  type: str,
                  billing_part_number: Optional[str] = None,
-                 compatibility: Optional['outputs.CompatibilityResponseResult'] = None,
+                 compatibility: Optional['outputs.CompatibilityInvokeResponseResult'] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  etag: Optional[str] = None,
                  gallery_item_identity: Optional[str] = None,
-                 icon_uris: Optional['outputs.IconUrisResponseResult'] = None,
+                 icon_uris: Optional['outputs.IconUrisInvokeResponseResult'] = None,
                  legal_terms: Optional[str] = None,
-                 links: Optional[Sequence['outputs.ProductLinkResponseResult']] = None,
+                 links: Optional[Sequence['outputs.ProductLinkInvokeResponseResult']] = None,
                  offer: Optional[str] = None,
                  offer_version: Optional[str] = None,
                  payload_length: Optional[float] = None,
                  privacy_policy: Optional[str] = None,
                  product_kind: Optional[str] = None,
-                 product_properties: Optional['outputs.ProductPropertiesResponseResult'] = None,
+                 product_properties: Optional['outputs.ProductPropertiesInvokeResponseResult'] = None,
                  publisher_display_name: Optional[str] = None,
                  publisher_identifier: Optional[str] = None,
                  sku: Optional[str] = None,
@@ -308,20 +250,20 @@ class ProductResponseResult(dict):
         :param str name: Name of the resource.
         :param str type: Type of Resource.
         :param str billing_part_number: The part number used for billing purposes.
-        :param 'CompatibilityResponseArgs' compatibility: Product compatibility with current device.
+        :param 'CompatibilityInvokeResponseArgs' compatibility: Product compatibility with current device.
         :param str description: The description of the product.
         :param str display_name: The display name of the product.
         :param str etag: The entity tag used for optimistic concurrency when modifying the resource.
         :param str gallery_item_identity: The identifier of the gallery item corresponding to the product.
-        :param 'IconUrisResponseArgs' icon_uris: Additional links available for this product.
+        :param 'IconUrisInvokeResponseArgs' icon_uris: Additional links available for this product.
         :param str legal_terms: The legal terms.
-        :param Sequence['ProductLinkResponseArgs'] links: Additional links available for this product.
+        :param Sequence['ProductLinkInvokeResponseArgs'] links: Additional links available for this product.
         :param str offer: The offer representing the product.
         :param str offer_version: The version of the product offer.
         :param float payload_length: The length of product content.
         :param str privacy_policy: The privacy policy.
         :param str product_kind: The kind of the product (virtualMachine or virtualMachineExtension)
-        :param 'ProductPropertiesResponseArgs' product_properties: Additional properties for the product.
+        :param 'ProductPropertiesInvokeResponseArgs' product_properties: Additional properties for the product.
         :param str publisher_display_name: The user-friendly name of the product publisher.
         :param str publisher_identifier: Publisher identifier.
         :param str sku: The product SKU.
@@ -403,7 +345,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def compatibility(self) -> Optional['outputs.CompatibilityResponseResult']:
+    def compatibility(self) -> Optional['outputs.CompatibilityInvokeResponseResult']:
         """
         Product compatibility with current device.
         """
@@ -443,7 +385,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="iconUris")
-    def icon_uris(self) -> Optional['outputs.IconUrisResponseResult']:
+    def icon_uris(self) -> Optional['outputs.IconUrisInvokeResponseResult']:
         """
         Additional links available for this product.
         """
@@ -459,7 +401,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.ProductLinkResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.ProductLinkInvokeResponseResult']]:
         """
         Additional links available for this product.
         """
@@ -507,7 +449,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="productProperties")
-    def product_properties(self) -> Optional['outputs.ProductPropertiesResponseResult']:
+    def product_properties(self) -> Optional['outputs.ProductPropertiesInvokeResponseResult']:
         """
         Additional properties for the product.
         """
@@ -544,5 +486,63 @@ class ProductResponseResult(dict):
         The type of the Virtual Machine Extension.
         """
         return pulumi.get(self, "vm_extension_type")
+
+
+@pulumi.output_type
+class ProductLinkInvokeResponseResult(dict):
+    """
+    Link with additional information about a product.
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        Link with additional information about a product.
+        :param str display_name: The description of the link.
+        :param str uri: The URI corresponding to the link.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The description of the link.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The URI corresponding to the link.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class ProductPropertiesInvokeResponseResult(dict):
+    """
+    Additional properties of the product
+    """
+    def __init__(__self__, *,
+                 version: Optional[str] = None):
+        """
+        Additional properties of the product
+        :param str version: The version.
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version.
+        """
+        return pulumi.get(self, "version")
 
 

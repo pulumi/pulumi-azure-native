@@ -78,7 +78,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[Sequence['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.OpenShiftManagedClusterAgentPoolProfileInvokeResponseResult']]:
         """
         Configuration of OpenShift cluster VMs.
         """
@@ -86,7 +86,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="authProfile")
-    def auth_profile(self) -> Optional['outputs.OpenShiftManagedClusterAuthProfileResponse']:
+    def auth_profile(self) -> Optional['outputs.OpenShiftManagedClusterAuthProfileInvokeResponseResult']:
         """
         Configures OpenShift authentication.
         """
@@ -126,7 +126,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="masterPoolProfile")
-    def master_pool_profile(self) -> Optional['outputs.OpenShiftManagedClusterMasterPoolProfileResponse']:
+    def master_pool_profile(self) -> Optional['outputs.OpenShiftManagedClusterMasterPoolProfileInvokeResponseResult']:
         """
         Configuration for OpenShift master VMs.
         """
@@ -134,7 +134,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="monitorProfile")
-    def monitor_profile(self) -> Optional['outputs.OpenShiftManagedClusterMonitorProfileResponse']:
+    def monitor_profile(self) -> Optional['outputs.OpenShiftManagedClusterMonitorProfileInvokeResponseResult']:
         """
         Configures Log Analytics integration.
         """
@@ -150,7 +150,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.NetworkProfileInvokeResponseResult']:
         """
         Configuration for OpenShift networking.
         """
@@ -166,7 +166,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PurchasePlanResponse']:
+    def plan(self) -> Optional['outputs.PurchasePlanInvokeResponseResult']:
         """
         Define the resource plan as required by ARM for billing purposes
         """
@@ -198,7 +198,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="routerProfiles")
-    def router_profiles(self) -> Optional[Sequence['outputs.OpenShiftRouterProfileResponse']]:
+    def router_profiles(self) -> Optional[Sequence['outputs.OpenShiftRouterProfileInvokeResponseResult']]:
         """
         Configuration for OpenShift router(s).
         """

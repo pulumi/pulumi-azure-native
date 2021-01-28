@@ -69,7 +69,7 @@ class GetPeerAsnResult:
 
     @property
     @pulumi.getter(name="peerContactInfo")
-    def peer_contact_info(self) -> Optional['outputs.ContactInfoResponse']:
+    def peer_contact_info(self) -> Optional['outputs.ContactInfoInvokeResponseResult']:
         """
         The contact information of the peer.
         """

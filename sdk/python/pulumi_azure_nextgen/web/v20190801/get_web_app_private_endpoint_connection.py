@@ -69,7 +69,7 @@ class GetWebAppPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperInvokeResponseResult']:
         """
         PrivateEndpoint of a remote private endpoint connection
         """
@@ -77,7 +77,7 @@ class GetWebAppPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateInvokeResponseResult']:
         """
         The state of a private link connection
         """

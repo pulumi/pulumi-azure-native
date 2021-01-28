@@ -73,7 +73,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="autoStorage")
-    def auto_storage(self) -> Optional['outputs.AutoStoragePropertiesResponse']:
+    def auto_storage(self) -> Optional['outputs.AutoStoragePropertiesInvokeResponseResult']:
         """
         The properties and status of any auto storage account associated with the account.
         """

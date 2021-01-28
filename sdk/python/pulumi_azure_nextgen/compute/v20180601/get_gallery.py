@@ -64,7 +64,7 @@ class GetGalleryResult:
 
     @property
     @pulumi.getter
-    def identifier(self) -> Optional['outputs.GalleryIdentifierResponse']:
+    def identifier(self) -> Optional['outputs.GalleryIdentifierInvokeResponseResult']:
         """
         Describes the gallery unique name.
         """

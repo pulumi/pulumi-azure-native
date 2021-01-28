@@ -79,7 +79,7 @@ class GetStreamingLocatorResult:
 
     @property
     @pulumi.getter(name="contentKeys")
-    def content_keys(self) -> Optional[Sequence['outputs.StreamingLocatorContentKeyResponse']]:
+    def content_keys(self) -> Optional[Sequence['outputs.StreamingLocatorContentKeyInvokeResponseResult']]:
         """
         The ContentKeys used by this Streaming Locator.
         """

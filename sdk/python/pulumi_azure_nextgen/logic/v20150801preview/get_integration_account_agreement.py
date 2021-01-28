@@ -79,7 +79,7 @@ class GetIntegrationAccountAgreementResult:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.AgreementContentResponse']:
+    def content(self) -> Optional['outputs.AgreementContentInvokeResponseResult']:
         """
         The agreement content.
         """
@@ -95,7 +95,7 @@ class GetIntegrationAccountAgreementResult:
 
     @property
     @pulumi.getter(name="guestIdentity")
-    def guest_identity(self) -> Optional['outputs.BusinessIdentityResponse']:
+    def guest_identity(self) -> Optional['outputs.BusinessIdentityInvokeResponseResult']:
         """
         The guest identity.
         """
@@ -111,7 +111,7 @@ class GetIntegrationAccountAgreementResult:
 
     @property
     @pulumi.getter(name="hostIdentity")
-    def host_identity(self) -> Optional['outputs.BusinessIdentityResponse']:
+    def host_identity(self) -> Optional['outputs.BusinessIdentityInvokeResponseResult']:
         """
         The host identity.
         """

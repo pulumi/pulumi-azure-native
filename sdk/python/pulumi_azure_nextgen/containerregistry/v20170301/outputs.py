@@ -9,13 +9,15 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'RegistryPasswordResponseResult',
+    'RegistryPasswordInvokeResponseResult',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'StorageAccountPropertiesInvokeResponseResult',
     'StorageAccountPropertiesResponse',
 ]
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordInvokeResponseResult(dict):
     """
     The login password for the container registry.
     """
@@ -47,6 +49,39 @@ class RegistryPasswordResponseResult(dict):
         The password value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The SKU of a container registry.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: str):
+        """
+        The SKU of a container registry.
+        :param str name: The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+        :param str tier: The SKU tier based on the SKU name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The SKU tier based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -83,6 +118,29 @@ class SkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageAccountPropertiesInvokeResponseResult(dict):
+    """
+    The properties of a storage account for a container registry.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The properties of a storage account for a container registry.
+        :param str name: The name of the storage account.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -62,7 +62,7 @@ class GetPrefixResult:
 
     @property
     @pulumi.getter
-    def events(self) -> Sequence['outputs.PeeringServicePrefixEventResponse']:
+    def events(self) -> Sequence['outputs.PeeringServicePrefixEventInvokeResponseResult']:
         """
         The list of events for peering service prefix
         """

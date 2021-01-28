@@ -86,7 +86,7 @@ class GetSubscriptionDiagnosticSettingResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[Sequence['outputs.SubscriptionLogSettingsResponse']]:
+    def logs(self) -> Optional[Sequence['outputs.SubscriptionLogSettingsInvokeResponseResult']]:
         """
         The list of logs settings.
         """

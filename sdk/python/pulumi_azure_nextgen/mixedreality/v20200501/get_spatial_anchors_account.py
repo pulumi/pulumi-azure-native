@@ -72,7 +72,7 @@ class GetSpatialAnchorsAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity associated with this account
         """

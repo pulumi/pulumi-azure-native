@@ -88,7 +88,7 @@ class GetContainerResult:
 
     @property
     @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
+    def refresh_details(self) -> 'outputs.RefreshDetailsInvokeResponseResult':
         """
         Details of the refresh job on this container.
         """
@@ -96,7 +96,7 @@ class GetContainerResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Container in DataBoxEdge Resource
         """

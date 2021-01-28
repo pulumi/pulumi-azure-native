@@ -93,7 +93,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[Sequence['outputs.AdditionalRegionResponse']]:
+    def additional_locations(self) -> Optional[Sequence['outputs.AdditionalRegionInvokeResponseResult']]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -133,7 +133,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> Optional[Sequence['outputs.HostnameConfigurationResponse']]:
+    def hostname_configurations(self) -> Optional[Sequence['outputs.HostnameConfigurationInvokeResponseResult']]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -221,7 +221,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesResponse':
+    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesInvokeResponseResult':
         """
         SKU properties of the API Management service.
         """
@@ -269,7 +269,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter
-    def vpnconfiguration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
+    def vpnconfiguration(self) -> Optional['outputs.VirtualNetworkConfigurationInvokeResponseResult']:
         """
         Virtual network configuration of the API Management service.
         """

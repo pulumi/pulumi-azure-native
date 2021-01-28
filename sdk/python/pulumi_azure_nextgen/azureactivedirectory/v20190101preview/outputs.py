@@ -10,9 +10,46 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'B2CResourceSKUInvokeResponseResult',
     'B2CResourceSKUResponse',
+    'B2CTenantResourcePropertiesInvokeResponseBillingConfigResult',
     'B2CTenantResourcePropertiesResponseBillingConfig',
 ]
+
+@pulumi.output_type
+class B2CResourceSKUInvokeResponseResult(dict):
+    """
+    SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+        :param str name: The name of the SKU for the tenant.
+        :param str tier: The tier of the tenant.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the SKU for the tenant.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier of the tenant.
+        """
+        return pulumi.get(self, "tier")
+
 
 @pulumi.output_type
 class B2CResourceSKUResponse(dict):
@@ -50,6 +87,40 @@ class B2CResourceSKUResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class B2CTenantResourcePropertiesInvokeResponseBillingConfigResult(dict):
+    """
+    The billing configuration for the tenant.
+    """
+    def __init__(__self__, *,
+                 effective_start_date_utc: str,
+                 billing_type: Optional[str] = None):
+        """
+        The billing configuration for the tenant.
+        :param str effective_start_date_utc: The data from which the billing type took effect
+        :param str billing_type: The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
+        """
+        pulumi.set(__self__, "effective_start_date_utc", effective_start_date_utc)
+        if billing_type is not None:
+            pulumi.set(__self__, "billing_type", billing_type)
+
+    @property
+    @pulumi.getter(name="effectiveStartDateUtc")
+    def effective_start_date_utc(self) -> str:
+        """
+        The data from which the billing type took effect
+        """
+        return pulumi.get(self, "effective_start_date_utc")
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> Optional[str]:
+        """
+        The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
+        """
+        return pulumi.get(self, "billing_type")
 
 
 @pulumi.output_type

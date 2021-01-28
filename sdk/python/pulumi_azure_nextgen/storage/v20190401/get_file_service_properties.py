@@ -36,7 +36,7 @@ class GetFileServicePropertiesResult:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional['outputs.CorsRulesResponse']:
+    def cors(self) -> Optional['outputs.CorsRulesInvokeResponseResult']:
         """
         Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
         """

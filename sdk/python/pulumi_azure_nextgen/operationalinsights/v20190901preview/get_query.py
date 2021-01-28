@@ -119,7 +119,7 @@ class GetQueryResult:
 
     @property
     @pulumi.getter
-    def related(self) -> Optional['outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated']:
+    def related(self) -> Optional['outputs.LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedResult']:
         """
         The related metadata items for the function.
         """
@@ -127,7 +127,7 @@ class GetQueryResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

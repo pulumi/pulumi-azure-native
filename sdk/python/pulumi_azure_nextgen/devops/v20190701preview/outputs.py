@@ -11,13 +11,53 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AuthorizationInvokeResponseResult',
     'AuthorizationResponse',
+    'BootstrapConfigurationInvokeResponseResult',
     'BootstrapConfigurationResponse',
+    'CodeRepositoryInvokeResponseResult',
     'CodeRepositoryResponse',
+    'OrganizationReferenceInvokeResponseResult',
     'OrganizationReferenceResponse',
+    'PipelineTemplateInvokeResponseResult',
     'PipelineTemplateResponse',
+    'ProjectReferenceInvokeResponseResult',
     'ProjectReferenceResponse',
 ]
+
+@pulumi.output_type
+class AuthorizationInvokeResponseResult(dict):
+    """
+    Authorization info used to access a resource (like code repository).
+    """
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        Authorization info used to access a resource (like code repository).
+        :param str authorization_type: Type of authorization.
+        :param Mapping[str, str] parameters: Authorization parameters corresponding to the authorization type.
+        """
+        pulumi.set(__self__, "authorization_type", authorization_type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        Type of authorization.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Authorization parameters corresponding to the authorization type.
+        """
+        return pulumi.get(self, "parameters")
+
 
 @pulumi.output_type
 class AuthorizationResponse(dict):
@@ -57,6 +97,40 @@ class AuthorizationResponse(dict):
 
 
 @pulumi.output_type
+class BootstrapConfigurationInvokeResponseResult(dict):
+    """
+    Configuration used to bootstrap a Pipeline.
+    """
+    def __init__(__self__, *,
+                 template: 'outputs.PipelineTemplateInvokeResponseResult',
+                 repository: Optional['outputs.CodeRepositoryInvokeResponseResult'] = None):
+        """
+        Configuration used to bootstrap a Pipeline.
+        :param 'PipelineTemplateInvokeResponseArgs' template: Template used to bootstrap the pipeline.
+        :param 'CodeRepositoryInvokeResponseArgs' repository: Repository containing the source code for the pipeline.
+        """
+        pulumi.set(__self__, "template", template)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def template(self) -> 'outputs.PipelineTemplateInvokeResponseResult':
+        """
+        Template used to bootstrap the pipeline.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional['outputs.CodeRepositoryInvokeResponseResult']:
+        """
+        Repository containing the source code for the pipeline.
+        """
+        return pulumi.get(self, "repository")
+
+
+@pulumi.output_type
 class BootstrapConfigurationResponse(dict):
     """
     Configuration used to bootstrap a Pipeline.
@@ -91,6 +165,74 @@ class BootstrapConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CodeRepositoryInvokeResponseResult(dict):
+    """
+    Repository containing the source code for a pipeline.
+    """
+    def __init__(__self__, *,
+                 default_branch: str,
+                 id: str,
+                 repository_type: str,
+                 authorization: Optional['outputs.AuthorizationInvokeResponseResult'] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        Repository containing the source code for a pipeline.
+        :param str default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
+        :param str id: Unique immutable identifier of the code repository.
+        :param str repository_type: Type of code repository.
+        :param 'AuthorizationInvokeResponseArgs' authorization: Authorization info to access the code repository.
+        :param Mapping[str, str] properties: Repository-specific properties.
+        """
+        pulumi.set(__self__, "default_branch", default_branch)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "repository_type", repository_type)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> str:
+        """
+        Default branch used to configure Continuous Integration (CI) in the pipeline.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique immutable identifier of the code repository.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="repositoryType")
+    def repository_type(self) -> str:
+        """
+        Type of code repository.
+        """
+        return pulumi.get(self, "repository_type")
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional['outputs.AuthorizationInvokeResponseResult']:
+        """
+        Authorization info to access the code repository.
+        """
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Repository-specific properties.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -165,6 +307,39 @@ class CodeRepositoryResponse(dict):
 
 
 @pulumi.output_type
+class OrganizationReferenceInvokeResponseResult(dict):
+    """
+    Reference to an Azure DevOps Organization.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        Reference to an Azure DevOps Organization.
+        :param str id: Unique immutable identifier for the Azure DevOps Organization.
+        :param str name: Name of the Azure DevOps Organization.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique immutable identifier for the Azure DevOps Organization.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Azure DevOps Organization.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class OrganizationReferenceResponse(dict):
     """
     Reference to an Azure DevOps Organization.
@@ -198,6 +373,40 @@ class OrganizationReferenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PipelineTemplateInvokeResponseResult(dict):
+    """
+    Template used to bootstrap the pipeline.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        Template used to bootstrap the pipeline.
+        :param str id: Unique identifier of the pipeline template.
+        :param Mapping[str, str] parameters: Dictionary of input parameters used in the pipeline template.
+        """
+        pulumi.set(__self__, "id", id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique identifier of the pipeline template.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary of input parameters used in the pipeline template.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -235,6 +444,39 @@ class PipelineTemplateResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ProjectReferenceInvokeResponseResult(dict):
+    """
+    Reference to an Azure DevOps Project.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        Reference to an Azure DevOps Project.
+        :param str id: Unique immutable identifier of the Azure DevOps Project.
+        :param str name: Name of the Azure DevOps Project.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique immutable identifier of the Azure DevOps Project.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Azure DevOps Project.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

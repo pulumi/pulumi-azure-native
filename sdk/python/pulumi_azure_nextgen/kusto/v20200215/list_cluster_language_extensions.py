@@ -27,7 +27,7 @@ class ListClusterLanguageExtensionsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.LanguageExtensionResponse']]:
+    def value(self) -> Optional[Sequence['outputs.LanguageExtensionInvokeResponseResult']]:
         """
         The list of language extensions.
         """

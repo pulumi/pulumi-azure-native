@@ -93,7 +93,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="accessKeys")
-    def access_keys(self) -> 'outputs.RedisAccessKeysResponse':
+    def access_keys(self) -> 'outputs.RedisAccessKeysInvokeResponseResult':
         """
         The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         """
@@ -125,7 +125,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def instances(self) -> Sequence['outputs.RedisInstanceDetailsResponse']:
+    def instances(self) -> Sequence['outputs.RedisInstanceDetailsInvokeResponseResult']:
         """
         List of the Redis instances associated with the cache
         """
@@ -133,7 +133,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="linkedServers")
-    def linked_servers(self) -> Sequence['outputs.RedisLinkedServerResponse']:
+    def linked_servers(self) -> Sequence['outputs.RedisLinkedServerInvokeResponseResult']:
         """
         List of the linked servers associated with the cache
         """
@@ -213,7 +213,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The SKU of the Redis cache to deploy.
         """

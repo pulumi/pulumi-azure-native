@@ -124,7 +124,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionPropertyResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionPropertyInvokeResponseResult']:
         """
         The encryption settings of Azure ML workspace.
         """
@@ -156,7 +156,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -204,7 +204,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku of the workspace.
         """

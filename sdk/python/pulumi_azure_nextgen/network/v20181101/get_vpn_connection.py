@@ -144,7 +144,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
+    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyInvokeResponseResult']]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -168,7 +168,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="remoteVpnSite")
-    def remote_vpn_site(self) -> Optional['outputs.SubResourceResponse']:
+    def remote_vpn_site(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Id of the connected vpn site.
         """

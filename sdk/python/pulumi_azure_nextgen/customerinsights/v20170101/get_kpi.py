@@ -90,7 +90,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter
-    def aliases(self) -> Optional[Sequence['outputs.KpiAliasResponse']]:
+    def aliases(self) -> Optional[Sequence['outputs.KpiAliasInvokeResponseResult']]:
         """
         The aliases.
         """
@@ -154,7 +154,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter
-    def extracts(self) -> Optional[Sequence['outputs.KpiExtractResponse']]:
+    def extracts(self) -> Optional[Sequence['outputs.KpiExtractInvokeResponseResult']]:
         """
         The KPI extracts.
         """
@@ -186,7 +186,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter(name="groupByMetadata")
-    def group_by_metadata(self) -> Sequence['outputs.KpiGroupByMetadataResponse']:
+    def group_by_metadata(self) -> Sequence['outputs.KpiGroupByMetadataInvokeResponseResult']:
         """
         The KPI GroupByMetadata.
         """
@@ -218,7 +218,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter(name="participantProfilesMetadata")
-    def participant_profiles_metadata(self) -> Sequence['outputs.KpiParticipantProfilesMetadataResponse']:
+    def participant_profiles_metadata(self) -> Sequence['outputs.KpiParticipantProfilesMetadataInvokeResponseResult']:
         """
         The participant profiles.
         """
@@ -242,7 +242,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter(name="thresHolds")
-    def thres_holds(self) -> Optional['outputs.KpiThresholdsResponse']:
+    def thres_holds(self) -> Optional['outputs.KpiThresholdsInvokeResponseResult']:
         """
         The KPI thresholds.
         """

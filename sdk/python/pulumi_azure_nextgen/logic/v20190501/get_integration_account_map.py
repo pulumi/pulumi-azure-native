@@ -79,7 +79,7 @@ class GetIntegrationAccountMapResult:
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> 'outputs.ContentLinkResponse':
+    def content_link(self) -> 'outputs.ContentLinkInvokeResponseResult':
         """
         The content link.
         """
@@ -143,7 +143,7 @@ class GetIntegrationAccountMapResult:
 
     @property
     @pulumi.getter(name="parametersSchema")
-    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']:
+    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesInvokeResponseParametersSchemaResult']:
         """
         The parameters schema of integration account map.
         """

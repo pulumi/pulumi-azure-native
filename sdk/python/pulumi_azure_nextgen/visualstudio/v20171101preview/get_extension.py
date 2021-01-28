@@ -69,7 +69,7 @@ class GetExtensionResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.ExtensionResourcePlanResponse']:
+    def plan(self) -> Optional['outputs.ExtensionResourcePlanInvokeResponseResult']:
         """
         The extension plan that was purchased.
         """

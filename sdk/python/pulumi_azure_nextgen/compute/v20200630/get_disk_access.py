@@ -72,7 +72,7 @@ class GetDiskAccessResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
         """

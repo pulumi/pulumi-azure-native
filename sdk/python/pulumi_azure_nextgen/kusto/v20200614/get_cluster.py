@@ -138,7 +138,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the cluster, if configured.
         """
@@ -146,7 +146,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesInvokeResponseResult']:
         """
         KeyVault properties for the cluster encryption.
         """
@@ -154,7 +154,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> 'outputs.LanguageExtensionsListResponse':
+    def language_extensions(self) -> 'outputs.LanguageExtensionsListInvokeResponseResult':
         """
         List of the cluster's language extensions.
         """
@@ -178,7 +178,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="optimizedAutoscale")
-    def optimized_autoscale(self) -> Optional['outputs.OptimizedAutoscaleResponse']:
+    def optimized_autoscale(self) -> Optional['outputs.OptimizedAutoscaleInvokeResponseResult']:
         """
         Optimized auto scale definition.
         """
@@ -194,7 +194,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.AzureSkuResponse':
+    def sku(self) -> 'outputs.AzureSkuInvokeResponseResult':
         """
         The SKU of the cluster.
         """
@@ -226,7 +226,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> Optional[Sequence['outputs.TrustedExternalTenantResponse']]:
+    def trusted_external_tenants(self) -> Optional[Sequence['outputs.TrustedExternalTenantInvokeResponseResult']]:
         """
         The cluster's external tenants.
         """
@@ -250,7 +250,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
+    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationInvokeResponseResult']:
         """
         Virtual network definition.
         """

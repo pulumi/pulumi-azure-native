@@ -63,7 +63,7 @@ class GetTriggerResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Trigger in DataBoxEdge Resource
         """

@@ -85,7 +85,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -149,7 +149,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanInvokeResponseResult']:
         """
         The plan information.
         """
@@ -165,7 +165,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the resource.
         """

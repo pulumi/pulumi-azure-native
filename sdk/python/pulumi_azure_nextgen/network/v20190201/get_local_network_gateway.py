@@ -57,7 +57,7 @@ class GetLocalNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_settings(self) -> Optional['outputs.BgpSettingsInvokeResponseResult']:
         """
         Local network gateway's BGP speaker settings.
         """
@@ -89,7 +89,7 @@ class GetLocalNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="localNetworkAddressSpace")
-    def local_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def local_network_address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         Local network site address space.
         """

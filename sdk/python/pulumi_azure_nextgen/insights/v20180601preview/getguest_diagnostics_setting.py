@@ -48,7 +48,7 @@ class GetguestDiagnosticsSettingResult:
 
     @property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[Sequence['outputs.DataSourceResponse']]:
+    def data_sources(self) -> Optional[Sequence['outputs.DataSourceInvokeResponseResult']]:
         """
         the array of data source object which are configured to collect and send data
         """

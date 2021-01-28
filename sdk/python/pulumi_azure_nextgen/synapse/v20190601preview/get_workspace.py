@@ -106,7 +106,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="defaultDataLakeStorage")
-    def default_data_lake_storage(self) -> Optional['outputs.DataLakeStorageAccountDetailsResponse']:
+    def default_data_lake_storage(self) -> Optional['outputs.DataLakeStorageAccountDetailsInvokeResponseResult']:
         """
         Workspace default data lake storage account details
         """
@@ -114,7 +114,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionDetailsResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionDetailsInvokeResponseResult']:
         """
         The encryption details of the workspace
         """
@@ -138,7 +138,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedIdentityInvokeResponseResult']:
         """
         Identity of the workspace
         """
@@ -170,7 +170,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="managedVirtualNetworkSettings")
-    def managed_virtual_network_settings(self) -> Optional['outputs.ManagedVirtualNetworkSettingsResponse']:
+    def managed_virtual_network_settings(self) -> Optional['outputs.ManagedVirtualNetworkSettingsInvokeResponseResult']:
         """
         Managed Virtual Network Settings
         """
@@ -186,7 +186,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']]:
         """
         Private endpoint connections to the workspace
         """
@@ -202,7 +202,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="purviewConfiguration")
-    def purview_configuration(self) -> Optional['outputs.PurviewConfigurationResponse']:
+    def purview_configuration(self) -> Optional['outputs.PurviewConfigurationInvokeResponseResult']:
         """
         Purview Configuration
         """
@@ -242,7 +242,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="virtualNetworkProfile")
-    def virtual_network_profile(self) -> Optional['outputs.VirtualNetworkProfileResponse']:
+    def virtual_network_profile(self) -> Optional['outputs.VirtualNetworkProfileInvokeResponseResult']:
         """
         Virtual Network profile
         """
@@ -250,7 +250,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="workspaceRepositoryConfiguration")
-    def workspace_repository_configuration(self) -> Optional['outputs.WorkspaceRepositoryConfigurationResponse']:
+    def workspace_repository_configuration(self) -> Optional['outputs.WorkspaceRepositoryConfigurationInvokeResponseResult']:
         """
         Git integration settings
         """

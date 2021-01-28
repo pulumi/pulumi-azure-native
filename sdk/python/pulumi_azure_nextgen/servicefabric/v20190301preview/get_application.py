@@ -101,7 +101,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[Sequence['outputs.ApplicationMetricDescriptionResponse']]:
+    def metrics(self) -> Optional[Sequence['outputs.ApplicationMetricDescriptionInvokeResponseResult']]:
         """
         List of application capacity metric description.
         """
@@ -181,7 +181,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="upgradePolicy")
-    def upgrade_policy(self) -> Optional['outputs.ApplicationUpgradePolicyResponse']:
+    def upgrade_policy(self) -> Optional['outputs.ApplicationUpgradePolicyInvokeResponseResult']:
         """
         Describes the policy for a monitored application upgrade.
         """

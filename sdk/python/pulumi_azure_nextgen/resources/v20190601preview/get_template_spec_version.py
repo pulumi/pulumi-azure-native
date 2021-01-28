@@ -51,7 +51,7 @@ class GetTemplateSpecVersionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.TemplateSpecTemplateArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.TemplateSpecTemplateArtifactInvokeResponseResult']]:
         """
         An array of Template Spec artifacts.
         """
@@ -91,7 +91,7 @@ class GetTemplateSpecVersionResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """

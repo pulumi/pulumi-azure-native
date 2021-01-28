@@ -80,7 +80,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ClusterPropertiesResponse':
+    def properties(self) -> 'outputs.ClusterPropertiesInvokeResponseResult':
         """
         The properties associated with a Stream Analytics cluster.
         """
@@ -88,7 +88,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ClusterSkuResponse']:
+    def sku(self) -> Optional['outputs.ClusterSkuInvokeResponseResult']:
         """
         The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
         """

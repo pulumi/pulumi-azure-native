@@ -132,7 +132,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="applicationPackages")
-    def application_packages(self) -> Optional[Sequence['outputs.ApplicationPackageReferenceResponse']]:
+    def application_packages(self) -> Optional[Sequence['outputs.ApplicationPackageReferenceInvokeResponseResult']]:
         """
         Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         """
@@ -140,7 +140,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="autoScaleRun")
-    def auto_scale_run(self) -> 'outputs.AutoScaleRunResponse':
+    def auto_scale_run(self) -> 'outputs.AutoScaleRunInvokeResponseResult':
         """
         This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
         """
@@ -148,7 +148,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[Sequence['outputs.CertificateReferenceResponse']]:
+    def certificates(self) -> Optional[Sequence['outputs.CertificateReferenceInvokeResponseResult']]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
@@ -171,7 +171,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="deploymentConfiguration")
-    def deployment_configuration(self) -> Optional['outputs.DeploymentConfigurationResponse']:
+    def deployment_configuration(self) -> Optional['outputs.DeploymentConfigurationInvokeResponseResult']:
         """
         Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         """
@@ -203,7 +203,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.BatchPoolIdentityResponse']:
+    def identity(self) -> Optional['outputs.BatchPoolIdentityInvokeResponseResult']:
         """
         The type of identity used for the Batch Pool.
         """
@@ -227,7 +227,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemInvokeResponseResult']]:
         """
         The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         """
@@ -235,7 +235,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="mountConfiguration")
-    def mount_configuration(self) -> Optional[Sequence['outputs.MountConfigurationResponse']]:
+    def mount_configuration(self) -> Optional[Sequence['outputs.MountConfigurationInvokeResponseResult']]:
         """
         This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         """
@@ -251,7 +251,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional['outputs.NetworkConfigurationResponse']:
+    def network_configuration(self) -> Optional['outputs.NetworkConfigurationInvokeResponseResult']:
         """
         The network configuration for a pool.
         """
@@ -269,7 +269,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="resizeOperationStatus")
-    def resize_operation_status(self) -> 'outputs.ResizeOperationStatusResponse':
+    def resize_operation_status(self) -> 'outputs.ResizeOperationStatusInvokeResponseResult':
         """
         Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
         """
@@ -277,7 +277,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="scaleSettings")
-    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+    def scale_settings(self) -> Optional['outputs.ScaleSettingsInvokeResponseResult']:
         """
         Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         """
@@ -285,7 +285,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="startTask")
-    def start_task(self) -> Optional['outputs.StartTaskResponse']:
+    def start_task(self) -> Optional['outputs.StartTaskInvokeResponseResult']:
         """
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
@@ -293,7 +293,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="taskSchedulingPolicy")
-    def task_scheduling_policy(self) -> Optional['outputs.TaskSchedulingPolicyResponse']:
+    def task_scheduling_policy(self) -> Optional['outputs.TaskSchedulingPolicyInvokeResponseResult']:
         """
         If not specified, the default is spread.
         """
@@ -317,7 +317,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="userAccounts")
-    def user_accounts(self) -> Optional[Sequence['outputs.UserAccountResponse']]:
+    def user_accounts(self) -> Optional[Sequence['outputs.UserAccountInvokeResponseResult']]:
         return pulumi.get(self, "user_accounts")
 
     @property

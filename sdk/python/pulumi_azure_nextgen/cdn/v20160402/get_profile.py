@@ -88,7 +88,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU (pricing tier) of the CDN profile.
         """

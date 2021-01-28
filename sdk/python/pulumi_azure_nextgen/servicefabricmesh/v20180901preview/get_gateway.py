@@ -74,7 +74,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter(name="destinationNetwork")
-    def destination_network(self) -> 'outputs.NetworkRefResponse':
+    def destination_network(self) -> 'outputs.NetworkRefInvokeResponseResult':
         """
         Network that the Application is using.
         """
@@ -82,7 +82,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter
-    def http(self) -> Optional[Sequence['outputs.HttpConfigResponse']]:
+    def http(self) -> Optional[Sequence['outputs.HttpConfigInvokeResponseResult']]:
         """
         Configuration for http connectivity for this gateway.
         """
@@ -130,7 +130,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter(name="sourceNetwork")
-    def source_network(self) -> 'outputs.NetworkRefResponse':
+    def source_network(self) -> 'outputs.NetworkRefInvokeResponseResult':
         """
         Network the gateway should listen on for requests.
         """
@@ -162,7 +162,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter
-    def tcp(self) -> Optional[Sequence['outputs.TcpConfigResponse']]:
+    def tcp(self) -> Optional[Sequence['outputs.TcpConfigInvokeResponseResult']]:
         """
         Configuration for tcp connectivity for this gateway.
         """

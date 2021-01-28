@@ -87,7 +87,7 @@ class GetStreamingEndpointResult:
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional['outputs.StreamingEndpointAccessControlResponse']:
+    def access_control(self) -> Optional['outputs.StreamingEndpointAccessControlInvokeResponseResult']:
         """
         The access control definition of the streaming endpoint.
         """
@@ -135,7 +135,7 @@ class GetStreamingEndpointResult:
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicies")
-    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
+    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesInvokeResponseResult']:
         """
         The streaming endpoint access policies.
         """

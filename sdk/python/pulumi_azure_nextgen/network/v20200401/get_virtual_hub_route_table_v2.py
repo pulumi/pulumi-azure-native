@@ -82,7 +82,7 @@ class GetVirtualHubRouteTableV2Result:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.VirtualHubRouteV2Response']]:
+    def routes(self) -> Optional[Sequence['outputs.VirtualHubRouteV2InvokeResponseResult']]:
         """
         List of all routes.
         """

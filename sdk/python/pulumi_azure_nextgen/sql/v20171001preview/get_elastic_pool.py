@@ -119,7 +119,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="perDatabaseSettings")
-    def per_database_settings(self) -> Optional['outputs.ElasticPoolPerDatabaseSettingsResponse']:
+    def per_database_settings(self) -> Optional['outputs.ElasticPoolPerDatabaseSettingsInvokeResponseResult']:
         """
         The per database settings for the elastic pool.
         """
@@ -127,7 +127,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The elastic pool SKU.
         

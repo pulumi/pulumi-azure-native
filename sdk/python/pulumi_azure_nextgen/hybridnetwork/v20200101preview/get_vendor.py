@@ -63,7 +63,7 @@ class GetVendorResult:
 
     @property
     @pulumi.getter
-    def skus(self) -> Sequence['outputs.SubResourceResponse']:
+    def skus(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         A list of IDs of the vendor skus offered by the vendor.
         """

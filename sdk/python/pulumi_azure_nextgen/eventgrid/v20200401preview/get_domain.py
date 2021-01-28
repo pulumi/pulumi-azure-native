@@ -85,7 +85,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityInfoResponse']:
+    def identity(self) -> Optional['outputs.IdentityInfoInvokeResponseResult']:
         """
         Identity information for the resource.
         """
@@ -93,7 +93,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[Sequence['outputs.InboundIpRuleResponse']]:
+    def inbound_ip_rules(self) -> Optional[Sequence['outputs.InboundIpRuleInvokeResponseResult']]:
         """
         This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         """
@@ -109,7 +109,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> Optional['outputs.JsonInputSchemaMappingResponse']:
+    def input_schema_mapping(self) -> Optional['outputs.JsonInputSchemaMappingInvokeResponseResult']:
         """
         Information about the InputSchemaMapping which specified the info about mapping event payload.
         """
@@ -141,7 +141,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']]:
         """
         List of private endpoint connections.
         """
@@ -166,7 +166,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> Optional['outputs.ResourceSkuInvokeResponseResult']:
         """
         The Sku pricing tier for the domain.
         """

@@ -27,7 +27,7 @@ class ListWorkflowRunActionExpressionTracesResult:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[Sequence['outputs.ExpressionRootResponseResult']]:
+    def inputs(self) -> Optional[Sequence['outputs.ExpressionRootInvokeResponseResult']]:
         return pulumi.get(self, "inputs")
 
 

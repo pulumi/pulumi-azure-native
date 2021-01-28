@@ -66,7 +66,7 @@ class GetSourceControlConfigurationResult:
 
     @property
     @pulumi.getter(name="complianceStatus")
-    def compliance_status(self) -> 'outputs.ComplianceStatusResponse':
+    def compliance_status(self) -> 'outputs.ComplianceStatusInvokeResponseResult':
         """
         Compliance Status of the Configuration
         """
@@ -82,7 +82,7 @@ class GetSourceControlConfigurationResult:
 
     @property
     @pulumi.getter(name="helmOperatorProperties")
-    def helm_operator_properties(self) -> Optional['outputs.HelmOperatorPropertiesResponse']:
+    def helm_operator_properties(self) -> Optional['outputs.HelmOperatorPropertiesInvokeResponseResult']:
         """
         Properties for Helm operator.
         """

@@ -52,7 +52,7 @@ class GetBuildStepResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DockerBuildStepResponse':
+    def properties(self) -> 'outputs.DockerBuildStepInvokeResponseResult':
         """
         The properties of a build step.
         """

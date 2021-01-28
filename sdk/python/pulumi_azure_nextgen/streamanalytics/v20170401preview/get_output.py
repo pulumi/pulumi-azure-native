@@ -59,7 +59,7 @@ class GetOutputResult:
 
     @property
     @pulumi.getter
-    def diagnostics(self) -> 'outputs.DiagnosticsResponse':
+    def diagnostics(self) -> 'outputs.DiagnosticsInvokeResponseResult':
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         """

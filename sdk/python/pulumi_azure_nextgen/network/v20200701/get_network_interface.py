@@ -87,7 +87,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsResponse']:
+    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsInvokeResponseResult']:
         """
         The DNS settings in network interface.
         """
@@ -95,7 +95,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="dscpConfiguration")
-    def dscp_configuration(self) -> 'outputs.SubResourceResponse':
+    def dscp_configuration(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         A reference to the dscp configuration to which the network interface is linked.
         """
@@ -127,7 +127,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationInvokeResponseResult']:
         """
         The extended location of the network interface.
         """
@@ -151,7 +151,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']]:
         """
         A list of IPConfigurations of the network interface.
         """
@@ -183,7 +183,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupInvokeResponseResult']:
         """
         The reference to the NetworkSecurityGroup resource.
         """
@@ -199,7 +199,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+    def private_endpoint(self) -> 'outputs.PrivateEndpointInvokeResponseResult':
         """
         A reference to the private endpoint to which the network interface is linked.
         """
@@ -231,7 +231,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="tapConfigurations")
-    def tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationResponse']:
+    def tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationInvokeResponseResult']:
         """
         A list of TapConfigurations of the network interface.
         """
@@ -247,7 +247,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="virtualMachine")
-    def virtual_machine(self) -> 'outputs.SubResourceResponse':
+    def virtual_machine(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         The reference to a virtual machine.
         """

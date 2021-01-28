@@ -57,7 +57,7 @@ class GetAFDCustomDomainResult:
 
     @property
     @pulumi.getter(name="azureDnsZone")
-    def azure_dns_zone(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def azure_dns_zone(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
         """
         Resource reference to the Azure DNS zone
         """
@@ -110,7 +110,7 @@ class GetAFDCustomDomainResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """
@@ -118,7 +118,7 @@ class GetAFDCustomDomainResult:
 
     @property
     @pulumi.getter(name="tlsSettings")
-    def tls_settings(self) -> Optional['outputs.AFDDomainHttpsParametersResponse']:
+    def tls_settings(self) -> Optional['outputs.AFDDomainHttpsParametersInvokeResponseResult']:
         """
         The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         """
@@ -134,7 +134,7 @@ class GetAFDCustomDomainResult:
 
     @property
     @pulumi.getter(name="validationProperties")
-    def validation_properties(self) -> 'outputs.DomainValidationPropertiesResponse':
+    def validation_properties(self) -> 'outputs.DomainValidationPropertiesInvokeResponseResult':
         """
         Values the customer needs to validate domain ownership
         """

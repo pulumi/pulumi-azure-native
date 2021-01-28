@@ -125,7 +125,7 @@ class GetSiteVNETConnectionResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.VnetRouteResponse']]:
+    def routes(self) -> Optional[Sequence['outputs.VnetRouteInvokeResponseResult']]:
         """
         The routes that this virtual network connection uses.
         """

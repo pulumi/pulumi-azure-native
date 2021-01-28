@@ -77,7 +77,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProjectPropertiesResponse':
+    def properties(self) -> 'outputs.ProjectPropertiesInvokeResponseResult':
         """
         Properties of the project.
         """

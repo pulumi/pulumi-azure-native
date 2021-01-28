@@ -111,7 +111,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
+    def error_details(self) -> Sequence['outputs.ErrorDetailInvokeResponseResult']:
         """
         Details about the error state.
         """
@@ -119,7 +119,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.MachineExtensionInstanceViewInvokeResponseResult']]:
         """
         Machine Extensions information
         """
@@ -175,7 +175,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> 'outputs.OSProfileResponse':
+    def os_profile(self) -> 'outputs.OSProfileInvokeResponseResult':
         """
         Specifies the operating system settings for the hybrid machine.
         """

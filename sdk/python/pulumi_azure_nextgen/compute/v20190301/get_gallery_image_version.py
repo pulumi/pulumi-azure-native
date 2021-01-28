@@ -83,7 +83,7 @@ class GetGalleryImageVersionResult:
 
     @property
     @pulumi.getter(name="publishingProfile")
-    def publishing_profile(self) -> 'outputs.GalleryImageVersionPublishingProfileResponse':
+    def publishing_profile(self) -> 'outputs.GalleryImageVersionPublishingProfileInvokeResponseResult':
         """
         The publishing profile of a gallery Image Version.
         """
@@ -91,7 +91,7 @@ class GetGalleryImageVersionResult:
 
     @property
     @pulumi.getter(name="replicationStatus")
-    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
+    def replication_status(self) -> 'outputs.ReplicationStatusInvokeResponseResult':
         """
         This is the replication status of the gallery Image Version.
         """
@@ -99,7 +99,7 @@ class GetGalleryImageVersionResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> 'outputs.GalleryImageVersionStorageProfileResponse':
+    def storage_profile(self) -> 'outputs.GalleryImageVersionStorageProfileInvokeResponseResult':
         """
         This is the storage profile of a Gallery Image Version.
         """

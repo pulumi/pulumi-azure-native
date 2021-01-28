@@ -63,7 +63,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.AssessmentPropertiesResponse':
+    def properties(self) -> 'outputs.AssessmentPropertiesInvokeResponseResult':
         """
         Properties of the assessment.
         """

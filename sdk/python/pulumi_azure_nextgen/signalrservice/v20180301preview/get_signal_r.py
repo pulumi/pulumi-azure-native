@@ -136,7 +136,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> Optional['outputs.ResourceSkuInvokeResponseResult']:
         """
         SKU of the service.
         """

@@ -171,7 +171,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional['outputs.KubeletConfigResponse']:
+    def kubelet_config(self) -> Optional['outputs.KubeletConfigInvokeResponseResult']:
         """
         KubeletConfig specifies the configuration of kubelet on agent nodes.
         """
@@ -187,7 +187,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="linuxOSConfig")
-    def linux_os_config(self) -> Optional['outputs.LinuxOSConfigResponse']:
+    def linux_os_config(self) -> Optional['outputs.LinuxOSConfigInvokeResponseResult']:
         """
         LinuxOSConfig specifies the OS configuration of linux agent nodes.
         """
@@ -299,7 +299,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> 'outputs.PowerStateResponse':
+    def power_state(self) -> 'outputs.PowerStateInvokeResponseResult':
         """
         Describes whether the Agent Pool is Running or Stopped
         """
@@ -363,7 +363,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional['outputs.AgentPoolUpgradeSettingsResponse']:
+    def upgrade_settings(self) -> Optional['outputs.AgentPoolUpgradeSettingsInvokeResponseResult']:
         """
         Settings for upgrading the agentpool
         """

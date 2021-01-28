@@ -113,7 +113,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SBSkuResponse']:
+    def sku(self) -> Optional['outputs.SBSkuInvokeResponseResult']:
         """
         Properties of Sku
         """

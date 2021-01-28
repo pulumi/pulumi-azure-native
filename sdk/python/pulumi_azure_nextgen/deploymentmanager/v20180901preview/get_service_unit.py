@@ -48,7 +48,7 @@ class GetServiceUnitResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional['outputs.ServiceUnitArtifactsResponse']:
+    def artifacts(self) -> Optional['outputs.ServiceUnitArtifactsInvokeResponseResult']:
         """
         The artifacts for the service unit.
         """

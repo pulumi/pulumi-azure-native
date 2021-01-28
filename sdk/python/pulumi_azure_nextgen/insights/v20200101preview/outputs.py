@@ -9,8 +9,42 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ManagementGroupLogSettingsInvokeResponseResult',
     'ManagementGroupLogSettingsResponse',
 ]
+
+@pulumi.output_type
+class ManagementGroupLogSettingsInvokeResponseResult(dict):
+    """
+    Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+    """
+    def __init__(__self__, *,
+                 category: str,
+                 enabled: bool):
+        """
+        Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+        :param str category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        :param bool enabled: a value indicating whether this log is enabled.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class ManagementGroupLogSettingsResponse(dict):

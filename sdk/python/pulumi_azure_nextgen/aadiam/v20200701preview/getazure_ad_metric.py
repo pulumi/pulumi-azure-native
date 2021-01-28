@@ -66,7 +66,7 @@ class GetazureADMetricResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.AzureADMetricsPropertiesFormatResponse':
+    def properties(self) -> 'outputs.AzureADMetricsPropertiesFormatInvokeResponseResult':
         return pulumi.get(self, "properties")
 
     @property

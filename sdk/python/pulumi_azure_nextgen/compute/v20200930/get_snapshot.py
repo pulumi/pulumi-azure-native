@@ -93,7 +93,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> 'outputs.CreationDataInvokeResponseResult':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -133,7 +133,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionInvokeResponseResult']:
         """
         Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         """
@@ -141,7 +141,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="encryptionSettingsCollection")
-    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
+    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionInvokeResponseResult']:
         """
         Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
@@ -149,7 +149,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.ExtendedLocationInvokeResponseResult']:
         """
         The extended location where the snapshot will be created. Extended location cannot be changed.
         """
@@ -229,7 +229,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional['outputs.PurchasePlanResponse']:
+    def purchase_plan(self) -> Optional['outputs.PurchasePlanInvokeResponseResult']:
         """
         Purchase plan information for the image from which the source disk for the snapshot was originally created.
         """
@@ -237,7 +237,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
+    def sku(self) -> Optional['outputs.SnapshotSkuInvokeResponseResult']:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         """

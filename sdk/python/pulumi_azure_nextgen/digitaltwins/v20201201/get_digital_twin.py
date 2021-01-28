@@ -84,7 +84,7 @@ class GetDigitalTwinResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.DigitalTwinsIdentityResponse']:
+    def identity(self) -> Optional['outputs.DigitalTwinsIdentityInvokeResponseResult']:
         """
         The managed identity for the DigitalTwinsInstance.
         """
@@ -116,7 +116,7 @@ class GetDigitalTwinResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']]:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property

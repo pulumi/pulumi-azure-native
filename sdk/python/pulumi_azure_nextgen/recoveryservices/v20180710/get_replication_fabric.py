@@ -63,7 +63,7 @@ class GetReplicationFabricResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.FabricPropertiesResponse':
+    def properties(self) -> 'outputs.FabricPropertiesInvokeResponseResult':
         """
         Fabric related data.
         """

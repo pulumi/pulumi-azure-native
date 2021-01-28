@@ -72,7 +72,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> 'outputs.CreationDataInvokeResponseResult':
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -104,7 +104,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional['outputs.EncryptionSettingsResponse']:
+    def encryption_settings(self) -> Optional['outputs.EncryptionSettingsInvokeResponseResult']:
         """
         Encryption settings for disk or snapshot
         """
@@ -160,7 +160,7 @@ class GetDiskResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.DiskSkuResponse']:
+    def sku(self) -> Optional['outputs.DiskSkuInvokeResponseResult']:
         """
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         """

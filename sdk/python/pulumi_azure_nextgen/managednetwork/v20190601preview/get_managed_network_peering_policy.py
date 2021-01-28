@@ -63,7 +63,7 @@ class GetManagedNetworkPeeringPolicyResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ManagedNetworkPeeringPolicyPropertiesResponse':
+    def properties(self) -> 'outputs.ManagedNetworkPeeringPolicyPropertiesInvokeResponseResult':
         """
         Gets or sets the properties of a Managed Network Policy
         """

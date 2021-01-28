@@ -51,7 +51,7 @@ class GetJobStepResult:
 
     @property
     @pulumi.getter
-    def action(self) -> 'outputs.JobStepActionResponse':
+    def action(self) -> 'outputs.JobStepActionInvokeResponseResult':
         """
         The action payload of the job step.
         """
@@ -67,7 +67,7 @@ class GetJobStepResult:
 
     @property
     @pulumi.getter(name="executionOptions")
-    def execution_options(self) -> Optional['outputs.JobStepExecutionOptionsResponse']:
+    def execution_options(self) -> Optional['outputs.JobStepExecutionOptionsInvokeResponseResult']:
         """
         Execution options for the job step.
         """
@@ -91,7 +91,7 @@ class GetJobStepResult:
 
     @property
     @pulumi.getter
-    def output(self) -> Optional['outputs.JobStepOutputResponse']:
+    def output(self) -> Optional['outputs.JobStepOutputInvokeResponseResult']:
         """
         Output destination properties of the job step.
         """

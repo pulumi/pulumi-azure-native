@@ -82,7 +82,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorResponse':
+    def error(self) -> 'outputs.ErrorInvokeResponseResult':
         """
         Top level error for the job.
         """
@@ -138,7 +138,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The sku type.
         """

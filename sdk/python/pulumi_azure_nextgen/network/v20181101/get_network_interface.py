@@ -81,7 +81,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsResponse']:
+    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsInvokeResponseResult']:
         """
         The DNS settings in network interface.
         """
@@ -129,7 +129,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="interfaceEndpoint")
-    def interface_endpoint(self) -> 'outputs.InterfaceEndpointResponse':
+    def interface_endpoint(self) -> 'outputs.InterfaceEndpointInvokeResponseResult':
         """
         A reference to the interface endpoint to which the network interface is linked.
         """
@@ -137,7 +137,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']]:
         """
         A list of IPConfigurations of the network interface.
         """
@@ -169,7 +169,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupInvokeResponseResult']:
         """
         The reference of the NetworkSecurityGroup resource.
         """
@@ -209,7 +209,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="tapConfigurations")
-    def tap_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceTapConfigurationResponse']]:
+    def tap_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceTapConfigurationInvokeResponseResult']]:
         """
         A list of TapConfigurations of the network interface.
         """
@@ -225,7 +225,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="virtualMachine")
-    def virtual_machine(self) -> 'outputs.SubResourceResponse':
+    def virtual_machine(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         The reference of a virtual machine.
         """

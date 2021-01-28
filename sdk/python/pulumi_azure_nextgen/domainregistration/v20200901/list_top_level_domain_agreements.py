@@ -38,7 +38,7 @@ class ListTopLevelDomainAgreementsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.TldLegalAgreementResponseResult']:
+    def value(self) -> Sequence['outputs.TldLegalAgreementInvokeResponseResult']:
         """
         Collection of resources.
         """

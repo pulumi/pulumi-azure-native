@@ -63,7 +63,7 @@ class GetRulesEngineResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.RulesEngineRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.RulesEngineRuleInvokeResponseResult']]:
         """
         A list of rules that define a particular Rules Engine Configuration.
         """

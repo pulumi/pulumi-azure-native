@@ -87,7 +87,7 @@ class GetNotificationChannelResult:
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[Sequence['outputs.EventResponse']]:
+    def events(self) -> Optional[Sequence['outputs.EventInvokeResponseResult']]:
         """
         The list of event for which this notification is enabled.
         """

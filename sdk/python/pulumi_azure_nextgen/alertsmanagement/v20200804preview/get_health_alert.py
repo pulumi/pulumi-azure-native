@@ -57,7 +57,7 @@ class GetHealthAlertResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.HealthAlertActionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.HealthAlertActionInvokeResponseResult']]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -65,7 +65,7 @@ class GetHealthAlertResult:
 
     @property
     @pulumi.getter
-    def criteria(self) -> 'outputs.HealthAlertCriteriaResponse':
+    def criteria(self) -> 'outputs.HealthAlertCriteriaInvokeResponseResult':
         """
         defines the specific alert criteria information.
         """

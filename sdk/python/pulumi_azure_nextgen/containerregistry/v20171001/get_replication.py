@@ -77,7 +77,7 @@ class GetReplicationResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.StatusResponse':
+    def status(self) -> 'outputs.StatusInvokeResponseResult':
         """
         The status of the replication at the time the operation was called.
         """

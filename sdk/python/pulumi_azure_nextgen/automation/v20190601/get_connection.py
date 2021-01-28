@@ -48,7 +48,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional['outputs.ConnectionTypeAssociationPropertyResponse']:
+    def connection_type(self) -> Optional['outputs.ConnectionTypeAssociationPropertyInvokeResponseResult']:
         """
         Gets or sets the connectionType of the connection.
         """

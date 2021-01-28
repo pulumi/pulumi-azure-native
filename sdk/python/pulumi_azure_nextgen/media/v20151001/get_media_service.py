@@ -45,7 +45,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter(name="apiEndpoints")
-    def api_endpoints(self) -> Sequence['outputs.ApiEndpointResponse']:
+    def api_endpoints(self) -> Sequence['outputs.ApiEndpointInvokeResponseResult']:
         """
         Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
         """
@@ -77,7 +77,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountInvokeResponseResult']]:
         """
         The storage accounts for this resource.
         """

@@ -118,7 +118,7 @@ class GetVirtualNetworkLinkResult:
 
     @property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_network(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference of the virtual network.
         """

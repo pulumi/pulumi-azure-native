@@ -38,7 +38,7 @@ class ListScheduleApplicableResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
+    def value(self) -> Optional[Sequence['outputs.ScheduleInvokeResponseResult']]:
         """
         Results of the list operation.
         """

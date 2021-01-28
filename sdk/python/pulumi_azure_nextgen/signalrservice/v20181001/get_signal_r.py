@@ -69,7 +69,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional['outputs.SignalRCorsSettingsResponse']:
+    def cors(self) -> Optional['outputs.SignalRCorsSettingsInvokeResponseResult']:
         """
         Cross-Origin Resource Sharing (CORS) settings.
         """
@@ -85,7 +85,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[Sequence['outputs.SignalRFeatureResponse']]:
+    def features(self) -> Optional[Sequence['outputs.SignalRFeatureInvokeResponseResult']]:
         """
         List of SignalR featureFlags. e.g. ServiceMode.
         
@@ -163,7 +163,7 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> Optional['outputs.ResourceSkuInvokeResponseResult']:
         """
         SKU of the service.
         """

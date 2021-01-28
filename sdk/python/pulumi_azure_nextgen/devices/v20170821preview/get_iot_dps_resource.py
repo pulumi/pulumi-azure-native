@@ -80,12 +80,12 @@ class GetIotDpsResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IotDpsPropertiesDescriptionResponse':
+    def properties(self) -> 'outputs.IotDpsPropertiesDescriptionInvokeResponseResult':
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IotDpsSkuInfoResponse':
+    def sku(self) -> 'outputs.IotDpsSkuInfoInvokeResponseResult':
         """
         List of possible provisioning service SKUs.
         """

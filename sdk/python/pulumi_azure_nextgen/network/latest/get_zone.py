@@ -127,7 +127,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="registrationVirtualNetworks")
-    def registration_virtual_networks(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def registration_virtual_networks(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         """
@@ -135,7 +135,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="resolutionVirtualNetworks")
-    def resolution_virtual_networks(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def resolution_virtual_networks(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         """

@@ -89,7 +89,7 @@ class GetFailoverGroupResult:
 
     @property
     @pulumi.getter(name="partnerServers")
-    def partner_servers(self) -> Sequence['outputs.PartnerInfoResponse']:
+    def partner_servers(self) -> Sequence['outputs.PartnerInfoInvokeResponseResult']:
         """
         List of partner server information for the failover group.
         """
@@ -97,7 +97,7 @@ class GetFailoverGroupResult:
 
     @property
     @pulumi.getter(name="readOnlyEndpoint")
-    def read_only_endpoint(self) -> Optional['outputs.FailoverGroupReadOnlyEndpointResponse']:
+    def read_only_endpoint(self) -> Optional['outputs.FailoverGroupReadOnlyEndpointInvokeResponseResult']:
         """
         Read-only endpoint of the failover group instance.
         """
@@ -105,7 +105,7 @@ class GetFailoverGroupResult:
 
     @property
     @pulumi.getter(name="readWriteEndpoint")
-    def read_write_endpoint(self) -> 'outputs.FailoverGroupReadWriteEndpointResponse':
+    def read_write_endpoint(self) -> 'outputs.FailoverGroupReadWriteEndpointInvokeResponseResult':
         """
         Read-write endpoint of the failover group instance.
         """

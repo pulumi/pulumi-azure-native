@@ -10,8 +10,31 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AppSkuInfoInvokeResponseResult',
     'AppSkuInfoResponse',
 ]
+
+@pulumi.output_type
+class AppSkuInfoInvokeResponseResult(dict):
+    """
+    Information about the SKU of the IoT Central application.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        Information about the SKU of the IoT Central application.
+        :param str name: The name of the SKU.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class AppSkuInfoResponse(dict):

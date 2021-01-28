@@ -63,7 +63,7 @@ class GetReplicationProtectionContainerMappingResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectionContainerMappingPropertiesResponse':
+    def properties(self) -> 'outputs.ProtectionContainerMappingPropertiesInvokeResponseResult':
         """
         The custom data.
         """

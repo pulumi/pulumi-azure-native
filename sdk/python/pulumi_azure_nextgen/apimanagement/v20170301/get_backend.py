@@ -60,7 +60,7 @@ class GetBackendResult:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.BackendCredentialsContractResponse']:
+    def credentials(self) -> Optional['outputs.BackendCredentialsContractInvokeResponseResult']:
         """
         Backend Credentials Contract Properties
         """
@@ -92,7 +92,7 @@ class GetBackendResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BackendPropertiesResponse':
+    def properties(self) -> 'outputs.BackendPropertiesInvokeResponseResult':
         """
         Backend Properties contract
         """
@@ -108,7 +108,7 @@ class GetBackendResult:
 
     @property
     @pulumi.getter
-    def proxy(self) -> Optional['outputs.BackendProxyContractResponse']:
+    def proxy(self) -> Optional['outputs.BackendProxyContractInvokeResponseResult']:
         """
         Backend Proxy Contract Properties
         """
@@ -132,7 +132,7 @@ class GetBackendResult:
 
     @property
     @pulumi.getter
-    def tls(self) -> Optional['outputs.BackendTlsPropertiesResponse']:
+    def tls(self) -> Optional['outputs.BackendTlsPropertiesInvokeResponseResult']:
         """
         Backend TLS Properties
         """

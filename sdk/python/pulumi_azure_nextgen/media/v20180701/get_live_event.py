@@ -80,7 +80,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicies")
-    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
+    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesInvokeResponseResult']:
         """
         The Live Event access policies.
         """
@@ -96,7 +96,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional['outputs.LiveEventEncodingResponse']:
+    def encoding(self) -> Optional['outputs.LiveEventEncodingInvokeResponseResult']:
         """
         The Live Event encoding.
         """
@@ -112,7 +112,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def input(self) -> 'outputs.LiveEventInputResponse':
+    def input(self) -> 'outputs.LiveEventInputInvokeResponseResult':
         """
         The Live Event input.
         """
@@ -144,7 +144,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def preview(self) -> Optional['outputs.LiveEventPreviewResponse']:
+    def preview(self) -> Optional['outputs.LiveEventPreviewInvokeResponseResult']:
         """
         The Live Event preview.
         """

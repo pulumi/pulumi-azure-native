@@ -109,7 +109,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="integrationAccount")
-    def integration_account(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def integration_account(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
         """
         The integration account.
         """
@@ -133,7 +133,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterInvokeResponseResult']]:
         """
         The parameters.
         """
@@ -149,7 +149,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku.
         """

@@ -11,24 +11,25 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ControllerConnectionDetailsResponseResult',
-    'KubernetesConnectionDetailsResponseResult',
+    'ControllerConnectionDetailsInvokeResponseResult',
+    'KubernetesConnectionDetailsInvokeResponseResult',
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
 
 @pulumi.output_type
-class ControllerConnectionDetailsResponseResult(dict):
+class ControllerConnectionDetailsInvokeResponseResult(dict):
     def __init__(__self__, *,
-                 orchestrator_specific_connection_details: Optional['outputs.KubernetesConnectionDetailsResponseResult'] = None):
+                 orchestrator_specific_connection_details: Optional['outputs.KubernetesConnectionDetailsInvokeResponseResult'] = None):
         """
-        :param 'KubernetesConnectionDetailsResponseArgs' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
+        :param 'KubernetesConnectionDetailsInvokeResponseArgs' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
         """
         if orchestrator_specific_connection_details is not None:
             pulumi.set(__self__, "orchestrator_specific_connection_details", orchestrator_specific_connection_details)
 
     @property
     @pulumi.getter(name="orchestratorSpecificConnectionDetails")
-    def orchestrator_specific_connection_details(self) -> Optional['outputs.KubernetesConnectionDetailsResponseResult']:
+    def orchestrator_specific_connection_details(self) -> Optional['outputs.KubernetesConnectionDetailsInvokeResponseResult']:
         """
         Base class for types that supply values used to connect to container orchestrators
         """
@@ -36,7 +37,7 @@ class ControllerConnectionDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class KubernetesConnectionDetailsResponseResult(dict):
+class KubernetesConnectionDetailsInvokeResponseResult(dict):
     """
     Contains information used to connect to a Kubernetes cluster
     """
@@ -69,6 +70,40 @@ class KubernetesConnectionDetailsResponseResult(dict):
         Gets the kubeconfig for the cluster.
         """
         return pulumi.get(self, "kube_config")
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    Model representing SKU for Azure Dev Spaces Controller.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 tier: Optional[str] = None):
+        """
+        Model representing SKU for Azure Dev Spaces Controller.
+        :param str name: The name of the SKU for Azure Dev Spaces Controller.
+        :param str tier: The tier of the SKU for Azure Dev Spaces Controller.
+        """
+        pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU for Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier of the SKU for Azure Dev Spaces Controller.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

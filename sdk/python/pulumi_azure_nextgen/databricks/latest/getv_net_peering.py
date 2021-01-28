@@ -87,7 +87,7 @@ class GetvNetPeeringResult:
 
     @property
     @pulumi.getter(name="databricksAddressSpace")
-    def databricks_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def databricks_address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The reference to the databricks virtual network address space.
         """
@@ -95,7 +95,7 @@ class GetvNetPeeringResult:
 
     @property
     @pulumi.getter(name="databricksVirtualNetwork")
-    def databricks_virtual_network(self) -> Optional['outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork']:
+    def databricks_virtual_network(self) -> Optional['outputs.VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkResult']:
         """
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         """
@@ -135,7 +135,7 @@ class GetvNetPeeringResult:
 
     @property
     @pulumi.getter(name="remoteAddressSpace")
-    def remote_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def remote_address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         The reference to the remote virtual network address space.
         """
@@ -143,7 +143,7 @@ class GetvNetPeeringResult:
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> 'outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork':
+    def remote_virtual_network(self) -> 'outputs.VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkResult':
         """
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         """

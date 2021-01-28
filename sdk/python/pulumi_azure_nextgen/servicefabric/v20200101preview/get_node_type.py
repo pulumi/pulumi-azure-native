@@ -81,7 +81,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="applicationPorts")
-    def application_ports(self) -> Optional['outputs.EndpointRangeDescriptionResponse']:
+    def application_ports(self) -> Optional['outputs.EndpointRangeDescriptionInvokeResponseResult']:
         """
         The range of ports from which cluster assigned port to Service Fabric applications.
         """
@@ -105,7 +105,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="ephemeralPorts")
-    def ephemeral_ports(self) -> Optional['outputs.EndpointRangeDescriptionResponse']:
+    def ephemeral_ports(self) -> Optional['outputs.EndpointRangeDescriptionInvokeResponseResult']:
         """
         The range of ephemeral ports that nodes in this node type should be configured with.
         """
@@ -169,7 +169,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="vmExtensions")
-    def vm_extensions(self) -> Optional[Sequence['outputs.VMSSExtensionResponse']]:
+    def vm_extensions(self) -> Optional[Sequence['outputs.VMSSExtensionInvokeResponseResult']]:
         """
         Set of extensions that should be installed onto the virtual machines.
         """
@@ -217,7 +217,7 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="vmSecrets")
-    def vm_secrets(self) -> Optional[Sequence['outputs.VaultSecretGroupResponse']]:
+    def vm_secrets(self) -> Optional[Sequence['outputs.VaultSecretGroupInvokeResponseResult']]:
         """
         The secrets to install in the virtual machines.
         """

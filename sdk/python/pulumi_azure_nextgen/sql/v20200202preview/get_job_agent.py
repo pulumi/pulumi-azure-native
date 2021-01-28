@@ -80,7 +80,7 @@ class GetJobAgentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The name and tier of the SKU.
         """

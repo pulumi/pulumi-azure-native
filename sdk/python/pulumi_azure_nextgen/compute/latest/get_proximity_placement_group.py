@@ -54,7 +54,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> Sequence['outputs.SubResourceWithColocationStatusResponse']:
+    def availability_sets(self) -> Sequence['outputs.SubResourceWithColocationStatusInvokeResponseResult']:
         """
         A list of references to all availability sets in the proximity placement group.
         """
@@ -62,7 +62,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="colocationStatus")
-    def colocation_status(self) -> Optional['outputs.InstanceViewStatusResponse']:
+    def colocation_status(self) -> Optional['outputs.InstanceViewStatusInvokeResponseResult']:
         """
         Describes colocation status of the Proximity Placement Group.
         """
@@ -118,7 +118,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="virtualMachineScaleSets")
-    def virtual_machine_scale_sets(self) -> Sequence['outputs.SubResourceWithColocationStatusResponse']:
+    def virtual_machine_scale_sets(self) -> Sequence['outputs.SubResourceWithColocationStatusInvokeResponseResult']:
         """
         A list of references to all virtual machine scale sets in the proximity placement group.
         """
@@ -126,7 +126,7 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Sequence['outputs.SubResourceWithColocationStatusResponse']:
+    def virtual_machines(self) -> Sequence['outputs.SubResourceWithColocationStatusInvokeResponseResult']:
         """
         A list of references to all virtual machines in the proximity placement group.
         """

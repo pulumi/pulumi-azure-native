@@ -49,7 +49,7 @@ class GetProviderRegistrationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProviderRegistrationResponseProperties':
+    def properties(self) -> 'outputs.ProviderRegistrationInvokeResponsePropertiesResult':
         return pulumi.get(self, "properties")
 
     @property

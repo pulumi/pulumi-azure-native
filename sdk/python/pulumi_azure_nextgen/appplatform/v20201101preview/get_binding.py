@@ -52,7 +52,7 @@ class GetBindingResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BindingResourcePropertiesResponse':
+    def properties(self) -> 'outputs.BindingResourcePropertiesInvokeResponseResult':
         """
         Properties of the Binding resource
         """

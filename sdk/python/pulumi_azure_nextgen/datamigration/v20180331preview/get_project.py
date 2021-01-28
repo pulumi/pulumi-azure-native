@@ -68,7 +68,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="databasesInfo")
-    def databases_info(self) -> Optional[Sequence['outputs.DatabaseInfoResponse']]:
+    def databases_info(self) -> Optional[Sequence['outputs.DatabaseInfoInvokeResponseResult']]:
         """
         List of DatabaseInfo
         """
@@ -108,7 +108,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
-    def source_connection_info(self) -> Optional['outputs.SqlConnectionInfoResponse']:
+    def source_connection_info(self) -> Optional['outputs.SqlConnectionInfoInvokeResponseResult']:
         """
         Information for connecting to source
         """
@@ -132,7 +132,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
-    def target_connection_info(self) -> Optional['outputs.SqlConnectionInfoResponse']:
+    def target_connection_info(self) -> Optional['outputs.SqlConnectionInfoInvokeResponseResult']:
         """
         Information for connecting to target
         """

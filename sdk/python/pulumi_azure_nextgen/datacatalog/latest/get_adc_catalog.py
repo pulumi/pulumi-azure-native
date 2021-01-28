@@ -60,7 +60,7 @@ class GetADCCatalogResult:
 
     @property
     @pulumi.getter
-    def admins(self) -> Optional[Sequence['outputs.PrincipalsResponse']]:
+    def admins(self) -> Optional[Sequence['outputs.PrincipalsInvokeResponseResult']]:
         """
         Azure data catalog admin list.
         """
@@ -148,7 +148,7 @@ class GetADCCatalogResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence['outputs.PrincipalsResponse']]:
+    def users(self) -> Optional[Sequence['outputs.PrincipalsInvokeResponseResult']]:
         """
         Azure data catalog user list.
         """

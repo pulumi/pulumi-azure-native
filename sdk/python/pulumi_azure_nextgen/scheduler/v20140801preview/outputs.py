@@ -11,26 +11,64 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'HttpAuthenticationInvokeResponseResult',
     'HttpAuthenticationResponse',
+    'HttpRequestInvokeResponseResult',
     'HttpRequestResponse',
+    'JobActionInvokeResponseResult',
     'JobActionResponse',
+    'JobCollectionPropertiesInvokeResponseResult',
     'JobCollectionPropertiesResponse',
+    'JobCollectionQuotaInvokeResponseResult',
     'JobCollectionQuotaResponse',
+    'JobErrorActionInvokeResponseResult',
     'JobErrorActionResponse',
+    'JobMaxRecurrenceInvokeResponseResult',
     'JobMaxRecurrenceResponse',
+    'JobPropertiesInvokeResponseResult',
     'JobPropertiesResponse',
+    'JobRecurrenceInvokeResponseResult',
     'JobRecurrenceResponse',
+    'JobRecurrenceScheduleInvokeResponseResult',
+    'JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseResult',
     'JobRecurrenceScheduleMonthlyOccurrenceResponse',
     'JobRecurrenceScheduleResponse',
+    'JobStatusInvokeResponseResult',
     'JobStatusResponse',
+    'RetryPolicyInvokeResponseResult',
     'RetryPolicyResponse',
+    'ServiceBusAuthenticationInvokeResponseResult',
     'ServiceBusAuthenticationResponse',
+    'ServiceBusBrokeredMessagePropertiesInvokeResponseResult',
     'ServiceBusBrokeredMessagePropertiesResponse',
+    'ServiceBusQueueMessageInvokeResponseResult',
     'ServiceBusQueueMessageResponse',
+    'ServiceBusTopicMessageInvokeResponseResult',
     'ServiceBusTopicMessageResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'StorageQueueMessageInvokeResponseResult',
     'StorageQueueMessageResponse',
 ]
+
+@pulumi.output_type
+class HttpAuthenticationInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        :param str type: Gets or sets the http authentication type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Gets or sets the http authentication type.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class HttpAuthenticationResponse(dict):
@@ -52,6 +90,73 @@ class HttpAuthenticationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HttpRequestInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 authentication: Optional['outputs.HttpAuthenticationInvokeResponseResult'] = None,
+                 body: Optional[str] = None,
+                 headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        :param 'HttpAuthenticationInvokeResponseArgs' authentication: Gets or sets the http authentication.
+        :param str body: Gets or sets the request body.
+        :param Mapping[str, str] headers: Gets or sets the headers.
+        :param str method: Gets or sets the method of the request.
+        :param str uri: Gets or sets the Uri.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.HttpAuthenticationInvokeResponseResult']:
+        """
+        Gets or sets the http authentication.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Gets or sets the request body.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the headers.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Gets or sets the method of the request.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Gets or sets the Uri.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type
@@ -122,6 +227,97 @@ class HttpRequestResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobActionInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 error_action: Optional['outputs.JobErrorActionInvokeResponseResult'] = None,
+                 queue_message: Optional['outputs.StorageQueueMessageInvokeResponseResult'] = None,
+                 request: Optional['outputs.HttpRequestInvokeResponseResult'] = None,
+                 retry_policy: Optional['outputs.RetryPolicyInvokeResponseResult'] = None,
+                 service_bus_queue_message: Optional['outputs.ServiceBusQueueMessageInvokeResponseResult'] = None,
+                 service_bus_topic_message: Optional['outputs.ServiceBusTopicMessageInvokeResponseResult'] = None,
+                 type: Optional[str] = None):
+        """
+        :param 'JobErrorActionInvokeResponseArgs' error_action: Gets or sets the error action.
+        :param 'StorageQueueMessageInvokeResponseArgs' queue_message: Gets or sets the storage queue message.
+        :param 'HttpRequestInvokeResponseArgs' request: Gets or sets the http requests.
+        :param 'RetryPolicyInvokeResponseArgs' retry_policy: Gets or sets the retry policy.
+        :param 'ServiceBusQueueMessageInvokeResponseArgs' service_bus_queue_message: Gets or sets the service bus queue message.
+        :param 'ServiceBusTopicMessageInvokeResponseArgs' service_bus_topic_message: Gets or sets the service bus topic message.
+        :param str type: Gets or sets the job action type.
+        """
+        if error_action is not None:
+            pulumi.set(__self__, "error_action", error_action)
+        if queue_message is not None:
+            pulumi.set(__self__, "queue_message", queue_message)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
+        if service_bus_queue_message is not None:
+            pulumi.set(__self__, "service_bus_queue_message", service_bus_queue_message)
+        if service_bus_topic_message is not None:
+            pulumi.set(__self__, "service_bus_topic_message", service_bus_topic_message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="errorAction")
+    def error_action(self) -> Optional['outputs.JobErrorActionInvokeResponseResult']:
+        """
+        Gets or sets the error action.
+        """
+        return pulumi.get(self, "error_action")
+
+    @property
+    @pulumi.getter(name="queueMessage")
+    def queue_message(self) -> Optional['outputs.StorageQueueMessageInvokeResponseResult']:
+        """
+        Gets or sets the storage queue message.
+        """
+        return pulumi.get(self, "queue_message")
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional['outputs.HttpRequestInvokeResponseResult']:
+        """
+        Gets or sets the http requests.
+        """
+        return pulumi.get(self, "request")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional['outputs.RetryPolicyInvokeResponseResult']:
+        """
+        Gets or sets the retry policy.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter(name="serviceBusQueueMessage")
+    def service_bus_queue_message(self) -> Optional['outputs.ServiceBusQueueMessageInvokeResponseResult']:
+        """
+        Gets or sets the service bus queue message.
+        """
+        return pulumi.get(self, "service_bus_queue_message")
+
+    @property
+    @pulumi.getter(name="serviceBusTopicMessage")
+    def service_bus_topic_message(self) -> Optional['outputs.ServiceBusTopicMessageInvokeResponseResult']:
+        """
+        Gets or sets the service bus topic message.
+        """
+        return pulumi.get(self, "service_bus_topic_message")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Gets or sets the job action type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -219,6 +415,49 @@ class JobActionResponse(dict):
 
 
 @pulumi.output_type
+class JobCollectionPropertiesInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 quota: Optional['outputs.JobCollectionQuotaInvokeResponseResult'] = None,
+                 sku: Optional['outputs.SkuInvokeResponseResult'] = None,
+                 state: Optional[str] = None):
+        """
+        :param 'JobCollectionQuotaInvokeResponseArgs' quota: Gets or sets the job collection quota.
+        :param 'SkuInvokeResponseArgs' sku: Gets or sets the SKU.
+        :param str state: Gets or sets the state.
+        """
+        if quota is not None:
+            pulumi.set(__self__, "quota", quota)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def quota(self) -> Optional['outputs.JobCollectionQuotaInvokeResponseResult']:
+        """
+        Gets or sets the job collection quota.
+        """
+        return pulumi.get(self, "quota")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
+        """
+        Gets or sets the SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Gets or sets the state.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class JobCollectionPropertiesResponse(dict):
     def __init__(__self__, *,
                  quota: Optional['outputs.JobCollectionQuotaResponse'] = None,
@@ -265,6 +504,49 @@ class JobCollectionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class JobCollectionQuotaInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 max_job_count: Optional[int] = None,
+                 max_job_occurrence: Optional[int] = None,
+                 max_recurrence: Optional['outputs.JobMaxRecurrenceInvokeResponseResult'] = None):
+        """
+        :param int max_job_count: Gets or set the maximum job count.
+        :param int max_job_occurrence: Gets or sets the maximum job occurrence.
+        :param 'JobMaxRecurrenceInvokeResponseArgs' max_recurrence: Gets or set the maximum recurrence.
+        """
+        if max_job_count is not None:
+            pulumi.set(__self__, "max_job_count", max_job_count)
+        if max_job_occurrence is not None:
+            pulumi.set(__self__, "max_job_occurrence", max_job_occurrence)
+        if max_recurrence is not None:
+            pulumi.set(__self__, "max_recurrence", max_recurrence)
+
+    @property
+    @pulumi.getter(name="maxJobCount")
+    def max_job_count(self) -> Optional[int]:
+        """
+        Gets or set the maximum job count.
+        """
+        return pulumi.get(self, "max_job_count")
+
+    @property
+    @pulumi.getter(name="maxJobOccurrence")
+    def max_job_occurrence(self) -> Optional[int]:
+        """
+        Gets or sets the maximum job occurrence.
+        """
+        return pulumi.get(self, "max_job_occurrence")
+
+    @property
+    @pulumi.getter(name="maxRecurrence")
+    def max_recurrence(self) -> Optional['outputs.JobMaxRecurrenceInvokeResponseResult']:
+        """
+        Gets or set the maximum recurrence.
+        """
+        return pulumi.get(self, "max_recurrence")
+
+
+@pulumi.output_type
 class JobCollectionQuotaResponse(dict):
     def __init__(__self__, *,
                  max_job_count: Optional[int] = None,
@@ -308,6 +590,85 @@ class JobCollectionQuotaResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobErrorActionInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 queue_message: Optional['outputs.StorageQueueMessageInvokeResponseResult'] = None,
+                 request: Optional['outputs.HttpRequestInvokeResponseResult'] = None,
+                 retry_policy: Optional['outputs.RetryPolicyInvokeResponseResult'] = None,
+                 service_bus_queue_message: Optional['outputs.ServiceBusQueueMessageInvokeResponseResult'] = None,
+                 service_bus_topic_message: Optional['outputs.ServiceBusTopicMessageInvokeResponseResult'] = None,
+                 type: Optional[str] = None):
+        """
+        :param 'StorageQueueMessageInvokeResponseArgs' queue_message: Gets or sets the storage queue message.
+        :param 'HttpRequestInvokeResponseArgs' request: Gets or sets the http requests.
+        :param 'RetryPolicyInvokeResponseArgs' retry_policy: Gets or sets the retry policy.
+        :param 'ServiceBusQueueMessageInvokeResponseArgs' service_bus_queue_message: Gets or sets the service bus queue message.
+        :param 'ServiceBusTopicMessageInvokeResponseArgs' service_bus_topic_message: Gets or sets the service bus topic message.
+        :param str type: Gets or sets the job error action type.
+        """
+        if queue_message is not None:
+            pulumi.set(__self__, "queue_message", queue_message)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if retry_policy is not None:
+            pulumi.set(__self__, "retry_policy", retry_policy)
+        if service_bus_queue_message is not None:
+            pulumi.set(__self__, "service_bus_queue_message", service_bus_queue_message)
+        if service_bus_topic_message is not None:
+            pulumi.set(__self__, "service_bus_topic_message", service_bus_topic_message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="queueMessage")
+    def queue_message(self) -> Optional['outputs.StorageQueueMessageInvokeResponseResult']:
+        """
+        Gets or sets the storage queue message.
+        """
+        return pulumi.get(self, "queue_message")
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional['outputs.HttpRequestInvokeResponseResult']:
+        """
+        Gets or sets the http requests.
+        """
+        return pulumi.get(self, "request")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> Optional['outputs.RetryPolicyInvokeResponseResult']:
+        """
+        Gets or sets the retry policy.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter(name="serviceBusQueueMessage")
+    def service_bus_queue_message(self) -> Optional['outputs.ServiceBusQueueMessageInvokeResponseResult']:
+        """
+        Gets or sets the service bus queue message.
+        """
+        return pulumi.get(self, "service_bus_queue_message")
+
+    @property
+    @pulumi.getter(name="serviceBusTopicMessage")
+    def service_bus_topic_message(self) -> Optional['outputs.ServiceBusTopicMessageInvokeResponseResult']:
+        """
+        Gets or sets the service bus topic message.
+        """
+        return pulumi.get(self, "service_bus_topic_message")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Gets or sets the job error action type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -393,6 +754,37 @@ class JobErrorActionResponse(dict):
 
 
 @pulumi.output_type
+class JobMaxRecurrenceInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        :param int interval: Gets or sets the interval between retries.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Gets or sets the interval between retries.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
 class JobMaxRecurrenceResponse(dict):
     def __init__(__self__, *,
                  frequency: Optional[str] = None,
@@ -424,6 +816,72 @@ class JobMaxRecurrenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobPropertiesInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 status: 'outputs.JobStatusInvokeResponseResult',
+                 action: Optional['outputs.JobActionInvokeResponseResult'] = None,
+                 recurrence: Optional['outputs.JobRecurrenceInvokeResponseResult'] = None,
+                 start_time: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        :param 'JobStatusInvokeResponseArgs' status: Gets the job status.
+        :param 'JobActionInvokeResponseArgs' action: Gets or sets the job action.
+        :param 'JobRecurrenceInvokeResponseArgs' recurrence: Gets or sets the job recurrence.
+        :param str start_time: Gets or sets the job start time.
+        :param str state: Gets or set the job state.
+        """
+        pulumi.set(__self__, "status", status)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.JobStatusInvokeResponseResult':
+        """
+        Gets the job status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.JobActionInvokeResponseResult']:
+        """
+        Gets or sets the job action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional['outputs.JobRecurrenceInvokeResponseResult']:
+        """
+        Gets or sets the job recurrence.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Gets or sets the job start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Gets or set the job state.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -496,6 +954,69 @@ class JobPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class JobRecurrenceInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 end_time: Optional[str] = None,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 schedule: Optional['outputs.JobRecurrenceScheduleInvokeResponseResult'] = None):
+        """
+        :param int count: Gets or sets the maximum number of times that the job should run.
+        :param str end_time: Gets or sets the time at which the job will complete.
+        :param str frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        :param int interval: Gets or sets the interval between retries.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Gets or sets the maximum number of times that the job should run.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        Gets or sets the time at which the job will complete.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Gets or sets the interval between retries.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.JobRecurrenceScheduleInvokeResponseResult']:
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
 class JobRecurrenceResponse(dict):
     def __init__(__self__, *,
                  count: Optional[int] = None,
@@ -559,6 +1080,104 @@ class JobRecurrenceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobRecurrenceScheduleInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 hours: Optional[Sequence[int]] = None,
+                 minutes: Optional[Sequence[int]] = None,
+                 month_days: Optional[Sequence[int]] = None,
+                 monthly_occurrences: Optional[Sequence['outputs.JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseResult']] = None,
+                 week_days: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[int] hours: Gets or sets the hours of the day that the job should execute at.
+        :param Sequence[int] minutes: Gets or sets the minutes of the hour that the job should execute at.
+        :param Sequence[int] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+        :param Sequence['JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs'] monthly_occurrences: Gets or sets the occurrences of days within a month.
+        :param Sequence[str] week_days: Gets or sets the days of the week that the job should execute on.
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if month_days is not None:
+            pulumi.set(__self__, "month_days", month_days)
+        if monthly_occurrences is not None:
+            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[Sequence[int]]:
+        """
+        Gets or sets the hours of the day that the job should execute at.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[Sequence[int]]:
+        """
+        Gets or sets the minutes of the hour that the job should execute at.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter(name="monthDays")
+    def month_days(self) -> Optional[Sequence[int]]:
+        """
+        Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+        """
+        return pulumi.get(self, "month_days")
+
+    @property
+    @pulumi.getter(name="monthlyOccurrences")
+    def monthly_occurrences(self) -> Optional[Sequence['outputs.JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseResult']]:
+        """
+        Gets or sets the occurrences of days within a month.
+        """
+        return pulumi.get(self, "monthly_occurrences")
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the days of the week that the job should execute on.
+        """
+        return pulumi.get(self, "week_days")
+
+
+@pulumi.output_type
+class JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 day: Optional[str] = None,
+                 occurrence: Optional[int] = None):
+        """
+        :param str day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        :param int occurrence: Gets or sets the occurrence. Must be between -5 and 5.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[str]:
+        """
+        Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[int]:
+        """
+        Gets or sets the occurrence. Must be between -5 and 5.
+        """
+        return pulumi.get(self, "occurrence")
 
 
 @pulumi.output_type
@@ -666,6 +1285,68 @@ class JobRecurrenceScheduleResponse(dict):
 
 
 @pulumi.output_type
+class JobStatusInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 execution_count: int,
+                 failure_count: int,
+                 faulted_count: int,
+                 last_execution_time: str,
+                 next_execution_time: str):
+        """
+        :param int execution_count: Gets the number of times this job has executed.
+        :param int failure_count: Gets the number of times this job has failed.
+        :param int faulted_count: Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+        :param str last_execution_time: Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
+        :param str next_execution_time: Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
+        """
+        pulumi.set(__self__, "execution_count", execution_count)
+        pulumi.set(__self__, "failure_count", failure_count)
+        pulumi.set(__self__, "faulted_count", faulted_count)
+        pulumi.set(__self__, "last_execution_time", last_execution_time)
+        pulumi.set(__self__, "next_execution_time", next_execution_time)
+
+    @property
+    @pulumi.getter(name="executionCount")
+    def execution_count(self) -> int:
+        """
+        Gets the number of times this job has executed.
+        """
+        return pulumi.get(self, "execution_count")
+
+    @property
+    @pulumi.getter(name="failureCount")
+    def failure_count(self) -> int:
+        """
+        Gets the number of times this job has failed.
+        """
+        return pulumi.get(self, "failure_count")
+
+    @property
+    @pulumi.getter(name="faultedCount")
+    def faulted_count(self) -> int:
+        """
+        Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+        """
+        return pulumi.get(self, "faulted_count")
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> str:
+        """
+        Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
+        """
+        return pulumi.get(self, "last_execution_time")
+
+    @property
+    @pulumi.getter(name="nextExecutionTime")
+    def next_execution_time(self) -> str:
+        """
+        Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
+        """
+        return pulumi.get(self, "next_execution_time")
+
+
+@pulumi.output_type
 class JobStatusResponse(dict):
     def __init__(__self__, *,
                  execution_count: int,
@@ -731,6 +1412,49 @@ class JobStatusResponse(dict):
 
 
 @pulumi.output_type
+class RetryPolicyInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 retry_count: Optional[int] = None,
+                 retry_interval: Optional[str] = None,
+                 retry_type: Optional[str] = None):
+        """
+        :param int retry_count: Gets or sets the number of times a retry should be attempted.
+        :param str retry_interval: Gets or sets the retry interval between retries.
+        :param str retry_type: Gets or sets the retry strategy to be used.
+        """
+        if retry_count is not None:
+            pulumi.set(__self__, "retry_count", retry_count)
+        if retry_interval is not None:
+            pulumi.set(__self__, "retry_interval", retry_interval)
+        if retry_type is not None:
+            pulumi.set(__self__, "retry_type", retry_type)
+
+    @property
+    @pulumi.getter(name="retryCount")
+    def retry_count(self) -> Optional[int]:
+        """
+        Gets or sets the number of times a retry should be attempted.
+        """
+        return pulumi.get(self, "retry_count")
+
+    @property
+    @pulumi.getter(name="retryInterval")
+    def retry_interval(self) -> Optional[str]:
+        """
+        Gets or sets the retry interval between retries.
+        """
+        return pulumi.get(self, "retry_interval")
+
+    @property
+    @pulumi.getter(name="retryType")
+    def retry_type(self) -> Optional[str]:
+        """
+        Gets or sets the retry strategy to be used.
+        """
+        return pulumi.get(self, "retry_type")
+
+
+@pulumi.output_type
 class RetryPolicyResponse(dict):
     def __init__(__self__, *,
                  retry_count: Optional[int] = None,
@@ -777,6 +1501,49 @@ class RetryPolicyResponse(dict):
 
 
 @pulumi.output_type
+class ServiceBusAuthenticationInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 sas_key: Optional[str] = None,
+                 sas_key_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str sas_key: Gets or sets the SAS key.
+        :param str sas_key_name: Gets or sets the SAS key name.
+        :param str type: Gets or sets the authentication type.
+        """
+        if sas_key is not None:
+            pulumi.set(__self__, "sas_key", sas_key)
+        if sas_key_name is not None:
+            pulumi.set(__self__, "sas_key_name", sas_key_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="sasKey")
+    def sas_key(self) -> Optional[str]:
+        """
+        Gets or sets the SAS key.
+        """
+        return pulumi.get(self, "sas_key")
+
+    @property
+    @pulumi.getter(name="sasKeyName")
+    def sas_key_name(self) -> Optional[str]:
+        """
+        Gets or sets the SAS key name.
+        """
+        return pulumi.get(self, "sas_key_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Gets or sets the authentication type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ServiceBusAuthenticationResponse(dict):
     def __init__(__self__, *,
                  sas_key: Optional[str] = None,
@@ -820,6 +1587,169 @@ class ServiceBusAuthenticationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceBusBrokeredMessagePropertiesInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 content_type: Optional[str] = None,
+                 correlation_id: Optional[str] = None,
+                 force_persistence: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 message_id: Optional[str] = None,
+                 partition_key: Optional[str] = None,
+                 reply_to: Optional[str] = None,
+                 reply_to_session_id: Optional[str] = None,
+                 scheduled_enqueue_time_utc: Optional[str] = None,
+                 session_id: Optional[str] = None,
+                 time_to_live: Optional[str] = None,
+                 to: Optional[str] = None,
+                 via_partition_key: Optional[str] = None):
+        """
+        :param str content_type: Gets or sets the content type.
+        :param str correlation_id: Gets or sets the correlation id.
+        :param bool force_persistence: Gets or sets the force persistence.
+        :param str label: Gets or sets the label.
+        :param str message_id: Gets or sets the message id.
+        :param str partition_key: Gets or sets the partition key.
+        :param str reply_to: Gets or sets the reply to.
+        :param str reply_to_session_id: Gets or sets the reply to session id.
+        :param str scheduled_enqueue_time_utc: Gets or sets the scheduled enqueue time UTC.
+        :param str session_id: Gets or sets the session id.
+        :param str time_to_live: Gets or sets the time to live.
+        :param str to: Gets or sets the to.
+        :param str via_partition_key: Gets or sets the via partition key.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if correlation_id is not None:
+            pulumi.set(__self__, "correlation_id", correlation_id)
+        if force_persistence is not None:
+            pulumi.set(__self__, "force_persistence", force_persistence)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if message_id is not None:
+            pulumi.set(__self__, "message_id", message_id)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
+        if reply_to is not None:
+            pulumi.set(__self__, "reply_to", reply_to)
+        if reply_to_session_id is not None:
+            pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
+        if scheduled_enqueue_time_utc is not None:
+            pulumi.set(__self__, "scheduled_enqueue_time_utc", scheduled_enqueue_time_utc)
+        if session_id is not None:
+            pulumi.set(__self__, "session_id", session_id)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+        if via_partition_key is not None:
+            pulumi.set(__self__, "via_partition_key", via_partition_key)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        Gets or sets the content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> Optional[str]:
+        """
+        Gets or sets the correlation id.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @property
+    @pulumi.getter(name="forcePersistence")
+    def force_persistence(self) -> Optional[bool]:
+        """
+        Gets or sets the force persistence.
+        """
+        return pulumi.get(self, "force_persistence")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Gets or sets the label.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="messageId")
+    def message_id(self) -> Optional[str]:
+        """
+        Gets or sets the message id.
+        """
+        return pulumi.get(self, "message_id")
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional[str]:
+        """
+        Gets or sets the partition key.
+        """
+        return pulumi.get(self, "partition_key")
+
+    @property
+    @pulumi.getter(name="replyTo")
+    def reply_to(self) -> Optional[str]:
+        """
+        Gets or sets the reply to.
+        """
+        return pulumi.get(self, "reply_to")
+
+    @property
+    @pulumi.getter(name="replyToSessionId")
+    def reply_to_session_id(self) -> Optional[str]:
+        """
+        Gets or sets the reply to session id.
+        """
+        return pulumi.get(self, "reply_to_session_id")
+
+    @property
+    @pulumi.getter(name="scheduledEnqueueTimeUtc")
+    def scheduled_enqueue_time_utc(self) -> Optional[str]:
+        """
+        Gets or sets the scheduled enqueue time UTC.
+        """
+        return pulumi.get(self, "scheduled_enqueue_time_utc")
+
+    @property
+    @pulumi.getter(name="sessionId")
+    def session_id(self) -> Optional[str]:
+        """
+        Gets or sets the session id.
+        """
+        return pulumi.get(self, "session_id")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[str]:
+        """
+        Gets or sets the time to live.
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[str]:
+        """
+        Gets or sets the to.
+        """
+        return pulumi.get(self, "to")
+
+    @property
+    @pulumi.getter(name="viaPartitionKey")
+    def via_partition_key(self) -> Optional[str]:
+        """
+        Gets or sets the via partition key.
+        """
+        return pulumi.get(self, "via_partition_key")
 
 
 @pulumi.output_type
@@ -989,6 +1919,97 @@ class ServiceBusBrokeredMessagePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ServiceBusQueueMessageInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 authentication: Optional['outputs.ServiceBusAuthenticationInvokeResponseResult'] = None,
+                 brokered_message_properties: Optional['outputs.ServiceBusBrokeredMessagePropertiesInvokeResponseResult'] = None,
+                 custom_message_properties: Optional[Mapping[str, str]] = None,
+                 message: Optional[str] = None,
+                 namespace: Optional[str] = None,
+                 queue_name: Optional[str] = None,
+                 transport_type: Optional[str] = None):
+        """
+        :param 'ServiceBusAuthenticationInvokeResponseArgs' authentication: Gets or sets the authentication.
+        :param 'ServiceBusBrokeredMessagePropertiesInvokeResponseArgs' brokered_message_properties: Gets or sets the brokered message properties.
+        :param Mapping[str, str] custom_message_properties: Gets or sets the custom message properties.
+        :param str message: Gets or sets the message.
+        :param str namespace: Gets or sets the namespace.
+        :param str queue_name: Gets or sets the queue name.
+        :param str transport_type: Gets or sets the transport type.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if brokered_message_properties is not None:
+            pulumi.set(__self__, "brokered_message_properties", brokered_message_properties)
+        if custom_message_properties is not None:
+            pulumi.set(__self__, "custom_message_properties", custom_message_properties)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if transport_type is not None:
+            pulumi.set(__self__, "transport_type", transport_type)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.ServiceBusAuthenticationInvokeResponseResult']:
+        """
+        Gets or sets the authentication.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="brokeredMessageProperties")
+    def brokered_message_properties(self) -> Optional['outputs.ServiceBusBrokeredMessagePropertiesInvokeResponseResult']:
+        """
+        Gets or sets the brokered message properties.
+        """
+        return pulumi.get(self, "brokered_message_properties")
+
+    @property
+    @pulumi.getter(name="customMessageProperties")
+    def custom_message_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the custom message properties.
+        """
+        return pulumi.get(self, "custom_message_properties")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Gets or sets the message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Gets or sets the namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        Gets or sets the queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="transportType")
+    def transport_type(self) -> Optional[str]:
+        """
+        Gets or sets the transport type.
+        """
+        return pulumi.get(self, "transport_type")
+
+
+@pulumi.output_type
 class ServiceBusQueueMessageResponse(dict):
     def __init__(__self__, *,
                  authentication: Optional['outputs.ServiceBusAuthenticationResponse'] = None,
@@ -1080,6 +2101,97 @@ class ServiceBusQueueMessageResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceBusTopicMessageInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 authentication: Optional['outputs.ServiceBusAuthenticationInvokeResponseResult'] = None,
+                 brokered_message_properties: Optional['outputs.ServiceBusBrokeredMessagePropertiesInvokeResponseResult'] = None,
+                 custom_message_properties: Optional[Mapping[str, str]] = None,
+                 message: Optional[str] = None,
+                 namespace: Optional[str] = None,
+                 topic_path: Optional[str] = None,
+                 transport_type: Optional[str] = None):
+        """
+        :param 'ServiceBusAuthenticationInvokeResponseArgs' authentication: Gets or sets the authentication.
+        :param 'ServiceBusBrokeredMessagePropertiesInvokeResponseArgs' brokered_message_properties: Gets or sets the brokered message properties.
+        :param Mapping[str, str] custom_message_properties: Gets or sets the custom message properties.
+        :param str message: Gets or sets the message.
+        :param str namespace: Gets or sets the namespace.
+        :param str topic_path: Gets or sets the topic path.
+        :param str transport_type: Gets or sets the transport type.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if brokered_message_properties is not None:
+            pulumi.set(__self__, "brokered_message_properties", brokered_message_properties)
+        if custom_message_properties is not None:
+            pulumi.set(__self__, "custom_message_properties", custom_message_properties)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if topic_path is not None:
+            pulumi.set(__self__, "topic_path", topic_path)
+        if transport_type is not None:
+            pulumi.set(__self__, "transport_type", transport_type)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.ServiceBusAuthenticationInvokeResponseResult']:
+        """
+        Gets or sets the authentication.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="brokeredMessageProperties")
+    def brokered_message_properties(self) -> Optional['outputs.ServiceBusBrokeredMessagePropertiesInvokeResponseResult']:
+        """
+        Gets or sets the brokered message properties.
+        """
+        return pulumi.get(self, "brokered_message_properties")
+
+    @property
+    @pulumi.getter(name="customMessageProperties")
+    def custom_message_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the custom message properties.
+        """
+        return pulumi.get(self, "custom_message_properties")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Gets or sets the message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Gets or sets the namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="topicPath")
+    def topic_path(self) -> Optional[str]:
+        """
+        Gets or sets the topic path.
+        """
+        return pulumi.get(self, "topic_path")
+
+    @property
+    @pulumi.getter(name="transportType")
+    def transport_type(self) -> Optional[str]:
+        """
+        Gets or sets the transport type.
+        """
+        return pulumi.get(self, "transport_type")
 
 
 @pulumi.output_type
@@ -1177,6 +2289,25 @@ class ServiceBusTopicMessageResponse(dict):
 
 
 @pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        :param str name: Gets or set the SKU.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or set the SKU.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
@@ -1196,6 +2327,61 @@ class SkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageQueueMessageInvokeResponseResult(dict):
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 queue_name: Optional[str] = None,
+                 sas_token: Optional[str] = None,
+                 storage_account: Optional[str] = None):
+        """
+        :param str message: Gets or sets the message.
+        :param str queue_name: Gets or sets the queue name.
+        :param str sas_token: Gets or sets the SAS key.
+        :param str storage_account: Gets or sets the storage account name.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if storage_account is not None:
+            pulumi.set(__self__, "storage_account", storage_account)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Gets or sets the message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        Gets or sets the queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[str]:
+        """
+        Gets or sets the SAS key.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> Optional[str]:
+        """
+        Gets or sets the storage account name.
+        """
+        return pulumi.get(self, "storage_account")
 
 
 @pulumi.output_type

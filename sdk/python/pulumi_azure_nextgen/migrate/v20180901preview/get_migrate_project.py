@@ -77,7 +77,7 @@ class GetMigrateProjectResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MigrateProjectPropertiesResponse':
+    def properties(self) -> 'outputs.MigrateProjectPropertiesInvokeResponseResult':
         """
         Gets or sets the nested properties.
         """
@@ -85,7 +85,7 @@ class GetMigrateProjectResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.MigrateProjectResponseTags']:
+    def tags(self) -> Optional['outputs.MigrateProjectInvokeResponseTagsResult']:
         """
         Gets or sets the tags.
         """

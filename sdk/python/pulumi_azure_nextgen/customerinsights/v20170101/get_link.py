@@ -98,7 +98,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[Sequence['outputs.TypePropertiesMappingResponse']]:
+    def mappings(self) -> Optional[Sequence['outputs.TypePropertiesMappingInvokeResponseResult']]:
         """
         The set of properties mappings between the source and target Types.
         """
@@ -122,7 +122,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="participantPropertyReferences")
-    def participant_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceResponse']:
+    def participant_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceInvokeResponseResult']:
         """
         The properties that represent the participating profile.
         """

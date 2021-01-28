@@ -9,9 +9,55 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'HostingEnvironmentProfileInvokeResponseResult',
     'HostingEnvironmentProfileResponse',
-    'IdentifierResponseResult',
+    'IdentifierInvokeResponseResult',
 ]
+
+@pulumi.output_type
+class HostingEnvironmentProfileInvokeResponseResult(dict):
+    """
+    Specification for an App Service Environment to use for this resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 id: Optional[str] = None):
+        """
+        Specification for an App Service Environment to use for this resource.
+        :param str name: Name of the App Service Environment.
+        :param str type: Resource type of the App Service Environment.
+        :param str id: Resource ID of the App Service Environment.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the App Service Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type of the App Service Environment.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of the App Service Environment.
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class HostingEnvironmentProfileResponse(dict):
@@ -62,7 +108,7 @@ class HostingEnvironmentProfileResponse(dict):
 
 
 @pulumi.output_type
-class IdentifierResponseResult(dict):
+class IdentifierInvokeResponseResult(dict):
     """
     A domain specific resource identifier.
     """

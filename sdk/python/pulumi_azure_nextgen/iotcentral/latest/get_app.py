@@ -94,7 +94,7 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.AppSkuInfoResponse':
+    def sku(self) -> 'outputs.AppSkuInfoInvokeResponseResult':
         """
         A valid instance SKU.
         """

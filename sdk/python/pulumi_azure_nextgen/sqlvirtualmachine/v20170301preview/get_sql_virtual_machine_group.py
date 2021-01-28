@@ -148,7 +148,7 @@ class GetSqlVirtualMachineGroupResult:
 
     @property
     @pulumi.getter(name="wsfcDomainProfile")
-    def wsfc_domain_profile(self) -> Optional['outputs.WsfcDomainProfileResponse']:
+    def wsfc_domain_profile(self) -> Optional['outputs.WsfcDomainProfileInvokeResponseResult']:
         """
         Cluster Active Directory domain profile.
         """

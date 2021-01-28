@@ -63,7 +63,7 @@ class GetReplicationvCenterResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.VCenterPropertiesResponse':
+    def properties(self) -> 'outputs.VCenterPropertiesInvokeResponseResult':
         """
         VCenter related data.
         """

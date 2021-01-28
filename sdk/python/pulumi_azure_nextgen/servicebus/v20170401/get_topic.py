@@ -97,7 +97,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="countDetails")
-    def count_details(self) -> 'outputs.MessageCountDetailsResponse':
+    def count_details(self) -> 'outputs.MessageCountDetailsInvokeResponseResult':
         """
         Message count details
         """

@@ -151,7 +151,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter
-    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomResponse']:
+    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomInvokeResponseResult']:
         """
         The VHD from which the image is to be created.
         """
@@ -159,7 +159,7 @@ class GetCustomImageResult:
 
     @property
     @pulumi.getter
-    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmResponse']:
+    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmInvokeResponseResult']:
         """
         The virtual machine from which the image is to be created.
         """

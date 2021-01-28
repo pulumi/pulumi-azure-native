@@ -54,7 +54,7 @@ class GetEventChannelResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.EventChannelDestinationResponse']:
+    def destination(self) -> Optional['outputs.EventChannelDestinationInvokeResponseResult']:
         """
         Represents the destination of an event channel.
         """
@@ -71,7 +71,7 @@ class GetEventChannelResult:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventChannelFilterResponse']:
+    def filter(self) -> Optional['outputs.EventChannelFilterInvokeResponseResult']:
         """
         Information about the filter for the event channel.
         """
@@ -120,7 +120,7 @@ class GetEventChannelResult:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.EventChannelSourceResponse']:
+    def source(self) -> Optional['outputs.EventChannelSourceInvokeResponseResult']:
         """
         Source of the event channel. This represents a unique resource in the partner's resource model.
         """

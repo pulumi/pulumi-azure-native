@@ -78,7 +78,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
+    def key(self) -> Optional['outputs.KeyVaultKeyReferenceInvokeResponseResult']:
         """
         The key details in the key vault.
         """

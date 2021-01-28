@@ -69,7 +69,7 @@ class GetManagementGroupSubscriptionResult:
 
     @property
     @pulumi.getter
-    def parent(self) -> Optional['outputs.DescendantParentGroupInfoResponse']:
+    def parent(self) -> Optional['outputs.DescendantParentGroupInfoInvokeResponseResult']:
         """
         The ID of the parent management group.
         """

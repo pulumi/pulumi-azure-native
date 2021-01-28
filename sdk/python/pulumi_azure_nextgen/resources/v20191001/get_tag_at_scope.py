@@ -52,7 +52,7 @@ class GetTagAtScopeResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.TagsResponse':
+    def properties(self) -> 'outputs.TagsInvokeResponseResult':
         """
         The set of tags.
         """

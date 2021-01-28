@@ -11,12 +11,52 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureMonitorWorkspacePropertiesInvokeResponseResult',
     'AzureMonitorWorkspacePropertiesResponse',
+    'ConfigurationProfileResourcePropertiesInvokeResponseResult',
     'ConfigurationProfileResourcePropertiesResponse',
+    'NotificationSettingsInvokeResponseResult',
     'NotificationSettingsResponse',
+    'ResourceIdentityInvokeResponseResult',
     'ResourceIdentityResponse',
+    'SystemDataInvokeResponseResult',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AzureMonitorWorkspacePropertiesInvokeResponseResult(dict):
+    """
+    Configuration properties of an Azure Monitor workspace that receives change notifications.
+    """
+    def __init__(__self__, *,
+                 workspace_id: Optional[str] = None,
+                 workspace_resource_id: Optional[str] = None):
+        """
+        Configuration properties of an Azure Monitor workspace that receives change notifications.
+        :param str workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+        :param str workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+        """
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[str]:
+        """
+        The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
 
 @pulumi.output_type
 class AzureMonitorWorkspacePropertiesResponse(dict):
@@ -57,6 +97,29 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ConfigurationProfileResourcePropertiesInvokeResponseResult(dict):
+    """
+    The properties of a configuration profile.
+    """
+    def __init__(__self__, *,
+                 notifications: Optional['outputs.NotificationSettingsInvokeResponseResult'] = None):
+        """
+        The properties of a configuration profile.
+        :param 'NotificationSettingsInvokeResponseArgs' notifications: Settings of change notification configuration for a subscription.
+        """
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional['outputs.NotificationSettingsInvokeResponseResult']:
+        """
+        Settings of change notification configuration for a subscription.
+        """
+        return pulumi.get(self, "notifications")
+
+
+@pulumi.output_type
 class ConfigurationProfileResourcePropertiesResponse(dict):
     """
     The properties of a configuration profile.
@@ -80,6 +143,41 @@ class ConfigurationProfileResourcePropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NotificationSettingsInvokeResponseResult(dict):
+    """
+    Settings of change notification configuration for a subscription.
+    """
+    def __init__(__self__, *,
+                 activation_state: Optional[str] = None,
+                 azure_monitor_workspace_properties: Optional['outputs.AzureMonitorWorkspacePropertiesInvokeResponseResult'] = None):
+        """
+        Settings of change notification configuration for a subscription.
+        :param str activation_state: The state of notifications feature.
+        :param 'AzureMonitorWorkspacePropertiesInvokeResponseArgs' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
+        """
+        if activation_state is not None:
+            pulumi.set(__self__, "activation_state", activation_state)
+        if azure_monitor_workspace_properties is not None:
+            pulumi.set(__self__, "azure_monitor_workspace_properties", azure_monitor_workspace_properties)
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> Optional[str]:
+        """
+        The state of notifications feature.
+        """
+        return pulumi.get(self, "activation_state")
+
+    @property
+    @pulumi.getter(name="azureMonitorWorkspaceProperties")
+    def azure_monitor_workspace_properties(self) -> Optional['outputs.AzureMonitorWorkspacePropertiesInvokeResponseResult']:
+        """
+        Configuration properties of an Azure Monitor workspace that receives change notifications.
+        """
+        return pulumi.get(self, "azure_monitor_workspace_properties")
 
 
 @pulumi.output_type
@@ -118,6 +216,51 @@ class NotificationSettingsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceIdentityInvokeResponseResult(dict):
+    """
+    The identity block returned by ARM resource that supports managed identity.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        The identity block returned by ARM resource that supports managed identity.
+        :param str principal_id: The principal id of the identity. This property will only be provided for a system-assigned identity.
+        :param str tenant_id: The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the identity. This property will only be provided for a system-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -166,6 +309,83 @@ class ResourceIdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataInvokeResponseResult(dict):
+    """
+    Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+    """
+    def __init__(__self__, *,
+                 created_at: str,
+                 created_by: str,
+                 created_by_type: str,
+                 last_modified_at: str,
+                 last_modified_by: str,
+                 last_modified_by_type: str):
+        """
+        Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+        :param str created_at: The timestamp of resource creation (UTC)
+        :param str created_by: A string identifier for the identity that created the resource
+        :param str created_by_type: The type of identity that created the resource: user, application, managedIdentity, key
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: A string identifier for the identity that last modified the resource
+        :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity, key
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_by_type", created_by_type)
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The timestamp of resource creation (UTC)
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        A string identifier for the identity that created the resource
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> str:
+        """
+        The type of identity that created the resource: user, application, managedIdentity, key
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> str:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> str:
+        """
+        A string identifier for the identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> str:
+        """
+        The type of identity that last modified the resource: user, application, managedIdentity, key
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

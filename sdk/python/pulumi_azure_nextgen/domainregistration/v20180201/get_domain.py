@@ -115,7 +115,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
-    def consent(self) -> 'outputs.DomainPurchaseConsentResponse':
+    def consent(self) -> 'outputs.DomainPurchaseConsentInvokeResponseResult':
         """
         Legal agreement consent.
         """
@@ -123,7 +123,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="contactAdmin")
-    def contact_admin(self) -> 'outputs.ContactResponse':
+    def contact_admin(self) -> 'outputs.ContactInvokeResponseResult':
         """
         Administrative contact.
         """
@@ -131,7 +131,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="contactBilling")
-    def contact_billing(self) -> 'outputs.ContactResponse':
+    def contact_billing(self) -> 'outputs.ContactInvokeResponseResult':
         """
         Billing contact.
         """
@@ -139,7 +139,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="contactRegistrant")
-    def contact_registrant(self) -> 'outputs.ContactResponse':
+    def contact_registrant(self) -> 'outputs.ContactInvokeResponseResult':
         """
         Registrant contact.
         """
@@ -147,7 +147,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="contactTech")
-    def contact_tech(self) -> 'outputs.ContactResponse':
+    def contact_tech(self) -> 'outputs.ContactInvokeResponseResult':
         """
         Technical contact.
         """
@@ -227,7 +227,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="managedHostNames")
-    def managed_host_names(self) -> Sequence['outputs.HostNameResponse']:
+    def managed_host_names(self) -> Sequence['outputs.HostNameInvokeResponseResult']:
         """
         All hostnames derived from the domain and assigned to Azure resources.
         """

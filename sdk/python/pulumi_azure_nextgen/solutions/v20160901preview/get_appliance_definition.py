@@ -66,7 +66,7 @@ class GetApplianceDefinitionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ApplianceArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ApplianceArtifactInvokeResponseResult']]:
         """
         The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
         """
@@ -74,7 +74,7 @@ class GetApplianceDefinitionResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Sequence['outputs.ApplianceProviderAuthorizationResponse']:
+    def authorizations(self) -> Sequence['outputs.ApplianceProviderAuthorizationInvokeResponseResult']:
         """
         The appliance provider authorizations.
         """
@@ -106,7 +106,7 @@ class GetApplianceDefinitionResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -154,7 +154,7 @@ class GetApplianceDefinitionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the resource.
         """

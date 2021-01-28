@@ -61,7 +61,7 @@ class GetExpressRouteConnectionResult:
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
-    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdResponse':
+    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdInvokeResponseResult':
         """
         The ExpressRoute circuit peering.
         """

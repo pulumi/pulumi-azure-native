@@ -11,15 +11,46 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EncryptionPropertiesInvokeResponseResult',
     'EncryptionPropertiesResponse',
+    'KeyVaultPropertiesInvokeResponseResult',
     'KeyVaultPropertiesResponse',
+    'PrivateEndpointConnectionReferenceInvokeResponseResult',
     'PrivateEndpointConnectionReferenceResponse',
+    'PrivateEndpointInvokeResponseResult',
     'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateInvokeResponseResult',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceIdentityInvokeResponseResult',
     'ResourceIdentityResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
+    'UserIdentityInvokeResponseResult',
     'UserIdentityResponse',
 ]
+
+@pulumi.output_type
+class EncryptionPropertiesInvokeResponseResult(dict):
+    """
+    The encryption settings for a configuration store.
+    """
+    def __init__(__self__, *,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesInvokeResponseResult'] = None):
+        """
+        The encryption settings for a configuration store.
+        :param 'KeyVaultPropertiesInvokeResponseArgs' key_vault_properties: Key vault properties.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesInvokeResponseResult']:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
 
 @pulumi.output_type
 class EncryptionPropertiesResponse(dict):
@@ -45,6 +76,41 @@ class EncryptionPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultPropertiesInvokeResponseResult(dict):
+    """
+    Settings concerning key vault encryption for a configuration store.
+    """
+    def __init__(__self__, *,
+                 identity_client_id: Optional[str] = None,
+                 key_identifier: Optional[str] = None):
+        """
+        Settings concerning key vault encryption for a configuration store.
+        :param str identity_client_id: The client id of the identity which will be used to access key vault.
+        :param str key_identifier: The URI of the key vault key used to encrypt data.
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[str]:
+        """
+        The URI of the key vault key used to encrypt data.
+        """
+        return pulumi.get(self, "key_identifier")
 
 
 @pulumi.output_type
@@ -83,6 +149,84 @@ class KeyVaultPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionReferenceInvokeResponseResult(dict):
+    """
+    A reference to a related private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateInvokeResponseResult',
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointInvokeResponseResult'] = None):
+        """
+        A reference to a related private endpoint connection.
+        :param str id: The resource ID.
+        :param str name: The name of the resource.
+        :param 'PrivateLinkServiceConnectionStateInvokeResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning status of the private endpoint connection.
+        :param str type: The type of the resource.
+        :param 'PrivateEndpointInvokeResponseArgs' private_endpoint: The resource of private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateInvokeResponseResult':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointInvokeResponseResult']:
+        """
+        The resource of private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type
@@ -167,6 +311,29 @@ class PrivateEndpointConnectionReferenceResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointInvokeResponseResult(dict):
+    """
+    Private endpoint which a connection belongs to.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Private endpoint which a connection belongs to.
+        :param str id: The resource Id for private endpoint
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The resource Id for private endpoint
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     Private endpoint which a connection belongs to.
@@ -190,6 +357,52 @@ class PrivateEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateInvokeResponseResult(dict):
+    """
+    The state of a private link service connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The state of a private link service connection.
+        :param str actions_required: Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -239,6 +452,63 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceIdentityInvokeResponseResult(dict):
+    """
+    An identity that can be associated with a resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityInvokeResponseResult']] = None):
+        """
+        An identity that can be associated with a resource.
+        :param str principal_id: The principal id of the identity. This property will only be provided for a system-assigned identity.
+        :param str tenant_id: The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        :param Mapping[str, 'UserIdentityInvokeResponseArgs'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the identity. This property will only be provided for a system-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityInvokeResponseResult']]:
+        """
+        The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -302,6 +572,28 @@ class ResourceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    Describes a configuration store SKU.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        Describes a configuration store SKU.
+        :param str name: The SKU name of the configuration store.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The SKU name of the configuration store.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     Describes a configuration store SKU.
@@ -324,6 +616,39 @@ class SkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserIdentityInvokeResponseResult(dict):
+    """
+    A resource identity that is managed by the user of the service.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        A resource identity that is managed by the user of the service.
+        :param str client_id: The client ID of the user-assigned identity.
+        :param str principal_id: The principal ID of the user-assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

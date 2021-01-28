@@ -66,7 +66,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="basePolicy")
-    def base_policy(self) -> Optional['outputs.SubResourceResponse']:
+    def base_policy(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The parent firewall policy from which rules are inherited.
         """
@@ -74,7 +74,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="childPolicies")
-    def child_policies(self) -> Sequence['outputs.SubResourceResponse']:
+    def child_policies(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to Child Firewall Policies.
         """
@@ -82,7 +82,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.DnsSettingsResponse']:
+    def dns_settings(self) -> Optional['outputs.DnsSettingsInvokeResponseResult']:
         """
         DNS Proxy Settings definition.
         """
@@ -98,7 +98,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
-    def firewalls(self) -> Sequence['outputs.SubResourceResponse']:
+    def firewalls(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to Azure Firewalls that this Firewall Policy is associated with.
         """
@@ -138,7 +138,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="ruleCollectionGroups")
-    def rule_collection_groups(self) -> Sequence['outputs.SubResourceResponse']:
+    def rule_collection_groups(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         List of references to FirewallPolicyRuleCollectionGroups.
         """
@@ -162,7 +162,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="threatIntelWhitelist")
-    def threat_intel_whitelist(self) -> Optional['outputs.FirewallPolicyThreatIntelWhitelistResponse']:
+    def threat_intel_whitelist(self) -> Optional['outputs.FirewallPolicyThreatIntelWhitelistInvokeResponseResult']:
         """
         ThreatIntel Whitelist for Firewall Policy.
         """

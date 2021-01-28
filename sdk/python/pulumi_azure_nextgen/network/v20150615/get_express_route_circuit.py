@@ -69,7 +69,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[Sequence['outputs.ExpressRouteCircuitAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.ExpressRouteCircuitAuthorizationInvokeResponseResult']]:
         """
         The list of authorizations.
         """
@@ -117,7 +117,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringInvokeResponseResult']]:
         """
         The list of peerings.
         """
@@ -149,7 +149,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter(name="serviceProviderProperties")
-    def service_provider_properties(self) -> Optional['outputs.ExpressRouteCircuitServiceProviderPropertiesResponse']:
+    def service_provider_properties(self) -> Optional['outputs.ExpressRouteCircuitServiceProviderPropertiesInvokeResponseResult']:
         """
         The ServiceProviderProperties.
         """
@@ -165,7 +165,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ExpressRouteCircuitSkuResponse']:
+    def sku(self) -> Optional['outputs.ExpressRouteCircuitSkuInvokeResponseResult']:
         """
         The SKU.
         """

@@ -10,10 +10,58 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'DashboardLensInvokeResponseResult',
     'DashboardLensResponse',
+    'DashboardPartsInvokeResponseResult',
+    'DashboardPartsInvokeResponsePositionResult',
     'DashboardPartsResponse',
     'DashboardPartsResponsePosition',
 ]
+
+@pulumi.output_type
+class DashboardLensInvokeResponseResult(dict):
+    """
+    A dashboard lens.
+    """
+    def __init__(__self__, *,
+                 order: int,
+                 parts: Mapping[str, 'outputs.DashboardPartsInvokeResponseResult'],
+                 metadata: Optional[Mapping[str, Any]] = None):
+        """
+        A dashboard lens.
+        :param int order: The lens order.
+        :param Mapping[str, 'DashboardPartsInvokeResponseArgs'] parts: The dashboard parts.
+        :param Mapping[str, Any] metadata: The dashboard len's metadata.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "parts", parts)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The lens order.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def parts(self) -> Mapping[str, 'outputs.DashboardPartsInvokeResponseResult']:
+        """
+        The dashboard parts.
+        """
+        return pulumi.get(self, "parts")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The dashboard len's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
 
 @pulumi.output_type
 class DashboardLensResponse(dict):
@@ -61,6 +109,107 @@ class DashboardLensResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardPartsInvokeResponseResult(dict):
+    """
+    A dashboard part.
+    """
+    def __init__(__self__, *,
+                 position: 'outputs.DashboardPartsInvokeResponsePositionResult',
+                 metadata: Optional[Mapping[str, Any]] = None):
+        """
+        A dashboard part.
+        :param 'DashboardPartsInvokeResponsePositionArgs' position: The dashboard's part position.
+        :param Mapping[str, Any] metadata: The dashboard part's metadata.
+        """
+        pulumi.set(__self__, "position", position)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def position(self) -> 'outputs.DashboardPartsInvokeResponsePositionResult':
+        """
+        The dashboard's part position.
+        """
+        return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The dashboard part's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class DashboardPartsInvokeResponsePositionResult(dict):
+    """
+    The dashboard's part position.
+    """
+    def __init__(__self__, *,
+                 col_span: int,
+                 row_span: int,
+                 x: int,
+                 y: int,
+                 metadata: Optional[Mapping[str, Any]] = None):
+        """
+        The dashboard's part position.
+        :param int col_span: The dashboard's part column span.
+        :param int row_span: The dashboard's part row span.
+        :param int x: The dashboard's part x coordinate.
+        :param int y: The dashboard's part y coordinate.
+        :param Mapping[str, Any] metadata: The dashboard part's metadata.
+        """
+        pulumi.set(__self__, "col_span", col_span)
+        pulumi.set(__self__, "row_span", row_span)
+        pulumi.set(__self__, "x", x)
+        pulumi.set(__self__, "y", y)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="colSpan")
+    def col_span(self) -> int:
+        """
+        The dashboard's part column span.
+        """
+        return pulumi.get(self, "col_span")
+
+    @property
+    @pulumi.getter(name="rowSpan")
+    def row_span(self) -> int:
+        """
+        The dashboard's part row span.
+        """
+        return pulumi.get(self, "row_span")
+
+    @property
+    @pulumi.getter
+    def x(self) -> int:
+        """
+        The dashboard's part x coordinate.
+        """
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> int:
+        """
+        The dashboard's part y coordinate.
+        """
+        return pulumi.get(self, "y")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        The dashboard part's metadata.
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type

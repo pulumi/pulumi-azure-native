@@ -81,7 +81,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
+    def ip_configurations(self) -> Sequence['outputs.IPConfigurationInvokeResponseResult']:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """
@@ -97,7 +97,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupInvokeResponseResult']:
         """
         The reference of the NetworkSecurityGroup resource.
         """
@@ -113,7 +113,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> Optional[Sequence['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> Optional[Sequence['outputs.ResourceNavigationLinkInvokeResponseResult']]:
         """
         Gets an array of references to the external resources using subnet.
         """
@@ -121,7 +121,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.RouteTableResponse']:
+    def route_table(self) -> Optional['outputs.RouteTableInvokeResponseResult']:
         """
         The reference of the RouteTable resource.
         """
@@ -129,7 +129,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceEndpointPolicies")
-    def service_endpoint_policies(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyResponse']]:
+    def service_endpoint_policies(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyInvokeResponseResult']]:
         """
         An array of service endpoint policies.
         """
@@ -137,7 +137,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']]:
+    def service_endpoints(self) -> Optional[Sequence['outputs.ServiceEndpointPropertiesFormatInvokeResponseResult']]:
         """
         An array of service endpoints.
         """

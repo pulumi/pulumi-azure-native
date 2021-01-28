@@ -101,7 +101,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="definitionLink")
-    def definition_link(self) -> Optional['outputs.ContentLinkResponse']:
+    def definition_link(self) -> Optional['outputs.ContentLinkInvokeResponseResult']:
         """
         Gets or sets the link to definition.
         """
@@ -133,7 +133,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterInvokeResponseResult']]:
         """
         Gets or sets the parameters.
         """
@@ -141,7 +141,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="parametersLink")
-    def parameters_link(self) -> Optional['outputs.ContentLinkResponse']:
+    def parameters_link(self) -> Optional['outputs.ContentLinkInvokeResponseResult']:
         """
         Gets or sets the link to parameters.
         """
@@ -157,7 +157,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the sku.
         """

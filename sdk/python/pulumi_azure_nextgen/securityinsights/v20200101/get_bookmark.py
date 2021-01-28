@@ -74,7 +74,7 @@ class GetBookmarkResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional['outputs.UserInfoResponse']:
+    def created_by(self) -> Optional['outputs.UserInfoInvokeResponseResult']:
         """
         Describes a user that created the bookmark
         """
@@ -106,7 +106,7 @@ class GetBookmarkResult:
 
     @property
     @pulumi.getter(name="incidentInfo")
-    def incident_info(self) -> Optional['outputs.IncidentInfoResponse']:
+    def incident_info(self) -> Optional['outputs.IncidentInfoInvokeResponseResult']:
         """
         Describes an incident that relates to bookmark
         """
@@ -170,7 +170,7 @@ class GetBookmarkResult:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional['outputs.UserInfoResponse']:
+    def updated_by(self) -> Optional['outputs.UserInfoInvokeResponseResult']:
         """
         Describes a user that updated the bookmark
         """

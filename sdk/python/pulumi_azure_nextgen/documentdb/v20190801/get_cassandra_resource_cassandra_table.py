@@ -66,7 +66,7 @@ class GetCassandraResourceCassandraTableResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.CassandraTableGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.CassandraTableGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

@@ -87,7 +87,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The managed identity associated with the policy assignment.
         """
@@ -151,7 +151,7 @@ class GetPolicyAssignmentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PolicySkuResponse']:
+    def sku(self) -> Optional['outputs.PolicySkuInvokeResponseResult']:
         """
         The policy sku. This property is optional, obsolete, and will be ignored.
         """

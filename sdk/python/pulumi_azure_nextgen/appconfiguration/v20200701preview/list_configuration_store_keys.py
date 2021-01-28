@@ -38,7 +38,7 @@ class ListConfigurationStoreKeysResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ApiKeyResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ApiKeyInvokeResponseResult']]:
         """
         The collection value.
         """

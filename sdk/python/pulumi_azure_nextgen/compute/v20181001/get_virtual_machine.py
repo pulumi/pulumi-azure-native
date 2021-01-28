@@ -87,7 +87,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional['outputs.AdditionalCapabilitiesResponse']:
+    def additional_capabilities(self) -> Optional['outputs.AdditionalCapabilitiesInvokeResponseResult']:
         """
         Specifies additional capabilities enabled or disabled on the virtual machine.
         """
@@ -95,7 +95,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="availabilitySet")
-    def availability_set(self) -> Optional['outputs.SubResourceResponse']:
+    def availability_set(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         """
@@ -103,7 +103,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
-    def diagnostics_profile(self) -> Optional['outputs.DiagnosticsProfileResponse']:
+    def diagnostics_profile(self) -> Optional['outputs.DiagnosticsProfileInvokeResponseResult']:
         """
         Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         """
@@ -111,7 +111,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional['outputs.HardwareProfileResponse']:
+    def hardware_profile(self) -> Optional['outputs.HardwareProfileInvokeResponseResult']:
         """
         Specifies the hardware settings for the virtual machine.
         """
@@ -127,7 +127,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.VirtualMachineIdentityResponse']:
+    def identity(self) -> Optional['outputs.VirtualMachineIdentityInvokeResponseResult']:
         """
         The identity of the virtual machine, if configured.
         """
@@ -135,7 +135,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.VirtualMachineInstanceViewResponse':
+    def instance_view(self) -> 'outputs.VirtualMachineInstanceViewInvokeResponseResult':
         """
         The virtual machine instance view.
         """
@@ -167,7 +167,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.NetworkProfileInvokeResponseResult']:
         """
         Specifies the network interfaces of the virtual machine.
         """
@@ -175,7 +175,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.OSProfileResponse']:
+    def os_profile(self) -> Optional['outputs.OSProfileInvokeResponseResult']:
         """
         Specifies the operating system settings for the virtual machine.
         """
@@ -183,7 +183,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanInvokeResponseResult']:
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
@@ -199,7 +199,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional['outputs.SubResourceResponse']:
+    def proximity_placement_group(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         """
@@ -207,7 +207,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def resources(self) -> Sequence['outputs.VirtualMachineExtensionResponse']:
+    def resources(self) -> Sequence['outputs.VirtualMachineExtensionInvokeResponseResult']:
         """
         The virtual machine child extension resources.
         """
@@ -215,7 +215,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+    def storage_profile(self) -> Optional['outputs.StorageProfileInvokeResponseResult']:
         """
         Specifies the storage settings for the virtual machine disks.
         """

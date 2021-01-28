@@ -110,7 +110,7 @@ class GetDigitalTwinResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.DigitalTwinsSkuInfoResponse']:
+    def sku(self) -> Optional['outputs.DigitalTwinsSkuInfoInvokeResponseResult']:
         """
         This property is reserved for future use, and will be ignored/omitted
         """

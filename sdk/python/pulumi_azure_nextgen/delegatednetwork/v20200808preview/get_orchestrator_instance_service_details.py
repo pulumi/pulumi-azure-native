@@ -82,7 +82,7 @@ class GetOrchestratorInstanceServiceDetailsResult:
 
     @property
     @pulumi.getter(name="controllerDetails")
-    def controller_details(self) -> 'outputs.ControllerDetailsResponse':
+    def controller_details(self) -> 'outputs.ControllerDetailsInvokeResponseResult':
         """
         controller details
         """
@@ -98,7 +98,7 @@ class GetOrchestratorInstanceServiceDetailsResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.OrchestratorIdentityResponse']:
+    def identity(self) -> Optional['outputs.OrchestratorIdentityInvokeResponseResult']:
         """
         The identity of the orchestrator
         """

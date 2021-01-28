@@ -48,7 +48,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.EventSubscriptionDestinationResponse']:
+    def destination(self) -> Optional['outputs.EventSubscriptionDestinationInvokeResponseResult']:
         """
         Information about the destination where events have to be delivered for the event subscription.
         """
@@ -56,7 +56,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+    def filter(self) -> Optional['outputs.EventSubscriptionFilterInvokeResponseResult']:
         """
         Information about the filter for the event subscription.
         """

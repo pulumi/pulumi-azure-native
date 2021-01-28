@@ -76,7 +76,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+    def error(self) -> Optional['outputs.ErrorResponseInvokeResponseResult']:
         """
         Details of provisioning error
         """
@@ -124,7 +124,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
 
     @property
     @pulumi.getter(name="scheduleInfo")
-    def schedule_info(self) -> 'outputs.SUCSchedulePropertiesResponse':
+    def schedule_info(self) -> 'outputs.SUCSchedulePropertiesInvokeResponseResult':
         """
         Schedule information for the Software update configuration
         """
@@ -132,7 +132,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
 
     @property
     @pulumi.getter
-    def tasks(self) -> Optional['outputs.SoftwareUpdateConfigurationTasksResponse']:
+    def tasks(self) -> Optional['outputs.SoftwareUpdateConfigurationTasksInvokeResponseResult']:
         """
         Tasks information for the Software update configuration.
         """
@@ -148,7 +148,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
 
     @property
     @pulumi.getter(name="updateConfiguration")
-    def update_configuration(self) -> 'outputs.UpdateConfigurationResponse':
+    def update_configuration(self) -> 'outputs.UpdateConfigurationInvokeResponseResult':
         """
         update specific properties for the Software update configuration
         """

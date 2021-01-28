@@ -107,7 +107,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationInvokeResponseResult']]:
         """
         List of parameters for pipeline.
         """

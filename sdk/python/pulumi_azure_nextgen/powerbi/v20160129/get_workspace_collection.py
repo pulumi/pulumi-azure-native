@@ -74,7 +74,7 @@ class GetWorkspaceCollectionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.AzureSkuResponse']:
+    def sku(self) -> Optional['outputs.AzureSkuInvokeResponseResult']:
         return pulumi.get(self, "sku")
 
     @property

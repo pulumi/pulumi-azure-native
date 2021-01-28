@@ -66,7 +66,7 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NetworkResourcePropertiesResponse':
+    def properties(self) -> 'outputs.NetworkResourcePropertiesInvokeResponseResult':
         """
         Describes properties of a network resource.
         """

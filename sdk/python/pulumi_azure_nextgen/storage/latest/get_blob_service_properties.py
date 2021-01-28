@@ -68,7 +68,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter(name="changeFeed")
-    def change_feed(self) -> Optional['outputs.ChangeFeedResponse']:
+    def change_feed(self) -> Optional['outputs.ChangeFeedInvokeResponseResult']:
         """
         The blob service properties for change feed events.
         """
@@ -76,7 +76,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")
-    def container_delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyResponse']:
+    def container_delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyInvokeResponseResult']:
         """
         The blob service properties for container soft delete.
         """
@@ -84,7 +84,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional['outputs.CorsRulesResponse']:
+    def cors(self) -> Optional['outputs.CorsRulesInvokeResponseResult']:
         """
         Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
         """
@@ -100,7 +100,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter(name="deleteRetentionPolicy")
-    def delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyResponse']:
+    def delete_retention_policy(self) -> Optional['outputs.DeleteRetentionPolicyInvokeResponseResult']:
         """
         The blob service properties for blob soft delete.
         """
@@ -132,7 +132,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter(name="restorePolicy")
-    def restore_policy(self) -> Optional['outputs.RestorePolicyPropertiesResponse']:
+    def restore_policy(self) -> Optional['outputs.RestorePolicyPropertiesInvokeResponseResult']:
         """
         The blob service properties for blob restore policy.
         """
@@ -140,7 +140,7 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         Sku name and tier.
         """

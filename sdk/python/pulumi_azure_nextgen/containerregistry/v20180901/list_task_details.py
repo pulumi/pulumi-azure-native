@@ -67,7 +67,7 @@ class ListTaskDetailsResult:
 
     @property
     @pulumi.getter(name="agentConfiguration")
-    def agent_configuration(self) -> Optional['outputs.AgentPropertiesResponse']:
+    def agent_configuration(self) -> Optional['outputs.AgentPropertiesInvokeResponseResult']:
         """
         The machine configuration of the run agent.
         """
@@ -83,7 +83,7 @@ class ListTaskDetailsResult:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.CredentialsResponse']:
+    def credentials(self) -> Optional['outputs.CredentialsInvokeResponseResult']:
         """
         The properties that describes a set of credentials that will be used when this run is invoked.
         """
@@ -115,7 +115,7 @@ class ListTaskDetailsResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> 'outputs.PlatformPropertiesResponse':
+    def platform(self) -> 'outputs.PlatformPropertiesInvokeResponseResult':
         """
         The platform properties against which the run has to happen.
         """
@@ -163,7 +163,7 @@ class ListTaskDetailsResult:
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional['outputs.TriggerPropertiesResponse']:
+    def trigger(self) -> Optional['outputs.TriggerPropertiesInvokeResponseResult']:
         """
         The properties that describe all triggers for the task.
         """

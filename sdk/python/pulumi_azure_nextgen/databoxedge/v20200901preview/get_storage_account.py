@@ -118,7 +118,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         StorageAccount object on ASE device
         """

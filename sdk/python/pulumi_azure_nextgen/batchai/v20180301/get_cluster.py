@@ -107,7 +107,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.BatchAIErrorResponse']]:
+    def errors(self) -> Optional[Sequence['outputs.BatchAIErrorInvokeResponseResult']]:
         """
         This element contains all the errors encountered by various compute nodes during node setup.
         """
@@ -139,7 +139,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeSetup")
-    def node_setup(self) -> Optional['outputs.NodeSetupResponse']:
+    def node_setup(self) -> Optional['outputs.NodeSetupInvokeResponseResult']:
         """
         Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         """
@@ -147,7 +147,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeStateCounts")
-    def node_state_counts(self) -> 'outputs.NodeStateCountsResponse':
+    def node_state_counts(self) -> 'outputs.NodeStateCountsInvokeResponseResult':
         """
         Counts of various compute node states on the cluster.
         """
@@ -168,7 +168,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="scaleSettings")
-    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+    def scale_settings(self) -> Optional['outputs.ScaleSettingsInvokeResponseResult']:
         """
         At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
         """
@@ -176,7 +176,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+    def subnet(self) -> Optional['outputs.ResourceIdInvokeResponseResult']:
         """
         Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         """
@@ -200,7 +200,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> Optional['outputs.UserAccountSettingsResponse']:
+    def user_account_settings(self) -> Optional['outputs.UserAccountSettingsInvokeResponseResult']:
         """
         Settings for user account that gets created on each on the nodes of a cluster.
         """
@@ -208,7 +208,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="virtualMachineConfiguration")
-    def virtual_machine_configuration(self) -> Optional['outputs.VirtualMachineConfigurationResponse']:
+    def virtual_machine_configuration(self) -> Optional['outputs.VirtualMachineConfigurationInvokeResponseResult']:
         """
         Settings for OS image.
         """

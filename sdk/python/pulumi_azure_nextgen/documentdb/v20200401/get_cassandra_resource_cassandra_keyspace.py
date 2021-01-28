@@ -69,12 +69,12 @@ class GetCassandraResourceCassandraKeyspaceResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.CassandraKeyspaceGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.CassandraKeyspaceGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.CassandraKeyspaceGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.CassandraKeyspaceGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

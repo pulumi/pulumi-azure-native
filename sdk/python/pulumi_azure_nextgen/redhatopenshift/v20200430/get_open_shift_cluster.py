@@ -66,7 +66,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="apiserverProfile")
-    def apiserver_profile(self) -> Optional['outputs.APIServerProfileResponse']:
+    def apiserver_profile(self) -> Optional['outputs.APIServerProfileInvokeResponseResult']:
         """
         The cluster API server profile.
         """
@@ -74,7 +74,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="clusterProfile")
-    def cluster_profile(self) -> Optional['outputs.ClusterProfileResponse']:
+    def cluster_profile(self) -> Optional['outputs.ClusterProfileInvokeResponseResult']:
         """
         The cluster profile.
         """
@@ -82,7 +82,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="consoleProfile")
-    def console_profile(self) -> Optional['outputs.ConsoleProfileResponse']:
+    def console_profile(self) -> Optional['outputs.ConsoleProfileInvokeResponseResult']:
         """
         The console profile.
         """
@@ -98,7 +98,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="ingressProfiles")
-    def ingress_profiles(self) -> Optional[Sequence['outputs.IngressProfileResponse']]:
+    def ingress_profiles(self) -> Optional[Sequence['outputs.IngressProfileInvokeResponseResult']]:
         """
         The cluster ingress profiles.
         """
@@ -114,7 +114,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="masterProfile")
-    def master_profile(self) -> Optional['outputs.MasterProfileResponse']:
+    def master_profile(self) -> Optional['outputs.MasterProfileInvokeResponseResult']:
         """
         The cluster master profile.
         """
@@ -130,7 +130,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> Optional['outputs.NetworkProfileInvokeResponseResult']:
         """
         The cluster network profile.
         """
@@ -146,7 +146,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> Optional['outputs.ServicePrincipalProfileInvokeResponseResult']:
         """
         The cluster service principal profile.
         """
@@ -170,7 +170,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="workerProfiles")
-    def worker_profiles(self) -> Optional[Sequence['outputs.WorkerProfileResponse']]:
+    def worker_profiles(self) -> Optional[Sequence['outputs.WorkerProfileInvokeResponseResult']]:
         """
         The cluster worker profiles.
         """

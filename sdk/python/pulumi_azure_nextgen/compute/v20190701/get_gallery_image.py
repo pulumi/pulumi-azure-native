@@ -86,7 +86,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter
-    def disallowed(self) -> Optional['outputs.DisallowedResponse']:
+    def disallowed(self) -> Optional['outputs.DisallowedInvokeResponseResult']:
         """
         Describes the disallowed disk types.
         """
@@ -126,7 +126,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter
-    def identifier(self) -> 'outputs.GalleryImageIdentifierResponse':
+    def identifier(self) -> 'outputs.GalleryImageIdentifierInvokeResponseResult':
         """
         This is the gallery Image Definition identifier.
         """
@@ -182,7 +182,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional['outputs.ImagePurchasePlanResponse']:
+    def purchase_plan(self) -> Optional['outputs.ImagePurchasePlanInvokeResponseResult']:
         """
         Describes the gallery Image Definition purchase plan. This is used by marketplace images.
         """
@@ -190,7 +190,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter
-    def recommended(self) -> Optional['outputs.RecommendedMachineConfigurationResponse']:
+    def recommended(self) -> Optional['outputs.RecommendedMachineConfigurationInvokeResponseResult']:
         """
         The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         """

@@ -77,7 +77,7 @@ class GetVirtualApplianceSiteResult:
 
     @property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional['outputs.Office365PolicyPropertiesResponse']:
+    def o365_policy(self) -> Optional['outputs.Office365PolicyPropertiesInvokeResponseResult']:
         """
         Office 365 Policy.
         """

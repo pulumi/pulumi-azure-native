@@ -55,7 +55,7 @@ class GetSaasSubscriptionLevelResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SaasResourceResponseProperties':
+    def properties(self) -> 'outputs.SaasResourceInvokeResponsePropertiesResult':
         """
         saas properties
         """

@@ -91,7 +91,7 @@ class GetEmailTemplateResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.EmailTemplateParametersContractPropertiesResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.EmailTemplateParametersContractPropertiesInvokeResponseResult']]:
         """
         Email Template Parameter values.
         """

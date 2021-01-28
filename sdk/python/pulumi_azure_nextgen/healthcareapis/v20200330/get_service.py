@@ -67,7 +67,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ServicesResourceResponseIdentity']:
+    def identity(self) -> Optional['outputs.ServicesResourceInvokeResponseIdentityResult']:
         """
         Setting indicating whether the service has a managed identity associated with it.
         """
@@ -99,7 +99,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ServicesPropertiesResponse':
+    def properties(self) -> 'outputs.ServicesPropertiesInvokeResponseResult':
         """
         The common properties of a service.
         """

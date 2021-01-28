@@ -60,7 +60,7 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_settings(self) -> Optional['outputs.BgpSettingsInvokeResponseResult']:
         """
         Local network gateway's BGP speaker settings.
         """
@@ -68,7 +68,7 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[Sequence['outputs.VpnConnectionResponse']]:
+    def connections(self) -> Optional[Sequence['outputs.VpnConnectionInvokeResponseResult']]:
         """
         List of all vpn connections to the gateway.
         """
@@ -92,7 +92,7 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Sequence['outputs.VpnGatewayIpConfigurationResponse']:
+    def ip_configurations(self) -> Sequence['outputs.VpnGatewayIpConfigurationInvokeResponseResult']:
         """
         List of all IPs configured on the gateway.
         """
@@ -140,7 +140,7 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualHub to which the gateway belongs.
         """

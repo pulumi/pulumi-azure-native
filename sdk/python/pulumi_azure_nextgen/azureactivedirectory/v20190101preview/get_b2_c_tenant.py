@@ -45,7 +45,7 @@ class GetB2CTenantResult:
 
     @property
     @pulumi.getter(name="billingConfig")
-    def billing_config(self) -> Optional['outputs.B2CTenantResourcePropertiesResponseBillingConfig']:
+    def billing_config(self) -> Optional['outputs.B2CTenantResourcePropertiesInvokeResponseBillingConfigResult']:
         """
         The billing configuration for the tenant.
         """
@@ -77,7 +77,7 @@ class GetB2CTenantResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.B2CResourceSKUResponse':
+    def sku(self) -> 'outputs.B2CResourceSKUInvokeResponseResult':
         """
         SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
         """

@@ -48,7 +48,7 @@ class GetDedicatedHostGroupResult:
 
     @property
     @pulumi.getter
-    def hosts(self) -> Sequence['outputs.SubResourceReadOnlyResponse']:
+    def hosts(self) -> Sequence['outputs.SubResourceReadOnlyInvokeResponseResult']:
         """
         A list of references to all dedicated hosts in the dedicated host group.
         """

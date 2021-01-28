@@ -11,30 +11,102 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiKeyAuthenticationInvokeResponseResult',
     'ApiKeyAuthenticationResponse',
-    'CloudErrorBodyResponseResult',
+    'CloudErrorBodyInvokeResponseResult',
+    'HealthCheckStepPropertiesInvokeResponseResult',
     'HealthCheckStepPropertiesResponse',
+    'IdentityInvokeResponseResult',
     'IdentityResponse',
-    'MessageResponseResult',
+    'MessageInvokeResponseResult',
+    'PrePostStepInvokeResponseResult',
     'PrePostStepResponse',
-    'ResourceOperationResponseResult',
+    'ResourceOperationInvokeResponseResult',
+    'RestHealthCheckInvokeResponseResult',
     'RestHealthCheckResponse',
+    'RestHealthCheckStepAttributesInvokeResponseResult',
     'RestHealthCheckStepAttributesResponse',
+    'RestRequestInvokeResponseResult',
     'RestRequestResponse',
+    'RestResponseInvokeResponseResult',
+    'RestResponseInvokeResponseRegexResult',
     'RestResponseResponse',
     'RestResponseResponseRegex',
+    'RolloutIdentityAuthenticationInvokeResponseResult',
     'RolloutIdentityAuthenticationResponse',
-    'RolloutOperationInfoResponseResult',
-    'RolloutStepResponseResult',
+    'RolloutOperationInfoInvokeResponseResult',
+    'RolloutStepInvokeResponseResult',
+    'SasAuthenticationInvokeResponseResult',
     'SasAuthenticationResponse',
-    'ServiceResponseResult',
+    'ServiceInvokeResponseResult',
+    'ServiceUnitArtifactsInvokeResponseResult',
     'ServiceUnitArtifactsResponse',
-    'ServiceUnitResponseResult',
+    'ServiceUnitInvokeResponseResult',
+    'StepGroupInvokeResponseResult',
     'StepGroupResponse',
-    'StepOperationInfoResponseResult',
+    'StepOperationInfoInvokeResponseResult',
+    'WaitStepAttributesInvokeResponseResult',
     'WaitStepAttributesResponse',
+    'WaitStepPropertiesInvokeResponseResult',
     'WaitStepPropertiesResponse',
 ]
+
+@pulumi.output_type
+class ApiKeyAuthenticationInvokeResponseResult(dict):
+    """
+    ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+    """
+    def __init__(__self__, *,
+                 in_: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        """
+        ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+        :param str in_: The location of the authentication key/value pair in the request.
+        :param str name: The key name of the authentication key/value pair.
+        :param str type: The authentication type.
+               Expected value is 'ApiKey'.
+        :param str value: The value of the authentication key/value pair.
+        """
+        pulumi.set(__self__, "in_", in_)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'ApiKey')
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="in")
+    def in_(self) -> str:
+        """
+        The location of the authentication key/value pair in the request.
+        """
+        return pulumi.get(self, "in_")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The key name of the authentication key/value pair.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type.
+        Expected value is 'ApiKey'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the authentication key/value pair.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class ApiKeyAuthenticationResponse(dict):
@@ -97,20 +169,20 @@ class ApiKeyAuthenticationResponse(dict):
 
 
 @pulumi.output_type
-class CloudErrorBodyResponseResult(dict):
+class CloudErrorBodyInvokeResponseResult(dict):
     """
     Detailed error information of any failure.
     """
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 details: Optional[Sequence['outputs.CloudErrorBodyResponseResult']] = None,
+                 details: Optional[Sequence['outputs.CloudErrorBodyInvokeResponseResult']] = None,
                  target: Optional[str] = None):
         """
         Detailed error information of any failure.
         :param str code: Error code string.
         :param str message: Descriptive error information.
-        :param Sequence['CloudErrorBodyResponseArgs'] details: More detailed error information.
+        :param Sequence['CloudErrorBodyInvokeResponseArgs'] details: More detailed error information.
         :param str target: Error target
         """
         pulumi.set(__self__, "code", code)
@@ -138,7 +210,7 @@ class CloudErrorBodyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyResponseResult']]:
+    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyInvokeResponseResult']]:
         """
         More detailed error information.
         """
@@ -151,6 +223,41 @@ class CloudErrorBodyResponseResult(dict):
         Error target
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class HealthCheckStepPropertiesInvokeResponseResult(dict):
+    """
+    Defines the properties of a health check step.
+    """
+    def __init__(__self__, *,
+                 attributes: 'outputs.RestHealthCheckStepAttributesInvokeResponseResult',
+                 step_type: str):
+        """
+        Defines the properties of a health check step.
+        :param 'RestHealthCheckStepAttributesInvokeResponseArgs' attributes: The health check step attributes
+        :param str step_type: The type of step.
+               Expected value is 'HealthCheck'.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "step_type", 'HealthCheck')
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> 'outputs.RestHealthCheckStepAttributesInvokeResponseResult':
+        """
+        The health check step attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="stepType")
+    def step_type(self) -> str:
+        """
+        The type of step.
+        Expected value is 'HealthCheck'.
+        """
+        return pulumi.get(self, "step_type")
 
 
 @pulumi.output_type
@@ -192,6 +299,39 @@ class HealthCheckStepPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class IdentityInvokeResponseResult(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        Identity for the resource.
+        :param Sequence[str] identity_ids: The list of identities.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of identities.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -228,7 +368,7 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class MessageResponseResult(dict):
+class MessageInvokeResponseResult(dict):
     """
     Supplementary contextual messages during a rollout.
     """
@@ -261,6 +401,28 @@ class MessageResponseResult(dict):
 
 
 @pulumi.output_type
+class PrePostStepInvokeResponseResult(dict):
+    """
+    The properties that define a step.
+    """
+    def __init__(__self__, *,
+                 step_id: str):
+        """
+        The properties that define a step.
+        :param str step_id: The resource Id of the step to be run.
+        """
+        pulumi.set(__self__, "step_id", step_id)
+
+    @property
+    @pulumi.getter(name="stepId")
+    def step_id(self) -> str:
+        """
+        The resource Id of the step to be run.
+        """
+        return pulumi.get(self, "step_id")
+
+
+@pulumi.output_type
 class PrePostStepResponse(dict):
     """
     The properties that define a step.
@@ -286,7 +448,7 @@ class PrePostStepResponse(dict):
 
 
 @pulumi.output_type
-class ResourceOperationResponseResult(dict):
+class ResourceOperationInvokeResponseResult(dict):
     """
     Individual resource operation information.
     """
@@ -365,6 +527,51 @@ class ResourceOperationResponseResult(dict):
 
 
 @pulumi.output_type
+class RestHealthCheckInvokeResponseResult(dict):
+    """
+    A REST based health check
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 request: 'outputs.RestRequestInvokeResponseResult',
+                 response: Optional['outputs.RestResponseInvokeResponseResult'] = None):
+        """
+        A REST based health check
+        :param str name: A unique name for this check.
+        :param 'RestRequestInvokeResponseArgs' request: The request to the health provider.
+        :param 'RestResponseInvokeResponseArgs' response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "request", request)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A unique name for this check.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def request(self) -> 'outputs.RestRequestInvokeResponseResult':
+        """
+        The request to the health provider.
+        """
+        return pulumi.get(self, "request")
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional['outputs.RestResponseInvokeResponseResult']:
+        """
+        The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        return pulumi.get(self, "response")
+
+
+@pulumi.output_type
 class RestHealthCheckResponse(dict):
     """
     A REST based health check
@@ -410,6 +617,76 @@ class RestHealthCheckResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestHealthCheckStepAttributesInvokeResponseResult(dict):
+    """
+    Defines the REST health check step properties.
+    """
+    def __init__(__self__, *,
+                 health_checks: Sequence['outputs.RestHealthCheckInvokeResponseResult'],
+                 healthy_state_duration: str,
+                 type: str,
+                 max_elastic_duration: Optional[str] = None,
+                 wait_duration: Optional[str] = None):
+        """
+        Defines the REST health check step properties.
+        :param Sequence['RestHealthCheckInvokeResponseArgs'] health_checks: The list of checks that form the health check step.
+        :param str healthy_state_duration: The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+        :param str type: The type of health check.
+               Expected value is 'REST'.
+        :param str max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+        :param str wait_duration: The duration in ISO 8601 format for which health check waits idly without any checks.
+        """
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "healthy_state_duration", healthy_state_duration)
+        pulumi.set(__self__, "type", 'REST')
+        if max_elastic_duration is not None:
+            pulumi.set(__self__, "max_elastic_duration", max_elastic_duration)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Sequence['outputs.RestHealthCheckInvokeResponseResult']:
+        """
+        The list of checks that form the health check step.
+        """
+        return pulumi.get(self, "health_checks")
+
+    @property
+    @pulumi.getter(name="healthyStateDuration")
+    def healthy_state_duration(self) -> str:
+        """
+        The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+        """
+        return pulumi.get(self, "healthy_state_duration")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of health check.
+        Expected value is 'REST'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="maxElasticDuration")
+    def max_elastic_duration(self) -> Optional[str]:
+        """
+        The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+        """
+        return pulumi.get(self, "max_elastic_duration")
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[str]:
+        """
+        The duration in ISO 8601 format for which health check waits idly without any checks.
+        """
+        return pulumi.get(self, "wait_duration")
 
 
 @pulumi.output_type
@@ -486,6 +763,50 @@ class RestHealthCheckStepAttributesResponse(dict):
 
 
 @pulumi.output_type
+class RestRequestInvokeResponseResult(dict):
+    """
+    The properties that make up a REST request
+    """
+    def __init__(__self__, *,
+                 authentication: Any,
+                 method: str,
+                 uri: str):
+        """
+        The properties that make up a REST request
+        :param Union['ApiKeyAuthenticationInvokeResponseArgs', 'RolloutIdentityAuthenticationInvokeResponseArgs'] authentication: The authentication information required in the request to the health provider.
+        :param str method: The HTTP method to use for the request.
+        :param str uri: The HTTP URI to use for the request.
+        """
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Any:
+        """
+        The authentication information required in the request to the health provider.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        The HTTP method to use for the request.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The HTTP URI to use for the request.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
 class RestRequestResponse(dict):
     """
     The properties that make up a REST request
@@ -530,6 +851,76 @@ class RestRequestResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestResponseInvokeResponseResult(dict):
+    """
+    The properties that make up the expected REST response
+    """
+    def __init__(__self__, *,
+                 regex: Optional['outputs.RestResponseInvokeResponseRegexResult'] = None,
+                 success_status_codes: Optional[Sequence[str]] = None):
+        """
+        The properties that make up the expected REST response
+        :param 'RestResponseInvokeResponseRegexArgs' regex: The regular expressions to match the response content with.
+        :param Sequence[str] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if success_status_codes is not None:
+            pulumi.set(__self__, "success_status_codes", success_status_codes)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional['outputs.RestResponseInvokeResponseRegexResult']:
+        """
+        The regular expressions to match the response content with.
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter(name="successStatusCodes")
+    def success_status_codes(self) -> Optional[Sequence[str]]:
+        """
+        The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        return pulumi.get(self, "success_status_codes")
+
+
+@pulumi.output_type
+class RestResponseInvokeResponseRegexResult(dict):
+    """
+    The regular expressions to match the response content with.
+    """
+    def __init__(__self__, *,
+                 match_quantifier: Optional[str] = None,
+                 matches: Optional[Sequence[str]] = None):
+        """
+        The regular expressions to match the response content with.
+        :param str match_quantifier: Indicates whether any or all of the expressions should match with the response content.
+        :param Sequence[str] matches: The list of regular expressions.
+        """
+        if match_quantifier is not None:
+            pulumi.set(__self__, "match_quantifier", match_quantifier)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+
+    @property
+    @pulumi.getter(name="matchQuantifier")
+    def match_quantifier(self) -> Optional[str]:
+        """
+        Indicates whether any or all of the expressions should match with the response content.
+        """
+        return pulumi.get(self, "match_quantifier")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Optional[Sequence[str]]:
+        """
+        The list of regular expressions.
+        """
+        return pulumi.get(self, "matches")
 
 
 @pulumi.output_type
@@ -609,6 +1000,30 @@ class RestResponseResponseRegex(dict):
 
 
 @pulumi.output_type
+class RolloutIdentityAuthenticationInvokeResponseResult(dict):
+    """
+    RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+        :param str type: The authentication type.
+               Expected value is 'RolloutIdentity'.
+        """
+        pulumi.set(__self__, "type", 'RolloutIdentity')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type.
+        Expected value is 'RolloutIdentity'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RolloutIdentityAuthenticationResponse(dict):
     """
     RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
@@ -636,20 +1051,20 @@ class RolloutIdentityAuthenticationResponse(dict):
 
 
 @pulumi.output_type
-class RolloutOperationInfoResponseResult(dict):
+class RolloutOperationInfoInvokeResponseResult(dict):
     """
     Detailed runtime information of the rollout.
     """
     def __init__(__self__, *,
                  end_time: str,
-                 error: 'outputs.CloudErrorBodyResponseResult',
+                 error: 'outputs.CloudErrorBodyInvokeResponseResult',
                  retry_attempt: int,
                  skip_succeeded_on_retry: bool,
                  start_time: str):
         """
         Detailed runtime information of the rollout.
         :param str end_time: The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
-        :param 'CloudErrorBodyResponseArgs' error: The detailed error information for any failure.
+        :param 'CloudErrorBodyInvokeResponseArgs' error: The detailed error information for any failure.
         :param int retry_attempt: The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
         :param bool skip_succeeded_on_retry: True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
         :param str start_time: The start time of the rollout in UTC.
@@ -670,7 +1085,7 @@ class RolloutOperationInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.CloudErrorBodyResponseResult':
+    def error(self) -> 'outputs.CloudErrorBodyInvokeResponseResult':
         """
         The detailed error information for any failure.
         """
@@ -702,23 +1117,23 @@ class RolloutOperationInfoResponseResult(dict):
 
 
 @pulumi.output_type
-class RolloutStepResponseResult(dict):
+class RolloutStepInvokeResponseResult(dict):
     """
     Defines a specific step on a target service unit.
     """
     def __init__(__self__, *,
-                 messages: Sequence['outputs.MessageResponseResult'],
+                 messages: Sequence['outputs.MessageInvokeResponseResult'],
                  name: str,
-                 operation_info: 'outputs.StepOperationInfoResponseResult',
-                 resource_operations: Sequence['outputs.ResourceOperationResponseResult'],
+                 operation_info: 'outputs.StepOperationInfoInvokeResponseResult',
+                 resource_operations: Sequence['outputs.ResourceOperationInvokeResponseResult'],
                  status: str,
                  step_group: Optional[str] = None):
         """
         Defines a specific step on a target service unit.
-        :param Sequence['MessageResponseArgs'] messages: Supplementary informative messages during rollout.
+        :param Sequence['MessageInvokeResponseArgs'] messages: Supplementary informative messages during rollout.
         :param str name: Name of the step.
-        :param 'StepOperationInfoResponseArgs' operation_info: Detailed information of specific action execution.
-        :param Sequence['ResourceOperationResponseArgs'] resource_operations: Set of resource operations that were performed, if any, on an Azure resource.
+        :param 'StepOperationInfoInvokeResponseArgs' operation_info: Detailed information of specific action execution.
+        :param Sequence['ResourceOperationInvokeResponseArgs'] resource_operations: Set of resource operations that were performed, if any, on an Azure resource.
         :param str status: Current state of the step.
         :param str step_group: The step group the current step is part of.
         """
@@ -732,7 +1147,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter
-    def messages(self) -> Sequence['outputs.MessageResponseResult']:
+    def messages(self) -> Sequence['outputs.MessageInvokeResponseResult']:
         """
         Supplementary informative messages during rollout.
         """
@@ -748,7 +1163,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter(name="operationInfo")
-    def operation_info(self) -> 'outputs.StepOperationInfoResponseResult':
+    def operation_info(self) -> 'outputs.StepOperationInfoInvokeResponseResult':
         """
         Detailed information of specific action execution.
         """
@@ -756,7 +1171,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter(name="resourceOperations")
-    def resource_operations(self) -> Sequence['outputs.ResourceOperationResponseResult']:
+    def resource_operations(self) -> Sequence['outputs.ResourceOperationInvokeResponseResult']:
         """
         Set of resource operations that were performed, if any, on an Azure resource.
         """
@@ -777,6 +1192,41 @@ class RolloutStepResponseResult(dict):
         The step group the current step is part of.
         """
         return pulumi.get(self, "step_group")
+
+
+@pulumi.output_type
+class SasAuthenticationInvokeResponseResult(dict):
+    """
+    Defines the properties to access the artifacts using an Azure Storage SAS URI.
+    """
+    def __init__(__self__, *,
+                 sas_uri: str,
+                 type: str):
+        """
+        Defines the properties to access the artifacts using an Azure Storage SAS URI.
+        :param str sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        :param str type: The authentication type
+               Expected value is 'Sas'.
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+        pulumi.set(__self__, "type", 'Sas')
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> str:
+        """
+        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type
+        Expected value is 'Sas'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -818,7 +1268,7 @@ class SasAuthenticationResponse(dict):
 
 
 @pulumi.output_type
-class ServiceResponseResult(dict):
+class ServiceInvokeResponseResult(dict):
     """
     Defines a service.
     """
@@ -826,13 +1276,13 @@ class ServiceResponseResult(dict):
                  target_location: str,
                  target_subscription_id: str,
                  name: Optional[str] = None,
-                 service_units: Optional[Sequence['outputs.ServiceUnitResponseResult']] = None):
+                 service_units: Optional[Sequence['outputs.ServiceUnitInvokeResponseResult']] = None):
         """
         Defines a service.
         :param str target_location: The Azure location to which the resources in the service belong to or should be deployed to.
         :param str target_subscription_id: The subscription to which the resources in the service belong to or should be deployed to.
         :param str name: Name of the service.
-        :param Sequence['ServiceUnitResponseArgs'] service_units: The detailed information about the units that make up the service.
+        :param Sequence['ServiceUnitInvokeResponseArgs'] service_units: The detailed information about the units that make up the service.
         """
         pulumi.set(__self__, "target_location", target_location)
         pulumi.set(__self__, "target_subscription_id", target_subscription_id)
@@ -867,11 +1317,70 @@ class ServiceResponseResult(dict):
 
     @property
     @pulumi.getter(name="serviceUnits")
-    def service_units(self) -> Optional[Sequence['outputs.ServiceUnitResponseResult']]:
+    def service_units(self) -> Optional[Sequence['outputs.ServiceUnitInvokeResponseResult']]:
         """
         The detailed information about the units that make up the service.
         """
         return pulumi.get(self, "service_units")
+
+
+@pulumi.output_type
+class ServiceUnitArtifactsInvokeResponseResult(dict):
+    """
+    Defines the artifacts of a service unit.
+    """
+    def __init__(__self__, *,
+                 parameters_artifact_source_relative_path: Optional[str] = None,
+                 parameters_uri: Optional[str] = None,
+                 template_artifact_source_relative_path: Optional[str] = None,
+                 template_uri: Optional[str] = None):
+        """
+        Defines the artifacts of a service unit.
+        :param str parameters_artifact_source_relative_path: The path to the ARM parameters file relative to the artifact source.
+        :param str parameters_uri: The full URI of the ARM parameters file with the SAS token.
+        :param str template_artifact_source_relative_path: The path to the ARM template file relative to the artifact source.
+        :param str template_uri: The full URI of the ARM template file with the SAS token.
+        """
+        if parameters_artifact_source_relative_path is not None:
+            pulumi.set(__self__, "parameters_artifact_source_relative_path", parameters_artifact_source_relative_path)
+        if parameters_uri is not None:
+            pulumi.set(__self__, "parameters_uri", parameters_uri)
+        if template_artifact_source_relative_path is not None:
+            pulumi.set(__self__, "template_artifact_source_relative_path", template_artifact_source_relative_path)
+        if template_uri is not None:
+            pulumi.set(__self__, "template_uri", template_uri)
+
+    @property
+    @pulumi.getter(name="parametersArtifactSourceRelativePath")
+    def parameters_artifact_source_relative_path(self) -> Optional[str]:
+        """
+        The path to the ARM parameters file relative to the artifact source.
+        """
+        return pulumi.get(self, "parameters_artifact_source_relative_path")
+
+    @property
+    @pulumi.getter(name="parametersUri")
+    def parameters_uri(self) -> Optional[str]:
+        """
+        The full URI of the ARM parameters file with the SAS token.
+        """
+        return pulumi.get(self, "parameters_uri")
+
+    @property
+    @pulumi.getter(name="templateArtifactSourceRelativePath")
+    def template_artifact_source_relative_path(self) -> Optional[str]:
+        """
+        The path to the ARM template file relative to the artifact source.
+        """
+        return pulumi.get(self, "template_artifact_source_relative_path")
+
+    @property
+    @pulumi.getter(name="templateUri")
+    def template_uri(self) -> Optional[str]:
+        """
+        The full URI of the ARM template file with the SAS token.
+        """
+        return pulumi.get(self, "template_uri")
 
 
 @pulumi.output_type
@@ -937,23 +1446,23 @@ class ServiceUnitArtifactsResponse(dict):
 
 
 @pulumi.output_type
-class ServiceUnitResponseResult(dict):
+class ServiceUnitInvokeResponseResult(dict):
     """
     Defines a service unit.
     """
     def __init__(__self__, *,
                  deployment_mode: str,
                  target_resource_group: str,
-                 artifacts: Optional['outputs.ServiceUnitArtifactsResponse'] = None,
+                 artifacts: Optional['outputs.ServiceUnitArtifactsInvokeResponseResult'] = None,
                  name: Optional[str] = None,
-                 steps: Optional[Sequence['outputs.RolloutStepResponseResult']] = None):
+                 steps: Optional[Sequence['outputs.RolloutStepInvokeResponseResult']] = None):
         """
         Defines a service unit.
         :param str deployment_mode: Describes the type of ARM deployment to be performed on the resource.
         :param str target_resource_group: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-        :param 'ServiceUnitArtifactsResponseArgs' artifacts: The artifacts for the service unit.
+        :param 'ServiceUnitArtifactsInvokeResponseArgs' artifacts: The artifacts for the service unit.
         :param str name: Name of the service unit.
-        :param Sequence['RolloutStepResponseArgs'] steps: Detailed step information, if present.
+        :param Sequence['RolloutStepInvokeResponseArgs'] steps: Detailed step information, if present.
         """
         pulumi.set(__self__, "deployment_mode", deployment_mode)
         pulumi.set(__self__, "target_resource_group", target_resource_group)
@@ -982,7 +1491,7 @@ class ServiceUnitResponseResult(dict):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional['outputs.ServiceUnitArtifactsResponse']:
+    def artifacts(self) -> Optional['outputs.ServiceUnitArtifactsInvokeResponseResult']:
         """
         The artifacts for the service unit.
         """
@@ -998,11 +1507,80 @@ class ServiceUnitResponseResult(dict):
 
     @property
     @pulumi.getter
-    def steps(self) -> Optional[Sequence['outputs.RolloutStepResponseResult']]:
+    def steps(self) -> Optional[Sequence['outputs.RolloutStepInvokeResponseResult']]:
         """
         Detailed step information, if present.
         """
         return pulumi.get(self, "steps")
+
+
+@pulumi.output_type
+class StepGroupInvokeResponseResult(dict):
+    """
+    The properties that define a Step group in a rollout.
+    """
+    def __init__(__self__, *,
+                 deployment_target_id: str,
+                 name: str,
+                 depends_on_step_groups: Optional[Sequence[str]] = None,
+                 post_deployment_steps: Optional[Sequence['outputs.PrePostStepInvokeResponseResult']] = None,
+                 pre_deployment_steps: Optional[Sequence['outputs.PrePostStepInvokeResponseResult']] = None):
+        """
+        The properties that define a Step group in a rollout.
+        :param str deployment_target_id: The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
+        :param str name: The name of the step group.
+        :param Sequence[str] depends_on_step_groups: The list of step group names on which this step group depends on.
+        :param Sequence['PrePostStepInvokeResponseArgs'] post_deployment_steps: The list of steps to be run after deploying the target.
+        :param Sequence['PrePostStepInvokeResponseArgs'] pre_deployment_steps: The list of steps to be run before deploying the target.
+        """
+        pulumi.set(__self__, "deployment_target_id", deployment_target_id)
+        pulumi.set(__self__, "name", name)
+        if depends_on_step_groups is not None:
+            pulumi.set(__self__, "depends_on_step_groups", depends_on_step_groups)
+        if post_deployment_steps is not None:
+            pulumi.set(__self__, "post_deployment_steps", post_deployment_steps)
+        if pre_deployment_steps is not None:
+            pulumi.set(__self__, "pre_deployment_steps", pre_deployment_steps)
+
+    @property
+    @pulumi.getter(name="deploymentTargetId")
+    def deployment_target_id(self) -> str:
+        """
+        The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
+        """
+        return pulumi.get(self, "deployment_target_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the step group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="dependsOnStepGroups")
+    def depends_on_step_groups(self) -> Optional[Sequence[str]]:
+        """
+        The list of step group names on which this step group depends on.
+        """
+        return pulumi.get(self, "depends_on_step_groups")
+
+    @property
+    @pulumi.getter(name="postDeploymentSteps")
+    def post_deployment_steps(self) -> Optional[Sequence['outputs.PrePostStepInvokeResponseResult']]:
+        """
+        The list of steps to be run after deploying the target.
+        """
+        return pulumi.get(self, "post_deployment_steps")
+
+    @property
+    @pulumi.getter(name="preDeploymentSteps")
+    def pre_deployment_steps(self) -> Optional[Sequence['outputs.PrePostStepInvokeResponseResult']]:
+        """
+        The list of steps to be run before deploying the target.
+        """
+        return pulumi.get(self, "pre_deployment_steps")
 
 
 @pulumi.output_type
@@ -1078,7 +1656,7 @@ class StepGroupResponse(dict):
 
 
 @pulumi.output_type
-class StepOperationInfoResponseResult(dict):
+class StepOperationInfoInvokeResponseResult(dict):
     """
     Detailed information of a specific step run.
     """
@@ -1088,7 +1666,7 @@ class StepOperationInfoResponseResult(dict):
                  end_time: str,
                  last_updated_time: str,
                  start_time: str,
-                 error: Optional['outputs.CloudErrorBodyResponseResult'] = None):
+                 error: Optional['outputs.CloudErrorBodyInvokeResponseResult'] = None):
         """
         Detailed information of a specific step run.
         :param str correlation_id: Unique identifier to track the request for ARM-based resources.
@@ -1096,7 +1674,7 @@ class StepOperationInfoResponseResult(dict):
         :param str end_time: End time of the action in UTC.
         :param str last_updated_time: Last time in UTC this operation was updated.
         :param str start_time: Start time of the action in UTC.
-        :param 'CloudErrorBodyResponseArgs' error: The errors, if any, for the action.
+        :param 'CloudErrorBodyInvokeResponseArgs' error: The errors, if any, for the action.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
         pulumi.set(__self__, "deployment_name", deployment_name)
@@ -1148,11 +1726,33 @@ class StepOperationInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.CloudErrorBodyResponseResult']:
+    def error(self) -> Optional['outputs.CloudErrorBodyInvokeResponseResult']:
         """
         The errors, if any, for the action.
         """
         return pulumi.get(self, "error")
+
+
+@pulumi.output_type
+class WaitStepAttributesInvokeResponseResult(dict):
+    """
+    The parameters for the wait step.
+    """
+    def __init__(__self__, *,
+                 duration: str):
+        """
+        The parameters for the wait step.
+        :param str duration: The duration in ISO 8601 format of how long the wait should be.
+        """
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration in ISO 8601 format of how long the wait should be.
+        """
+        return pulumi.get(self, "duration")
 
 
 @pulumi.output_type
@@ -1178,6 +1778,41 @@ class WaitStepAttributesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WaitStepPropertiesInvokeResponseResult(dict):
+    """
+    Defines the properties of a Wait step.
+    """
+    def __init__(__self__, *,
+                 attributes: 'outputs.WaitStepAttributesInvokeResponseResult',
+                 step_type: str):
+        """
+        Defines the properties of a Wait step.
+        :param 'WaitStepAttributesInvokeResponseArgs' attributes: The Wait attributes
+        :param str step_type: The type of step.
+               Expected value is 'Wait'.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "step_type", 'Wait')
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> 'outputs.WaitStepAttributesInvokeResponseResult':
+        """
+        The Wait attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="stepType")
+    def step_type(self) -> str:
+        """
+        The type of step.
+        Expected value is 'Wait'.
+        """
+        return pulumi.get(self, "step_type")
 
 
 @pulumi.output_type

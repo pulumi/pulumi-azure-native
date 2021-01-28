@@ -64,7 +64,7 @@ class GetConnectionTypeResult:
 
     @property
     @pulumi.getter(name="fieldDefinitions")
-    def field_definitions(self) -> Mapping[str, 'outputs.FieldDefinitionResponse']:
+    def field_definitions(self) -> Mapping[str, 'outputs.FieldDefinitionInvokeResponseResult']:
         """
         Gets the field definitions of the connection type.
         """

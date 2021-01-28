@@ -94,7 +94,7 @@ class GetVendorSkusResult:
 
     @property
     @pulumi.getter(name="networkFunctionTemplate")
-    def network_function_template(self) -> Optional['outputs.NetworkFunctionTemplateResponse']:
+    def network_function_template(self) -> Optional['outputs.NetworkFunctionTemplateInvokeResponseResult']:
         """
         The template definition of the network function.
         """

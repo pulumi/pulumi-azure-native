@@ -73,7 +73,7 @@ class GetIntegrationAccountMapResult:
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> 'outputs.IntegrationAccountContentLinkResponse':
+    def content_link(self) -> 'outputs.IntegrationAccountContentLinkInvokeResponseResult':
         """
         The content link.
         """

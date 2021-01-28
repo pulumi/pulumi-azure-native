@@ -60,7 +60,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Sequence['outputs.ContainerServiceAgentPoolProfileResponse']:
+    def agent_pool_profiles(self) -> Sequence['outputs.ContainerServiceAgentPoolProfileInvokeResponseResult']:
         """
         Properties of agent pools
         """
@@ -68,7 +68,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
-    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileResponse']:
+    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileInvokeResponseResult']:
         """
         Properties for Diagnostic Agent
         """
@@ -84,7 +84,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileResponse':
+    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileInvokeResponseResult':
         """
         Properties for Linux VMs
         """
@@ -100,7 +100,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="masterProfile")
-    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileResponse':
+    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileInvokeResponseResult':
         """
         Properties of master agents
         """
@@ -116,7 +116,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="orchestratorProfile")
-    def orchestrator_profile(self) -> Optional['outputs.ContainerServiceOrchestratorProfileResponse']:
+    def orchestrator_profile(self) -> Optional['outputs.ContainerServiceOrchestratorProfileInvokeResponseResult']:
         """
         Properties of orchestrator
         """
@@ -148,7 +148,7 @@ class GetContainerServiceResult:
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileResponse']:
+    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileInvokeResponseResult']:
         """
         Properties of Windows VMs
         """

@@ -75,7 +75,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="additionalWorkspaces")
-    def additional_workspaces(self) -> Optional[Sequence['outputs.AdditionalWorkspacesPropertiesResponse']]:
+    def additional_workspaces(self) -> Optional[Sequence['outputs.AdditionalWorkspacesPropertiesInvokeResponseResult']]:
         """
         List of additional workspaces
         """
@@ -147,7 +147,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="recommendationsConfiguration")
-    def recommendations_configuration(self) -> Optional[Sequence['outputs.RecommendationConfigurationPropertiesResponse']]:
+    def recommendations_configuration(self) -> Optional[Sequence['outputs.RecommendationConfigurationPropertiesInvokeResponseResult']]:
         """
         List of the configuration status for each recommendation type.
         """
@@ -163,7 +163,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -195,7 +195,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="userDefinedResources")
-    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesResponse']:
+    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesInvokeResponseResult']:
         """
         Properties of the IoT Security solution's user defined resources.
         """

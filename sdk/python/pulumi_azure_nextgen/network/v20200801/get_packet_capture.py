@@ -70,7 +70,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[Sequence['outputs.PacketCaptureFilterResponse']]:
+    def filters(self) -> Optional[Sequence['outputs.PacketCaptureFilterInvokeResponseResult']]:
         """
         A list of packet capture filters.
         """
@@ -102,7 +102,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationResponse':
+    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationInvokeResponseResult':
         """
         The storage location for a packet capture session.
         """

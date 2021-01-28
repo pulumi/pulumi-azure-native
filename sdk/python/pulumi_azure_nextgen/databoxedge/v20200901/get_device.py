@@ -174,7 +174,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="edgeProfile")
-    def edge_profile(self) -> Optional['outputs.EdgeProfileResponse']:
+    def edge_profile(self) -> Optional['outputs.EdgeProfileInvokeResponseResult']:
         """
         The details of Edge Profile for this resource
         """
@@ -206,7 +206,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         Msi identity of the resource
         """
@@ -254,7 +254,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="resourceMoveDetails")
-    def resource_move_details(self) -> Optional['outputs.ResourceMoveDetailsResponse']:
+    def resource_move_details(self) -> Optional['outputs.ResourceMoveDetailsInvokeResponseResult']:
         """
         The details of the move operation on this resource.
         """
@@ -270,7 +270,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU type.
         """
@@ -278,7 +278,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         DataBoxEdge Resource
         """

@@ -80,7 +80,7 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+    def private_endpoint(self) -> 'outputs.PrivateEndpointInvokeResponseResult':
         """
         The resource of private end point.
         """
@@ -88,7 +88,7 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateInvokeResponseResult']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """

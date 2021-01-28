@@ -70,7 +70,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="currentSpend")
-    def current_spend(self) -> 'outputs.CurrentSpendResponse':
+    def current_spend(self) -> 'outputs.CurrentSpendInvokeResponseResult':
         """
         The current amount of cost which is being tracked for a budget.
         """
@@ -102,7 +102,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[Mapping[str, 'outputs.NotificationResponse']]:
+    def notifications(self) -> Optional[Mapping[str, 'outputs.NotificationInvokeResponseResult']]:
         """
         Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         """
@@ -118,7 +118,7 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> 'outputs.BudgetTimePeriodResponse':
+    def time_period(self) -> 'outputs.BudgetTimePeriodInvokeResponseResult':
         """
         Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """

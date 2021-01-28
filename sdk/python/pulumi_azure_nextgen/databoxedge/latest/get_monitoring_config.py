@@ -44,7 +44,7 @@ class GetMonitoringConfigResult:
 
     @property
     @pulumi.getter(name="metricConfigurations")
-    def metric_configurations(self) -> Sequence['outputs.MetricConfigurationResponse']:
+    def metric_configurations(self) -> Sequence['outputs.MetricConfigurationInvokeResponseResult']:
         """
         The metrics configuration details
         """

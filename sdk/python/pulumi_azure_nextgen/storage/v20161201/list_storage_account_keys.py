@@ -27,7 +27,7 @@ class ListStorageAccountKeysResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> Sequence['outputs.StorageAccountKeyResponseResult']:
+    def keys(self) -> Sequence['outputs.StorageAccountKeyInvokeResponseResult']:
         """
         Gets the list of storage account keys and their properties for the specified storage account.
         """

@@ -88,7 +88,7 @@ class GetAutomationAccountResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionPropertiesInvokeResponseResult']:
         """
         Encryption properties for the automation account
         """
@@ -112,7 +112,7 @@ class GetAutomationAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -152,7 +152,7 @@ class GetAutomationAccountResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']]:
         """
         List of Automation operations supported by the Automation resource provider.
         """
@@ -168,7 +168,7 @@ class GetAutomationAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Gets or sets the SKU of account.
         """

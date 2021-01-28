@@ -83,7 +83,7 @@ class GetPython2PackageResult:
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> Optional['outputs.ContentLinkResponse']:
+    def content_link(self) -> Optional['outputs.ContentLinkInvokeResponseResult']:
         """
         Gets or sets the contentLink of the module.
         """
@@ -107,7 +107,7 @@ class GetPython2PackageResult:
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ModuleErrorInfoResponse']:
+    def error(self) -> Optional['outputs.ModuleErrorInfoInvokeResponseResult']:
         """
         Gets or sets the error info of the module.
         """

@@ -107,7 +107,7 @@ class GetHubVirtualNetworkConnectionResult:
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def remote_virtual_network(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Reference to the remote virtual network.
         """
@@ -115,7 +115,7 @@ class GetHubVirtualNetworkConnectionResult:
 
     @property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
+    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationInvokeResponseResult']:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

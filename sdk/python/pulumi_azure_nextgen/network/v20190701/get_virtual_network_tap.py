@@ -60,7 +60,7 @@ class GetVirtualNetworkTapResult:
 
     @property
     @pulumi.getter(name="destinationLoadBalancerFrontEndIPConfiguration")
-    def destination_load_balancer_front_end_ip_configuration(self) -> Optional['outputs.FrontendIPConfigurationResponse']:
+    def destination_load_balancer_front_end_ip_configuration(self) -> Optional['outputs.FrontendIPConfigurationInvokeResponseResult']:
         """
         The reference to the private IP address on the internal Load Balancer that will receive the tap.
         """
@@ -68,7 +68,7 @@ class GetVirtualNetworkTapResult:
 
     @property
     @pulumi.getter(name="destinationNetworkInterfaceIPConfiguration")
-    def destination_network_interface_ip_configuration(self) -> Optional['outputs.NetworkInterfaceIPConfigurationResponse']:
+    def destination_network_interface_ip_configuration(self) -> Optional['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']:
         """
         The reference to the private IP Address of the collector nic that will receive the tap.
         """
@@ -116,7 +116,7 @@ class GetVirtualNetworkTapResult:
 
     @property
     @pulumi.getter(name="networkInterfaceTapConfigurations")
-    def network_interface_tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationResponse']:
+    def network_interface_tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationInvokeResponseResult']:
         """
         Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         """

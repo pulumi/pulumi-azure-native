@@ -63,7 +63,7 @@ class GetGuestConfigurationHCRPAssignmentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GuestConfigurationAssignmentPropertiesResponse':
+    def properties(self) -> 'outputs.GuestConfigurationAssignmentPropertiesInvokeResponseResult':
         """
         Properties of the Guest configuration assignment.
         """

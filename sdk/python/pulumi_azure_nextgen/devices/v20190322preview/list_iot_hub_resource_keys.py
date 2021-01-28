@@ -38,7 +38,7 @@ class ListIotHubResourceKeysResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleResponse']]:
+    def value(self) -> Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleInvokeResponseResult']]:
         """
         The list of shared access policies.
         """

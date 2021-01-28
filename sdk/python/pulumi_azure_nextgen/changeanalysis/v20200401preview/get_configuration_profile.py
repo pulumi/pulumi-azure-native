@@ -50,7 +50,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The identity block returned by ARM resource that supports managed identity.
         """
@@ -66,7 +66,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConfigurationProfileResourcePropertiesResponse':
+    def properties(self) -> 'outputs.ConfigurationProfileResourcePropertiesInvokeResponseResult':
         """
         The properties of a configuration profile.
         """
@@ -74,7 +74,7 @@ class GetConfigurationProfileResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+    def system_data(self) -> Optional['outputs.SystemDataInvokeResponseResult']:
         """
         Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         """

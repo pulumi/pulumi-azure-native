@@ -54,7 +54,7 @@ class GetLoadBalancerBackendAddressPoolResult:
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
-    def backend_ip_configurations(self) -> Sequence['outputs.NetworkInterfaceIPConfigurationResponse']:
+    def backend_ip_configurations(self) -> Sequence['outputs.NetworkInterfaceIPConfigurationInvokeResponseResult']:
         """
         An array of references to IP addresses defined in network interfaces.
         """
@@ -78,7 +78,7 @@ class GetLoadBalancerBackendAddressPoolResult:
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddresses")
-    def load_balancer_backend_addresses(self) -> Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']]:
+    def load_balancer_backend_addresses(self) -> Optional[Sequence['outputs.LoadBalancerBackendAddressInvokeResponseResult']]:
         """
         An array of backend addresses.
         """
@@ -86,7 +86,7 @@ class GetLoadBalancerBackendAddressPoolResult:
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Sequence['outputs.SubResourceResponse']:
+    def load_balancing_rules(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         An array of references to load balancing rules that use this backend address pool.
         """
@@ -102,7 +102,7 @@ class GetLoadBalancerBackendAddressPoolResult:
 
     @property
     @pulumi.getter(name="outboundRule")
-    def outbound_rule(self) -> 'outputs.SubResourceResponse':
+    def outbound_rule(self) -> 'outputs.SubResourceInvokeResponseResult':
         """
         A reference to an outbound rule that uses this backend address pool.
         """
@@ -110,7 +110,7 @@ class GetLoadBalancerBackendAddressPoolResult:
 
     @property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> Sequence['outputs.SubResourceResponse']:
+    def outbound_rules(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         An array of references to outbound rules that use this backend address pool.
         """

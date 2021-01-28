@@ -99,7 +99,7 @@ class GetVirtualHubIpConfigurationResult:
 
     @property
     @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+    def public_ip_address(self) -> Optional['outputs.PublicIPAddressInvokeResponseResult']:
         """
         The reference to the public IP resource.
         """
@@ -107,7 +107,7 @@ class GetVirtualHubIpConfigurationResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubnetResponse']:
+    def subnet(self) -> Optional['outputs.SubnetInvokeResponseResult']:
         """
         The reference to the subnet resource.
         """

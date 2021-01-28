@@ -63,7 +63,7 @@ class GetManagementConfigurationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ManagementConfigurationPropertiesResponse':
+    def properties(self) -> 'outputs.ManagementConfigurationPropertiesInvokeResponseResult':
         """
         Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
         """

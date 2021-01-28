@@ -52,7 +52,7 @@ class GetConfigurationProfileAssignmentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConfigurationProfileAssignmentPropertiesResponse':
+    def properties(self) -> 'outputs.ConfigurationProfileAssignmentPropertiesInvokeResponseResult':
         """
         Properties of the configuration profile assignment.
         """

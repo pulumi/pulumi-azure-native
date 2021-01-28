@@ -81,7 +81,7 @@ class GetAdaptiveApplicationControlResult:
 
     @property
     @pulumi.getter
-    def issues(self) -> Optional[Sequence['outputs.AppWhitelistingIssueSummaryResponse']]:
+    def issues(self) -> Optional[Sequence['outputs.AppWhitelistingIssueSummaryInvokeResponseResult']]:
         return pulumi.get(self, "issues")
 
     @property
@@ -102,12 +102,12 @@ class GetAdaptiveApplicationControlResult:
 
     @property
     @pulumi.getter(name="pathRecommendations")
-    def path_recommendations(self) -> Optional[Sequence['outputs.PathRecommendationResponse']]:
+    def path_recommendations(self) -> Optional[Sequence['outputs.PathRecommendationInvokeResponseResult']]:
         return pulumi.get(self, "path_recommendations")
 
     @property
     @pulumi.getter(name="protectionMode")
-    def protection_mode(self) -> Optional['outputs.ProtectionModeResponse']:
+    def protection_mode(self) -> Optional['outputs.ProtectionModeInvokeResponseResult']:
         """
         The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
@@ -139,7 +139,7 @@ class GetAdaptiveApplicationControlResult:
 
     @property
     @pulumi.getter(name="vmRecommendations")
-    def vm_recommendations(self) -> Optional[Sequence['outputs.VmRecommendationResponse']]:
+    def vm_recommendations(self) -> Optional[Sequence['outputs.VmRecommendationInvokeResponseResult']]:
         return pulumi.get(self, "vm_recommendations")
 
 

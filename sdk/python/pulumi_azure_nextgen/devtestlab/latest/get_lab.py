@@ -99,7 +99,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter
-    def announcement(self) -> Optional['outputs.LabAnnouncementPropertiesResponse']:
+    def announcement(self) -> Optional['outputs.LabAnnouncementPropertiesInvokeResponseResult']:
         """
         The properties of any lab announcement associated with this lab
         """
@@ -253,7 +253,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter
-    def support(self) -> Optional['outputs.LabSupportPropertiesResponse']:
+    def support(self) -> Optional['outputs.LabSupportPropertiesInvokeResponseResult']:
         """
         The properties of any lab support message associated with this lab
         """

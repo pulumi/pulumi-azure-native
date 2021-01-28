@@ -53,7 +53,7 @@ class GetSqlResourceSqlUserDefinedFunctionResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -77,7 +77,7 @@ class GetSqlResourceSqlUserDefinedFunctionResult:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.SqlUserDefinedFunctionGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.SqlUserDefinedFunctionGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property

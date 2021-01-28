@@ -128,7 +128,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> 'outputs.EncryptionConfigResponse':
+    def encryption_config(self) -> 'outputs.EncryptionConfigInvokeResponseResult':
         """
         The Key Vault encryption configuration.
         """
@@ -168,7 +168,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Sequence['outputs.FirewallRuleResponse']:
+    def firewall_rules(self) -> Sequence['outputs.FirewallRuleInvokeResponseResult']:
         """
         The list of firewall rules associated with this Data Lake Store account.
         """
@@ -192,7 +192,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.EncryptionIdentityResponse':
+    def identity(self) -> 'outputs.EncryptionIdentityInvokeResponseResult':
         """
         The Key Vault encryption identity, if any.
         """
@@ -264,7 +264,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="trustedIdProviders")
-    def trusted_id_providers(self) -> Sequence['outputs.TrustedIdProviderResponse']:
+    def trusted_id_providers(self) -> Sequence['outputs.TrustedIdProviderInvokeResponseResult']:
         """
         The list of trusted identity providers associated with this Data Lake Store account.
         """
@@ -280,7 +280,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Sequence['outputs.VirtualNetworkRuleResponse']:
+    def virtual_network_rules(self) -> Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']:
         """
         The list of virtual network rules associated with this Data Lake Store account.
         """

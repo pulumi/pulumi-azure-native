@@ -64,7 +64,7 @@ class GetMoveCollectionResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         Defines the MSI properties of the Move Collection.
         """
@@ -88,7 +88,7 @@ class GetMoveCollectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MoveCollectionPropertiesResponse':
+    def properties(self) -> 'outputs.MoveCollectionPropertiesInvokeResponseResult':
         """
         Defines the move collection properties.
         """

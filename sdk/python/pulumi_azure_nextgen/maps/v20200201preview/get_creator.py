@@ -66,7 +66,7 @@ class GetCreatorResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CreatorPropertiesResponse':
+    def properties(self) -> 'outputs.CreatorPropertiesInvokeResponseResult':
         """
         The Creator resource properties.
         """

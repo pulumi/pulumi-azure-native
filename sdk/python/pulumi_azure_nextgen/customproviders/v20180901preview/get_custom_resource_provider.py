@@ -51,7 +51,7 @@ class GetCustomResourceProviderResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.CustomRPActionRouteDefinitionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.CustomRPActionRouteDefinitionInvokeResponseResult']]:
         """
         A list of actions that the custom resource provider implements.
         """
@@ -91,7 +91,7 @@ class GetCustomResourceProviderResult:
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[Sequence['outputs.CustomRPResourceTypeRouteDefinitionResponse']]:
+    def resource_types(self) -> Optional[Sequence['outputs.CustomRPResourceTypeRouteDefinitionInvokeResponseResult']]:
         """
         A list of resource types that the custom resource provider implements.
         """
@@ -115,7 +115,7 @@ class GetCustomResourceProviderResult:
 
     @property
     @pulumi.getter
-    def validations(self) -> Optional[Sequence['outputs.CustomRPValidationsResponse']]:
+    def validations(self) -> Optional[Sequence['outputs.CustomRPValidationsInvokeResponseResult']]:
         """
         A list of validations to run on the custom resource provider's requests.
         """

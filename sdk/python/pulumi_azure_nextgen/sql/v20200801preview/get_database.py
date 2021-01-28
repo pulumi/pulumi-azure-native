@@ -214,7 +214,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="currentSku")
-    def current_sku(self) -> 'outputs.SkuResponse':
+    def current_sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The name and tier of the SKU.
         """
@@ -438,7 +438,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The database SKU.
         

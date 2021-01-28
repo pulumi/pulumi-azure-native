@@ -107,7 +107,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Sequence['outputs.ApplicationArtifactResponse']:
+    def artifacts(self) -> Sequence['outputs.ApplicationArtifactInvokeResponseResult']:
         """
         The collection of managed application artifacts.
         """
@@ -115,7 +115,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Sequence['outputs.ApplicationAuthorizationResponse']:
+    def authorizations(self) -> Sequence['outputs.ApplicationAuthorizationInvokeResponseResult']:
         """
         The  read-only authorizations property that is retrieved from the application package.
         """
@@ -123,7 +123,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="billingDetails")
-    def billing_details(self) -> 'outputs.ApplicationBillingDetailsDefinitionResponse':
+    def billing_details(self) -> 'outputs.ApplicationBillingDetailsDefinitionInvokeResponseResult':
         """
         The managed application billing details.
         """
@@ -131,7 +131,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def created_by(self) -> 'outputs.ApplicationClientDetailsInvokeResponseResult':
         """
         The client entity that created the JIT request.
         """
@@ -139,7 +139,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="customerSupport")
-    def customer_support(self) -> 'outputs.ApplicationPackageContactResponse':
+    def customer_support(self) -> 'outputs.ApplicationPackageContactInvokeResponseResult':
         """
         The read-only customer support property that is retrieved from the application package.
         """
@@ -155,7 +155,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -163,7 +163,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="jitAccessPolicy")
-    def jit_access_policy(self) -> Optional['outputs.ApplicationJitAccessPolicyResponse']:
+    def jit_access_policy(self) -> Optional['outputs.ApplicationJitAccessPolicyInvokeResponseResult']:
         """
         The managed application Jit access policy.
         """
@@ -235,7 +235,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> Optional['outputs.PlanInvokeResponseResult']:
         """
         The plan information.
         """
@@ -259,7 +259,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The SKU of the resource.
         """
@@ -267,7 +267,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="supportUrls")
-    def support_urls(self) -> 'outputs.ApplicationPackageSupportUrlsResponse':
+    def support_urls(self) -> 'outputs.ApplicationPackageSupportUrlsInvokeResponseResult':
         """
         The read-only support URLs property that is retrieved from the application package.
         """
@@ -291,7 +291,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def updated_by(self) -> 'outputs.ApplicationClientDetailsInvokeResponseResult':
         """
         The client entity that last updated the JIT request.
         """

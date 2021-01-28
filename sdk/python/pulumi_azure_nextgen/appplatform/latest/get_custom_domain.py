@@ -52,7 +52,7 @@ class GetCustomDomainResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CustomDomainPropertiesResponse':
+    def properties(self) -> 'outputs.CustomDomainPropertiesInvokeResponseResult':
         """
         Properties of the custom domain resource.
         """

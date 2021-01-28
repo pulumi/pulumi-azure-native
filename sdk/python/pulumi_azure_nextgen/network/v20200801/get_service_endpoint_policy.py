@@ -102,7 +102,7 @@ class GetServiceEndpointPolicyResult:
 
     @property
     @pulumi.getter(name="serviceEndpointPolicyDefinitions")
-    def service_endpoint_policy_definitions(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionResponse']]:
+    def service_endpoint_policy_definitions(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionInvokeResponseResult']]:
         """
         A collection of service endpoint policy definitions of the service endpoint policy.
         """
@@ -110,7 +110,7 @@ class GetServiceEndpointPolicyResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.SubnetResponse']:
+    def subnets(self) -> Sequence['outputs.SubnetInvokeResponseResult']:
         """
         A collection of references to subnets.
         """

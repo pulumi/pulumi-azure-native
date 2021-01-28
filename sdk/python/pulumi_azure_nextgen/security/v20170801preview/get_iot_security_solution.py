@@ -130,7 +130,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="recommendationsConfiguration")
-    def recommendations_configuration(self) -> Optional[Sequence['outputs.RecommendationConfigurationPropertiesResponse']]:
+    def recommendations_configuration(self) -> Optional[Sequence['outputs.RecommendationConfigurationPropertiesInvokeResponseResult']]:
         """
         List of recommendation configuration
         """
@@ -162,7 +162,7 @@ class GetIotSecuritySolutionResult:
 
     @property
     @pulumi.getter(name="userDefinedResources")
-    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesResponse']:
+    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesInvokeResponseResult']:
         """
         Properties of the solution's user defined resources.
         """

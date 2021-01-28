@@ -30,7 +30,7 @@ class ListRegistryCredentialsResult:
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.RegistryPasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.RegistryPasswordInvokeResponseResult']]:
         """
         The list of passwords for a container registry.
         """

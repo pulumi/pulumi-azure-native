@@ -38,7 +38,7 @@ class ListListTenantConfigurationViolationResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ViolationResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ViolationInvokeResponseResult']]:
         """
         The array of violations.
         """

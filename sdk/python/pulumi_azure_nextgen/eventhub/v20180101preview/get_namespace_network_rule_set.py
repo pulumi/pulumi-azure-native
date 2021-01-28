@@ -61,7 +61,7 @@ class GetNamespaceNetworkRuleSetResult:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[Sequence['outputs.NWRuleSetIpRulesResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.NWRuleSetIpRulesInvokeResponseResult']]:
         """
         List of IpRules
         """
@@ -93,7 +93,7 @@ class GetNamespaceNetworkRuleSetResult:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[Sequence['outputs.NWRuleSetVirtualNetworkRulesResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.NWRuleSetVirtualNetworkRulesInvokeResponseResult']]:
         """
         List VirtualNetwork Rules
         """

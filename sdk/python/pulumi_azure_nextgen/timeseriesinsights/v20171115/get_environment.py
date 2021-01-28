@@ -122,7 +122,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> Optional[Sequence['outputs.PartitionKeyPropertyResponse']]:
+    def partition_key_properties(self) -> Optional[Sequence['outputs.PartitionKeyPropertyInvokeResponseResult']]:
         """
         The list of partition keys according to which the data in the environment will be ordered.
         """
@@ -138,7 +138,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         """
@@ -146,7 +146,7 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.EnvironmentStatusResponse':
+    def status(self) -> 'outputs.EnvironmentStatusInvokeResponseResult':
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         """

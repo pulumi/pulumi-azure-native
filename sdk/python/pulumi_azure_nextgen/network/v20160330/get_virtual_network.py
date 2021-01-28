@@ -57,7 +57,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def address_space(self) -> Optional['outputs.AddressSpaceInvokeResponseResult']:
         """
         Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         """
@@ -65,7 +65,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional['outputs.DhcpOptionsResponse']:
+    def dhcp_options(self) -> Optional['outputs.DhcpOptionsInvokeResponseResult']:
         """
         Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
         """
@@ -121,7 +121,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[Sequence['outputs.SubnetResponse']]:
+    def subnets(self) -> Optional[Sequence['outputs.SubnetInvokeResponseResult']]:
         """
         Gets or sets List of subnets in a VirtualNetwork
         """

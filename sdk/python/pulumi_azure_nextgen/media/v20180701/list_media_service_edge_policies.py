@@ -24,7 +24,7 @@ class ListMediaServiceEdgePoliciesResult:
 
     @property
     @pulumi.getter(name="usageDataCollectionPolicy")
-    def usage_data_collection_policy(self) -> Optional['outputs.EdgeUsageDataCollectionPolicyResponseResult']:
+    def usage_data_collection_policy(self) -> Optional['outputs.EdgeUsageDataCollectionPolicyInvokeResponseResult']:
         return pulumi.get(self, "usage_data_collection_policy")
 
 

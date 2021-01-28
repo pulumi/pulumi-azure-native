@@ -77,7 +77,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ApiConnectionDefinitionResponseProperties':
+    def properties(self) -> 'outputs.ApiConnectionDefinitionInvokeResponsePropertiesResult':
         return pulumi.get(self, "properties")
 
     @property

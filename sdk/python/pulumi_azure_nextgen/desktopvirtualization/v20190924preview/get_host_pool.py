@@ -177,7 +177,7 @@ class GetHostPoolResult:
 
     @property
     @pulumi.getter(name="registrationInfo")
-    def registration_info(self) -> Optional['outputs.RegistrationInfoResponse']:
+    def registration_info(self) -> Optional['outputs.RegistrationInfoInvokeResponseResult']:
         """
         The registration info of HostPool.
         """

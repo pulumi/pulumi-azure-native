@@ -60,7 +60,7 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter(name="customerSecrets")
-    def customer_secrets(self) -> Optional[Sequence['outputs.CustomerSecretResponse']]:
+    def customer_secrets(self) -> Optional[Sequence['outputs.CustomerSecretInvokeResponseResult']]:
         """
         List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         """
@@ -124,7 +124,7 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[Sequence['outputs.ScheduleResponse']]:
+    def schedules(self) -> Optional[Sequence['outputs.ScheduleInvokeResponseResult']]:
         """
         Schedule for running the job definition
         """

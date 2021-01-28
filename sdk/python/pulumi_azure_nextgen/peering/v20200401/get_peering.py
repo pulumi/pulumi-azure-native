@@ -57,7 +57,7 @@ class GetPeeringResult:
 
     @property
     @pulumi.getter
-    def direct(self) -> Optional['outputs.PeeringPropertiesDirectResponse']:
+    def direct(self) -> Optional['outputs.PeeringPropertiesDirectInvokeResponseResult']:
         """
         The properties that define a direct peering.
         """
@@ -65,7 +65,7 @@ class GetPeeringResult:
 
     @property
     @pulumi.getter
-    def exchange(self) -> Optional['outputs.PeeringPropertiesExchangeResponse']:
+    def exchange(self) -> Optional['outputs.PeeringPropertiesExchangeInvokeResponseResult']:
         """
         The properties that define an exchange peering.
         """
@@ -121,7 +121,7 @@ class GetPeeringResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.PeeringSkuResponse':
+    def sku(self) -> 'outputs.PeeringSkuInvokeResponseResult':
         """
         The SKU that defines the tier and kind of the peering.
         """

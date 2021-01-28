@@ -42,7 +42,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="appInsights")
-    def app_insights(self) -> Optional['outputs.AppInsightsCredentialsResponse']:
+    def app_insights(self) -> Optional['outputs.AppInsightsCredentialsInvokeResponseResult']:
         """
         Credentials for Azure AppInsights.
         """
@@ -50,7 +50,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="containerRegistry")
-    def container_registry(self) -> Optional['outputs.ContainerRegistryCredentialsResponseResult']:
+    def container_registry(self) -> Optional['outputs.ContainerRegistryCredentialsInvokeResponseResult']:
         """
         Credentials for Azure Container Registry.
         """
@@ -58,7 +58,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="containerService")
-    def container_service(self) -> Optional['outputs.ContainerServiceCredentialsResponseResult']:
+    def container_service(self) -> Optional['outputs.ContainerServiceCredentialsInvokeResponseResult']:
         """
         Credentials for Azure Container Service.
         """
@@ -66,7 +66,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="serviceAuthConfiguration")
-    def service_auth_configuration(self) -> Optional['outputs.ServiceAuthConfigurationResponse']:
+    def service_auth_configuration(self) -> Optional['outputs.ServiceAuthConfigurationInvokeResponseResult']:
         """
         Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         """
@@ -74,7 +74,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="sslConfiguration")
-    def ssl_configuration(self) -> Optional['outputs.SslConfigurationResponse']:
+    def ssl_configuration(self) -> Optional['outputs.SslConfigurationInvokeResponseResult']:
         """
         The SSL configuration for the services.
         """
@@ -82,7 +82,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountCredentialsResponseResult']:
+    def storage_account(self) -> Optional['outputs.StorageAccountCredentialsInvokeResponseResult']:
         """
         Credentials for the Storage Account.
         """

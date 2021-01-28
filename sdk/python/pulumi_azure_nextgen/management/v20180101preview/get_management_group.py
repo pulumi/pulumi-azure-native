@@ -48,7 +48,7 @@ class GetManagementGroupResult:
 
     @property
     @pulumi.getter
-    def children(self) -> Optional[Sequence['outputs.ManagementGroupChildInfoResponse']]:
+    def children(self) -> Optional[Sequence['outputs.ManagementGroupChildInfoInvokeResponseResult']]:
         """
         The list of children.
         """
@@ -56,7 +56,7 @@ class GetManagementGroupResult:
 
     @property
     @pulumi.getter
-    def details(self) -> Optional['outputs.ManagementGroupDetailsResponse']:
+    def details(self) -> Optional['outputs.ManagementGroupDetailsInvokeResponseResult']:
         """
         The details of a management group.
         """

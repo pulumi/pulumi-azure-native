@@ -27,7 +27,7 @@ class ListGlobalUserLabsResult:
 
     @property
     @pulumi.getter
-    def labs(self) -> Optional[Sequence['outputs.LabDetailsResponseResult']]:
+    def labs(self) -> Optional[Sequence['outputs.LabDetailsInvokeResponseResult']]:
         """
         List of all the labs
         """

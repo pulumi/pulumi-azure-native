@@ -27,7 +27,7 @@ __all__ = [
     'AzureBlobStorageApplicationLogsConfigArgs',
     'AzureBlobStorageHttpLogsConfigArgs',
     'AzureTableStorageApplicationLogsConfigArgs',
-    'BackupScheduleArgs',
+    'BackupScheduleInvokeArgs',
     'CapabilityArgs',
     'CloningInfoArgs',
     'ConnStringInfoArgs',
@@ -36,10 +36,10 @@ __all__ = [
     'ConnectionGatewayReferenceArgs',
     'ConnectionParameterArgs',
     'ConnectionStatusDefinitionArgs',
-    'ConsentLinkParameterDefinitionArgs',
+    'ConsentLinkParameterDefinitionInvokeArgs',
     'CorsSettingsArgs',
     'CustomApiPropertiesDefinitionArgs',
-    'DatabaseBackupSettingArgs',
+    'DatabaseBackupSettingInvokeArgs',
     'EnabledConfigArgs',
     'ExperimentsArgs',
     'FileSystemApplicationLogsConfigArgs',
@@ -71,6 +71,7 @@ __all__ = [
     'WorkerPoolArgs',
     'WsdlDefinitionArgs',
     'WsdlServiceArgs',
+    'WsdlServiceInvokeArgs',
 ]
 
 @pulumi.input_type
@@ -1110,7 +1111,7 @@ class AzureTableStorageApplicationLogsConfigArgs:
 
 
 @pulumi.input_type
-class BackupScheduleArgs:
+class BackupScheduleInvokeArgs:
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: 'FrequencyUnit',
@@ -1882,7 +1883,7 @@ class ConnectionStatusDefinitionArgs:
 
 
 @pulumi.input_type
-class ConsentLinkParameterDefinitionArgs:
+class ConsentLinkParameterDefinitionInvokeArgs:
     def __init__(__self__, *,
                  object_id: Optional[str] = None,
                  parameter_name: Optional[str] = None,
@@ -2200,7 +2201,7 @@ class CustomApiPropertiesDefinitionArgs:
 
 
 @pulumi.input_type
-class DatabaseBackupSettingArgs:
+class DatabaseBackupSettingInvokeArgs:
     def __init__(__self__, *,
                  database_type: Union[str, 'DatabaseType'],
                  connection_string: Optional[str] = None,
@@ -5446,6 +5447,45 @@ class WsdlServiceArgs:
 
     @endpoint_qualified_names.setter
     def endpoint_qualified_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "endpoint_qualified_names", value)
+
+
+@pulumi.input_type
+class WsdlServiceInvokeArgs:
+    def __init__(__self__, *,
+                 qualified_name: str,
+                 endpoint_qualified_names: Optional[Sequence[str]] = None):
+        """
+        The service with name and endpoint names
+        :param str qualified_name: The service's qualified name
+        :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
+        """
+        pulumi.set(__self__, "qualified_name", qualified_name)
+        if endpoint_qualified_names is not None:
+            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> str:
+        """
+        The service's qualified name
+        """
+        return pulumi.get(self, "qualified_name")
+
+    @qualified_name.setter
+    def qualified_name(self, value: str):
+        pulumi.set(self, "qualified_name", value)
+
+    @property
+    @pulumi.getter(name="endpointQualifiedNames")
+    def endpoint_qualified_names(self) -> Optional[Sequence[str]]:
+        """
+        List of the endpoints' qualified names
+        """
+        return pulumi.get(self, "endpoint_qualified_names")
+
+    @endpoint_qualified_names.setter
+    def endpoint_qualified_names(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "endpoint_qualified_names", value)
 
 

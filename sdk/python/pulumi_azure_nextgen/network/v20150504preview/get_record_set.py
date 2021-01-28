@@ -69,7 +69,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="aAAARecords")
-    def a_aaa_records(self) -> Optional[Sequence['outputs.AaaaRecordResponse']]:
+    def a_aaa_records(self) -> Optional[Sequence['outputs.AaaaRecordInvokeResponseResult']]:
         """
         Gets or sets the list of AAAA records in the RecordSet.
         """
@@ -77,7 +77,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[Sequence['outputs.ARecordResponse']]:
+    def a_records(self) -> Optional[Sequence['outputs.ARecordInvokeResponseResult']]:
         """
         Gets or sets the list of A records in the RecordSet.
         """
@@ -85,7 +85,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="cNAMERecord")
-    def c_name_record(self) -> Optional['outputs.CnameRecordResponse']:
+    def c_name_record(self) -> Optional['outputs.CnameRecordInvokeResponseResult']:
         """
         Gets or sets the CNAME record in the RecordSet.
         """
@@ -117,7 +117,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="mXRecords")
-    def m_x_records(self) -> Optional[Sequence['outputs.MxRecordResponse']]:
+    def m_x_records(self) -> Optional[Sequence['outputs.MxRecordInvokeResponseResult']]:
         """
         Gets or sets the list of MX records in the RecordSet.
         """
@@ -125,7 +125,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="nSRecords")
-    def n_s_records(self) -> Optional[Sequence['outputs.NsRecordResponse']]:
+    def n_s_records(self) -> Optional[Sequence['outputs.NsRecordInvokeResponseResult']]:
         """
         Gets or sets the list of NS records in the RecordSet.
         """
@@ -141,7 +141,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="pTRRecords")
-    def p_tr_records(self) -> Optional[Sequence['outputs.PtrRecordResponse']]:
+    def p_tr_records(self) -> Optional[Sequence['outputs.PtrRecordInvokeResponseResult']]:
         """
         Gets or sets the list of PTR records in the RecordSet.
         """
@@ -149,7 +149,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="sOARecord")
-    def s_oa_record(self) -> Optional['outputs.SoaRecordResponse']:
+    def s_oa_record(self) -> Optional['outputs.SoaRecordInvokeResponseResult']:
         """
         Gets or sets the SOA record in the RecordSet.
         """
@@ -157,7 +157,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="sRVRecords")
-    def s_rv_records(self) -> Optional[Sequence['outputs.SrvRecordResponse']]:
+    def s_rv_records(self) -> Optional[Sequence['outputs.SrvRecordInvokeResponseResult']]:
         """
         Gets or sets the list of SRV records in the RecordSet.
         """
@@ -165,7 +165,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="tXTRecords")
-    def t_xt_records(self) -> Optional[Sequence['outputs.TxtRecordResponse']]:
+    def t_xt_records(self) -> Optional[Sequence['outputs.TxtRecordInvokeResponseResult']]:
         """
         Gets or sets the list of TXT records in the RecordSet.
         """

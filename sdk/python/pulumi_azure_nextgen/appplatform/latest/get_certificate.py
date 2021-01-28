@@ -52,7 +52,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CertificatePropertiesResponse':
+    def properties(self) -> 'outputs.CertificatePropertiesInvokeResponseResult':
         """
         Properties of the certificate resource payload.
         """

@@ -78,7 +78,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+    def backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult']]:
         """
         Gets or sets backend address pool of application gateway resource
         """
@@ -86,7 +86,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="backendHttpSettingsCollection")
-    def backend_http_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsResponse']]:
+    def backend_http_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsInvokeResponseResult']]:
         """
         Gets or sets backend http settings of application gateway resource
         """
@@ -102,7 +102,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationResponse']]:
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationInvokeResponseResult']]:
         """
         Gets or sets frontend IP addresses of application gateway resource
         """
@@ -110,7 +110,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="frontendPorts")
-    def frontend_ports(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendPortResponse']]:
+    def frontend_ports(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendPortInvokeResponseResult']]:
         """
         Gets or sets frontend ports of application gateway resource
         """
@@ -118,7 +118,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="gatewayIPConfigurations")
-    def gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
+    def gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationInvokeResponseResult']]:
         """
         Gets or sets subnets of application gateway resource
         """
@@ -126,7 +126,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="httpListeners")
-    def http_listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']]:
+    def http_listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerInvokeResponseResult']]:
         """
         Gets or sets HTTP listeners of application gateway resource
         """
@@ -174,7 +174,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="requestRoutingRules")
-    def request_routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleResponse']]:
+    def request_routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleInvokeResponseResult']]:
         """
         Gets or sets request routing rules of application gateway resource
         """
@@ -190,7 +190,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ApplicationGatewaySkuResponse']:
+    def sku(self) -> Optional['outputs.ApplicationGatewaySkuInvokeResponseResult']:
         """
         Gets or sets sku of application gateway resource
         """
@@ -198,7 +198,7 @@ class GetApplicationGatewayResult:
 
     @property
     @pulumi.getter(name="sslCertificates")
-    def ssl_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewaySslCertificateResponse']]:
+    def ssl_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewaySslCertificateInvokeResponseResult']]:
         """
         Gets or sets ssl certificates of application gateway resource
         """

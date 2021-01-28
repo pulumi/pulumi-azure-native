@@ -66,7 +66,7 @@ class GetBandwidthSettingResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Sequence['outputs.BandwidthScheduleResponse']:
+    def schedules(self) -> Sequence['outputs.BandwidthScheduleInvokeResponseResult']:
         """
         The schedules.
         """

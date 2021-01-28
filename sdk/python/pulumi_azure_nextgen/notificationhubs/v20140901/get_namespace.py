@@ -66,7 +66,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NamespacePropertiesResponse':
+    def properties(self) -> 'outputs.NamespacePropertiesInvokeResponseResult':
         """
         Gets or sets properties of the Namespace.
         """

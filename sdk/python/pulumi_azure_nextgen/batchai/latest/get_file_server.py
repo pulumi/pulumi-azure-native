@@ -65,7 +65,7 @@ class GetFileServerResult:
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional['outputs.DataDisksResponse']:
+    def data_disks(self) -> Optional['outputs.DataDisksInvokeResponseResult']:
         """
         Information about disks attached to File Server VM.
         """
@@ -81,7 +81,7 @@ class GetFileServerResult:
 
     @property
     @pulumi.getter(name="mountSettings")
-    def mount_settings(self) -> 'outputs.MountSettingsResponse':
+    def mount_settings(self) -> 'outputs.MountSettingsInvokeResponseResult':
         """
         File Server mount settings.
         """
@@ -113,7 +113,7 @@ class GetFileServerResult:
 
     @property
     @pulumi.getter(name="sshConfiguration")
-    def ssh_configuration(self) -> Optional['outputs.SshConfigurationResponse']:
+    def ssh_configuration(self) -> Optional['outputs.SshConfigurationInvokeResponseResult']:
         """
         SSH configuration for accessing the File Server node.
         """
@@ -121,7 +121,7 @@ class GetFileServerResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+    def subnet(self) -> Optional['outputs.ResourceIdInvokeResponseResult']:
         """
         File Server virtual network subnet resource ID.
         """

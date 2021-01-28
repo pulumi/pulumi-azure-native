@@ -68,7 +68,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+    def export_policy(self) -> Optional['outputs.VolumePropertiesInvokeResponseExportPolicyResult']:
         """
         Export policy rule
         """

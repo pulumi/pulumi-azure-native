@@ -166,7 +166,7 @@ class GetConnectorMappingResult:
 
     @property
     @pulumi.getter(name="mappingProperties")
-    def mapping_properties(self) -> 'outputs.ConnectorMappingPropertiesResponse':
+    def mapping_properties(self) -> 'outputs.ConnectorMappingPropertiesInvokeResponseResult':
         """
         The properties of the mapping.
         """

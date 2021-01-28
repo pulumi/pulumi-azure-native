@@ -121,7 +121,7 @@ class GetSavedSearchResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.TagResponse']]:
+    def tags(self) -> Optional[Sequence['outputs.TagInvokeResponseResult']]:
         """
         The tags attached to the saved search.
         """

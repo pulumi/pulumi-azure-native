@@ -67,7 +67,7 @@ class GetVaultResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityDataResponse']:
+    def identity(self) -> Optional['outputs.IdentityDataInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -91,7 +91,7 @@ class GetVaultResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.VaultPropertiesResponse':
+    def properties(self) -> 'outputs.VaultPropertiesInvokeResponseResult':
         """
         Properties of the vault.
         """
@@ -99,7 +99,7 @@ class GetVaultResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Identifies the unique system identifier for each Azure resource.
         """

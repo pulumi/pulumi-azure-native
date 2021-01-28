@@ -96,7 +96,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter(name="microsoftPeeringConfig")
-    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
+    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult']:
         """
         Gets or sets the Microsoft peering config
         """
@@ -184,7 +184,7 @@ class GetExpressRouteCircuitPeeringResult:
 
     @property
     @pulumi.getter
-    def stats(self) -> Optional['outputs.ExpressRouteCircuitStatsResponse']:
+    def stats(self) -> Optional['outputs.ExpressRouteCircuitStatsInvokeResponseResult']:
         """
         Gets or peering stats
         """

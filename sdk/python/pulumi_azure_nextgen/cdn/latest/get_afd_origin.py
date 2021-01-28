@@ -69,7 +69,7 @@ class GetAFDOriginResult:
 
     @property
     @pulumi.getter(name="azureOrigin")
-    def azure_origin(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def azure_origin(self) -> Optional['outputs.ResourceReferenceInvokeResponseResult']:
         """
         Resource reference to the Azure origin resource.
         """
@@ -154,7 +154,7 @@ class GetAFDOriginResult:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourcePropertiesResponse']]:
+    def shared_private_link_resource(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourcePropertiesInvokeResponseResult']]:
         """
         The properties of the private link resource for private origin.
         """
@@ -162,7 +162,7 @@ class GetAFDOriginResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Read only system data
         """

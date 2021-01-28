@@ -54,7 +54,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional['outputs.DnsConfigResponse']:
+    def dns_config(self) -> Optional['outputs.DnsConfigInvokeResponseResult']:
         """
         Gets or sets the DNS settings of the Traffic Manager profile.
         """
@@ -62,7 +62,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[Sequence['outputs.EndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.EndpointInvokeResponseResult']]:
         """
         Gets or sets the list of endpoints in the Traffic Manager profile.
         """
@@ -86,7 +86,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="monitorConfig")
-    def monitor_config(self) -> Optional['outputs.MonitorConfigResponse']:
+    def monitor_config(self) -> Optional['outputs.MonitorConfigInvokeResponseResult']:
         """
         Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
         """

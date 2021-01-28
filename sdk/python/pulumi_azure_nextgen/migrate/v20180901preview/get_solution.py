@@ -63,7 +63,7 @@ class GetSolutionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SolutionPropertiesResponse':
+    def properties(self) -> 'outputs.SolutionPropertiesInvokeResponseResult':
         """
         Gets or sets the properties of the solution.
         """

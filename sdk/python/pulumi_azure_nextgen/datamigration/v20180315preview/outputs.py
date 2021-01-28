@@ -11,51 +11,117 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BlobShareInvokeResponseResult',
     'BlobShareResponse',
+    'ConnectToSourceSqlServerTaskInputInvokeResponseResult',
     'ConnectToSourceSqlServerTaskInputResponse',
+    'ConnectToSourceSqlServerTaskOutputDatabaseLevelInvokeResponseResult',
     'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse',
+    'ConnectToSourceSqlServerTaskOutputTaskLevelInvokeResponseResult',
     'ConnectToSourceSqlServerTaskOutputTaskLevelResponse',
+    'ConnectToSourceSqlServerTaskPropertiesInvokeResponseResult',
     'ConnectToSourceSqlServerTaskPropertiesResponse',
+    'ConnectToTargetSqlDbTaskInputInvokeResponseResult',
     'ConnectToTargetSqlDbTaskInputResponse',
+    'ConnectToTargetSqlDbTaskOutputInvokeResponseResult',
     'ConnectToTargetSqlDbTaskOutputResponse',
+    'ConnectToTargetSqlDbTaskPropertiesInvokeResponseResult',
     'ConnectToTargetSqlDbTaskPropertiesResponse',
+    'ConnectToTargetSqlMITaskInputInvokeResponseResult',
     'ConnectToTargetSqlMITaskInputResponse',
+    'ConnectToTargetSqlMITaskOutputInvokeResponseResult',
     'ConnectToTargetSqlMITaskOutputResponse',
+    'ConnectToTargetSqlMITaskPropertiesInvokeResponseResult',
     'ConnectToTargetSqlMITaskPropertiesResponse',
+    'DataItemMigrationSummaryResultInvokeResponseResult',
     'DataItemMigrationSummaryResultResponse',
+    'DatabaseFileInfoInvokeResponseResult',
     'DatabaseFileInfoResponse',
+    'DatabaseInfoInvokeResponseResult',
     'DatabaseInfoResponse',
+    'DatabaseSummaryResultInvokeResponseResult',
     'DatabaseSummaryResultResponse',
+    'DatabaseTableInvokeResponseResult',
     'DatabaseTableResponse',
+    'FileShareInvokeResponseResult',
     'FileShareResponse',
+    'GetUserTablesSqlTaskInputInvokeResponseResult',
     'GetUserTablesSqlTaskInputResponse',
+    'GetUserTablesSqlTaskOutputInvokeResponseResult',
     'GetUserTablesSqlTaskOutputResponse',
+    'GetUserTablesSqlTaskPropertiesInvokeResponseResult',
     'GetUserTablesSqlTaskPropertiesResponse',
+    'MigrateSqlServerSqlDbDatabaseInputInvokeResponseResult',
     'MigrateSqlServerSqlDbDatabaseInputResponse',
+    'MigrateSqlServerSqlDbTaskInputInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskInputResponse',
+    'MigrateSqlServerSqlDbTaskOutputDatabaseLevelInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse',
+    'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse',
+    'MigrateSqlServerSqlDbTaskOutputErrorInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskOutputErrorResponse',
+    'MigrateSqlServerSqlDbTaskOutputMigrationLevelInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse',
+    'MigrateSqlServerSqlDbTaskOutputTableLevelInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskOutputTableLevelResponse',
+    'MigrateSqlServerSqlDbTaskOutputValidationResultInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskOutputValidationResultResponse',
+    'MigrateSqlServerSqlDbTaskPropertiesInvokeResponseResult',
     'MigrateSqlServerSqlDbTaskPropertiesResponse',
+    'MigrateSqlServerSqlMIDatabaseInputInvokeResponseResult',
     'MigrateSqlServerSqlMIDatabaseInputResponse',
+    'MigrateSqlServerSqlMITaskInputInvokeResponseResult',
     'MigrateSqlServerSqlMITaskInputResponse',
+    'MigrateSqlServerSqlMITaskOutputDatabaseLevelInvokeResponseResult',
     'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse',
+    'MigrateSqlServerSqlMITaskOutputErrorInvokeResponseResult',
     'MigrateSqlServerSqlMITaskOutputErrorResponse',
+    'MigrateSqlServerSqlMITaskOutputMigrationLevelInvokeResponseResult',
     'MigrateSqlServerSqlMITaskOutputMigrationLevelResponse',
+    'MigrateSqlServerSqlMITaskPropertiesInvokeResponseResult',
     'MigrateSqlServerSqlMITaskPropertiesResponse',
+    'MigrationReportResultInvokeResponseResult',
     'MigrationReportResultResponse',
+    'MigrationValidationOptionsInvokeResponseResult',
     'MigrationValidationOptionsResponse',
+    'ODataErrorInvokeResponseResult',
     'ODataErrorResponse',
+    'ReportableExceptionInvokeResponseResult',
     'ReportableExceptionResponse',
+    'ServiceSkuInvokeResponseResult',
     'ServiceSkuResponse',
+    'SqlConnectionInfoInvokeResponseResult',
     'SqlConnectionInfoResponse',
+    'ValidateMigrationInputSqlServerSqlMITaskInputInvokeResponseResult',
     'ValidateMigrationInputSqlServerSqlMITaskInputResponse',
+    'ValidateMigrationInputSqlServerSqlMITaskOutputInvokeResponseResult',
     'ValidateMigrationInputSqlServerSqlMITaskOutputResponse',
+    'ValidateMigrationInputSqlServerSqlMITaskPropertiesInvokeResponseResult',
     'ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse',
 ]
+
+@pulumi.output_type
+class BlobShareInvokeResponseResult(dict):
+    """
+    Blob container storage information.
+    """
+    def __init__(__self__, *,
+                 sas_uri: str):
+        """
+        Blob container storage information.
+        :param str sas_uri: SAS URI of Azure Storage Account Container.
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> str:
+        """
+        SAS URI of Azure Storage Account Container.
+        """
+        return pulumi.get(self, "sas_uri")
+
 
 @pulumi.output_type
 class BlobShareResponse(dict):
@@ -80,6 +146,40 @@ class BlobShareResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectToSourceSqlServerTaskInputInvokeResponseResult(dict):
+    """
+    Input for the task that validates connection to SQL Server and also validates source server requirements
+    """
+    def __init__(__self__, *,
+                 source_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 check_permissions_group: Optional[str] = None):
+        """
+        Input for the task that validates connection to SQL Server and also validates source server requirements
+        :param 'SqlConnectionInfoInvokeResponseArgs' source_connection_info: Connection information for Source SQL Server
+        :param str check_permissions_group: Permission group for validations
+        """
+        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        if check_permissions_group is not None:
+            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+
+    @property
+    @pulumi.getter(name="sourceConnectionInfo")
+    def source_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Connection information for Source SQL Server
+        """
+        return pulumi.get(self, "source_connection_info")
+
+    @property
+    @pulumi.getter(name="checkPermissionsGroup")
+    def check_permissions_group(self) -> Optional[str]:
+        """
+        Permission group for validations
+        """
+        return pulumi.get(self, "check_permissions_group")
 
 
 @pulumi.output_type
@@ -117,6 +217,96 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectToSourceSqlServerTaskOutputDatabaseLevelInvokeResponseResult(dict):
+    """
+    Database level output for the task that validates connection to SQL Server and also validates source server requirements
+    """
+    def __init__(__self__, *,
+                 compatibility_level: str,
+                 database_files: Sequence['outputs.DatabaseFileInfoInvokeResponseResult'],
+                 database_state: str,
+                 id: str,
+                 name: str,
+                 result_type: str,
+                 size_mb: float):
+        """
+        Database level output for the task that validates connection to SQL Server and also validates source server requirements
+        :param str compatibility_level: SQL Server compatibility level of database
+        :param Sequence['DatabaseFileInfoInvokeResponseArgs'] database_files: The list of database files
+        :param str database_state: State of the database
+        :param str id: Result identifier
+        :param str name: Database name
+        :param str result_type: Type of result - database level or task level
+               Expected value is 'DatabaseLevelOutput'.
+        :param float size_mb: Size of the file in megabytes
+        """
+        pulumi.set(__self__, "compatibility_level", compatibility_level)
+        pulumi.set(__self__, "database_files", database_files)
+        pulumi.set(__self__, "database_state", database_state)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
+        pulumi.set(__self__, "size_mb", size_mb)
+
+    @property
+    @pulumi.getter(name="compatibilityLevel")
+    def compatibility_level(self) -> str:
+        """
+        SQL Server compatibility level of database
+        """
+        return pulumi.get(self, "compatibility_level")
+
+    @property
+    @pulumi.getter(name="databaseFiles")
+    def database_files(self) -> Sequence['outputs.DatabaseFileInfoInvokeResponseResult']:
+        """
+        The list of database files
+        """
+        return pulumi.get(self, "database_files")
+
+    @property
+    @pulumi.getter(name="databaseState")
+    def database_state(self) -> str:
+        """
+        State of the database
+        """
+        return pulumi.get(self, "database_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Database name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Type of result - database level or task level
+        Expected value is 'DatabaseLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter(name="sizeMB")
+    def size_mb(self) -> float:
+        """
+        Size of the file in megabytes
+        """
+        return pulumi.get(self, "size_mb")
 
 
 @pulumi.output_type
@@ -213,6 +403,85 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
 
 
 @pulumi.output_type
+class ConnectToSourceSqlServerTaskOutputTaskLevelInvokeResponseResult(dict):
+    """
+    Task level output for the task that validates connection to SQL Server and also validates source server requirements
+    """
+    def __init__(__self__, *,
+                 databases: Mapping[str, str],
+                 id: str,
+                 result_type: str,
+                 source_server_brand_version: str,
+                 source_server_version: str,
+                 validation_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult']):
+        """
+        Task level output for the task that validates connection to SQL Server and also validates source server requirements
+        :param Mapping[str, str] databases: Source databases as a map from database name to database id
+        :param str id: Result identifier
+        :param str result_type: Type of result - database level or task level
+               Expected value is 'TaskLevelOutput'.
+        :param str source_server_brand_version: Source server brand version
+        :param str source_server_version: Source server version
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] validation_errors: Validation errors
+        """
+        pulumi.set(__self__, "databases", databases)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "result_type", 'TaskLevelOutput')
+        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
+        pulumi.set(__self__, "source_server_version", source_server_version)
+        pulumi.set(__self__, "validation_errors", validation_errors)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Mapping[str, str]:
+        """
+        Source databases as a map from database name to database id
+        """
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Type of result - database level or task level
+        Expected value is 'TaskLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter(name="sourceServerBrandVersion")
+    def source_server_brand_version(self) -> str:
+        """
+        Source server brand version
+        """
+        return pulumi.get(self, "source_server_brand_version")
+
+    @property
+    @pulumi.getter(name="sourceServerVersion")
+    def source_server_version(self) -> str:
+        """
+        Source server version
+        """
+        return pulumi.get(self, "source_server_version")
+
+    @property
+    @pulumi.getter(name="validationErrors")
+    def validation_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Validation errors
+        """
+        return pulumi.get(self, "validation_errors")
+
+
+@pulumi.output_type
 class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
     """
     Task level output for the task that validates connection to SQL Server and also validates source server requirements
@@ -295,6 +564,75 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
 
 
 @pulumi.output_type
+class ConnectToSourceSqlServerTaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for the task that validates connection to SQL Server and also validates source server requirements
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence[Any],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.ConnectToSourceSqlServerTaskInputInvokeResponseResult'] = None):
+        """
+        Properties for the task that validates connection to SQL Server and also validates source server requirements
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputDatabaseLevelInvokeResponseArgs', 'ConnectToSourceSqlServerTaskOutputTaskLevelInvokeResponseArgs']] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'ConnectToSource.SqlServer'.
+        :param 'ConnectToSourceSqlServerTaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence[Any]:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'ConnectToSource.SqlServer'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ConnectToSourceSqlServerTaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
+
+
+@pulumi.output_type
 class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
     """
     Properties for the task that validates connection to SQL Server and also validates source server requirements
@@ -367,6 +705,28 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ConnectToTargetSqlDbTaskInputInvokeResponseResult(dict):
+    """
+    Input for the task that validates connection to SQL DB and target server requirements
+    """
+    def __init__(__self__, *,
+                 target_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult'):
+        """
+        Input for the task that validates connection to SQL DB and target server requirements
+        :param 'SqlConnectionInfoInvokeResponseArgs' target_connection_info: Connection information for target SQL DB
+        """
+        pulumi.set(__self__, "target_connection_info", target_connection_info)
+
+    @property
+    @pulumi.getter(name="targetConnectionInfo")
+    def target_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Connection information for target SQL DB
+        """
+        return pulumi.get(self, "target_connection_info")
+
+
+@pulumi.output_type
 class ConnectToTargetSqlDbTaskInputResponse(dict):
     """
     Input for the task that validates connection to SQL DB and target server requirements
@@ -389,6 +749,61 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectToTargetSqlDbTaskOutputInvokeResponseResult(dict):
+    """
+    Output for the task that validates connection to SQL DB and target server requirements
+    """
+    def __init__(__self__, *,
+                 databases: Mapping[str, str],
+                 id: str,
+                 target_server_brand_version: str,
+                 target_server_version: str):
+        """
+        Output for the task that validates connection to SQL DB and target server requirements
+        :param Mapping[str, str] databases: Source databases as a map from database name to database id
+        :param str id: Result identifier
+        :param str target_server_brand_version: Target server brand version
+        :param str target_server_version: Version of the target server
+        """
+        pulumi.set(__self__, "databases", databases)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
+        pulumi.set(__self__, "target_server_version", target_server_version)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Mapping[str, str]:
+        """
+        Source databases as a map from database name to database id
+        """
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="targetServerBrandVersion")
+    def target_server_brand_version(self) -> str:
+        """
+        Target server brand version
+        """
+        return pulumi.get(self, "target_server_brand_version")
+
+    @property
+    @pulumi.getter(name="targetServerVersion")
+    def target_server_version(self) -> str:
+        """
+        Version of the target server
+        """
+        return pulumi.get(self, "target_server_version")
 
 
 @pulumi.output_type
@@ -447,6 +862,75 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectToTargetSqlDbTaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for the task that validates connection to SQL DB and target server requirements
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence['outputs.ConnectToTargetSqlDbTaskOutputInvokeResponseResult'],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.ConnectToTargetSqlDbTaskInputInvokeResponseResult'] = None):
+        """
+        Properties for the task that validates connection to SQL DB and target server requirements
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlDbTaskOutputInvokeResponseArgs'] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.SqlDb'.
+        :param 'ConnectToTargetSqlDbTaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence['outputs.ConnectToTargetSqlDbTaskOutputInvokeResponseResult']:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.SqlDb'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ConnectToTargetSqlDbTaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
 
 
 @pulumi.output_type
@@ -522,6 +1006,28 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ConnectToTargetSqlMITaskInputInvokeResponseResult(dict):
+    """
+    Input for the task that validates connection to Azure SQL Database Managed Instance.
+    """
+    def __init__(__self__, *,
+                 target_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult'):
+        """
+        Input for the task that validates connection to Azure SQL Database Managed Instance.
+        :param 'SqlConnectionInfoInvokeResponseArgs' target_connection_info: Connection information for target SQL Server
+        """
+        pulumi.set(__self__, "target_connection_info", target_connection_info)
+
+    @property
+    @pulumi.getter(name="targetConnectionInfo")
+    def target_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Connection information for target SQL Server
+        """
+        return pulumi.get(self, "target_connection_info")
+
+
+@pulumi.output_type
 class ConnectToTargetSqlMITaskInputResponse(dict):
     """
     Input for the task that validates connection to Azure SQL Database Managed Instance.
@@ -544,6 +1050,61 @@ class ConnectToTargetSqlMITaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectToTargetSqlMITaskOutputInvokeResponseResult(dict):
+    """
+    Output for the task that validates connection to Azure SQL Database Managed Instance.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 target_server_brand_version: str,
+                 target_server_version: str,
+                 validation_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult']):
+        """
+        Output for the task that validates connection to Azure SQL Database Managed Instance.
+        :param str id: Result identifier
+        :param str target_server_brand_version: Target server brand version
+        :param str target_server_version: Target server version
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] validation_errors: Validation errors
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
+        pulumi.set(__self__, "target_server_version", target_server_version)
+        pulumi.set(__self__, "validation_errors", validation_errors)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="targetServerBrandVersion")
+    def target_server_brand_version(self) -> str:
+        """
+        Target server brand version
+        """
+        return pulumi.get(self, "target_server_brand_version")
+
+    @property
+    @pulumi.getter(name="targetServerVersion")
+    def target_server_version(self) -> str:
+        """
+        Target server version
+        """
+        return pulumi.get(self, "target_server_version")
+
+    @property
+    @pulumi.getter(name="validationErrors")
+    def validation_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Validation errors
+        """
+        return pulumi.get(self, "validation_errors")
 
 
 @pulumi.output_type
@@ -602,6 +1163,75 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectToTargetSqlMITaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for the task that validates connection to Azure SQL Database Managed Instance
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence['outputs.ConnectToTargetSqlMITaskOutputInvokeResponseResult'],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.ConnectToTargetSqlMITaskInputInvokeResponseResult'] = None):
+        """
+        Properties for the task that validates connection to Azure SQL Database Managed Instance
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlMITaskOutputInvokeResponseArgs'] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'ConnectToTarget.AzureSqlDbMI'.
+        :param 'ConnectToTargetSqlMITaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence['outputs.ConnectToTargetSqlMITaskOutputInvokeResponseResult']:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'ConnectToTarget.AzureSqlDbMI'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ConnectToTargetSqlMITaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
 
 
 @pulumi.output_type
@@ -674,6 +1304,116 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataItemMigrationSummaryResultInvokeResponseResult(dict):
+    """
+    Basic summary of a data item migration
+    """
+    def __init__(__self__, *,
+                 ended_on: str,
+                 error_prefix: str,
+                 items_completed_count: float,
+                 items_count: float,
+                 name: str,
+                 result_prefix: str,
+                 started_on: str,
+                 state: str,
+                 status_message: str):
+        """
+        Basic summary of a data item migration
+        :param str ended_on: Migration end time
+        :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
+        :param str name: Name of the item
+        :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status_message: Status message
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "error_prefix", error_prefix)
+        pulumi.set(__self__, "items_completed_count", items_completed_count)
+        pulumi.set(__self__, "items_count", items_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "result_prefix", result_prefix)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="errorPrefix")
+    def error_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all errors of the item
+        """
+        return pulumi.get(self, "error_prefix")
+
+    @property
+    @pulumi.getter(name="itemsCompletedCount")
+    def items_completed_count(self) -> float:
+        """
+        Number of successfully completed items
+        """
+        return pulumi.get(self, "items_completed_count")
+
+    @property
+    @pulumi.getter(name="itemsCount")
+    def items_count(self) -> float:
+        """
+        Number of items
+        """
+        return pulumi.get(self, "items_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the item
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resultPrefix")
+    def result_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all sub-tem results of the item
+        """
+        return pulumi.get(self, "result_prefix")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Status message
+        """
+        return pulumi.get(self, "status_message")
 
 
 @pulumi.output_type
@@ -790,6 +1530,101 @@ class DataItemMigrationSummaryResultResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseFileInfoInvokeResponseResult(dict):
+    """
+    Database file specific information
+    """
+    def __init__(__self__, *,
+                 database_name: Optional[str] = None,
+                 file_type: Optional[str] = None,
+                 id: Optional[str] = None,
+                 logical_name: Optional[str] = None,
+                 physical_full_name: Optional[str] = None,
+                 restore_full_name: Optional[str] = None,
+                 size_mb: Optional[float] = None):
+        """
+        Database file specific information
+        :param str database_name: Name of the database
+        :param str file_type: Database file type
+        :param str id: Unique identifier for database file
+        :param str logical_name: Logical name of the file
+        :param str physical_full_name: Operating-system full path of the file
+        :param str restore_full_name: Suggested full path of the file for restoring
+        :param float size_mb: Size of the file in megabytes
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if file_type is not None:
+            pulumi.set(__self__, "file_type", file_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if logical_name is not None:
+            pulumi.set(__self__, "logical_name", logical_name)
+        if physical_full_name is not None:
+            pulumi.set(__self__, "physical_full_name", physical_full_name)
+        if restore_full_name is not None:
+            pulumi.set(__self__, "restore_full_name", restore_full_name)
+        if size_mb is not None:
+            pulumi.set(__self__, "size_mb", size_mb)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        Name of the database
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="fileType")
+    def file_type(self) -> Optional[str]:
+        """
+        Database file type
+        """
+        return pulumi.get(self, "file_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Unique identifier for database file
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logicalName")
+    def logical_name(self) -> Optional[str]:
+        """
+        Logical name of the file
+        """
+        return pulumi.get(self, "logical_name")
+
+    @property
+    @pulumi.getter(name="physicalFullName")
+    def physical_full_name(self) -> Optional[str]:
+        """
+        Operating-system full path of the file
+        """
+        return pulumi.get(self, "physical_full_name")
+
+    @property
+    @pulumi.getter(name="restoreFullName")
+    def restore_full_name(self) -> Optional[str]:
+        """
+        Suggested full path of the file for restoring
+        """
+        return pulumi.get(self, "restore_full_name")
+
+    @property
+    @pulumi.getter(name="sizeMB")
+    def size_mb(self) -> Optional[float]:
+        """
+        Size of the file in megabytes
+        """
+        return pulumi.get(self, "size_mb")
+
+
+@pulumi.output_type
 class DatabaseFileInfoResponse(dict):
     """
     Database file specific information
@@ -888,6 +1723,28 @@ class DatabaseFileInfoResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseInfoInvokeResponseResult(dict):
+    """
+    Project Database Details
+    """
+    def __init__(__self__, *,
+                 source_database_name: str):
+        """
+        Project Database Details
+        :param str source_database_name: Name of the database
+        """
+        pulumi.set(__self__, "source_database_name", source_database_name)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> str:
+        """
+        Name of the database
+        """
+        return pulumi.get(self, "source_database_name")
+
+
+@pulumi.output_type
 class DatabaseInfoResponse(dict):
     """
     Project Database Details
@@ -910,6 +1767,127 @@ class DatabaseInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatabaseSummaryResultInvokeResponseResult(dict):
+    """
+    Summary of database results in the migration
+    """
+    def __init__(__self__, *,
+                 ended_on: str,
+                 error_prefix: str,
+                 items_completed_count: float,
+                 items_count: float,
+                 name: str,
+                 result_prefix: str,
+                 size_mb: float,
+                 started_on: str,
+                 state: str,
+                 status_message: str):
+        """
+        Summary of database results in the migration
+        :param str ended_on: Migration end time
+        :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
+        :param str name: Name of the item
+        :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
+        :param float size_mb: Size of the database in megabytes
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status_message: Status message
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "error_prefix", error_prefix)
+        pulumi.set(__self__, "items_completed_count", items_completed_count)
+        pulumi.set(__self__, "items_count", items_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "result_prefix", result_prefix)
+        pulumi.set(__self__, "size_mb", size_mb)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="errorPrefix")
+    def error_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all errors of the item
+        """
+        return pulumi.get(self, "error_prefix")
+
+    @property
+    @pulumi.getter(name="itemsCompletedCount")
+    def items_completed_count(self) -> float:
+        """
+        Number of successfully completed items
+        """
+        return pulumi.get(self, "items_completed_count")
+
+    @property
+    @pulumi.getter(name="itemsCount")
+    def items_count(self) -> float:
+        """
+        Number of items
+        """
+        return pulumi.get(self, "items_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the item
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resultPrefix")
+    def result_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all sub-tem results of the item
+        """
+        return pulumi.get(self, "result_prefix")
+
+    @property
+    @pulumi.getter(name="sizeMB")
+    def size_mb(self) -> float:
+        """
+        Size of the database in megabytes
+        """
+        return pulumi.get(self, "size_mb")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Status message
+        """
+        return pulumi.get(self, "status_message")
 
 
 @pulumi.output_type
@@ -1037,6 +2015,39 @@ class DatabaseSummaryResultResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseTableInvokeResponseResult(dict):
+    """
+    Table properties
+    """
+    def __init__(__self__, *,
+                 has_rows: bool,
+                 name: str):
+        """
+        Table properties
+        :param bool has_rows: Indicates whether table is empty or not
+        :param str name: Schema-qualified name of the table
+        """
+        pulumi.set(__self__, "has_rows", has_rows)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="hasRows")
+    def has_rows(self) -> bool:
+        """
+        Indicates whether table is empty or not
+        """
+        return pulumi.get(self, "has_rows")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Schema-qualified name of the table
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class DatabaseTableResponse(dict):
     """
     Table properties
@@ -1070,6 +2081,52 @@ class DatabaseTableResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FileShareInvokeResponseResult(dict):
+    """
+    File share information with Path, Username, and Password.
+    """
+    def __init__(__self__, *,
+                 path: str,
+                 password: Optional[str] = None,
+                 user_name: Optional[str] = None):
+        """
+        File share information with Path, Username, and Password.
+        :param str path: The folder path for this share.
+        :param str password: Password credential used to connect to the share location.
+        :param str user_name: User name credential to connect to the share location
+        """
+        pulumi.set(__self__, "path", path)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The folder path for this share.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password credential used to connect to the share location.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        User name credential to connect to the share location
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -1122,6 +2179,39 @@ class FileShareResponse(dict):
 
 
 @pulumi.output_type
+class GetUserTablesSqlTaskInputInvokeResponseResult(dict):
+    """
+    Input for the task that collects user tables for the given list of databases
+    """
+    def __init__(__self__, *,
+                 connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 selected_databases: Sequence[str]):
+        """
+        Input for the task that collects user tables for the given list of databases
+        :param 'SqlConnectionInfoInvokeResponseArgs' connection_info: Connection information for SQL Server
+        :param Sequence[str] selected_databases: List of database names to collect tables for
+        """
+        pulumi.set(__self__, "connection_info", connection_info)
+        pulumi.set(__self__, "selected_databases", selected_databases)
+
+    @property
+    @pulumi.getter(name="connectionInfo")
+    def connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Connection information for SQL Server
+        """
+        return pulumi.get(self, "connection_info")
+
+    @property
+    @pulumi.getter(name="selectedDatabases")
+    def selected_databases(self) -> Sequence[str]:
+        """
+        List of database names to collect tables for
+        """
+        return pulumi.get(self, "selected_databases")
+
+
+@pulumi.output_type
 class GetUserTablesSqlTaskInputResponse(dict):
     """
     Input for the task that collects user tables for the given list of databases
@@ -1155,6 +2245,50 @@ class GetUserTablesSqlTaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetUserTablesSqlTaskOutputInvokeResponseResult(dict):
+    """
+    Output of the task that collects user tables for the given list of databases
+    """
+    def __init__(__self__, *,
+                 databases_to_tables: Mapping[str, Sequence['outputs.DatabaseTableInvokeResponseResult']],
+                 id: str,
+                 validation_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult']):
+        """
+        Output of the task that collects user tables for the given list of databases
+        :param Mapping[str, Sequence['DatabaseTableInvokeResponseArgs']] databases_to_tables: Mapping from database name to list of tables
+        :param str id: Result identifier
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] validation_errors: Validation errors
+        """
+        pulumi.set(__self__, "databases_to_tables", databases_to_tables)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "validation_errors", validation_errors)
+
+    @property
+    @pulumi.getter(name="databasesToTables")
+    def databases_to_tables(self) -> Mapping[str, Sequence['outputs.DatabaseTableInvokeResponseResult']]:
+        """
+        Mapping from database name to list of tables
+        """
+        return pulumi.get(self, "databases_to_tables")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="validationErrors")
+    def validation_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Validation errors
+        """
+        return pulumi.get(self, "validation_errors")
 
 
 @pulumi.output_type
@@ -1202,6 +2336,75 @@ class GetUserTablesSqlTaskOutputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetUserTablesSqlTaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for the task that collects user tables for the given list of databases
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence['outputs.GetUserTablesSqlTaskOutputInvokeResponseResult'],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.GetUserTablesSqlTaskInputInvokeResponseResult'] = None):
+        """
+        Properties for the task that collects user tables for the given list of databases
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetUserTablesSqlTaskOutputInvokeResponseArgs'] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'GetUserTables.Sql'.
+        :param 'GetUserTablesSqlTaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence['outputs.GetUserTablesSqlTaskOutputInvokeResponseResult']:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'GetUserTables.Sql'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.GetUserTablesSqlTaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
 
 
 @pulumi.output_type
@@ -1277,6 +2480,65 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlDbDatabaseInputInvokeResponseResult(dict):
+    """
+    Database specific information for SQL to Azure SQL DB migration task inputs
+    """
+    def __init__(__self__, *,
+                 make_source_db_read_only: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 table_map: Optional[Mapping[str, str]] = None,
+                 target_database_name: Optional[str] = None):
+        """
+        Database specific information for SQL to Azure SQL DB migration task inputs
+        :param bool make_source_db_read_only: Whether to set database read only before migration
+        :param str name: Name of the database
+        :param Mapping[str, str] table_map: Mapping of source to target tables
+        :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
+        """
+        if make_source_db_read_only is not None:
+            pulumi.set(__self__, "make_source_db_read_only", make_source_db_read_only)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if table_map is not None:
+            pulumi.set(__self__, "table_map", table_map)
+        if target_database_name is not None:
+            pulumi.set(__self__, "target_database_name", target_database_name)
+
+    @property
+    @pulumi.getter(name="makeSourceDbReadOnly")
+    def make_source_db_read_only(self) -> Optional[bool]:
+        """
+        Whether to set database read only before migration
+        """
+        return pulumi.get(self, "make_source_db_read_only")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the database
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tableMap")
+    def table_map(self) -> Optional[Mapping[str, str]]:
+        """
+        Mapping of source to target tables
+        """
+        return pulumi.get(self, "table_map")
+
+    @property
+    @pulumi.getter(name="targetDatabaseName")
+    def target_database_name(self) -> Optional[str]:
+        """
+        Name of target database. Note: Target database will be truncated before starting migration.
+        """
+        return pulumi.get(self, "target_database_name")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
     """
     Database specific information for SQL to Azure SQL DB migration task inputs
@@ -1336,6 +2598,66 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlDbTaskInputInvokeResponseResult(dict):
+    """
+    Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
+    """
+    def __init__(__self__, *,
+                 selected_databases: Sequence['outputs.MigrateSqlServerSqlDbDatabaseInputInvokeResponseResult'],
+                 source_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 target_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 validation_options: Optional['outputs.MigrationValidationOptionsInvokeResponseResult'] = None):
+        """
+        Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
+        :param Sequence['MigrateSqlServerSqlDbDatabaseInputInvokeResponseArgs'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoInvokeResponseArgs' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoInvokeResponseArgs' target_connection_info: Information for connecting to target
+        :param 'MigrationValidationOptionsInvokeResponseArgs' validation_options: Options for enabling various post migration validations. Available options, 
+                1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+                2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
+        """
+        pulumi.set(__self__, "selected_databases", selected_databases)
+        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
+
+    @property
+    @pulumi.getter(name="selectedDatabases")
+    def selected_databases(self) -> Sequence['outputs.MigrateSqlServerSqlDbDatabaseInputInvokeResponseResult']:
+        """
+        Databases to migrate
+        """
+        return pulumi.get(self, "selected_databases")
+
+    @property
+    @pulumi.getter(name="sourceConnectionInfo")
+    def source_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Information for connecting to source
+        """
+        return pulumi.get(self, "source_connection_info")
+
+    @property
+    @pulumi.getter(name="targetConnectionInfo")
+    def target_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Information for connecting to target
+        """
+        return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional['outputs.MigrationValidationOptionsInvokeResponseResult']:
+        """
+        Options for enabling various post migration validations. Available options, 
+         1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
+         2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
+        """
+        return pulumi.get(self, "validation_options")
 
 
 @pulumi.output_type
@@ -1399,6 +2721,195 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlDbTaskOutputDatabaseLevelInvokeResponseResult(dict):
+    """
+    Database level result for Sql Server to Azure Sql DB migration.
+    """
+    def __init__(__self__, *,
+                 database_name: str,
+                 ended_on: str,
+                 error_count: float,
+                 error_prefix: str,
+                 exceptions_and_warnings: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 id: str,
+                 message: str,
+                 number_of_objects: float,
+                 number_of_objects_completed: float,
+                 object_summary: Mapping[str, 'outputs.DataItemMigrationSummaryResultInvokeResponseResult'],
+                 result_prefix: str,
+                 result_type: str,
+                 stage: str,
+                 started_on: str,
+                 state: str,
+                 status_message: str):
+        """
+        Database level result for Sql Server to Azure Sql DB migration.
+        :param str database_name: Name of the item
+        :param str ended_on: Migration end time
+        :param float error_count: Number of database/object errors.
+        :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param str id: Result identifier
+        :param str message: Migration progress message
+        :param float number_of_objects: Number of objects
+        :param float number_of_objects_completed: Number of successfully completed objects
+        :param Mapping[str, 'DataItemMigrationSummaryResultInvokeResponseArgs'] object_summary: Summary of object results in the migration
+        :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
+        :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
+        :param str stage: Migration stage that this database is in
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status_message: Status message
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "error_count", error_count)
+        pulumi.set(__self__, "error_prefix", error_prefix)
+        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "number_of_objects", number_of_objects)
+        pulumi.set(__self__, "number_of_objects_completed", number_of_objects_completed)
+        pulumi.set(__self__, "object_summary", object_summary)
+        pulumi.set(__self__, "result_prefix", result_prefix)
+        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
+        pulumi.set(__self__, "stage", stage)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the item
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="errorCount")
+    def error_count(self) -> float:
+        """
+        Number of database/object errors.
+        """
+        return pulumi.get(self, "error_count")
+
+    @property
+    @pulumi.getter(name="errorPrefix")
+    def error_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all errors of the item
+        """
+        return pulumi.get(self, "error_prefix")
+
+    @property
+    @pulumi.getter(name="exceptionsAndWarnings")
+    def exceptions_and_warnings(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Migration exceptions and warnings.
+        """
+        return pulumi.get(self, "exceptions_and_warnings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Migration progress message
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="numberOfObjects")
+    def number_of_objects(self) -> float:
+        """
+        Number of objects
+        """
+        return pulumi.get(self, "number_of_objects")
+
+    @property
+    @pulumi.getter(name="numberOfObjectsCompleted")
+    def number_of_objects_completed(self) -> float:
+        """
+        Number of successfully completed objects
+        """
+        return pulumi.get(self, "number_of_objects_completed")
+
+    @property
+    @pulumi.getter(name="objectSummary")
+    def object_summary(self) -> Mapping[str, 'outputs.DataItemMigrationSummaryResultInvokeResponseResult']:
+        """
+        Summary of object results in the migration
+        """
+        return pulumi.get(self, "object_summary")
+
+    @property
+    @pulumi.getter(name="resultPrefix")
+    def result_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all sub-tem results of the item
+        """
+        return pulumi.get(self, "result_prefix")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'DatabaseLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> str:
+        """
+        Migration stage that this database is in
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Status message
+        """
+        return pulumi.get(self, "status_message")
 
 
 @pulumi.output_type
@@ -1594,6 +3105,41 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultInvokeResponseResult(dict):
+    """
+    Database validation result for Sql Server to Azure Sql DB migration.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 result_type: str):
+        """
+        Database validation result for Sql Server to Azure Sql DB migration.
+        :param str id: Result identifier
+        :param str result_type: Result type
+               Expected value is 'MigrationDatabaseLevelValidationOutput'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "result_type", 'MigrationDatabaseLevelValidationOutput')
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'MigrationDatabaseLevelValidationOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict):
     """
     Database validation result for Sql Server to Azure Sql DB migration.
@@ -1629,6 +3175,52 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict)
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlDbTaskOutputErrorInvokeResponseResult(dict):
+    """
+    Task errors for Sql Server to Azure Sql DB migration.
+    """
+    def __init__(__self__, *,
+                 error: 'outputs.ReportableExceptionInvokeResponseResult',
+                 id: str,
+                 result_type: str):
+        """
+        Task errors for Sql Server to Azure Sql DB migration.
+        :param 'ReportableExceptionInvokeResponseArgs' error: Migration error
+        :param str id: Result identifier
+        :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
+        """
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "result_type", 'ErrorOutput')
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ReportableExceptionInvokeResponseResult':
+        """
+        Migration error
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'ErrorOutput'.
+        """
+        return pulumi.get(self, "result_type")
 
 
 @pulumi.output_type
@@ -1678,6 +3270,196 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlDbTaskOutputMigrationLevelInvokeResponseResult(dict):
+    """
+    Migration level result for Sql server to Azure Sql DB migration.
+    """
+    def __init__(__self__, *,
+                 database_summary: Mapping[str, 'outputs.DatabaseSummaryResultInvokeResponseResult'],
+                 databases: Mapping[str, str],
+                 duration_in_seconds: float,
+                 ended_on: str,
+                 exceptions_and_warnings: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 id: str,
+                 message: str,
+                 result_type: str,
+                 source_server_brand_version: str,
+                 source_server_version: str,
+                 started_on: str,
+                 status: str,
+                 status_message: str,
+                 target_server_brand_version: str,
+                 target_server_version: str,
+                 migration_report_result: Optional['outputs.MigrationReportResultInvokeResponseResult'] = None):
+        """
+        Migration level result for Sql server to Azure Sql DB migration.
+        :param Mapping[str, 'DatabaseSummaryResultInvokeResponseArgs'] database_summary: Summary of database results in the migration
+        :param Mapping[str, str] databases: Selected databases as a map from database name to database id
+        :param float duration_in_seconds: Duration of task execution in seconds.
+        :param str ended_on: Migration end time
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param str id: Result identifier
+        :param str message: Migration progress message
+        :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
+        :param str source_server_brand_version: Source server brand version
+        :param str source_server_version: Source server version
+        :param str started_on: Migration start time
+        :param str status: Current status of migration
+        :param str status_message: Migration status message
+        :param str target_server_brand_version: Target server brand version
+        :param str target_server_version: Target server version
+        :param 'MigrationReportResultInvokeResponseArgs' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
+        """
+        pulumi.set(__self__, "database_summary", database_summary)
+        pulumi.set(__self__, "databases", databases)
+        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
+        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
+        pulumi.set(__self__, "source_server_version", source_server_version)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
+        pulumi.set(__self__, "target_server_version", target_server_version)
+        if migration_report_result is not None:
+            pulumi.set(__self__, "migration_report_result", migration_report_result)
+
+    @property
+    @pulumi.getter(name="databaseSummary")
+    def database_summary(self) -> Mapping[str, 'outputs.DatabaseSummaryResultInvokeResponseResult']:
+        """
+        Summary of database results in the migration
+        """
+        return pulumi.get(self, "database_summary")
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Mapping[str, str]:
+        """
+        Selected databases as a map from database name to database id
+        """
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> float:
+        """
+        Duration of task execution in seconds.
+        """
+        return pulumi.get(self, "duration_in_seconds")
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="exceptionsAndWarnings")
+    def exceptions_and_warnings(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Migration exceptions and warnings.
+        """
+        return pulumi.get(self, "exceptions_and_warnings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Migration progress message
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'MigrationLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter(name="sourceServerBrandVersion")
+    def source_server_brand_version(self) -> str:
+        """
+        Source server brand version
+        """
+        return pulumi.get(self, "source_server_brand_version")
+
+    @property
+    @pulumi.getter(name="sourceServerVersion")
+    def source_server_version(self) -> str:
+        """
+        Source server version
+        """
+        return pulumi.get(self, "source_server_version")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Current status of migration
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Migration status message
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="targetServerBrandVersion")
+    def target_server_brand_version(self) -> str:
+        """
+        Target server brand version
+        """
+        return pulumi.get(self, "target_server_brand_version")
+
+    @property
+    @pulumi.getter(name="targetServerVersion")
+    def target_server_version(self) -> str:
+        """
+        Target server version
+        """
+        return pulumi.get(self, "target_server_version")
+
+    @property
+    @pulumi.getter(name="migrationReportResult")
+    def migration_report_result(self) -> Optional['outputs.MigrationReportResultInvokeResponseResult']:
+        """
+        Migration Report Result, provides unique url for downloading your migration report.
+        """
+        return pulumi.get(self, "migration_report_result")
 
 
 @pulumi.output_type
@@ -1874,6 +3656,140 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlDbTaskOutputTableLevelInvokeResponseResult(dict):
+    """
+    Table level result for Sql Server to Azure Sql DB migration.
+    """
+    def __init__(__self__, *,
+                 ended_on: str,
+                 error_prefix: str,
+                 id: str,
+                 items_completed_count: float,
+                 items_count: float,
+                 object_name: str,
+                 result_prefix: str,
+                 result_type: str,
+                 started_on: str,
+                 state: str,
+                 status_message: str):
+        """
+        Table level result for Sql Server to Azure Sql DB migration.
+        :param str ended_on: Migration end time
+        :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
+        :param str id: Result identifier
+        :param float items_completed_count: Number of successfully completed items
+        :param float items_count: Number of items
+        :param str object_name: Name of the item
+        :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
+        :param str result_type: Result type
+               Expected value is 'TableLevelOutput'.
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status_message: Status message
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "error_prefix", error_prefix)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "items_completed_count", items_completed_count)
+        pulumi.set(__self__, "items_count", items_count)
+        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "result_prefix", result_prefix)
+        pulumi.set(__self__, "result_type", 'TableLevelOutput')
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="errorPrefix")
+    def error_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all errors of the item
+        """
+        return pulumi.get(self, "error_prefix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="itemsCompletedCount")
+    def items_completed_count(self) -> float:
+        """
+        Number of successfully completed items
+        """
+        return pulumi.get(self, "items_completed_count")
+
+    @property
+    @pulumi.getter(name="itemsCount")
+    def items_count(self) -> float:
+        """
+        Number of items
+        """
+        return pulumi.get(self, "items_count")
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> str:
+        """
+        Name of the item
+        """
+        return pulumi.get(self, "object_name")
+
+    @property
+    @pulumi.getter(name="resultPrefix")
+    def result_prefix(self) -> str:
+        """
+        Wildcard string prefix to use for querying all sub-tem results of the item
+        """
+        return pulumi.get(self, "result_prefix")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'TableLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Status message
+        """
+        return pulumi.get(self, "status_message")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
     """
     Table level result for Sql Server to Azure Sql DB migration.
@@ -2011,6 +3927,41 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlDbTaskOutputValidationResultInvokeResponseResult(dict):
+    """
+    Validation result for Sql Server to Azure Sql DB migration.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 result_type: str):
+        """
+        Validation result for Sql Server to Azure Sql DB migration.
+        :param str id: Result identifier
+        :param str result_type: Result type
+               Expected value is 'MigrationValidationOutput'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "result_type", 'MigrationValidationOutput')
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'MigrationValidationOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
     """
     Validation result for Sql Server to Azure Sql DB migration.
@@ -2046,6 +3997,75 @@ class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlDbTaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence[Any],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.MigrateSqlServerSqlDbTaskInputInvokeResponseResult'] = None):
+        """
+        Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelInvokeResponseArgs', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultInvokeResponseArgs', 'MigrateSqlServerSqlDbTaskOutputErrorInvokeResponseArgs', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelInvokeResponseArgs', 'MigrateSqlServerSqlDbTaskOutputTableLevelInvokeResponseArgs', 'MigrateSqlServerSqlDbTaskOutputValidationResultInvokeResponseArgs']] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'Migrate.SqlServer.SqlDb'.
+        :param 'MigrateSqlServerSqlDbTaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence[Any]:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'Migrate.SqlServer.SqlDb'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.MigrateSqlServerSqlDbTaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
 
 
 @pulumi.output_type
@@ -2121,6 +4141,51 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlMIDatabaseInputInvokeResponseResult(dict):
+    """
+    Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 restore_database_name: str,
+                 backup_file_share: Optional['outputs.FileShareInvokeResponseResult'] = None):
+        """
+        Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
+        :param str name: Name of the database
+        :param str restore_database_name: Name of the database at destination
+        :param 'FileShareInvokeResponseArgs' backup_file_share: Backup file share information for backing up this database.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "restore_database_name", restore_database_name)
+        if backup_file_share is not None:
+            pulumi.set(__self__, "backup_file_share", backup_file_share)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the database
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="restoreDatabaseName")
+    def restore_database_name(self) -> str:
+        """
+        Name of the database at destination
+        """
+        return pulumi.get(self, "restore_database_name")
+
+    @property
+    @pulumi.getter(name="backupFileShare")
+    def backup_file_share(self) -> Optional['outputs.FileShareInvokeResponseResult']:
+        """
+        Backup file share information for backing up this database.
+        """
+        return pulumi.get(self, "backup_file_share")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
     """
     Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
@@ -2166,6 +4231,73 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlMITaskInputInvokeResponseResult(dict):
+    """
+    Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
+    """
+    def __init__(__self__, *,
+                 backup_blob_share: 'outputs.BlobShareInvokeResponseResult',
+                 selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputInvokeResponseResult'],
+                 source_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 target_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 backup_file_share: Optional['outputs.FileShareInvokeResponseResult'] = None):
+        """
+        Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
+        :param 'BlobShareInvokeResponseArgs' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputInvokeResponseArgs'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoInvokeResponseArgs' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoInvokeResponseArgs' target_connection_info: Information for connecting to target
+        :param 'FileShareInvokeResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        """
+        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
+        pulumi.set(__self__, "selected_databases", selected_databases)
+        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if backup_file_share is not None:
+            pulumi.set(__self__, "backup_file_share", backup_file_share)
+
+    @property
+    @pulumi.getter(name="backupBlobShare")
+    def backup_blob_share(self) -> 'outputs.BlobShareInvokeResponseResult':
+        """
+        SAS URI of Azure Storage Account Container to be used for storing backup files.
+        """
+        return pulumi.get(self, "backup_blob_share")
+
+    @property
+    @pulumi.getter(name="selectedDatabases")
+    def selected_databases(self) -> Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputInvokeResponseResult']:
+        """
+        Databases to migrate
+        """
+        return pulumi.get(self, "selected_databases")
+
+    @property
+    @pulumi.getter(name="sourceConnectionInfo")
+    def source_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Information for connecting to source
+        """
+        return pulumi.get(self, "source_connection_info")
+
+    @property
+    @pulumi.getter(name="targetConnectionInfo")
+    def target_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Information for connecting to target
+        """
+        return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="backupFileShare")
+    def backup_file_share(self) -> Optional['outputs.FileShareInvokeResponseResult']:
+        """
+        Backup file share information for all selected databases.
+        """
+        return pulumi.get(self, "backup_file_share")
 
 
 @pulumi.output_type
@@ -2236,6 +4368,118 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlMITaskOutputDatabaseLevelInvokeResponseResult(dict):
+    """
+    Database level result for Sql Server to Sql MI migration.
+    """
+    def __init__(__self__, *,
+                 database_name: str,
+                 ended_on: str,
+                 exceptions_and_warnings: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 id: str,
+                 message: str,
+                 result_type: str,
+                 stage: str,
+                 started_on: str,
+                 state: str):
+        """
+        Database level result for Sql Server to Sql MI migration.
+        :param str database_name: Name of the database
+        :param str ended_on: Migration end time
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings
+        :param str id: Result identifier
+        :param str message: Migration progress message
+        :param str result_type: Result type
+               Expected value is 'DatabaseLevelOutput'.
+        :param str stage: Current stage of migration
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
+        pulumi.set(__self__, "stage", stage)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="exceptionsAndWarnings")
+    def exceptions_and_warnings(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Migration exceptions and warnings
+        """
+        return pulumi.get(self, "exceptions_and_warnings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Migration progress message
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'DatabaseLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> str:
+        """
+        Current stage of migration
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -2354,6 +4598,52 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlMITaskOutputErrorInvokeResponseResult(dict):
+    """
+    Task errors for Sql Server to Sql MI migration.
+    """
+    def __init__(__self__, *,
+                 error: 'outputs.ReportableExceptionInvokeResponseResult',
+                 id: str,
+                 result_type: str):
+        """
+        Task errors for Sql Server to Sql MI migration.
+        :param 'ReportableExceptionInvokeResponseArgs' error: Migration error
+        :param str id: Result identifier
+        :param str result_type: Result type
+               Expected value is 'ErrorOutput'.
+        """
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "result_type", 'ErrorOutput')
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ReportableExceptionInvokeResponseResult':
+        """
+        Migration error
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'ErrorOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
     """
     Task errors for Sql Server to Sql MI migration.
@@ -2400,6 +4690,162 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrateSqlServerSqlMITaskOutputMigrationLevelInvokeResponseResult(dict):
+    """
+    Migration level result for Sql server to Sql MI migration.
+    """
+    def __init__(__self__, *,
+                 databases: Mapping[str, str],
+                 ended_on: str,
+                 exceptions_and_warnings: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 id: str,
+                 message: str,
+                 result_type: str,
+                 source_server_brand_version: str,
+                 source_server_version: str,
+                 started_on: str,
+                 state: str,
+                 status: str,
+                 target_server_brand_version: str,
+                 target_server_version: str):
+        """
+        Migration level result for Sql server to Sql MI migration.
+        :param Mapping[str, str] databases: Selected databases as a map from database name to database id
+        :param str ended_on: Migration end time
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param str id: Result identifier
+        :param str message: Migration progress message
+        :param str result_type: Result type
+               Expected value is 'MigrationLevelOutput'.
+        :param str source_server_brand_version: Source server brand version
+        :param str source_server_version: Source server version
+        :param str started_on: Migration start time
+        :param str state: Current state of migration
+        :param str status: Current status of migration
+        :param str target_server_brand_version: Target server brand version
+        :param str target_server_version: Target server version
+        """
+        pulumi.set(__self__, "databases", databases)
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
+        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
+        pulumi.set(__self__, "source_server_version", source_server_version)
+        pulumi.set(__self__, "started_on", started_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
+        pulumi.set(__self__, "target_server_version", target_server_version)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Mapping[str, str]:
+        """
+        Selected databases as a map from database name to database id
+        """
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Migration end time
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter(name="exceptionsAndWarnings")
+    def exceptions_and_warnings(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Migration exceptions and warnings.
+        """
+        return pulumi.get(self, "exceptions_and_warnings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Migration progress message
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="resultType")
+    def result_type(self) -> str:
+        """
+        Result type
+        Expected value is 'MigrationLevelOutput'.
+        """
+        return pulumi.get(self, "result_type")
+
+    @property
+    @pulumi.getter(name="sourceServerBrandVersion")
+    def source_server_brand_version(self) -> str:
+        """
+        Source server brand version
+        """
+        return pulumi.get(self, "source_server_brand_version")
+
+    @property
+    @pulumi.getter(name="sourceServerVersion")
+    def source_server_version(self) -> str:
+        """
+        Source server version
+        """
+        return pulumi.get(self, "source_server_version")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Migration start time
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of migration
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Current status of migration
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="targetServerBrandVersion")
+    def target_server_brand_version(self) -> str:
+        """
+        Target server brand version
+        """
+        return pulumi.get(self, "target_server_brand_version")
+
+    @property
+    @pulumi.getter(name="targetServerVersion")
+    def target_server_version(self) -> str:
+        """
+        Target server version
+        """
+        return pulumi.get(self, "target_server_version")
 
 
 @pulumi.output_type
@@ -2562,6 +5008,75 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
 
 
 @pulumi.output_type
+class MigrateSqlServerSqlMITaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence[Any],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.MigrateSqlServerSqlMITaskInputInvokeResponseResult'] = None):
+        """
+        Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlMITaskOutputDatabaseLevelInvokeResponseArgs', 'MigrateSqlServerSqlMITaskOutputErrorInvokeResponseArgs', 'MigrateSqlServerSqlMITaskOutputMigrationLevelInvokeResponseArgs']] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
+        :param 'MigrateSqlServerSqlMITaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence[Any]:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.MigrateSqlServerSqlMITaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
+
+
+@pulumi.output_type
 class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
     """
     Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
@@ -2634,6 +5149,41 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class MigrationReportResultInvokeResponseResult(dict):
+    """
+    Migration validation report result, contains the url for downloading the generated report.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 report_url: Optional[str] = None):
+        """
+        Migration validation report result, contains the url for downloading the generated report.
+        :param str id: Migration validation result identifier
+        :param str report_url: The url of the report.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if report_url is not None:
+            pulumi.set(__self__, "report_url", report_url)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Migration validation result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="reportUrl")
+    def report_url(self) -> Optional[str]:
+        """
+        The url of the report.
+        """
+        return pulumi.get(self, "report_url")
+
+
+@pulumi.output_type
 class MigrationReportResultResponse(dict):
     """
     Migration validation report result, contains the url for downloading the generated report.
@@ -2669,6 +5219,53 @@ class MigrationReportResultResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MigrationValidationOptionsInvokeResponseResult(dict):
+    """
+    Types of validations to run after the migration
+    """
+    def __init__(__self__, *,
+                 enable_data_integrity_validation: Optional[bool] = None,
+                 enable_query_analysis_validation: Optional[bool] = None,
+                 enable_schema_validation: Optional[bool] = None):
+        """
+        Types of validations to run after the migration
+        :param bool enable_data_integrity_validation: Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
+        :param bool enable_query_analysis_validation: Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
+        :param bool enable_schema_validation: Allows to compare the schema information between source and target.
+        """
+        if enable_data_integrity_validation is not None:
+            pulumi.set(__self__, "enable_data_integrity_validation", enable_data_integrity_validation)
+        if enable_query_analysis_validation is not None:
+            pulumi.set(__self__, "enable_query_analysis_validation", enable_query_analysis_validation)
+        if enable_schema_validation is not None:
+            pulumi.set(__self__, "enable_schema_validation", enable_schema_validation)
+
+    @property
+    @pulumi.getter(name="enableDataIntegrityValidation")
+    def enable_data_integrity_validation(self) -> Optional[bool]:
+        """
+        Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
+        """
+        return pulumi.get(self, "enable_data_integrity_validation")
+
+    @property
+    @pulumi.getter(name="enableQueryAnalysisValidation")
+    def enable_query_analysis_validation(self) -> Optional[bool]:
+        """
+        Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
+        """
+        return pulumi.get(self, "enable_query_analysis_validation")
+
+    @property
+    @pulumi.getter(name="enableSchemaValidation")
+    def enable_schema_validation(self) -> Optional[bool]:
+        """
+        Allows to compare the schema information between source and target.
+        """
+        return pulumi.get(self, "enable_schema_validation")
 
 
 @pulumi.output_type
@@ -2722,6 +5319,53 @@ class MigrationValidationOptionsResponse(dict):
 
 
 @pulumi.output_type
+class ODataErrorInvokeResponseResult(dict):
+    """
+    Error information in OData format.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.ODataErrorInvokeResponseResult']] = None,
+                 message: Optional[str] = None):
+        """
+        Error information in OData format.
+        :param str code: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
+        :param Sequence['ODataErrorInvokeResponseArgs'] details: Inner errors that caused this error
+        :param str message: The human-readable description of the error
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.ODataErrorInvokeResponseResult']]:
+        """
+        Inner errors that caused this error
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The human-readable description of the error
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
 class ODataErrorResponse(dict):
     """
     Error information in OData format.
@@ -2769,6 +5413,77 @@ class ODataErrorResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ReportableExceptionInvokeResponseResult(dict):
+    """
+    Exception object for all custom exceptions
+    """
+    def __init__(__self__, *,
+                 file_path: Optional[str] = None,
+                 h_result: Optional[int] = None,
+                 line_number: Optional[str] = None,
+                 message: Optional[str] = None,
+                 stack_trace: Optional[str] = None):
+        """
+        Exception object for all custom exceptions
+        :param str file_path: The path to the file where exception occurred
+        :param int h_result: Coded numerical value that is assigned to a specific exception
+        :param str line_number: The line number where exception occurred
+        :param str message: Error message
+        :param str stack_trace: Stack trace
+        """
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
+        if h_result is not None:
+            pulumi.set(__self__, "h_result", h_result)
+        if line_number is not None:
+            pulumi.set(__self__, "line_number", line_number)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if stack_trace is not None:
+            pulumi.set(__self__, "stack_trace", stack_trace)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[str]:
+        """
+        The path to the file where exception occurred
+        """
+        return pulumi.get(self, "file_path")
+
+    @property
+    @pulumi.getter(name="hResult")
+    def h_result(self) -> Optional[int]:
+        """
+        Coded numerical value that is assigned to a specific exception
+        """
+        return pulumi.get(self, "h_result")
+
+    @property
+    @pulumi.getter(name="lineNumber")
+    def line_number(self) -> Optional[str]:
+        """
+        The line number where exception occurred
+        """
+        return pulumi.get(self, "line_number")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Error message
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="stackTrace")
+    def stack_trace(self) -> Optional[str]:
+        """
+        Stack trace
+        """
+        return pulumi.get(self, "stack_trace")
 
 
 @pulumi.output_type
@@ -2846,6 +5561,77 @@ class ReportableExceptionResponse(dict):
 
 
 @pulumi.output_type
+class ServiceSkuInvokeResponseResult(dict):
+    """
+    An Azure SKU instance
+    """
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 name: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        An Azure SKU instance
+        :param int capacity: The capacity of the SKU, if it supports scaling
+        :param str family: The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
+        :param str name: The unique name of the SKU, such as 'P3'
+        :param str size: The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
+        :param str tier: The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The capacity of the SKU, if it supports scaling
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The unique name of the SKU, such as 'P3'
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class ServiceSkuResponse(dict):
     """
     An Azure SKU instance
@@ -2917,6 +5703,117 @@ class ServiceSkuResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlConnectionInfoInvokeResponseResult(dict):
+    """
+    Information for connecting to SQL database server
+    """
+    def __init__(__self__, *,
+                 data_source: str,
+                 type: str,
+                 additional_settings: Optional[str] = None,
+                 authentication: Optional[str] = None,
+                 encrypt_connection: Optional[bool] = None,
+                 password: Optional[str] = None,
+                 trust_server_certificate: Optional[bool] = None,
+                 user_name: Optional[str] = None):
+        """
+        Information for connecting to SQL database server
+        :param str data_source: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
+        :param str type: Type of connection info
+               Expected value is 'SqlConnectionInfo'.
+        :param str additional_settings: Additional connection settings
+        :param str authentication: Authentication type to use for connection
+        :param bool encrypt_connection: Whether to encrypt the connection
+        :param str password: Password credential.
+        :param bool trust_server_certificate: Whether to trust the server certificate
+        :param str user_name: User name
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "type", 'SqlConnectionInfo')
+        if additional_settings is not None:
+            pulumi.set(__self__, "additional_settings", additional_settings)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if encrypt_connection is None:
+            encrypt_connection = True
+        if encrypt_connection is not None:
+            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if trust_server_certificate is None:
+            trust_server_certificate = False
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        """
+        Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of connection info
+        Expected value is 'SqlConnectionInfo'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalSettings")
+    def additional_settings(self) -> Optional[str]:
+        """
+        Additional connection settings
+        """
+        return pulumi.get(self, "additional_settings")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[str]:
+        """
+        Authentication type to use for connection
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="encryptConnection")
+    def encrypt_connection(self) -> Optional[bool]:
+        """
+        Whether to encrypt the connection
+        """
+        return pulumi.get(self, "encrypt_connection")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password credential.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[bool]:
+        """
+        Whether to trust the server certificate
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        User name
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -3034,6 +5931,62 @@ class SqlConnectionInfoResponse(dict):
 
 
 @pulumi.output_type
+class ValidateMigrationInputSqlServerSqlMITaskInputInvokeResponseResult(dict):
+    """
+    Input for task that validates migration input for SQL to Azure SQL Managed Instance
+    """
+    def __init__(__self__, *,
+                 backup_blob_share: 'outputs.BlobShareInvokeResponseResult',
+                 selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputInvokeResponseResult'],
+                 target_connection_info: 'outputs.SqlConnectionInfoInvokeResponseResult',
+                 backup_file_share: Optional['outputs.FileShareInvokeResponseResult'] = None):
+        """
+        Input for task that validates migration input for SQL to Azure SQL Managed Instance
+        :param 'BlobShareInvokeResponseArgs' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputInvokeResponseArgs'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoInvokeResponseArgs' target_connection_info: Information for connecting to target
+        :param 'FileShareInvokeResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        """
+        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
+        pulumi.set(__self__, "selected_databases", selected_databases)
+        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        if backup_file_share is not None:
+            pulumi.set(__self__, "backup_file_share", backup_file_share)
+
+    @property
+    @pulumi.getter(name="backupBlobShare")
+    def backup_blob_share(self) -> 'outputs.BlobShareInvokeResponseResult':
+        """
+        SAS URI of Azure Storage Account Container to be used for storing backup files.
+        """
+        return pulumi.get(self, "backup_blob_share")
+
+    @property
+    @pulumi.getter(name="selectedDatabases")
+    def selected_databases(self) -> Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputInvokeResponseResult']:
+        """
+        Databases to migrate
+        """
+        return pulumi.get(self, "selected_databases")
+
+    @property
+    @pulumi.getter(name="targetConnectionInfo")
+    def target_connection_info(self) -> 'outputs.SqlConnectionInfoInvokeResponseResult':
+        """
+        Information for connecting to target
+        """
+        return pulumi.get(self, "target_connection_info")
+
+    @property
+    @pulumi.getter(name="backupFileShare")
+    def backup_file_share(self) -> Optional['outputs.FileShareInvokeResponseResult']:
+        """
+        Backup file share information for all selected databases.
+        """
+        return pulumi.get(self, "backup_file_share")
+
+
+@pulumi.output_type
 class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
     """
     Input for task that validates migration input for SQL to Azure SQL Managed Instance
@@ -3090,6 +6043,83 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ValidateMigrationInputSqlServerSqlMITaskOutputInvokeResponseResult(dict):
+    """
+    Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
+    """
+    def __init__(__self__, *,
+                 backup_folder_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 backup_share_credentials_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 backup_storage_account_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult'],
+                 id: str,
+                 name: str,
+                 restore_database_name_errors: Sequence['outputs.ReportableExceptionInvokeResponseResult']):
+        """
+        Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] backup_folder_errors: Errors associated with the BackupFolder path
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] backup_share_credentials_errors: Errors associated with backup share user name and password credentials
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] backup_storage_account_errors: Errors associated with the storage account provided.
+        :param str id: Result identifier
+        :param str name: Name of database
+        :param Sequence['ReportableExceptionInvokeResponseArgs'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
+        """
+        pulumi.set(__self__, "backup_folder_errors", backup_folder_errors)
+        pulumi.set(__self__, "backup_share_credentials_errors", backup_share_credentials_errors)
+        pulumi.set(__self__, "backup_storage_account_errors", backup_storage_account_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "restore_database_name_errors", restore_database_name_errors)
+
+    @property
+    @pulumi.getter(name="backupFolderErrors")
+    def backup_folder_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Errors associated with the BackupFolder path
+        """
+        return pulumi.get(self, "backup_folder_errors")
+
+    @property
+    @pulumi.getter(name="backupShareCredentialsErrors")
+    def backup_share_credentials_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Errors associated with backup share user name and password credentials
+        """
+        return pulumi.get(self, "backup_share_credentials_errors")
+
+    @property
+    @pulumi.getter(name="backupStorageAccountErrors")
+    def backup_storage_account_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Errors associated with the storage account provided.
+        """
+        return pulumi.get(self, "backup_storage_account_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Result identifier
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of database
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="restoreDatabaseNameErrors")
+    def restore_database_name_errors(self) -> Sequence['outputs.ReportableExceptionInvokeResponseResult']:
+        """
+        Errors associated with the RestoreDatabaseName
+        """
+        return pulumi.get(self, "restore_database_name_errors")
 
 
 @pulumi.output_type
@@ -3170,6 +6200,75 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ValidateMigrationInputSqlServerSqlMITaskPropertiesInvokeResponseResult(dict):
+    """
+    Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.ODataErrorInvokeResponseResult'],
+                 output: Sequence['outputs.ValidateMigrationInputSqlServerSqlMITaskOutputInvokeResponseResult'],
+                 state: str,
+                 task_type: str,
+                 input: Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputInvokeResponseResult'] = None):
+        """
+        Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
+        :param Sequence['ODataErrorInvokeResponseArgs'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputInvokeResponseArgs'] output: Task output. This is ignored if submitted.
+        :param str state: The state of the task. This is ignored if submitted.
+        :param str task_type: Task type.
+               Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
+        :param 'ValidateMigrationInputSqlServerSqlMITaskInputInvokeResponseArgs' input: Task input
+        """
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.ODataErrorInvokeResponseResult']:
+        """
+        Array of errors. This is ignored if submitted.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Sequence['outputs.ValidateMigrationInputSqlServerSqlMITaskOutputInvokeResponseResult']:
+        """
+        Task output. This is ignored if submitted.
+        """
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the task. This is ignored if submitted.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        Task type.
+        Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputInvokeResponseResult']:
+        """
+        Task input
+        """
+        return pulumi.get(self, "input")
 
 
 @pulumi.output_type

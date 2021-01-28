@@ -94,7 +94,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="autoStorage")
-    def auto_storage(self) -> 'outputs.AutoStoragePropertiesResponse':
+    def auto_storage(self) -> 'outputs.AutoStoragePropertiesInvokeResponseResult':
         """
         Contains information about the auto-storage account associated with a Batch account.
         """
@@ -110,7 +110,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamily")
-    def dedicated_core_quota_per_vm_family(self) -> Sequence['outputs.VirtualMachineFamilyCoreQuotaResponse']:
+    def dedicated_core_quota_per_vm_family(self) -> Sequence['outputs.VirtualMachineFamilyCoreQuotaInvokeResponseResult']:
         """
         A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -126,7 +126,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> 'outputs.EncryptionPropertiesResponse':
+    def encryption(self) -> 'outputs.EncryptionPropertiesInvokeResponseResult':
         return pulumi.get(self, "encryption")
 
     @property
@@ -139,7 +139,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> 'outputs.KeyVaultReferenceResponse':
+    def key_vault_reference(self) -> 'outputs.KeyVaultReferenceInvokeResponseResult':
         """
         Identifies the Azure key vault associated with a Batch account.
         """
@@ -184,7 +184,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         List of private endpoint connections associated with the Batch account
         """

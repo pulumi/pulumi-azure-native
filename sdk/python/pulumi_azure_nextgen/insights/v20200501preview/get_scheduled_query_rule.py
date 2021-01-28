@@ -81,12 +81,12 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.ActionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.ActionInvokeResponseResult']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def criteria(self) -> 'outputs.ScheduledQueryRuleCriteriaResponse':
+    def criteria(self) -> 'outputs.ScheduledQueryRuleCriteriaInvokeResponseResult':
         """
         The rule criteria that defines the conditions of the scheduled query rule.
         """

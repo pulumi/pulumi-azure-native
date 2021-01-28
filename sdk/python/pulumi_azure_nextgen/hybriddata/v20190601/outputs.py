@@ -10,10 +10,57 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'CustomerSecretInvokeResponseResult',
     'CustomerSecretResponse',
+    'ScheduleInvokeResponseResult',
     'ScheduleResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class CustomerSecretInvokeResponseResult(dict):
+    """
+    The pair of customer secret.
+    """
+    def __init__(__self__, *,
+                 algorithm: str,
+                 key_identifier: str,
+                 key_value: str):
+        """
+        The pair of customer secret.
+        :param str algorithm: The encryption algorithm used to encrypt data.
+        :param str key_identifier: The identifier to the data service input object which this secret corresponds to.
+        :param str key_value: It contains the encrypted customer secret.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_value", key_value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> str:
+        """
+        The encryption algorithm used to encrypt data.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> str:
+        """
+        The identifier to the data service input object which this secret corresponds to.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @property
+    @pulumi.getter(name="keyValue")
+    def key_value(self) -> str:
+        """
+        It contains the encrypted customer secret.
+        """
+        return pulumi.get(self, "key_value")
+
 
 @pulumi.output_type
 class CustomerSecretResponse(dict):
@@ -63,6 +110,41 @@ class CustomerSecretResponse(dict):
 
 
 @pulumi.output_type
+class ScheduleInvokeResponseResult(dict):
+    """
+    Schedule for the job run.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 policy_list: Optional[Sequence[str]] = None):
+        """
+        Schedule for the job run.
+        :param str name: Name of the schedule.
+        :param Sequence[str] policy_list: A list of repetition intervals in ISO 8601 format.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_list is not None:
+            pulumi.set(__self__, "policy_list", policy_list)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyList")
+    def policy_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of repetition intervals in ISO 8601 format.
+        """
+        return pulumi.get(self, "policy_list")
+
+
+@pulumi.output_type
 class ScheduleResponse(dict):
     """
     Schedule for the job run.
@@ -98,6 +180,41 @@ class ScheduleResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The sku type.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        The sku type.
+        :param str name: The sku name. Required for data manager creation, optional for update.
+        :param str tier: The sku tier. This is based on the SKU name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The sku name. Required for data manager creation, optional for update.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The sku tier. This is based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

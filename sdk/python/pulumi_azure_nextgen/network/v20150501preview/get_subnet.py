@@ -72,7 +72,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         Gets array of references to the network interface IP configurations using subnet
         """
@@ -88,7 +88,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.SubResourceResponse']:
+    def network_security_group(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Gets or sets the reference of the NetworkSecurityGroup resource
         """
@@ -104,7 +104,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.SubResourceResponse']:
+    def route_table(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         Gets or sets the reference of the RouteTable resource
         """

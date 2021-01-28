@@ -85,7 +85,7 @@ class GetJitNetworkAccessPolicyResult:
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[Sequence['outputs.JitNetworkAccessRequestResponse']]:
+    def requests(self) -> Optional[Sequence['outputs.JitNetworkAccessRequestInvokeResponseResult']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -98,7 +98,7 @@ class GetJitNetworkAccessPolicyResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
+    def virtual_machines(self) -> Sequence['outputs.JitNetworkAccessPolicyVirtualMachineInvokeResponseResult']:
         """
         Configurations for Microsoft.Compute/virtualMachines resource type.
         """

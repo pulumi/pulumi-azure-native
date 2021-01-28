@@ -68,7 +68,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="databasesInfo")
-    def databases_info(self) -> Optional[Sequence['outputs.DatabaseInfoResponse']]:
+    def databases_info(self) -> Optional[Sequence['outputs.DatabaseInfoInvokeResponseResult']]:
         """
         List of DatabaseInfo
         """

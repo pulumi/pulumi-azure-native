@@ -63,7 +63,7 @@ class GetReplicationProtectedItemResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ReplicationProtectedItemPropertiesResponse':
+    def properties(self) -> 'outputs.ReplicationProtectedItemPropertiesInvokeResponseResult':
         """
         The custom data.
         """

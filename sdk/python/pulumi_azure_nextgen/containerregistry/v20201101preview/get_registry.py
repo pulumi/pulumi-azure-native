@@ -125,7 +125,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionPropertyResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionPropertyInvokeResponseResult']:
         """
         The encryption settings of container registry.
         """
@@ -141,7 +141,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         """
         The identity of the container registry.
         """
@@ -181,7 +181,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional['outputs.NetworkRuleSetResponse']:
+    def network_rule_set(self) -> Optional['outputs.NetworkRuleSetInvokeResponseResult']:
         """
         The network rule set for a container registry.
         """
@@ -189,7 +189,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional['outputs.PoliciesResponse']:
+    def policies(self) -> Optional['outputs.PoliciesInvokeResponseResult']:
         """
         The policies for a container registry.
         """
@@ -197,7 +197,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionInvokeResponseResult']:
         """
         List of private endpoint connections for a container registry.
         """
@@ -221,7 +221,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The SKU of the container registry.
         """
@@ -229,7 +229,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.StatusResponse':
+    def status(self) -> 'outputs.StatusInvokeResponseResult':
         """
         The status of the container registry at the time the operation was called.
         """
@@ -237,7 +237,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesResponse']:
+    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesInvokeResponseResult']:
         """
         The properties of the storage account for the container registry. Only applicable to Classic SKU.
         """
@@ -245,7 +245,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

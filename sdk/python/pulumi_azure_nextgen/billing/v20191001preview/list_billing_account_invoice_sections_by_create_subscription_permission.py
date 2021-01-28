@@ -38,7 +38,7 @@ class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.InvoiceSectionWithCreateSubPermissionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.InvoiceSectionWithCreateSubPermissionInvokeResponseResult']]:
         """
         The list of invoice section properties with create subscription permission.
         """

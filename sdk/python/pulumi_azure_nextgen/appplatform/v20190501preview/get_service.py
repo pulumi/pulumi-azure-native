@@ -69,7 +69,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ClusterResourcePropertiesResponse':
+    def properties(self) -> 'outputs.ClusterResourcePropertiesInvokeResponseResult':
         """
         Properties of the Service resource
         """
@@ -77,7 +77,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Sku of the Service resource
         """

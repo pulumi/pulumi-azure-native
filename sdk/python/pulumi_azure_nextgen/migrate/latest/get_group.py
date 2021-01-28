@@ -63,7 +63,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GroupPropertiesResponse':
+    def properties(self) -> 'outputs.GroupPropertiesInvokeResponseResult':
         """
         Properties of the group.
         """

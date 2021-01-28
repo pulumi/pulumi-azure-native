@@ -55,7 +55,7 @@ class GetDeploymentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DeploymentResourcePropertiesResponse':
+    def properties(self) -> 'outputs.DeploymentResourcePropertiesInvokeResponseResult':
         """
         Properties of the Deployment resource
         """
@@ -63,7 +63,7 @@ class GetDeploymentResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuInvokeResponseResult']:
         """
         Sku of the Deployment resource
         """

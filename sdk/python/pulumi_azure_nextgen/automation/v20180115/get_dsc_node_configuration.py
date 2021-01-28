@@ -51,7 +51,7 @@ class GetDscNodeConfigurationResult:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.DscConfigurationAssociationPropertyResponse']:
+    def configuration(self) -> Optional['outputs.DscConfigurationAssociationPropertyInvokeResponseResult']:
         """
         Gets or sets the configuration of the node.
         """

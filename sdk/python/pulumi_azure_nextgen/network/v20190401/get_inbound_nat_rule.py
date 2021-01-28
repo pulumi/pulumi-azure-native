@@ -60,7 +60,7 @@ class GetInboundNatRuleResult:
 
     @property
     @pulumi.getter(name="backendIPConfiguration")
-    def backend_ip_configuration(self) -> 'outputs.NetworkInterfaceIPConfigurationResponse':
+    def backend_ip_configuration(self) -> 'outputs.NetworkInterfaceIPConfigurationInvokeResponseResult':
         """
         A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         """
@@ -100,7 +100,7 @@ class GetInboundNatRuleResult:
 
     @property
     @pulumi.getter(name="frontendIPConfiguration")
-    def frontend_ip_configuration(self) -> Optional['outputs.SubResourceResponse']:
+    def frontend_ip_configuration(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         A reference to frontend IP addresses.
         """

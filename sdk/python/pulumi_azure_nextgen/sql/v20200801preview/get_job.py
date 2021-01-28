@@ -66,7 +66,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.JobScheduleResponse']:
+    def schedule(self) -> Optional['outputs.JobScheduleInvokeResponseResult']:
         """
         Schedule properties of the job.
         """

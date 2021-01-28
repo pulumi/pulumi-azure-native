@@ -61,7 +61,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional['outputs.KeyVaultContractPropertiesResponse']:
+    def key_vault(self) -> Optional['outputs.KeyVaultContractPropertiesInvokeResponseResult']:
         """
         KeyVault location details of the certificate.
         """

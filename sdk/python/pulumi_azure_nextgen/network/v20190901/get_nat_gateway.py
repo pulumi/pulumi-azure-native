@@ -114,7 +114,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         An array of public ip addresses associated with the nat gateway resource.
         """
@@ -122,7 +122,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+    def public_ip_prefixes(self) -> Optional[Sequence['outputs.SubResourceInvokeResponseResult']]:
         """
         An array of public ip prefixes associated with the nat gateway resource.
         """
@@ -138,7 +138,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.NatGatewaySkuResponse']:
+    def sku(self) -> Optional['outputs.NatGatewaySkuInvokeResponseResult']:
         """
         The nat gateway SKU.
         """
@@ -146,7 +146,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.SubResourceResponse']:
+    def subnets(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         An array of references to the subnets using this nat gateway resource.
         """

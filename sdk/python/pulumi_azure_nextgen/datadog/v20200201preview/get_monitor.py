@@ -53,7 +53,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         return pulumi.get(self, "identity")
 
     @property
@@ -71,7 +71,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MonitorPropertiesResponse':
+    def properties(self) -> 'outputs.MonitorPropertiesInvokeResponseResult':
         """
         Properties specific to the monitor resource.
         """
@@ -79,7 +79,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> Optional['outputs.ResourceSkuInvokeResponseResult']:
         return pulumi.get(self, "sku")
 
     @property

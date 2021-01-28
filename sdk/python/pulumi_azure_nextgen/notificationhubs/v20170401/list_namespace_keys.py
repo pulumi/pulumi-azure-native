@@ -38,7 +38,7 @@ class ListNamespaceKeysResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.SharedAccessAuthorizationRuleResourceResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.SharedAccessAuthorizationRuleResourceInvokeResponseResult']]:
         """
         Result of the List AuthorizationRules operation.
         """

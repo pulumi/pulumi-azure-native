@@ -81,7 +81,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter(name="autoBackupSettings")
-    def auto_backup_settings(self) -> Optional['outputs.AutoBackupSettingsResponse']:
+    def auto_backup_settings(self) -> Optional['outputs.AutoBackupSettingsInvokeResponseResult']:
         """
         Auto backup settings for SQL Server.
         """
@@ -89,7 +89,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter(name="autoPatchingSettings")
-    def auto_patching_settings(self) -> Optional['outputs.AutoPatchingSettingsResponse']:
+    def auto_patching_settings(self) -> Optional['outputs.AutoPatchingSettingsInvokeResponseResult']:
         """
         Auto patching settings for applying critical security updates to SQL virtual machine.
         """
@@ -105,7 +105,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         Azure Active Directory identity of the server.
         """
@@ -113,7 +113,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter(name="keyVaultCredentialSettings")
-    def key_vault_credential_settings(self) -> Optional['outputs.KeyVaultCredentialSettingsResponse']:
+    def key_vault_credential_settings(self) -> Optional['outputs.KeyVaultCredentialSettingsInvokeResponseResult']:
         """
         Key vault credential settings.
         """
@@ -145,7 +145,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter(name="serverConfigurationsManagementSettings")
-    def server_configurations_management_settings(self) -> Optional['outputs.ServerConfigurationsManagementSettingsResponse']:
+    def server_configurations_management_settings(self) -> Optional['outputs.ServerConfigurationsManagementSettingsInvokeResponseResult']:
         """
         SQL Server configuration management settings.
         """
@@ -193,7 +193,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter(name="storageConfigurationSettings")
-    def storage_configuration_settings(self) -> Optional['outputs.StorageConfigurationSettingsResponse']:
+    def storage_configuration_settings(self) -> Optional['outputs.StorageConfigurationSettingsInvokeResponseResult']:
         """
         Storage Configuration Settings.
         """
@@ -225,7 +225,7 @@ class GetSqlVirtualMachineResult:
 
     @property
     @pulumi.getter(name="wsfcDomainCredentials")
-    def wsfc_domain_credentials(self) -> Optional['outputs.WsfcDomainCredentialsResponse']:
+    def wsfc_domain_credentials(self) -> Optional['outputs.WsfcDomainCredentialsInvokeResponseResult']:
         """
         Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
         """

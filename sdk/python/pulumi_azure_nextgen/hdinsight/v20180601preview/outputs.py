@@ -11,43 +11,138 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationGetEndpointInvokeResponseResult',
     'ApplicationGetEndpointResponse',
+    'ApplicationGetHttpsEndpointInvokeResponseResult',
     'ApplicationGetHttpsEndpointResponse',
+    'ApplicationPropertiesInvokeResponseResult',
     'ApplicationPropertiesResponse',
+    'AutoscaleCapacityInvokeResponseResult',
     'AutoscaleCapacityResponse',
+    'AutoscaleInvokeResponseResult',
+    'AutoscaleRecurrenceInvokeResponseResult',
     'AutoscaleRecurrenceResponse',
     'AutoscaleResponse',
+    'AutoscaleScheduleInvokeResponseResult',
     'AutoscaleScheduleResponse',
+    'AutoscaleTimeAndCapacityInvokeResponseResult',
     'AutoscaleTimeAndCapacityResponse',
+    'ClientGroupInfoInvokeResponseResult',
     'ClientGroupInfoResponse',
+    'ClusterDefinitionInvokeResponseResult',
     'ClusterDefinitionResponse',
+    'ClusterGetPropertiesInvokeResponseResult',
     'ClusterGetPropertiesResponse',
+    'ClusterIdentityInvokeResponseResult',
+    'ClusterIdentityInvokeResponseUserAssignedIdentitiesResult',
     'ClusterIdentityResponse',
     'ClusterIdentityResponseUserAssignedIdentities',
+    'ComputeIsolationPropertiesInvokeResponseResult',
     'ComputeIsolationPropertiesResponse',
+    'ComputeProfileInvokeResponseResult',
     'ComputeProfileResponse',
+    'ConnectivityEndpointInvokeResponseResult',
     'ConnectivityEndpointResponse',
+    'DataDisksGroupsInvokeResponseResult',
     'DataDisksGroupsResponse',
+    'DiskEncryptionPropertiesInvokeResponseResult',
     'DiskEncryptionPropertiesResponse',
+    'EncryptionInTransitPropertiesInvokeResponseResult',
     'EncryptionInTransitPropertiesResponse',
+    'ErrorsInvokeResponseResult',
     'ErrorsResponse',
+    'ExcludedServicesConfigInvokeResponseResult',
     'ExcludedServicesConfigResponse',
+    'HardwareProfileInvokeResponseResult',
     'HardwareProfileResponse',
+    'KafkaRestPropertiesInvokeResponseResult',
     'KafkaRestPropertiesResponse',
+    'LinuxOperatingSystemProfileInvokeResponseResult',
     'LinuxOperatingSystemProfileResponse',
+    'NetworkPropertiesInvokeResponseResult',
     'NetworkPropertiesResponse',
+    'OsProfileInvokeResponseResult',
     'OsProfileResponse',
+    'QuotaInfoInvokeResponseResult',
     'QuotaInfoResponse',
+    'RoleInvokeResponseResult',
     'RoleResponse',
+    'RuntimeScriptActionInvokeResponseResult',
     'RuntimeScriptActionResponse',
+    'ScriptActionInvokeResponseResult',
     'ScriptActionResponse',
+    'SecurityProfileInvokeResponseResult',
     'SecurityProfileResponse',
+    'SshProfileInvokeResponseResult',
     'SshProfileResponse',
+    'SshPublicKeyInvokeResponseResult',
     'SshPublicKeyResponse',
+    'StorageAccountInvokeResponseResult',
     'StorageAccountResponse',
+    'StorageProfileInvokeResponseResult',
     'StorageProfileResponse',
+    'VirtualNetworkProfileInvokeResponseResult',
     'VirtualNetworkProfileResponse',
 ]
+
+@pulumi.output_type
+class ApplicationGetEndpointInvokeResponseResult(dict):
+    """
+    Gets the application SSH endpoint
+    """
+    def __init__(__self__, *,
+                 destination_port: Optional[int] = None,
+                 location: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 public_port: Optional[int] = None):
+        """
+        Gets the application SSH endpoint
+        :param int destination_port: The destination port to connect to.
+        :param str location: The location of the endpoint.
+        :param str private_ip_address: The private ip address of the endpoint.
+        :param int public_port: The public port to connect to.
+        """
+        if destination_port is not None:
+            pulumi.set(__self__, "destination_port", destination_port)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_port is not None:
+            pulumi.set(__self__, "public_port", public_port)
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> Optional[int]:
+        """
+        The destination port to connect to.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the endpoint.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicPort")
+    def public_port(self) -> Optional[int]:
+        """
+        The public port to connect to.
+        """
+        return pulumi.get(self, "public_port")
+
 
 @pulumi.output_type
 class ApplicationGetEndpointResponse(dict):
@@ -109,6 +204,89 @@ class ApplicationGetEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationGetHttpsEndpointInvokeResponseResult(dict):
+    """
+    Gets the application HTTP endpoints.
+    """
+    def __init__(__self__, *,
+                 access_modes: Optional[Sequence[str]] = None,
+                 destination_port: Optional[int] = None,
+                 disable_gateway_auth: Optional[bool] = None,
+                 location: Optional[str] = None,
+                 public_port: Optional[int] = None,
+                 sub_domain_suffix: Optional[str] = None):
+        """
+        Gets the application HTTP endpoints.
+        :param Sequence[str] access_modes: The list of access modes for the application.
+        :param int destination_port: The destination port to connect to.
+        :param bool disable_gateway_auth: The value indicates whether to disable GatewayAuth.
+        :param str location: The location of the endpoint.
+        :param int public_port: The public port to connect to.
+        :param str sub_domain_suffix: The subdomain suffix of the application.
+        """
+        if access_modes is not None:
+            pulumi.set(__self__, "access_modes", access_modes)
+        if destination_port is not None:
+            pulumi.set(__self__, "destination_port", destination_port)
+        if disable_gateway_auth is not None:
+            pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if public_port is not None:
+            pulumi.set(__self__, "public_port", public_port)
+        if sub_domain_suffix is not None:
+            pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
+
+    @property
+    @pulumi.getter(name="accessModes")
+    def access_modes(self) -> Optional[Sequence[str]]:
+        """
+        The list of access modes for the application.
+        """
+        return pulumi.get(self, "access_modes")
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> Optional[int]:
+        """
+        The destination port to connect to.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter(name="disableGatewayAuth")
+    def disable_gateway_auth(self) -> Optional[bool]:
+        """
+        The value indicates whether to disable GatewayAuth.
+        """
+        return pulumi.get(self, "disable_gateway_auth")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the endpoint.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="publicPort")
+    def public_port(self) -> Optional[int]:
+        """
+        The public port to connect to.
+        """
+        return pulumi.get(self, "public_port")
+
+    @property
+    @pulumi.getter(name="subDomainSuffix")
+    def sub_domain_suffix(self) -> Optional[str]:
+        """
+        The subdomain suffix of the application.
+        """
+        return pulumi.get(self, "sub_domain_suffix")
 
 
 @pulumi.output_type
@@ -195,6 +373,145 @@ class ApplicationGetHttpsEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationPropertiesInvokeResponseResult(dict):
+    """
+    The HDInsight cluster application GET response.
+    """
+    def __init__(__self__, *,
+                 application_state: str,
+                 created_date: str,
+                 marketplace_identifier: str,
+                 provisioning_state: str,
+                 application_type: Optional[str] = None,
+                 compute_profile: Optional['outputs.ComputeProfileInvokeResponseResult'] = None,
+                 errors: Optional[Sequence['outputs.ErrorsInvokeResponseResult']] = None,
+                 https_endpoints: Optional[Sequence['outputs.ApplicationGetHttpsEndpointInvokeResponseResult']] = None,
+                 install_script_actions: Optional[Sequence['outputs.RuntimeScriptActionInvokeResponseResult']] = None,
+                 ssh_endpoints: Optional[Sequence['outputs.ApplicationGetEndpointInvokeResponseResult']] = None,
+                 uninstall_script_actions: Optional[Sequence['outputs.RuntimeScriptActionInvokeResponseResult']] = None):
+        """
+        The HDInsight cluster application GET response.
+        :param str application_state: The application state.
+        :param str created_date: The application create date time.
+        :param str marketplace_identifier: The marketplace identifier.
+        :param str provisioning_state: The provisioning state of the application.
+        :param str application_type: The application type.
+        :param 'ComputeProfileInvokeResponseArgs' compute_profile: The list of roles in the cluster.
+        :param Sequence['ErrorsInvokeResponseArgs'] errors: The list of errors.
+        :param Sequence['ApplicationGetHttpsEndpointInvokeResponseArgs'] https_endpoints: The list of application HTTPS endpoints.
+        :param Sequence['RuntimeScriptActionInvokeResponseArgs'] install_script_actions: The list of install script actions.
+        :param Sequence['ApplicationGetEndpointInvokeResponseArgs'] ssh_endpoints: The list of application SSH endpoints.
+        :param Sequence['RuntimeScriptActionInvokeResponseArgs'] uninstall_script_actions: The list of uninstall script actions.
+        """
+        pulumi.set(__self__, "application_state", application_state)
+        pulumi.set(__self__, "created_date", created_date)
+        pulumi.set(__self__, "marketplace_identifier", marketplace_identifier)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if application_type is not None:
+            pulumi.set(__self__, "application_type", application_type)
+        if compute_profile is not None:
+            pulumi.set(__self__, "compute_profile", compute_profile)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if https_endpoints is not None:
+            pulumi.set(__self__, "https_endpoints", https_endpoints)
+        if install_script_actions is not None:
+            pulumi.set(__self__, "install_script_actions", install_script_actions)
+        if ssh_endpoints is not None:
+            pulumi.set(__self__, "ssh_endpoints", ssh_endpoints)
+        if uninstall_script_actions is not None:
+            pulumi.set(__self__, "uninstall_script_actions", uninstall_script_actions)
+
+    @property
+    @pulumi.getter(name="applicationState")
+    def application_state(self) -> str:
+        """
+        The application state.
+        """
+        return pulumi.get(self, "application_state")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The application create date time.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="marketplaceIdentifier")
+    def marketplace_identifier(self) -> str:
+        """
+        The marketplace identifier.
+        """
+        return pulumi.get(self, "marketplace_identifier")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> Optional[str]:
+        """
+        The application type.
+        """
+        return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="computeProfile")
+    def compute_profile(self) -> Optional['outputs.ComputeProfileInvokeResponseResult']:
+        """
+        The list of roles in the cluster.
+        """
+        return pulumi.get(self, "compute_profile")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.ErrorsInvokeResponseResult']]:
+        """
+        The list of errors.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="httpsEndpoints")
+    def https_endpoints(self) -> Optional[Sequence['outputs.ApplicationGetHttpsEndpointInvokeResponseResult']]:
+        """
+        The list of application HTTPS endpoints.
+        """
+        return pulumi.get(self, "https_endpoints")
+
+    @property
+    @pulumi.getter(name="installScriptActions")
+    def install_script_actions(self) -> Optional[Sequence['outputs.RuntimeScriptActionInvokeResponseResult']]:
+        """
+        The list of install script actions.
+        """
+        return pulumi.get(self, "install_script_actions")
+
+    @property
+    @pulumi.getter(name="sshEndpoints")
+    def ssh_endpoints(self) -> Optional[Sequence['outputs.ApplicationGetEndpointInvokeResponseResult']]:
+        """
+        The list of application SSH endpoints.
+        """
+        return pulumi.get(self, "ssh_endpoints")
+
+    @property
+    @pulumi.getter(name="uninstallScriptActions")
+    def uninstall_script_actions(self) -> Optional[Sequence['outputs.RuntimeScriptActionInvokeResponseResult']]:
+        """
+        The list of uninstall script actions.
+        """
+        return pulumi.get(self, "uninstall_script_actions")
 
 
 @pulumi.output_type
@@ -340,6 +657,41 @@ class ApplicationPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class AutoscaleCapacityInvokeResponseResult(dict):
+    """
+    The load-based autoscale request parameters
+    """
+    def __init__(__self__, *,
+                 max_instance_count: Optional[int] = None,
+                 min_instance_count: Optional[int] = None):
+        """
+        The load-based autoscale request parameters
+        :param int max_instance_count: The maximum instance count of the cluster
+        :param int min_instance_count: The minimum instance count of the cluster
+        """
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[int]:
+        """
+        The maximum instance count of the cluster
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[int]:
+        """
+        The minimum instance count of the cluster
+        """
+        return pulumi.get(self, "min_instance_count")
+
+
+@pulumi.output_type
 class AutoscaleCapacityResponse(dict):
     """
     The load-based autoscale request parameters
@@ -375,6 +727,76 @@ class AutoscaleCapacityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutoscaleInvokeResponseResult(dict):
+    """
+    The autoscale request parameters
+    """
+    def __init__(__self__, *,
+                 capacity: Optional['outputs.AutoscaleCapacityInvokeResponseResult'] = None,
+                 recurrence: Optional['outputs.AutoscaleRecurrenceInvokeResponseResult'] = None):
+        """
+        The autoscale request parameters
+        :param 'AutoscaleCapacityInvokeResponseArgs' capacity: Parameters for load-based autoscale
+        :param 'AutoscaleRecurrenceInvokeResponseArgs' recurrence: Parameters for schedule-based autoscale
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional['outputs.AutoscaleCapacityInvokeResponseResult']:
+        """
+        Parameters for load-based autoscale
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional['outputs.AutoscaleRecurrenceInvokeResponseResult']:
+        """
+        Parameters for schedule-based autoscale
+        """
+        return pulumi.get(self, "recurrence")
+
+
+@pulumi.output_type
+class AutoscaleRecurrenceInvokeResponseResult(dict):
+    """
+    Schedule-based autoscale request parameters
+    """
+    def __init__(__self__, *,
+                 schedule: Optional[Sequence['outputs.AutoscaleScheduleInvokeResponseResult']] = None,
+                 time_zone: Optional[str] = None):
+        """
+        Schedule-based autoscale request parameters
+        :param Sequence['AutoscaleScheduleInvokeResponseArgs'] schedule: Array of schedule-based autoscale rules
+        :param str time_zone: The time zone for the autoscale schedule times
+        """
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[Sequence['outputs.AutoscaleScheduleInvokeResponseResult']]:
+        """
+        Array of schedule-based autoscale rules
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        The time zone for the autoscale schedule times
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -454,6 +876,41 @@ class AutoscaleResponse(dict):
 
 
 @pulumi.output_type
+class AutoscaleScheduleInvokeResponseResult(dict):
+    """
+    Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+    """
+    def __init__(__self__, *,
+                 days: Optional[Sequence[str]] = None,
+                 time_and_capacity: Optional['outputs.AutoscaleTimeAndCapacityInvokeResponseResult'] = None):
+        """
+        Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+        :param Sequence[str] days: Days of the week for a schedule-based autoscale rule
+        :param 'AutoscaleTimeAndCapacityInvokeResponseArgs' time_and_capacity: Time and capacity for a schedule-based autoscale rule
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if time_and_capacity is not None:
+            pulumi.set(__self__, "time_and_capacity", time_and_capacity)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[Sequence[str]]:
+        """
+        Days of the week for a schedule-based autoscale rule
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter(name="timeAndCapacity")
+    def time_and_capacity(self) -> Optional['outputs.AutoscaleTimeAndCapacityInvokeResponseResult']:
+        """
+        Time and capacity for a schedule-based autoscale rule
+        """
+        return pulumi.get(self, "time_and_capacity")
+
+
+@pulumi.output_type
 class AutoscaleScheduleResponse(dict):
     """
     Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
@@ -489,6 +946,53 @@ class AutoscaleScheduleResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutoscaleTimeAndCapacityInvokeResponseResult(dict):
+    """
+    Time and capacity request parameters
+    """
+    def __init__(__self__, *,
+                 max_instance_count: Optional[int] = None,
+                 min_instance_count: Optional[int] = None,
+                 time: Optional[str] = None):
+        """
+        Time and capacity request parameters
+        :param int max_instance_count: The maximum instance count of the cluster
+        :param int min_instance_count: The minimum instance count of the cluster
+        :param str time: 24-hour time in the form xx:xx
+        """
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[int]:
+        """
+        The maximum instance count of the cluster
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[int]:
+        """
+        The minimum instance count of the cluster
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
+        """
+        24-hour time in the form xx:xx
+        """
+        return pulumi.get(self, "time")
 
 
 @pulumi.output_type
@@ -542,6 +1046,41 @@ class AutoscaleTimeAndCapacityResponse(dict):
 
 
 @pulumi.output_type
+class ClientGroupInfoInvokeResponseResult(dict):
+    """
+    The information of AAD security group.
+    """
+    def __init__(__self__, *,
+                 group_id: Optional[str] = None,
+                 group_name: Optional[str] = None):
+        """
+        The information of AAD security group.
+        :param str group_id: The AAD security group id.
+        :param str group_name: The AAD security group name.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        The AAD security group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        """
+        The AAD security group name.
+        """
+        return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
 class ClientGroupInfoResponse(dict):
     """
     The information of AAD security group.
@@ -577,6 +1116,65 @@ class ClientGroupInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterDefinitionInvokeResponseResult(dict):
+    """
+    The cluster definition.
+    """
+    def __init__(__self__, *,
+                 blueprint: Optional[str] = None,
+                 component_version: Optional[Mapping[str, str]] = None,
+                 configurations: Optional[Any] = None,
+                 kind: Optional[str] = None):
+        """
+        The cluster definition.
+        :param str blueprint: The link to the blueprint.
+        :param Mapping[str, str] component_version: The versions of different services in the cluster.
+        :param Any configurations: The cluster configurations.
+        :param str kind: The type of cluster.
+        """
+        if blueprint is not None:
+            pulumi.set(__self__, "blueprint", blueprint)
+        if component_version is not None:
+            pulumi.set(__self__, "component_version", component_version)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def blueprint(self) -> Optional[str]:
+        """
+        The link to the blueprint.
+        """
+        return pulumi.get(self, "blueprint")
+
+    @property
+    @pulumi.getter(name="componentVersion")
+    def component_version(self) -> Optional[Mapping[str, str]]:
+        """
+        The versions of different services in the cluster.
+        """
+        return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Any]:
+        """
+        The cluster configurations.
+        """
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The type of cluster.
+        """
+        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type
@@ -639,6 +1237,280 @@ class ClusterDefinitionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterGetPropertiesInvokeResponseResult(dict):
+    """
+    The properties of cluster.
+    """
+    def __init__(__self__, *,
+                 cluster_definition: 'outputs.ClusterDefinitionInvokeResponseResult',
+                 cluster_hdp_version: Optional[str] = None,
+                 cluster_id: Optional[str] = None,
+                 cluster_state: Optional[str] = None,
+                 cluster_version: Optional[str] = None,
+                 compute_isolation_properties: Optional['outputs.ComputeIsolationPropertiesInvokeResponseResult'] = None,
+                 compute_profile: Optional['outputs.ComputeProfileInvokeResponseResult'] = None,
+                 connectivity_endpoints: Optional[Sequence['outputs.ConnectivityEndpointInvokeResponseResult']] = None,
+                 created_date: Optional[str] = None,
+                 disk_encryption_properties: Optional['outputs.DiskEncryptionPropertiesInvokeResponseResult'] = None,
+                 encryption_in_transit_properties: Optional['outputs.EncryptionInTransitPropertiesInvokeResponseResult'] = None,
+                 errors: Optional[Sequence['outputs.ErrorsInvokeResponseResult']] = None,
+                 excluded_services_config: Optional['outputs.ExcludedServicesConfigInvokeResponseResult'] = None,
+                 kafka_rest_properties: Optional['outputs.KafkaRestPropertiesInvokeResponseResult'] = None,
+                 min_supported_tls_version: Optional[str] = None,
+                 network_properties: Optional['outputs.NetworkPropertiesInvokeResponseResult'] = None,
+                 os_type: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 quota_info: Optional['outputs.QuotaInfoInvokeResponseResult'] = None,
+                 security_profile: Optional['outputs.SecurityProfileInvokeResponseResult'] = None,
+                 storage_profile: Optional['outputs.StorageProfileInvokeResponseResult'] = None,
+                 tier: Optional[str] = None):
+        """
+        The properties of cluster.
+        :param 'ClusterDefinitionInvokeResponseArgs' cluster_definition: The cluster definition.
+        :param str cluster_hdp_version: The hdp version of the cluster.
+        :param str cluster_id: The cluster id.
+        :param str cluster_state: The state of the cluster.
+        :param str cluster_version: The version of the cluster.
+        :param 'ComputeIsolationPropertiesInvokeResponseArgs' compute_isolation_properties: The compute isolation properties.
+        :param 'ComputeProfileInvokeResponseArgs' compute_profile: The compute profile.
+        :param Sequence['ConnectivityEndpointInvokeResponseArgs'] connectivity_endpoints: The list of connectivity endpoints.
+        :param str created_date: The date on which the cluster was created.
+        :param 'DiskEncryptionPropertiesInvokeResponseArgs' disk_encryption_properties: The disk encryption properties.
+        :param 'EncryptionInTransitPropertiesInvokeResponseArgs' encryption_in_transit_properties: The encryption-in-transit properties.
+        :param Sequence['ErrorsInvokeResponseArgs'] errors: The list of errors.
+        :param 'ExcludedServicesConfigInvokeResponseArgs' excluded_services_config: The excluded services config.
+        :param 'KafkaRestPropertiesInvokeResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
+        :param str min_supported_tls_version: The minimal supported tls version.
+        :param 'NetworkPropertiesInvokeResponseArgs' network_properties: The network properties.
+        :param str os_type: The type of operating system.
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param 'QuotaInfoInvokeResponseArgs' quota_info: The quota information.
+        :param 'SecurityProfileInvokeResponseArgs' security_profile: The security profile.
+        :param 'StorageProfileInvokeResponseArgs' storage_profile: The storage profile.
+        :param str tier: The cluster tier.
+        """
+        pulumi.set(__self__, "cluster_definition", cluster_definition)
+        if cluster_hdp_version is not None:
+            pulumi.set(__self__, "cluster_hdp_version", cluster_hdp_version)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if cluster_state is not None:
+            pulumi.set(__self__, "cluster_state", cluster_state)
+        if cluster_version is not None:
+            pulumi.set(__self__, "cluster_version", cluster_version)
+        if compute_isolation_properties is not None:
+            pulumi.set(__self__, "compute_isolation_properties", compute_isolation_properties)
+        if compute_profile is not None:
+            pulumi.set(__self__, "compute_profile", compute_profile)
+        if connectivity_endpoints is not None:
+            pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if disk_encryption_properties is not None:
+            pulumi.set(__self__, "disk_encryption_properties", disk_encryption_properties)
+        if encryption_in_transit_properties is not None:
+            pulumi.set(__self__, "encryption_in_transit_properties", encryption_in_transit_properties)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if excluded_services_config is not None:
+            pulumi.set(__self__, "excluded_services_config", excluded_services_config)
+        if kafka_rest_properties is not None:
+            pulumi.set(__self__, "kafka_rest_properties", kafka_rest_properties)
+        if min_supported_tls_version is not None:
+            pulumi.set(__self__, "min_supported_tls_version", min_supported_tls_version)
+        if network_properties is not None:
+            pulumi.set(__self__, "network_properties", network_properties)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if quota_info is not None:
+            pulumi.set(__self__, "quota_info", quota_info)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter(name="clusterDefinition")
+    def cluster_definition(self) -> 'outputs.ClusterDefinitionInvokeResponseResult':
+        """
+        The cluster definition.
+        """
+        return pulumi.get(self, "cluster_definition")
+
+    @property
+    @pulumi.getter(name="clusterHdpVersion")
+    def cluster_hdp_version(self) -> Optional[str]:
+        """
+        The hdp version of the cluster.
+        """
+        return pulumi.get(self, "cluster_hdp_version")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[str]:
+        """
+        The cluster id.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterState")
+    def cluster_state(self) -> Optional[str]:
+        """
+        The state of the cluster.
+        """
+        return pulumi.get(self, "cluster_state")
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> Optional[str]:
+        """
+        The version of the cluster.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @property
+    @pulumi.getter(name="computeIsolationProperties")
+    def compute_isolation_properties(self) -> Optional['outputs.ComputeIsolationPropertiesInvokeResponseResult']:
+        """
+        The compute isolation properties.
+        """
+        return pulumi.get(self, "compute_isolation_properties")
+
+    @property
+    @pulumi.getter(name="computeProfile")
+    def compute_profile(self) -> Optional['outputs.ComputeProfileInvokeResponseResult']:
+        """
+        The compute profile.
+        """
+        return pulumi.get(self, "compute_profile")
+
+    @property
+    @pulumi.getter(name="connectivityEndpoints")
+    def connectivity_endpoints(self) -> Optional[Sequence['outputs.ConnectivityEndpointInvokeResponseResult']]:
+        """
+        The list of connectivity endpoints.
+        """
+        return pulumi.get(self, "connectivity_endpoints")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[str]:
+        """
+        The date on which the cluster was created.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="diskEncryptionProperties")
+    def disk_encryption_properties(self) -> Optional['outputs.DiskEncryptionPropertiesInvokeResponseResult']:
+        """
+        The disk encryption properties.
+        """
+        return pulumi.get(self, "disk_encryption_properties")
+
+    @property
+    @pulumi.getter(name="encryptionInTransitProperties")
+    def encryption_in_transit_properties(self) -> Optional['outputs.EncryptionInTransitPropertiesInvokeResponseResult']:
+        """
+        The encryption-in-transit properties.
+        """
+        return pulumi.get(self, "encryption_in_transit_properties")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.ErrorsInvokeResponseResult']]:
+        """
+        The list of errors.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="excludedServicesConfig")
+    def excluded_services_config(self) -> Optional['outputs.ExcludedServicesConfigInvokeResponseResult']:
+        """
+        The excluded services config.
+        """
+        return pulumi.get(self, "excluded_services_config")
+
+    @property
+    @pulumi.getter(name="kafkaRestProperties")
+    def kafka_rest_properties(self) -> Optional['outputs.KafkaRestPropertiesInvokeResponseResult']:
+        """
+        The cluster kafka rest proxy configuration.
+        """
+        return pulumi.get(self, "kafka_rest_properties")
+
+    @property
+    @pulumi.getter(name="minSupportedTlsVersion")
+    def min_supported_tls_version(self) -> Optional[str]:
+        """
+        The minimal supported tls version.
+        """
+        return pulumi.get(self, "min_supported_tls_version")
+
+    @property
+    @pulumi.getter(name="networkProperties")
+    def network_properties(self) -> Optional['outputs.NetworkPropertiesInvokeResponseResult']:
+        """
+        The network properties.
+        """
+        return pulumi.get(self, "network_properties")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The type of operating system.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="quotaInfo")
+    def quota_info(self) -> Optional['outputs.QuotaInfoInvokeResponseResult']:
+        """
+        The quota information.
+        """
+        return pulumi.get(self, "quota_info")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.SecurityProfileInvokeResponseResult']:
+        """
+        The security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileInvokeResponseResult']:
+        """
+        The storage profile.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The cluster tier.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -919,6 +1791,104 @@ class ClusterGetPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ClusterIdentityInvokeResponseResult(dict):
+    """
+    Identity for the cluster.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ClusterIdentityInvokeResponseUserAssignedIdentitiesResult']] = None):
+        """
+        Identity for the cluster.
+        :param str principal_id: The principal id of cluster identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param Mapping[str, 'ClusterIdentityInvokeResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of cluster identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ClusterIdentityInvokeResponseUserAssignedIdentitiesResult']]:
+        """
+        The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ClusterIdentityInvokeResponseUserAssignedIdentitiesResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        :param str tenant_id: The tenant id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class ClusterIdentityResponse(dict):
     """
     Identity for the cluster.
@@ -1023,6 +1993,41 @@ class ClusterIdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class ComputeIsolationPropertiesInvokeResponseResult(dict):
+    """
+    The compute isolation properties.
+    """
+    def __init__(__self__, *,
+                 enable_compute_isolation: Optional[bool] = None,
+                 host_sku: Optional[str] = None):
+        """
+        The compute isolation properties.
+        :param bool enable_compute_isolation: The flag indicates whether enable compute isolation or not.
+        :param str host_sku: The host sku.
+        """
+        if enable_compute_isolation is not None:
+            pulumi.set(__self__, "enable_compute_isolation", enable_compute_isolation)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="enableComputeIsolation")
+    def enable_compute_isolation(self) -> Optional[bool]:
+        """
+        The flag indicates whether enable compute isolation or not.
+        """
+        return pulumi.get(self, "enable_compute_isolation")
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[str]:
+        """
+        The host sku.
+        """
+        return pulumi.get(self, "host_sku")
+
+
+@pulumi.output_type
 class ComputeIsolationPropertiesResponse(dict):
     """
     The compute isolation properties.
@@ -1061,6 +2066,29 @@ class ComputeIsolationPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ComputeProfileInvokeResponseResult(dict):
+    """
+    Describes the compute profile.
+    """
+    def __init__(__self__, *,
+                 roles: Optional[Sequence['outputs.RoleInvokeResponseResult']] = None):
+        """
+        Describes the compute profile.
+        :param Sequence['RoleInvokeResponseArgs'] roles: The list of roles in the cluster.
+        """
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence['outputs.RoleInvokeResponseResult']]:
+        """
+        The list of roles in the cluster.
+        """
+        return pulumi.get(self, "roles")
+
+
+@pulumi.output_type
 class ComputeProfileResponse(dict):
     """
     Describes the compute profile.
@@ -1084,6 +2112,77 @@ class ComputeProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectivityEndpointInvokeResponseResult(dict):
+    """
+    The connectivity properties
+    """
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 name: Optional[str] = None,
+                 port: Optional[int] = None,
+                 private_ip_address: Optional[str] = None,
+                 protocol: Optional[str] = None):
+        """
+        The connectivity properties
+        :param str location: The location of the endpoint.
+        :param str name: The name of the endpoint.
+        :param int port: The port to connect to.
+        :param str private_ip_address: The private ip address of the endpoint.
+        :param str protocol: The protocol of the endpoint.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the endpoint.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port to connect to.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol of the endpoint.
+        """
+        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
@@ -1161,6 +2260,51 @@ class ConnectivityEndpointResponse(dict):
 
 
 @pulumi.output_type
+class DataDisksGroupsInvokeResponseResult(dict):
+    """
+    The data disks groups for the role.
+    """
+    def __init__(__self__, *,
+                 disk_size_gb: int,
+                 storage_account_type: str,
+                 disks_per_node: Optional[int] = None):
+        """
+        The data disks groups for the role.
+        :param int disk_size_gb: ReadOnly. The DiskSize in GB. Do not set this value.
+        :param str storage_account_type: ReadOnly. The storage account type. Do not set this value.
+        :param int disks_per_node: The number of disks per node.
+        """
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if disks_per_node is not None:
+            pulumi.set(__self__, "disks_per_node", disks_per_node)
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> int:
+        """
+        ReadOnly. The DiskSize in GB. Do not set this value.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> str:
+        """
+        ReadOnly. The storage account type. Do not set this value.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @property
+    @pulumi.getter(name="disksPerNode")
+    def disks_per_node(self) -> Optional[int]:
+        """
+        The number of disks per node.
+        """
+        return pulumi.get(self, "disks_per_node")
+
+
+@pulumi.output_type
 class DataDisksGroupsResponse(dict):
     """
     The data disks groups for the role.
@@ -1206,6 +2350,91 @@ class DataDisksGroupsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiskEncryptionPropertiesInvokeResponseResult(dict):
+    """
+    The disk encryption properties
+    """
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[str] = None,
+                 encryption_at_host: Optional[bool] = None,
+                 key_name: Optional[str] = None,
+                 key_version: Optional[str] = None,
+                 msi_resource_id: Optional[str] = None,
+                 vault_uri: Optional[str] = None):
+        """
+        The disk encryption properties
+        :param str encryption_algorithm: Algorithm identifier for encryption, default RSA-OAEP.
+        :param bool encryption_at_host: Indicates whether or not resource disk encryption is enabled.
+        :param str key_name: Key name that is used for enabling disk encryption.
+        :param str key_version: Specific key version that is used for enabling disk encryption.
+        :param str msi_resource_id: Resource ID of Managed Identity that is used to access the key vault.
+        :param str vault_uri: Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host is None:
+            encryption_at_host = False
+        if encryption_at_host is not None:
+            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+        if msi_resource_id is not None:
+            pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if vault_uri is not None:
+            pulumi.set(__self__, "vault_uri", vault_uri)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[str]:
+        """
+        Algorithm identifier for encryption, default RSA-OAEP.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionAtHost")
+    def encryption_at_host(self) -> Optional[bool]:
+        """
+        Indicates whether or not resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        Key name that is used for enabling disk encryption.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        Specific key version that is used for enabling disk encryption.
+        """
+        return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> Optional[str]:
+        """
+        Resource ID of Managed Identity that is used to access the key vault.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @property
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> Optional[str]:
+        """
+        Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
+        """
+        return pulumi.get(self, "vault_uri")
 
 
 @pulumi.output_type
@@ -1297,6 +2526,31 @@ class DiskEncryptionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionInTransitPropertiesInvokeResponseResult(dict):
+    """
+    The encryption-in-transit properties.
+    """
+    def __init__(__self__, *,
+                 is_encryption_in_transit_enabled: Optional[bool] = None):
+        """
+        The encryption-in-transit properties.
+        :param bool is_encryption_in_transit_enabled: Indicates whether or not inter cluster node communication is encrypted in transit.
+        """
+        if is_encryption_in_transit_enabled is None:
+            is_encryption_in_transit_enabled = False
+        if is_encryption_in_transit_enabled is not None:
+            pulumi.set(__self__, "is_encryption_in_transit_enabled", is_encryption_in_transit_enabled)
+
+    @property
+    @pulumi.getter(name="isEncryptionInTransitEnabled")
+    def is_encryption_in_transit_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether or not inter cluster node communication is encrypted in transit.
+        """
+        return pulumi.get(self, "is_encryption_in_transit_enabled")
+
+
+@pulumi.output_type
 class EncryptionInTransitPropertiesResponse(dict):
     """
     The encryption-in-transit properties.
@@ -1322,6 +2576,41 @@ class EncryptionInTransitPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ErrorsInvokeResponseResult(dict):
+    """
+    The error message associated with the cluster creation.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        The error message associated with the cluster creation.
+        :param str code: The error code.
+        :param str message: The error message.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -1363,6 +2652,41 @@ class ErrorsResponse(dict):
 
 
 @pulumi.output_type
+class ExcludedServicesConfigInvokeResponseResult(dict):
+    """
+    The configuration that services will be excluded when creating cluster.
+    """
+    def __init__(__self__, *,
+                 excluded_services_config_id: Optional[str] = None,
+                 excluded_services_list: Optional[str] = None):
+        """
+        The configuration that services will be excluded when creating cluster.
+        :param str excluded_services_config_id: The config id of excluded services.
+        :param str excluded_services_list: The list of excluded services.
+        """
+        if excluded_services_config_id is not None:
+            pulumi.set(__self__, "excluded_services_config_id", excluded_services_config_id)
+        if excluded_services_list is not None:
+            pulumi.set(__self__, "excluded_services_list", excluded_services_list)
+
+    @property
+    @pulumi.getter(name="excludedServicesConfigId")
+    def excluded_services_config_id(self) -> Optional[str]:
+        """
+        The config id of excluded services.
+        """
+        return pulumi.get(self, "excluded_services_config_id")
+
+    @property
+    @pulumi.getter(name="excludedServicesList")
+    def excluded_services_list(self) -> Optional[str]:
+        """
+        The list of excluded services.
+        """
+        return pulumi.get(self, "excluded_services_list")
+
+
+@pulumi.output_type
 class ExcludedServicesConfigResponse(dict):
     """
     The configuration that services will be excluded when creating cluster.
@@ -1401,6 +2725,29 @@ class ExcludedServicesConfigResponse(dict):
 
 
 @pulumi.output_type
+class HardwareProfileInvokeResponseResult(dict):
+    """
+    The hardware profile.
+    """
+    def __init__(__self__, *,
+                 vm_size: Optional[str] = None):
+        """
+        The hardware profile.
+        :param str vm_size: The size of the VM
+        """
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        The size of the VM
+        """
+        return pulumi.get(self, "vm_size")
+
+
+@pulumi.output_type
 class HardwareProfileResponse(dict):
     """
     The hardware profile.
@@ -1427,6 +2774,29 @@ class HardwareProfileResponse(dict):
 
 
 @pulumi.output_type
+class KafkaRestPropertiesInvokeResponseResult(dict):
+    """
+    The kafka rest proxy configuration which contains AAD security group information.
+    """
+    def __init__(__self__, *,
+                 client_group_info: Optional['outputs.ClientGroupInfoInvokeResponseResult'] = None):
+        """
+        The kafka rest proxy configuration which contains AAD security group information.
+        :param 'ClientGroupInfoInvokeResponseArgs' client_group_info: The information of AAD security group.
+        """
+        if client_group_info is not None:
+            pulumi.set(__self__, "client_group_info", client_group_info)
+
+    @property
+    @pulumi.getter(name="clientGroupInfo")
+    def client_group_info(self) -> Optional['outputs.ClientGroupInfoInvokeResponseResult']:
+        """
+        The information of AAD security group.
+        """
+        return pulumi.get(self, "client_group_info")
+
+
+@pulumi.output_type
 class KafkaRestPropertiesResponse(dict):
     """
     The kafka rest proxy configuration which contains AAD security group information.
@@ -1450,6 +2820,53 @@ class KafkaRestPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinuxOperatingSystemProfileInvokeResponseResult(dict):
+    """
+    The ssh username, password, and ssh public key.
+    """
+    def __init__(__self__, *,
+                 password: Optional[str] = None,
+                 ssh_profile: Optional['outputs.SshProfileInvokeResponseResult'] = None,
+                 username: Optional[str] = None):
+        """
+        The ssh username, password, and ssh public key.
+        :param str password: The password.
+        :param 'SshProfileInvokeResponseArgs' ssh_profile: The SSH profile.
+        :param str username: The username.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if ssh_profile is not None:
+            pulumi.set(__self__, "ssh_profile", ssh_profile)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="sshProfile")
+    def ssh_profile(self) -> Optional['outputs.SshProfileInvokeResponseResult']:
+        """
+        The SSH profile.
+        """
+        return pulumi.get(self, "ssh_profile")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -1503,6 +2920,41 @@ class LinuxOperatingSystemProfileResponse(dict):
 
 
 @pulumi.output_type
+class NetworkPropertiesInvokeResponseResult(dict):
+    """
+    The network properties.
+    """
+    def __init__(__self__, *,
+                 private_link: Optional[str] = None,
+                 resource_provider_connection: Optional[str] = None):
+        """
+        The network properties.
+        :param str private_link: Indicates whether or not private link is enabled.
+        :param str resource_provider_connection: The direction for the resource provider connection.
+        """
+        if private_link is not None:
+            pulumi.set(__self__, "private_link", private_link)
+        if resource_provider_connection is not None:
+            pulumi.set(__self__, "resource_provider_connection", resource_provider_connection)
+
+    @property
+    @pulumi.getter(name="privateLink")
+    def private_link(self) -> Optional[str]:
+        """
+        Indicates whether or not private link is enabled.
+        """
+        return pulumi.get(self, "private_link")
+
+    @property
+    @pulumi.getter(name="resourceProviderConnection")
+    def resource_provider_connection(self) -> Optional[str]:
+        """
+        The direction for the resource provider connection.
+        """
+        return pulumi.get(self, "resource_provider_connection")
+
+
+@pulumi.output_type
 class NetworkPropertiesResponse(dict):
     """
     The network properties.
@@ -1541,6 +2993,29 @@ class NetworkPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class OsProfileInvokeResponseResult(dict):
+    """
+    The Linux operation systems profile.
+    """
+    def __init__(__self__, *,
+                 linux_operating_system_profile: Optional['outputs.LinuxOperatingSystemProfileInvokeResponseResult'] = None):
+        """
+        The Linux operation systems profile.
+        :param 'LinuxOperatingSystemProfileInvokeResponseArgs' linux_operating_system_profile: The Linux OS profile.
+        """
+        if linux_operating_system_profile is not None:
+            pulumi.set(__self__, "linux_operating_system_profile", linux_operating_system_profile)
+
+    @property
+    @pulumi.getter(name="linuxOperatingSystemProfile")
+    def linux_operating_system_profile(self) -> Optional['outputs.LinuxOperatingSystemProfileInvokeResponseResult']:
+        """
+        The Linux OS profile.
+        """
+        return pulumi.get(self, "linux_operating_system_profile")
+
+
+@pulumi.output_type
 class OsProfileResponse(dict):
     """
     The Linux operation systems profile.
@@ -1567,6 +3042,29 @@ class OsProfileResponse(dict):
 
 
 @pulumi.output_type
+class QuotaInfoInvokeResponseResult(dict):
+    """
+    The quota properties for the cluster.
+    """
+    def __init__(__self__, *,
+                 cores_used: Optional[int] = None):
+        """
+        The quota properties for the cluster.
+        :param int cores_used: The cores used by the cluster.
+        """
+        if cores_used is not None:
+            pulumi.set(__self__, "cores_used", cores_used)
+
+    @property
+    @pulumi.getter(name="coresUsed")
+    def cores_used(self) -> Optional[int]:
+        """
+        The cores used by the cluster.
+        """
+        return pulumi.get(self, "cores_used")
+
+
+@pulumi.output_type
 class QuotaInfoResponse(dict):
     """
     The quota properties for the cluster.
@@ -1590,6 +3088,137 @@ class QuotaInfoResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RoleInvokeResponseResult(dict):
+    """
+    Describes a role on the cluster.
+    """
+    def __init__(__self__, *,
+                 autoscale_configuration: Optional['outputs.AutoscaleInvokeResponseResult'] = None,
+                 data_disks_groups: Optional[Sequence['outputs.DataDisksGroupsInvokeResponseResult']] = None,
+                 encrypt_data_disks: Optional[bool] = None,
+                 hardware_profile: Optional['outputs.HardwareProfileInvokeResponseResult'] = None,
+                 min_instance_count: Optional[int] = None,
+                 name: Optional[str] = None,
+                 os_profile: Optional['outputs.OsProfileInvokeResponseResult'] = None,
+                 script_actions: Optional[Sequence['outputs.ScriptActionInvokeResponseResult']] = None,
+                 target_instance_count: Optional[int] = None,
+                 virtual_network_profile: Optional['outputs.VirtualNetworkProfileInvokeResponseResult'] = None):
+        """
+        Describes a role on the cluster.
+        :param 'AutoscaleInvokeResponseArgs' autoscale_configuration: The autoscale configurations.
+        :param Sequence['DataDisksGroupsInvokeResponseArgs'] data_disks_groups: The data disks groups for the role.
+        :param bool encrypt_data_disks: Indicates whether encrypt the data disks.
+        :param 'HardwareProfileInvokeResponseArgs' hardware_profile: The hardware profile.
+        :param int min_instance_count: The minimum instance count of the cluster.
+        :param str name: The name of the role.
+        :param 'OsProfileInvokeResponseArgs' os_profile: The operating system profile.
+        :param Sequence['ScriptActionInvokeResponseArgs'] script_actions: The list of script actions on the role.
+        :param int target_instance_count: The instance count of the cluster.
+        :param 'VirtualNetworkProfileInvokeResponseArgs' virtual_network_profile: The virtual network profile.
+        """
+        if autoscale_configuration is not None:
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if data_disks_groups is not None:
+            pulumi.set(__self__, "data_disks_groups", data_disks_groups)
+        if encrypt_data_disks is not None:
+            pulumi.set(__self__, "encrypt_data_disks", encrypt_data_disks)
+        if hardware_profile is not None:
+            pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if os_profile is not None:
+            pulumi.set(__self__, "os_profile", os_profile)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
+        if target_instance_count is not None:
+            pulumi.set(__self__, "target_instance_count", target_instance_count)
+        if virtual_network_profile is not None:
+            pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> Optional['outputs.AutoscaleInvokeResponseResult']:
+        """
+        The autoscale configurations.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @property
+    @pulumi.getter(name="dataDisksGroups")
+    def data_disks_groups(self) -> Optional[Sequence['outputs.DataDisksGroupsInvokeResponseResult']]:
+        """
+        The data disks groups for the role.
+        """
+        return pulumi.get(self, "data_disks_groups")
+
+    @property
+    @pulumi.getter(name="encryptDataDisks")
+    def encrypt_data_disks(self) -> Optional[bool]:
+        """
+        Indicates whether encrypt the data disks.
+        """
+        return pulumi.get(self, "encrypt_data_disks")
+
+    @property
+    @pulumi.getter(name="hardwareProfile")
+    def hardware_profile(self) -> Optional['outputs.HardwareProfileInvokeResponseResult']:
+        """
+        The hardware profile.
+        """
+        return pulumi.get(self, "hardware_profile")
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[int]:
+        """
+        The minimum instance count of the cluster.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> Optional['outputs.OsProfileInvokeResponseResult']:
+        """
+        The operating system profile.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[Sequence['outputs.ScriptActionInvokeResponseResult']]:
+        """
+        The list of script actions on the role.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @property
+    @pulumi.getter(name="targetInstanceCount")
+    def target_instance_count(self) -> Optional[int]:
+        """
+        The instance count of the cluster.
+        """
+        return pulumi.get(self, "target_instance_count")
+
+    @property
+    @pulumi.getter(name="virtualNetworkProfile")
+    def virtual_network_profile(self) -> Optional['outputs.VirtualNetworkProfileInvokeResponseResult']:
+        """
+        The virtual network profile.
+        """
+        return pulumi.get(self, "virtual_network_profile")
 
 
 @pulumi.output_type
@@ -1727,6 +3356,73 @@ class RoleResponse(dict):
 
 
 @pulumi.output_type
+class RuntimeScriptActionInvokeResponseResult(dict):
+    """
+    Describes a script action on a running cluster.
+    """
+    def __init__(__self__, *,
+                 application_name: str,
+                 name: str,
+                 roles: Sequence[str],
+                 uri: str,
+                 parameters: Optional[str] = None):
+        """
+        Describes a script action on a running cluster.
+        :param str application_name: The application name of the script action, if any.
+        :param str name: The name of the script action.
+        :param Sequence[str] roles: The list of roles where script will be executed.
+        :param str uri: The URI to the script.
+        :param str parameters: The parameters for the script
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> str:
+        """
+        The application name of the script action, if any.
+        """
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the script action.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Sequence[str]:
+        """
+        The list of roles where script will be executed.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        The parameters for the script
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class RuntimeScriptActionResponse(dict):
     """
     Describes a script action on a running cluster.
@@ -1797,6 +3493,50 @@ class RuntimeScriptActionResponse(dict):
 
 
 @pulumi.output_type
+class ScriptActionInvokeResponseResult(dict):
+    """
+    Describes a script action on role on the cluster.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: str,
+                 uri: str):
+        """
+        Describes a script action on role on the cluster.
+        :param str name: The name of the script action.
+        :param str parameters: The parameters for the script provided.
+        :param str uri: The URI to the script.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the script action.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> str:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
 class ScriptActionResponse(dict):
     """
     Describes a script action on role on the cluster.
@@ -1841,6 +3581,125 @@ class ScriptActionResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityProfileInvokeResponseResult(dict):
+    """
+    The security profile which contains Ssh public key for the HDInsight cluster.
+    """
+    def __init__(__self__, *,
+                 aadds_resource_id: Optional[str] = None,
+                 cluster_users_group_dns: Optional[Sequence[str]] = None,
+                 directory_type: Optional[str] = None,
+                 domain: Optional[str] = None,
+                 domain_user_password: Optional[str] = None,
+                 domain_username: Optional[str] = None,
+                 ldaps_urls: Optional[Sequence[str]] = None,
+                 msi_resource_id: Optional[str] = None,
+                 organizational_unit_dn: Optional[str] = None):
+        """
+        The security profile which contains Ssh public key for the HDInsight cluster.
+        :param str aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
+        :param Sequence[str] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
+        :param str directory_type: The directory type.
+        :param str domain: The organization's active directory domain.
+        :param str domain_user_password: The domain admin password.
+        :param str domain_username: The domain user account that will have admin privileges on the cluster.
+        :param Sequence[str] ldaps_urls: The LDAPS protocol URLs to communicate with the Active Directory.
+        :param str msi_resource_id: User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
+        :param str organizational_unit_dn: The organizational unit within the Active Directory to place the cluster and service accounts.
+        """
+        if aadds_resource_id is not None:
+            pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
+        if cluster_users_group_dns is not None:
+            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+        if directory_type is not None:
+            pulumi.set(__self__, "directory_type", directory_type)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_user_password is not None:
+            pulumi.set(__self__, "domain_user_password", domain_user_password)
+        if domain_username is not None:
+            pulumi.set(__self__, "domain_username", domain_username)
+        if ldaps_urls is not None:
+            pulumi.set(__self__, "ldaps_urls", ldaps_urls)
+        if msi_resource_id is not None:
+            pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if organizational_unit_dn is not None:
+            pulumi.set(__self__, "organizational_unit_dn", organizational_unit_dn)
+
+    @property
+    @pulumi.getter(name="aaddsResourceId")
+    def aadds_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of the user's Azure Active Directory Domain Service.
+        """
+        return pulumi.get(self, "aadds_resource_id")
+
+    @property
+    @pulumi.getter(name="clusterUsersGroupDNs")
+    def cluster_users_group_dns(self) -> Optional[Sequence[str]]:
+        """
+        Optional. The Distinguished Names for cluster user groups
+        """
+        return pulumi.get(self, "cluster_users_group_dns")
+
+    @property
+    @pulumi.getter(name="directoryType")
+    def directory_type(self) -> Optional[str]:
+        """
+        The directory type.
+        """
+        return pulumi.get(self, "directory_type")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        The organization's active directory domain.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> Optional[str]:
+        """
+        The domain admin password.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> Optional[str]:
+        """
+        The domain user account that will have admin privileges on the cluster.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @property
+    @pulumi.getter(name="ldapsUrls")
+    def ldaps_urls(self) -> Optional[Sequence[str]]:
+        """
+        The LDAPS protocol URLs to communicate with the Active Directory.
+        """
+        return pulumi.get(self, "ldaps_urls")
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> Optional[str]:
+        """
+        User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @property
+    @pulumi.getter(name="organizationalUnitDN")
+    def organizational_unit_dn(self) -> Optional[str]:
+        """
+        The organizational unit within the Active Directory to place the cluster and service accounts.
+        """
+        return pulumi.get(self, "organizational_unit_dn")
 
 
 @pulumi.output_type
@@ -1966,6 +3825,29 @@ class SecurityProfileResponse(dict):
 
 
 @pulumi.output_type
+class SshProfileInvokeResponseResult(dict):
+    """
+    The list of SSH public keys.
+    """
+    def __init__(__self__, *,
+                 public_keys: Optional[Sequence['outputs.SshPublicKeyInvokeResponseResult']] = None):
+        """
+        The list of SSH public keys.
+        :param Sequence['SshPublicKeyInvokeResponseArgs'] public_keys: The list of SSH public keys.
+        """
+        if public_keys is not None:
+            pulumi.set(__self__, "public_keys", public_keys)
+
+    @property
+    @pulumi.getter(name="publicKeys")
+    def public_keys(self) -> Optional[Sequence['outputs.SshPublicKeyInvokeResponseResult']]:
+        """
+        The list of SSH public keys.
+        """
+        return pulumi.get(self, "public_keys")
+
+
+@pulumi.output_type
 class SshProfileResponse(dict):
     """
     The list of SSH public keys.
@@ -1992,6 +3874,29 @@ class SshProfileResponse(dict):
 
 
 @pulumi.output_type
+class SshPublicKeyInvokeResponseResult(dict):
+    """
+    The SSH public key for the cluster nodes.
+    """
+    def __init__(__self__, *,
+                 certificate_data: Optional[str] = None):
+        """
+        The SSH public key for the cluster nodes.
+        :param str certificate_data: The certificate for SSH.
+        """
+        if certificate_data is not None:
+            pulumi.set(__self__, "certificate_data", certificate_data)
+
+    @property
+    @pulumi.getter(name="certificateData")
+    def certificate_data(self) -> Optional[str]:
+        """
+        The certificate for SSH.
+        """
+        return pulumi.get(self, "certificate_data")
+
+
+@pulumi.output_type
 class SshPublicKeyResponse(dict):
     """
     The SSH public key for the cluster nodes.
@@ -2015,6 +3920,101 @@ class SshPublicKeyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageAccountInvokeResponseResult(dict):
+    """
+    The storage Account.
+    """
+    def __init__(__self__, *,
+                 container: Optional[str] = None,
+                 file_system: Optional[str] = None,
+                 is_default: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 msi_resource_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        The storage Account.
+        :param str container: The container in the storage account, only to be specified for WASB storage accounts.
+        :param str file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        :param bool is_default: Whether or not the storage account is the default storage account.
+        :param str key: The storage account access key.
+        :param str msi_resource_id: The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        :param str name: The name of the storage account.
+        :param str resource_id: The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if msi_resource_id is not None:
+            pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[str]:
+        """
+        The container in the storage account, only to be specified for WASB storage accounts.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[str]:
+        """
+        The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        """
+        Whether or not the storage account is the default storage account.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The storage account access key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> Optional[str]:
+        """
+        The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -2116,6 +4116,29 @@ class StorageAccountResponse(dict):
 
 
 @pulumi.output_type
+class StorageProfileInvokeResponseResult(dict):
+    """
+    The storage profile.
+    """
+    def __init__(__self__, *,
+                 storageaccounts: Optional[Sequence['outputs.StorageAccountInvokeResponseResult']] = None):
+        """
+        The storage profile.
+        :param Sequence['StorageAccountInvokeResponseArgs'] storageaccounts: The list of storage accounts in the cluster.
+        """
+        if storageaccounts is not None:
+            pulumi.set(__self__, "storageaccounts", storageaccounts)
+
+    @property
+    @pulumi.getter
+    def storageaccounts(self) -> Optional[Sequence['outputs.StorageAccountInvokeResponseResult']]:
+        """
+        The list of storage accounts in the cluster.
+        """
+        return pulumi.get(self, "storageaccounts")
+
+
+@pulumi.output_type
 class StorageProfileResponse(dict):
     """
     The storage profile.
@@ -2139,6 +4162,41 @@ class StorageProfileResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkProfileInvokeResponseResult(dict):
+    """
+    The virtual network properties.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 subnet: Optional[str] = None):
+        """
+        The virtual network properties.
+        :param str id: The ID of the virtual network.
+        :param str subnet: The name of the subnet.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[str]:
+        """
+        The name of the subnet.
+        """
+        return pulumi.get(self, "subnet")
 
 
 @pulumi.output_type

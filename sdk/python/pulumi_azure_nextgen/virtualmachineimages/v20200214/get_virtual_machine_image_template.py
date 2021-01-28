@@ -98,7 +98,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.ImageTemplateIdentityResponse':
+    def identity(self) -> 'outputs.ImageTemplateIdentityInvokeResponseResult':
         """
         The identity of the image template, if configured.
         """
@@ -106,7 +106,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="lastRunStatus")
-    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusResponse':
+    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusInvokeResponseResult':
         """
         State of 'run' that is currently executing or was last executed.
         """
@@ -130,7 +130,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> 'outputs.ProvisioningErrorResponse':
+    def provisioning_error(self) -> 'outputs.ProvisioningErrorInvokeResponseResult':
         """
         Provisioning error, if any
         """
@@ -170,7 +170,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter(name="vmProfile")
-    def vm_profile(self) -> Optional['outputs.ImageTemplateVmProfileResponse']:
+    def vm_profile(self) -> Optional['outputs.ImageTemplateVmProfileInvokeResponseResult']:
         """
         Describes how virtual machine is set up to build images
         """

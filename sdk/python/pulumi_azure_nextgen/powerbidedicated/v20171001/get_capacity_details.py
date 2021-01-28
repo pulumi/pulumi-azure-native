@@ -51,7 +51,7 @@ class GetCapacityDetailsResult:
 
     @property
     @pulumi.getter
-    def administration(self) -> Optional['outputs.DedicatedCapacityAdministratorsResponse']:
+    def administration(self) -> Optional['outputs.DedicatedCapacityAdministratorsInvokeResponseResult']:
         """
         A collection of Dedicated capacity administrators
         """
@@ -91,7 +91,7 @@ class GetCapacityDetailsResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ResourceSkuResponse':
+    def sku(self) -> 'outputs.ResourceSkuInvokeResponseResult':
         """
         The SKU of the PowerBI Dedicated resource.
         """

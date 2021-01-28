@@ -51,7 +51,7 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter
-    def clfs(self) -> Optional['outputs.ClfsTargetResponse']:
+    def clfs(self) -> Optional['outputs.ClfsTargetInvokeResponseResult']:
         """
         Properties when clfs target.
         """
@@ -67,7 +67,7 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter
-    def junctions(self) -> Optional[Sequence['outputs.NamespaceJunctionResponse']]:
+    def junctions(self) -> Optional[Sequence['outputs.NamespaceJunctionInvokeResponseResult']]:
         """
         List of cache namespace to target namespace associations.
         """
@@ -83,7 +83,7 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter
-    def nfs3(self) -> Optional['outputs.Nfs3TargetResponse']:
+    def nfs3(self) -> Optional['outputs.Nfs3TargetInvokeResponseResult']:
         """
         Properties when nfs3 target.
         """
@@ -115,7 +115,7 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter
-    def unknown(self) -> Optional['outputs.UnknownTargetResponse']:
+    def unknown(self) -> Optional['outputs.UnknownTargetInvokeResponseResult']:
         """
         Properties when unknown target.
         """

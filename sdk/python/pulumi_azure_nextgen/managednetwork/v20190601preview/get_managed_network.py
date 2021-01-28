@@ -51,7 +51,7 @@ class GetManagedNetworkResult:
 
     @property
     @pulumi.getter
-    def connectivity(self) -> 'outputs.ConnectivityCollectionResponse':
+    def connectivity(self) -> 'outputs.ConnectivityCollectionInvokeResponseResult':
         """
         The collection of groups and policies concerned with connectivity
         """
@@ -99,7 +99,7 @@ class GetManagedNetworkResult:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional['outputs.ScopeResponse']:
+    def scope(self) -> Optional['outputs.ScopeInvokeResponseResult']:
         """
         The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
         """

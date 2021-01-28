@@ -57,7 +57,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional['outputs.CustomRulesResponse']:
+    def custom_rules(self) -> Optional['outputs.CustomRulesInvokeResponseResult']:
         """
         Describes custom rules inside the policy
         """
@@ -89,7 +89,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional['outputs.ManagedRuleSetsResponse']:
+    def managed_rules(self) -> Optional['outputs.ManagedRuleSetsInvokeResponseResult']:
         """
         Describes managed rules inside the policy
         """
@@ -105,7 +105,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.PolicySettingsInvokeResponseResult']:
         """
         Describes  policySettings for policy
         """

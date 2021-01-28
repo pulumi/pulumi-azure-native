@@ -52,7 +52,7 @@ class GetNotificationRegistrationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NotificationRegistrationResponseProperties':
+    def properties(self) -> 'outputs.NotificationRegistrationInvokeResponsePropertiesResult':
         return pulumi.get(self, "properties")
 
     @property

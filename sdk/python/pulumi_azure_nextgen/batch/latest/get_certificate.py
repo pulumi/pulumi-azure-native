@@ -63,7 +63,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="deleteCertificateError")
-    def delete_certificate_error(self) -> 'outputs.DeleteCertificateErrorResponse':
+    def delete_certificate_error(self) -> 'outputs.DeleteCertificateErrorInvokeResponseResult':
         """
         This is only returned when the certificate provisioningState is 'Failed'.
         """

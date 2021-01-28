@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'RedisAccessKeysResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
 
@@ -50,6 +51,50 @@ class RedisAccessKeysResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    SKU parameters supplied to the create Redis operation.
+    """
+    def __init__(__self__, *,
+                 capacity: int,
+                 family: str,
+                 name: str):
+        """
+        SKU parameters supplied to the create Redis operation.
+        :param int capacity: What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+        :param str family: Which family to use. Valid values: (C, P).
+        :param str name: What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        Which family to use. Valid values: (C, P).
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

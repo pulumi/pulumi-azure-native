@@ -52,7 +52,7 @@ class GetAliasResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PutAliasResponsePropertiesResponse':
+    def properties(self) -> 'outputs.PutAliasResponsePropertiesInvokeResponseResult':
         """
         Put Alias response properties.
         """

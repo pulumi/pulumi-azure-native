@@ -86,7 +86,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicies")
-    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
+    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesInvokeResponseResult']:
         """
         Live event cross site access policies.
         """
@@ -102,7 +102,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional['outputs.LiveEventEncodingResponse']:
+    def encoding(self) -> Optional['outputs.LiveEventEncodingInvokeResponseResult']:
         """
         Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
         """
@@ -126,7 +126,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def input(self) -> 'outputs.LiveEventInputResponse':
+    def input(self) -> 'outputs.LiveEventInputInvokeResponseResult':
         """
         Live event input settings. It defines how the live event receives input from a contribution encoder.
         """
@@ -158,7 +158,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def preview(self) -> Optional['outputs.LiveEventPreviewResponse']:
+    def preview(self) -> Optional['outputs.LiveEventPreviewInvokeResponseResult']:
         """
         Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         """
@@ -198,7 +198,7 @@ class GetLiveEventResult:
 
     @property
     @pulumi.getter
-    def transcriptions(self) -> Optional[Sequence['outputs.LiveEventTranscriptionResponse']]:
+    def transcriptions(self) -> Optional[Sequence['outputs.LiveEventTranscriptionInvokeResponseResult']]:
         """
         Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
         """

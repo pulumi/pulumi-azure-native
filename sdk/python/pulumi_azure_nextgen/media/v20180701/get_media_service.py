@@ -77,7 +77,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountInvokeResponseResult']]:
         """
         The storage accounts for this resource.
         """

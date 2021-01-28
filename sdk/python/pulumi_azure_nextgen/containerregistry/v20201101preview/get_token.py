@@ -59,7 +59,7 @@ class GetTokenResult:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.TokenCredentialsPropertiesResponse']:
+    def credentials(self) -> Optional['outputs.TokenCredentialsPropertiesInvokeResponseResult']:
         """
         The credentials that can be used for authenticating the token.
         """
@@ -107,7 +107,7 @@ class GetTokenResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

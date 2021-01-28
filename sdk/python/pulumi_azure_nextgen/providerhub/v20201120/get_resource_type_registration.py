@@ -49,7 +49,7 @@ class GetResourceTypeRegistrationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ResourceTypeRegistrationResponseProperties':
+    def properties(self) -> 'outputs.ResourceTypeRegistrationInvokeResponsePropertiesResult':
         return pulumi.get(self, "properties")
 
     @property

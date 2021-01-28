@@ -86,7 +86,7 @@ class GetWorkloadNetworkSegmentResult:
 
     @property
     @pulumi.getter(name="portVif")
-    def port_vif(self) -> Sequence['outputs.WorkloadNetworkSegmentPortVifResponse']:
+    def port_vif(self) -> Sequence['outputs.WorkloadNetworkSegmentPortVifInvokeResponseResult']:
         """
         Port Vif which segment is associated with.
         """
@@ -118,7 +118,7 @@ class GetWorkloadNetworkSegmentResult:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.WorkloadNetworkSegmentSubnetResponse']:
+    def subnet(self) -> Optional['outputs.WorkloadNetworkSegmentSubnetInvokeResponseResult']:
         """
         Subnet which to connect segment to.
         """

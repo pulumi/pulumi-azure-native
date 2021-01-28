@@ -72,7 +72,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def links(self) -> 'outputs.AssessmentLinksResponse':
+    def links(self) -> 'outputs.AssessmentLinksInvokeResponseResult':
         """
         Links relevant to the assessment
         """
@@ -96,7 +96,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.AssessmentStatusResponse':
+    def status(self) -> 'outputs.AssessmentStatusInvokeResponseResult':
         """
         The result of the assessment
         """

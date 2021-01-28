@@ -113,7 +113,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def controllers(self) -> Sequence['outputs.VirtualDiskControllerResponse']:
+    def controllers(self) -> Sequence['outputs.VirtualDiskControllerInvokeResponseResult']:
         """
         The list of Virtual Disks' Controllers
         """
@@ -121,7 +121,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def customization(self) -> Optional['outputs.GuestOSCustomizationResponse']:
+    def customization(self) -> Optional['outputs.GuestOSCustomizationInvokeResponseResult']:
         """
         Virtual machine properties
         """
@@ -129,7 +129,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def disks(self) -> Optional[Sequence['outputs.VirtualDiskResponse']]:
+    def disks(self) -> Optional[Sequence['outputs.VirtualDiskInvokeResponseResult']]:
         """
         The list of Virtual Disks
         """
@@ -201,7 +201,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def nics(self) -> Optional[Sequence['outputs.VirtualNicResponse']]:
+    def nics(self) -> Optional[Sequence['outputs.VirtualNicInvokeResponseResult']]:
         """
         The list of Virtual NICs
         """
@@ -249,7 +249,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="resourcePool")
-    def resource_pool(self) -> Optional['outputs.ResourcePoolResponse']:
+    def resource_pool(self) -> Optional['outputs.ResourcePoolInvokeResponseResult']:
         """
         Virtual Machines Resource Pool
         """

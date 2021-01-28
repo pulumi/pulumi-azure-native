@@ -72,7 +72,7 @@ class GetAvailabilityGroupListenerResult:
 
     @property
     @pulumi.getter(name="loadBalancerConfigurations")
-    def load_balancer_configurations(self) -> Optional[Sequence['outputs.LoadBalancerConfigurationResponse']]:
+    def load_balancer_configurations(self) -> Optional[Sequence['outputs.LoadBalancerConfigurationInvokeResponseResult']]:
         """
         List of load balancer configurations for an availability group listener.
         """

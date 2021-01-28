@@ -87,7 +87,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="autoPause")
-    def auto_pause(self) -> Optional['outputs.AutoPausePropertiesResponse']:
+    def auto_pause(self) -> Optional['outputs.AutoPausePropertiesInvokeResponseResult']:
         """
         Auto-pausing properties
         """
@@ -95,7 +95,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="autoScale")
-    def auto_scale(self) -> Optional['outputs.AutoScalePropertiesResponse']:
+    def auto_scale(self) -> Optional['outputs.AutoScalePropertiesInvokeResponseResult']:
         """
         Auto-scaling properties
         """
@@ -127,7 +127,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="dynamicExecutorAllocation")
-    def dynamic_executor_allocation(self) -> Optional['outputs.DynamicExecutorAllocationResponse']:
+    def dynamic_executor_allocation(self) -> Optional['outputs.DynamicExecutorAllocationInvokeResponseResult']:
         """
         Dynamic Executor Allocation
         """
@@ -151,7 +151,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="libraryRequirements")
-    def library_requirements(self) -> Optional['outputs.LibraryRequirementsResponse']:
+    def library_requirements(self) -> Optional['outputs.LibraryRequirementsInvokeResponseResult']:
         """
         Library version requirements
         """
@@ -215,7 +215,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsResponse']:
+    def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsInvokeResponseResult']:
         """
         Spark configuration file to specify additional properties
         """

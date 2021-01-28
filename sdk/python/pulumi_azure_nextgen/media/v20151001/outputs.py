@@ -9,9 +9,46 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ApiEndpointInvokeResponseResult',
     'ApiEndpointResponse',
+    'StorageAccountInvokeResponseResult',
     'StorageAccountResponse',
 ]
+
+@pulumi.output_type
+class ApiEndpointInvokeResponseResult(dict):
+    """
+    The properties for a Media Services REST API endpoint.
+    """
+    def __init__(__self__, *,
+                 endpoint: Optional[str] = None,
+                 major_version: Optional[str] = None):
+        """
+        The properties for a Media Services REST API endpoint.
+        :param str endpoint: The Media Services REST endpoint.
+        :param str major_version: The version of Media Services REST API.
+        """
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if major_version is not None:
+            pulumi.set(__self__, "major_version", major_version)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The Media Services REST endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="majorVersion")
+    def major_version(self) -> Optional[str]:
+        """
+        The version of Media Services REST API.
+        """
+        return pulumi.get(self, "major_version")
+
 
 @pulumi.output_type
 class ApiEndpointResponse(dict):
@@ -49,6 +86,39 @@ class ApiEndpointResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageAccountInvokeResponseResult(dict):
+    """
+    The properties of a storage account associated with this resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 is_primary: bool):
+        """
+        The properties of a storage account associated with this resource.
+        :param str id: The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+        :param bool is_primary: Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_primary", is_primary)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> bool:
+        """
+        Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+        """
+        return pulumi.get(self, "is_primary")
 
 
 @pulumi.output_type

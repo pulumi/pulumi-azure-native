@@ -69,7 +69,7 @@ class GetRosettaNetProcessConfigurationResult:
 
     @property
     @pulumi.getter(name="activitySettings")
-    def activity_settings(self) -> 'outputs.RosettaNetPipActivitySettingsResponse':
+    def activity_settings(self) -> 'outputs.RosettaNetPipActivitySettingsInvokeResponseResult':
         """
         The RosettaNet process configuration activity settings.
         """
@@ -109,7 +109,7 @@ class GetRosettaNetProcessConfigurationResult:
 
     @property
     @pulumi.getter(name="initiatorRoleSettings")
-    def initiator_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+    def initiator_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsInvokeResponseResult':
         """
         The RosettaNet initiator role settings.
         """
@@ -165,7 +165,7 @@ class GetRosettaNetProcessConfigurationResult:
 
     @property
     @pulumi.getter(name="responderRoleSettings")
-    def responder_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+    def responder_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsInvokeResponseResult':
         """
         The RosettaNet responder role settings.
         """

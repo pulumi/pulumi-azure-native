@@ -53,7 +53,7 @@ class GetDatabaseAccountMongoDBCollectionResult:
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[Sequence['outputs.MongoIndexResponse']]:
+    def indexes(self) -> Optional[Sequence['outputs.MongoIndexInvokeResponseResult']]:
         """
         List of index keys
         """

@@ -72,7 +72,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="automationRunbookReceivers")
-    def automation_runbook_receivers(self) -> Optional[Sequence['outputs.AutomationRunbookReceiverResponse']]:
+    def automation_runbook_receivers(self) -> Optional[Sequence['outputs.AutomationRunbookReceiverInvokeResponseResult']]:
         """
         The list of AutomationRunbook receivers that are part of this action group.
         """
@@ -80,7 +80,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="azureAppPushReceivers")
-    def azure_app_push_receivers(self) -> Optional[Sequence['outputs.AzureAppPushReceiverResponse']]:
+    def azure_app_push_receivers(self) -> Optional[Sequence['outputs.AzureAppPushReceiverInvokeResponseResult']]:
         """
         The list of AzureAppPush receivers that are part of this action group.
         """
@@ -88,7 +88,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="azureFunctionReceivers")
-    def azure_function_receivers(self) -> Optional[Sequence['outputs.AzureFunctionReceiverResponse']]:
+    def azure_function_receivers(self) -> Optional[Sequence['outputs.AzureFunctionReceiverInvokeResponseResult']]:
         """
         The list of azure function receivers that are part of this action group.
         """
@@ -96,7 +96,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="emailReceivers")
-    def email_receivers(self) -> Optional[Sequence['outputs.EmailReceiverResponse']]:
+    def email_receivers(self) -> Optional[Sequence['outputs.EmailReceiverInvokeResponseResult']]:
         """
         The list of email receivers that are part of this action group.
         """
@@ -128,7 +128,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="itsmReceivers")
-    def itsm_receivers(self) -> Optional[Sequence['outputs.ItsmReceiverResponse']]:
+    def itsm_receivers(self) -> Optional[Sequence['outputs.ItsmReceiverInvokeResponseResult']]:
         """
         The list of ITSM receivers that are part of this action group.
         """
@@ -144,7 +144,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="logicAppReceivers")
-    def logic_app_receivers(self) -> Optional[Sequence['outputs.LogicAppReceiverResponse']]:
+    def logic_app_receivers(self) -> Optional[Sequence['outputs.LogicAppReceiverInvokeResponseResult']]:
         """
         The list of logic app receivers that are part of this action group.
         """
@@ -160,7 +160,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="smsReceivers")
-    def sms_receivers(self) -> Optional[Sequence['outputs.SmsReceiverResponse']]:
+    def sms_receivers(self) -> Optional[Sequence['outputs.SmsReceiverInvokeResponseResult']]:
         """
         The list of SMS receivers that are part of this action group.
         """
@@ -184,7 +184,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="voiceReceivers")
-    def voice_receivers(self) -> Optional[Sequence['outputs.VoiceReceiverResponse']]:
+    def voice_receivers(self) -> Optional[Sequence['outputs.VoiceReceiverInvokeResponseResult']]:
         """
         The list of voice receivers that are part of this action group.
         """
@@ -192,7 +192,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="webhookReceivers")
-    def webhook_receivers(self) -> Optional[Sequence['outputs.WebhookReceiverResponse']]:
+    def webhook_receivers(self) -> Optional[Sequence['outputs.WebhookReceiverInvokeResponseResult']]:
         """
         The list of webhook receivers that are part of this action group.
         """

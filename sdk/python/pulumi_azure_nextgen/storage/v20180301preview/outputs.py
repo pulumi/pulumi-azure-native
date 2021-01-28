@@ -11,25 +11,76 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CustomDomainInvokeResponseResult',
     'CustomDomainResponse',
+    'EncryptionInvokeResponseResult',
     'EncryptionResponse',
+    'EncryptionServiceInvokeResponseResult',
     'EncryptionServiceResponse',
+    'EncryptionServicesInvokeResponseResult',
     'EncryptionServicesResponse',
+    'EndpointsInvokeResponseResult',
     'EndpointsResponse',
+    'IPRuleInvokeResponseResult',
     'IPRuleResponse',
+    'IdentityInvokeResponseResult',
     'IdentityResponse',
+    'ImmutabilityPolicyPropertiesInvokeResponseResult',
     'ImmutabilityPolicyPropertiesResponse',
+    'KeyVaultPropertiesInvokeResponseResult',
     'KeyVaultPropertiesResponse',
+    'LegalHoldPropertiesInvokeResponseResult',
     'LegalHoldPropertiesResponse',
+    'NetworkRuleSetInvokeResponseResult',
     'NetworkRuleSetResponse',
+    'RestrictionInvokeResponseResult',
     'RestrictionResponse',
+    'SKUCapabilityInvokeResponseResult',
     'SKUCapabilityResponse',
+    'SkuInvokeResponseResult',
     'SkuResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyInvokeResponseResult',
+    'TagPropertyInvokeResponseResult',
     'TagPropertyResponse',
+    'UpdateHistoryPropertyInvokeResponseResult',
     'UpdateHistoryPropertyResponse',
+    'VirtualNetworkRuleInvokeResponseResult',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class CustomDomainInvokeResponseResult(dict):
+    """
+    The custom domain assigned to this storage account. This can be set via Update.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 use_sub_domain_name: Optional[bool] = None):
+        """
+        The custom domain assigned to this storage account. This can be set via Update.
+        :param str name: Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+        :param bool use_sub_domain_name: Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+        """
+        pulumi.set(__self__, "name", name)
+        if use_sub_domain_name is not None:
+            pulumi.set(__self__, "use_sub_domain_name", use_sub_domain_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="useSubDomainName")
+    def use_sub_domain_name(self) -> Optional[bool]:
+        """
+        Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+        """
+        return pulumi.get(self, "use_sub_domain_name")
+
 
 @pulumi.output_type
 class CustomDomainResponse(dict):
@@ -66,6 +117,54 @@ class CustomDomainResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionInvokeResponseResult(dict):
+    """
+    The encryption settings on the storage account.
+    """
+    def __init__(__self__, *,
+                 key_source: str,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesInvokeResponseResult'] = None,
+                 services: Optional['outputs.EncryptionServicesInvokeResponseResult'] = None):
+        """
+        The encryption settings on the storage account.
+        :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        :param 'KeyVaultPropertiesInvokeResponseArgs' key_vault_properties: Properties provided by key vault.
+        :param 'EncryptionServicesInvokeResponseArgs' services: List of services which support encryption.
+        """
+        if key_source is None:
+            key_source = 'Microsoft.Storage'
+        pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> str:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesInvokeResponseResult']:
+        """
+        Properties provided by key vault.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional['outputs.EncryptionServicesInvokeResponseResult']:
+        """
+        List of services which support encryption.
+        """
+        return pulumi.get(self, "services")
 
 
 @pulumi.output_type
@@ -120,6 +219,40 @@ class EncryptionResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionServiceInvokeResponseResult(dict):
+    """
+    A service that allows server-side encryption to be used.
+    """
+    def __init__(__self__, *,
+                 last_enabled_time: str,
+                 enabled: Optional[bool] = None):
+        """
+        A service that allows server-side encryption to be used.
+        :param str last_enabled_time: Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+        :param bool enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
+        """
+        pulumi.set(__self__, "last_enabled_time", last_enabled_time)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="lastEnabledTime")
+    def last_enabled_time(self) -> str:
+        """
+        Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+        """
+        return pulumi.get(self, "last_enabled_time")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        A boolean indicating whether or not the service encrypts the data as it is stored.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class EncryptionServiceResponse(dict):
     """
     A service that allows server-side encryption to be used.
@@ -154,6 +287,63 @@ class EncryptionServiceResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionServicesInvokeResponseResult(dict):
+    """
+    A list of services that support encryption.
+    """
+    def __init__(__self__, *,
+                 queue: 'outputs.EncryptionServiceInvokeResponseResult',
+                 table: 'outputs.EncryptionServiceInvokeResponseResult',
+                 blob: Optional['outputs.EncryptionServiceInvokeResponseResult'] = None,
+                 file: Optional['outputs.EncryptionServiceInvokeResponseResult'] = None):
+        """
+        A list of services that support encryption.
+        :param 'EncryptionServiceInvokeResponseArgs' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceInvokeResponseArgs' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceInvokeResponseArgs' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceInvokeResponseArgs' file: The encryption function of the file storage service.
+        """
+        pulumi.set(__self__, "queue", queue)
+        pulumi.set(__self__, "table", table)
+        if blob is not None:
+            pulumi.set(__self__, "blob", blob)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def queue(self) -> 'outputs.EncryptionServiceInvokeResponseResult':
+        """
+        The encryption function of the queue storage service.
+        """
+        return pulumi.get(self, "queue")
+
+    @property
+    @pulumi.getter
+    def table(self) -> 'outputs.EncryptionServiceInvokeResponseResult':
+        """
+        The encryption function of the table storage service.
+        """
+        return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter
+    def blob(self) -> Optional['outputs.EncryptionServiceInvokeResponseResult']:
+        """
+        The encryption function of the blob storage service.
+        """
+        return pulumi.get(self, "blob")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.EncryptionServiceInvokeResponseResult']:
+        """
+        The encryption function of the file storage service.
+        """
+        return pulumi.get(self, "file")
 
 
 @pulumi.output_type
@@ -214,6 +404,83 @@ class EncryptionServicesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EndpointsInvokeResponseResult(dict):
+    """
+    The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
+    """
+    def __init__(__self__, *,
+                 blob: str,
+                 dfs: str,
+                 file: str,
+                 queue: str,
+                 table: str,
+                 web: str):
+        """
+        The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
+        :param str blob: Gets the blob endpoint.
+        :param str dfs: Gets the dfs endpoint.
+        :param str file: Gets the file endpoint.
+        :param str queue: Gets the queue endpoint.
+        :param str table: Gets the table endpoint.
+        :param str web: Gets the web endpoint.
+        """
+        pulumi.set(__self__, "blob", blob)
+        pulumi.set(__self__, "dfs", dfs)
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "queue", queue)
+        pulumi.set(__self__, "table", table)
+        pulumi.set(__self__, "web", web)
+
+    @property
+    @pulumi.getter
+    def blob(self) -> str:
+        """
+        Gets the blob endpoint.
+        """
+        return pulumi.get(self, "blob")
+
+    @property
+    @pulumi.getter
+    def dfs(self) -> str:
+        """
+        Gets the dfs endpoint.
+        """
+        return pulumi.get(self, "dfs")
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        """
+        Gets the file endpoint.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def queue(self) -> str:
+        """
+        Gets the queue endpoint.
+        """
+        return pulumi.get(self, "queue")
+
+    @property
+    @pulumi.getter
+    def table(self) -> str:
+        """
+        Gets the table endpoint.
+        """
+        return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter
+    def web(self) -> str:
+        """
+        Gets the web endpoint.
+        """
+        return pulumi.get(self, "web")
 
 
 @pulumi.output_type
@@ -297,6 +564,42 @@ class EndpointsResponse(dict):
 
 
 @pulumi.output_type
+class IPRuleInvokeResponseResult(dict):
+    """
+    IP rule with specific IP or IP range in CIDR format.
+    """
+    def __init__(__self__, *,
+                 i_p_address_or_range: str,
+                 action: Optional[str] = None):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        :param str action: The action of IP ACL rule.
+        """
+        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="iPAddressOrRange")
+    def i_p_address_or_range(self) -> str:
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        return pulumi.get(self, "i_p_address_or_range")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of IP ACL rule.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
 class IPRuleResponse(dict):
     """
     IP rule with specific IP or IP range in CIDR format.
@@ -333,6 +636,50 @@ class IPRuleResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IdentityInvokeResponseResult(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -380,6 +727,61 @@ class IdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ImmutabilityPolicyPropertiesInvokeResponseResult(dict):
+    """
+    The properties of an ImmutabilityPolicy of a blob container.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 immutability_period_since_creation_in_days: int,
+                 state: str,
+                 update_history: Sequence['outputs.UpdateHistoryPropertyInvokeResponseResult']):
+        """
+        The properties of an ImmutabilityPolicy of a blob container.
+        :param str etag: ImmutabilityPolicy Etag.
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        :param Sequence['UpdateHistoryPropertyInvokeResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "update_history", update_history)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        ImmutabilityPolicy Etag.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> int:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="updateHistory")
+    def update_history(self) -> Sequence['outputs.UpdateHistoryPropertyInvokeResponseResult']:
+        """
+        The ImmutabilityPolicy update history of the blob container.
+        """
+        return pulumi.get(self, "update_history")
 
 
 @pulumi.output_type
@@ -441,6 +843,53 @@ class ImmutabilityPolicyPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class KeyVaultPropertiesInvokeResponseResult(dict):
+    """
+    Properties of key vault.
+    """
+    def __init__(__self__, *,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
+                 key_version: Optional[str] = None):
+        """
+        Properties of key vault.
+        :param str key_name: The name of KeyVault key.
+        :param str key_vault_uri: The Uri of KeyVault.
+        :param str key_version: The version of KeyVault key.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[str]:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of KeyVault key.
+        """
+        return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
     """
     Properties of key vault.
@@ -491,6 +940,40 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LegalHoldPropertiesInvokeResponseResult(dict):
+    """
+    The LegalHold property of a blob container.
+    """
+    def __init__(__self__, *,
+                 has_legal_hold: bool,
+                 tags: Optional[Sequence['outputs.TagPropertyInvokeResponseResult']] = None):
+        """
+        The LegalHold property of a blob container.
+        :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        :param Sequence['TagPropertyInvokeResponseArgs'] tags: The list of LegalHold tags of a blob container.
+        """
+        pulumi.set(__self__, "has_legal_hold", has_legal_hold)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="hasLegalHold")
+    def has_legal_hold(self) -> bool:
+        """
+        The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        """
+        return pulumi.get(self, "has_legal_hold")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.TagPropertyInvokeResponseResult']]:
+        """
+        The list of LegalHold tags of a blob container.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class LegalHoldPropertiesResponse(dict):
     """
     The LegalHold property of a blob container.
@@ -525,6 +1008,68 @@ class LegalHoldPropertiesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkRuleSetInvokeResponseResult(dict):
+    """
+    Network rule set
+    """
+    def __init__(__self__, *,
+                 default_action: str,
+                 bypass: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.IPRuleInvokeResponseResult']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']] = None):
+        """
+        Network rule set
+        :param str default_action: Specifies the default action of allow or deny when no other rules match.
+        :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+        :param Sequence['IPRuleInvokeResponseArgs'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleInvokeResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        """
+        if default_action is None:
+            default_action = 'Allow'
+        pulumi.set(__self__, "default_action", default_action)
+        if bypass is None:
+            bypass = 'AzureServices'
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        Specifies the default action of allow or deny when no other rules match.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[str]:
+        """
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+        """
+        return pulumi.get(self, "bypass")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleInvokeResponseResult']]:
+        """
+        Sets the IP ACL rules
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleInvokeResponseResult']]:
+        """
+        Sets the virtual network rules
+        """
+        return pulumi.get(self, "virtual_network_rules")
 
 
 @pulumi.output_type
@@ -593,6 +1138,51 @@ class NetworkRuleSetResponse(dict):
 
 
 @pulumi.output_type
+class RestrictionInvokeResponseResult(dict):
+    """
+    The restriction because of which SKU cannot be used.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 values: Sequence[str],
+                 reason_code: Optional[str] = None):
+        """
+        The restriction because of which SKU cannot be used.
+        :param str type: The type of restrictions. As of now only possible value for this is location.
+        :param Sequence[str] values: The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
+        :param str reason_code: The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values", values)
+        if reason_code is not None:
+            pulumi.set(__self__, "reason_code", reason_code)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of restrictions. As of now only possible value for this is location.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter(name="reasonCode")
+    def reason_code(self) -> Optional[str]:
+        """
+        The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
+        """
+        return pulumi.get(self, "reason_code")
+
+
+@pulumi.output_type
 class RestrictionResponse(dict):
     """
     The restriction because of which SKU cannot be used.
@@ -641,6 +1231,39 @@ class RestrictionResponse(dict):
 
 
 @pulumi.output_type
+class SKUCapabilityInvokeResponseResult(dict):
+    """
+    The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        :param str name: The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        :param str value: A string value to indicate states of given capability. Possibly 'true' or 'false'.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A string value to indicate states of given capability. Possibly 'true' or 'false'.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class SKUCapabilityResponse(dict):
     """
     The capability information in the specified sku, including file encryption, network acls, change notification, etc.
@@ -674,6 +1297,95 @@ class SKUCapabilityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    The SKU of the storage account.
+    """
+    def __init__(__self__, *,
+                 capabilities: Sequence['outputs.SKUCapabilityInvokeResponseResult'],
+                 kind: str,
+                 locations: Sequence[str],
+                 name: str,
+                 resource_type: str,
+                 tier: str,
+                 restrictions: Optional[Sequence['outputs.RestrictionInvokeResponseResult']] = None):
+        """
+        The SKU of the storage account.
+        :param Sequence['SKUCapabilityInvokeResponseArgs'] capabilities: The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        :param str kind: Indicates the type of storage account.
+        :param Sequence[str] locations: The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
+        :param str name: Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+        :param str resource_type: The type of the resource, usually it is 'storageAccounts'.
+        :param str tier: Gets the sku tier. This is based on the SKU name.
+        :param Sequence['RestrictionInvokeResponseArgs'] restrictions: The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        """
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tier", tier)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Sequence['outputs.SKUCapabilityInvokeResponseResult']:
+        """
+        The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Indicates the type of storage account.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence[str]:
+        """
+        The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.).
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The type of the resource, usually it is 'storageAccounts'.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        Gets the sku tier. This is based on the SKU name.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional[Sequence['outputs.RestrictionInvokeResponseResult']]:
+        """
+        The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
+        """
+        return pulumi.get(self, "restrictions")
 
 
 @pulumi.output_type
@@ -769,7 +1481,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyInvokeResponseResult(dict):
     """
     An access key for the storage account.
     """
@@ -810,6 +1522,72 @@ class StorageAccountKeyResponseResult(dict):
         Base 64-encoded value of the key.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TagPropertyInvokeResponseResult(dict):
+    """
+    A tag of the LegalHold of a blob container.
+    """
+    def __init__(__self__, *,
+                 object_identifier: str,
+                 tag: str,
+                 tenant_id: str,
+                 timestamp: str,
+                 upn: str):
+        """
+        A tag of the LegalHold of a blob container.
+        :param str object_identifier: Returns the Object ID of the user who added the tag.
+        :param str tag: The tag value.
+        :param str tenant_id: Returns the Tenant ID that issued the token for the user who added the tag.
+        :param str timestamp: Returns the date and time the tag was added.
+        :param str upn: Returns the User Principal Name of the user who added the tag.
+        """
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "timestamp", timestamp)
+        pulumi.set(__self__, "upn", upn)
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> str:
+        """
+        Returns the Object ID of the user who added the tag.
+        """
+        return pulumi.get(self, "object_identifier")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        """
+        The tag value.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Returns the Tenant ID that issued the token for the user who added the tag.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        Returns the date and time the tag was added.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @property
+    @pulumi.getter
+    def upn(self) -> str:
+        """
+        Returns the User Principal Name of the user who added the tag.
+        """
+        return pulumi.get(self, "upn")
 
 
 @pulumi.output_type
@@ -879,6 +1657,83 @@ class TagPropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UpdateHistoryPropertyInvokeResponseResult(dict):
+    """
+    An update history of the ImmutabilityPolicy of a blob container.
+    """
+    def __init__(__self__, *,
+                 immutability_period_since_creation_in_days: int,
+                 object_identifier: str,
+                 tenant_id: str,
+                 timestamp: str,
+                 update: str,
+                 upn: str):
+        """
+        An update history of the ImmutabilityPolicy of a blob container.
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param str object_identifier: Returns the Object ID of the user who updated the ImmutabilityPolicy.
+        :param str tenant_id: Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
+        :param str timestamp: Returns the date and time the ImmutabilityPolicy was updated.
+        :param str update: The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
+        :param str upn: Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
+        """
+        pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+        pulumi.set(__self__, "object_identifier", object_identifier)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "timestamp", timestamp)
+        pulumi.set(__self__, "update", update)
+        pulumi.set(__self__, "upn", upn)
+
+    @property
+    @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
+    def immutability_period_since_creation_in_days(self) -> int:
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        return pulumi.get(self, "immutability_period_since_creation_in_days")
+
+    @property
+    @pulumi.getter(name="objectIdentifier")
+    def object_identifier(self) -> str:
+        """
+        Returns the Object ID of the user who updated the ImmutabilityPolicy.
+        """
+        return pulumi.get(self, "object_identifier")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        Returns the date and time the ImmutabilityPolicy was updated.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @property
+    @pulumi.getter
+    def update(self) -> str:
+        """
+        The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
+        """
+        return pulumi.get(self, "update")
+
+    @property
+    @pulumi.getter
+    def upn(self) -> str:
+        """
+        Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
+        """
+        return pulumi.get(self, "upn")
 
 
 @pulumi.output_type
@@ -959,6 +1814,54 @@ class UpdateHistoryPropertyResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkRuleInvokeResponseResult(dict):
+    """
+    Virtual Network rule.
+    """
+    def __init__(__self__, *,
+                 virtual_network_resource_id: str,
+                 action: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        Virtual Network rule.
+        :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        :param str action: The action of virtual network rule.
+        :param str state: Gets the state of virtual network rule.
+        """
+        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="virtualNetworkResourceId")
+    def virtual_network_resource_id(self) -> str:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "virtual_network_resource_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action of virtual network rule.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Gets the state of virtual network rule.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

@@ -90,7 +90,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.DedicatedHostInstanceViewResponse':
+    def instance_view(self) -> 'outputs.DedicatedHostInstanceViewInvokeResponseResult':
         """
         The dedicated host instance view.
         """
@@ -146,7 +146,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         """
@@ -170,7 +170,7 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Sequence['outputs.SubResourceReadOnlyResponse']:
+    def virtual_machines(self) -> Sequence['outputs.SubResourceReadOnlyInvokeResponseResult']:
         """
         A list of references to all virtual machines in the Dedicated Host.
         """

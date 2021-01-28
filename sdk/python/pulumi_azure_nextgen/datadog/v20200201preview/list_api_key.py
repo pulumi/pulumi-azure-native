@@ -38,7 +38,7 @@ class ListApiKeyResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.DatadogApiKeyResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.DatadogApiKeyInvokeResponseResult']]:
         """
         Results of a list operation.
         """

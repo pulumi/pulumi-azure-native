@@ -73,7 +73,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def groups(self) -> Sequence['outputs.GroupContractPropertiesResponse']:
+    def groups(self) -> Sequence['outputs.GroupContractPropertiesInvokeResponseResult']:
         """
         Collection of groups user is part of.
         """
@@ -89,7 +89,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> Optional[Sequence['outputs.UserIdentityContractResponse']]:
+    def identities(self) -> Optional[Sequence['outputs.UserIdentityContractInvokeResponseResult']]:
         """
         Collection of user identities.
         """

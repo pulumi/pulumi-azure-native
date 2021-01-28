@@ -71,7 +71,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+    def encryption(self) -> Optional['outputs.EncryptionPropertiesInvokeResponseResult']:
         """
         The encryption settings of the configuration store.
         """
@@ -95,7 +95,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityInvokeResponseResult']:
         """
         The managed identity information, if configured.
         """
@@ -119,7 +119,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionReferenceResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionReferenceInvokeResponseResult']:
         """
         The list of private endpoint connections that are set up for this resource.
         """
@@ -143,7 +143,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.SkuInvokeResponseResult':
         """
         The sku of the configuration store.
         """

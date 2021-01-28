@@ -99,7 +99,7 @@ class GetPeeringServiceResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PeeringServiceSkuResponse']:
+    def sku(self) -> Optional['outputs.PeeringServiceSkuInvokeResponseResult']:
         """
         The SKU that defines the type of the peering service.
         """

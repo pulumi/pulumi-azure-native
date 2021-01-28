@@ -74,7 +74,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="azureContainerInfo")
-    def azure_container_info(self) -> Optional['outputs.AzureContainerInfoResponse']:
+    def azure_container_info(self) -> Optional['outputs.AzureContainerInfoInvokeResponseResult']:
         """
         Azure container mapping for the share.
         """
@@ -82,7 +82,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="clientAccessRights")
-    def client_access_rights(self) -> Optional[Sequence['outputs.ClientAccessRightResponse']]:
+    def client_access_rights(self) -> Optional[Sequence['outputs.ClientAccessRightInvokeResponseResult']]:
         """
         List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         """
@@ -130,7 +130,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> Optional['outputs.RefreshDetailsResponse']:
+    def refresh_details(self) -> Optional['outputs.RefreshDetailsInvokeResponseResult']:
         """
         Details of the refresh job on this share.
         """
@@ -138,7 +138,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="shareMappings")
-    def share_mappings(self) -> Sequence['outputs.MountPointMapResponse']:
+    def share_mappings(self) -> Sequence['outputs.MountPointMapInvokeResponseResult']:
         """
         Share mount point to the role.
         """
@@ -154,7 +154,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Share on ASE device
         """
@@ -170,7 +170,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="userAccessRights")
-    def user_access_rights(self) -> Optional[Sequence['outputs.UserAccessRightResponse']]:
+    def user_access_rights(self) -> Optional[Sequence['outputs.UserAccessRightInvokeResponseResult']]:
         """
         Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """

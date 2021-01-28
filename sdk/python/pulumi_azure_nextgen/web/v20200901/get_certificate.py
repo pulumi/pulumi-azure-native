@@ -145,7 +145,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> 'outputs.HostingEnvironmentProfileResponse':
+    def hosting_environment_profile(self) -> 'outputs.HostingEnvironmentProfileInvokeResponseResult':
         """
         Specification for the App Service Environment to use for the certificate.
         """
@@ -281,7 +281,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         The system metadata relating to this resource.
         """

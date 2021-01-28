@@ -10,10 +10,56 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'IdentityInvokeResponseResult',
     'IdentityResponse',
-    'QueryKeyResponseResult',
+    'QueryKeyInvokeResponseResult',
+    'SkuInvokeResponseResult',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class IdentityInvokeResponseResult(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class IdentityResponse(dict):
@@ -63,7 +109,7 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class QueryKeyResponseResult(dict):
+class QueryKeyInvokeResponseResult(dict):
     """
     Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
     """
@@ -91,6 +137,29 @@ class QueryKeyResponseResult(dict):
     def name(self) -> str:
         """
         The name of the query API key; may be empty.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SkuInvokeResponseResult(dict):
+    """
+    Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+        :param str name: The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
         return pulumi.get(self, "name")
 

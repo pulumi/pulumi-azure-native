@@ -140,7 +140,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="applicableSchedule")
-    def applicable_schedule(self) -> Optional['outputs.ApplicableScheduleResponse']:
+    def applicable_schedule(self) -> Optional['outputs.ApplicableScheduleInvokeResponseResult']:
         """
         The applicable schedule for the virtual machine.
         """
@@ -148,7 +148,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="artifactDeploymentStatus")
-    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']:
+    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesInvokeResponseResult']:
         """
         The artifact deployment status for the virtual machine.
         """
@@ -156,7 +156,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesInvokeResponseResult']]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -172,7 +172,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="computeVm")
-    def compute_vm(self) -> Optional['outputs.ComputeVmPropertiesResponse']:
+    def compute_vm(self) -> Optional['outputs.ComputeVmPropertiesInvokeResponseResult']:
         """
         The compute virtual machine properties.
         """
@@ -244,7 +244,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional['outputs.GalleryImageReferenceResponse']:
+    def gallery_image_reference(self) -> Optional['outputs.GalleryImageReferenceInvokeResponseResult']:
         """
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """
@@ -300,7 +300,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> Optional['outputs.NetworkInterfacePropertiesResponse']:
+    def network_interface(self) -> Optional['outputs.NetworkInterfacePropertiesInvokeResponseResult']:
         """
         The network interface properties.
         """

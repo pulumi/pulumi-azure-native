@@ -76,7 +76,7 @@ class GetVolumeContainerResult:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretInvokeResponseResult']:
         """
         The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
         """

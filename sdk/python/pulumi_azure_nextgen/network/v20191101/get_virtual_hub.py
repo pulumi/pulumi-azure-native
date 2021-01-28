@@ -86,7 +86,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="azureFirewall")
-    def azure_firewall(self) -> Optional['outputs.SubResourceResponse']:
+    def azure_firewall(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The azureFirewall associated with this VirtualHub.
         """
@@ -102,7 +102,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="expressRouteGateway")
-    def express_route_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def express_route_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The expressRouteGateway associated with this VirtualHub.
         """
@@ -134,7 +134,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="p2SVpnGateway")
-    def p2_s_vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def p2_s_vpn_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The P2SVpnGateway associated with this VirtualHub.
         """
@@ -150,7 +150,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.VirtualHubRouteTableResponse']:
+    def route_table(self) -> Optional['outputs.VirtualHubRouteTableInvokeResponseResult']:
         """
         The routeTable associated with this virtual hub.
         """
@@ -190,7 +190,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualHubRouteTableV2s")
-    def virtual_hub_route_table_v2s(self) -> Optional[Sequence['outputs.VirtualHubRouteTableV2Response']]:
+    def virtual_hub_route_table_v2s(self) -> Optional[Sequence['outputs.VirtualHubRouteTableV2InvokeResponseResult']]:
         """
         List of all virtual hub route table v2s associated with this VirtualHub.
         """
@@ -198,7 +198,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualNetworkConnections")
-    def virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionResponse']]:
+    def virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionInvokeResponseResult']]:
         """
         List of all vnet connections with this VirtualHub.
         """
@@ -206,7 +206,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualWAN to which the VirtualHub belongs.
         """
@@ -214,7 +214,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="vpnGateway")
-    def vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def vpn_gateway(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VpnGateway associated with this VirtualHub.
         """

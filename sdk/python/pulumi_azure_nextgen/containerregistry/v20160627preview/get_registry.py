@@ -99,7 +99,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> 'outputs.StorageAccountPropertiesResponse':
+    def storage_account(self) -> 'outputs.StorageAccountPropertiesInvokeResponseResult':
         """
         The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
         """

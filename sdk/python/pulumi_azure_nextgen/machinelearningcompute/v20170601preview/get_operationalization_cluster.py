@@ -69,7 +69,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="appInsights")
-    def app_insights(self) -> Optional['outputs.AppInsightsCredentialsResponse']:
+    def app_insights(self) -> Optional['outputs.AppInsightsCredentialsInvokeResponseResult']:
         """
         AppInsights configuration
         """
@@ -85,7 +85,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="containerRegistry")
-    def container_registry(self) -> Optional['outputs.ContainerRegistryPropertiesResponse']:
+    def container_registry(self) -> Optional['outputs.ContainerRegistryPropertiesInvokeResponseResult']:
         """
         Container Registry properties.
         """
@@ -93,7 +93,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="containerService")
-    def container_service(self) -> 'outputs.AcsClusterPropertiesResponse':
+    def container_service(self) -> 'outputs.AcsClusterPropertiesInvokeResponseResult':
         """
         Parameters for the Azure Container Service cluster.
         """
@@ -117,7 +117,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="globalServiceConfiguration")
-    def global_service_configuration(self) -> Optional['outputs.GlobalServiceConfigurationResponse']:
+    def global_service_configuration(self) -> Optional['outputs.GlobalServiceConfigurationInvokeResponseResult']:
         """
         Contains global configuration for the web services in the cluster.
         """
@@ -165,7 +165,7 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesResponse']:
+    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesInvokeResponseResult']:
         """
         Storage Account properties.
         """

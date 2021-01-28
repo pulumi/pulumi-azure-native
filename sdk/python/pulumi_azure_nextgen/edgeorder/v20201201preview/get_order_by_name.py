@@ -54,7 +54,7 @@ class GetOrderByNameResult:
 
     @property
     @pulumi.getter(name="addressDetails")
-    def address_details(self) -> 'outputs.AddressDetailsResponse':
+    def address_details(self) -> 'outputs.AddressDetailsInvokeResponseResult':
         """
         Represents shipping and return address for order
         """
@@ -94,7 +94,7 @@ class GetOrderByNameResult:
 
     @property
     @pulumi.getter(name="orderDetails")
-    def order_details(self) -> 'outputs.OrderDetailsResponse':
+    def order_details(self) -> 'outputs.OrderDetailsInvokeResponseResult':
         """
         Represents order details.
         """
@@ -110,7 +110,7 @@ class GetOrderByNameResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Represents resource creation and update time
         """

@@ -52,7 +52,7 @@ class GetSharedPrivateLinkResourceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
+    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesInvokeResponseResult':
         """
         Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         """

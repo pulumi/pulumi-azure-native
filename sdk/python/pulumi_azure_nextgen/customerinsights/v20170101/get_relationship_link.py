@@ -106,7 +106,7 @@ class GetRelationshipLinkResult:
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[Sequence['outputs.RelationshipLinkFieldMappingResponse']]:
+    def mappings(self) -> Optional[Sequence['outputs.RelationshipLinkFieldMappingInvokeResponseResult']]:
         """
         The mappings between Interaction and Relationship fields.
         """
@@ -122,7 +122,7 @@ class GetRelationshipLinkResult:
 
     @property
     @pulumi.getter(name="profilePropertyReferences")
-    def profile_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceResponse']:
+    def profile_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceInvokeResponseResult']:
         """
         The property references for the Profile of the Relationship.
         """
@@ -138,7 +138,7 @@ class GetRelationshipLinkResult:
 
     @property
     @pulumi.getter(name="relatedProfilePropertyReferences")
-    def related_profile_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceResponse']:
+    def related_profile_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceInvokeResponseResult']:
         """
         The property references for the Related Profile of the Relationship.
         """

@@ -71,7 +71,7 @@ class ListTaskRunDetailsResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> Optional['outputs.IdentityPropertiesInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -111,7 +111,7 @@ class ListTaskRunDetailsResult:
 
     @property
     @pulumi.getter(name="runResult")
-    def run_result(self) -> 'outputs.RunResponse':
+    def run_result(self) -> 'outputs.RunInvokeResponseResult':
         """
         The result of this task run
         """
@@ -119,7 +119,7 @@ class ListTaskRunDetailsResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
+    def system_data(self) -> 'outputs.SystemDataInvokeResponseResult':
         """
         Metadata pertaining to creation and last modification of the resource.
         """

@@ -92,7 +92,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="applicationRuleCollections")
-    def application_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallApplicationRuleCollectionResponse']]:
+    def application_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallApplicationRuleCollectionInvokeResponseResult']]:
         """
         Collection of application rule collections used by Azure Firewall.
         """
@@ -108,7 +108,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="firewallPolicy")
-    def firewall_policy(self) -> Optional['outputs.SubResourceResponse']:
+    def firewall_policy(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The firewallPolicy associated with this azure firewall.
         """
@@ -116,7 +116,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="hubIpAddresses")
-    def hub_ip_addresses(self) -> 'outputs.HubIPAddressesResponse':
+    def hub_ip_addresses(self) -> 'outputs.HubIPAddressesInvokeResponseResult':
         """
         IP addresses associated with AzureFirewall.
         """
@@ -132,7 +132,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.AzureFirewallIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.AzureFirewallIPConfigurationInvokeResponseResult']]:
         """
         IP configuration of the Azure Firewall resource.
         """
@@ -140,7 +140,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="ipGroups")
-    def ip_groups(self) -> Sequence['outputs.AzureFirewallIpGroupsResponse']:
+    def ip_groups(self) -> Sequence['outputs.AzureFirewallIpGroupsInvokeResponseResult']:
         """
         IpGroups associated with AzureFirewall.
         """
@@ -156,7 +156,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="managementIpConfiguration")
-    def management_ip_configuration(self) -> Optional['outputs.AzureFirewallIPConfigurationResponse']:
+    def management_ip_configuration(self) -> Optional['outputs.AzureFirewallIPConfigurationInvokeResponseResult']:
         """
         IP configuration of the Azure Firewall used for management traffic.
         """
@@ -172,7 +172,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="natRuleCollections")
-    def nat_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallNatRuleCollectionResponse']]:
+    def nat_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallNatRuleCollectionInvokeResponseResult']]:
         """
         Collection of NAT rule collections used by Azure Firewall.
         """
@@ -180,7 +180,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="networkRuleCollections")
-    def network_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallNetworkRuleCollectionResponse']]:
+    def network_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallNetworkRuleCollectionInvokeResponseResult']]:
         """
         Collection of network rule collections used by Azure Firewall.
         """
@@ -196,7 +196,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.AzureFirewallSkuResponse']:
+    def sku(self) -> Optional['outputs.AzureFirewallSkuInvokeResponseResult']:
         """
         The Azure Firewall Resource SKU.
         """
@@ -228,7 +228,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The virtualHub to which the firewall belongs.
         """

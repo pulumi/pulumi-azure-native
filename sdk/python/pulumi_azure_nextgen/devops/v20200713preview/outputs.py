@@ -11,12 +11,51 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AuthorizationInvokeResponseResult',
     'AuthorizationResponse',
+    'BootstrapConfigurationInvokeResponseResult',
     'BootstrapConfigurationResponse',
+    'CodeRepositoryInvokeResponseResult',
     'CodeRepositoryResponse',
+    'PipelineTemplateInvokeResponseResult',
     'PipelineTemplateResponse',
+    'SystemDataInvokeResponseResult',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AuthorizationInvokeResponseResult(dict):
+    """
+    Authorization info used to access a resource (like code repository).
+    """
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        Authorization info used to access a resource (like code repository).
+        :param str authorization_type: Type of authorization.
+        :param Mapping[str, str] parameters: Authorization parameters corresponding to the authorization type.
+        """
+        pulumi.set(__self__, "authorization_type", authorization_type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        Type of authorization.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Authorization parameters corresponding to the authorization type.
+        """
+        return pulumi.get(self, "parameters")
+
 
 @pulumi.output_type
 class AuthorizationResponse(dict):
@@ -56,6 +95,40 @@ class AuthorizationResponse(dict):
 
 
 @pulumi.output_type
+class BootstrapConfigurationInvokeResponseResult(dict):
+    """
+    Configuration used to bootstrap a Pipeline.
+    """
+    def __init__(__self__, *,
+                 template: 'outputs.PipelineTemplateInvokeResponseResult',
+                 source_repository: Optional['outputs.CodeRepositoryInvokeResponseResult'] = None):
+        """
+        Configuration used to bootstrap a Pipeline.
+        :param 'PipelineTemplateInvokeResponseArgs' template: Template used to bootstrap the pipeline.
+        :param 'CodeRepositoryInvokeResponseArgs' source_repository: Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+        """
+        pulumi.set(__self__, "template", template)
+        if source_repository is not None:
+            pulumi.set(__self__, "source_repository", source_repository)
+
+    @property
+    @pulumi.getter
+    def template(self) -> 'outputs.PipelineTemplateInvokeResponseResult':
+        """
+        Template used to bootstrap the pipeline.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter(name="sourceRepository")
+    def source_repository(self) -> Optional['outputs.CodeRepositoryInvokeResponseResult']:
+        """
+        Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+        """
+        return pulumi.get(self, "source_repository")
+
+
+@pulumi.output_type
 class BootstrapConfigurationResponse(dict):
     """
     Configuration used to bootstrap a Pipeline.
@@ -90,6 +163,74 @@ class BootstrapConfigurationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CodeRepositoryInvokeResponseResult(dict):
+    """
+    Repository containing the source code for a pipeline.
+    """
+    def __init__(__self__, *,
+                 default_branch: str,
+                 id: str,
+                 repository_type: str,
+                 authorization: Optional['outputs.AuthorizationInvokeResponseResult'] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        Repository containing the source code for a pipeline.
+        :param str default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
+        :param str id: Unique immutable identifier of the code repository.
+        :param str repository_type: Type of code repository.
+        :param 'AuthorizationInvokeResponseArgs' authorization: Authorization info to access the code repository.
+        :param Mapping[str, str] properties: Repository-specific properties.
+        """
+        pulumi.set(__self__, "default_branch", default_branch)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "repository_type", repository_type)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> str:
+        """
+        Default branch used to configure Continuous Integration (CI) in the pipeline.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique immutable identifier of the code repository.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="repositoryType")
+    def repository_type(self) -> str:
+        """
+        Type of code repository.
+        """
+        return pulumi.get(self, "repository_type")
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional['outputs.AuthorizationInvokeResponseResult']:
+        """
+        Authorization info to access the code repository.
+        """
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Repository-specific properties.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -164,6 +305,40 @@ class CodeRepositoryResponse(dict):
 
 
 @pulumi.output_type
+class PipelineTemplateInvokeResponseResult(dict):
+    """
+    Template used to bootstrap the pipeline.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        Template used to bootstrap the pipeline.
+        :param str id: Unique identifier of the pipeline template.
+        :param Mapping[str, str] parameters: Dictionary of input parameters used in the pipeline template.
+        """
+        pulumi.set(__self__, "id", id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique identifier of the pipeline template.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary of input parameters used in the pipeline template.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class PipelineTemplateResponse(dict):
     """
     Template used to bootstrap the pipeline.
@@ -198,6 +373,89 @@ class PipelineTemplateResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataInvokeResponseResult(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

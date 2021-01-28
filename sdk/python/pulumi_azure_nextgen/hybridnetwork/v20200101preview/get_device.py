@@ -54,7 +54,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="azureStackEdge")
-    def azure_stack_edge(self) -> Optional['outputs.SubResourceResponse']:
+    def azure_stack_edge(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The reference to the Azure stack edge device.
         """
@@ -94,7 +94,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="networkFunctions")
-    def network_functions(self) -> Sequence['outputs.SubResourceResponse']:
+    def network_functions(self) -> Sequence['outputs.SubResourceInvokeResponseResult']:
         """
         The list of network functions deployed on the device.
         """

@@ -75,7 +75,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="associatedWorkspaces")
-    def associated_workspaces(self) -> Optional[Sequence['outputs.AssociatedWorkspaceResponse']]:
+    def associated_workspaces(self) -> Optional[Sequence['outputs.AssociatedWorkspaceInvokeResponseResult']]:
         """
         The list of Log Analytics workspaces associated with the cluster
         """
@@ -91,7 +91,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="capacityReservationProperties")
-    def capacity_reservation_properties(self) -> Optional['outputs.CapacityReservationPropertiesResponse']:
+    def capacity_reservation_properties(self) -> Optional['outputs.CapacityReservationPropertiesInvokeResponseResult']:
         """
         Additional properties for capacity reservation
         """
@@ -123,7 +123,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityInvokeResponseResult']:
         """
         The identity of the resource.
         """
@@ -147,7 +147,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesInvokeResponseResult']:
         """
         The associated key properties.
         """
@@ -187,7 +187,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ClusterSkuResponse']:
+    def sku(self) -> Optional['outputs.ClusterSkuInvokeResponseResult']:
         """
         The sku properties.
         """

@@ -80,7 +80,7 @@ class GetVirtualMachineScheduleResult:
 
     @property
     @pulumi.getter(name="dailyRecurrence")
-    def daily_recurrence(self) -> Optional['outputs.DayDetailsResponse']:
+    def daily_recurrence(self) -> Optional['outputs.DayDetailsInvokeResponseResult']:
         """
         If the schedule will occur once each day of the week, specify the daily recurrence.
         """
@@ -88,7 +88,7 @@ class GetVirtualMachineScheduleResult:
 
     @property
     @pulumi.getter(name="hourlyRecurrence")
-    def hourly_recurrence(self) -> Optional['outputs.HourDetailsResponse']:
+    def hourly_recurrence(self) -> Optional['outputs.HourDetailsInvokeResponseResult']:
         """
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
@@ -120,7 +120,7 @@ class GetVirtualMachineScheduleResult:
 
     @property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
+    def notification_settings(self) -> Optional['outputs.NotificationSettingsInvokeResponseResult']:
         """
         Notification settings.
         """
@@ -192,7 +192,7 @@ class GetVirtualMachineScheduleResult:
 
     @property
     @pulumi.getter(name="weeklyRecurrence")
-    def weekly_recurrence(self) -> Optional['outputs.WeekDetailsResponse']:
+    def weekly_recurrence(self) -> Optional['outputs.WeekDetailsInvokeResponseResult']:
         """
         If the schedule will occur only some days of the week, specify the weekly recurrence.
         """

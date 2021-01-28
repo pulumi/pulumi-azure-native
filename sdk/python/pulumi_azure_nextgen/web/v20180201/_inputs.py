@@ -20,12 +20,12 @@ __all__ = [
     'AzureBlobStorageHttpLogsConfigArgs',
     'AzureStorageInfoValueArgs',
     'AzureTableStorageApplicationLogsConfigArgs',
-    'BackupScheduleArgs',
+    'BackupScheduleInvokeArgs',
     'CapabilityArgs',
     'CloningInfoArgs',
     'ConnStringInfoArgs',
     'CorsSettingsArgs',
-    'DatabaseBackupSettingArgs',
+    'DatabaseBackupSettingInvokeArgs',
     'EnabledConfigArgs',
     'ExperimentsArgs',
     'FileSystemApplicationLogsConfigArgs',
@@ -593,7 +593,7 @@ class AzureTableStorageApplicationLogsConfigArgs:
 
 
 @pulumi.input_type
-class BackupScheduleArgs:
+class BackupScheduleInvokeArgs:
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: 'FrequencyUnit',
@@ -1036,7 +1036,7 @@ class CorsSettingsArgs:
 
 
 @pulumi.input_type
-class DatabaseBackupSettingArgs:
+class DatabaseBackupSettingInvokeArgs:
     def __init__(__self__, *,
                  database_type: Union[str, 'DatabaseType'],
                  connection_string: Optional[str] = None,

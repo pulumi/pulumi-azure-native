@@ -71,7 +71,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def packages(self) -> Optional[Sequence['outputs.ApplicationPackageResponse']]:
+    def packages(self) -> Optional[Sequence['outputs.ApplicationPackageInvokeResponseResult']]:
         """
         The list of packages under this application.
         """

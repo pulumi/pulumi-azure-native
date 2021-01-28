@@ -69,7 +69,7 @@ class GetPrivateLinkHubResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionForPrivateLinkHubBasicInvokeResponseResult']:
         """
         List of private endpoint connections
         """

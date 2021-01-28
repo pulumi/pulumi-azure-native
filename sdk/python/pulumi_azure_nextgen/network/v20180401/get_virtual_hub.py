@@ -70,7 +70,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="hubVirtualNetworkConnections")
-    def hub_virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionResponse']]:
+    def hub_virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionInvokeResponseResult']]:
         """
         list of all vnet connections with this VirtualHub.
         """
@@ -126,7 +126,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> Optional['outputs.SubResourceInvokeResponseResult']:
         """
         The VirtualWAN to which the VirtualHub belongs
         """

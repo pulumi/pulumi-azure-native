@@ -60,7 +60,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter(name="defaultSecurityRules")
-    def default_security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
+    def default_security_rules(self) -> Optional[Sequence['outputs.SecurityRuleInvokeResponseResult']]:
         """
         Gets or default security rules of network security group
         """
@@ -100,7 +100,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceInvokeResponseResult']:
         """
         Gets collection of references to Network Interfaces
         """
@@ -124,7 +124,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
+    def security_rules(self) -> Optional[Sequence['outputs.SecurityRuleInvokeResponseResult']]:
         """
         Gets or sets security rules of network security group
         """
@@ -132,7 +132,7 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Sequence['outputs.SubnetResponse']:
+    def subnets(self) -> Sequence['outputs.SubnetInvokeResponseResult']:
         """
         Gets collection of references to subnets
         """

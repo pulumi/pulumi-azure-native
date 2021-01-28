@@ -64,7 +64,7 @@ class GetReferenceDataSetResult:
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> Sequence['outputs.ReferenceDataSetKeyPropertyResponse']:
+    def key_properties(self) -> Sequence['outputs.ReferenceDataSetKeyPropertyInvokeResponseResult']:
         """
         The list of key properties for the reference data set.
         """

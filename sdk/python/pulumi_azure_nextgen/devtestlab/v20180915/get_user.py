@@ -70,7 +70,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.UserIdentityResponse']:
+    def identity(self) -> Optional['outputs.UserIdentityInvokeResponseResult']:
         """
         The identity of the user.
         """
@@ -102,7 +102,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional['outputs.UserSecretStoreResponse']:
+    def secret_store(self) -> Optional['outputs.UserSecretStoreInvokeResponseResult']:
         """
         The secret store of the user.
         """

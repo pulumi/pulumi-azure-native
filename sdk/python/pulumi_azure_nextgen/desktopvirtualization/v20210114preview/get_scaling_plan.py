@@ -84,7 +84,7 @@ class GetScalingPlanResult:
 
     @property
     @pulumi.getter(name="hostPoolReferences")
-    def host_pool_references(self) -> Optional[Sequence['outputs.ScalingHostPoolReferenceResponse']]:
+    def host_pool_references(self) -> Optional[Sequence['outputs.ScalingHostPoolReferenceInvokeResponseResult']]:
         """
         List of ScalingHostPoolReference definitions.
         """
@@ -124,7 +124,7 @@ class GetScalingPlanResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[Sequence['outputs.ScalingScheduleResponse']]:
+    def schedules(self) -> Optional[Sequence['outputs.ScalingScheduleInvokeResponseResult']]:
         """
         List of ScalingSchedule definitions.
         """

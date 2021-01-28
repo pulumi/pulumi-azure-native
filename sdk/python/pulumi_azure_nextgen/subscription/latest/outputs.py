@@ -10,8 +10,43 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'PutAliasResponsePropertiesInvokeResponseResult',
     'PutAliasResponsePropertiesResponse',
 ]
+
+@pulumi.output_type
+class PutAliasResponsePropertiesInvokeResponseResult(dict):
+    """
+    Put subscription creation result properties.
+    """
+    def __init__(__self__, *,
+                 subscription_id: str,
+                 provisioning_state: Optional[str] = None):
+        """
+        Put subscription creation result properties.
+        :param str subscription_id: Newly created subscription Id.
+        :param str provisioning_state: The provisioning state of the resource.
+        """
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
+        """
+        Newly created subscription Id.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
 
 @pulumi.output_type
 class PutAliasResponsePropertiesResponse(dict):

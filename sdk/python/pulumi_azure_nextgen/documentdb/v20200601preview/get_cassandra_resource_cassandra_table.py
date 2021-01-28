@@ -56,7 +56,7 @@ class GetCassandraResourceCassandraTableResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityInvokeResponseResult']:
         """
         Identity for the resource.
         """
@@ -80,12 +80,12 @@ class GetCassandraResourceCassandraTableResult:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.CassandraTableGetPropertiesResponseOptions']:
+    def options(self) -> Optional['outputs.CassandraTableGetPropertiesInvokeResponseOptionsResult']:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.CassandraTableGetPropertiesResponseResource']:
+    def resource(self) -> Optional['outputs.CassandraTableGetPropertiesInvokeResponseResourceResult']:
         return pulumi.get(self, "resource")
 
     @property
