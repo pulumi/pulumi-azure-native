@@ -47,7 +47,7 @@ export interface GetPrivateEndpointConnectionResult {
      * The resource name.
      */
     readonly name: string;
-    readonly properties: outputs.digitaltwins.latest.PrivateEndpointConnectionResponseProperties;
+    readonly properties: outputs.digitaltwins.latest.PrivateEndpointConnectionInvokeResponseProperties;
     /**
      * The resource type.
      */

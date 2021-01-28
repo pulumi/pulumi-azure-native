@@ -42,7 +42,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: outputs.network.v20171101.NetworkInterfaceDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20171101.NetworkInterfaceDnsSettingsInvokeResponse;
     /**
      * If the network interface is accelerated networking enabled.
      */
@@ -62,7 +62,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: outputs.network.v20171101.NetworkInterfaceIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20171101.NetworkInterfaceIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -78,7 +78,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: outputs.network.v20171101.NetworkSecurityGroupResponse;
+    readonly networkSecurityGroup?: outputs.network.v20171101.NetworkSecurityGroupInvokeResponse;
     /**
      * Gets whether this is a primary network interface on a virtual machine.
      */
@@ -102,5 +102,5 @@ export interface GetNetworkInterfaceResult {
     /**
      * The reference of a virtual machine.
      */
-    readonly virtualMachine?: outputs.network.v20171101.SubResourceResponse;
+    readonly virtualMachine?: outputs.network.v20171101.SubResourceInvokeResponse;
 }

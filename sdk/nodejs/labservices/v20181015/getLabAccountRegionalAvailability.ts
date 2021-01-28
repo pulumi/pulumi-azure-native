@@ -37,5 +37,5 @@ export interface GetLabAccountRegionalAvailabilityResult {
     /**
      * Availability information for different size categories per region
      */
-    readonly regionalAvailability?: outputs.labservices.v20181015.RegionalAvailabilityResponse[];
+    readonly regionalAvailability?: outputs.labservices.v20181015.RegionalAvailabilityInvokeResponse[];
 }

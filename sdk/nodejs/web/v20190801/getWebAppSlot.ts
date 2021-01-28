@@ -58,7 +58,7 @@ export interface GetWebAppSlotResult {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: outputs.web.v20190801.CloningInfoResponse;
+    readonly cloningInfo?: outputs.web.v20190801.CloningInfoInvokeResponse;
     /**
      * Size of the function container.
      */
@@ -83,7 +83,7 @@ export interface GetWebAppSlotResult {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: outputs.web.v20190801.HostNameSslStateResponse[];
+    readonly hostNameSslStates?: outputs.web.v20190801.HostNameSslStateInvokeResponse[];
     /**
      * Hostnames associated with the app.
      */
@@ -96,7 +96,7 @@ export interface GetWebAppSlotResult {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: outputs.web.v20190801.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.v20190801.HostingEnvironmentProfileInvokeResponse;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -113,7 +113,7 @@ export interface GetWebAppSlotResult {
     /**
      * Managed service identity.
      */
-    readonly identity?: outputs.web.v20190801.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.web.v20190801.ManagedServiceIdentityInvokeResponse;
     /**
      * Specifies an operation id if this site has a pending operation.
      */
@@ -182,11 +182,11 @@ export interface GetWebAppSlotResult {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: outputs.web.v20190801.SiteConfigResponse;
+    readonly siteConfig?: outputs.web.v20190801.SiteConfigInvokeResponse;
     /**
      * Status of the last deployment slot swap operation.
      */
-    readonly slotSwapStatus: outputs.web.v20190801.SlotSwapStatusResponse;
+    readonly slotSwapStatus: outputs.web.v20190801.SlotSwapStatusInvokeResponse;
     /**
      * Current state of the app.
      */

@@ -46,5 +46,5 @@ export interface ListNamespaceKeysResult {
     /**
      * Result of the List AuthorizationRules operation.
      */
-    readonly value?: outputs.notificationhubs.v20170401.SharedAccessAuthorizationRuleResourceResponse[];
+    readonly value?: outputs.notificationhubs.v20170401.SharedAccessAuthorizationRuleResourceInvokeResponse[];
 }

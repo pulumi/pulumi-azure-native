@@ -54,7 +54,7 @@ export interface GetPrivateEndpointResult {
     /**
      * The properties associated with a private endpoint.
      */
-    readonly properties: outputs.streamanalytics.v20200301preview.PrivateEndpointPropertiesResponse;
+    readonly properties: outputs.streamanalytics.v20200301preview.PrivateEndpointPropertiesInvokeResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

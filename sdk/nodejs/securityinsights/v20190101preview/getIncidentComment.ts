@@ -52,7 +52,7 @@ export interface GetIncidentCommentResult {
     /**
      * Describes the client that created the comment
      */
-    readonly author: outputs.securityinsights.v20190101preview.ClientInfoResponse;
+    readonly author: outputs.securityinsights.v20190101preview.ClientInfoInvokeResponse;
     /**
      * The time the comment was created
      */

@@ -53,7 +53,7 @@ export interface GetManagementGroupDiagnosticSettingResult {
     /**
      * The list of logs settings.
      */
-    readonly logs?: outputs.insights.v20200101preview.ManagementGroupLogSettingsResponse[];
+    readonly logs?: outputs.insights.v20200101preview.ManagementGroupLogSettingsInvokeResponse[];
     /**
      * Azure resource name
      */

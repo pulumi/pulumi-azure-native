@@ -61,7 +61,7 @@ export interface GetServerGroupResult {
     /**
      * The delegated subnet arguments for a server group.
      */
-    readonly delegatedSubnetArguments?: outputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesResponseDelegatedSubnetArguments;
+    readonly delegatedSubnetArguments?: outputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesInvokeResponseDelegatedSubnetArguments;
     /**
      * The earliest restore point time (ISO8601 format) for server group.
      */
@@ -89,7 +89,7 @@ export interface GetServerGroupResult {
     /**
      * Maintenance window of a server group.
      */
-    readonly maintenanceWindow?: outputs.dbforpostgresql.v20201005privatepreview.MaintenanceWindowResponse;
+    readonly maintenanceWindow?: outputs.dbforpostgresql.v20201005privatepreview.MaintenanceWindowInvokeResponse;
     /**
      * The name of the resource
      */
@@ -109,7 +109,7 @@ export interface GetServerGroupResult {
     /**
      * The list of server role groups.
      */
-    readonly serverRoleGroups?: outputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupResponse[];
+    readonly serverRoleGroups?: outputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupInvokeResponse[];
     /**
      * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
      */
@@ -137,7 +137,7 @@ export interface GetServerGroupResult {
     /**
      * The system metadata relating to this resource
      */
-    readonly systemData: outputs.dbforpostgresql.v20201005privatepreview.SystemDataResponse;
+    readonly systemData: outputs.dbforpostgresql.v20201005privatepreview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

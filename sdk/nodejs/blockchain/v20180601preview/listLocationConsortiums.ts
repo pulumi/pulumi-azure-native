@@ -32,5 +32,5 @@ export interface ListLocationConsortiumsResult {
     /**
      * Gets or sets the collection of consortiums.
      */
-    readonly value?: outputs.blockchain.v20180601preview.ConsortiumResponse[];
+    readonly value?: outputs.blockchain.v20180601preview.ConsortiumInvokeResponse[];
 }

@@ -61,5 +61,5 @@ export interface ListShareSynchronizationsResult {
     /**
      * Collection of items of type DataTransferObjects.
      */
-    readonly value: outputs.datashare.v20191101.ShareSynchronizationResponse[];
+    readonly value: outputs.datashare.v20191101.ShareSynchronizationInvokeResponse[];
 }

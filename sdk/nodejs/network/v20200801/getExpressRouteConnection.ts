@@ -50,7 +50,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The ExpressRoute circuit peering.
      */
-    readonly expressRouteCircuitPeering: outputs.network.v20200801.ExpressRouteCircuitPeeringIdResponse;
+    readonly expressRouteCircuitPeering: outputs.network.v20200801.ExpressRouteCircuitPeeringIdInvokeResponse;
     /**
      * Enable FastPath to vWan Firewall hub.
      */
@@ -70,7 +70,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: outputs.network.v20200801.RoutingConfigurationResponse;
+    readonly routingConfiguration?: outputs.network.v20200801.RoutingConfigurationInvokeResponse;
     /**
      * The routing weight associated to the connection.
      */

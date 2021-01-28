@@ -69,5 +69,5 @@ export interface GetDdosProtectionPlanResult {
     /**
      * The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
      */
-    readonly virtualNetworks: outputs.network.latest.SubResourceResponse[];
+    readonly virtualNetworks: outputs.network.latest.SubResourceInvokeResponse[];
 }

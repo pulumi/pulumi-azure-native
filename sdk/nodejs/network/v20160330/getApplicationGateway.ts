@@ -37,11 +37,11 @@ export interface GetApplicationGatewayResult {
     /**
      * Gets or sets backend address pool of application gateway resource
      */
-    readonly backendAddressPools?: outputs.network.v20160330.ApplicationGatewayBackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.v20160330.ApplicationGatewayBackendAddressPoolInvokeResponse[];
     /**
      * Gets or sets backend http settings of application gateway resource
      */
-    readonly backendHttpSettingsCollection?: outputs.network.v20160330.ApplicationGatewayBackendHttpSettingsResponse[];
+    readonly backendHttpSettingsCollection?: outputs.network.v20160330.ApplicationGatewayBackendHttpSettingsInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -49,19 +49,19 @@ export interface GetApplicationGatewayResult {
     /**
      * Gets or sets frontend IP addresses of application gateway resource
      */
-    readonly frontendIPConfigurations?: outputs.network.v20160330.ApplicationGatewayFrontendIPConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.v20160330.ApplicationGatewayFrontendIPConfigurationInvokeResponse[];
     /**
      * Gets or sets frontend ports of application gateway resource
      */
-    readonly frontendPorts?: outputs.network.v20160330.ApplicationGatewayFrontendPortResponse[];
+    readonly frontendPorts?: outputs.network.v20160330.ApplicationGatewayFrontendPortInvokeResponse[];
     /**
      * Gets or sets subnets of application gateway resource
      */
-    readonly gatewayIPConfigurations?: outputs.network.v20160330.ApplicationGatewayIPConfigurationResponse[];
+    readonly gatewayIPConfigurations?: outputs.network.v20160330.ApplicationGatewayIPConfigurationInvokeResponse[];
     /**
      * Gets or sets HTTP listeners of application gateway resource
      */
-    readonly httpListeners?: outputs.network.v20160330.ApplicationGatewayHttpListenerResponse[];
+    readonly httpListeners?: outputs.network.v20160330.ApplicationGatewayHttpListenerInvokeResponse[];
     /**
      * Resource Id
      */
@@ -81,7 +81,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Gets or sets probes of application gateway resource
      */
-    readonly probes?: outputs.network.v20160330.ApplicationGatewayProbeResponse[];
+    readonly probes?: outputs.network.v20160330.ApplicationGatewayProbeInvokeResponse[];
     /**
      * Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
      */
@@ -89,7 +89,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Gets or sets request routing rules of application gateway resource
      */
-    readonly requestRoutingRules?: outputs.network.v20160330.ApplicationGatewayRequestRoutingRuleResponse[];
+    readonly requestRoutingRules?: outputs.network.v20160330.ApplicationGatewayRequestRoutingRuleInvokeResponse[];
     /**
      * Gets or sets resource GUID property of the ApplicationGateway resource
      */
@@ -97,11 +97,11 @@ export interface GetApplicationGatewayResult {
     /**
      * Gets or sets sku of application gateway resource
      */
-    readonly sku?: outputs.network.v20160330.ApplicationGatewaySkuResponse;
+    readonly sku?: outputs.network.v20160330.ApplicationGatewaySkuInvokeResponse;
     /**
      * Gets or sets ssl certificates of application gateway resource
      */
-    readonly sslCertificates?: outputs.network.v20160330.ApplicationGatewaySslCertificateResponse[];
+    readonly sslCertificates?: outputs.network.v20160330.ApplicationGatewaySslCertificateInvokeResponse[];
     /**
      * Resource tags
      */
@@ -113,5 +113,5 @@ export interface GetApplicationGatewayResult {
     /**
      * Gets or sets URL path map of application gateway resource
      */
-    readonly urlPathMaps?: outputs.network.v20160330.ApplicationGatewayUrlPathMapResponse[];
+    readonly urlPathMaps?: outputs.network.v20160330.ApplicationGatewayUrlPathMapInvokeResponse[];
 }

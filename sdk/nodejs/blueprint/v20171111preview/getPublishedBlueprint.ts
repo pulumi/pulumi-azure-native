@@ -66,15 +66,15 @@ export interface GetPublishedBlueprintResult {
     /**
      * Parameters required by this Blueprint definition.
      */
-    readonly parameters?: {[key: string]: outputs.blueprint.v20171111preview.ParameterDefinitionResponse};
+    readonly parameters?: {[key: string]: outputs.blueprint.v20171111preview.ParameterDefinitionInvokeResponse};
     /**
      * Resource group placeholders defined by this Blueprint definition.
      */
-    readonly resourceGroups?: {[key: string]: outputs.blueprint.v20171111preview.ResourceGroupDefinitionResponse};
+    readonly resourceGroups?: {[key: string]: outputs.blueprint.v20171111preview.ResourceGroupDefinitionInvokeResponse};
     /**
      * Status of the Blueprint. This field is readonly.
      */
-    readonly status: outputs.blueprint.v20171111preview.BlueprintStatusResponse;
+    readonly status: outputs.blueprint.v20171111preview.BlueprintStatusInvokeResponse;
     /**
      * The scope where this Blueprint can be applied.
      */

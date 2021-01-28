@@ -42,7 +42,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The customIpPrefix that this prefix is associated with.
      */
-    readonly customIPPrefix?: outputs.network.latest.SubResourceResponse;
+    readonly customIPPrefix?: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,7 +50,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The extended location of the public ip address.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * Resource ID.
      */
@@ -62,11 +62,11 @@ export interface GetPublicIPPrefixResult {
     /**
      * The list of tags associated with the public IP prefix.
      */
-    readonly ipTags?: outputs.network.latest.IpTagResponse[];
+    readonly ipTags?: outputs.network.latest.IpTagInvokeResponse[];
     /**
      * The reference to load balancer frontend IP configuration associated with the public IP prefix.
      */
-    readonly loadBalancerFrontendIpConfiguration: outputs.network.latest.SubResourceResponse;
+    readonly loadBalancerFrontendIpConfiguration: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * Resource location.
      */
@@ -90,7 +90,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The list of all referenced PublicIPAddresses.
      */
-    readonly publicIPAddresses: outputs.network.latest.ReferencedPublicIpAddressResponse[];
+    readonly publicIPAddresses: outputs.network.latest.ReferencedPublicIpAddressInvokeResponse[];
     /**
      * The resource GUID property of the public IP prefix resource.
      */
@@ -98,7 +98,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The public IP prefix SKU.
      */
-    readonly sku?: outputs.network.latest.PublicIPPrefixSkuResponse;
+    readonly sku?: outputs.network.latest.PublicIPPrefixSkuInvokeResponse;
     /**
      * Resource tags.
      */

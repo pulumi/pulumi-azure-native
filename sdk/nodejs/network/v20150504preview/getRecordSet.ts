@@ -47,15 +47,15 @@ export interface GetRecordSetResult {
     /**
      * Gets or sets the list of AAAA records in the RecordSet.
      */
-    readonly aAAARecords?: outputs.network.v20150504preview.AaaaRecordResponse[];
+    readonly aAAARecords?: outputs.network.v20150504preview.AaaaRecordInvokeResponse[];
     /**
      * Gets or sets the list of A records in the RecordSet.
      */
-    readonly aRecords?: outputs.network.v20150504preview.ARecordResponse[];
+    readonly aRecords?: outputs.network.v20150504preview.ARecordInvokeResponse[];
     /**
      * Gets or sets the CNAME record in the RecordSet.
      */
-    readonly cNAMERecord?: outputs.network.v20150504preview.CnameRecordResponse;
+    readonly cNAMERecord?: outputs.network.v20150504preview.CnameRecordInvokeResponse;
     /**
      * The etag of the record set.
      */
@@ -71,11 +71,11 @@ export interface GetRecordSetResult {
     /**
      * Gets or sets the list of MX records in the RecordSet.
      */
-    readonly mXRecords?: outputs.network.v20150504preview.MxRecordResponse[];
+    readonly mXRecords?: outputs.network.v20150504preview.MxRecordInvokeResponse[];
     /**
      * Gets or sets the list of NS records in the RecordSet.
      */
-    readonly nSRecords?: outputs.network.v20150504preview.NsRecordResponse[];
+    readonly nSRecords?: outputs.network.v20150504preview.NsRecordInvokeResponse[];
     /**
      * The name of the record set.
      */
@@ -83,19 +83,19 @@ export interface GetRecordSetResult {
     /**
      * Gets or sets the list of PTR records in the RecordSet.
      */
-    readonly pTRRecords?: outputs.network.v20150504preview.PtrRecordResponse[];
+    readonly pTRRecords?: outputs.network.v20150504preview.PtrRecordInvokeResponse[];
     /**
      * Gets or sets the SOA record in the RecordSet.
      */
-    readonly sOARecord?: outputs.network.v20150504preview.SoaRecordResponse;
+    readonly sOARecord?: outputs.network.v20150504preview.SoaRecordInvokeResponse;
     /**
      * Gets or sets the list of SRV records in the RecordSet.
      */
-    readonly sRVRecords?: outputs.network.v20150504preview.SrvRecordResponse[];
+    readonly sRVRecords?: outputs.network.v20150504preview.SrvRecordInvokeResponse[];
     /**
      * Gets or sets the list of TXT records in the RecordSet.
      */
-    readonly tXTRecords?: outputs.network.v20150504preview.TxtRecordResponse[];
+    readonly tXTRecords?: outputs.network.v20150504preview.TxtRecordInvokeResponse[];
     /**
      * Gets or sets the TTL of the records in the RecordSet.
      */

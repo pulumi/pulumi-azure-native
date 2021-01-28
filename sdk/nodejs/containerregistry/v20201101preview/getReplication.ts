@@ -62,11 +62,11 @@ export interface GetReplicationResult {
     /**
      * The status of the replication at the time the operation was called.
      */
-    readonly status: outputs.containerregistry.v20201101preview.StatusResponse;
+    readonly status: outputs.containerregistry.v20201101preview.StatusInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataInvokeResponse;
     /**
      * The tags of the resource.
      */

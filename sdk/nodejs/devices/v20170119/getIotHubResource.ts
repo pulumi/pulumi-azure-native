@@ -53,7 +53,7 @@ export interface GetIotHubResourceResult {
     /**
      * The properties of an IoT hub.
      */
-    readonly properties: outputs.devices.v20170119.IotHubPropertiesResponse;
+    readonly properties: outputs.devices.v20170119.IotHubPropertiesInvokeResponse;
     /**
      * The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
      */
@@ -61,7 +61,7 @@ export interface GetIotHubResourceResult {
     /**
      * Information about the SKU of the IoT hub.
      */
-    readonly sku: outputs.devices.v20170119.IotHubSkuInfoResponse;
+    readonly sku: outputs.devices.v20170119.IotHubSkuInfoInvokeResponse;
     /**
      * The subscription identifier.
      */

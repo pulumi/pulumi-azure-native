@@ -37,12 +37,12 @@ export interface GetDataCollectionRuleResult {
     /**
      * The specification of data flows.
      */
-    readonly dataFlows: outputs.insights.v20191101preview.DataFlowResponse[];
+    readonly dataFlows: outputs.insights.v20191101preview.DataFlowInvokeResponse[];
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
-    readonly dataSources?: outputs.insights.v20191101preview.DataCollectionRuleResponseDataSources;
+    readonly dataSources?: outputs.insights.v20191101preview.DataCollectionRuleInvokeResponseDataSources;
     /**
      * Description of the data collection rule.
      */
@@ -50,7 +50,7 @@ export interface GetDataCollectionRuleResult {
     /**
      * The specification of destinations.
      */
-    readonly destinations: outputs.insights.v20191101preview.DataCollectionRuleResponseDestinations;
+    readonly destinations: outputs.insights.v20191101preview.DataCollectionRuleInvokeResponseDestinations;
     /**
      * Resource entity tag (ETag).
      */

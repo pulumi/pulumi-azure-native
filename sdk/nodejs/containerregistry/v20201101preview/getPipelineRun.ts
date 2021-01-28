@@ -58,15 +58,15 @@ export interface GetPipelineRunResult {
     /**
      * The request parameters for a pipeline run.
      */
-    readonly request?: outputs.containerregistry.v20201101preview.PipelineRunRequestResponse;
+    readonly request?: outputs.containerregistry.v20201101preview.PipelineRunRequestInvokeResponse;
     /**
      * The response of a pipeline run.
      */
-    readonly response: outputs.containerregistry.v20201101preview.PipelineRunResponseResponse;
+    readonly response: outputs.containerregistry.v20201101preview.PipelineRunResponseInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataInvokeResponse;
     /**
      * The type of the resource.
      */

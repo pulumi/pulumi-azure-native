@@ -42,5 +42,5 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusResult {
     /**
      * List of BGP peers
      */
-    readonly value?: outputs.network.v20180101.BgpPeerStatusResponse[];
+    readonly value?: outputs.network.v20180101.BgpPeerStatusInvokeResponse[];
 }

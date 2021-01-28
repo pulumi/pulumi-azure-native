@@ -47,7 +47,7 @@ export interface GetIntegrationAccountMapResult {
     /**
      * The content link.
      */
-    readonly contentLink: outputs.logic.v20150801preview.IntegrationAccountContentLinkResponse;
+    readonly contentLink: outputs.logic.v20150801preview.IntegrationAccountContentLinkInvokeResponse;
     /**
      * The content type.
      */

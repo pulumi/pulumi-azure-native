@@ -106,7 +106,7 @@ export interface GetAuthorizationServerResult {
     /**
      * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
      */
-    readonly tokenBodyParameters?: outputs.apimanagement.v20191201.TokenBodyParameterContractResponse[];
+    readonly tokenBodyParameters?: outputs.apimanagement.v20191201.TokenBodyParameterContractInvokeResponse[];
     /**
      * OAuth token endpoint. Contains absolute URI to entity being referenced.
      */

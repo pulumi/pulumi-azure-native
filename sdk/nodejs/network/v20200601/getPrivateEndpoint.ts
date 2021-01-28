@@ -42,7 +42,7 @@ export interface GetPrivateEndpointResult {
     /**
      * An array of custom dns configurations.
      */
-    readonly customDnsConfigs?: outputs.network.v20200601.CustomDnsConfigPropertiesFormatResponse[];
+    readonly customDnsConfigs?: outputs.network.v20200601.CustomDnsConfigPropertiesFormatInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -58,7 +58,7 @@ export interface GetPrivateEndpointResult {
     /**
      * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
      */
-    readonly manualPrivateLinkServiceConnections?: outputs.network.v20200601.PrivateLinkServiceConnectionResponse[];
+    readonly manualPrivateLinkServiceConnections?: outputs.network.v20200601.PrivateLinkServiceConnectionInvokeResponse[];
     /**
      * Resource name.
      */
@@ -66,11 +66,11 @@ export interface GetPrivateEndpointResult {
     /**
      * An array of references to the network interfaces created for this private endpoint.
      */
-    readonly networkInterfaces: outputs.network.v20200601.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.v20200601.NetworkInterfaceInvokeResponse[];
     /**
      * A grouping of information about the connection to the remote resource.
      */
-    readonly privateLinkServiceConnections?: outputs.network.v20200601.PrivateLinkServiceConnectionResponse[];
+    readonly privateLinkServiceConnections?: outputs.network.v20200601.PrivateLinkServiceConnectionInvokeResponse[];
     /**
      * The provisioning state of the private endpoint resource.
      */
@@ -78,7 +78,7 @@ export interface GetPrivateEndpointResult {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: outputs.network.v20200601.SubnetResponse;
+    readonly subnet?: outputs.network.v20200601.SubnetInvokeResponse;
     /**
      * Resource tags.
      */

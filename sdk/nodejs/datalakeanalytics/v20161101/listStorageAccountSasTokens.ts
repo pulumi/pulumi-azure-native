@@ -51,5 +51,5 @@ export interface ListStorageAccountSasTokensResult {
     /**
      * The results of the list operation.
      */
-    readonly value: outputs.datalakeanalytics.v20161101.SasTokenInformationResponse[];
+    readonly value: outputs.datalakeanalytics.v20161101.SasTokenInformationInvokeResponse[];
 }

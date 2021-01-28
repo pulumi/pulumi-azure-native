@@ -50,7 +50,7 @@ export interface GetConnectionTypeResult {
     /**
      * Gets the field definitions of the connection type.
      */
-    readonly fieldDefinitions: {[key: string]: outputs.automation.v20190601.FieldDefinitionResponse};
+    readonly fieldDefinitions: {[key: string]: outputs.automation.v20190601.FieldDefinitionInvokeResponse};
     /**
      * Gets the id of the resource.
      */

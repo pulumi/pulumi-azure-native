@@ -50,7 +50,7 @@ export interface ListWorkflowTriggerCallbackUrlResult {
     /**
      * Gets the workflow trigger callback URL query parameters.
      */
-    readonly queries?: outputs.logic.v20160601.WorkflowTriggerListCallbackUrlQueriesResponse;
+    readonly queries?: outputs.logic.v20160601.WorkflowTriggerListCallbackUrlQueriesInvokeResponse;
     /**
      * Gets the workflow trigger callback URL relative path.
      */

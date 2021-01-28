@@ -32,11 +32,11 @@ export interface GetReportResult {
     /**
      * Has definition for the report.
      */
-    readonly definition: outputs.costmanagement.v20180801preview.ReportDefinitionResponse;
+    readonly definition: outputs.costmanagement.v20180801preview.ReportDefinitionInvokeResponse;
     /**
      * Has delivery information for the report.
      */
-    readonly deliveryInfo: outputs.costmanagement.v20180801preview.ReportDeliveryInfoResponse;
+    readonly deliveryInfo: outputs.costmanagement.v20180801preview.ReportDeliveryInfoInvokeResponse;
     /**
      * The format of the report being delivered.
      */
@@ -52,7 +52,7 @@ export interface GetReportResult {
     /**
      * Has schedule information for the report.
      */
-    readonly schedule?: outputs.costmanagement.v20180801preview.ReportScheduleResponse;
+    readonly schedule?: outputs.costmanagement.v20180801preview.ReportScheduleInvokeResponse;
     /**
      * Resource tags.
      */

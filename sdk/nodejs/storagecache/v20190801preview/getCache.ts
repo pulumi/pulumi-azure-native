@@ -41,7 +41,7 @@ export interface GetCacheResult {
     /**
      * Health of the cache.
      */
-    readonly health: outputs.storagecache.v20190801preview.CacheHealthResponse;
+    readonly health: outputs.storagecache.v20190801preview.CacheHealthInvokeResponse;
     /**
      * Fully qualified URL of the cache.
      */
@@ -65,7 +65,7 @@ export interface GetCacheResult {
     /**
      * Sku for the cache.
      */
-    readonly sku?: outputs.storagecache.v20190801preview.CacheResponseSku;
+    readonly sku?: outputs.storagecache.v20190801preview.CacheInvokeResponseSku;
     /**
      * Subnet used for the cache.
      */
@@ -81,5 +81,5 @@ export interface GetCacheResult {
     /**
      * Upgrade status of the cache.
      */
-    readonly upgradeStatus?: outputs.storagecache.v20190801preview.CacheUpgradeStatusResponse;
+    readonly upgradeStatus?: outputs.storagecache.v20190801preview.CacheUpgradeStatusInvokeResponse;
 }

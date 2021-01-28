@@ -45,11 +45,11 @@ export interface GetFactoryResult {
     /**
      * Properties to enable Customer Managed Key for the factory.
      */
-    readonly encryption?: outputs.datafactory.v20180601.EncryptionConfigurationResponse;
+    readonly encryption?: outputs.datafactory.v20180601.EncryptionConfigurationInvokeResponse;
     /**
      * List of parameters for factory.
      */
-    readonly globalParameters?: {[key: string]: outputs.datafactory.v20180601.GlobalParameterSpecificationResponse};
+    readonly globalParameters?: {[key: string]: outputs.datafactory.v20180601.GlobalParameterSpecificationInvokeResponse};
     /**
      * The resource identifier.
      */
@@ -57,7 +57,7 @@ export interface GetFactoryResult {
     /**
      * Managed service identity of the factory.
      */
-    readonly identity?: outputs.datafactory.v20180601.FactoryIdentityResponse;
+    readonly identity?: outputs.datafactory.v20180601.FactoryIdentityInvokeResponse;
     /**
      * The resource location.
      */
@@ -77,7 +77,7 @@ export interface GetFactoryResult {
     /**
      * Git repo information of the factory.
      */
-    readonly repoConfiguration?: outputs.datafactory.v20180601.FactoryGitHubConfigurationResponse | outputs.datafactory.v20180601.FactoryVSTSConfigurationResponse;
+    readonly repoConfiguration?: outputs.datafactory.v20180601.FactoryGitHubConfigurationInvokeResponse | outputs.datafactory.v20180601.FactoryVSTSConfigurationInvokeResponse;
     /**
      * The resource tags.
      */

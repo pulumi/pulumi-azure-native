@@ -62,5 +62,5 @@ export interface GetVirtualHubRouteTableV2Result {
     /**
      * List of all routes.
      */
-    readonly routes?: outputs.network.latest.VirtualHubRouteV2Response[];
+    readonly routes?: outputs.network.latest.VirtualHubRouteV2InvokeResponse[];
 }

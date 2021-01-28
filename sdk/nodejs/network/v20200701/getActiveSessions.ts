@@ -41,5 +41,5 @@ export interface GetActiveSessionsResult {
     /**
      * List of active sessions on the bastion.
      */
-    readonly value?: outputs.network.v20200701.BastionActiveSessionResponse[];
+    readonly value?: outputs.network.v20200701.BastionActiveSessionInvokeResponse[];
 }

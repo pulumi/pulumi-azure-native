@@ -47,7 +47,7 @@ export interface GetOriginGroupResult {
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    readonly healthProbeSettings?: outputs.cdn.v20200415.HealthProbeParametersResponse;
+    readonly healthProbeSettings?: outputs.cdn.v20200415.HealthProbeParametersInvokeResponse;
     /**
      * Resource ID.
      */
@@ -59,7 +59,7 @@ export interface GetOriginGroupResult {
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
-    readonly origins: outputs.cdn.v20200415.ResourceReferenceResponse[];
+    readonly origins: outputs.cdn.v20200415.ResourceReferenceInvokeResponse[];
     /**
      * Provisioning status of the origin group.
      */
@@ -71,7 +71,7 @@ export interface GetOriginGroupResult {
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    readonly responseBasedOriginErrorDetectionSettings?: outputs.cdn.v20200415.ResponseBasedOriginErrorDetectionParametersResponse;
+    readonly responseBasedOriginErrorDetectionSettings?: outputs.cdn.v20200415.ResponseBasedOriginErrorDetectionParametersInvokeResponse;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */

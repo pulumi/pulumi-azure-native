@@ -70,11 +70,11 @@ export interface GetQueryResult {
     /**
      * The related metadata items for the function.
      */
-    readonly related?: outputs.operationalinsights.v20190901preview.LogAnalyticsQueryPackQueryPropertiesResponseRelated;
+    readonly related?: outputs.operationalinsights.v20190901preview.LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated;
     /**
      * Read only system data
      */
-    readonly systemData: outputs.operationalinsights.v20190901preview.SystemDataResponse;
+    readonly systemData: outputs.operationalinsights.v20190901preview.SystemDataInvokeResponse;
     /**
      * Tags associated with the query.
      */

@@ -37,5 +37,5 @@ export interface GetVirtualNetworkGatewayLearnedRoutesResult {
     /**
      * List of gateway routes
      */
-    readonly value?: outputs.network.v20181001.GatewayRouteResponse[];
+    readonly value?: outputs.network.v20181001.GatewayRouteInvokeResponse[];
 }

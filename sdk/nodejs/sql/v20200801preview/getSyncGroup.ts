@@ -87,11 +87,11 @@ export interface GetSyncGroupResult {
     /**
      * Sync schema of the sync group.
      */
-    readonly schema?: outputs.sql.v20200801preview.SyncGroupSchemaResponse;
+    readonly schema?: outputs.sql.v20200801preview.SyncGroupSchemaInvokeResponse;
     /**
      * The name and capacity of the SKU.
      */
-    readonly sku?: outputs.sql.v20200801preview.SkuResponse;
+    readonly sku?: outputs.sql.v20200801preview.SkuInvokeResponse;
     /**
      * ARM resource id of the sync database in the sync group.
      */

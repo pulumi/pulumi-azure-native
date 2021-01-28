@@ -42,7 +42,7 @@ export interface GetConnectionResult {
     /**
      * Gets or sets the connectionType of the connection.
      */
-    readonly connectionType?: outputs.automation.v20200113preview.ConnectionTypeAssociationPropertyResponse;
+    readonly connectionType?: outputs.automation.v20200113preview.ConnectionTypeAssociationPropertyInvokeResponse;
     /**
      * Gets the creation time.
      */

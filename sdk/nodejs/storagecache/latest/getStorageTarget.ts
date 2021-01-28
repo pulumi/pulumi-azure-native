@@ -42,7 +42,7 @@ export interface GetStorageTargetResult {
     /**
      * Properties when targetType is clfs.
      */
-    readonly clfs?: outputs.storagecache.latest.ClfsTargetResponse;
+    readonly clfs?: outputs.storagecache.latest.ClfsTargetInvokeResponse;
     /**
      * Resource ID of the Storage Target.
      */
@@ -50,7 +50,7 @@ export interface GetStorageTargetResult {
     /**
      * List of Cache namespace junctions to target for namespace associations.
      */
-    readonly junctions?: outputs.storagecache.latest.NamespaceJunctionResponse[];
+    readonly junctions?: outputs.storagecache.latest.NamespaceJunctionInvokeResponse[];
     /**
      * Region name string.
      */
@@ -62,7 +62,7 @@ export interface GetStorageTargetResult {
     /**
      * Properties when targetType is nfs3.
      */
-    readonly nfs3?: outputs.storagecache.latest.Nfs3TargetResponse;
+    readonly nfs3?: outputs.storagecache.latest.Nfs3TargetInvokeResponse;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -70,7 +70,7 @@ export interface GetStorageTargetResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.storagecache.latest.SystemDataResponse;
+    readonly systemData: outputs.storagecache.latest.SystemDataInvokeResponse;
     /**
      * Type of the Storage Target.
      */
@@ -82,5 +82,5 @@ export interface GetStorageTargetResult {
     /**
      * Properties when targetType is unknown.
      */
-    readonly unknown?: outputs.storagecache.latest.UnknownTargetResponse;
+    readonly unknown?: outputs.storagecache.latest.UnknownTargetInvokeResponse;
 }

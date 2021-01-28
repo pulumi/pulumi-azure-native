@@ -37,7 +37,7 @@ export interface GetRedisResult {
     /**
      * The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
      */
-    readonly accessKeys: outputs.cache.v20200601.RedisAccessKeysResponse;
+    readonly accessKeys: outputs.cache.v20200601.RedisAccessKeysInvokeResponse;
     /**
      * Specifies whether the non-ssl Redis server port (6379) is enabled.
      */
@@ -53,11 +53,11 @@ export interface GetRedisResult {
     /**
      * List of the Redis instances associated with the cache
      */
-    readonly instances: outputs.cache.v20200601.RedisInstanceDetailsResponse[];
+    readonly instances: outputs.cache.v20200601.RedisInstanceDetailsInvokeResponse[];
     /**
      * List of the linked servers associated with the cache
      */
-    readonly linkedServers: outputs.cache.v20200601.RedisLinkedServerResponse[];
+    readonly linkedServers: outputs.cache.v20200601.RedisLinkedServerInvokeResponse[];
     /**
      * The geo-location where the resource lives
      */
@@ -77,7 +77,7 @@ export interface GetRedisResult {
     /**
      * List of private endpoint connection associated with the specified redis cache
      */
-    readonly privateEndpointConnections: outputs.cache.v20200601.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.cache.v20200601.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Redis instance provisioning status.
      */
@@ -105,7 +105,7 @@ export interface GetRedisResult {
     /**
      * The SKU of the Redis cache to deploy.
      */
-    readonly sku: outputs.cache.v20200601.SkuResponse;
+    readonly sku: outputs.cache.v20200601.SkuInvokeResponse;
     /**
      * Redis SSL port.
      */

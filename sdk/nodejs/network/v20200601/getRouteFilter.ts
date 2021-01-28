@@ -50,7 +50,7 @@ export interface GetRouteFilterResult {
     /**
      * A collection of references to express route circuit ipv6 peerings.
      */
-    readonly ipv6Peerings: outputs.network.v20200601.ExpressRouteCircuitPeeringResponse[];
+    readonly ipv6Peerings: outputs.network.v20200601.ExpressRouteCircuitPeeringInvokeResponse[];
     /**
      * Resource location.
      */
@@ -62,7 +62,7 @@ export interface GetRouteFilterResult {
     /**
      * A collection of references to express route circuit peerings.
      */
-    readonly peerings: outputs.network.v20200601.ExpressRouteCircuitPeeringResponse[];
+    readonly peerings: outputs.network.v20200601.ExpressRouteCircuitPeeringInvokeResponse[];
     /**
      * The provisioning state of the route filter resource.
      */
@@ -70,7 +70,7 @@ export interface GetRouteFilterResult {
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: outputs.network.v20200601.RouteFilterRuleResponse[];
+    readonly rules?: outputs.network.v20200601.RouteFilterRuleInvokeResponse[];
     /**
      * Resource tags.
      */

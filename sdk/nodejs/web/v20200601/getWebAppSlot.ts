@@ -65,7 +65,7 @@ export interface GetWebAppSlotResult {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: outputs.web.v20200601.CloningInfoResponse;
+    readonly cloningInfo?: outputs.web.v20200601.CloningInfoInvokeResponse;
     /**
      * Size of the function container.
      */
@@ -94,7 +94,7 @@ export interface GetWebAppSlotResult {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: outputs.web.v20200601.HostNameSslStateResponse[];
+    readonly hostNameSslStates?: outputs.web.v20200601.HostNameSslStateInvokeResponse[];
     /**
      * Hostnames associated with the app.
      */
@@ -107,7 +107,7 @@ export interface GetWebAppSlotResult {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: outputs.web.v20200601.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.v20200601.HostingEnvironmentProfileInvokeResponse;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -124,7 +124,7 @@ export interface GetWebAppSlotResult {
     /**
      * Managed service identity.
      */
-    readonly identity?: outputs.web.v20200601.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.web.v20200601.ManagedServiceIdentityInvokeResponse;
     /**
      * Specifies an operation id if this site has a pending operation.
      */
@@ -193,11 +193,11 @@ export interface GetWebAppSlotResult {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: outputs.web.v20200601.SiteConfigResponse;
+    readonly siteConfig?: outputs.web.v20200601.SiteConfigInvokeResponse;
     /**
      * Status of the last deployment slot swap operation.
      */
-    readonly slotSwapStatus: outputs.web.v20200601.SlotSwapStatusResponse;
+    readonly slotSwapStatus: outputs.web.v20200601.SlotSwapStatusInvokeResponse;
     /**
      * Current state of the app.
      */

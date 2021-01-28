@@ -57,7 +57,7 @@ export interface GetProfileResult {
     /**
      * The SKU (pricing tier) of the CDN profile.
      */
-    readonly sku?: outputs.cdn.v20160402.SkuResponse;
+    readonly sku?: outputs.cdn.v20160402.SkuInvokeResponse;
     /**
      * Resource tags
      */

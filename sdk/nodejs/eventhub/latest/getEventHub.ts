@@ -42,7 +42,7 @@ export interface GetEventHubResult {
     /**
      * Properties of capture description
      */
-    readonly captureDescription?: outputs.eventhub.latest.CaptureDescriptionResponse;
+    readonly captureDescription?: outputs.eventhub.latest.CaptureDescriptionInvokeResponse;
     /**
      * Exact time the Event Hub was created.
      */

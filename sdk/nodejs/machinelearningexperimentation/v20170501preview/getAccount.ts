@@ -81,7 +81,7 @@ export interface GetAccountResult {
     /**
      * The properties of the storage account for the machine learning team account.
      */
-    readonly storageAccount: outputs.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesResponse;
+    readonly storageAccount: outputs.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesInvokeResponse;
     /**
      * The tags of the resource.
      */

@@ -40,7 +40,7 @@ export interface GetAliasResult {
     /**
      * Put Alias response properties.
      */
-    readonly properties: outputs.subscription.latest.PutAliasResponsePropertiesResponse;
+    readonly properties: outputs.subscription.latest.PutAliasResponsePropertiesInvokeResponse;
     /**
      * Resource type, Microsoft.Subscription/aliases.
      */

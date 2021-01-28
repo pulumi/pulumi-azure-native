@@ -64,7 +64,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
     /**
      * The virtual machine run command instance view.
      */
-    readonly instanceView: outputs.compute.v20200601.VirtualMachineRunCommandInstanceViewResponse;
+    readonly instanceView: outputs.compute.v20200601.VirtualMachineRunCommandInstanceViewInvokeResponse;
     /**
      * Resource location
      */
@@ -80,11 +80,11 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
     /**
      * The parameters used by the script.
      */
-    readonly parameters?: outputs.compute.v20200601.RunCommandInputParameterResponse[];
+    readonly parameters?: outputs.compute.v20200601.RunCommandInputParameterInvokeResponse[];
     /**
      * The parameters used by the script.
      */
-    readonly protectedParameters?: outputs.compute.v20200601.RunCommandInputParameterResponse[];
+    readonly protectedParameters?: outputs.compute.v20200601.RunCommandInputParameterInvokeResponse[];
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -100,7 +100,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
     /**
      * The source of the run command script.
      */
-    readonly source?: outputs.compute.v20200601.VirtualMachineRunCommandScriptSourceResponse;
+    readonly source?: outputs.compute.v20200601.VirtualMachineRunCommandScriptSourceInvokeResponse;
     /**
      * Resource tags
      */

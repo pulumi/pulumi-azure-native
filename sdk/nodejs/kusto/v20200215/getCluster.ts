@@ -57,15 +57,15 @@ export interface GetClusterResult {
     /**
      * The identity of the cluster, if configured.
      */
-    readonly identity?: outputs.kusto.v20200215.IdentityResponse;
+    readonly identity?: outputs.kusto.v20200215.IdentityInvokeResponse;
     /**
      * KeyVault properties for the cluster encryption.
      */
-    readonly keyVaultProperties?: outputs.kusto.v20200215.KeyVaultPropertiesResponse;
+    readonly keyVaultProperties?: outputs.kusto.v20200215.KeyVaultPropertiesInvokeResponse;
     /**
      * List of the cluster's language extensions.
      */
-    readonly languageExtensions?: outputs.kusto.v20200215.LanguageExtensionsListResponse;
+    readonly languageExtensions?: outputs.kusto.v20200215.LanguageExtensionsListInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -77,7 +77,7 @@ export interface GetClusterResult {
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: outputs.kusto.v20200215.OptimizedAutoscaleResponse;
+    readonly optimizedAutoscale?: outputs.kusto.v20200215.OptimizedAutoscaleInvokeResponse;
     /**
      * The provisioned state of the resource.
      */
@@ -85,7 +85,7 @@ export interface GetClusterResult {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: outputs.kusto.v20200215.AzureSkuResponse;
+    readonly sku: outputs.kusto.v20200215.AzureSkuInvokeResponse;
     /**
      * The state of the resource.
      */
@@ -101,7 +101,7 @@ export interface GetClusterResult {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: outputs.kusto.v20200215.TrustedExternalTenantResponse[];
+    readonly trustedExternalTenants?: outputs.kusto.v20200215.TrustedExternalTenantInvokeResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -113,7 +113,7 @@ export interface GetClusterResult {
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: outputs.kusto.v20200215.VirtualNetworkConfigurationResponse;
+    readonly virtualNetworkConfiguration?: outputs.kusto.v20200215.VirtualNetworkConfigurationInvokeResponse;
     /**
      * The availability zones of the cluster.
      */

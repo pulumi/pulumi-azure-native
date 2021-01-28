@@ -54,7 +54,7 @@ export interface GetWebAppSlotResult {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: outputs.web.v20160801.CloningInfoResponse;
+    readonly cloningInfo?: outputs.web.v20160801.CloningInfoInvokeResponse;
     /**
      * Size of the function container.
      */
@@ -79,7 +79,7 @@ export interface GetWebAppSlotResult {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: outputs.web.v20160801.HostNameSslStateResponse[];
+    readonly hostNameSslStates?: outputs.web.v20160801.HostNameSslStateInvokeResponse[];
     /**
      * Hostnames associated with the app.
      */
@@ -92,7 +92,7 @@ export interface GetWebAppSlotResult {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: outputs.web.v20160801.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.v20160801.HostingEnvironmentProfileInvokeResponse;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -105,7 +105,7 @@ export interface GetWebAppSlotResult {
     /**
      * Managed service identity.
      */
-    readonly identity?: outputs.web.v20160801.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.web.v20160801.ManagedServiceIdentityInvokeResponse;
     /**
      * <code>true</code> if the app is a default container; otherwise, <code>false</code>.
      */
@@ -162,15 +162,15 @@ export interface GetWebAppSlotResult {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: outputs.web.v20160801.SiteConfigResponse;
+    readonly siteConfig?: outputs.web.v20160801.SiteConfigInvokeResponse;
     /**
      * Status of the last deployment slot swap operation.
      */
-    readonly slotSwapStatus: outputs.web.v20160801.SlotSwapStatusResponse;
+    readonly slotSwapStatus: outputs.web.v20160801.SlotSwapStatusInvokeResponse;
     /**
      * If specified during app creation, the app is created from a previous snapshot.
      */
-    readonly snapshotInfo?: outputs.web.v20160801.SnapshotRecoveryRequestResponse;
+    readonly snapshotInfo?: outputs.web.v20160801.SnapshotRecoveryRequestInvokeResponse;
     /**
      * Current state of the app.
      */

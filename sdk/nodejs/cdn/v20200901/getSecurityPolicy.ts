@@ -51,7 +51,7 @@ export interface GetSecurityPolicyResult {
     /**
      * object which contains security policy parameters
      */
-    readonly parameters?: outputs.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersResponse;
+    readonly parameters?: outputs.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersInvokeResponse;
     /**
      * Provisioning status
      */
@@ -59,7 +59,7 @@ export interface GetSecurityPolicyResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

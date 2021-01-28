@@ -66,7 +66,7 @@ export interface GetBandwidthScheduleResult {
     /**
      * Bandwidth object related to ASE resource
      */
-    readonly systemData: outputs.databoxedge.v20200901.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.v20200901.SystemDataInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

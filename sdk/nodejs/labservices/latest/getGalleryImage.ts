@@ -67,7 +67,7 @@ export interface GetGalleryImageResult {
     /**
      * The image reference of the gallery image.
      */
-    readonly imageReference: outputs.labservices.latest.GalleryImageReferenceResponse;
+    readonly imageReference: outputs.labservices.latest.GalleryImageReferenceInvokeResponse;
     /**
      * Indicates whether this gallery image is enabled.
      */
@@ -83,7 +83,7 @@ export interface GetGalleryImageResult {
     /**
      * The details of the latest operation. ex: status, error
      */
-    readonly latestOperationResult: outputs.labservices.latest.LatestOperationResultResponse;
+    readonly latestOperationResult: outputs.labservices.latest.LatestOperationResultInvokeResponse;
     /**
      * The location of the resource.
      */

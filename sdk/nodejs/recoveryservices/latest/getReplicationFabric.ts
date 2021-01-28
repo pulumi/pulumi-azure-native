@@ -54,7 +54,7 @@ export interface GetReplicationFabricResult {
     /**
      * Fabric related data.
      */
-    readonly properties: outputs.recoveryservices.latest.FabricPropertiesResponse;
+    readonly properties: outputs.recoveryservices.latest.FabricPropertiesInvokeResponse;
     /**
      * Resource Type
      */

@@ -37,11 +37,11 @@ export interface GetHealthAlertResult {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: outputs.alertsmanagement.v20200804preview.HealthAlertActionResponse[];
+    readonly actions?: outputs.alertsmanagement.v20200804preview.HealthAlertActionInvokeResponse[];
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: outputs.alertsmanagement.v20200804preview.HealthAlertCriteriaResponse;
+    readonly criteria: outputs.alertsmanagement.v20200804preview.HealthAlertCriteriaInvokeResponse;
     /**
      * the description of the health alert that will be included in the alert email.
      */

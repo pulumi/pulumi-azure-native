@@ -37,11 +37,11 @@ export interface GetApplianceDefinitionResult {
     /**
      * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
      */
-    readonly artifacts?: outputs.solutions.v20160901preview.ApplianceArtifactResponse[];
+    readonly artifacts?: outputs.solutions.v20160901preview.ApplianceArtifactInvokeResponse[];
     /**
      * The appliance provider authorizations.
      */
-    readonly authorizations: outputs.solutions.v20160901preview.ApplianceProviderAuthorizationResponse[];
+    readonly authorizations: outputs.solutions.v20160901preview.ApplianceProviderAuthorizationInvokeResponse[];
     /**
      * The appliance definition description.
      */
@@ -57,7 +57,7 @@ export interface GetApplianceDefinitionResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.solutions.v20160901preview.IdentityResponse;
+    readonly identity?: outputs.solutions.v20160901preview.IdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -81,7 +81,7 @@ export interface GetApplianceDefinitionResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.solutions.v20160901preview.SkuResponse;
+    readonly sku?: outputs.solutions.v20160901preview.SkuInvokeResponse;
     /**
      * Resource tags
      */

@@ -29,7 +29,7 @@ export interface ListIntegrationAccountKeyVaultKeysArgs {
     /**
      * The key vault reference.
      */
-    readonly keyVault: inputs.logic.latest.KeyVaultReference;
+    readonly keyVault: inputs.logic.latest.KeyVaultReferenceInvoke;
     /**
      * The resource group name.
      */
@@ -51,5 +51,5 @@ export interface ListIntegrationAccountKeyVaultKeysResult {
     /**
      * The key vault keys.
      */
-    readonly value?: outputs.logic.latest.KeyVaultKeyResponse[];
+    readonly value?: outputs.logic.latest.KeyVaultKeyInvokeResponse[];
 }

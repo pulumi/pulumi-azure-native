@@ -37,11 +37,11 @@ export interface GetAlertRuleResult {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: outputs.insights.v20160301.RuleEmailActionResponse | outputs.insights.v20160301.RuleWebhookActionResponse[];
+    readonly actions?: outputs.insights.v20160301.RuleEmailActionInvokeResponse | outputs.insights.v20160301.RuleWebhookActionInvokeResponse[];
     /**
      * the condition that results in the alert rule being activated.
      */
-    readonly condition: outputs.insights.v20160301.LocationThresholdRuleConditionResponse | outputs.insights.v20160301.ManagementEventRuleConditionResponse | outputs.insights.v20160301.ThresholdRuleConditionResponse;
+    readonly condition: outputs.insights.v20160301.LocationThresholdRuleConditionInvokeResponse | outputs.insights.v20160301.ManagementEventRuleConditionInvokeResponse | outputs.insights.v20160301.ThresholdRuleConditionInvokeResponse;
     /**
      * the description of the alert rule that will be included in the alert email.
      */

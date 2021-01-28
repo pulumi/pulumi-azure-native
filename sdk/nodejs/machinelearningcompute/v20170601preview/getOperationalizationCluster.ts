@@ -37,7 +37,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * AppInsights configuration
      */
-    readonly appInsights?: outputs.machinelearningcompute.v20170601preview.AppInsightsCredentialsResponse;
+    readonly appInsights?: outputs.machinelearningcompute.v20170601preview.AppInsightsCredentialsInvokeResponse;
     /**
      * The cluster type.
      */
@@ -45,11 +45,11 @@ export interface GetOperationalizationClusterResult {
     /**
      * Container Registry properties.
      */
-    readonly containerRegistry?: outputs.machinelearningcompute.v20170601preview.ContainerRegistryPropertiesResponse;
+    readonly containerRegistry?: outputs.machinelearningcompute.v20170601preview.ContainerRegistryPropertiesInvokeResponse;
     /**
      * Parameters for the Azure Container Service cluster.
      */
-    readonly containerService: outputs.machinelearningcompute.v20170601preview.AcsClusterPropertiesResponse;
+    readonly containerService: outputs.machinelearningcompute.v20170601preview.AcsClusterPropertiesInvokeResponse;
     /**
      * The date and time when the cluster was created.
      */
@@ -61,7 +61,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * Contains global configuration for the web services in the cluster.
      */
-    readonly globalServiceConfiguration?: outputs.machinelearningcompute.v20170601preview.GlobalServiceConfigurationResponse;
+    readonly globalServiceConfiguration?: outputs.machinelearningcompute.v20170601preview.GlobalServiceConfigurationInvokeResponse;
     /**
      * Specifies the resource ID.
      */
@@ -85,7 +85,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * Storage Account properties.
      */
-    readonly storageAccount?: outputs.machinelearningcompute.v20170601preview.StorageAccountPropertiesResponse;
+    readonly storageAccount?: outputs.machinelearningcompute.v20170601preview.StorageAccountPropertiesInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

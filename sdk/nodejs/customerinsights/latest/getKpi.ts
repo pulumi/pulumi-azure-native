@@ -42,7 +42,7 @@ export interface GetKpiResult {
     /**
      * The aliases.
      */
-    readonly aliases?: outputs.customerinsights.latest.KpiAliasResponse[];
+    readonly aliases?: outputs.customerinsights.latest.KpiAliasInvokeResponse[];
     /**
      * The calculation window.
      */
@@ -74,7 +74,7 @@ export interface GetKpiResult {
     /**
      * The KPI extracts.
      */
-    readonly extracts?: outputs.customerinsights.latest.KpiExtractResponse[];
+    readonly extracts?: outputs.customerinsights.latest.KpiExtractInvokeResponse[];
     /**
      * The filter expression for the KPI.
      */
@@ -90,7 +90,7 @@ export interface GetKpiResult {
     /**
      * The KPI GroupByMetadata.
      */
-    readonly groupByMetadata: outputs.customerinsights.latest.KpiGroupByMetadataResponse[];
+    readonly groupByMetadata: outputs.customerinsights.latest.KpiGroupByMetadataInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -106,7 +106,7 @@ export interface GetKpiResult {
     /**
      * The participant profiles.
      */
-    readonly participantProfilesMetadata: outputs.customerinsights.latest.KpiParticipantProfilesMetadataResponse[];
+    readonly participantProfilesMetadata: outputs.customerinsights.latest.KpiParticipantProfilesMetadataInvokeResponse[];
     /**
      * Provisioning state.
      */
@@ -118,7 +118,7 @@ export interface GetKpiResult {
     /**
      * The KPI thresholds.
      */
-    readonly thresHolds?: outputs.customerinsights.latest.KpiThresholdsResponse;
+    readonly thresHolds?: outputs.customerinsights.latest.KpiThresholdsInvokeResponse;
     /**
      * Resource type.
      */

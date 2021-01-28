@@ -42,7 +42,7 @@ export interface GetConnectedRegistryResult {
     /**
      * The activation properties of the connected registry.
      */
-    readonly activation: outputs.containerregistry.v20201101preview.ActivationPropertiesResponse;
+    readonly activation: outputs.containerregistry.v20201101preview.ActivationPropertiesInvokeResponse;
     /**
      * The list of the ACR token resource IDs used to authenticate clients to the connected registry.
      */
@@ -62,11 +62,11 @@ export interface GetConnectedRegistryResult {
     /**
      * The logging properties of the connected registry.
      */
-    readonly logging?: outputs.containerregistry.v20201101preview.LoggingPropertiesResponse;
+    readonly logging?: outputs.containerregistry.v20201101preview.LoggingPropertiesInvokeResponse;
     /**
      * The login server properties of the connected registry.
      */
-    readonly loginServer?: outputs.containerregistry.v20201101preview.LoginServerPropertiesResponse;
+    readonly loginServer?: outputs.containerregistry.v20201101preview.LoginServerPropertiesInvokeResponse;
     /**
      * The mode of the connected registry resource that indicates the permissions of the registry.
      */
@@ -78,7 +78,7 @@ export interface GetConnectedRegistryResult {
     /**
      * The parent of the connected registry.
      */
-    readonly parent: outputs.containerregistry.v20201101preview.ParentPropertiesResponse;
+    readonly parent: outputs.containerregistry.v20201101preview.ParentPropertiesInvokeResponse;
     /**
      * Provisioning state of the resource.
      */
@@ -86,11 +86,11 @@ export interface GetConnectedRegistryResult {
     /**
      * The list of current statuses of the connected registry.
      */
-    readonly statusDetails: outputs.containerregistry.v20201101preview.StatusDetailPropertiesResponse[];
+    readonly statusDetails: outputs.containerregistry.v20201101preview.StatusDetailPropertiesInvokeResponse[];
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataInvokeResponse;
     /**
      * The type of the resource.
      */

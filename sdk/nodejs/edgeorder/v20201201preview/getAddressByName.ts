@@ -37,7 +37,7 @@ export interface GetAddressByNameResult {
     /**
      * Contact details for the address
      */
-    readonly contactDetails: outputs.edgeorder.v20201201preview.ContactDetailsResponse;
+    readonly contactDetails: outputs.edgeorder.v20201201preview.ContactDetailsInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -53,11 +53,11 @@ export interface GetAddressByNameResult {
     /**
      * Shipping details for the address
      */
-    readonly shippingAddress?: outputs.edgeorder.v20201201preview.ShippingAddressResponse;
+    readonly shippingAddress?: outputs.edgeorder.v20201201preview.ShippingAddressInvokeResponse;
     /**
      * Represents resource creation and update time
      */
-    readonly systemData: outputs.edgeorder.v20201201preview.SystemDataResponse;
+    readonly systemData: outputs.edgeorder.v20201201preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

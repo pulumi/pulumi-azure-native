@@ -64,7 +64,7 @@ export interface GetReplicationProtectionContainerMappingResult {
     /**
      * The custom data.
      */
-    readonly properties: outputs.recoveryservices.v20180110.ProtectionContainerMappingPropertiesResponse;
+    readonly properties: outputs.recoveryservices.v20180110.ProtectionContainerMappingPropertiesInvokeResponse;
     /**
      * Resource Type
      */

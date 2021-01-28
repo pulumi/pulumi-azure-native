@@ -80,7 +80,7 @@ export interface GetWebAppVnetConnectionSlotResult {
     /**
      * The routes that this Virtual Network connection uses.
      */
-    readonly routes: outputs.web.v20180201.VnetRouteResponse[];
+    readonly routes: outputs.web.v20180201.VnetRouteInvokeResponse[];
     /**
      * Resource type.
      */

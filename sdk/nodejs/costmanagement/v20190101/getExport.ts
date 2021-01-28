@@ -37,11 +37,11 @@ export interface GetExportResult {
     /**
      * Has definition for the export.
      */
-    readonly definition: outputs.costmanagement.v20190101.QueryDefinitionResponse;
+    readonly definition: outputs.costmanagement.v20190101.QueryDefinitionInvokeResponse;
     /**
      * Has delivery information for the export.
      */
-    readonly deliveryInfo: outputs.costmanagement.v20190101.ExportDeliveryInfoResponse;
+    readonly deliveryInfo: outputs.costmanagement.v20190101.ExportDeliveryInfoInvokeResponse;
     /**
      * The format of the export being delivered.
      */
@@ -57,7 +57,7 @@ export interface GetExportResult {
     /**
      * Has schedule information for the export.
      */
-    readonly schedule?: outputs.costmanagement.v20190101.ExportScheduleResponse;
+    readonly schedule?: outputs.costmanagement.v20190101.ExportScheduleInvokeResponse;
     /**
      * Resource tags.
      */

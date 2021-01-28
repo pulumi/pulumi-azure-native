@@ -56,7 +56,7 @@ export interface GetJitNetworkAccessPolicyResult {
      * Gets the provisioning state of the Just-in-Time policy.
      */
     readonly provisioningState: string;
-    readonly requests?: outputs.security.v20200101.JitNetworkAccessRequestResponse[];
+    readonly requests?: outputs.security.v20200101.JitNetworkAccessRequestInvokeResponse[];
     /**
      * Resource type
      */
@@ -64,5 +64,5 @@ export interface GetJitNetworkAccessPolicyResult {
     /**
      * Configurations for Microsoft.Compute/virtualMachines resource type.
      */
-    readonly virtualMachines: outputs.security.v20200101.JitNetworkAccessPolicyVirtualMachineResponse[];
+    readonly virtualMachines: outputs.security.v20200101.JitNetworkAccessPolicyVirtualMachineInvokeResponse[];
 }

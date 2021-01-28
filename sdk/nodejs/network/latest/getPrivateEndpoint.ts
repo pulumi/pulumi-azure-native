@@ -42,7 +42,7 @@ export interface GetPrivateEndpointResult {
     /**
      * An array of custom dns configurations.
      */
-    readonly customDnsConfigs?: outputs.network.latest.CustomDnsConfigPropertiesFormatResponse[];
+    readonly customDnsConfigs?: outputs.network.latest.CustomDnsConfigPropertiesFormatInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,7 +50,7 @@ export interface GetPrivateEndpointResult {
     /**
      * The extended location of the load balancer.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * Resource ID.
      */
@@ -62,7 +62,7 @@ export interface GetPrivateEndpointResult {
     /**
      * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
      */
-    readonly manualPrivateLinkServiceConnections?: outputs.network.latest.PrivateLinkServiceConnectionResponse[];
+    readonly manualPrivateLinkServiceConnections?: outputs.network.latest.PrivateLinkServiceConnectionInvokeResponse[];
     /**
      * Resource name.
      */
@@ -70,11 +70,11 @@ export interface GetPrivateEndpointResult {
     /**
      * An array of references to the network interfaces created for this private endpoint.
      */
-    readonly networkInterfaces: outputs.network.latest.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.latest.NetworkInterfaceInvokeResponse[];
     /**
      * A grouping of information about the connection to the remote resource.
      */
-    readonly privateLinkServiceConnections?: outputs.network.latest.PrivateLinkServiceConnectionResponse[];
+    readonly privateLinkServiceConnections?: outputs.network.latest.PrivateLinkServiceConnectionInvokeResponse[];
     /**
      * The provisioning state of the private endpoint resource.
      */
@@ -82,7 +82,7 @@ export interface GetPrivateEndpointResult {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: outputs.network.latest.SubnetResponse;
+    readonly subnet?: outputs.network.latest.SubnetInvokeResponse;
     /**
      * Resource tags.
      */

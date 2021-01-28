@@ -51,7 +51,7 @@ export interface ListTaskRunDetailsResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.containerregistry.v20190601preview.IdentityPropertiesResponse;
+    readonly identity?: outputs.containerregistry.v20190601preview.IdentityPropertiesInvokeResponse;
     /**
      * The location of the resource
      */
@@ -67,15 +67,15 @@ export interface ListTaskRunDetailsResult {
     /**
      * The request (parameters) for the run
      */
-    readonly runRequest?: outputs.containerregistry.v20190601preview.DockerBuildRequestResponse | outputs.containerregistry.v20190601preview.EncodedTaskRunRequestResponse | outputs.containerregistry.v20190601preview.FileTaskRunRequestResponse | outputs.containerregistry.v20190601preview.TaskRunRequestResponse;
+    readonly runRequest?: outputs.containerregistry.v20190601preview.DockerBuildRequestInvokeResponse | outputs.containerregistry.v20190601preview.EncodedTaskRunRequestInvokeResponse | outputs.containerregistry.v20190601preview.FileTaskRunRequestInvokeResponse | outputs.containerregistry.v20190601preview.TaskRunRequestInvokeResponse;
     /**
      * The result of this task run
      */
-    readonly runResult: outputs.containerregistry.v20190601preview.RunResponse;
+    readonly runResult: outputs.containerregistry.v20190601preview.RunInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataInvokeResponse;
     /**
      * The type of the resource.
      */

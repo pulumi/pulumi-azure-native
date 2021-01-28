@@ -37,11 +37,11 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    readonly additionalCapabilities?: outputs.compute.v20191201.AdditionalCapabilitiesResponse;
+    readonly additionalCapabilities?: outputs.compute.v20191201.AdditionalCapabilitiesInvokeResponse;
     /**
      * Policy for automatic repairs.
      */
-    readonly automaticRepairsPolicy?: outputs.compute.v20191201.AutomaticRepairsPolicyResponse;
+    readonly automaticRepairsPolicy?: outputs.compute.v20191201.AutomaticRepairsPolicyInvokeResponse;
     /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
@@ -53,7 +53,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: outputs.compute.v20191201.VirtualMachineScaleSetIdentityResponse;
+    readonly identity?: outputs.compute.v20191201.VirtualMachineScaleSetIdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -69,7 +69,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: outputs.compute.v20191201.PlanResponse;
+    readonly plan?: outputs.compute.v20191201.PlanInvokeResponse;
     /**
      * Fault Domain count for each placement group.
      */
@@ -81,11 +81,11 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: outputs.compute.v20191201.SubResourceResponse;
+    readonly proximityPlacementGroup?: outputs.compute.v20191201.SubResourceInvokeResponse;
     /**
      * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
      */
-    readonly scaleInPolicy?: outputs.compute.v20191201.ScaleInPolicyResponse;
+    readonly scaleInPolicy?: outputs.compute.v20191201.ScaleInPolicyInvokeResponse;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
      */
@@ -93,7 +93,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: outputs.compute.v20191201.SkuResponse;
+    readonly sku?: outputs.compute.v20191201.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -109,11 +109,11 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: outputs.compute.v20191201.UpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.compute.v20191201.UpgradePolicyInvokeResponse;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: outputs.compute.v20191201.VirtualMachineScaleSetVMProfileResponse;
+    readonly virtualMachineProfile?: outputs.compute.v20191201.VirtualMachineScaleSetVMProfileInvokeResponse;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
      */

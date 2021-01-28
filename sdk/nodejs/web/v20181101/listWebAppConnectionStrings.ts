@@ -49,7 +49,7 @@ export interface ListWebAppConnectionStringsResult {
     /**
      * Connection strings.
      */
-    readonly properties: {[key: string]: outputs.web.v20181101.ConnStringValueTypePairResponse};
+    readonly properties: {[key: string]: outputs.web.v20181101.ConnStringValueTypePairInvokeResponse};
     /**
      * Resource type.
      */

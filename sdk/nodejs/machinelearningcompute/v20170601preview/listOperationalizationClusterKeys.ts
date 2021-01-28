@@ -37,25 +37,25 @@ export interface ListOperationalizationClusterKeysResult {
     /**
      * Credentials for Azure AppInsights.
      */
-    readonly appInsights?: outputs.machinelearningcompute.v20170601preview.AppInsightsCredentialsResponse;
+    readonly appInsights?: outputs.machinelearningcompute.v20170601preview.AppInsightsCredentialsInvokeResponse;
     /**
      * Credentials for Azure Container Registry.
      */
-    readonly containerRegistry?: outputs.machinelearningcompute.v20170601preview.ContainerRegistryCredentialsResponse;
+    readonly containerRegistry?: outputs.machinelearningcompute.v20170601preview.ContainerRegistryCredentialsInvokeResponse;
     /**
      * Credentials for Azure Container Service.
      */
-    readonly containerService?: outputs.machinelearningcompute.v20170601preview.ContainerServiceCredentialsResponse;
+    readonly containerService?: outputs.machinelearningcompute.v20170601preview.ContainerServiceCredentialsInvokeResponse;
     /**
      * Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
      */
-    readonly serviceAuthConfiguration?: outputs.machinelearningcompute.v20170601preview.ServiceAuthConfigurationResponse;
+    readonly serviceAuthConfiguration?: outputs.machinelearningcompute.v20170601preview.ServiceAuthConfigurationInvokeResponse;
     /**
      * The SSL configuration for the services.
      */
-    readonly sslConfiguration?: outputs.machinelearningcompute.v20170601preview.SslConfigurationResponse;
+    readonly sslConfiguration?: outputs.machinelearningcompute.v20170601preview.SslConfigurationInvokeResponse;
     /**
      * Credentials for the Storage Account.
      */
-    readonly storageAccount?: outputs.machinelearningcompute.v20170601preview.StorageAccountCredentialsResponse;
+    readonly storageAccount?: outputs.machinelearningcompute.v20170601preview.StorageAccountCredentialsInvokeResponse;
 }

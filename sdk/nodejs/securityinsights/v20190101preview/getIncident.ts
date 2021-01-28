@@ -47,7 +47,7 @@ export interface GetIncidentResult {
     /**
      * Additional data on the incident
      */
-    readonly additionalData: outputs.securityinsights.v20190101preview.IncidentAdditionalDataResponse;
+    readonly additionalData: outputs.securityinsights.v20190101preview.IncidentAdditionalDataInvokeResponse;
     /**
      * The reason the incident was closed
      */
@@ -91,7 +91,7 @@ export interface GetIncidentResult {
     /**
      * List of labels relevant to this incident
      */
-    readonly labels?: outputs.securityinsights.v20190101preview.IncidentLabelResponse[];
+    readonly labels?: outputs.securityinsights.v20190101preview.IncidentLabelInvokeResponse[];
     /**
      * The time of the last activity in the incident
      */
@@ -107,7 +107,7 @@ export interface GetIncidentResult {
     /**
      * Describes a user that the incident is assigned to
      */
-    readonly owner?: outputs.securityinsights.v20190101preview.IncidentOwnerInfoResponse;
+    readonly owner?: outputs.securityinsights.v20190101preview.IncidentOwnerInfoInvokeResponse;
     /**
      * List of resource ids of Analytic rules related to the incident
      */

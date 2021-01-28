@@ -62,7 +62,7 @@ export interface GetIscsiTargetResult {
     /**
      * list of iSCSI target portal groups
      */
-    readonly tpgs: outputs.storagepool.v20200315preview.TargetPortalGroupResponse[];
+    readonly tpgs: outputs.storagepool.v20200315preview.TargetPortalGroupInvokeResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

@@ -37,11 +37,11 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterAgentPoolProfileInvokeResponse[];
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileResponse;
+    readonly authProfile?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -61,11 +61,11 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileResponse;
+    readonly masterPoolProfile?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileInvokeResponse;
     /**
      * Configures Log Analytics integration.
      */
-    readonly monitorProfile?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileResponse;
+    readonly monitorProfile?: outputs.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileInvokeResponse;
     /**
      * Resource name
      */
@@ -73,7 +73,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: outputs.containerservice.v20191027preview.NetworkProfileResponse;
+    readonly networkProfile?: outputs.containerservice.v20191027preview.NetworkProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -81,7 +81,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: outputs.containerservice.v20191027preview.PurchasePlanResponse;
+    readonly plan?: outputs.containerservice.v20191027preview.PurchasePlanInvokeResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -97,7 +97,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: outputs.containerservice.v20191027preview.OpenShiftRouterProfileResponse[];
+    readonly routerProfiles?: outputs.containerservice.v20191027preview.OpenShiftRouterProfileInvokeResponse[];
     /**
      * Resource tags
      */

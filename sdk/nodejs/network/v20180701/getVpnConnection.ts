@@ -70,7 +70,7 @@ export interface GetVpnConnectionResult {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: outputs.network.v20180701.IpsecPolicyResponse[];
+    readonly ipsecPolicies?: outputs.network.v20180701.IpsecPolicyInvokeResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -82,7 +82,7 @@ export interface GetVpnConnectionResult {
     /**
      * Id of the connected vpn site.
      */
-    readonly remoteVpnSite?: outputs.network.v20180701.SubResourceResponse;
+    readonly remoteVpnSite?: outputs.network.v20180701.SubResourceInvokeResponse;
     /**
      * routing weight for vpn connection.
      */

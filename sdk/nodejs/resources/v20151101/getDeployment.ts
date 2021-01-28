@@ -45,5 +45,5 @@ export interface GetDeploymentResult {
     /**
      * Gets or sets deployment properties.
      */
-    readonly properties: outputs.resources.v20151101.DeploymentPropertiesExtendedResponse;
+    readonly properties: outputs.resources.v20151101.DeploymentPropertiesExtendedInvokeResponse;
 }

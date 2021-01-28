@@ -45,7 +45,7 @@ export interface GetApplicationResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.solutions.v20170901.IdentityResponse;
+    readonly identity?: outputs.solutions.v20170901.IdentityInvokeResponse;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -77,7 +77,7 @@ export interface GetApplicationResult {
     /**
      * The plan information.
      */
-    readonly plan?: outputs.solutions.v20170901.PlanResponse;
+    readonly plan?: outputs.solutions.v20170901.PlanInvokeResponse;
     /**
      * The managed application provisioning state.
      */
@@ -85,7 +85,7 @@ export interface GetApplicationResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.solutions.v20170901.SkuResponse;
+    readonly sku?: outputs.solutions.v20170901.SkuInvokeResponse;
     /**
      * Resource tags
      */

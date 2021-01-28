@@ -37,15 +37,15 @@ export interface GetManagedClusterResult {
     /**
      * Profile of Azure Active Directory configuration.
      */
-    readonly aadProfile?: outputs.containerservice.v20180331.ManagedClusterAADProfileResponse;
+    readonly aadProfile?: outputs.containerservice.v20180331.ManagedClusterAADProfileInvokeResponse;
     /**
      * Profile of managed cluster add-on.
      */
-    readonly addonProfiles?: {[key: string]: outputs.containerservice.v20180331.ManagedClusterAddonProfileResponse};
+    readonly addonProfiles?: {[key: string]: outputs.containerservice.v20180331.ManagedClusterAddonProfileInvokeResponse};
     /**
      * Properties of the agent pool. Currently only one agent pool can exist.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.v20180331.ManagedClusterAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.v20180331.ManagedClusterAgentPoolProfileInvokeResponse[];
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -69,7 +69,7 @@ export interface GetManagedClusterResult {
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: outputs.containerservice.v20180331.ContainerServiceLinuxProfileResponse;
+    readonly linuxProfile?: outputs.containerservice.v20180331.ContainerServiceLinuxProfileInvokeResponse;
     /**
      * Resource location
      */
@@ -81,7 +81,7 @@ export interface GetManagedClusterResult {
     /**
      * Profile of network configuration.
      */
-    readonly networkProfile?: outputs.containerservice.v20180331.ContainerServiceNetworkProfileResponse;
+    readonly networkProfile?: outputs.containerservice.v20180331.ContainerServiceNetworkProfileInvokeResponse;
     /**
      * Name of the resource group containing agent pool nodes.
      */
@@ -93,7 +93,7 @@ export interface GetManagedClusterResult {
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
-    readonly servicePrincipalProfile?: outputs.containerservice.v20180331.ManagedClusterServicePrincipalProfileResponse;
+    readonly servicePrincipalProfile?: outputs.containerservice.v20180331.ManagedClusterServicePrincipalProfileInvokeResponse;
     /**
      * Resource tags
      */

@@ -42,7 +42,7 @@ export interface GetStreamingEndpointResult {
     /**
      * The access control definition of the StreamingEndpoint.
      */
-    readonly accessControl?: outputs.media.v20180701.StreamingEndpointAccessControlResponse;
+    readonly accessControl?: outputs.media.v20180701.StreamingEndpointAccessControlInvokeResponse;
     /**
      * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
      */
@@ -66,7 +66,7 @@ export interface GetStreamingEndpointResult {
     /**
      * The StreamingEndpoint access policies.
      */
-    readonly crossSiteAccessPolicies?: outputs.media.v20180701.CrossSiteAccessPoliciesResponse;
+    readonly crossSiteAccessPolicies?: outputs.media.v20180701.CrossSiteAccessPoliciesInvokeResponse;
     /**
      * The custom host names of the StreamingEndpoint
      */

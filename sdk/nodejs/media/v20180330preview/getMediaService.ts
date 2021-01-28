@@ -53,7 +53,7 @@ export interface GetMediaServiceResult {
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: outputs.media.v20180330preview.StorageAccountResponse[];
+    readonly storageAccounts?: outputs.media.v20180330preview.StorageAccountInvokeResponse[];
     /**
      * Resource tags.
      */

@@ -45,11 +45,11 @@ export interface GetWorkspaceResult {
     /**
      * Workspace default data lake storage account details
      */
-    readonly defaultDataLakeStorage?: outputs.synapse.v20201201.DataLakeStorageAccountDetailsResponse;
+    readonly defaultDataLakeStorage?: outputs.synapse.v20201201.DataLakeStorageAccountDetailsInvokeResponse;
     /**
      * The encryption details of the workspace
      */
-    readonly encryption?: outputs.synapse.v20201201.EncryptionDetailsResponse;
+    readonly encryption?: outputs.synapse.v20201201.EncryptionDetailsInvokeResponse;
     /**
      * Workspace level configs and feature flags
      */
@@ -61,7 +61,7 @@ export interface GetWorkspaceResult {
     /**
      * Identity of the workspace
      */
-    readonly identity?: outputs.synapse.v20201201.ManagedIdentityResponse;
+    readonly identity?: outputs.synapse.v20201201.ManagedIdentityInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -77,7 +77,7 @@ export interface GetWorkspaceResult {
     /**
      * Managed Virtual Network Settings
      */
-    readonly managedVirtualNetworkSettings?: outputs.synapse.v20201201.ManagedVirtualNetworkSettingsResponse;
+    readonly managedVirtualNetworkSettings?: outputs.synapse.v20201201.ManagedVirtualNetworkSettingsInvokeResponse;
     /**
      * The name of the resource
      */
@@ -85,7 +85,7 @@ export interface GetWorkspaceResult {
     /**
      * Private endpoint connections to the workspace
      */
-    readonly privateEndpointConnections?: outputs.synapse.v20201201.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections?: outputs.synapse.v20201201.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Resource provisioning state
      */
@@ -93,7 +93,7 @@ export interface GetWorkspaceResult {
     /**
      * Purview Configuration
      */
-    readonly purviewConfiguration?: outputs.synapse.v20201201.PurviewConfigurationResponse;
+    readonly purviewConfiguration?: outputs.synapse.v20201201.PurviewConfigurationInvokeResponse;
     /**
      * Login for workspace SQL active directory administrator
      */
@@ -113,11 +113,11 @@ export interface GetWorkspaceResult {
     /**
      * Virtual Network profile
      */
-    readonly virtualNetworkProfile?: outputs.synapse.v20201201.VirtualNetworkProfileResponse;
+    readonly virtualNetworkProfile?: outputs.synapse.v20201201.VirtualNetworkProfileInvokeResponse;
     /**
      * Git integration settings
      */
-    readonly workspaceRepositoryConfiguration?: outputs.synapse.v20201201.WorkspaceRepositoryConfigurationResponse;
+    readonly workspaceRepositoryConfiguration?: outputs.synapse.v20201201.WorkspaceRepositoryConfigurationInvokeResponse;
     /**
      * The workspace unique identifier
      */

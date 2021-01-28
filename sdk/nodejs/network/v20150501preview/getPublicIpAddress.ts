@@ -37,7 +37,7 @@ export interface GetPublicIpAddressResult {
     /**
      * Gets or sets FQDN of the DNS record associated with the public IP address
      */
-    readonly dnsSettings?: outputs.network.v20150501preview.PublicIpAddressDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20150501preview.PublicIpAddressDnsSettingsInvokeResponse;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -57,7 +57,7 @@ export interface GetPublicIpAddressResult {
     /**
      * Gets a reference to the network interface IP configurations using this public IP address
      */
-    readonly ipConfiguration?: outputs.network.v20150501preview.SubResourceResponse;
+    readonly ipConfiguration?: outputs.network.v20150501preview.SubResourceInvokeResponse;
     /**
      * Resource location
      */

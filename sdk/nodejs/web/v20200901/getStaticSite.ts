@@ -41,7 +41,7 @@ export interface GetStaticSiteResult {
     /**
      * Build properties to configure on the repository.
      */
-    readonly buildProperties?: outputs.web.v20200901.StaticSiteBuildPropertiesResponse;
+    readonly buildProperties?: outputs.web.v20200901.StaticSiteBuildPropertiesInvokeResponse;
     /**
      * The custom domains associated with this static site.
      */
@@ -77,11 +77,11 @@ export interface GetStaticSiteResult {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: outputs.web.v20200901.SkuDescriptionResponse;
+    readonly sku?: outputs.web.v20200901.SkuDescriptionInvokeResponse;
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.v20200901.SystemDataResponse;
+    readonly systemData: outputs.web.v20200901.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

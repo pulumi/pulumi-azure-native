@@ -37,11 +37,11 @@ export interface GetContainerServiceResult {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles: outputs.containerservice.v20160330.ContainerServiceAgentPoolProfileResponse[];
+    readonly agentPoolProfiles: outputs.containerservice.v20160330.ContainerServiceAgentPoolProfileInvokeResponse[];
     /**
      * Properties of the diagnostic agent.
      */
-    readonly diagnosticsProfile?: outputs.containerservice.v20160330.ContainerServiceDiagnosticsProfileResponse;
+    readonly diagnosticsProfile?: outputs.containerservice.v20160330.ContainerServiceDiagnosticsProfileInvokeResponse;
     /**
      * Resource Id
      */
@@ -49,7 +49,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties of Linux VMs.
      */
-    readonly linuxProfile: outputs.containerservice.v20160330.ContainerServiceLinuxProfileResponse;
+    readonly linuxProfile: outputs.containerservice.v20160330.ContainerServiceLinuxProfileInvokeResponse;
     /**
      * Resource location
      */
@@ -57,7 +57,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties of master agents.
      */
-    readonly masterProfile: outputs.containerservice.v20160330.ContainerServiceMasterProfileResponse;
+    readonly masterProfile: outputs.containerservice.v20160330.ContainerServiceMasterProfileInvokeResponse;
     /**
      * Resource name
      */
@@ -65,7 +65,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties of the orchestrator.
      */
-    readonly orchestratorProfile?: outputs.containerservice.v20160330.ContainerServiceOrchestratorProfileResponse;
+    readonly orchestratorProfile?: outputs.containerservice.v20160330.ContainerServiceOrchestratorProfileInvokeResponse;
     /**
      * the current deployment or provisioning state, which only appears in the response.
      */
@@ -81,5 +81,5 @@ export interface GetContainerServiceResult {
     /**
      * Properties of Windows VMs.
      */
-    readonly windowsProfile?: outputs.containerservice.v20160330.ContainerServiceWindowsProfileResponse;
+    readonly windowsProfile?: outputs.containerservice.v20160330.ContainerServiceWindowsProfileInvokeResponse;
 }

@@ -82,7 +82,7 @@ export interface GetDatabaseResult {
     /**
      * The name and tier of the SKU.
      */
-    readonly currentSku: outputs.sql.v20171001preview.SkuResponse;
+    readonly currentSku: outputs.sql.v20171001preview.SkuInvokeResponse;
     /**
      * The ID of the database.
      */
@@ -196,7 +196,7 @@ export interface GetDatabaseResult {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly sku?: outputs.sql.v20171001preview.SkuResponse;
+    readonly sku?: outputs.sql.v20171001preview.SkuInvokeResponse;
     /**
      * Specifies the time that the database was deleted.
      */

@@ -54,7 +54,7 @@ export interface GetRulesEngineResult {
     /**
      * A list of rules that define a particular Rules Engine Configuration.
      */
-    readonly rules?: outputs.network.v20200101.RulesEngineRuleResponse[];
+    readonly rules?: outputs.network.v20200101.RulesEngineRuleInvokeResponse[];
     /**
      * Resource type.
      */

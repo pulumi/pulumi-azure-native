@@ -49,11 +49,11 @@ export interface GetEnterpriseKnowledgeGraphResult {
     /**
      * The set of properties specific to EnterpriseKnowledgeGraph resource
      */
-    readonly properties: outputs.enterpriseknowledgegraph.latest.EnterpriseKnowledgeGraphPropertiesResponse;
+    readonly properties: outputs.enterpriseknowledgegraph.latest.EnterpriseKnowledgeGraphPropertiesInvokeResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: outputs.enterpriseknowledgegraph.latest.SkuResponse;
+    readonly sku?: outputs.enterpriseknowledgegraph.latest.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

@@ -37,23 +37,23 @@ export interface GetApplicationGatewayResult {
     /**
      * Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly authenticationCertificates?: outputs.network.v20190801.ApplicationGatewayAuthenticationCertificateResponse[];
+    readonly authenticationCertificates?: outputs.network.v20190801.ApplicationGatewayAuthenticationCertificateInvokeResponse[];
     /**
      * Autoscale Configuration.
      */
-    readonly autoscaleConfiguration?: outputs.network.v20190801.ApplicationGatewayAutoscaleConfigurationResponse;
+    readonly autoscaleConfiguration?: outputs.network.v20190801.ApplicationGatewayAutoscaleConfigurationInvokeResponse;
     /**
      * Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly backendAddressPools?: outputs.network.v20190801.ApplicationGatewayBackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.v20190801.ApplicationGatewayBackendAddressPoolInvokeResponse[];
     /**
      * Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly backendHttpSettingsCollection?: outputs.network.v20190801.ApplicationGatewayBackendHttpSettingsResponse[];
+    readonly backendHttpSettingsCollection?: outputs.network.v20190801.ApplicationGatewayBackendHttpSettingsInvokeResponse[];
     /**
      * Custom error configurations of the application gateway resource.
      */
-    readonly customErrorConfigurations?: outputs.network.v20190801.ApplicationGatewayCustomErrorResponse[];
+    readonly customErrorConfigurations?: outputs.network.v20190801.ApplicationGatewayCustomErrorInvokeResponse[];
     /**
      * Whether FIPS is enabled on the application gateway resource.
      */
@@ -69,23 +69,23 @@ export interface GetApplicationGatewayResult {
     /**
      * Reference of the FirewallPolicy resource.
      */
-    readonly firewallPolicy?: outputs.network.v20190801.SubResourceResponse;
+    readonly firewallPolicy?: outputs.network.v20190801.SubResourceInvokeResponse;
     /**
      * Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly frontendIPConfigurations?: outputs.network.v20190801.ApplicationGatewayFrontendIPConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.v20190801.ApplicationGatewayFrontendIPConfigurationInvokeResponse[];
     /**
      * Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly frontendPorts?: outputs.network.v20190801.ApplicationGatewayFrontendPortResponse[];
+    readonly frontendPorts?: outputs.network.v20190801.ApplicationGatewayFrontendPortInvokeResponse[];
     /**
      * Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly gatewayIPConfigurations?: outputs.network.v20190801.ApplicationGatewayIPConfigurationResponse[];
+    readonly gatewayIPConfigurations?: outputs.network.v20190801.ApplicationGatewayIPConfigurationInvokeResponse[];
     /**
      * Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly httpListeners?: outputs.network.v20190801.ApplicationGatewayHttpListenerResponse[];
+    readonly httpListeners?: outputs.network.v20190801.ApplicationGatewayHttpListenerInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -93,7 +93,7 @@ export interface GetApplicationGatewayResult {
     /**
      * The identity of the application gateway, if configured.
      */
-    readonly identity?: outputs.network.v20190801.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.network.v20190801.ManagedServiceIdentityInvokeResponse;
     /**
      * Resource location.
      */
@@ -109,7 +109,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Probes of the application gateway resource.
      */
-    readonly probes?: outputs.network.v20190801.ApplicationGatewayProbeResponse[];
+    readonly probes?: outputs.network.v20190801.ApplicationGatewayProbeInvokeResponse[];
     /**
      * The provisioning state of the application gateway resource.
      */
@@ -117,11 +117,11 @@ export interface GetApplicationGatewayResult {
     /**
      * Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly redirectConfigurations?: outputs.network.v20190801.ApplicationGatewayRedirectConfigurationResponse[];
+    readonly redirectConfigurations?: outputs.network.v20190801.ApplicationGatewayRedirectConfigurationInvokeResponse[];
     /**
      * Request routing rules of the application gateway resource.
      */
-    readonly requestRoutingRules?: outputs.network.v20190801.ApplicationGatewayRequestRoutingRuleResponse[];
+    readonly requestRoutingRules?: outputs.network.v20190801.ApplicationGatewayRequestRoutingRuleInvokeResponse[];
     /**
      * The resource GUID property of the application gateway resource.
      */
@@ -129,19 +129,19 @@ export interface GetApplicationGatewayResult {
     /**
      * Rewrite rules for the application gateway resource.
      */
-    readonly rewriteRuleSets?: outputs.network.v20190801.ApplicationGatewayRewriteRuleSetResponse[];
+    readonly rewriteRuleSets?: outputs.network.v20190801.ApplicationGatewayRewriteRuleSetInvokeResponse[];
     /**
      * SKU of the application gateway resource.
      */
-    readonly sku?: outputs.network.v20190801.ApplicationGatewaySkuResponse;
+    readonly sku?: outputs.network.v20190801.ApplicationGatewaySkuInvokeResponse;
     /**
      * SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly sslCertificates?: outputs.network.v20190801.ApplicationGatewaySslCertificateResponse[];
+    readonly sslCertificates?: outputs.network.v20190801.ApplicationGatewaySslCertificateInvokeResponse[];
     /**
      * SSL policy of the application gateway resource.
      */
-    readonly sslPolicy?: outputs.network.v20190801.ApplicationGatewaySslPolicyResponse;
+    readonly sslPolicy?: outputs.network.v20190801.ApplicationGatewaySslPolicyInvokeResponse;
     /**
      * Resource tags.
      */
@@ -149,7 +149,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly trustedRootCertificates?: outputs.network.v20190801.ApplicationGatewayTrustedRootCertificateResponse[];
+    readonly trustedRootCertificates?: outputs.network.v20190801.ApplicationGatewayTrustedRootCertificateInvokeResponse[];
     /**
      * Resource type.
      */
@@ -157,11 +157,11 @@ export interface GetApplicationGatewayResult {
     /**
      * URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
-    readonly urlPathMaps?: outputs.network.v20190801.ApplicationGatewayUrlPathMapResponse[];
+    readonly urlPathMaps?: outputs.network.v20190801.ApplicationGatewayUrlPathMapInvokeResponse[];
     /**
      * Web application firewall configuration.
      */
-    readonly webApplicationFirewallConfiguration?: outputs.network.v20190801.ApplicationGatewayWebApplicationFirewallConfigurationResponse;
+    readonly webApplicationFirewallConfiguration?: outputs.network.v20190801.ApplicationGatewayWebApplicationFirewallConfigurationInvokeResponse;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

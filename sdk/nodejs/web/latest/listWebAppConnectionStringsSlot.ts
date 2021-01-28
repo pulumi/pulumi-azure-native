@@ -54,11 +54,11 @@ export interface ListWebAppConnectionStringsSlotResult {
     /**
      * Connection strings.
      */
-    readonly properties: {[key: string]: outputs.web.latest.ConnStringValueTypePairResponse};
+    readonly properties: {[key: string]: outputs.web.latest.ConnStringValueTypePairInvokeResponse};
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

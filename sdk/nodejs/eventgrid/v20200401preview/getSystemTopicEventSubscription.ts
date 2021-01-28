@@ -43,22 +43,22 @@ export interface GetSystemTopicEventSubscriptionResult {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestinationInvokeResponse;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterWithResourceIdentity?: outputs.eventgrid.v20200401preview.DeadLetterWithResourceIdentityResponse;
+    readonly deadLetterWithResourceIdentity?: outputs.eventgrid.v20200401preview.DeadLetterWithResourceIdentityInvokeResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deliveryWithResourceIdentity?: outputs.eventgrid.v20200401preview.DeliveryWithResourceIdentityResponse;
+    readonly deliveryWithResourceIdentity?: outputs.eventgrid.v20200401preview.DeliveryWithResourceIdentityInvokeResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: outputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestinationInvokeResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -70,7 +70,7 @@ export interface GetSystemTopicEventSubscriptionResult {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: outputs.eventgrid.v20200401preview.EventSubscriptionFilterResponse;
+    readonly filter?: outputs.eventgrid.v20200401preview.EventSubscriptionFilterInvokeResponse;
     /**
      * Fully qualified identifier of the resource.
      */
@@ -90,7 +90,7 @@ export interface GetSystemTopicEventSubscriptionResult {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: outputs.eventgrid.v20200401preview.RetryPolicyResponse;
+    readonly retryPolicy?: outputs.eventgrid.v20200401preview.RetryPolicyInvokeResponse;
     /**
      * Name of the topic of the event subscription.
      */

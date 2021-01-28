@@ -38,7 +38,7 @@ export interface GetFileServerResult {
     /**
      * Settings for the data disk which would be created for the File Server.
      */
-    readonly dataDisks?: outputs.batchai.v20170901preview.DataDisksResponse;
+    readonly dataDisks?: outputs.batchai.v20170901preview.DataDisksInvokeResponse;
     /**
      * The ID of the resource
      */
@@ -50,7 +50,7 @@ export interface GetFileServerResult {
     /**
      * Details of the File Server.
      */
-    readonly mountSettings: outputs.batchai.v20170901preview.MountSettingsResponse;
+    readonly mountSettings: outputs.batchai.v20170901preview.MountSettingsInvokeResponse;
     /**
      * The name of the resource
      */
@@ -63,11 +63,11 @@ export interface GetFileServerResult {
     /**
      * SSH configuration settings for the VM
      */
-    readonly sshConfiguration?: outputs.batchai.v20170901preview.SshConfigurationResponse;
+    readonly sshConfiguration?: outputs.batchai.v20170901preview.SshConfigurationInvokeResponse;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly subnet?: outputs.batchai.v20170901preview.ResourceIdResponse;
+    readonly subnet?: outputs.batchai.v20170901preview.ResourceIdInvokeResponse;
     /**
      * The tags of the resource
      */

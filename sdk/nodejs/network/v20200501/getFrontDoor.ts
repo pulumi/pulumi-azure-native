@@ -37,11 +37,11 @@ export interface GetFrontDoorResult {
     /**
      * Backend pools available to routing rules.
      */
-    readonly backendPools?: outputs.network.v20200501.BackendPoolResponse[];
+    readonly backendPools?: outputs.network.v20200501.BackendPoolInvokeResponse[];
     /**
      * Settings for all backendPools
      */
-    readonly backendPoolsSettings?: outputs.network.v20200501.BackendPoolsSettingsResponse;
+    readonly backendPoolsSettings?: outputs.network.v20200501.BackendPoolsSettingsInvokeResponse;
     /**
      * The host that each frontendEndpoint must CNAME to.
      */
@@ -61,11 +61,11 @@ export interface GetFrontDoorResult {
     /**
      * Frontend endpoints available to routing rules.
      */
-    readonly frontendEndpoints?: outputs.network.v20200501.FrontendEndpointResponse[];
+    readonly frontendEndpoints?: outputs.network.v20200501.FrontendEndpointInvokeResponse[];
     /**
      * Health probe settings associated with this Front Door instance.
      */
-    readonly healthProbeSettings?: outputs.network.v20200501.HealthProbeSettingsModelResponse[];
+    readonly healthProbeSettings?: outputs.network.v20200501.HealthProbeSettingsModelInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -73,7 +73,7 @@ export interface GetFrontDoorResult {
     /**
      * Load balancing settings associated with this Front Door instance.
      */
-    readonly loadBalancingSettings?: outputs.network.v20200501.LoadBalancingSettingsModelResponse[];
+    readonly loadBalancingSettings?: outputs.network.v20200501.LoadBalancingSettingsModelInvokeResponse[];
     /**
      * Resource location.
      */
@@ -93,11 +93,11 @@ export interface GetFrontDoorResult {
     /**
      * Routing rules associated with this Front Door.
      */
-    readonly routingRules?: outputs.network.v20200501.RoutingRuleResponse[];
+    readonly routingRules?: outputs.network.v20200501.RoutingRuleInvokeResponse[];
     /**
      * Rules Engine Configurations available to routing rules.
      */
-    readonly rulesEngines: outputs.network.v20200501.RulesEngineResponse[];
+    readonly rulesEngines: outputs.network.v20200501.RulesEngineInvokeResponse[];
     /**
      * Resource tags.
      */

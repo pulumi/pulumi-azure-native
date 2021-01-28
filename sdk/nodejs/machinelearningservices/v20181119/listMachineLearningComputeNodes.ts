@@ -51,5 +51,5 @@ export interface ListMachineLearningComputeNodesResult {
     /**
      * The collection of returned AmlCompute nodes details.
      */
-    readonly nodes: outputs.machinelearningservices.v20181119.AmlComputeNodeInformationResponse[];
+    readonly nodes: outputs.machinelearningservices.v20181119.AmlComputeNodeInformationInvokeResponse[];
 }

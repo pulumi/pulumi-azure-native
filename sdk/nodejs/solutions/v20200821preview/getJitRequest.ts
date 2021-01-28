@@ -41,7 +41,7 @@ export interface GetJitRequestResult {
     /**
      * The client entity that created the JIT request.
      */
-    readonly createdBy: outputs.solutions.v20200821preview.ApplicationClientDetailsResponse;
+    readonly createdBy: outputs.solutions.v20200821preview.ApplicationClientDetailsInvokeResponse;
     /**
      * Resource ID
      */
@@ -49,7 +49,7 @@ export interface GetJitRequestResult {
     /**
      * The JIT authorization policies.
      */
-    readonly jitAuthorizationPolicies: outputs.solutions.v20200821preview.JitAuthorizationPoliciesResponse[];
+    readonly jitAuthorizationPolicies: outputs.solutions.v20200821preview.JitAuthorizationPoliciesInvokeResponse[];
     /**
      * The JIT request state.
      */
@@ -57,7 +57,7 @@ export interface GetJitRequestResult {
     /**
      * The JIT request properties.
      */
-    readonly jitSchedulingPolicy: outputs.solutions.v20200821preview.JitSchedulingPolicyResponse;
+    readonly jitSchedulingPolicy: outputs.solutions.v20200821preview.JitSchedulingPolicyInvokeResponse;
     /**
      * Resource location
      */
@@ -85,5 +85,5 @@ export interface GetJitRequestResult {
     /**
      * The client entity that last updated the JIT request.
      */
-    readonly updatedBy: outputs.solutions.v20200821preview.ApplicationClientDetailsResponse;
+    readonly updatedBy: outputs.solutions.v20200821preview.ApplicationClientDetailsInvokeResponse;
 }

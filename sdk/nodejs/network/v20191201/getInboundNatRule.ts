@@ -47,7 +47,7 @@ export interface GetInboundNatRuleResult {
     /**
      * A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
      */
-    readonly backendIPConfiguration: outputs.network.v20191201.NetworkInterfaceIPConfigurationResponse;
+    readonly backendIPConfiguration: outputs.network.v20191201.NetworkInterfaceIPConfigurationInvokeResponse;
     /**
      * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
      */
@@ -67,7 +67,7 @@ export interface GetInboundNatRuleResult {
     /**
      * A reference to frontend IP addresses.
      */
-    readonly frontendIPConfiguration?: outputs.network.v20191201.SubResourceResponse;
+    readonly frontendIPConfiguration?: outputs.network.v20191201.SubResourceInvokeResponse;
     /**
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */

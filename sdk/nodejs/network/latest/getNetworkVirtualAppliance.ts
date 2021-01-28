@@ -66,11 +66,11 @@ export interface GetNetworkVirtualApplianceResult {
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    readonly identity?: outputs.network.latest.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.network.latest.ManagedServiceIdentityInvokeResponse;
     /**
      * List of references to InboundSecurityRules.
      */
-    readonly inboundSecurityRules: outputs.network.latest.SubResourceResponse[];
+    readonly inboundSecurityRules: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * Resource location.
      */
@@ -82,7 +82,7 @@ export interface GetNetworkVirtualApplianceResult {
     /**
      * Network Virtual Appliance SKU.
      */
-    readonly nvaSku?: outputs.network.latest.VirtualApplianceSkuPropertiesResponse;
+    readonly nvaSku?: outputs.network.latest.VirtualApplianceSkuPropertiesInvokeResponse;
     /**
      * The provisioning state of the resource.
      */
@@ -102,13 +102,13 @@ export interface GetNetworkVirtualApplianceResult {
     /**
      * List of Virtual Appliance Network Interfaces.
      */
-    readonly virtualApplianceNics: outputs.network.latest.VirtualApplianceNicPropertiesResponse[];
+    readonly virtualApplianceNics: outputs.network.latest.VirtualApplianceNicPropertiesInvokeResponse[];
     /**
      * List of references to VirtualApplianceSite.
      */
-    readonly virtualApplianceSites: outputs.network.latest.SubResourceResponse[];
+    readonly virtualApplianceSites: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    readonly virtualHub?: outputs.network.latest.SubResourceResponse;
+    readonly virtualHub?: outputs.network.latest.SubResourceInvokeResponse;
 }

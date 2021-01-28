@@ -69,7 +69,7 @@ export interface GetWorkspaceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20180301preview.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20180301preview.IdentityInvokeResponse;
     /**
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */

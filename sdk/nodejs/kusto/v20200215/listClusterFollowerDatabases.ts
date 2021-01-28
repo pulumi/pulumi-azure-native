@@ -37,5 +37,5 @@ export interface ListClusterFollowerDatabasesResult {
     /**
      * The list of follower database result.
      */
-    readonly value?: outputs.kusto.v20200215.FollowerDatabaseDefinitionResponse[];
+    readonly value?: outputs.kusto.v20200215.FollowerDatabaseDefinitionInvokeResponse[];
 }

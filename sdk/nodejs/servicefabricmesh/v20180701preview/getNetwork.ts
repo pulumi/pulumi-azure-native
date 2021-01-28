@@ -49,7 +49,7 @@ export interface GetNetworkResult {
     /**
      * Configuration for public connectivity for this network.
      */
-    readonly ingressConfig?: outputs.servicefabricmesh.v20180701preview.IngressConfigResponse;
+    readonly ingressConfig?: outputs.servicefabricmesh.v20180701preview.IngressConfigInvokeResponse;
     /**
      * The geo-location where the resource lives
      */

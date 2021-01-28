@@ -63,11 +63,11 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint: outputs.network.latest.PrivateEndpointResponse;
+    readonly privateEndpoint: outputs.network.latest.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState?: outputs.network.latest.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.network.latest.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

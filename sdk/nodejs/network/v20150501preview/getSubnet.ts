@@ -54,7 +54,7 @@ export interface GetSubnetResult {
     /**
      * Gets array of references to the network interface IP configurations using subnet
      */
-    readonly ipConfigurations?: outputs.network.v20150501preview.SubResourceResponse[];
+    readonly ipConfigurations?: outputs.network.v20150501preview.SubResourceInvokeResponse[];
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
@@ -62,7 +62,7 @@ export interface GetSubnetResult {
     /**
      * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly networkSecurityGroup?: outputs.network.v20150501preview.SubResourceResponse;
+    readonly networkSecurityGroup?: outputs.network.v20150501preview.SubResourceInvokeResponse;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -70,5 +70,5 @@ export interface GetSubnetResult {
     /**
      * Gets or sets the reference of the RouteTable resource
      */
-    readonly routeTable?: outputs.network.v20150501preview.SubResourceResponse;
+    readonly routeTable?: outputs.network.v20150501preview.SubResourceInvokeResponse;
 }

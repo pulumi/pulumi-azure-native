@@ -57,7 +57,7 @@ export interface GetClusterResult {
     /**
      * Properties of the cluster SKU.
      */
-    readonly sku?: outputs.eventhub.v20180101preview.ClusterSkuResponse;
+    readonly sku?: outputs.eventhub.v20180101preview.ClusterSkuInvokeResponse;
     /**
      * Status of the Cluster resource
      */

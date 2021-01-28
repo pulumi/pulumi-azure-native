@@ -54,11 +54,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: outputs.documentdb.v20190801preview.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.documentdb.v20190801preview.PrivateEndpointPropertyInvokeResponse;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.documentdb.v20190801preview.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState?: outputs.documentdb.v20190801preview.PrivateLinkServiceConnectionStatePropertyInvokeResponse;
     /**
      * Provisioning state of the private endpoint.
      */

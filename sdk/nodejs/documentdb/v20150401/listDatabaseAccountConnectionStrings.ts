@@ -37,5 +37,5 @@ export interface ListDatabaseAccountConnectionStringsResult {
     /**
      * An array that contains the connection strings for the Cosmos DB account.
      */
-    readonly connectionStrings?: outputs.documentdb.v20150401.DatabaseAccountConnectionStringResponse[];
+    readonly connectionStrings?: outputs.documentdb.v20150401.DatabaseAccountConnectionStringInvokeResponse[];
 }

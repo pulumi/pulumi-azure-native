@@ -49,7 +49,7 @@ export interface GetScalingPlanResult {
     /**
      * List of ScalingHostPoolReference definitions.
      */
-    readonly hostPoolReferences?: outputs.desktopvirtualization.v20210114preview.ScalingHostPoolReferenceResponse[];
+    readonly hostPoolReferences?: outputs.desktopvirtualization.v20210114preview.ScalingHostPoolReferenceInvokeResponse[];
     /**
      * HostPool type for scaling plan.
      */
@@ -69,7 +69,7 @@ export interface GetScalingPlanResult {
     /**
      * List of ScalingSchedule definitions.
      */
-    readonly schedules?: outputs.desktopvirtualization.v20210114preview.ScalingScheduleResponse[];
+    readonly schedules?: outputs.desktopvirtualization.v20210114preview.ScalingScheduleInvokeResponse[];
     /**
      * Resource tags.
      */

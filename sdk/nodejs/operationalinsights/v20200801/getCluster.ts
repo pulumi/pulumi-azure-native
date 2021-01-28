@@ -45,11 +45,11 @@ export interface GetClusterResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.operationalinsights.v20200801.IdentityResponse;
+    readonly identity?: outputs.operationalinsights.v20200801.IdentityInvokeResponse;
     /**
      * The associated key properties.
      */
-    readonly keyVaultProperties?: outputs.operationalinsights.v20200801.KeyVaultPropertiesResponse;
+    readonly keyVaultProperties?: outputs.operationalinsights.v20200801.KeyVaultPropertiesInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -69,7 +69,7 @@ export interface GetClusterResult {
     /**
      * The sku properties.
      */
-    readonly sku?: outputs.operationalinsights.v20200801.ClusterSkuResponse;
+    readonly sku?: outputs.operationalinsights.v20200801.ClusterSkuInvokeResponse;
     /**
      * Resource tags.
      */

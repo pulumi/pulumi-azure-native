@@ -49,7 +49,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    readonly clusterSettings?: outputs.web.latest.NameValuePairResponse[];
+    readonly clusterSettings?: outputs.web.latest.NameValuePairInvokeResponse[];
     /**
      * Edition of the metadata database for the App Service Environment, e.g. "Standard".
      */
@@ -74,7 +74,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Current total, used, and available worker capacities.
      */
-    readonly environmentCapacities: outputs.web.latest.StampCapacityResponse[];
+    readonly environmentCapacities: outputs.web.latest.StampCapacityInvokeResponse[];
     /**
      * True/false indicating whether the App Service Environment is healthy.
      */
@@ -138,7 +138,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Access control list for controlling traffic to the App Service Environment.
      */
-    readonly networkAccessControlList?: outputs.web.latest.NetworkAccessControlEntryResponse[];
+    readonly networkAccessControlList?: outputs.web.latest.NetworkAccessControlEntryInvokeResponse[];
     /**
      * Provisioning state of the App Service Environment.
      */
@@ -171,7 +171,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */
@@ -191,11 +191,11 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Description of IP SSL mapping for the App Service Environment.
      */
-    readonly vipMappings: outputs.web.latest.VirtualIPMappingResponse[];
+    readonly vipMappings: outputs.web.latest.VirtualIPMappingInvokeResponse[];
     /**
      * Description of the Virtual Network.
      */
-    readonly virtualNetwork: outputs.web.latest.VirtualNetworkProfileResponse;
+    readonly virtualNetwork: outputs.web.latest.VirtualNetworkProfileInvokeResponse;
     /**
      * Name of the Virtual Network for the App Service Environment.
      */
@@ -211,5 +211,5 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
      */
-    readonly workerPools: outputs.web.latest.WorkerPoolResponse[];
+    readonly workerPools: outputs.web.latest.WorkerPoolInvokeResponse[];
 }

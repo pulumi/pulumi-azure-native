@@ -46,7 +46,7 @@ export interface GetProjectResult {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: outputs.datamigration.v20180331preview.DatabaseInfoResponse[];
+    readonly databasesInfo?: outputs.datamigration.v20180331preview.DatabaseInfoInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -66,7 +66,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.v20180331preview.SqlConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.v20180331preview.SqlConnectionInfoInvokeResponse;
     /**
      * Source platform for the project
      */
@@ -78,7 +78,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.v20180331preview.SqlConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.v20180331preview.SqlConnectionInfoInvokeResponse;
     /**
      * Target platform for the project
      */

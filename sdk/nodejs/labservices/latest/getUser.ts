@@ -68,7 +68,7 @@ export interface GetUserResult {
     /**
      * The details of the latest operation. ex: status, error
      */
-    readonly latestOperationResult: outputs.labservices.latest.LatestOperationResultResponse;
+    readonly latestOperationResult: outputs.labservices.latest.LatestOperationResultInvokeResponse;
     /**
      * The location of the resource.
      */

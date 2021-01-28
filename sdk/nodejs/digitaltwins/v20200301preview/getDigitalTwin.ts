@@ -65,7 +65,7 @@ export interface GetDigitalTwinResult {
     /**
      * This property is reserved for future use, and will be ignored/omitted
      */
-    readonly sku?: outputs.digitaltwins.v20200301preview.DigitalTwinsSkuInfoResponse;
+    readonly sku?: outputs.digitaltwins.v20200301preview.DigitalTwinsSkuInfoInvokeResponse;
     /**
      * The resource tags.
      */

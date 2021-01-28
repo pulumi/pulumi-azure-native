@@ -42,7 +42,7 @@ export interface GetAccountFilterResult {
     /**
      * The first quality.
      */
-    readonly firstQuality?: outputs.media.v20180701.FirstQualityResponse;
+    readonly firstQuality?: outputs.media.v20180701.FirstQualityInvokeResponse;
     /**
      * Fully qualified resource ID for the resource.
      */
@@ -54,11 +54,11 @@ export interface GetAccountFilterResult {
     /**
      * The presentation time range.
      */
-    readonly presentationTimeRange?: outputs.media.v20180701.PresentationTimeRangeResponse;
+    readonly presentationTimeRange?: outputs.media.v20180701.PresentationTimeRangeInvokeResponse;
     /**
      * The tracks selection conditions.
      */
-    readonly tracks?: outputs.media.v20180701.FilterTrackSelectionResponse[];
+    readonly tracks?: outputs.media.v20180701.FilterTrackSelectionInvokeResponse[];
     /**
      * The type of the resource.
      */

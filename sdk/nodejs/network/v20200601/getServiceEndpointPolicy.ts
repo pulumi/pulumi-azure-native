@@ -66,11 +66,11 @@ export interface GetServiceEndpointPolicyResult {
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
-    readonly serviceEndpointPolicyDefinitions?: outputs.network.v20200601.ServiceEndpointPolicyDefinitionResponse[];
+    readonly serviceEndpointPolicyDefinitions?: outputs.network.v20200601.ServiceEndpointPolicyDefinitionInvokeResponse[];
     /**
      * A collection of references to subnets.
      */
-    readonly subnets: outputs.network.v20200601.SubnetResponse[];
+    readonly subnets: outputs.network.v20200601.SubnetInvokeResponse[];
     /**
      * Resource tags.
      */

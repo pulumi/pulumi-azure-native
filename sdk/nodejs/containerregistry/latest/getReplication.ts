@@ -58,7 +58,7 @@ export interface GetReplicationResult {
     /**
      * The status of the replication at the time the operation was called.
      */
-    readonly status: outputs.containerregistry.latest.StatusResponse;
+    readonly status: outputs.containerregistry.latest.StatusInvokeResponse;
     /**
      * The tags of the resource.
      */

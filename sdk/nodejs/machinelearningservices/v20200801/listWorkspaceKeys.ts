@@ -32,8 +32,8 @@ export interface ListWorkspaceKeysArgs {
 
 export interface ListWorkspaceKeysResult {
     readonly appInsightsInstrumentationKey: string;
-    readonly containerRegistryCredentials: outputs.machinelearningservices.v20200801.RegistryListCredentialsResultResponse;
-    readonly notebookAccessKeys?: outputs.machinelearningservices.v20200801.NotebookListCredentialsResultResponse;
+    readonly containerRegistryCredentials: outputs.machinelearningservices.v20200801.RegistryListCredentialsResultInvokeResponse;
+    readonly notebookAccessKeys?: outputs.machinelearningservices.v20200801.NotebookListCredentialsResultInvokeResponse;
     readonly userStorageKey: string;
     readonly userStorageResourceId: string;
 }

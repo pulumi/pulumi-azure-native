@@ -51,7 +51,7 @@ export interface GetVolumeResult {
     /**
      * Export policy rule
      */
-    readonly exportPolicy?: outputs.netapp.v20170815.VolumePropertiesResponseExportPolicy;
+    readonly exportPolicy?: outputs.netapp.v20170815.VolumePropertiesInvokeResponseExportPolicy;
     /**
      * Unique FileSystem Identifier.
      */

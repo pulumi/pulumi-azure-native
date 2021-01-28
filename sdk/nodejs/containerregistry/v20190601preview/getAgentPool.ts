@@ -67,7 +67,7 @@ export interface GetAgentPoolResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataInvokeResponse;
     /**
      * The tags of the resource.
      */

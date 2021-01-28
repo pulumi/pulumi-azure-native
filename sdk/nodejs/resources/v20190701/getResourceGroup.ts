@@ -48,7 +48,7 @@ export interface GetResourceGroupResult {
     /**
      * The resource group properties.
      */
-    readonly properties: outputs.resources.v20190701.ResourceGroupPropertiesResponse;
+    readonly properties: outputs.resources.v20190701.ResourceGroupPropertiesInvokeResponse;
     /**
      * The tags attached to the resource group.
      */

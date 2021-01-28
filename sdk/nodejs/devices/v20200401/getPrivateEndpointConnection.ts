@@ -50,7 +50,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The properties of a private endpoint connection
      */
-    readonly properties: outputs.devices.v20200401.PrivateEndpointConnectionPropertiesResponse;
+    readonly properties: outputs.devices.v20200401.PrivateEndpointConnectionPropertiesInvokeResponse;
     /**
      * The resource type.
      */

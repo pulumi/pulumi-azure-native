@@ -59,7 +59,7 @@ export interface GetFileResult {
     /**
      * Custom file properties
      */
-    readonly properties: outputs.datamigration.v20180715preview.ProjectFilePropertiesResponse;
+    readonly properties: outputs.datamigration.v20180715preview.ProjectFilePropertiesInvokeResponse;
     /**
      * Resource type.
      */

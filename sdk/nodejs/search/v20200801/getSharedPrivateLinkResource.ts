@@ -50,7 +50,7 @@ export interface GetSharedPrivateLinkResourceResult {
     /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
-    readonly properties: outputs.search.v20200801.SharedPrivateLinkResourcePropertiesResponse;
+    readonly properties: outputs.search.v20200801.SharedPrivateLinkResourcePropertiesInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -64,7 +64,7 @@ export interface GetResourceResult {
     /**
      * Gets or sets the plan of the resource.
      */
-    readonly plan?: outputs.resources.v20151101.PlanResponse;
+    readonly plan?: outputs.resources.v20151101.PlanInvokeResponse;
     /**
      * Gets or sets the resource properties.
      */

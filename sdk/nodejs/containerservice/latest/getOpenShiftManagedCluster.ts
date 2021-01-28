@@ -37,11 +37,11 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.latest.OpenShiftManagedClusterAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.latest.OpenShiftManagedClusterAgentPoolProfileInvokeResponse[];
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: outputs.containerservice.latest.OpenShiftManagedClusterAuthProfileResponse;
+    readonly authProfile?: outputs.containerservice.latest.OpenShiftManagedClusterAuthProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -61,7 +61,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: outputs.containerservice.latest.OpenShiftManagedClusterMasterPoolProfileResponse;
+    readonly masterPoolProfile?: outputs.containerservice.latest.OpenShiftManagedClusterMasterPoolProfileInvokeResponse;
     /**
      * Resource name
      */
@@ -69,7 +69,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: outputs.containerservice.latest.NetworkProfileResponse;
+    readonly networkProfile?: outputs.containerservice.latest.NetworkProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -77,7 +77,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: outputs.containerservice.latest.PurchasePlanResponse;
+    readonly plan?: outputs.containerservice.latest.PurchasePlanInvokeResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -89,7 +89,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: outputs.containerservice.latest.OpenShiftRouterProfileResponse[];
+    readonly routerProfiles?: outputs.containerservice.latest.OpenShiftRouterProfileInvokeResponse[];
     /**
      * Resource tags
      */

@@ -45,7 +45,7 @@ export interface GetDomainResult {
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    readonly inboundIpRules?: outputs.eventgrid.latest.InboundIpRuleResponse[];
+    readonly inboundIpRules?: outputs.eventgrid.latest.InboundIpRuleInvokeResponse[];
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
@@ -53,7 +53,7 @@ export interface GetDomainResult {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: outputs.eventgrid.latest.JsonInputSchemaMappingResponse;
+    readonly inputSchemaMapping?: outputs.eventgrid.latest.JsonInputSchemaMappingInvokeResponse;
     /**
      * Location of the resource.
      */
@@ -69,7 +69,7 @@ export interface GetDomainResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: outputs.eventgrid.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections?: outputs.eventgrid.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Provisioning state of the domain.
      */

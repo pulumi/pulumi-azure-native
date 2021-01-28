@@ -68,7 +68,7 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
     /**
      * This is the collection of instances returned when one does an expand on it.
      */
-    readonly instances?: outputs.authorization.v20180501preview.AccessReviewInstanceResponse[];
+    readonly instances?: outputs.authorization.v20180501preview.AccessReviewInstanceInvokeResponse[];
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
@@ -116,7 +116,7 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
     /**
      * This is the collection of reviewers.
      */
-    readonly reviewers?: outputs.authorization.v20180501preview.AccessReviewReviewerResponse[];
+    readonly reviewers?: outputs.authorization.v20180501preview.AccessReviewReviewerInvokeResponse[];
     /**
      * This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
      */

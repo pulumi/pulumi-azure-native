@@ -66,11 +66,11 @@ export interface GetVirtualHubIpConfigurationResult {
     /**
      * The reference to the public IP resource.
      */
-    readonly publicIPAddress?: outputs.network.v20200701.PublicIPAddressResponse;
+    readonly publicIPAddress?: outputs.network.v20200701.PublicIPAddressInvokeResponse;
     /**
      * The reference to the subnet resource.
      */
-    readonly subnet?: outputs.network.v20200701.SubnetResponse;
+    readonly subnet?: outputs.network.v20200701.SubnetInvokeResponse;
     /**
      * Ipconfiguration type.
      */

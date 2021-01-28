@@ -41,5 +41,5 @@ export interface ListJobCredentialsResult {
     /**
      * List of unencrypted credentials.
      */
-    readonly value?: outputs.databox.latest.UnencryptedCredentialsResponse[];
+    readonly value?: outputs.databox.latest.UnencryptedCredentialsInvokeResponse[];
 }

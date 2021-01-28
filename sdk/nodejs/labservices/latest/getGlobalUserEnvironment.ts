@@ -42,5 +42,5 @@ export interface GetGlobalUserEnvironmentResult {
     /**
      * Details of the environment
      */
-    readonly environment: outputs.labservices.latest.EnvironmentDetailsResponse;
+    readonly environment: outputs.labservices.latest.EnvironmentDetailsInvokeResponse;
 }

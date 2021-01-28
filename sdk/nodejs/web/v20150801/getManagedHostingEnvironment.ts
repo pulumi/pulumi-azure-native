@@ -98,5 +98,5 @@ export interface GetManagedHostingEnvironmentResult {
     /**
      * Description of the managed hosting environment's virtual network
      */
-    readonly virtualNetwork?: outputs.web.v20150801.VirtualNetworkProfileResponse;
+    readonly virtualNetwork?: outputs.web.v20150801.VirtualNetworkProfileInvokeResponse;
 }

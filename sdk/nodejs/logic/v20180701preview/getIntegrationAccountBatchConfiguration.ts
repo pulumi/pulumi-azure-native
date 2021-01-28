@@ -54,7 +54,7 @@ export interface GetIntegrationAccountBatchConfigurationResult {
     /**
      * The batch configuration properties.
      */
-    readonly properties: outputs.logic.v20180701preview.BatchConfigurationPropertiesResponse;
+    readonly properties: outputs.logic.v20180701preview.BatchConfigurationPropertiesInvokeResponse;
     /**
      * The resource tags.
      */

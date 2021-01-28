@@ -59,7 +59,7 @@ export interface GetJobResult {
     /**
      * Schedule properties of the job.
      */
-    readonly schedule?: outputs.sql.v20200801preview.JobScheduleResponse;
+    readonly schedule?: outputs.sql.v20200801preview.JobScheduleInvokeResponse;
     /**
      * Resource type.
      */

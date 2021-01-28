@@ -58,7 +58,7 @@ export interface GetEnvironmentResult {
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: outputs.timeseriesinsights.v20180815preview.SkuResponse;
+    readonly sku: outputs.timeseriesinsights.v20180815preview.SkuInvokeResponse;
     /**
      * Resource tags
      */

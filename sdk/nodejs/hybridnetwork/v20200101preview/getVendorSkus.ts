@@ -57,7 +57,7 @@ export interface GetVendorSkusResult {
     /**
      * The template definition of the network function.
      */
-    readonly networkFunctionTemplate?: outputs.hybridnetwork.v20200101preview.NetworkFunctionTemplateResponse;
+    readonly networkFunctionTemplate?: outputs.hybridnetwork.v20200101preview.NetworkFunctionTemplateInvokeResponse;
     /**
      * Indicates if the vendor sku is in preview mode.
      */

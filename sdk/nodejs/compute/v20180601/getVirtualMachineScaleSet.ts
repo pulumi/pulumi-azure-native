@@ -41,7 +41,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: outputs.compute.v20180601.VirtualMachineScaleSetIdentityResponse;
+    readonly identity?: outputs.compute.v20180601.VirtualMachineScaleSetIdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -57,7 +57,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: outputs.compute.v20180601.PlanResponse;
+    readonly plan?: outputs.compute.v20180601.PlanInvokeResponse;
     /**
      * Fault Domain count for each placement group.
      */
@@ -69,7 +69,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: outputs.compute.v20180601.SubResourceResponse;
+    readonly proximityPlacementGroup?: outputs.compute.v20180601.SubResourceInvokeResponse;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
      */
@@ -77,7 +77,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: outputs.compute.v20180601.SkuResponse;
+    readonly sku?: outputs.compute.v20180601.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -93,11 +93,11 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: outputs.compute.v20180601.UpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.compute.v20180601.UpgradePolicyInvokeResponse;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: outputs.compute.v20180601.VirtualMachineScaleSetVMProfileResponse;
+    readonly virtualMachineProfile?: outputs.compute.v20180601.VirtualMachineScaleSetVMProfileInvokeResponse;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
      */

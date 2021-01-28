@@ -50,15 +50,15 @@ export interface GetMaintenanceConfigurationResult {
     /**
      * Time slots on which upgrade is not allowed.
      */
-    readonly notAllowedTime?: outputs.containerservice.latest.TimeSpanResponse[];
+    readonly notAllowedTime?: outputs.containerservice.latest.TimeSpanInvokeResponse[];
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.containerservice.latest.SystemDataResponse;
+    readonly systemData: outputs.containerservice.latest.SystemDataInvokeResponse;
     /**
      * Weekday time slots allowed to upgrade.
      */
-    readonly timeInWeek?: outputs.containerservice.latest.TimeInWeekResponse[];
+    readonly timeInWeek?: outputs.containerservice.latest.TimeInWeekInvokeResponse[];
     /**
      * Resource type
      */

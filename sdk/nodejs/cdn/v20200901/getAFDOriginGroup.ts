@@ -43,7 +43,7 @@ export interface GetAFDOriginGroupResult {
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    readonly healthProbeSettings?: outputs.cdn.v20200901.HealthProbeParametersResponse;
+    readonly healthProbeSettings?: outputs.cdn.v20200901.HealthProbeParametersInvokeResponse;
     /**
      * Resource ID.
      */
@@ -51,7 +51,7 @@ export interface GetAFDOriginGroupResult {
     /**
      * Load balancing settings for a backend pool
      */
-    readonly loadBalancingSettings?: outputs.cdn.v20200901.LoadBalancingSettingsParametersResponse;
+    readonly loadBalancingSettings?: outputs.cdn.v20200901.LoadBalancingSettingsParametersInvokeResponse;
     /**
      * Resource name.
      */
@@ -63,7 +63,7 @@ export interface GetAFDOriginGroupResult {
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    readonly responseBasedAfdOriginErrorDetectionSettings?: outputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersResponse;
+    readonly responseBasedAfdOriginErrorDetectionSettings?: outputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersInvokeResponse;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
@@ -71,7 +71,7 @@ export interface GetAFDOriginGroupResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */

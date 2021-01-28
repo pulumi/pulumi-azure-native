@@ -53,7 +53,7 @@ export interface GetOrganizationResult {
     /**
      * Confluent offer detail
      */
-    readonly offerDetail?: outputs.confluent.v20200301.OrganizationResourcePropertiesResponseOfferDetail;
+    readonly offerDetail?: outputs.confluent.v20200301.OrganizationResourcePropertiesInvokeResponseOfferDetail;
     /**
      * Id of the Confluent organization.
      */
@@ -77,5 +77,5 @@ export interface GetOrganizationResult {
     /**
      * Subscriber detail
      */
-    readonly userDetail?: outputs.confluent.v20200301.OrganizationResourcePropertiesResponseUserDetail;
+    readonly userDetail?: outputs.confluent.v20200301.OrganizationResourcePropertiesInvokeResponseUserDetail;
 }

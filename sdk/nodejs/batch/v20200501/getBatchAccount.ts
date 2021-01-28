@@ -42,7 +42,7 @@ export interface GetBatchAccountResult {
     /**
      * Contains information about the auto-storage account associated with a Batch account.
      */
-    readonly autoStorage: outputs.batch.v20200501.AutoStoragePropertiesResponse;
+    readonly autoStorage: outputs.batch.v20200501.AutoStoragePropertiesInvokeResponse;
     /**
      * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
@@ -50,7 +50,7 @@ export interface GetBatchAccountResult {
     /**
      * A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
-    readonly dedicatedCoreQuotaPerVMFamily: outputs.batch.v20200501.VirtualMachineFamilyCoreQuotaResponse[];
+    readonly dedicatedCoreQuotaPerVMFamily: outputs.batch.v20200501.VirtualMachineFamilyCoreQuotaInvokeResponse[];
     /**
      * Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
      */
@@ -58,7 +58,7 @@ export interface GetBatchAccountResult {
     /**
      * Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
      */
-    readonly encryption: outputs.batch.v20200501.EncryptionPropertiesResponse;
+    readonly encryption: outputs.batch.v20200501.EncryptionPropertiesInvokeResponse;
     /**
      * The ID of the resource.
      */
@@ -66,11 +66,11 @@ export interface GetBatchAccountResult {
     /**
      * The identity of the Batch account.
      */
-    readonly identity?: outputs.batch.v20200501.BatchAccountIdentityResponse;
+    readonly identity?: outputs.batch.v20200501.BatchAccountIdentityInvokeResponse;
     /**
      * Identifies the Azure key vault associated with a Batch account.
      */
-    readonly keyVaultReference: outputs.batch.v20200501.KeyVaultReferenceResponse;
+    readonly keyVaultReference: outputs.batch.v20200501.KeyVaultReferenceInvokeResponse;
     /**
      * The location of the resource.
      */
@@ -91,7 +91,7 @@ export interface GetBatchAccountResult {
     /**
      * List of private endpoint connections associated with the Batch account
      */
-    readonly privateEndpointConnections: outputs.batch.v20200501.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.batch.v20200501.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The provisioned state of the resource
      */

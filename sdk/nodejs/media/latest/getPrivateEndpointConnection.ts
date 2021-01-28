@@ -47,11 +47,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.media.latest.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.media.latest.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.media.latest.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.media.latest.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

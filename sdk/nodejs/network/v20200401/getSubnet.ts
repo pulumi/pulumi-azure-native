@@ -55,7 +55,7 @@ export interface GetSubnetResult {
     /**
      * An array of references to the delegations on the subnet.
      */
-    readonly delegations?: outputs.network.v20200401.DelegationResponse[];
+    readonly delegations?: outputs.network.v20200401.DelegationInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -67,15 +67,15 @@ export interface GetSubnetResult {
     /**
      * Array of IpAllocation which reference this subnet.
      */
-    readonly ipAllocations?: outputs.network.v20200401.SubResourceResponse[];
+    readonly ipAllocations?: outputs.network.v20200401.SubResourceInvokeResponse[];
     /**
      * Array of IP configuration profiles which reference this subnet.
      */
-    readonly ipConfigurationProfiles: outputs.network.v20200401.IPConfigurationProfileResponse[];
+    readonly ipConfigurationProfiles: outputs.network.v20200401.IPConfigurationProfileInvokeResponse[];
     /**
      * An array of references to the network interface IP configurations using subnet.
      */
-    readonly ipConfigurations: outputs.network.v20200401.IPConfigurationResponse[];
+    readonly ipConfigurations: outputs.network.v20200401.IPConfigurationInvokeResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -83,11 +83,11 @@ export interface GetSubnetResult {
     /**
      * Nat gateway associated with this subnet.
      */
-    readonly natGateway?: outputs.network.v20200401.SubResourceResponse;
+    readonly natGateway?: outputs.network.v20200401.SubResourceInvokeResponse;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: outputs.network.v20200401.NetworkSecurityGroupResponse;
+    readonly networkSecurityGroup?: outputs.network.v20200401.NetworkSecurityGroupInvokeResponse;
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
@@ -95,7 +95,7 @@ export interface GetSubnetResult {
     /**
      * An array of references to private endpoints.
      */
-    readonly privateEndpoints: outputs.network.v20200401.PrivateEndpointResponse[];
+    readonly privateEndpoints: outputs.network.v20200401.PrivateEndpointInvokeResponse[];
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
@@ -111,21 +111,21 @@ export interface GetSubnetResult {
     /**
      * An array of references to the external resources using subnet.
      */
-    readonly resourceNavigationLinks: outputs.network.v20200401.ResourceNavigationLinkResponse[];
+    readonly resourceNavigationLinks: outputs.network.v20200401.ResourceNavigationLinkInvokeResponse[];
     /**
      * The reference to the RouteTable resource.
      */
-    readonly routeTable?: outputs.network.v20200401.RouteTableResponse;
+    readonly routeTable?: outputs.network.v20200401.RouteTableInvokeResponse;
     /**
      * An array of references to services injecting into this subnet.
      */
-    readonly serviceAssociationLinks: outputs.network.v20200401.ServiceAssociationLinkResponse[];
+    readonly serviceAssociationLinks: outputs.network.v20200401.ServiceAssociationLinkInvokeResponse[];
     /**
      * An array of service endpoint policies.
      */
-    readonly serviceEndpointPolicies?: outputs.network.v20200401.ServiceEndpointPolicyResponse[];
+    readonly serviceEndpointPolicies?: outputs.network.v20200401.ServiceEndpointPolicyInvokeResponse[];
     /**
      * An array of service endpoints.
      */
-    readonly serviceEndpoints?: outputs.network.v20200401.ServiceEndpointPropertiesFormatResponse[];
+    readonly serviceEndpoints?: outputs.network.v20200401.ServiceEndpointPropertiesFormatInvokeResponse[];
 }

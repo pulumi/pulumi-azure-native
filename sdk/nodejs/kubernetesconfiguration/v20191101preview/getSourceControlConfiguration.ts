@@ -52,7 +52,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Compliance Status of the Configuration
      */
-    readonly complianceStatus: outputs.kubernetesconfiguration.v20191101preview.ComplianceStatusResponse;
+    readonly complianceStatus: outputs.kubernetesconfiguration.v20191101preview.ComplianceStatusInvokeResponse;
     /**
      * Option to enable Helm Operator for this git configuration.
      */
@@ -60,7 +60,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Properties for Helm operator.
      */
-    readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesResponse;
+    readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesInvokeResponse;
     /**
      * Resource Id
      */

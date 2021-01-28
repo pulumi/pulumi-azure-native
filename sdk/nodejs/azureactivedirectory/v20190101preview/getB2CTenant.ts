@@ -34,7 +34,7 @@ export interface GetB2CTenantResult {
     /**
      * The billing configuration for the tenant.
      */
-    readonly billingConfig?: outputs.azureactivedirectory.v20190101preview.B2CTenantResourcePropertiesResponseBillingConfig;
+    readonly billingConfig?: outputs.azureactivedirectory.v20190101preview.B2CTenantResourcePropertiesInvokeResponseBillingConfig;
     /**
      * An identifier that represents the B2C tenant resource.
      */
@@ -50,7 +50,7 @@ export interface GetB2CTenantResult {
     /**
      * SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
      */
-    readonly sku: outputs.azureactivedirectory.v20190101preview.B2CResourceSKUResponse;
+    readonly sku: outputs.azureactivedirectory.v20190101preview.B2CResourceSKUInvokeResponse;
     /**
      * Resource Tags
      */

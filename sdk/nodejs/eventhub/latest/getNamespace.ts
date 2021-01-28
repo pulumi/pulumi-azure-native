@@ -77,7 +77,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of sku resource
      */
-    readonly sku?: outputs.eventhub.latest.SkuResponse;
+    readonly sku?: outputs.eventhub.latest.SkuInvokeResponse;
     /**
      * Resource tags.
      */

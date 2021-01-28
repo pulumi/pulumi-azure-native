@@ -34,5 +34,5 @@ export interface ListKeyByAutomationAccountResult {
     /**
      * Lists the automation keys.
      */
-    readonly keys?: outputs.automation.v20200113preview.KeyResponse[];
+    readonly keys?: outputs.automation.v20200113preview.KeyInvokeResponse[];
 }

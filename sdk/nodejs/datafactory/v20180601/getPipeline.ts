@@ -42,7 +42,7 @@ export interface GetPipelineResult {
     /**
      * List of activities in pipeline.
      */
-    readonly activities?: outputs.datafactory.v20180601.AppendVariableActivityResponse | outputs.datafactory.v20180601.AzureDataExplorerCommandActivityResponse | outputs.datafactory.v20180601.AzureFunctionActivityResponse | outputs.datafactory.v20180601.AzureMLBatchExecutionActivityResponse | outputs.datafactory.v20180601.AzureMLExecutePipelineActivityResponse | outputs.datafactory.v20180601.AzureMLUpdateResourceActivityResponse | outputs.datafactory.v20180601.ControlActivityResponse | outputs.datafactory.v20180601.CopyActivityResponse | outputs.datafactory.v20180601.CustomActivityResponse | outputs.datafactory.v20180601.DataLakeAnalyticsUSQLActivityResponse | outputs.datafactory.v20180601.DatabricksNotebookActivityResponse | outputs.datafactory.v20180601.DatabricksSparkJarActivityResponse | outputs.datafactory.v20180601.DatabricksSparkPythonActivityResponse | outputs.datafactory.v20180601.DeleteActivityResponse | outputs.datafactory.v20180601.ExecuteDataFlowActivityResponse | outputs.datafactory.v20180601.ExecutePipelineActivityResponse | outputs.datafactory.v20180601.ExecuteSSISPackageActivityResponse | outputs.datafactory.v20180601.ExecutionActivityResponse | outputs.datafactory.v20180601.FilterActivityResponse | outputs.datafactory.v20180601.ForEachActivityResponse | outputs.datafactory.v20180601.GetMetadataActivityResponse | outputs.datafactory.v20180601.HDInsightHiveActivityResponse | outputs.datafactory.v20180601.HDInsightMapReduceActivityResponse | outputs.datafactory.v20180601.HDInsightPigActivityResponse | outputs.datafactory.v20180601.HDInsightSparkActivityResponse | outputs.datafactory.v20180601.HDInsightStreamingActivityResponse | outputs.datafactory.v20180601.IfConditionActivityResponse | outputs.datafactory.v20180601.LookupActivityResponse | outputs.datafactory.v20180601.SetVariableActivityResponse | outputs.datafactory.v20180601.SqlServerStoredProcedureActivityResponse | outputs.datafactory.v20180601.SwitchActivityResponse | outputs.datafactory.v20180601.UntilActivityResponse | outputs.datafactory.v20180601.ValidationActivityResponse | outputs.datafactory.v20180601.WaitActivityResponse | outputs.datafactory.v20180601.WebActivityResponse | outputs.datafactory.v20180601.WebHookActivityResponse[];
+    readonly activities?: outputs.datafactory.v20180601.AppendVariableActivityInvokeResponse | outputs.datafactory.v20180601.AzureDataExplorerCommandActivityInvokeResponse | outputs.datafactory.v20180601.AzureFunctionActivityInvokeResponse | outputs.datafactory.v20180601.AzureMLBatchExecutionActivityInvokeResponse | outputs.datafactory.v20180601.AzureMLExecutePipelineActivityInvokeResponse | outputs.datafactory.v20180601.AzureMLUpdateResourceActivityInvokeResponse | outputs.datafactory.v20180601.ControlActivityInvokeResponse | outputs.datafactory.v20180601.CopyActivityInvokeResponse | outputs.datafactory.v20180601.CustomActivityInvokeResponse | outputs.datafactory.v20180601.DataLakeAnalyticsUSQLActivityInvokeResponse | outputs.datafactory.v20180601.DatabricksNotebookActivityInvokeResponse | outputs.datafactory.v20180601.DatabricksSparkJarActivityInvokeResponse | outputs.datafactory.v20180601.DatabricksSparkPythonActivityInvokeResponse | outputs.datafactory.v20180601.DeleteActivityInvokeResponse | outputs.datafactory.v20180601.ExecuteDataFlowActivityInvokeResponse | outputs.datafactory.v20180601.ExecutePipelineActivityInvokeResponse | outputs.datafactory.v20180601.ExecuteSSISPackageActivityInvokeResponse | outputs.datafactory.v20180601.ExecutionActivityInvokeResponse | outputs.datafactory.v20180601.FilterActivityInvokeResponse | outputs.datafactory.v20180601.ForEachActivityInvokeResponse | outputs.datafactory.v20180601.GetMetadataActivityInvokeResponse | outputs.datafactory.v20180601.HDInsightHiveActivityInvokeResponse | outputs.datafactory.v20180601.HDInsightMapReduceActivityInvokeResponse | outputs.datafactory.v20180601.HDInsightPigActivityInvokeResponse | outputs.datafactory.v20180601.HDInsightSparkActivityInvokeResponse | outputs.datafactory.v20180601.HDInsightStreamingActivityInvokeResponse | outputs.datafactory.v20180601.IfConditionActivityInvokeResponse | outputs.datafactory.v20180601.LookupActivityInvokeResponse | outputs.datafactory.v20180601.SetVariableActivityInvokeResponse | outputs.datafactory.v20180601.SqlServerStoredProcedureActivityInvokeResponse | outputs.datafactory.v20180601.SwitchActivityInvokeResponse | outputs.datafactory.v20180601.UntilActivityInvokeResponse | outputs.datafactory.v20180601.ValidationActivityInvokeResponse | outputs.datafactory.v20180601.WaitActivityInvokeResponse | outputs.datafactory.v20180601.WebActivityInvokeResponse | outputs.datafactory.v20180601.WebHookActivityInvokeResponse[];
     /**
      * List of tags that can be used for describing the Pipeline.
      */
@@ -62,7 +62,7 @@ export interface GetPipelineResult {
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    readonly folder?: outputs.datafactory.v20180601.PipelineResponseFolder;
+    readonly folder?: outputs.datafactory.v20180601.PipelineInvokeResponseFolder;
     /**
      * The resource identifier.
      */
@@ -74,7 +74,7 @@ export interface GetPipelineResult {
     /**
      * List of parameters for pipeline.
      */
-    readonly parameters?: {[key: string]: outputs.datafactory.v20180601.ParameterSpecificationResponse};
+    readonly parameters?: {[key: string]: outputs.datafactory.v20180601.ParameterSpecificationInvokeResponse};
     /**
      * Dimensions emitted by Pipeline.
      */
@@ -86,5 +86,5 @@ export interface GetPipelineResult {
     /**
      * List of variables for pipeline.
      */
-    readonly variables?: {[key: string]: outputs.datafactory.v20180601.VariableSpecificationResponse};
+    readonly variables?: {[key: string]: outputs.datafactory.v20180601.VariableSpecificationInvokeResponse};
 }

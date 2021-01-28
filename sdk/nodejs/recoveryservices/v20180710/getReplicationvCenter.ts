@@ -59,7 +59,7 @@ export interface GetReplicationvCenterResult {
     /**
      * VCenter related data.
      */
-    readonly properties: outputs.recoveryservices.v20180710.VCenterPropertiesResponse;
+    readonly properties: outputs.recoveryservices.v20180710.VCenterPropertiesInvokeResponse;
     /**
      * Resource Type
      */

@@ -98,7 +98,7 @@ export interface GetWebAppFunctionResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.v20200901.SystemDataResponse;
+    readonly systemData: outputs.web.v20200901.SystemDataInvokeResponse;
     /**
      * Test data used when testing via the Azure Portal.
      */

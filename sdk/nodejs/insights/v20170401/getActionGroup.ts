@@ -37,15 +37,15 @@ export interface GetActionGroupResult {
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    readonly automationRunbookReceivers?: outputs.insights.v20170401.AutomationRunbookReceiverResponse[];
+    readonly automationRunbookReceivers?: outputs.insights.v20170401.AutomationRunbookReceiverInvokeResponse[];
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    readonly azureAppPushReceivers?: outputs.insights.v20170401.AzureAppPushReceiverResponse[];
+    readonly azureAppPushReceivers?: outputs.insights.v20170401.AzureAppPushReceiverInvokeResponse[];
     /**
      * The list of email receivers that are part of this action group.
      */
-    readonly emailReceivers?: outputs.insights.v20170401.EmailReceiverResponse[];
+    readonly emailReceivers?: outputs.insights.v20170401.EmailReceiverInvokeResponse[];
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
@@ -61,7 +61,7 @@ export interface GetActionGroupResult {
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    readonly itsmReceivers?: outputs.insights.v20170401.ItsmReceiverResponse[];
+    readonly itsmReceivers?: outputs.insights.v20170401.ItsmReceiverInvokeResponse[];
     /**
      * Resource location
      */
@@ -73,7 +73,7 @@ export interface GetActionGroupResult {
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    readonly smsReceivers?: outputs.insights.v20170401.SmsReceiverResponse[];
+    readonly smsReceivers?: outputs.insights.v20170401.SmsReceiverInvokeResponse[];
     /**
      * Resource tags
      */
@@ -85,5 +85,5 @@ export interface GetActionGroupResult {
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    readonly webhookReceivers?: outputs.insights.v20170401.WebhookReceiverResponse[];
+    readonly webhookReceivers?: outputs.insights.v20170401.WebhookReceiverInvokeResponse[];
 }

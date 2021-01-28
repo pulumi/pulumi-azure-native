@@ -46,7 +46,7 @@ export interface GetTokenResult {
     /**
      * The credentials that can be used for authenticating the token.
      */
-    readonly credentials?: outputs.containerregistry.v20201101preview.TokenCredentialsPropertiesResponse;
+    readonly credentials?: outputs.containerregistry.v20201101preview.TokenCredentialsPropertiesInvokeResponse;
     /**
      * The resource ID.
      */
@@ -70,7 +70,7 @@ export interface GetTokenResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20201101preview.SystemDataInvokeResponse;
     /**
      * The type of the resource.
      */

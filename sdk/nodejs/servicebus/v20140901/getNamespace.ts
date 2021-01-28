@@ -69,7 +69,7 @@ export interface GetNamespaceResult {
     /**
      * SKU of the namespace.
      */
-    readonly sku?: outputs.servicebus.v20140901.SkuResponse;
+    readonly sku?: outputs.servicebus.v20140901.SkuInvokeResponse;
     /**
      * State of the namespace.
      */

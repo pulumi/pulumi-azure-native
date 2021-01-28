@@ -50,7 +50,7 @@ export interface GetGalleryResult {
     /**
      * Describes the gallery unique name.
      */
-    readonly identifier?: outputs.compute.v20200930.GalleryIdentifierResponse;
+    readonly identifier?: outputs.compute.v20200930.GalleryIdentifierInvokeResponse;
     /**
      * Resource location
      */
@@ -66,7 +66,7 @@ export interface GetGalleryResult {
     /**
      * Profile for gallery sharing to subscription or tenant
      */
-    readonly sharingProfile?: outputs.compute.v20200930.SharingProfileResponse;
+    readonly sharingProfile?: outputs.compute.v20200930.SharingProfileInvokeResponse;
     /**
      * Resource tags
      */

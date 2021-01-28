@@ -46,7 +46,7 @@ export interface GetMachineLearningComputeResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20191101.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20191101.IdentityInvokeResponse;
     /**
      * Specifies the location of the resource.
      */
@@ -58,11 +58,11 @@ export interface GetMachineLearningComputeResult {
     /**
      * Compute properties
      */
-    readonly properties: outputs.machinelearningservices.v20191101.AKSResponse | outputs.machinelearningservices.v20191101.AmlComputeResponse | outputs.machinelearningservices.v20191101.DataFactoryResponse | outputs.machinelearningservices.v20191101.DataLakeAnalyticsResponse | outputs.machinelearningservices.v20191101.DatabricksResponse | outputs.machinelearningservices.v20191101.HDInsightResponse | outputs.machinelearningservices.v20191101.VirtualMachineResponse;
+    readonly properties: outputs.machinelearningservices.v20191101.AKSInvokeResponse | outputs.machinelearningservices.v20191101.AmlComputeInvokeResponse | outputs.machinelearningservices.v20191101.DataFactoryInvokeResponse | outputs.machinelearningservices.v20191101.DataLakeAnalyticsInvokeResponse | outputs.machinelearningservices.v20191101.DatabricksInvokeResponse | outputs.machinelearningservices.v20191101.HDInsightInvokeResponse | outputs.machinelearningservices.v20191101.VirtualMachineInvokeResponse;
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20191101.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20191101.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

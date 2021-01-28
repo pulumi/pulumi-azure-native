@@ -54,11 +54,11 @@ export interface GetBlobInventoryPolicyResult {
     /**
      * The storage account blob inventory policy object. It is composed of policy rules.
      */
-    readonly policy: outputs.storage.v20200801preview.BlobInventoryPolicySchemaResponse;
+    readonly policy: outputs.storage.v20200801preview.BlobInventoryPolicySchemaInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.storage.v20200801preview.SystemDataResponse;
+    readonly systemData: outputs.storage.v20200801preview.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

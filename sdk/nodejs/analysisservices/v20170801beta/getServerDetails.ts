@@ -37,7 +37,7 @@ export interface GetServerDetailsResult {
     /**
      * A collection of AS server administrators
      */
-    readonly asAdministrators?: outputs.analysisservices.v20170801beta.ServerAdministratorsResponse;
+    readonly asAdministrators?: outputs.analysisservices.v20170801beta.ServerAdministratorsInvokeResponse;
     /**
      * The SAS container URI to the backup container.
      */
@@ -45,7 +45,7 @@ export interface GetServerDetailsResult {
     /**
      * The gateway details configured for the AS server.
      */
-    readonly gatewayDetails?: outputs.analysisservices.v20170801beta.GatewayDetailsResponse;
+    readonly gatewayDetails?: outputs.analysisservices.v20170801beta.GatewayDetailsInvokeResponse;
     /**
      * An identifier that represents the Analysis Services resource.
      */
@@ -53,7 +53,7 @@ export interface GetServerDetailsResult {
     /**
      * The firewall settings for the AS server.
      */
-    readonly ipV4FirewallSettings?: outputs.analysisservices.v20170801beta.IPv4FirewallSettingsResponse;
+    readonly ipV4FirewallSettings?: outputs.analysisservices.v20170801beta.IPv4FirewallSettingsInvokeResponse;
     /**
      * Location of the Analysis Services resource.
      */
@@ -85,7 +85,7 @@ export interface GetServerDetailsResult {
     /**
      * The SKU of the Analysis Services resource.
      */
-    readonly sku: outputs.analysisservices.v20170801beta.ResourceSkuResponse;
+    readonly sku: outputs.analysisservices.v20170801beta.ResourceSkuInvokeResponse;
     /**
      * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
      */

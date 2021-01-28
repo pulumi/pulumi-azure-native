@@ -54,7 +54,7 @@ export interface GetApiResult {
     /**
      * Api Version Set Contract details.
      */
-    readonly apiVersionSet?: outputs.apimanagement.v20170301.ApiVersionSetContractResponse;
+    readonly apiVersionSet?: outputs.apimanagement.v20170301.ApiVersionSetContractInvokeResponse;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
@@ -62,7 +62,7 @@ export interface GetApiResult {
     /**
      * Collection of authentication settings included into this API.
      */
-    readonly authenticationSettings?: outputs.apimanagement.v20170301.AuthenticationSettingsContractResponse;
+    readonly authenticationSettings?: outputs.apimanagement.v20170301.AuthenticationSettingsContractInvokeResponse;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -102,7 +102,7 @@ export interface GetApiResult {
     /**
      * Protocols over which API is made available.
      */
-    readonly subscriptionKeyParameterNames?: outputs.apimanagement.v20170301.SubscriptionKeyParameterNamesContractResponse;
+    readonly subscriptionKeyParameterNames?: outputs.apimanagement.v20170301.SubscriptionKeyParameterNamesContractInvokeResponse;
     /**
      * Resource type for API Management resource.
      */

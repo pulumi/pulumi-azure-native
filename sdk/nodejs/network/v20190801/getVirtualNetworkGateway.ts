@@ -41,11 +41,11 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * Virtual network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: outputs.network.v20190801.BgpSettingsResponse;
+    readonly bgpSettings?: outputs.network.v20190801.BgpSettingsInvokeResponse;
     /**
      * The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
      */
-    readonly customRoutes?: outputs.network.v20190801.AddressSpaceResponse;
+    readonly customRoutes?: outputs.network.v20190801.AddressSpaceInvokeResponse;
     /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
@@ -61,7 +61,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    readonly gatewayDefaultSite?: outputs.network.v20190801.SubResourceResponse;
+    readonly gatewayDefaultSite?: outputs.network.v20190801.SubResourceInvokeResponse;
     /**
      * The type of this virtual network gateway.
      */
@@ -77,7 +77,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * IP configurations for virtual network gateway.
      */
-    readonly ipConfigurations?: outputs.network.v20190801.VirtualNetworkGatewayIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20190801.VirtualNetworkGatewayIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -97,7 +97,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
      */
-    readonly sku?: outputs.network.v20190801.VirtualNetworkGatewaySkuResponse;
+    readonly sku?: outputs.network.v20190801.VirtualNetworkGatewaySkuInvokeResponse;
     /**
      * Resource tags.
      */
@@ -109,7 +109,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    readonly vpnClientConfiguration?: outputs.network.v20190801.VpnClientConfigurationResponse;
+    readonly vpnClientConfiguration?: outputs.network.v20190801.VpnClientConfigurationInvokeResponse;
     /**
      * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
      */

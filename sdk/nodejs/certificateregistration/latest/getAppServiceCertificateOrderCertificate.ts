@@ -70,7 +70,7 @@ export interface GetAppServiceCertificateOrderCertificateResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.certificateregistration.latest.SystemDataResponse;
+    readonly systemData: outputs.certificateregistration.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

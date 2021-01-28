@@ -47,7 +47,7 @@ export interface GetAFDOriginResult {
     /**
      * Resource reference to the Azure origin resource.
      */
-    readonly azureOrigin?: outputs.cdn.v20200901.ResourceReferenceResponse;
+    readonly azureOrigin?: outputs.cdn.v20200901.ResourceReferenceInvokeResponse;
     readonly deploymentStatus: string;
     /**
      * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
@@ -88,11 +88,11 @@ export interface GetAFDOriginResult {
     /**
      * The properties of the private link resource for private origin.
      */
-    readonly sharedPrivateLinkResource?: outputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesResponse[];
+    readonly sharedPrivateLinkResource?: outputs.cdn.v20200901.SharedPrivateLinkResourcePropertiesInvokeResponse[];
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

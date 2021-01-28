@@ -57,7 +57,7 @@ export interface GetRedisEnterpriseResult {
     /**
      * List of private endpoint connections associated with the specified RedisEnterprise cluster
      */
-    readonly privateEndpointConnections: outputs.cache.v20201001preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.cache.v20201001preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Current provisioning status of the cluster
      */
@@ -73,7 +73,7 @@ export interface GetRedisEnterpriseResult {
     /**
      * The SKU to create, which affects price, performance, and features.
      */
-    readonly sku: outputs.cache.v20201001preview.SkuResponse;
+    readonly sku: outputs.cache.v20201001preview.SkuInvokeResponse;
     /**
      * Resource tags.
      */

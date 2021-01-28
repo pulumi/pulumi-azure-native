@@ -91,9 +91,9 @@ export interface GetCustomImageResult {
     /**
      * The VHD from which the image is to be created.
      */
-    readonly vhd?: outputs.devtestlab.v20160515.CustomImagePropertiesCustomResponse;
+    readonly vhd?: outputs.devtestlab.v20160515.CustomImagePropertiesCustomInvokeResponse;
     /**
      * The virtual machine from which the image is to be created.
      */
-    readonly vm?: outputs.devtestlab.v20160515.CustomImagePropertiesFromVmResponse;
+    readonly vm?: outputs.devtestlab.v20160515.CustomImagePropertiesFromVmInvokeResponse;
 }

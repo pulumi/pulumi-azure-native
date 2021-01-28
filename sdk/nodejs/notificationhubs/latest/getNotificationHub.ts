@@ -42,23 +42,23 @@ export interface GetNotificationHubResult {
     /**
      * The AdmCredential of the created NotificationHub
      */
-    readonly admCredential?: outputs.notificationhubs.latest.AdmCredentialResponse;
+    readonly admCredential?: outputs.notificationhubs.latest.AdmCredentialInvokeResponse;
     /**
      * The ApnsCredential of the created NotificationHub
      */
-    readonly apnsCredential?: outputs.notificationhubs.latest.ApnsCredentialResponse;
+    readonly apnsCredential?: outputs.notificationhubs.latest.ApnsCredentialInvokeResponse;
     /**
      * The AuthorizationRules of the created NotificationHub
      */
-    readonly authorizationRules?: outputs.notificationhubs.latest.SharedAccessAuthorizationRulePropertiesResponse[];
+    readonly authorizationRules?: outputs.notificationhubs.latest.SharedAccessAuthorizationRulePropertiesInvokeResponse[];
     /**
      * The BaiduCredential of the created NotificationHub
      */
-    readonly baiduCredential?: outputs.notificationhubs.latest.BaiduCredentialResponse;
+    readonly baiduCredential?: outputs.notificationhubs.latest.BaiduCredentialInvokeResponse;
     /**
      * The GcmCredential of the created NotificationHub
      */
-    readonly gcmCredential?: outputs.notificationhubs.latest.GcmCredentialResponse;
+    readonly gcmCredential?: outputs.notificationhubs.latest.GcmCredentialInvokeResponse;
     /**
      * Resource Id
      */
@@ -70,7 +70,7 @@ export interface GetNotificationHubResult {
     /**
      * The MpnsCredential of the created NotificationHub
      */
-    readonly mpnsCredential?: outputs.notificationhubs.latest.MpnsCredentialResponse;
+    readonly mpnsCredential?: outputs.notificationhubs.latest.MpnsCredentialInvokeResponse;
     /**
      * Resource name
      */
@@ -82,7 +82,7 @@ export interface GetNotificationHubResult {
     /**
      * The sku of the created namespace
      */
-    readonly sku?: outputs.notificationhubs.latest.SkuResponse;
+    readonly sku?: outputs.notificationhubs.latest.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -94,5 +94,5 @@ export interface GetNotificationHubResult {
     /**
      * The WnsCredential of the created NotificationHub
      */
-    readonly wnsCredential?: outputs.notificationhubs.latest.WnsCredentialResponse;
+    readonly wnsCredential?: outputs.notificationhubs.latest.WnsCredentialInvokeResponse;
 }

@@ -67,7 +67,7 @@ export interface GetLoggerResult {
     /**
      * Sampling settings for an ApplicationInsights logger.
      */
-    readonly sampling?: outputs.apimanagement.v20170301.LoggerSamplingContractResponse;
+    readonly sampling?: outputs.apimanagement.v20170301.LoggerSamplingContractInvokeResponse;
     /**
      * Resource type for API Management resource.
      */

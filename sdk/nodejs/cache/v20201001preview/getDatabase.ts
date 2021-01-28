@@ -58,7 +58,7 @@ export interface GetDatabaseResult {
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    readonly modules?: outputs.cache.v20201001preview.ModuleResponse[];
+    readonly modules?: outputs.cache.v20201001preview.ModuleInvokeResponse[];
     /**
      * The name of the resource
      */

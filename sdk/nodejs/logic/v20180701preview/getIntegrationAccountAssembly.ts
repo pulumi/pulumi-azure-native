@@ -54,7 +54,7 @@ export interface GetIntegrationAccountAssemblyResult {
     /**
      * The assembly properties.
      */
-    readonly properties: outputs.logic.v20180701preview.AssemblyPropertiesResponse;
+    readonly properties: outputs.logic.v20180701preview.AssemblyPropertiesInvokeResponse;
     /**
      * The resource tags.
      */

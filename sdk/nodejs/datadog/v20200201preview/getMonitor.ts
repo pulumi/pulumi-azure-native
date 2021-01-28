@@ -35,7 +35,7 @@ export interface GetMonitorResult {
      * ARM id of the monitor resource.
      */
     readonly id: string;
-    readonly identity?: outputs.datadog.v20200201preview.IdentityPropertiesResponse;
+    readonly identity?: outputs.datadog.v20200201preview.IdentityPropertiesInvokeResponse;
     readonly location: string;
     /**
      * Name of the monitor resource.
@@ -44,8 +44,8 @@ export interface GetMonitorResult {
     /**
      * Properties specific to the monitor resource.
      */
-    readonly properties: outputs.datadog.v20200201preview.MonitorPropertiesResponse;
-    readonly sku?: outputs.datadog.v20200201preview.ResourceSkuResponse;
+    readonly properties: outputs.datadog.v20200201preview.MonitorPropertiesInvokeResponse;
+    readonly sku?: outputs.datadog.v20200201preview.ResourceSkuInvokeResponse;
     readonly tags?: {[key: string]: string};
     /**
      * The type of the monitor resource.

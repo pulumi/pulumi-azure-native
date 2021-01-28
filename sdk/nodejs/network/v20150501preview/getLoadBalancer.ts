@@ -37,7 +37,7 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets Pools of backend IP addresses
      */
-    readonly backendAddressPools?: outputs.network.v20150501preview.BackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.v20150501preview.BackendAddressPoolInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -45,7 +45,7 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets frontend IP addresses of the load balancer
      */
-    readonly frontendIPConfigurations?: outputs.network.v20150501preview.FrontendIpConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.v20150501preview.FrontendIpConfigurationInvokeResponse[];
     /**
      * Resource Id
      */
@@ -53,15 +53,15 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets inbound NAT pools
      */
-    readonly inboundNatPools?: outputs.network.v20150501preview.InboundNatPoolResponse[];
+    readonly inboundNatPools?: outputs.network.v20150501preview.InboundNatPoolInvokeResponse[];
     /**
      * Gets or sets list of inbound rules
      */
-    readonly inboundNatRules?: outputs.network.v20150501preview.InboundNatRuleResponse[];
+    readonly inboundNatRules?: outputs.network.v20150501preview.InboundNatRuleInvokeResponse[];
     /**
      * Gets or sets load balancing rules
      */
-    readonly loadBalancingRules?: outputs.network.v20150501preview.LoadBalancingRuleResponse[];
+    readonly loadBalancingRules?: outputs.network.v20150501preview.LoadBalancingRuleInvokeResponse[];
     /**
      * Resource location
      */
@@ -73,11 +73,11 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets outbound NAT rules
      */
-    readonly outboundNatRules?: outputs.network.v20150501preview.OutboundNatRuleResponse[];
+    readonly outboundNatRules?: outputs.network.v20150501preview.OutboundNatRuleInvokeResponse[];
     /**
      * Gets or sets list of Load balancer probes
      */
-    readonly probes?: outputs.network.v20150501preview.ProbeResponse[];
+    readonly probes?: outputs.network.v20150501preview.ProbeInvokeResponse[];
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

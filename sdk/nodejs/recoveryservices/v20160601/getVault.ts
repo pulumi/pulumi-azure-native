@@ -45,7 +45,7 @@ export interface GetVaultResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.recoveryservices.v20160601.IdentityDataResponse;
+    readonly identity?: outputs.recoveryservices.v20160601.IdentityDataInvokeResponse;
     /**
      * Resource location.
      */
@@ -57,11 +57,11 @@ export interface GetVaultResult {
     /**
      * Properties of the vault.
      */
-    readonly properties: outputs.recoveryservices.v20160601.VaultPropertiesResponse;
+    readonly properties: outputs.recoveryservices.v20160601.VaultPropertiesInvokeResponse;
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
-    readonly sku?: outputs.recoveryservices.v20160601.SkuResponse;
+    readonly sku?: outputs.recoveryservices.v20160601.SkuInvokeResponse;
     /**
      * Resource tags.
      */

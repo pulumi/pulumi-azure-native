@@ -37,7 +37,7 @@ export interface GetSnapshotResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.v20180930.CreationDataResponse;
+    readonly creationData: outputs.compute.v20180930.CreationDataInvokeResponse;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
@@ -45,7 +45,7 @@ export interface GetSnapshotResult {
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: outputs.compute.v20180930.EncryptionSettingsCollectionResponse;
+    readonly encryptionSettingsCollection?: outputs.compute.v20180930.EncryptionSettingsCollectionInvokeResponse;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -77,7 +77,7 @@ export interface GetSnapshotResult {
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
      */
-    readonly sku?: outputs.compute.v20180930.SnapshotSkuResponse;
+    readonly sku?: outputs.compute.v20180930.SnapshotSkuInvokeResponse;
     /**
      * Resource tags
      */

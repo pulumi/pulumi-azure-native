@@ -46,7 +46,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The list of circuit connections associated with Azure Private Peering for this circuit.
      */
-    readonly connections?: outputs.network.latest.ExpressRouteCircuitConnectionResponse[];
+    readonly connections?: outputs.network.latest.ExpressRouteCircuitConnectionInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -54,7 +54,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The ExpressRoute connection.
      */
-    readonly expressRouteConnection?: outputs.network.latest.ExpressRouteConnectionIdResponse;
+    readonly expressRouteConnection?: outputs.network.latest.ExpressRouteConnectionIdInvokeResponse;
     /**
      * The GatewayManager Etag.
      */
@@ -66,7 +66,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: outputs.network.latest.Ipv6ExpressRouteCircuitPeeringConfigResponse;
+    readonly ipv6PeeringConfig?: outputs.network.latest.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Who was the last to modify the peering.
      */
@@ -74,7 +74,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: outputs.network.latest.ExpressRouteCircuitPeeringConfigResponse;
+    readonly microsoftPeeringConfig?: outputs.network.latest.ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -86,7 +86,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The list of peered circuit connections associated with Azure Private Peering for this circuit.
      */
-    readonly peeredConnections: outputs.network.latest.PeerExpressRouteCircuitConnectionResponse[];
+    readonly peeredConnections: outputs.network.latest.PeerExpressRouteCircuitConnectionInvokeResponse[];
     /**
      * The peering type.
      */
@@ -106,7 +106,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The reference to the RouteFilter resource.
      */
-    readonly routeFilter?: outputs.network.latest.SubResourceResponse;
+    readonly routeFilter?: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * The secondary port.
      */
@@ -126,7 +126,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The peering stats of express route circuit.
      */
-    readonly stats?: outputs.network.latest.ExpressRouteCircuitStatsResponse;
+    readonly stats?: outputs.network.latest.ExpressRouteCircuitStatsInvokeResponse;
     /**
      * Type of the resource.
      */

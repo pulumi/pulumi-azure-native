@@ -45,7 +45,7 @@ export interface GetRoleAssignmentResult {
     /**
      * Role assignment properties.
      */
-    readonly properties: outputs.authorization.v20150701.RoleAssignmentPropertiesWithScopeResponse;
+    readonly properties: outputs.authorization.v20150701.RoleAssignmentPropertiesWithScopeInvokeResponse;
     /**
      * The role assignment type.
      */

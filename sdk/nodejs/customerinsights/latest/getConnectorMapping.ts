@@ -91,7 +91,7 @@ export interface GetConnectorMappingResult {
     /**
      * The properties of the mapping.
      */
-    readonly mappingProperties: outputs.customerinsights.latest.ConnectorMappingPropertiesResponse;
+    readonly mappingProperties: outputs.customerinsights.latest.ConnectorMappingPropertiesInvokeResponse;
     /**
      * Resource name.
      */

@@ -51,7 +51,7 @@ export interface GetServerEndpointResult {
     /**
      * Cloud tiering status. Only populated if cloud tiering is enabled.
      */
-    readonly cloudTieringStatus: outputs.storagesync.latest.ServerEndpointCloudTieringStatusResponse;
+    readonly cloudTieringStatus: outputs.storagesync.latest.ServerEndpointCloudTieringStatusInvokeResponse;
     /**
      * Friendly Name
      */
@@ -103,7 +103,7 @@ export interface GetServerEndpointResult {
     /**
      * Recall status. Only populated if cloud tiering is enabled.
      */
-    readonly recallStatus: outputs.storagesync.latest.ServerEndpointRecallStatusResponse;
+    readonly recallStatus: outputs.storagesync.latest.ServerEndpointRecallStatusInvokeResponse;
     /**
      * Server Local path.
      */
@@ -115,7 +115,7 @@ export interface GetServerEndpointResult {
     /**
      * Server Endpoint sync status
      */
-    readonly syncStatus: outputs.storagesync.latest.ServerEndpointSyncStatusResponse;
+    readonly syncStatus: outputs.storagesync.latest.ServerEndpointSyncStatusInvokeResponse;
     /**
      * Tier files older than days.
      */

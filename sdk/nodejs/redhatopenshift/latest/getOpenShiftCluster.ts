@@ -37,15 +37,15 @@ export interface GetOpenShiftClusterResult {
     /**
      * The cluster API server profile.
      */
-    readonly apiserverProfile?: outputs.redhatopenshift.latest.APIServerProfileResponse;
+    readonly apiserverProfile?: outputs.redhatopenshift.latest.APIServerProfileInvokeResponse;
     /**
      * The cluster profile.
      */
-    readonly clusterProfile?: outputs.redhatopenshift.latest.ClusterProfileResponse;
+    readonly clusterProfile?: outputs.redhatopenshift.latest.ClusterProfileInvokeResponse;
     /**
      * The console profile.
      */
-    readonly consoleProfile?: outputs.redhatopenshift.latest.ConsoleProfileResponse;
+    readonly consoleProfile?: outputs.redhatopenshift.latest.ConsoleProfileInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -53,7 +53,7 @@ export interface GetOpenShiftClusterResult {
     /**
      * The cluster ingress profiles.
      */
-    readonly ingressProfiles?: outputs.redhatopenshift.latest.IngressProfileResponse[];
+    readonly ingressProfiles?: outputs.redhatopenshift.latest.IngressProfileInvokeResponse[];
     /**
      * The geo-location where the resource lives
      */
@@ -61,7 +61,7 @@ export interface GetOpenShiftClusterResult {
     /**
      * The cluster master profile.
      */
-    readonly masterProfile?: outputs.redhatopenshift.latest.MasterProfileResponse;
+    readonly masterProfile?: outputs.redhatopenshift.latest.MasterProfileInvokeResponse;
     /**
      * The name of the resource
      */
@@ -69,7 +69,7 @@ export interface GetOpenShiftClusterResult {
     /**
      * The cluster network profile.
      */
-    readonly networkProfile?: outputs.redhatopenshift.latest.NetworkProfileResponse;
+    readonly networkProfile?: outputs.redhatopenshift.latest.NetworkProfileInvokeResponse;
     /**
      * The cluster provisioning state (immutable).
      */
@@ -77,7 +77,7 @@ export interface GetOpenShiftClusterResult {
     /**
      * The cluster service principal profile.
      */
-    readonly servicePrincipalProfile?: outputs.redhatopenshift.latest.ServicePrincipalProfileResponse;
+    readonly servicePrincipalProfile?: outputs.redhatopenshift.latest.ServicePrincipalProfileInvokeResponse;
     /**
      * Resource tags.
      */
@@ -89,5 +89,5 @@ export interface GetOpenShiftClusterResult {
     /**
      * The cluster worker profiles.
      */
-    readonly workerProfiles?: outputs.redhatopenshift.latest.WorkerProfileResponse[];
+    readonly workerProfiles?: outputs.redhatopenshift.latest.WorkerProfileInvokeResponse[];
 }

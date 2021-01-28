@@ -37,7 +37,7 @@ export interface GetContainerGroupResult {
     /**
      * The containers within the container group.
      */
-    readonly containers: outputs.containerinstance.v20180401.ContainerResponse[];
+    readonly containers: outputs.containerinstance.v20180401.ContainerInvokeResponse[];
     /**
      * The resource id.
      */
@@ -45,15 +45,15 @@ export interface GetContainerGroupResult {
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: outputs.containerinstance.v20180401.ImageRegistryCredentialResponse[];
+    readonly imageRegistryCredentials?: outputs.containerinstance.v20180401.ImageRegistryCredentialInvokeResponse[];
     /**
      * The instance view of the container group. Only valid in response.
      */
-    readonly instanceView: outputs.containerinstance.v20180401.ContainerGroupResponseInstanceView;
+    readonly instanceView: outputs.containerinstance.v20180401.ContainerGroupInvokeResponseInstanceView;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: outputs.containerinstance.v20180401.IpAddressResponse;
+    readonly ipAddress?: outputs.containerinstance.v20180401.IpAddressInvokeResponse;
     /**
      * The resource location.
      */
@@ -88,5 +88,5 @@ export interface GetContainerGroupResult {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: outputs.containerinstance.v20180401.VolumeResponse[];
+    readonly volumes?: outputs.containerinstance.v20180401.VolumeInvokeResponse[];
 }

@@ -53,7 +53,7 @@ export interface GetAttestationProviderResult {
     /**
      * List of private endpoint connections associated with the attestation provider.
      */
-    readonly privateEndpointConnections: outputs.attestation.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.attestation.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Status of attestation service.
      */
@@ -61,7 +61,7 @@ export interface GetAttestationProviderResult {
     /**
      * The system metadata relating to this resource
      */
-    readonly systemData: outputs.attestation.latest.SystemDataResponse;
+    readonly systemData: outputs.attestation.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

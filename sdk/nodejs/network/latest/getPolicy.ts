@@ -37,7 +37,7 @@ export interface GetPolicyResult {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: outputs.network.latest.CustomRuleListResponse;
+    readonly customRules?: outputs.network.latest.CustomRuleListInvokeResponse;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -45,7 +45,7 @@ export interface GetPolicyResult {
     /**
      * Describes Frontend Endpoints associated with this Web Application Firewall policy.
      */
-    readonly frontendEndpointLinks: outputs.network.latest.FrontendEndpointLinkResponse[];
+    readonly frontendEndpointLinks: outputs.network.latest.FrontendEndpointLinkInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -57,7 +57,7 @@ export interface GetPolicyResult {
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: outputs.network.latest.ManagedRuleSetListResponse;
+    readonly managedRules?: outputs.network.latest.ManagedRuleSetListInvokeResponse;
     /**
      * Resource name.
      */
@@ -65,7 +65,7 @@ export interface GetPolicyResult {
     /**
      * Describes settings for the policy.
      */
-    readonly policySettings?: outputs.network.latest.PolicySettingsResponse;
+    readonly policySettings?: outputs.network.latest.PolicySettingsInvokeResponse;
     /**
      * Provisioning state of the policy.
      */
@@ -74,15 +74,15 @@ export interface GetPolicyResult {
     /**
      * Describes Routing Rules associated with this Web Application Firewall policy.
      */
-    readonly routingRuleLinks: outputs.network.latest.RoutingRuleLinkResponse[];
+    readonly routingRuleLinks: outputs.network.latest.RoutingRuleLinkInvokeResponse[];
     /**
      * Describes Security Policy associated with this Web Application Firewall policy.
      */
-    readonly securityPolicyLinks: outputs.network.latest.SecurityPolicyLinkResponse[];
+    readonly securityPolicyLinks: outputs.network.latest.SecurityPolicyLinkInvokeResponse[];
     /**
      * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
      */
-    readonly sku?: outputs.network.latest.SkuResponse;
+    readonly sku?: outputs.network.latest.SkuInvokeResponse;
     /**
      * Resource tags.
      */

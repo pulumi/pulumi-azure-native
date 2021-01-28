@@ -42,7 +42,7 @@ export interface GetBatchAccountResult {
     /**
      * Contains information about the auto storage account associated with a Batch account.
      */
-    readonly autoStorage: outputs.batch.v20170101.AutoStoragePropertiesResponse;
+    readonly autoStorage: outputs.batch.v20170101.AutoStoragePropertiesInvokeResponse;
     readonly coreQuota: number;
     /**
      * The ID of the resource
@@ -51,7 +51,7 @@ export interface GetBatchAccountResult {
     /**
      * Identifies the Azure key vault associated with a Batch account.
      */
-    readonly keyVaultReference: outputs.batch.v20170101.KeyVaultReferenceResponse;
+    readonly keyVaultReference: outputs.batch.v20170101.KeyVaultReferenceInvokeResponse;
     /**
      * The location of the resource
      */

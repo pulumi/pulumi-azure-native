@@ -42,7 +42,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * Gets or default security rules of network security group
      */
-    readonly defaultSecurityRules?: outputs.network.v20160601.SecurityRuleResponse[];
+    readonly defaultSecurityRules?: outputs.network.v20160601.SecurityRuleInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -62,7 +62,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * Gets collection of references to Network Interfaces
      */
-    readonly networkInterfaces: outputs.network.v20160601.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.v20160601.NetworkInterfaceInvokeResponse[];
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -74,11 +74,11 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * Gets or sets security rules of network security group
      */
-    readonly securityRules?: outputs.network.v20160601.SecurityRuleResponse[];
+    readonly securityRules?: outputs.network.v20160601.SecurityRuleInvokeResponse[];
     /**
      * Gets collection of references to subnets
      */
-    readonly subnets: outputs.network.v20160601.SubnetResponse[];
+    readonly subnets: outputs.network.v20160601.SubnetInvokeResponse[];
     /**
      * Resource tags
      */

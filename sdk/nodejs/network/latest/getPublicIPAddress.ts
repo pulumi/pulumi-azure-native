@@ -42,11 +42,11 @@ export interface GetPublicIPAddressResult {
     /**
      * The DDoS protection custom policy associated with the public IP address.
      */
-    readonly ddosSettings?: outputs.network.latest.DdosSettingsResponse;
+    readonly ddosSettings?: outputs.network.latest.DdosSettingsInvokeResponse;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: outputs.network.latest.PublicIPAddressDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.latest.PublicIPAddressDnsSettingsInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -54,7 +54,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The extended location of the public ip address.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * Resource ID.
      */
@@ -70,11 +70,11 @@ export interface GetPublicIPAddressResult {
     /**
      * The IP configuration associated with the public IP address.
      */
-    readonly ipConfiguration: outputs.network.latest.IPConfigurationResponse;
+    readonly ipConfiguration: outputs.network.latest.IPConfigurationInvokeResponse;
     /**
      * The list of tags associated with the public IP address.
      */
-    readonly ipTags?: outputs.network.latest.IpTagResponse[];
+    readonly ipTags?: outputs.network.latest.IpTagInvokeResponse[];
     /**
      * Resource location.
      */
@@ -98,7 +98,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */
-    readonly publicIPPrefix?: outputs.network.latest.SubResourceResponse;
+    readonly publicIPPrefix?: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * The resource GUID property of the public IP address resource.
      */
@@ -106,7 +106,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The public IP address SKU.
      */
-    readonly sku?: outputs.network.latest.PublicIPAddressSkuResponse;
+    readonly sku?: outputs.network.latest.PublicIPAddressSkuInvokeResponse;
     /**
      * Resource tags.
      */

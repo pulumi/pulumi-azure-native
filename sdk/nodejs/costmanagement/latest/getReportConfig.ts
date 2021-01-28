@@ -32,11 +32,11 @@ export interface GetReportConfigResult {
     /**
      * Has definition for the report config.
      */
-    readonly definition: outputs.costmanagement.latest.ReportConfigDefinitionResponse;
+    readonly definition: outputs.costmanagement.latest.ReportConfigDefinitionInvokeResponse;
     /**
      * Has delivery information for the report config.
      */
-    readonly deliveryInfo: outputs.costmanagement.latest.ReportConfigDeliveryInfoResponse;
+    readonly deliveryInfo: outputs.costmanagement.latest.ReportConfigDeliveryInfoInvokeResponse;
     /**
      * The format of the report being delivered.
      */
@@ -52,7 +52,7 @@ export interface GetReportConfigResult {
     /**
      * Has schedule information for the report config.
      */
-    readonly schedule?: outputs.costmanagement.latest.ReportConfigScheduleResponse;
+    readonly schedule?: outputs.costmanagement.latest.ReportConfigScheduleInvokeResponse;
     /**
      * Resource tags.
      */

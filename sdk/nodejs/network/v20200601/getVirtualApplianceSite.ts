@@ -58,7 +58,7 @@ export interface GetVirtualApplianceSiteResult {
     /**
      * Office 365 Policy.
      */
-    readonly o365Policy?: outputs.network.v20200601.Office365PolicyPropertiesResponse;
+    readonly o365Policy?: outputs.network.v20200601.Office365PolicyPropertiesInvokeResponse;
     /**
      * The provisioning state of the resource.
      */

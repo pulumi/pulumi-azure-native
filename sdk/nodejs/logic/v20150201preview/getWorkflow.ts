@@ -50,7 +50,7 @@ export interface GetWorkflowResult {
     /**
      * Gets or sets the link to definition.
      */
-    readonly definitionLink?: outputs.logic.v20150201preview.ContentLinkResponse;
+    readonly definitionLink?: outputs.logic.v20150201preview.ContentLinkInvokeResponse;
     /**
      * Gets or sets the resource id.
      */
@@ -66,11 +66,11 @@ export interface GetWorkflowResult {
     /**
      * Gets or sets the parameters.
      */
-    readonly parameters?: {[key: string]: outputs.logic.v20150201preview.WorkflowParameterResponse};
+    readonly parameters?: {[key: string]: outputs.logic.v20150201preview.WorkflowParameterInvokeResponse};
     /**
      * Gets or sets the link to parameters.
      */
-    readonly parametersLink?: outputs.logic.v20150201preview.ContentLinkResponse;
+    readonly parametersLink?: outputs.logic.v20150201preview.ContentLinkInvokeResponse;
     /**
      * Gets the provisioning state.
      */
@@ -78,7 +78,7 @@ export interface GetWorkflowResult {
     /**
      * Gets or sets the sku.
      */
-    readonly sku?: outputs.logic.v20150201preview.SkuResponse;
+    readonly sku?: outputs.logic.v20150201preview.SkuInvokeResponse;
     /**
      * Gets or sets the state.
      */

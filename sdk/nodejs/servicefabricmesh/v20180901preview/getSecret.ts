@@ -49,7 +49,7 @@ export interface GetSecretResult {
     /**
      * Describes the properties of a secret resource.
      */
-    readonly properties: outputs.servicefabricmesh.v20180901preview.SecretResourcePropertiesResponse;
+    readonly properties: outputs.servicefabricmesh.v20180901preview.SecretResourcePropertiesInvokeResponse;
     /**
      * Resource tags.
      */

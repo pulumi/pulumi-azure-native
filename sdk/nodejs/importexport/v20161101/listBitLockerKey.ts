@@ -37,5 +37,5 @@ export interface ListBitLockerKeyResult {
     /**
      * drive status
      */
-    readonly value?: outputs.importexport.v20161101.DriveBitLockerKeyResponse[];
+    readonly value?: outputs.importexport.v20161101.DriveBitLockerKeyInvokeResponse[];
 }

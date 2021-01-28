@@ -49,7 +49,7 @@ export interface GetManagementGroupSubscriptionResult {
     /**
      * The ID of the parent management group.
      */
-    readonly parent?: outputs.management.latest.DescendantParentGroupInfoResponse;
+    readonly parent?: outputs.management.latest.DescendantParentGroupInfoInvokeResponse;
     /**
      * The state of the subscription.
      */

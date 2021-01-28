@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.machinelearningservices.latest.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.machinelearningservices.latest.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.machinelearningservices.latest.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.machinelearningservices.latest.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

@@ -58,11 +58,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Properties of the private endpoint object.
      */
-    readonly privateEndpoint?: outputs.keyvault.v20190901.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.keyvault.v20190901.PrivateEndpointInvokeResponse;
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.keyvault.v20190901.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.keyvault.v20190901.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * Provisioning state of the private endpoint connection.
      */

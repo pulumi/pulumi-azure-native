@@ -45,11 +45,11 @@ export interface GetRegistrationDefinitionResult {
     /**
      * Plan details for the managed services.
      */
-    readonly plan?: outputs.managedservices.v20190901.PlanResponse;
+    readonly plan?: outputs.managedservices.v20190901.PlanInvokeResponse;
     /**
      * Properties of a registration definition.
      */
-    readonly properties: outputs.managedservices.v20190901.RegistrationDefinitionPropertiesResponse;
+    readonly properties: outputs.managedservices.v20190901.RegistrationDefinitionPropertiesInvokeResponse;
     /**
      * Type of the resource.
      */

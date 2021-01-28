@@ -50,11 +50,11 @@ export interface GetConnectionMonitorResult {
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination?: outputs.network.latest.ConnectionMonitorDestinationResponse;
+    readonly destination?: outputs.network.latest.ConnectionMonitorDestinationInvokeResponse;
     /**
      * List of connection monitor endpoints.
      */
-    readonly endpoints?: outputs.network.latest.ConnectionMonitorEndpointResponse[];
+    readonly endpoints?: outputs.network.latest.ConnectionMonitorEndpointInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -86,7 +86,7 @@ export interface GetConnectionMonitorResult {
     /**
      * List of connection monitor outputs.
      */
-    readonly outputs?: outputs.network.latest.ConnectionMonitorOutputResponse[];
+    readonly outputs?: outputs.network.latest.ConnectionMonitorOutputInvokeResponse[];
     /**
      * The provisioning state of the connection monitor.
      */
@@ -94,7 +94,7 @@ export interface GetConnectionMonitorResult {
     /**
      * Describes the source of connection monitor.
      */
-    readonly source?: outputs.network.latest.ConnectionMonitorSourceResponse;
+    readonly source?: outputs.network.latest.ConnectionMonitorSourceInvokeResponse;
     /**
      * The date and time when the connection monitor was started.
      */
@@ -106,11 +106,11 @@ export interface GetConnectionMonitorResult {
     /**
      * List of connection monitor test configurations.
      */
-    readonly testConfigurations?: outputs.network.latest.ConnectionMonitorTestConfigurationResponse[];
+    readonly testConfigurations?: outputs.network.latest.ConnectionMonitorTestConfigurationInvokeResponse[];
     /**
      * List of connection monitor test groups.
      */
-    readonly testGroups?: outputs.network.latest.ConnectionMonitorTestGroupResponse[];
+    readonly testGroups?: outputs.network.latest.ConnectionMonitorTestGroupInvokeResponse[];
     /**
      * Connection monitor type.
      */

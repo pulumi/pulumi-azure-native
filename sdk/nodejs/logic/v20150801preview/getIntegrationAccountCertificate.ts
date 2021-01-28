@@ -51,7 +51,7 @@ export interface GetIntegrationAccountCertificateResult {
     /**
      * The key details in the key vault.
      */
-    readonly key?: outputs.logic.v20150801preview.KeyVaultKeyReferenceResponse;
+    readonly key?: outputs.logic.v20150801preview.KeyVaultKeyReferenceInvokeResponse;
     /**
      * The resource location.
      */

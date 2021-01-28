@@ -44,7 +44,7 @@ export interface GetClusterResult {
     /**
      * This element contains all the errors encountered by various compute nodes during node setup.
      */
-    readonly errors?: outputs.batchai.v20170901preview.BatchAIErrorResponse[];
+    readonly errors?: outputs.batchai.v20170901preview.BatchAIErrorInvokeResponse[];
     /**
      * The ID of the resource
      */
@@ -60,11 +60,11 @@ export interface GetClusterResult {
     /**
      * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */
-    readonly nodeSetup?: outputs.batchai.v20170901preview.NodeSetupResponse;
+    readonly nodeSetup?: outputs.batchai.v20170901preview.NodeSetupInvokeResponse;
     /**
      * Counts of various compute node states on the cluster.
      */
-    readonly nodeStateCounts: outputs.batchai.v20170901preview.NodeStateCountsResponse;
+    readonly nodeStateCounts: outputs.batchai.v20170901preview.NodeStateCountsInvokeResponse;
     /**
      * Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
      */
@@ -73,11 +73,11 @@ export interface GetClusterResult {
     /**
      * At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
      */
-    readonly scaleSettings?: outputs.batchai.v20170901preview.ScaleSettingsResponse;
+    readonly scaleSettings?: outputs.batchai.v20170901preview.ScaleSettingsInvokeResponse;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly subnet?: outputs.batchai.v20170901preview.ResourceIdResponse;
+    readonly subnet?: outputs.batchai.v20170901preview.ResourceIdInvokeResponse;
     /**
      * The tags of the resource
      */
@@ -89,11 +89,11 @@ export interface GetClusterResult {
     /**
      * Settings for user account that gets created on each on the nodes of a cluster.
      */
-    readonly userAccountSettings?: outputs.batchai.v20170901preview.UserAccountSettingsResponse;
+    readonly userAccountSettings?: outputs.batchai.v20170901preview.UserAccountSettingsInvokeResponse;
     /**
      * Settings for OS image.
      */
-    readonly virtualMachineConfiguration?: outputs.batchai.v20170901preview.VirtualMachineConfigurationResponse;
+    readonly virtualMachineConfiguration?: outputs.batchai.v20170901preview.VirtualMachineConfigurationInvokeResponse;
     /**
      * The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
      */

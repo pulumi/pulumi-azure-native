@@ -41,7 +41,7 @@ export interface GetJobResult {
     /**
      * Specifies the job identity details
      */
-    readonly identity?: outputs.importexport.v20161101.IdentityDetailsResponse;
+    readonly identity?: outputs.importexport.v20161101.IdentityDetailsInvokeResponse;
     /**
      * Specifies the Azure location where the job is created.
      */
@@ -53,11 +53,11 @@ export interface GetJobResult {
     /**
      * Specifies the job properties
      */
-    readonly properties: outputs.importexport.v20161101.JobDetailsResponse;
+    readonly properties: outputs.importexport.v20161101.JobDetailsInvokeResponse;
     /**
      * SystemData of ImportExport Jobs.
      */
-    readonly systemData: outputs.importexport.v20161101.SystemDataResponse;
+    readonly systemData: outputs.importexport.v20161101.SystemDataInvokeResponse;
     /**
      * Specifies the tags that are assigned to the job.
      */

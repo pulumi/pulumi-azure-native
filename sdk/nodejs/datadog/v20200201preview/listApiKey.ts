@@ -41,5 +41,5 @@ export interface ListApiKeyResult {
     /**
      * Results of a list operation.
      */
-    readonly value?: outputs.datadog.v20200201preview.DatadogApiKeyResponse[];
+    readonly value?: outputs.datadog.v20200201preview.DatadogApiKeyInvokeResponse[];
 }

@@ -42,7 +42,7 @@ export interface GetAssetEncryptionKeyResult {
     /**
      * Asset File encryption metadata.
      */
-    readonly assetFileEncryptionMetadata?: outputs.media.latest.AssetFileEncryptionMetadataResponse[];
+    readonly assetFileEncryptionMetadata?: outputs.media.latest.AssetFileEncryptionMetadataInvokeResponse[];
     /**
      * The Asset File storage encryption key.
      */

@@ -79,7 +79,7 @@ export interface GetSyncGroupResult {
     /**
      * Sync schema of the sync group.
      */
-    readonly schema?: outputs.sql.v20190601preview.SyncGroupSchemaResponse;
+    readonly schema?: outputs.sql.v20190601preview.SyncGroupSchemaInvokeResponse;
     /**
      * ARM resource id of the sync database in the sync group.
      */

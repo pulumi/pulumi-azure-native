@@ -37,7 +37,7 @@ export interface GetPipelineResult {
     /**
      * Configuration used to bootstrap the Pipeline.
      */
-    readonly bootstrapConfiguration: outputs.devops.v20190701preview.BootstrapConfigurationResponse;
+    readonly bootstrapConfiguration: outputs.devops.v20190701preview.BootstrapConfigurationInvokeResponse;
     /**
      * Resource Id
      */
@@ -53,7 +53,7 @@ export interface GetPipelineResult {
     /**
      * Reference to the Azure DevOps Organization containing the Pipeline.
      */
-    readonly organization: outputs.devops.v20190701preview.OrganizationReferenceResponse;
+    readonly organization: outputs.devops.v20190701preview.OrganizationReferenceInvokeResponse;
     /**
      * Unique identifier of the Azure Pipeline within the Azure DevOps Project.
      */
@@ -61,7 +61,7 @@ export interface GetPipelineResult {
     /**
      * Reference to the Azure DevOps Project containing the Pipeline.
      */
-    readonly project: outputs.devops.v20190701preview.ProjectReferenceResponse;
+    readonly project: outputs.devops.v20190701preview.ProjectReferenceInvokeResponse;
     /**
      * Resource Tags
      */

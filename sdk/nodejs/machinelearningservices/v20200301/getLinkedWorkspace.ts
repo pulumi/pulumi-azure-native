@@ -50,7 +50,7 @@ export interface GetLinkedWorkspaceResult {
     /**
      * LinkedWorkspace specific properties.
      */
-    readonly properties: outputs.machinelearningservices.v20200301.LinkedWorkspacePropsResponse;
+    readonly properties: outputs.machinelearningservices.v20200301.LinkedWorkspacePropsInvokeResponse;
     /**
      * Resource type of linked workspace.
      */

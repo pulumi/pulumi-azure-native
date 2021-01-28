@@ -41,11 +41,11 @@ export interface GetCacheResult {
     /**
      * Specifies encryption settings of the cache.
      */
-    readonly encryptionSettings?: outputs.storagecache.v20200301.CacheEncryptionSettingsResponse;
+    readonly encryptionSettings?: outputs.storagecache.v20200301.CacheEncryptionSettingsInvokeResponse;
     /**
      * Health of the Cache.
      */
-    readonly health: outputs.storagecache.v20200301.CacheHealthResponse;
+    readonly health: outputs.storagecache.v20200301.CacheHealthInvokeResponse;
     /**
      * Resource ID of the Cache.
      */
@@ -53,7 +53,7 @@ export interface GetCacheResult {
     /**
      * The identity of the cache, if configured.
      */
-    readonly identity?: outputs.storagecache.v20200301.CacheIdentityResponse;
+    readonly identity?: outputs.storagecache.v20200301.CacheIdentityInvokeResponse;
     /**
      * Region name string.
      */
@@ -69,7 +69,7 @@ export interface GetCacheResult {
     /**
      * Specifies network settings of the cache.
      */
-    readonly networkSettings?: outputs.storagecache.v20200301.CacheNetworkSettingsResponse;
+    readonly networkSettings?: outputs.storagecache.v20200301.CacheNetworkSettingsInvokeResponse;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -77,11 +77,11 @@ export interface GetCacheResult {
     /**
      * Specifies security settings of the cache.
      */
-    readonly securitySettings?: outputs.storagecache.v20200301.CacheSecuritySettingsResponse;
+    readonly securitySettings?: outputs.storagecache.v20200301.CacheSecuritySettingsInvokeResponse;
     /**
      * SKU for the Cache.
      */
-    readonly sku?: outputs.storagecache.v20200301.CacheResponseSku;
+    readonly sku?: outputs.storagecache.v20200301.CacheInvokeResponseSku;
     /**
      * Subnet used for the Cache.
      */
@@ -89,7 +89,7 @@ export interface GetCacheResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.storagecache.v20200301.SystemDataResponse;
+    readonly systemData: outputs.storagecache.v20200301.SystemDataInvokeResponse;
     /**
      * ARM tags as name/value pairs.
      */
@@ -101,5 +101,5 @@ export interface GetCacheResult {
     /**
      * Upgrade status of the Cache.
      */
-    readonly upgradeStatus?: outputs.storagecache.v20200301.CacheUpgradeStatusResponse;
+    readonly upgradeStatus?: outputs.storagecache.v20200301.CacheUpgradeStatusInvokeResponse;
 }

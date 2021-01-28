@@ -42,19 +42,19 @@ export interface GetVirtualNetworkResult {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    readonly addressSpace?: outputs.network.v20191201.AddressSpaceResponse;
+    readonly addressSpace?: outputs.network.v20191201.AddressSpaceInvokeResponse;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
-    readonly bgpCommunities?: outputs.network.v20191201.VirtualNetworkBgpCommunitiesResponse;
+    readonly bgpCommunities?: outputs.network.v20191201.VirtualNetworkBgpCommunitiesInvokeResponse;
     /**
      * The DDoS protection plan associated with the virtual network.
      */
-    readonly ddosProtectionPlan?: outputs.network.v20191201.SubResourceResponse;
+    readonly ddosProtectionPlan?: outputs.network.v20191201.SubResourceInvokeResponse;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    readonly dhcpOptions?: outputs.network.v20191201.DhcpOptionsResponse;
+    readonly dhcpOptions?: outputs.network.v20191201.DhcpOptionsInvokeResponse;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
      */
@@ -90,7 +90,7 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of subnets in a Virtual Network.
      */
-    readonly subnets?: outputs.network.v20191201.SubnetResponse[];
+    readonly subnets?: outputs.network.v20191201.SubnetInvokeResponse[];
     /**
      * Resource tags.
      */
@@ -102,5 +102,5 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: outputs.network.v20191201.VirtualNetworkPeeringResponse[];
+    readonly virtualNetworkPeerings?: outputs.network.v20191201.VirtualNetworkPeeringInvokeResponse[];
 }

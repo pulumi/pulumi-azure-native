@@ -53,7 +53,7 @@ export interface GetMasterSiteResult {
     /**
      * Nested properties of Master site.
      */
-    readonly properties: outputs.offazure.v20200707.MasterSitePropertiesResponse;
+    readonly properties: outputs.offazure.v20200707.MasterSitePropertiesInvokeResponse;
     /**
      * Type of resource. Type = Microsoft.OffAzure/MasterSites.
      */

@@ -54,7 +54,7 @@ export interface GetPrivateDnsZoneGroupResult {
     /**
      * A collection of private dns zone configurations of the private dns zone group.
      */
-    readonly privateDnsZoneConfigs?: outputs.network.latest.PrivateDnsZoneConfigResponse[];
+    readonly privateDnsZoneConfigs?: outputs.network.latest.PrivateDnsZoneConfigInvokeResponse[];
     /**
      * The provisioning state of the private dns zone group resource.
      */

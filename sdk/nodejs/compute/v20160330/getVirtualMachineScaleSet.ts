@@ -41,7 +41,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: outputs.compute.v20160330.VirtualMachineScaleSetIdentityResponse;
+    readonly identity?: outputs.compute.v20160330.VirtualMachineScaleSetIdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -61,7 +61,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: outputs.compute.v20160330.SkuResponse;
+    readonly sku?: outputs.compute.v20160330.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -73,9 +73,9 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: outputs.compute.v20160330.UpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.compute.v20160330.UpgradePolicyInvokeResponse;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: outputs.compute.v20160330.VirtualMachineScaleSetVMProfileResponse;
+    readonly virtualMachineProfile?: outputs.compute.v20160330.VirtualMachineScaleSetVMProfileInvokeResponse;
 }

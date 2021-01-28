@@ -50,7 +50,7 @@ export interface GetUserResult {
     /**
      * Collection of groups user is part of.
      */
-    readonly groups: outputs.apimanagement.latest.GroupContractPropertiesResponse[];
+    readonly groups: outputs.apimanagement.latest.GroupContractPropertiesInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -58,7 +58,7 @@ export interface GetUserResult {
     /**
      * Collection of user identities.
      */
-    readonly identities?: outputs.apimanagement.latest.UserIdentityContractResponse[];
+    readonly identities?: outputs.apimanagement.latest.UserIdentityContractInvokeResponse[];
     /**
      * Last name.
      */

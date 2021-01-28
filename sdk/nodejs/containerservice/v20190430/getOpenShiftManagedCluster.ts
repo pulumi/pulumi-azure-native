@@ -37,11 +37,11 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.v20190430.OpenShiftManagedClusterAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.v20190430.OpenShiftManagedClusterAgentPoolProfileInvokeResponse[];
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: outputs.containerservice.v20190430.OpenShiftManagedClusterAuthProfileResponse;
+    readonly authProfile?: outputs.containerservice.v20190430.OpenShiftManagedClusterAuthProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -61,7 +61,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: outputs.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfileResponse;
+    readonly masterPoolProfile?: outputs.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfileInvokeResponse;
     /**
      * Resource name
      */
@@ -69,7 +69,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: outputs.containerservice.v20190430.NetworkProfileResponse;
+    readonly networkProfile?: outputs.containerservice.v20190430.NetworkProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -77,7 +77,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: outputs.containerservice.v20190430.PurchasePlanResponse;
+    readonly plan?: outputs.containerservice.v20190430.PurchasePlanInvokeResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -89,7 +89,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: outputs.containerservice.v20190430.OpenShiftRouterProfileResponse[];
+    readonly routerProfiles?: outputs.containerservice.v20190430.OpenShiftRouterProfileInvokeResponse[];
     /**
      * Resource tags
      */

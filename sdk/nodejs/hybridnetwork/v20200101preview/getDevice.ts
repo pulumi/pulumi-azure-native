@@ -37,7 +37,7 @@ export interface GetDeviceResult {
     /**
      * The reference to the Azure stack edge device.
      */
-    readonly azureStackEdge?: outputs.hybridnetwork.v20200101preview.SubResourceResponse;
+    readonly azureStackEdge?: outputs.hybridnetwork.v20200101preview.SubResourceInvokeResponse;
     /**
      * The type of the device.
      */
@@ -57,7 +57,7 @@ export interface GetDeviceResult {
     /**
      * The list of network functions deployed on the device.
      */
-    readonly networkFunctions: outputs.hybridnetwork.v20200101preview.SubResourceResponse[];
+    readonly networkFunctions: outputs.hybridnetwork.v20200101preview.SubResourceInvokeResponse[];
     /**
      * The provisioning state of the device resource.
      */

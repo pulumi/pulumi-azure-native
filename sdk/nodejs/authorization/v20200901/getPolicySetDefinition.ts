@@ -52,15 +52,15 @@ export interface GetPolicySetDefinitionResult {
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: {[key: string]: outputs.authorization.v20200901.ParameterDefinitionsValueResponse};
+    readonly parameters?: {[key: string]: outputs.authorization.v20200901.ParameterDefinitionsValueInvokeResponse};
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */
-    readonly policyDefinitionGroups?: outputs.authorization.v20200901.PolicyDefinitionGroupResponse[];
+    readonly policyDefinitionGroups?: outputs.authorization.v20200901.PolicyDefinitionGroupInvokeResponse[];
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: outputs.authorization.v20200901.PolicyDefinitionReferenceResponse[];
+    readonly policyDefinitions: outputs.authorization.v20200901.PolicyDefinitionReferenceInvokeResponse[];
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */

@@ -57,7 +57,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: outputs.compute.v20150615.SkuResponse;
+    readonly sku?: outputs.compute.v20150615.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -69,9 +69,9 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: outputs.compute.v20150615.UpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.compute.v20150615.UpgradePolicyInvokeResponse;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: outputs.compute.v20150615.VirtualMachineScaleSetVMProfileResponse;
+    readonly virtualMachineProfile?: outputs.compute.v20150615.VirtualMachineScaleSetVMProfileInvokeResponse;
 }

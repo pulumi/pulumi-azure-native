@@ -65,7 +65,7 @@ export interface GetGraphQueryResult {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.resourcegraph.v20200401preview.SystemDataResponse;
+    readonly systemData: outputs.resourcegraph.v20200401preview.SystemDataInvokeResponse;
     /**
      * Resource tags
      */

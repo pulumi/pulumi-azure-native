@@ -52,7 +52,7 @@ export interface GetJobStepResult {
     /**
      * The action payload of the job step.
      */
-    readonly action: outputs.sql.v20200801preview.JobStepActionResponse;
+    readonly action: outputs.sql.v20200801preview.JobStepActionInvokeResponse;
     /**
      * The resource ID of the job credential that will be used to connect to the targets.
      */
@@ -60,7 +60,7 @@ export interface GetJobStepResult {
     /**
      * Execution options for the job step.
      */
-    readonly executionOptions?: outputs.sql.v20200801preview.JobStepExecutionOptionsResponse;
+    readonly executionOptions?: outputs.sql.v20200801preview.JobStepExecutionOptionsInvokeResponse;
     /**
      * Resource ID.
      */
@@ -72,7 +72,7 @@ export interface GetJobStepResult {
     /**
      * Output destination properties of the job step.
      */
-    readonly output?: outputs.sql.v20200801preview.JobStepOutputResponse;
+    readonly output?: outputs.sql.v20200801preview.JobStepOutputInvokeResponse;
     /**
      * The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
      */

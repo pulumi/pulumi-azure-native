@@ -41,15 +41,15 @@ export interface GetVirtualMachineResult {
     /**
      * The list of Virtual Disks' Controllers
      */
-    readonly controllers: outputs.vmwarecloudsimple.v20190401.VirtualDiskControllerResponse[];
+    readonly controllers: outputs.vmwarecloudsimple.v20190401.VirtualDiskControllerInvokeResponse[];
     /**
      * Virtual machine properties
      */
-    readonly customization?: outputs.vmwarecloudsimple.v20190401.GuestOSCustomizationResponse;
+    readonly customization?: outputs.vmwarecloudsimple.v20190401.GuestOSCustomizationInvokeResponse;
     /**
      * The list of Virtual Disks
      */
-    readonly disks?: outputs.vmwarecloudsimple.v20190401.VirtualDiskResponse[];
+    readonly disks?: outputs.vmwarecloudsimple.v20190401.VirtualDiskInvokeResponse[];
     /**
      * The DNS name of Virtual Machine in VCenter
      */
@@ -85,7 +85,7 @@ export interface GetVirtualMachineResult {
     /**
      * The list of Virtual NICs
      */
-    readonly nics?: outputs.vmwarecloudsimple.v20190401.VirtualNicResponse[];
+    readonly nics?: outputs.vmwarecloudsimple.v20190401.VirtualNicInvokeResponse[];
     /**
      * The number of CPU cores
      */
@@ -109,7 +109,7 @@ export interface GetVirtualMachineResult {
     /**
      * Virtual Machines Resource Pool
      */
-    readonly resourcePool?: outputs.vmwarecloudsimple.v20190401.ResourcePoolResponse;
+    readonly resourcePool?: outputs.vmwarecloudsimple.v20190401.ResourcePoolInvokeResponse;
     /**
      * The status of Virtual machine
      */

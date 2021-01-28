@@ -53,7 +53,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbformariadb.v20180601preview.ResourceIdentityResponse;
+    readonly identity?: outputs.dbformariadb.v20180601preview.ResourceIdentityInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -77,7 +77,7 @@ export interface GetServerResult {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: outputs.dbformariadb.v20180601preview.SkuResponse;
+    readonly sku?: outputs.dbformariadb.v20180601preview.SkuInvokeResponse;
     /**
      * Enable ssl enforcement or not when connect to server.
      */
@@ -85,7 +85,7 @@ export interface GetServerResult {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: outputs.dbformariadb.v20180601preview.StorageProfileResponse;
+    readonly storageProfile?: outputs.dbformariadb.v20180601preview.StorageProfileInvokeResponse;
     /**
      * Resource tags.
      */

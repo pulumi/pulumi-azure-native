@@ -46,11 +46,11 @@ export interface GetShareResult {
     /**
      * Azure container mapping for the share.
      */
-    readonly azureContainerInfo?: outputs.databoxedge.v20190801.AzureContainerInfoResponse;
+    readonly azureContainerInfo?: outputs.databoxedge.v20190801.AzureContainerInfoInvokeResponse;
     /**
      * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
      */
-    readonly clientAccessRights?: outputs.databoxedge.v20190801.ClientAccessRightResponse[];
+    readonly clientAccessRights?: outputs.databoxedge.v20190801.ClientAccessRightInvokeResponse[];
     /**
      * Data policy of the share.
      */
@@ -74,11 +74,11 @@ export interface GetShareResult {
     /**
      * Details of the refresh job on this share.
      */
-    readonly refreshDetails?: outputs.databoxedge.v20190801.RefreshDetailsResponse;
+    readonly refreshDetails?: outputs.databoxedge.v20190801.RefreshDetailsInvokeResponse;
     /**
      * Share mount point to the role.
      */
-    readonly shareMappings: outputs.databoxedge.v20190801.MountPointMapResponse[];
+    readonly shareMappings: outputs.databoxedge.v20190801.MountPointMapInvokeResponse[];
     /**
      * Current status of the share.
      */
@@ -90,5 +90,5 @@ export interface GetShareResult {
     /**
      * Mapping of users and corresponding access rights on the share (required for SMB protocol).
      */
-    readonly userAccessRights?: outputs.databoxedge.v20190801.UserAccessRightResponse[];
+    readonly userAccessRights?: outputs.databoxedge.v20190801.UserAccessRightInvokeResponse[];
 }

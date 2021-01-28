@@ -141,7 +141,7 @@ export interface GetDatabaseResult {
     /**
      * The recommended indices for this database.
      */
-    readonly recommendedIndex: outputs.sql.v20140401.RecommendedIndexResponse[];
+    readonly recommendedIndex: outputs.sql.v20140401.RecommendedIndexInvokeResponse[];
     /**
      * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
      */
@@ -181,7 +181,7 @@ export interface GetDatabaseResult {
     /**
      * The list of service tier advisors for this database. Expanded property
      */
-    readonly serviceTierAdvisors: outputs.sql.v20140401.ServiceTierAdvisorResponse[];
+    readonly serviceTierAdvisors: outputs.sql.v20140401.ServiceTierAdvisorInvokeResponse[];
     /**
      * Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
      */
@@ -201,7 +201,7 @@ export interface GetDatabaseResult {
     /**
      * The transparent data encryption info for this database.
      */
-    readonly transparentDataEncryption: outputs.sql.v20140401.TransparentDataEncryptionResponse[];
+    readonly transparentDataEncryption: outputs.sql.v20140401.TransparentDataEncryptionInvokeResponse[];
     /**
      * Resource type.
      */

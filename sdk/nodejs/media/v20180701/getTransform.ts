@@ -62,7 +62,7 @@ export interface GetTransformResult {
     /**
      * An array of one or more TransformOutputs that the Transform should generate.
      */
-    readonly outputs: outputs.media.v20180701.TransformOutputResponse[];
+    readonly outputs: outputs.media.v20180701.TransformOutputInvokeResponse[];
     /**
      * The type of the resource.
      */

@@ -49,7 +49,7 @@ export interface GetPrivateLinkScopeResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections: outputs.hybridcompute.v20200815preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.hybridcompute.v20200815preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
      */

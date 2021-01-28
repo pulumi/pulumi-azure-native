@@ -42,7 +42,7 @@ export interface GetBackendResult {
     /**
      * Backend Credentials Contract Properties
      */
-    readonly credentials?: outputs.apimanagement.v20180601preview.BackendCredentialsContractResponse;
+    readonly credentials?: outputs.apimanagement.v20180601preview.BackendCredentialsContractInvokeResponse;
     /**
      * Backend Description.
      */
@@ -58,7 +58,7 @@ export interface GetBackendResult {
     /**
      * Backend Properties contract
      */
-    readonly properties: outputs.apimanagement.v20180601preview.BackendPropertiesResponse;
+    readonly properties: outputs.apimanagement.v20180601preview.BackendPropertiesInvokeResponse;
     /**
      * Backend communication protocol.
      */
@@ -66,7 +66,7 @@ export interface GetBackendResult {
     /**
      * Backend Proxy Contract Properties
      */
-    readonly proxy?: outputs.apimanagement.v20180601preview.BackendProxyContractResponse;
+    readonly proxy?: outputs.apimanagement.v20180601preview.BackendProxyContractInvokeResponse;
     /**
      * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
      */
@@ -78,7 +78,7 @@ export interface GetBackendResult {
     /**
      * Backend TLS Properties
      */
-    readonly tls?: outputs.apimanagement.v20180601preview.BackendTlsPropertiesResponse;
+    readonly tls?: outputs.apimanagement.v20180601preview.BackendTlsPropertiesInvokeResponse;
     /**
      * Resource type for API Management resource.
      */

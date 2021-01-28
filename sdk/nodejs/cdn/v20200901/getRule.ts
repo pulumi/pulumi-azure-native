@@ -47,11 +47,11 @@ export interface GetRuleResult {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: outputs.cdn.v20200901.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.v20200901.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.v20200901.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.v20200901.OriginGroupOverrideActionResponse | outputs.cdn.v20200901.UrlRedirectActionResponse | outputs.cdn.v20200901.UrlRewriteActionResponse | outputs.cdn.v20200901.UrlSigningActionResponse[];
+    readonly actions: outputs.cdn.v20200901.DeliveryRuleCacheExpirationActionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleCacheKeyQueryStringActionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderActionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleResponseHeaderActionInvokeResponse | outputs.cdn.v20200901.OriginGroupOverrideActionInvokeResponse | outputs.cdn.v20200901.UrlRedirectActionInvokeResponse | outputs.cdn.v20200901.UrlRewriteActionInvokeResponse | outputs.cdn.v20200901.UrlSigningActionInvokeResponse[];
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: outputs.cdn.v20200901.DeliveryRuleCookiesConditionResponse | outputs.cdn.v20200901.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.v20200901.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.v20200901.DeliveryRulePostArgsConditionResponse | outputs.cdn.v20200901.DeliveryRuleQueryStringConditionResponse | outputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestUriConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlPathConditionResponse[];
+    readonly conditions?: outputs.cdn.v20200901.DeliveryRuleCookiesConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleHttpVersionConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleIsDeviceConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRulePostArgsConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleQueryStringConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRequestBodyConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRequestMethodConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleRequestUriConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionInvokeResponse | outputs.cdn.v20200901.DeliveryRuleUrlPathConditionInvokeResponse[];
     readonly deploymentStatus: string;
     /**
      * Resource ID.
@@ -76,7 +76,7 @@ export interface GetRuleResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

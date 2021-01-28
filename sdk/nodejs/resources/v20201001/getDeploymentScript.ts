@@ -41,7 +41,7 @@ export interface GetDeploymentScriptResult {
     /**
      * Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
-    readonly identity?: outputs.resources.v20201001.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.resources.v20201001.ManagedServiceIdentityInvokeResponse;
     /**
      * Type of the script.
      */
@@ -57,7 +57,7 @@ export interface GetDeploymentScriptResult {
     /**
      * The system metadata related to this resource.
      */
-    readonly systemData: outputs.resources.v20201001.SystemDataResponse;
+    readonly systemData: outputs.resources.v20201001.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

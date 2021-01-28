@@ -54,7 +54,7 @@ export interface GetNotificationHubResult {
     /**
      * Gets or sets properties of the NotificationHub.
      */
-    readonly properties: outputs.notificationhubs.v20140901.NotificationHubPropertiesResponse;
+    readonly properties: outputs.notificationhubs.v20140901.NotificationHubPropertiesInvokeResponse;
     /**
      * Gets or sets tags of the NotificationHub.
      */

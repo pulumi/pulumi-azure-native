@@ -49,11 +49,11 @@ export interface GetIntegrationServiceEnvironmentResult {
     /**
      * The integration service environment properties.
      */
-    readonly properties: outputs.logic.v20190501.IntegrationServiceEnvironmentPropertiesResponse;
+    readonly properties: outputs.logic.v20190501.IntegrationServiceEnvironmentPropertiesInvokeResponse;
     /**
      * The sku.
      */
-    readonly sku?: outputs.logic.v20190501.IntegrationServiceEnvironmentSkuResponse;
+    readonly sku?: outputs.logic.v20190501.IntegrationServiceEnvironmentSkuInvokeResponse;
     /**
      * The resource tags.
      */

@@ -54,7 +54,7 @@ export interface GetCreatorResult {
     /**
      * The Creator resource properties.
      */
-    readonly properties: outputs.maps.v20200201preview.CreatorPropertiesResponse;
+    readonly properties: outputs.maps.v20200201preview.CreatorPropertiesInvokeResponse;
     /**
      * Resource tags.
      */

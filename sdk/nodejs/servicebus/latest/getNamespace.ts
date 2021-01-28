@@ -65,7 +65,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of Sku
      */
-    readonly sku?: outputs.servicebus.latest.SBSkuResponse;
+    readonly sku?: outputs.servicebus.latest.SBSkuInvokeResponse;
     /**
      * Resource tags
      */

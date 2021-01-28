@@ -57,7 +57,7 @@ export interface GetWorkspaceResult {
     /**
      * List of linked private link scope resources.
      */
-    readonly privateLinkScopedResources: outputs.operationalinsights.v20200301preview.PrivateLinkScopedResourceResponse[];
+    readonly privateLinkScopedResources: outputs.operationalinsights.v20200301preview.PrivateLinkScopedResourceInvokeResponse[];
     /**
      * The provisioning state of the workspace.
      */
@@ -77,7 +77,7 @@ export interface GetWorkspaceResult {
     /**
      * The SKU of the workspace.
      */
-    readonly sku?: outputs.operationalinsights.v20200301preview.WorkspaceSkuResponse;
+    readonly sku?: outputs.operationalinsights.v20200301preview.WorkspaceSkuInvokeResponse;
     /**
      * Resource tags.
      */
@@ -89,5 +89,5 @@ export interface GetWorkspaceResult {
     /**
      * The daily volume cap for ingestion.
      */
-    readonly workspaceCapping?: outputs.operationalinsights.v20200301preview.WorkspaceCappingResponse;
+    readonly workspaceCapping?: outputs.operationalinsights.v20200301preview.WorkspaceCappingInvokeResponse;
 }

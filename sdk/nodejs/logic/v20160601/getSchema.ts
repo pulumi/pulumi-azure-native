@@ -50,7 +50,7 @@ export interface GetSchemaResult {
     /**
      * The content link.
      */
-    readonly contentLink: outputs.logic.v20160601.ContentLinkResponse;
+    readonly contentLink: outputs.logic.v20160601.ContentLinkInvokeResponse;
     /**
      * The content type.
      */

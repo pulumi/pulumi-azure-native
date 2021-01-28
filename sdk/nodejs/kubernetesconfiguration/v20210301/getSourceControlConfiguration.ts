@@ -52,7 +52,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Compliance Status of the Configuration
      */
-    readonly complianceStatus: outputs.kubernetesconfiguration.v20210301.ComplianceStatusResponse;
+    readonly complianceStatus: outputs.kubernetesconfiguration.v20210301.ComplianceStatusInvokeResponse;
     /**
      * Name-value pairs of protected configuration settings for the configuration
      */
@@ -64,7 +64,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Properties for Helm operator.
      */
-    readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20210301.HelmOperatorPropertiesResponse;
+    readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20210301.HelmOperatorPropertiesInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -112,7 +112,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    readonly systemData: outputs.kubernetesconfiguration.v20210301.SystemDataResponse;
+    readonly systemData: outputs.kubernetesconfiguration.v20210301.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

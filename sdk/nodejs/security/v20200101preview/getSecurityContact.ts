@@ -32,7 +32,7 @@ export interface GetSecurityContactResult {
     /**
      * Defines whether to send email notifications about new security alerts
      */
-    readonly alertNotifications?: outputs.security.v20200101preview.SecurityContactPropertiesResponseAlertNotifications;
+    readonly alertNotifications?: outputs.security.v20200101preview.SecurityContactPropertiesInvokeResponseAlertNotifications;
     /**
      * List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
      */
@@ -48,7 +48,7 @@ export interface GetSecurityContactResult {
     /**
      * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
      */
-    readonly notificationsByRole?: outputs.security.v20200101preview.SecurityContactPropertiesResponseNotificationsByRole;
+    readonly notificationsByRole?: outputs.security.v20200101preview.SecurityContactPropertiesInvokeResponseNotificationsByRole;
     /**
      * The security contact's phone number
      */

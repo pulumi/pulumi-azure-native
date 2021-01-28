@@ -95,7 +95,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
     /**
      * The sku of the created namespace
      */
-    readonly sku?: outputs.notificationhubs.v20170401.SkuResponse;
+    readonly sku?: outputs.notificationhubs.v20170401.SkuInvokeResponse;
     /**
      * Resource tags
      */

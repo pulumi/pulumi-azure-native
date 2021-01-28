@@ -58,7 +58,7 @@ export interface GetLinkResult {
     /**
      * The set of properties mappings between the source and target Types.
      */
-    readonly mappings?: outputs.customerinsights.v20170101.TypePropertiesMappingResponse[];
+    readonly mappings?: outputs.customerinsights.v20170101.TypePropertiesMappingInvokeResponse[];
     /**
      * Resource name.
      */
@@ -70,7 +70,7 @@ export interface GetLinkResult {
     /**
      * The properties that represent the participating profile.
      */
-    readonly participantPropertyReferences: outputs.customerinsights.v20170101.ParticipantPropertyReferenceResponse[];
+    readonly participantPropertyReferences: outputs.customerinsights.v20170101.ParticipantPropertyReferenceInvokeResponse[];
     /**
      * Provisioning state.
      */

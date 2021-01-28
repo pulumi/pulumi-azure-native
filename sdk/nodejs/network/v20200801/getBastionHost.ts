@@ -49,7 +49,7 @@ export interface GetBastionHostResult {
     /**
      * IP configuration of the Bastion Host resource.
      */
-    readonly ipConfigurations?: outputs.network.v20200801.BastionHostIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20200801.BastionHostIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */

@@ -58,7 +58,7 @@ export interface GetWebAppSlotResult {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: outputs.web.v20180201.CloningInfoResponse;
+    readonly cloningInfo?: outputs.web.v20180201.CloningInfoInvokeResponse;
     /**
      * Size of the function container.
      */
@@ -83,11 +83,11 @@ export interface GetWebAppSlotResult {
     /**
      * GeoDistributions for this site
      */
-    readonly geoDistributions?: outputs.web.v20180201.GeoDistributionResponse[];
+    readonly geoDistributions?: outputs.web.v20180201.GeoDistributionInvokeResponse[];
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: outputs.web.v20180201.HostNameSslStateResponse[];
+    readonly hostNameSslStates?: outputs.web.v20180201.HostNameSslStateInvokeResponse[];
     /**
      * Hostnames associated with the app.
      */
@@ -100,7 +100,7 @@ export interface GetWebAppSlotResult {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: outputs.web.v20180201.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.v20180201.HostingEnvironmentProfileInvokeResponse;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -117,7 +117,7 @@ export interface GetWebAppSlotResult {
     /**
      * Managed service identity.
      */
-    readonly identity?: outputs.web.v20180201.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.web.v20180201.ManagedServiceIdentityInvokeResponse;
     /**
      * Specifies an operation id if this site has a pending operation.
      */
@@ -186,11 +186,11 @@ export interface GetWebAppSlotResult {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: outputs.web.v20180201.SiteConfigResponse;
+    readonly siteConfig?: outputs.web.v20180201.SiteConfigInvokeResponse;
     /**
      * Status of the last deployment slot swap operation.
      */
-    readonly slotSwapStatus: outputs.web.v20180201.SlotSwapStatusResponse;
+    readonly slotSwapStatus: outputs.web.v20180201.SlotSwapStatusInvokeResponse;
     /**
      * Current state of the app.
      */

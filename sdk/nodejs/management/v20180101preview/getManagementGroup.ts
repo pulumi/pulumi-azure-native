@@ -47,11 +47,11 @@ export interface GetManagementGroupResult {
     /**
      * The list of children.
      */
-    readonly children?: outputs.management.v20180101preview.ManagementGroupChildInfoResponse[];
+    readonly children?: outputs.management.v20180101preview.ManagementGroupChildInfoInvokeResponse[];
     /**
      * The details of a management group.
      */
-    readonly details?: outputs.management.v20180101preview.ManagementGroupDetailsResponse;
+    readonly details?: outputs.management.v20180101preview.ManagementGroupDetailsInvokeResponse;
     /**
      * The friendly name of the management group.
      */

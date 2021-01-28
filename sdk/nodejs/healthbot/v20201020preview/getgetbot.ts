@@ -49,15 +49,15 @@ export interface GetgetbotResult {
     /**
      * The set of properties specific to healthcare bot resource.
      */
-    readonly properties: outputs.healthbot.v20201020preview.HealthBotPropertiesResponse;
+    readonly properties: outputs.healthbot.v20201020preview.HealthBotPropertiesInvokeResponse;
     /**
      * SKU of the HealthBot.
      */
-    readonly sku?: outputs.healthbot.v20201020preview.SkuResponse;
+    readonly sku?: outputs.healthbot.v20201020preview.SkuInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
-    readonly systemData: outputs.healthbot.v20201020preview.SystemDataResponse;
+    readonly systemData: outputs.healthbot.v20201020preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

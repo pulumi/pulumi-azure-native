@@ -49,7 +49,7 @@ export interface GetAccountResult {
     /**
      * The SKU of the resource
      */
-    readonly sku: outputs.engagementfabric.v20180901preview.SKUResponse;
+    readonly sku: outputs.engagementfabric.v20180901preview.SKUInvokeResponse;
     /**
      * The tags of the resource
      */

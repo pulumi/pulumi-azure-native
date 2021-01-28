@@ -41,7 +41,7 @@ export interface GetAzureFirewallResult {
     /**
      * Collection of application rule collections used by Azure Firewall.
      */
-    readonly applicationRuleCollections?: outputs.network.v20191201.AzureFirewallApplicationRuleCollectionResponse[];
+    readonly applicationRuleCollections?: outputs.network.v20191201.AzureFirewallApplicationRuleCollectionInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -49,11 +49,11 @@ export interface GetAzureFirewallResult {
     /**
      * The firewallPolicy associated with this azure firewall.
      */
-    readonly firewallPolicy?: outputs.network.v20191201.SubResourceResponse;
+    readonly firewallPolicy?: outputs.network.v20191201.SubResourceInvokeResponse;
     /**
      * IP addresses associated with AzureFirewall.
      */
-    readonly hubIpAddresses: outputs.network.v20191201.HubIPAddressesResponse;
+    readonly hubIpAddresses: outputs.network.v20191201.HubIPAddressesInvokeResponse;
     /**
      * Resource ID.
      */
@@ -61,11 +61,11 @@ export interface GetAzureFirewallResult {
     /**
      * IP configuration of the Azure Firewall resource.
      */
-    readonly ipConfigurations?: outputs.network.v20191201.AzureFirewallIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20191201.AzureFirewallIPConfigurationInvokeResponse[];
     /**
      * IpGroups associated with AzureFirewall.
      */
-    readonly ipGroups: outputs.network.v20191201.AzureFirewallIpGroupsResponse[];
+    readonly ipGroups: outputs.network.v20191201.AzureFirewallIpGroupsInvokeResponse[];
     /**
      * Resource location.
      */
@@ -73,7 +73,7 @@ export interface GetAzureFirewallResult {
     /**
      * IP configuration of the Azure Firewall used for management traffic.
      */
-    readonly managementIpConfiguration?: outputs.network.v20191201.AzureFirewallIPConfigurationResponse;
+    readonly managementIpConfiguration?: outputs.network.v20191201.AzureFirewallIPConfigurationInvokeResponse;
     /**
      * Resource name.
      */
@@ -81,11 +81,11 @@ export interface GetAzureFirewallResult {
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly natRuleCollections?: outputs.network.v20191201.AzureFirewallNatRuleCollectionResponse[];
+    readonly natRuleCollections?: outputs.network.v20191201.AzureFirewallNatRuleCollectionInvokeResponse[];
     /**
      * Collection of network rule collections used by Azure Firewall.
      */
-    readonly networkRuleCollections?: outputs.network.v20191201.AzureFirewallNetworkRuleCollectionResponse[];
+    readonly networkRuleCollections?: outputs.network.v20191201.AzureFirewallNetworkRuleCollectionInvokeResponse[];
     /**
      * The provisioning state of the Azure firewall resource.
      */
@@ -93,7 +93,7 @@ export interface GetAzureFirewallResult {
     /**
      * The Azure Firewall Resource SKU.
      */
-    readonly sku?: outputs.network.v20191201.AzureFirewallSkuResponse;
+    readonly sku?: outputs.network.v20191201.AzureFirewallSkuInvokeResponse;
     /**
      * Resource tags.
      */
@@ -109,7 +109,7 @@ export interface GetAzureFirewallResult {
     /**
      * The virtualHub to which the firewall belongs.
      */
-    readonly virtualHub?: outputs.network.v20191201.SubResourceResponse;
+    readonly virtualHub?: outputs.network.v20191201.SubResourceInvokeResponse;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

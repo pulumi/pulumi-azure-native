@@ -39,11 +39,11 @@ export interface ListWebAppBackupStatusSecretsSlotArgs {
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    readonly backupSchedule?: inputs.web.latest.BackupSchedule;
+    readonly backupSchedule?: inputs.web.latest.BackupScheduleInvoke;
     /**
      * Databases included in the backup.
      */
-    readonly databases?: inputs.web.latest.DatabaseBackupSetting[];
+    readonly databases?: inputs.web.latest.DatabaseBackupSettingInvoke[];
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
@@ -93,7 +93,7 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
     /**
      * List of databases included in the backup.
      */
-    readonly databases: outputs.web.latest.DatabaseBackupSettingResponse[];
+    readonly databases: outputs.web.latest.DatabaseBackupSettingInvokeResponse[];
     /**
      * Timestamp when this backup finished.
      */
@@ -137,7 +137,7 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

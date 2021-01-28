@@ -45,7 +45,7 @@ export interface GetAccountResult {
     /**
      * Identity Info on the Account
      */
-    readonly identity: outputs.datashare.latest.IdentityResponse;
+    readonly identity: outputs.datashare.latest.IdentityInvokeResponse;
     /**
      * Location of the azure resource.
      */

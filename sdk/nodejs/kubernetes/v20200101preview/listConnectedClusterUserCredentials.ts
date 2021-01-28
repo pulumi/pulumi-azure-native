@@ -42,7 +42,7 @@ export interface ListConnectedClusterUserCredentialsArgs {
     /**
      * Authentication token value.
      */
-    readonly value: inputs.kubernetes.v20200101preview.AuthenticationDetailsValue;
+    readonly value: inputs.kubernetes.v20200101preview.AuthenticationDetailsInvokeValue;
 }
 
 /**
@@ -52,9 +52,9 @@ export interface ListConnectedClusterUserCredentialsResult {
     /**
      * Contains the REP (rendezvous endpoint) and “Sender” access token.
      */
-    readonly hybridConnectionConfig: outputs.kubernetes.v20200101preview.HybridConnectionConfigResponse;
+    readonly hybridConnectionConfig: outputs.kubernetes.v20200101preview.HybridConnectionConfigInvokeResponse;
     /**
      * Base64-encoded Kubernetes configuration file.
      */
-    readonly kubeconfigs: outputs.kubernetes.v20200101preview.CredentialResultResponse[];
+    readonly kubeconfigs: outputs.kubernetes.v20200101preview.CredentialResultInvokeResponse[];
 }

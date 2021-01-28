@@ -42,7 +42,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * Encrypted storage key.
      */
-    readonly accountKey?: outputs.databoxedge.v20200901preview.AsymmetricEncryptedSecretResponse;
+    readonly accountKey?: outputs.databoxedge.v20200901preview.AsymmetricEncryptedSecretInvokeResponse;
     /**
      * Type of storage accessed on the storage account.
      */
@@ -78,7 +78,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * StorageAccountCredential object
      */
-    readonly systemData: outputs.databoxedge.v20200901preview.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.v20200901preview.SystemDataInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

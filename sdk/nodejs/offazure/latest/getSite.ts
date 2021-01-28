@@ -53,7 +53,7 @@ export interface GetSiteResult {
     /**
      * Nested properties of VMWare site.
      */
-    readonly properties: outputs.offazure.latest.SitePropertiesResponse;
+    readonly properties: outputs.offazure.latest.SitePropertiesInvokeResponse;
     readonly tags?: {[key: string]: string};
     /**
      * Type of resource. Type = Microsoft.OffAzure/VMWareSites.

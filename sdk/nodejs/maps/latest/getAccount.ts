@@ -49,11 +49,11 @@ export interface GetAccountResult {
     /**
      * The map account properties.
      */
-    readonly properties: outputs.maps.latest.MapsAccountPropertiesResponse;
+    readonly properties: outputs.maps.latest.MapsAccountPropertiesInvokeResponse;
     /**
      * The SKU of this account.
      */
-    readonly sku: outputs.maps.latest.SkuResponse;
+    readonly sku: outputs.maps.latest.SkuInvokeResponse;
     /**
      * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */

@@ -58,7 +58,7 @@ export interface GetProtectionPolicyResult {
     /**
      * ProtectionPolicyResource properties
      */
-    readonly properties: outputs.recoveryservices.v20201201.AzureFileShareProtectionPolicyResponse | outputs.recoveryservices.v20201201.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.v20201201.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.v20201201.AzureVmWorkloadProtectionPolicyResponse | outputs.recoveryservices.v20201201.GenericProtectionPolicyResponse | outputs.recoveryservices.v20201201.MabProtectionPolicyResponse;
+    readonly properties: outputs.recoveryservices.v20201201.AzureFileShareProtectionPolicyInvokeResponse | outputs.recoveryservices.v20201201.AzureIaaSVMProtectionPolicyInvokeResponse | outputs.recoveryservices.v20201201.AzureSqlProtectionPolicyInvokeResponse | outputs.recoveryservices.v20201201.AzureVmWorkloadProtectionPolicyInvokeResponse | outputs.recoveryservices.v20201201.GenericProtectionPolicyInvokeResponse | outputs.recoveryservices.v20201201.MabProtectionPolicyInvokeResponse;
     /**
      * Resource tags.
      */

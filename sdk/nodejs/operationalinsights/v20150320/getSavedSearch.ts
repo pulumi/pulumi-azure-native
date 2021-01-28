@@ -66,7 +66,7 @@ export interface GetSavedSearchResult {
     /**
      * The tags attached to the saved search.
      */
-    readonly tags?: outputs.operationalinsights.v20150320.TagResponse[];
+    readonly tags?: outputs.operationalinsights.v20150320.TagInvokeResponse[];
     /**
      * The type of the saved search.
      */

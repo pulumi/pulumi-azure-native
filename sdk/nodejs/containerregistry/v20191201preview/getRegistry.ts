@@ -53,7 +53,7 @@ export interface GetRegistryResult {
     /**
      * The encryption settings of container registry.
      */
-    readonly encryption?: outputs.containerregistry.v20191201preview.EncryptionPropertyResponse;
+    readonly encryption?: outputs.containerregistry.v20191201preview.EncryptionPropertyInvokeResponse;
     /**
      * The resource ID.
      */
@@ -61,7 +61,7 @@ export interface GetRegistryResult {
     /**
      * The identity of the container registry.
      */
-    readonly identity?: outputs.containerregistry.v20191201preview.IdentityPropertiesResponse;
+    readonly identity?: outputs.containerregistry.v20191201preview.IdentityPropertiesInvokeResponse;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -77,15 +77,15 @@ export interface GetRegistryResult {
     /**
      * The network rule set for a container registry.
      */
-    readonly networkRuleSet?: outputs.containerregistry.v20191201preview.NetworkRuleSetResponse;
+    readonly networkRuleSet?: outputs.containerregistry.v20191201preview.NetworkRuleSetInvokeResponse;
     /**
      * The policies for a container registry.
      */
-    readonly policies?: outputs.containerregistry.v20191201preview.PoliciesResponse;
+    readonly policies?: outputs.containerregistry.v20191201preview.PoliciesInvokeResponse;
     /**
      * List of private endpoint connections for a container registry.
      */
-    readonly privateEndpointConnections: outputs.containerregistry.v20191201preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.containerregistry.v20191201preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The provisioning state of the container registry at the time the operation was called.
      */
@@ -97,19 +97,19 @@ export interface GetRegistryResult {
     /**
      * The SKU of the container registry.
      */
-    readonly sku: outputs.containerregistry.v20191201preview.SkuResponse;
+    readonly sku: outputs.containerregistry.v20191201preview.SkuInvokeResponse;
     /**
      * The status of the container registry at the time the operation was called.
      */
-    readonly status: outputs.containerregistry.v20191201preview.StatusResponse;
+    readonly status: outputs.containerregistry.v20191201preview.StatusInvokeResponse;
     /**
      * The properties of the storage account for the container registry. Only applicable to Classic SKU.
      */
-    readonly storageAccount?: outputs.containerregistry.v20191201preview.StorageAccountPropertiesResponse;
+    readonly storageAccount?: outputs.containerregistry.v20191201preview.StorageAccountPropertiesInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataInvokeResponse;
     /**
      * The tags of the resource.
      */

@@ -41,7 +41,7 @@ export interface GetAccountResult {
     /**
      * The list of compute policies associated with this account.
      */
-    readonly computePolicies: outputs.datalakeanalytics.v20151001preview.ComputePolicyResponse[];
+    readonly computePolicies: outputs.datalakeanalytics.v20151001preview.ComputePolicyInvokeResponse[];
     /**
      * The account creation time.
      */
@@ -53,7 +53,7 @@ export interface GetAccountResult {
     /**
      * The list of Data Lake Store accounts associated with this account.
      */
-    readonly dataLakeStoreAccounts?: outputs.datalakeanalytics.v20151001preview.DataLakeStoreAccountInformationResponse[];
+    readonly dataLakeStoreAccounts?: outputs.datalakeanalytics.v20151001preview.DataLakeStoreAccountInformationInvokeResponse[];
     /**
      * The current state of the DebugDataAccessLevel for this account.
      */
@@ -73,7 +73,7 @@ export interface GetAccountResult {
     /**
      * The list of firewall rules associated with this account.
      */
-    readonly firewallRules: outputs.datalakeanalytics.v20151001preview.FirewallRuleResponse[];
+    readonly firewallRules: outputs.datalakeanalytics.v20151001preview.FirewallRuleInvokeResponse[];
     /**
      * The current state of the IP address firewall for this account.
      */
@@ -81,7 +81,7 @@ export interface GetAccountResult {
     /**
      * The list of hiveMetastores associated with this account.
      */
-    readonly hiveMetastores: outputs.datalakeanalytics.v20151001preview.HiveMetastoreResponse[];
+    readonly hiveMetastores: outputs.datalakeanalytics.v20151001preview.HiveMetastoreInvokeResponse[];
     /**
      * The resource identifer.
      */
@@ -133,7 +133,7 @@ export interface GetAccountResult {
     /**
      * The list of Azure Blob Storage accounts associated with this account.
      */
-    readonly storageAccounts: outputs.datalakeanalytics.v20151001preview.StorageAccountInformationResponse[];
+    readonly storageAccounts: outputs.datalakeanalytics.v20151001preview.StorageAccountInformationInvokeResponse[];
     /**
      * The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
      */
@@ -153,5 +153,5 @@ export interface GetAccountResult {
     /**
      * The list of virtualNetwork rules associated with this account.
      */
-    readonly virtualNetworkRules: outputs.datalakeanalytics.v20151001preview.VirtualNetworkRuleResponse[];
+    readonly virtualNetworkRules: outputs.datalakeanalytics.v20151001preview.VirtualNetworkRuleInvokeResponse[];
 }

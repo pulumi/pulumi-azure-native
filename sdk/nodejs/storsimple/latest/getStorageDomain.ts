@@ -42,7 +42,7 @@ export interface GetStorageDomainResult {
     /**
      * The encryption key used to encrypt the data. This is a user secret.
      */
-    readonly encryptionKey?: outputs.storsimple.latest.AsymmetricEncryptedSecretResponse;
+    readonly encryptionKey?: outputs.storsimple.latest.AsymmetricEncryptedSecretInvokeResponse;
     /**
      * The encryption status "Enabled | Disabled".
      */

@@ -55,7 +55,7 @@ export interface GetVolumeResult {
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: outputs.netapp.v20190701.VolumePropertiesResponseExportPolicy;
+    readonly exportPolicy?: outputs.netapp.v20190701.VolumePropertiesInvokeResponseExportPolicy;
     /**
      * Unique FileSystem Identifier.
      */
@@ -71,7 +71,7 @@ export interface GetVolumeResult {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: outputs.netapp.v20190701.MountTargetPropertiesResponse[];
+    readonly mountTargets?: outputs.netapp.v20190701.MountTargetPropertiesInvokeResponse[];
     /**
      * Resource name
      */

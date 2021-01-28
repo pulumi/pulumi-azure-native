@@ -54,7 +54,7 @@ export interface GetRolloutResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.deploymentmanager.v20191101preview.IdentityResponse;
+    readonly identity?: outputs.deploymentmanager.v20191101preview.IdentityInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -66,11 +66,11 @@ export interface GetRolloutResult {
     /**
      * Operational information of the rollout.
      */
-    readonly operationInfo: outputs.deploymentmanager.v20191101preview.RolloutOperationInfoResponse;
+    readonly operationInfo: outputs.deploymentmanager.v20191101preview.RolloutOperationInfoInvokeResponse;
     /**
      * The detailed information on the services being deployed.
      */
-    readonly services: outputs.deploymentmanager.v20191101preview.ServiceResponse[];
+    readonly services: outputs.deploymentmanager.v20191101preview.ServiceInvokeResponse[];
     /**
      * The current status of the rollout.
      */
@@ -78,7 +78,7 @@ export interface GetRolloutResult {
     /**
      * The list of step groups that define the orchestration.
      */
-    readonly stepGroups: outputs.deploymentmanager.v20191101preview.StepGroupResponse[];
+    readonly stepGroups: outputs.deploymentmanager.v20191101preview.StepGroupInvokeResponse[];
     /**
      * Resource tags.
      */

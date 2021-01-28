@@ -37,7 +37,7 @@ export interface GetConnectionResult {
     /**
      * expanded connection provider name
      */
-    readonly api?: outputs.web.v20150801preview.ExpandedParentApiEntityResponse;
+    readonly api?: outputs.web.v20150801preview.ExpandedParentApiEntityInvokeResponse;
     /**
      * Timestamp of last connection change.
      */
@@ -49,7 +49,7 @@ export interface GetConnectionResult {
     /**
      * Custom login setting values.
      */
-    readonly customParameterValues?: {[key: string]: outputs.web.v20150801preview.ParameterCustomLoginSettingValuesResponse};
+    readonly customParameterValues?: {[key: string]: outputs.web.v20150801preview.ParameterCustomLoginSettingValuesInvokeResponse};
     /**
      * display name
      */
@@ -90,7 +90,7 @@ export interface GetConnectionResult {
     /**
      * Status of the connection
      */
-    readonly statuses?: outputs.web.v20150801preview.ConnectionStatusResponse[];
+    readonly statuses?: outputs.web.v20150801preview.ConnectionStatusInvokeResponse[];
     /**
      * Resource tags
      */

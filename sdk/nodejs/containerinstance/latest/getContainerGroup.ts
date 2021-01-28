@@ -37,19 +37,19 @@ export interface GetContainerGroupResult {
     /**
      * The containers within the container group.
      */
-    readonly containers: outputs.containerinstance.latest.ContainerResponse[];
+    readonly containers: outputs.containerinstance.latest.ContainerInvokeResponse[];
     /**
      * The diagnostic information for a container group.
      */
-    readonly diagnostics?: outputs.containerinstance.latest.ContainerGroupDiagnosticsResponse;
+    readonly diagnostics?: outputs.containerinstance.latest.ContainerGroupDiagnosticsInvokeResponse;
     /**
      * The DNS config information for a container group.
      */
-    readonly dnsConfig?: outputs.containerinstance.latest.DnsConfigurationResponse;
+    readonly dnsConfig?: outputs.containerinstance.latest.DnsConfigurationInvokeResponse;
     /**
      * The encryption properties for a container group.
      */
-    readonly encryptionProperties?: outputs.containerinstance.latest.EncryptionPropertiesResponse;
+    readonly encryptionProperties?: outputs.containerinstance.latest.EncryptionPropertiesInvokeResponse;
     /**
      * The resource id.
      */
@@ -57,23 +57,23 @@ export interface GetContainerGroupResult {
     /**
      * The identity of the container group, if configured.
      */
-    readonly identity?: outputs.containerinstance.latest.ContainerGroupIdentityResponse;
+    readonly identity?: outputs.containerinstance.latest.ContainerGroupIdentityInvokeResponse;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: outputs.containerinstance.latest.ImageRegistryCredentialResponse[];
+    readonly imageRegistryCredentials?: outputs.containerinstance.latest.ImageRegistryCredentialInvokeResponse[];
     /**
      * The init containers for a container group.
      */
-    readonly initContainers?: outputs.containerinstance.latest.InitContainerDefinitionResponse[];
+    readonly initContainers?: outputs.containerinstance.latest.InitContainerDefinitionInvokeResponse[];
     /**
      * The instance view of the container group. Only valid in response.
      */
-    readonly instanceView: outputs.containerinstance.latest.ContainerGroupResponseInstanceView;
+    readonly instanceView: outputs.containerinstance.latest.ContainerGroupInvokeResponseInstanceView;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: outputs.containerinstance.latest.IpAddressResponse;
+    readonly ipAddress?: outputs.containerinstance.latest.IpAddressInvokeResponse;
     /**
      * The resource location.
      */
@@ -85,7 +85,7 @@ export interface GetContainerGroupResult {
     /**
      * The network profile information for a container group.
      */
-    readonly networkProfile?: outputs.containerinstance.latest.ContainerGroupNetworkProfileResponse;
+    readonly networkProfile?: outputs.containerinstance.latest.ContainerGroupNetworkProfileInvokeResponse;
     /**
      * The operating system type required by the containers in the container group.
      */
@@ -116,5 +116,5 @@ export interface GetContainerGroupResult {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: outputs.containerinstance.latest.VolumeResponse[];
+    readonly volumes?: outputs.containerinstance.latest.VolumeInvokeResponse[];
 }

@@ -54,7 +54,7 @@ export interface GetGuestConfigurationAssignmentResult {
     /**
      * Properties of the Guest configuration assignment.
      */
-    readonly properties: outputs.guestconfiguration.v20181120.GuestConfigurationAssignmentPropertiesResponse;
+    readonly properties: outputs.guestconfiguration.v20181120.GuestConfigurationAssignmentPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

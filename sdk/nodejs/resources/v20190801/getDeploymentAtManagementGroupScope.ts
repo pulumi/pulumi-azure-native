@@ -49,7 +49,7 @@ export interface GetDeploymentAtManagementGroupScopeResult {
     /**
      * Deployment properties.
      */
-    readonly properties: outputs.resources.v20190801.DeploymentPropertiesExtendedResponse;
+    readonly properties: outputs.resources.v20190801.DeploymentPropertiesExtendedInvokeResponse;
     /**
      * The type of the deployment.
      */

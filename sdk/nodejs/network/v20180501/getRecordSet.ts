@@ -47,19 +47,19 @@ export interface GetRecordSetResult {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: outputs.network.v20180501.ARecordResponse[];
+    readonly aRecords?: outputs.network.v20180501.ARecordInvokeResponse[];
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: outputs.network.v20180501.AaaaRecordResponse[];
+    readonly aaaaRecords?: outputs.network.v20180501.AaaaRecordInvokeResponse[];
     /**
      * The list of CAA records in the record set.
      */
-    readonly caaRecords?: outputs.network.v20180501.CaaRecordResponse[];
+    readonly caaRecords?: outputs.network.v20180501.CaaRecordInvokeResponse[];
     /**
      * The CNAME record in the  record set.
      */
-    readonly cnameRecord?: outputs.network.v20180501.CnameRecordResponse;
+    readonly cnameRecord?: outputs.network.v20180501.CnameRecordInvokeResponse;
     /**
      * The etag of the record set.
      */
@@ -79,7 +79,7 @@ export interface GetRecordSetResult {
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: outputs.network.v20180501.MxRecordResponse[];
+    readonly mxRecords?: outputs.network.v20180501.MxRecordInvokeResponse[];
     /**
      * The name of the record set.
      */
@@ -87,7 +87,7 @@ export interface GetRecordSetResult {
     /**
      * The list of NS records in the record set.
      */
-    readonly nsRecords?: outputs.network.v20180501.NsRecordResponse[];
+    readonly nsRecords?: outputs.network.v20180501.NsRecordInvokeResponse[];
     /**
      * provisioning State of the record set.
      */
@@ -95,19 +95,19 @@ export interface GetRecordSetResult {
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: outputs.network.v20180501.PtrRecordResponse[];
+    readonly ptrRecords?: outputs.network.v20180501.PtrRecordInvokeResponse[];
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: outputs.network.v20180501.SoaRecordResponse;
+    readonly soaRecord?: outputs.network.v20180501.SoaRecordInvokeResponse;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: outputs.network.v20180501.SrvRecordResponse[];
+    readonly srvRecords?: outputs.network.v20180501.SrvRecordInvokeResponse[];
     /**
      * A reference to an azure resource from where the dns resource value is taken.
      */
-    readonly targetResource?: outputs.network.v20180501.SubResourceResponse;
+    readonly targetResource?: outputs.network.v20180501.SubResourceInvokeResponse;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -115,7 +115,7 @@ export interface GetRecordSetResult {
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: outputs.network.v20180501.TxtRecordResponse[];
+    readonly txtRecords?: outputs.network.v20180501.TxtRecordInvokeResponse[];
     /**
      * The type of the record set.
      */

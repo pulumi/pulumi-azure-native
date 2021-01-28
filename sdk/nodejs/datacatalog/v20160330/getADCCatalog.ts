@@ -37,7 +37,7 @@ export interface GetADCCatalogResult {
     /**
      * Azure data catalog admin list.
      */
-    readonly admins?: outputs.datacatalog.v20160330.PrincipalsResponse[];
+    readonly admins?: outputs.datacatalog.v20160330.PrincipalsInvokeResponse[];
     /**
      * Automatic unit adjustment enabled or not.
      */
@@ -81,5 +81,5 @@ export interface GetADCCatalogResult {
     /**
      * Azure data catalog user list.
      */
-    readonly users?: outputs.datacatalog.v20160330.PrincipalsResponse[];
+    readonly users?: outputs.datacatalog.v20160330.PrincipalsInvokeResponse[];
 }

@@ -57,11 +57,11 @@ export interface GetEnterpriseChannelResult {
     /**
      * The set of properties specific to an Enterprise Channel resource.
      */
-    readonly properties: outputs.botservice.latest.EnterpriseChannelPropertiesResponse;
+    readonly properties: outputs.botservice.latest.EnterpriseChannelPropertiesInvokeResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: outputs.botservice.latest.SkuResponse;
+    readonly sku?: outputs.botservice.latest.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

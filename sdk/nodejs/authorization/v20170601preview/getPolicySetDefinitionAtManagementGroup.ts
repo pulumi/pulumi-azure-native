@@ -61,7 +61,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: outputs.authorization.v20170601preview.PolicyDefinitionReferenceResponse[];
+    readonly policyDefinitions: outputs.authorization.v20170601preview.PolicyDefinitionReferenceInvokeResponse[];
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */

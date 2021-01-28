@@ -64,7 +64,7 @@ export interface GetReplicationMigrationItemResult {
     /**
      * The migration item properties.
      */
-    readonly properties: outputs.recoveryservices.v20180110.MigrationItemPropertiesResponse;
+    readonly properties: outputs.recoveryservices.v20180110.MigrationItemPropertiesInvokeResponse;
     /**
      * Resource Type
      */

@@ -66,7 +66,7 @@ export interface GetSqlPoolsV3Result {
     /**
      * The sql pool SKU. The list of SKUs may vary by region and support offer.
      */
-    readonly sku?: outputs.synapse.v20200401preview.SkuResponse;
+    readonly sku?: outputs.synapse.v20200401preview.SkuInvokeResponse;
     /**
      * The Guid of the sql pool.
      */
@@ -78,7 +78,7 @@ export interface GetSqlPoolsV3Result {
     /**
      * SystemData of SqlPool.
      */
-    readonly systemData: outputs.synapse.v20200401preview.SystemDataResponse;
+    readonly systemData: outputs.synapse.v20200401preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

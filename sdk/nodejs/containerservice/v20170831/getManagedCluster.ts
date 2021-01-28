@@ -37,7 +37,7 @@ export interface GetManagedClusterResult {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.v20170831.ContainerServiceAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.v20170831.ContainerServiceAgentPoolProfileInvokeResponse[];
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -57,7 +57,7 @@ export interface GetManagedClusterResult {
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: outputs.containerservice.v20170831.ContainerServiceLinuxProfileResponse;
+    readonly linuxProfile?: outputs.containerservice.v20170831.ContainerServiceLinuxProfileInvokeResponse;
     /**
      * Resource location
      */
@@ -73,7 +73,7 @@ export interface GetManagedClusterResult {
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
      */
-    readonly servicePrincipalProfile?: outputs.containerservice.v20170831.ContainerServiceServicePrincipalProfileResponse;
+    readonly servicePrincipalProfile?: outputs.containerservice.v20170831.ContainerServiceServicePrincipalProfileInvokeResponse;
     /**
      * Resource tags
      */

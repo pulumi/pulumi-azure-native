@@ -71,5 +71,5 @@ export interface ListJobOutputFilesResult {
     /**
      * The collection of returned job directories and files.
      */
-    readonly value: outputs.batchai.v20180501.FileResponse[];
+    readonly value: outputs.batchai.v20180501.FileInvokeResponse[];
 }

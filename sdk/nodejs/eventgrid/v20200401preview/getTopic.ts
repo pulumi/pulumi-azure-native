@@ -45,11 +45,11 @@ export interface GetTopicResult {
     /**
      * Identity information for the resource.
      */
-    readonly identity?: outputs.eventgrid.v20200401preview.IdentityInfoResponse;
+    readonly identity?: outputs.eventgrid.v20200401preview.IdentityInfoInvokeResponse;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    readonly inboundIpRules?: outputs.eventgrid.v20200401preview.InboundIpRuleResponse[];
+    readonly inboundIpRules?: outputs.eventgrid.v20200401preview.InboundIpRuleInvokeResponse[];
     /**
      * This determines the format that Event Grid should expect for incoming events published to the topic.
      */
@@ -57,7 +57,7 @@ export interface GetTopicResult {
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    readonly inputSchemaMapping?: outputs.eventgrid.v20200401preview.JsonInputSchemaMappingResponse;
+    readonly inputSchemaMapping?: outputs.eventgrid.v20200401preview.JsonInputSchemaMappingInvokeResponse;
     /**
      * Location of the resource.
      */
@@ -70,7 +70,7 @@ export interface GetTopicResult {
      * Name of the resource
      */
     readonly name: string;
-    readonly privateEndpointConnections?: outputs.eventgrid.v20200401preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections?: outputs.eventgrid.v20200401preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Provisioning state of the topic.
      */
@@ -83,7 +83,7 @@ export interface GetTopicResult {
     /**
      * The Sku pricing tier for the topic.
      */
-    readonly sku?: outputs.eventgrid.v20200401preview.ResourceSkuResponse;
+    readonly sku?: outputs.eventgrid.v20200401preview.ResourceSkuInvokeResponse;
     /**
      * Tags of the resource.
      */

@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource of private endpoint.
      */
-    readonly privateEndpoint?: outputs.containerservice.v20200701.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.containerservice.v20200701.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.containerservice.v20200701.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.containerservice.v20200701.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The current provisioning state.
      */

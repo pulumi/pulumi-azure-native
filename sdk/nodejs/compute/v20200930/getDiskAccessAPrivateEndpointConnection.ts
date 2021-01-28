@@ -50,11 +50,11 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.compute.v20200930.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.compute.v20200930.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */
-    readonly privateLinkServiceConnectionState: outputs.compute.v20200930.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.compute.v20200930.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

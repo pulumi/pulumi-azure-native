@@ -41,7 +41,7 @@ export interface GetHanaInstanceResult {
     /**
      * Specifies the hardware settings for the HANA instance.
      */
-    readonly hardwareProfile?: outputs.hanaonazure.v20171103preview.HardwareProfileResponse;
+    readonly hardwareProfile?: outputs.hanaonazure.v20171103preview.HardwareProfileInvokeResponse;
     /**
      * Hardware revision of a HANA instance
      */
@@ -61,11 +61,11 @@ export interface GetHanaInstanceResult {
     /**
      * Specifies the network settings for the HANA instance.
      */
-    readonly networkProfile?: outputs.hanaonazure.v20171103preview.NetworkProfileResponse;
+    readonly networkProfile?: outputs.hanaonazure.v20171103preview.NetworkProfileInvokeResponse;
     /**
      * Specifies the operating system settings for the HANA instance.
      */
-    readonly osProfile?: outputs.hanaonazure.v20171103preview.OSProfileResponse;
+    readonly osProfile?: outputs.hanaonazure.v20171103preview.OSProfileInvokeResponse;
     /**
      * ARM ID of another HanaInstance that will share a network with this HanaInstance
      */
@@ -85,7 +85,7 @@ export interface GetHanaInstanceResult {
     /**
      * Specifies the storage settings for the HANA instance disks.
      */
-    readonly storageProfile?: outputs.hanaonazure.v20171103preview.StorageProfileResponse;
+    readonly storageProfile?: outputs.hanaonazure.v20171103preview.StorageProfileInvokeResponse;
     /**
      * Resource tags
      */

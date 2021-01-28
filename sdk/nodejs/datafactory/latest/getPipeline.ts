@@ -42,7 +42,7 @@ export interface GetPipelineResult {
     /**
      * List of activities in pipeline.
      */
-    readonly activities?: outputs.datafactory.latest.AppendVariableActivityResponse | outputs.datafactory.latest.AzureDataExplorerCommandActivityResponse | outputs.datafactory.latest.AzureFunctionActivityResponse | outputs.datafactory.latest.AzureMLBatchExecutionActivityResponse | outputs.datafactory.latest.AzureMLExecutePipelineActivityResponse | outputs.datafactory.latest.AzureMLUpdateResourceActivityResponse | outputs.datafactory.latest.ControlActivityResponse | outputs.datafactory.latest.CopyActivityResponse | outputs.datafactory.latest.CustomActivityResponse | outputs.datafactory.latest.DataLakeAnalyticsUSQLActivityResponse | outputs.datafactory.latest.DatabricksNotebookActivityResponse | outputs.datafactory.latest.DatabricksSparkJarActivityResponse | outputs.datafactory.latest.DatabricksSparkPythonActivityResponse | outputs.datafactory.latest.DeleteActivityResponse | outputs.datafactory.latest.ExecuteDataFlowActivityResponse | outputs.datafactory.latest.ExecutePipelineActivityResponse | outputs.datafactory.latest.ExecuteSSISPackageActivityResponse | outputs.datafactory.latest.ExecutionActivityResponse | outputs.datafactory.latest.FilterActivityResponse | outputs.datafactory.latest.ForEachActivityResponse | outputs.datafactory.latest.GetMetadataActivityResponse | outputs.datafactory.latest.HDInsightHiveActivityResponse | outputs.datafactory.latest.HDInsightMapReduceActivityResponse | outputs.datafactory.latest.HDInsightPigActivityResponse | outputs.datafactory.latest.HDInsightSparkActivityResponse | outputs.datafactory.latest.HDInsightStreamingActivityResponse | outputs.datafactory.latest.IfConditionActivityResponse | outputs.datafactory.latest.LookupActivityResponse | outputs.datafactory.latest.SetVariableActivityResponse | outputs.datafactory.latest.SqlServerStoredProcedureActivityResponse | outputs.datafactory.latest.SwitchActivityResponse | outputs.datafactory.latest.UntilActivityResponse | outputs.datafactory.latest.ValidationActivityResponse | outputs.datafactory.latest.WaitActivityResponse | outputs.datafactory.latest.WebActivityResponse | outputs.datafactory.latest.WebHookActivityResponse[];
+    readonly activities?: outputs.datafactory.latest.AppendVariableActivityInvokeResponse | outputs.datafactory.latest.AzureDataExplorerCommandActivityInvokeResponse | outputs.datafactory.latest.AzureFunctionActivityInvokeResponse | outputs.datafactory.latest.AzureMLBatchExecutionActivityInvokeResponse | outputs.datafactory.latest.AzureMLExecutePipelineActivityInvokeResponse | outputs.datafactory.latest.AzureMLUpdateResourceActivityInvokeResponse | outputs.datafactory.latest.ControlActivityInvokeResponse | outputs.datafactory.latest.CopyActivityInvokeResponse | outputs.datafactory.latest.CustomActivityInvokeResponse | outputs.datafactory.latest.DataLakeAnalyticsUSQLActivityInvokeResponse | outputs.datafactory.latest.DatabricksNotebookActivityInvokeResponse | outputs.datafactory.latest.DatabricksSparkJarActivityInvokeResponse | outputs.datafactory.latest.DatabricksSparkPythonActivityInvokeResponse | outputs.datafactory.latest.DeleteActivityInvokeResponse | outputs.datafactory.latest.ExecuteDataFlowActivityInvokeResponse | outputs.datafactory.latest.ExecutePipelineActivityInvokeResponse | outputs.datafactory.latest.ExecuteSSISPackageActivityInvokeResponse | outputs.datafactory.latest.ExecutionActivityInvokeResponse | outputs.datafactory.latest.FilterActivityInvokeResponse | outputs.datafactory.latest.ForEachActivityInvokeResponse | outputs.datafactory.latest.GetMetadataActivityInvokeResponse | outputs.datafactory.latest.HDInsightHiveActivityInvokeResponse | outputs.datafactory.latest.HDInsightMapReduceActivityInvokeResponse | outputs.datafactory.latest.HDInsightPigActivityInvokeResponse | outputs.datafactory.latest.HDInsightSparkActivityInvokeResponse | outputs.datafactory.latest.HDInsightStreamingActivityInvokeResponse | outputs.datafactory.latest.IfConditionActivityInvokeResponse | outputs.datafactory.latest.LookupActivityInvokeResponse | outputs.datafactory.latest.SetVariableActivityInvokeResponse | outputs.datafactory.latest.SqlServerStoredProcedureActivityInvokeResponse | outputs.datafactory.latest.SwitchActivityInvokeResponse | outputs.datafactory.latest.UntilActivityInvokeResponse | outputs.datafactory.latest.ValidationActivityInvokeResponse | outputs.datafactory.latest.WaitActivityInvokeResponse | outputs.datafactory.latest.WebActivityInvokeResponse | outputs.datafactory.latest.WebHookActivityInvokeResponse[];
     /**
      * List of tags that can be used for describing the Pipeline.
      */
@@ -62,7 +62,7 @@ export interface GetPipelineResult {
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    readonly folder?: outputs.datafactory.latest.PipelineResponseFolder;
+    readonly folder?: outputs.datafactory.latest.PipelineInvokeResponseFolder;
     /**
      * The resource identifier.
      */
@@ -74,7 +74,7 @@ export interface GetPipelineResult {
     /**
      * List of parameters for pipeline.
      */
-    readonly parameters?: {[key: string]: outputs.datafactory.latest.ParameterSpecificationResponse};
+    readonly parameters?: {[key: string]: outputs.datafactory.latest.ParameterSpecificationInvokeResponse};
     /**
      * Dimensions emitted by Pipeline.
      */
@@ -86,5 +86,5 @@ export interface GetPipelineResult {
     /**
      * List of variables for pipeline.
      */
-    readonly variables?: {[key: string]: outputs.datafactory.latest.VariableSpecificationResponse};
+    readonly variables?: {[key: string]: outputs.datafactory.latest.VariableSpecificationInvokeResponse};
 }

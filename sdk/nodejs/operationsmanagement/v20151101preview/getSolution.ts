@@ -49,11 +49,11 @@ export interface GetSolutionResult {
     /**
      * Plan for solution object supported by the OperationsManagement resource provider.
      */
-    readonly plan?: outputs.operationsmanagement.v20151101preview.SolutionPlanResponse;
+    readonly plan?: outputs.operationsmanagement.v20151101preview.SolutionPlanInvokeResponse;
     /**
      * Properties for solution object supported by the OperationsManagement resource provider.
      */
-    readonly properties: outputs.operationsmanagement.v20151101preview.SolutionPropertiesResponse;
+    readonly properties: outputs.operationsmanagement.v20151101preview.SolutionPropertiesInvokeResponse;
     /**
      * Resource tags
      */

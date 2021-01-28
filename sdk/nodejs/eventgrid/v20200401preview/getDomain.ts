@@ -45,11 +45,11 @@ export interface GetDomainResult {
     /**
      * Identity information for the resource.
      */
-    readonly identity?: outputs.eventgrid.v20200401preview.IdentityInfoResponse;
+    readonly identity?: outputs.eventgrid.v20200401preview.IdentityInfoInvokeResponse;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    readonly inboundIpRules?: outputs.eventgrid.v20200401preview.InboundIpRuleResponse[];
+    readonly inboundIpRules?: outputs.eventgrid.v20200401preview.InboundIpRuleInvokeResponse[];
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
@@ -57,7 +57,7 @@ export interface GetDomainResult {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: outputs.eventgrid.v20200401preview.JsonInputSchemaMappingResponse;
+    readonly inputSchemaMapping?: outputs.eventgrid.v20200401preview.JsonInputSchemaMappingInvokeResponse;
     /**
      * Location of the resource.
      */
@@ -73,7 +73,7 @@ export interface GetDomainResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: outputs.eventgrid.v20200401preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections?: outputs.eventgrid.v20200401preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Provisioning state of the domain.
      */
@@ -86,7 +86,7 @@ export interface GetDomainResult {
     /**
      * The Sku pricing tier for the domain.
      */
-    readonly sku?: outputs.eventgrid.v20200401preview.ResourceSkuResponse;
+    readonly sku?: outputs.eventgrid.v20200401preview.ResourceSkuInvokeResponse;
     /**
      * Tags of the resource.
      */

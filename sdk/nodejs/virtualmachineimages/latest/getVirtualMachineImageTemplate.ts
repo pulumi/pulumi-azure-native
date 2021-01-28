@@ -41,11 +41,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: outputs.virtualmachineimages.latest.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.latest.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.latest.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.latest.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.latest.ImageTemplateWindowsUpdateCustomizerResponse[];
+    readonly customize?: outputs.virtualmachineimages.latest.ImageTemplateFileCustomizerInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplatePowerShellCustomizerInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplateRestartCustomizerInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplateShellCustomizerInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplateWindowsUpdateCustomizerInvokeResponse[];
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.latest.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.latest.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.latest.ImageTemplateVhdDistributorResponse[];
+    readonly distribute: outputs.virtualmachineimages.latest.ImageTemplateManagedImageDistributorInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplateSharedImageDistributorInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplateVhdDistributorInvokeResponse[];
     /**
      * Resource Id
      */
@@ -53,11 +53,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * The identity of the image template, if configured.
      */
-    readonly identity: outputs.virtualmachineimages.latest.ImageTemplateIdentityResponse;
+    readonly identity: outputs.virtualmachineimages.latest.ImageTemplateIdentityInvokeResponse;
     /**
      * State of 'run' that is currently executing or was last executed.
      */
-    readonly lastRunStatus: outputs.virtualmachineimages.latest.ImageTemplateLastRunStatusResponse;
+    readonly lastRunStatus: outputs.virtualmachineimages.latest.ImageTemplateLastRunStatusInvokeResponse;
     /**
      * Resource location
      */
@@ -69,7 +69,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Provisioning error, if any
      */
-    readonly provisioningError: outputs.virtualmachineimages.latest.ProvisioningErrorResponse;
+    readonly provisioningError: outputs.virtualmachineimages.latest.ProvisioningErrorInvokeResponse;
     /**
      * Provisioning state of the resource
      */
@@ -77,7 +77,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: outputs.virtualmachineimages.latest.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.latest.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.latest.ImageTemplateSharedImageVersionSourceResponse;
+    readonly source: outputs.virtualmachineimages.latest.ImageTemplateManagedImageSourceInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplatePlatformImageSourceInvokeResponse | outputs.virtualmachineimages.latest.ImageTemplateSharedImageVersionSourceInvokeResponse;
     /**
      * Resource tags
      */
@@ -89,5 +89,5 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Describes how virtual machine is set up to build images
      */
-    readonly vmProfile?: outputs.virtualmachineimages.latest.ImageTemplateVmProfileResponse;
+    readonly vmProfile?: outputs.virtualmachineimages.latest.ImageTemplateVmProfileInvokeResponse;
 }

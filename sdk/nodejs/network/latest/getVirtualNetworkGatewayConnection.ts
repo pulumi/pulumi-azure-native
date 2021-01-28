@@ -85,11 +85,11 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: outputs.network.latest.IpsecPolicyResponse[];
+    readonly ipsecPolicies?: outputs.network.latest.IpsecPolicyInvokeResponse[];
     /**
      * The reference to local network gateway resource.
      */
-    readonly localNetworkGateway2?: outputs.network.latest.LocalNetworkGatewayResponse;
+    readonly localNetworkGateway2?: outputs.network.latest.LocalNetworkGatewayInvokeResponse;
     /**
      * Resource location.
      */
@@ -101,7 +101,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: outputs.network.latest.SubResourceResponse;
+    readonly peer?: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * The provisioning state of the virtual network gateway connection resource.
      */
@@ -125,11 +125,11 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    readonly trafficSelectorPolicies?: outputs.network.latest.TrafficSelectorPolicyResponse[];
+    readonly trafficSelectorPolicies?: outputs.network.latest.TrafficSelectorPolicyInvokeResponse[];
     /**
      * Collection of all tunnels' connection health status.
      */
-    readonly tunnelConnectionStatus: outputs.network.latest.TunnelConnectionHealthResponse[];
+    readonly tunnelConnectionStatus: outputs.network.latest.TunnelConnectionHealthInvokeResponse[];
     /**
      * Resource type.
      */
@@ -145,9 +145,9 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway1: outputs.network.latest.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway1: outputs.network.latest.VirtualNetworkGatewayInvokeResponse;
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway2?: outputs.network.latest.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway2?: outputs.network.latest.VirtualNetworkGatewayInvokeResponse;
 }

@@ -65,7 +65,7 @@ export interface GetPrivateStoreOfferResult {
     /**
      * Offer plans
      */
-    readonly plans?: outputs.marketplace.v20200101.PlanResponse[];
+    readonly plans?: outputs.marketplace.v20200101.PlanInvokeResponse[];
     /**
      * Private store unique id
      */

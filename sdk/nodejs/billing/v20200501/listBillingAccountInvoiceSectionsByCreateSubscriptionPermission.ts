@@ -36,5 +36,5 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
     /**
      * The list of invoice section properties with create subscription permission.
      */
-    readonly value?: outputs.billing.v20200501.InvoiceSectionWithCreateSubPermissionResponse[];
+    readonly value?: outputs.billing.v20200501.InvoiceSectionWithCreateSubPermissionInvokeResponse[];
 }

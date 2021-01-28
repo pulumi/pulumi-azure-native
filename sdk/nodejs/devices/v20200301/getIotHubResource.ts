@@ -53,11 +53,11 @@ export interface GetIotHubResourceResult {
     /**
      * IotHub properties
      */
-    readonly properties: outputs.devices.v20200301.IotHubPropertiesResponse;
+    readonly properties: outputs.devices.v20200301.IotHubPropertiesInvokeResponse;
     /**
      * IotHub SKU info
      */
-    readonly sku: outputs.devices.v20200301.IotHubSkuInfoResponse;
+    readonly sku: outputs.devices.v20200301.IotHubSkuInfoInvokeResponse;
     /**
      * The resource tags.
      */

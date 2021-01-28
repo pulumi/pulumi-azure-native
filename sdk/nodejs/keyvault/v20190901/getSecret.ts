@@ -54,7 +54,7 @@ export interface GetSecretResult {
     /**
      * Properties of the secret
      */
-    readonly properties: outputs.keyvault.v20190901.SecretPropertiesResponse;
+    readonly properties: outputs.keyvault.v20190901.SecretPropertiesInvokeResponse;
     /**
      * Tags assigned to the key vault resource.
      */

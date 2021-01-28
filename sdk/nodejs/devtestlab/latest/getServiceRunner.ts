@@ -46,7 +46,7 @@ export interface GetServiceRunnerResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.devtestlab.latest.IdentityPropertiesResponse;
+    readonly identity?: outputs.devtestlab.latest.IdentityPropertiesInvokeResponse;
     /**
      * The location of the resource.
      */

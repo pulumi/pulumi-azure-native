@@ -37,11 +37,11 @@ export interface GetApplicationDefinitionResult {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    readonly artifacts?: outputs.solutions.v20170901.ApplicationArtifactResponse[];
+    readonly artifacts?: outputs.solutions.v20170901.ApplicationArtifactInvokeResponse[];
     /**
      * The managed application provider authorizations.
      */
-    readonly authorizations: outputs.solutions.v20170901.ApplicationProviderAuthorizationResponse[];
+    readonly authorizations: outputs.solutions.v20170901.ApplicationProviderAuthorizationInvokeResponse[];
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -61,7 +61,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.solutions.v20170901.IdentityResponse;
+    readonly identity?: outputs.solutions.v20170901.IdentityInvokeResponse;
     /**
      * A value indicating whether the package is enabled or not.
      */
@@ -93,7 +93,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.solutions.v20170901.SkuResponse;
+    readonly sku?: outputs.solutions.v20170901.SkuInvokeResponse;
     /**
      * Resource tags
      */

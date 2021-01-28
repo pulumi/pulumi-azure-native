@@ -70,7 +70,7 @@ export interface GetSqlDatabaseResult {
     /**
      * SystemData of SqlDatabase.
      */
-    readonly systemData: outputs.synapse.v20200401preview.SystemDataResponse;
+    readonly systemData: outputs.synapse.v20200401preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

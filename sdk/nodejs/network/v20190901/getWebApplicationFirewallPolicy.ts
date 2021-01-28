@@ -37,11 +37,11 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * A collection of references to application gateways.
      */
-    readonly applicationGateways: outputs.network.v20190901.ApplicationGatewayResponse[];
+    readonly applicationGateways: outputs.network.v20190901.ApplicationGatewayInvokeResponse[];
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: outputs.network.v20190901.WebApplicationFirewallCustomRuleResponse[];
+    readonly customRules?: outputs.network.v20190901.WebApplicationFirewallCustomRuleInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -49,7 +49,7 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * A collection of references to application gateway http listeners.
      */
-    readonly httpListeners: outputs.network.v20190901.SubResourceResponse[];
+    readonly httpListeners: outputs.network.v20190901.SubResourceInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -61,7 +61,7 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * Describes the managedRules structure.
      */
-    readonly managedRules: outputs.network.v20190901.ManagedRulesDefinitionResponse;
+    readonly managedRules: outputs.network.v20190901.ManagedRulesDefinitionInvokeResponse;
     /**
      * Resource name.
      */
@@ -69,11 +69,11 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * A collection of references to application gateway path rules.
      */
-    readonly pathBasedRules: outputs.network.v20190901.SubResourceResponse[];
+    readonly pathBasedRules: outputs.network.v20190901.SubResourceInvokeResponse[];
     /**
      * Describes policySettings for policy.
      */
-    readonly policySettings?: outputs.network.v20190901.PolicySettingsResponse;
+    readonly policySettings?: outputs.network.v20190901.PolicySettingsInvokeResponse;
     /**
      * The provisioning state of the web application firewall policy resource.
      */

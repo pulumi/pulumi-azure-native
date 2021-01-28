@@ -37,15 +37,15 @@ export interface GetVpnSiteResult {
     /**
      * The AddressSpace that contains an array of IP address ranges.
      */
-    readonly addressSpace?: outputs.network.v20200801.AddressSpaceResponse;
+    readonly addressSpace?: outputs.network.v20200801.AddressSpaceInvokeResponse;
     /**
      * The set of bgp properties.
      */
-    readonly bgpProperties?: outputs.network.v20200801.BgpSettingsResponse;
+    readonly bgpProperties?: outputs.network.v20200801.BgpSettingsInvokeResponse;
     /**
      * The device properties.
      */
-    readonly deviceProperties?: outputs.network.v20200801.DevicePropertiesResponse;
+    readonly deviceProperties?: outputs.network.v20200801.DevicePropertiesInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -73,7 +73,7 @@ export interface GetVpnSiteResult {
     /**
      * Office365 Policy.
      */
-    readonly o365Policy?: outputs.network.v20200801.O365PolicyPropertiesResponse;
+    readonly o365Policy?: outputs.network.v20200801.O365PolicyPropertiesInvokeResponse;
     /**
      * The provisioning state of the VPN site resource.
      */
@@ -93,9 +93,9 @@ export interface GetVpnSiteResult {
     /**
      * The VirtualWAN to which the vpnSite belongs.
      */
-    readonly virtualWan?: outputs.network.v20200801.SubResourceResponse;
+    readonly virtualWan?: outputs.network.v20200801.SubResourceInvokeResponse;
     /**
      * List of all vpn site links.
      */
-    readonly vpnSiteLinks?: outputs.network.v20200801.VpnSiteLinkResponse[];
+    readonly vpnSiteLinks?: outputs.network.v20200801.VpnSiteLinkInvokeResponse[];
 }

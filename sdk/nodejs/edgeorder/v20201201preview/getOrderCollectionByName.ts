@@ -53,7 +53,7 @@ export interface GetOrderCollectionByNameResult {
     /**
      * Represents resource creation and update time
      */
-    readonly systemData: outputs.edgeorder.v20201201preview.SystemDataResponse;
+    readonly systemData: outputs.edgeorder.v20201201preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

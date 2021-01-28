@@ -73,7 +73,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The policy sku.
      */
-    readonly sku?: outputs.authorization.v20170601preview.PolicySkuResponse;
+    readonly sku?: outputs.authorization.v20170601preview.PolicySkuInvokeResponse;
     /**
      * The type of the policy assignment.
      */

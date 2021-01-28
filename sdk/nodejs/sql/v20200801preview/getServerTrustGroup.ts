@@ -42,7 +42,7 @@ export interface GetServerTrustGroupResult {
     /**
      * Group members information for the server trust group.
      */
-    readonly groupMembers: outputs.sql.v20200801preview.ServerInfoResponse[];
+    readonly groupMembers: outputs.sql.v20200801preview.ServerInfoInvokeResponse[];
     /**
      * Resource ID.
      */

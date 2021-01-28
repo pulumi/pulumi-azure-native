@@ -53,7 +53,7 @@ export interface ListSiteConnectionStringsResult {
     /**
      * Connection strings
      */
-    readonly properties: {[key: string]: outputs.web.v20150801.ConnStringValueTypePairResponse};
+    readonly properties: {[key: string]: outputs.web.v20150801.ConnStringValueTypePairInvokeResponse};
     /**
      * Resource tags
      */

@@ -42,7 +42,7 @@ export interface GetTemplateSpecVersionResult {
     /**
      * An array of Template Spec artifacts.
      */
-    readonly artifacts?: outputs.resources.v20190601preview.TemplateSpecTemplateArtifactResponse[];
+    readonly artifacts?: outputs.resources.v20190601preview.TemplateSpecTemplateArtifactInvokeResponse[];
     /**
      * Template Spec version description.
      */
@@ -62,7 +62,7 @@ export interface GetTemplateSpecVersionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.resources.v20190601preview.SystemDataResponse;
+    readonly systemData: outputs.resources.v20190601preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

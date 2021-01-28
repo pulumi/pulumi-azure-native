@@ -51,5 +51,5 @@ export interface ListJobRemoteLoginInformationResult {
     /**
      * The collection of returned remote login details.
      */
-    readonly value: outputs.batchai.v20180501.RemoteLoginInformationResponse[];
+    readonly value: outputs.batchai.v20180501.RemoteLoginInformationInvokeResponse[];
 }

@@ -50,7 +50,7 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
     /**
      * The properties of a private endpoint connection
      */
-    readonly properties: outputs.devices.v20200301.PrivateEndpointConnectionPropertiesResponse;
+    readonly properties: outputs.devices.v20200301.PrivateEndpointConnectionPropertiesInvokeResponse;
     /**
      * The resource type.
      */

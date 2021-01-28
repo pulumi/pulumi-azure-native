@@ -53,7 +53,7 @@ export interface GetAssignmentResult {
     /**
      * Managed Service Identity for this Blueprint assignment
      */
-    readonly identity: outputs.blueprint.v20171111preview.ManagedServiceIdentityResponse;
+    readonly identity: outputs.blueprint.v20171111preview.ManagedServiceIdentityInvokeResponse;
     /**
      * The location of this Blueprint assignment.
      */
@@ -61,7 +61,7 @@ export interface GetAssignmentResult {
     /**
      * Defines how Blueprint-managed resources will be locked.
      */
-    readonly locks?: outputs.blueprint.v20171111preview.AssignmentLockSettingsResponse;
+    readonly locks?: outputs.blueprint.v20171111preview.AssignmentLockSettingsInvokeResponse;
     /**
      * Name of this resource.
      */
@@ -69,7 +69,7 @@ export interface GetAssignmentResult {
     /**
      * Blueprint parameter values.
      */
-    readonly parameters: {[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseResponse};
+    readonly parameters: {[key: string]: outputs.blueprint.v20171111preview.ParameterValueBaseInvokeResponse};
     /**
      * State of the assignment.
      */
@@ -77,11 +77,11 @@ export interface GetAssignmentResult {
     /**
      * Names and locations of resource group placeholders.
      */
-    readonly resourceGroups: {[key: string]: outputs.blueprint.v20171111preview.ResourceGroupValueResponse};
+    readonly resourceGroups: {[key: string]: outputs.blueprint.v20171111preview.ResourceGroupValueInvokeResponse};
     /**
      * Status of Blueprint assignment. This field is readonly.
      */
-    readonly status: outputs.blueprint.v20171111preview.AssignmentStatusResponse;
+    readonly status: outputs.blueprint.v20171111preview.AssignmentStatusInvokeResponse;
     /**
      * Type of this resource.
      */

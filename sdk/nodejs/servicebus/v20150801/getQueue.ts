@@ -50,7 +50,7 @@ export interface GetQueueResult {
     /**
      * Message Count Details.
      */
-    readonly countDetails: outputs.servicebus.v20150801.MessageCountDetailsResponse;
+    readonly countDetails: outputs.servicebus.v20150801.MessageCountDetailsInvokeResponse;
     /**
      * The exact time the message was created.
      */

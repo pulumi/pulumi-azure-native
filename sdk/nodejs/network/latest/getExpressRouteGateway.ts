@@ -37,7 +37,7 @@ export interface GetExpressRouteGatewayResult {
     /**
      * Configuration for auto scaling.
      */
-    readonly autoScaleConfiguration?: outputs.network.latest.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration;
+    readonly autoScaleConfiguration?: outputs.network.latest.ExpressRouteGatewayPropertiesInvokeResponseAutoScaleConfiguration;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -45,7 +45,7 @@ export interface GetExpressRouteGatewayResult {
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
      */
-    readonly expressRouteConnections: outputs.network.latest.ExpressRouteConnectionResponse[];
+    readonly expressRouteConnections: outputs.network.latest.ExpressRouteConnectionInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -73,5 +73,5 @@ export interface GetExpressRouteGatewayResult {
     /**
      * The Virtual Hub where the ExpressRoute gateway is or will be deployed.
      */
-    readonly virtualHub: outputs.network.latest.VirtualHubIdResponse;
+    readonly virtualHub: outputs.network.latest.VirtualHubIdInvokeResponse;
 }

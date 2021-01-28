@@ -54,7 +54,7 @@ export interface GetApplicationResult {
     /**
      * The properties of the application.
      */
-    readonly properties: outputs.hdinsight.v20150301preview.ApplicationPropertiesResponse;
+    readonly properties: outputs.hdinsight.v20150301preview.ApplicationPropertiesInvokeResponse;
     /**
      * The tags for the application.
      */

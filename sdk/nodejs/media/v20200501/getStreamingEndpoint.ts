@@ -42,7 +42,7 @@ export interface GetStreamingEndpointResult {
     /**
      * The access control definition of the streaming endpoint.
      */
-    readonly accessControl?: outputs.media.v20200501.StreamingEndpointAccessControlResponse;
+    readonly accessControl?: outputs.media.v20200501.StreamingEndpointAccessControlInvokeResponse;
     /**
      * This feature is deprecated, do not set a value for this property.
      */
@@ -66,7 +66,7 @@ export interface GetStreamingEndpointResult {
     /**
      * The streaming endpoint access policies.
      */
-    readonly crossSiteAccessPolicies?: outputs.media.v20200501.CrossSiteAccessPoliciesResponse;
+    readonly crossSiteAccessPolicies?: outputs.media.v20200501.CrossSiteAccessPoliciesInvokeResponse;
     /**
      * The custom host names of the streaming endpoint
      */

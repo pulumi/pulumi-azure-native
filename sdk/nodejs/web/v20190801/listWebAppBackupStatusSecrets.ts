@@ -38,11 +38,11 @@ export interface ListWebAppBackupStatusSecretsArgs {
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    readonly backupSchedule?: inputs.web.v20190801.BackupSchedule;
+    readonly backupSchedule?: inputs.web.v20190801.BackupScheduleInvoke;
     /**
      * Databases included in the backup.
      */
-    readonly databases?: inputs.web.v20190801.DatabaseBackupSetting[];
+    readonly databases?: inputs.web.v20190801.DatabaseBackupSettingInvoke[];
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
@@ -88,7 +88,7 @@ export interface ListWebAppBackupStatusSecretsResult {
     /**
      * List of databases included in the backup.
      */
-    readonly databases: outputs.web.v20190801.DatabaseBackupSettingResponse[];
+    readonly databases: outputs.web.v20190801.DatabaseBackupSettingInvokeResponse[];
     /**
      * Timestamp when this backup finished.
      */

@@ -42,7 +42,7 @@ export interface GetBatchAccountResult {
     /**
      * Contains information about the auto-storage account associated with a Batch account.
      */
-    readonly autoStorage: outputs.batch.v20190401.AutoStoragePropertiesResponse;
+    readonly autoStorage: outputs.batch.v20190401.AutoStoragePropertiesInvokeResponse;
     /**
      * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
@@ -50,7 +50,7 @@ export interface GetBatchAccountResult {
     /**
      * A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
-    readonly dedicatedCoreQuotaPerVMFamily: outputs.batch.v20190401.VirtualMachineFamilyCoreQuotaResponse[];
+    readonly dedicatedCoreQuotaPerVMFamily: outputs.batch.v20190401.VirtualMachineFamilyCoreQuotaInvokeResponse[];
     /**
      * Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
      */
@@ -62,7 +62,7 @@ export interface GetBatchAccountResult {
     /**
      * Identifies the Azure key vault associated with a Batch account.
      */
-    readonly keyVaultReference: outputs.batch.v20190401.KeyVaultReferenceResponse;
+    readonly keyVaultReference: outputs.batch.v20190401.KeyVaultReferenceInvokeResponse;
     /**
      * The location of the resource.
      */

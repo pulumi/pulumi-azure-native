@@ -37,7 +37,7 @@ export interface GetCapacityDetailsResult {
     /**
      * A collection of Dedicated capacity administrators
      */
-    readonly administration?: outputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsResponse;
+    readonly administration?: outputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsInvokeResponse;
     /**
      * An identifier that represents the PowerBI Dedicated resource.
      */
@@ -57,7 +57,7 @@ export interface GetCapacityDetailsResult {
     /**
      * The SKU of the PowerBI Dedicated resource.
      */
-    readonly sku: outputs.powerbidedicated.v20171001.ResourceSkuResponse;
+    readonly sku: outputs.powerbidedicated.v20171001.ResourceSkuInvokeResponse;
     /**
      * The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
      */

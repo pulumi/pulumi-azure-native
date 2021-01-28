@@ -62,11 +62,11 @@ export interface GetBotConnectionResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.latest.ConnectionSettingPropertiesResponse;
+    readonly properties: outputs.botservice.latest.ConnectionSettingPropertiesInvokeResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: outputs.botservice.latest.SkuResponse;
+    readonly sku?: outputs.botservice.latest.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

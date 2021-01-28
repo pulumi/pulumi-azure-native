@@ -35,5 +35,5 @@ export interface ListIotDpsResourceKeysArgs {
  */
 export interface ListIotDpsResourceKeysResult {
     readonly nextLink: string;
-    readonly value?: outputs.devices.v20170821preview.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse[];
+    readonly value?: outputs.devices.v20170821preview.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse[];
 }

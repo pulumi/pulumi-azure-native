@@ -47,11 +47,11 @@ export interface GetManagementGroupResult {
     /**
      * The list of children.
      */
-    readonly children?: outputs.management.v20200201.ManagementGroupChildInfoResponse[];
+    readonly children?: outputs.management.v20200201.ManagementGroupChildInfoInvokeResponse[];
     /**
      * The details of a management group.
      */
-    readonly details?: outputs.management.v20200201.ManagementGroupDetailsResponse;
+    readonly details?: outputs.management.v20200201.ManagementGroupDetailsInvokeResponse;
     /**
      * The friendly name of the management group.
      */
@@ -67,7 +67,7 @@ export interface GetManagementGroupResult {
     /**
      * The path from the root to the current group.
      */
-    readonly path?: outputs.management.v20200201.ManagementGroupPathElementResponse[];
+    readonly path?: outputs.management.v20200201.ManagementGroupPathElementInvokeResponse[];
     /**
      * The role definitions associated with the management group.
      */

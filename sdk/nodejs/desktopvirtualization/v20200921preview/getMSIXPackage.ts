@@ -70,11 +70,11 @@ export interface GetMSIXPackageResult {
     /**
      * List of package applications. 
      */
-    readonly packageApplications?: outputs.desktopvirtualization.v20200921preview.MsixPackageApplicationsResponse[];
+    readonly packageApplications?: outputs.desktopvirtualization.v20200921preview.MsixPackageApplicationsInvokeResponse[];
     /**
      * List of package dependencies. 
      */
-    readonly packageDependencies?: outputs.desktopvirtualization.v20200921preview.MsixPackageDependenciesResponse[];
+    readonly packageDependencies?: outputs.desktopvirtualization.v20200921preview.MsixPackageDependenciesInvokeResponse[];
     /**
      * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
      */

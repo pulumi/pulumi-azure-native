@@ -37,7 +37,7 @@ export interface GetPipelineResult {
     /**
      * Configuration used to bootstrap the Pipeline.
      */
-    readonly bootstrapConfiguration: outputs.devops.v20200713preview.BootstrapConfigurationResponse;
+    readonly bootstrapConfiguration: outputs.devops.v20200713preview.BootstrapConfigurationInvokeResponse;
     /**
      * Resource Id
      */
@@ -61,7 +61,7 @@ export interface GetPipelineResult {
     /**
      * The system metadata pertaining to this resource.
      */
-    readonly systemData: outputs.devops.v20200713preview.SystemDataResponse;
+    readonly systemData: outputs.devops.v20200713preview.SystemDataInvokeResponse;
     /**
      * Resource Tags
      */

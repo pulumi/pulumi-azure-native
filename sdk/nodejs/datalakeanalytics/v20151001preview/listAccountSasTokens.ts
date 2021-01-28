@@ -51,5 +51,5 @@ export interface ListAccountSasTokensResult {
     /**
      * The results of the list operation.
      */
-    readonly value: outputs.datalakeanalytics.v20151001preview.SasTokenInformationResponse[];
+    readonly value: outputs.datalakeanalytics.v20151001preview.SasTokenInformationInvokeResponse[];
 }

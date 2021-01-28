@@ -86,7 +86,7 @@ export interface GetWebhookResult {
     /**
      * Gets or sets the runbook the webhook is associated with.
      */
-    readonly runbook?: outputs.automation.v20151031.RunbookAssociationPropertyResponse;
+    readonly runbook?: outputs.automation.v20151031.RunbookAssociationPropertyInvokeResponse;
     /**
      * The type of the resource.
      */

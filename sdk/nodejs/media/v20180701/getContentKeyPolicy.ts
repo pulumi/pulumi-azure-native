@@ -62,7 +62,7 @@ export interface GetContentKeyPolicyResult {
     /**
      * The Key Policy options.
      */
-    readonly options: outputs.media.v20180701.ContentKeyPolicyOptionResponse[];
+    readonly options: outputs.media.v20180701.ContentKeyPolicyOptionInvokeResponse[];
     /**
      * The legacy Policy ID.
      */

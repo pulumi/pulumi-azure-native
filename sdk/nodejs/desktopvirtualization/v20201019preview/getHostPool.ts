@@ -85,7 +85,7 @@ export interface GetHostPoolResult {
     /**
      * The registration info of HostPool.
      */
-    readonly registrationInfo?: outputs.desktopvirtualization.v20201019preview.RegistrationInfoResponse;
+    readonly registrationInfo?: outputs.desktopvirtualization.v20201019preview.RegistrationInfoInvokeResponse;
     /**
      * The ring number of HostPool.
      */

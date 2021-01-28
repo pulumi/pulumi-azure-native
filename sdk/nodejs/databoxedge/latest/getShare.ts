@@ -46,11 +46,11 @@ export interface GetShareResult {
     /**
      * Azure container mapping for the share.
      */
-    readonly azureContainerInfo?: outputs.databoxedge.latest.AzureContainerInfoResponse;
+    readonly azureContainerInfo?: outputs.databoxedge.latest.AzureContainerInfoInvokeResponse;
     /**
      * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
      */
-    readonly clientAccessRights?: outputs.databoxedge.latest.ClientAccessRightResponse[];
+    readonly clientAccessRights?: outputs.databoxedge.latest.ClientAccessRightInvokeResponse[];
     /**
      * Data policy of the share.
      */
@@ -74,11 +74,11 @@ export interface GetShareResult {
     /**
      * Details of the refresh job on this share.
      */
-    readonly refreshDetails?: outputs.databoxedge.latest.RefreshDetailsResponse;
+    readonly refreshDetails?: outputs.databoxedge.latest.RefreshDetailsInvokeResponse;
     /**
      * Share mount point to the role.
      */
-    readonly shareMappings: outputs.databoxedge.latest.MountPointMapResponse[];
+    readonly shareMappings: outputs.databoxedge.latest.MountPointMapInvokeResponse[];
     /**
      * Current status of the share.
      */
@@ -86,7 +86,7 @@ export interface GetShareResult {
     /**
      * Share on ASE device
      */
-    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.latest.SystemDataInvokeResponse;
     /**
      * The hierarchical type of the object.
      */
@@ -94,5 +94,5 @@ export interface GetShareResult {
     /**
      * Mapping of users and corresponding access rights on the share (required for SMB protocol).
      */
-    readonly userAccessRights?: outputs.databoxedge.latest.UserAccessRightResponse[];
+    readonly userAccessRights?: outputs.databoxedge.latest.UserAccessRightInvokeResponse[];
 }

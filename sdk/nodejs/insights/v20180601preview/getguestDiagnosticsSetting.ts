@@ -37,7 +37,7 @@ export interface GetguestDiagnosticsSettingResult {
     /**
      * the array of data source object which are configured to collect and send data
      */
-    readonly dataSources?: outputs.insights.v20180601preview.DataSourceResponse[];
+    readonly dataSources?: outputs.insights.v20180601preview.DataSourceInvokeResponse[];
     /**
      * Azure resource Id
      */

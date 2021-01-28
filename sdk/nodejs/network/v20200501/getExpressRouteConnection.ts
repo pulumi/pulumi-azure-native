@@ -50,7 +50,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The ExpressRoute circuit peering.
      */
-    readonly expressRouteCircuitPeering: outputs.network.v20200501.ExpressRouteCircuitPeeringIdResponse;
+    readonly expressRouteCircuitPeering: outputs.network.v20200501.ExpressRouteCircuitPeeringIdInvokeResponse;
     /**
      * Resource ID.
      */
@@ -66,7 +66,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: outputs.network.v20200501.RoutingConfigurationResponse;
+    readonly routingConfiguration?: outputs.network.v20200501.RoutingConfigurationInvokeResponse;
     /**
      * The routing weight associated to the connection.
      */

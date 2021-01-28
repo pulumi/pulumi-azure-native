@@ -42,11 +42,11 @@ export interface GetFirewallPolicyResult {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: outputs.network.v20190601.SubResourceResponse;
+    readonly basePolicy?: outputs.network.v20190601.SubResourceInvokeResponse;
     /**
      * List of references to Child Firewall Policies
      */
-    readonly childPolicies: outputs.network.v20190601.SubResourceResponse[];
+    readonly childPolicies: outputs.network.v20190601.SubResourceInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -54,7 +54,7 @@ export interface GetFirewallPolicyResult {
     /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with
      */
-    readonly firewalls: outputs.network.v20190601.SubResourceResponse[];
+    readonly firewalls: outputs.network.v20190601.SubResourceInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -74,7 +74,7 @@ export interface GetFirewallPolicyResult {
     /**
      * List of references to FirewallPolicyRuleGroups
      */
-    readonly ruleGroups: outputs.network.v20190601.SubResourceResponse[];
+    readonly ruleGroups: outputs.network.v20190601.SubResourceInvokeResponse[];
     /**
      * Resource tags.
      */

@@ -54,7 +54,7 @@ export interface GetCertificateResult {
     /**
      * The key details in the key vault.
      */
-    readonly key?: outputs.logic.v20160601.KeyVaultKeyReferenceResponse;
+    readonly key?: outputs.logic.v20160601.KeyVaultKeyReferenceInvokeResponse;
     /**
      * The resource location.
      */

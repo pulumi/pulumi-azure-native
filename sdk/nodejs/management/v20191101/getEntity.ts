@@ -76,5 +76,5 @@ export interface GetEntityResult {
     /**
      * The list of entities.
      */
-    readonly value?: outputs.management.v20191101.EntityInfoResponse[];
+    readonly value?: outputs.management.v20191101.EntityInfoInvokeResponse[];
 }

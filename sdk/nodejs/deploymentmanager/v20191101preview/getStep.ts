@@ -49,7 +49,7 @@ export interface GetStepResult {
     /**
      * The properties that define the step.
      */
-    readonly properties: outputs.deploymentmanager.v20191101preview.HealthCheckStepPropertiesResponse | outputs.deploymentmanager.v20191101preview.WaitStepPropertiesResponse;
+    readonly properties: outputs.deploymentmanager.v20191101preview.HealthCheckStepPropertiesInvokeResponse | outputs.deploymentmanager.v20191101preview.WaitStepPropertiesInvokeResponse;
     /**
      * Resource tags.
      */

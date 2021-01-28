@@ -53,7 +53,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.sql.v20200202preview.ResourceIdentityResponse;
+    readonly identity?: outputs.sql.v20200202preview.ResourceIdentityInvokeResponse;
     /**
      * Kind of sql server. This is metadata used for the Azure portal experience.
      */
@@ -73,7 +73,7 @@ export interface GetServerResult {
     /**
      * List of private endpoint connections on a server
      */
-    readonly privateEndpointConnections: outputs.sql.v20200202preview.ServerPrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.sql.v20200202preview.ServerPrivateEndpointConnectionInvokeResponse[];
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */

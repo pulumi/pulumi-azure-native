@@ -37,11 +37,11 @@ export interface GetPolicyResult {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: outputs.cdn.v20200901.CustomRuleListResponse;
+    readonly customRules?: outputs.cdn.v20200901.CustomRuleListInvokeResponse;
     /**
      * Describes Azure CDN endpoints associated with this Web Application Firewall policy.
      */
-    readonly endpointLinks: outputs.cdn.v20200901.CdnEndpointResponse[];
+    readonly endpointLinks: outputs.cdn.v20200901.CdnEndpointInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -57,7 +57,7 @@ export interface GetPolicyResult {
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: outputs.cdn.v20200901.ManagedRuleSetListResponse;
+    readonly managedRules?: outputs.cdn.v20200901.ManagedRuleSetListInvokeResponse;
     /**
      * Resource name.
      */
@@ -65,7 +65,7 @@ export interface GetPolicyResult {
     /**
      * Describes  policySettings for policy
      */
-    readonly policySettings?: outputs.cdn.v20200901.PolicySettingsResponse;
+    readonly policySettings?: outputs.cdn.v20200901.PolicySettingsInvokeResponse;
     /**
      * Provisioning state of the WebApplicationFirewallPolicy.
      */
@@ -73,16 +73,16 @@ export interface GetPolicyResult {
     /**
      * Describes rate limit rules inside the policy.
      */
-    readonly rateLimitRules?: outputs.cdn.v20200901.RateLimitRuleListResponse;
+    readonly rateLimitRules?: outputs.cdn.v20200901.RateLimitRuleListInvokeResponse;
     readonly resourceState: string;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
-    readonly sku: outputs.cdn.v20200901.SkuResponse;
+    readonly sku: outputs.cdn.v20200901.SkuInvokeResponse;
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

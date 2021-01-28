@@ -52,7 +52,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Compliance Status of the Configuration
      */
-    readonly complianceStatus: outputs.kubernetesconfiguration.v20201001preview.ComplianceStatusResponse;
+    readonly complianceStatus: outputs.kubernetesconfiguration.v20201001preview.ComplianceStatusInvokeResponse;
     /**
      * Name-value pairs of protected configuration settings for the configuration
      */
@@ -64,7 +64,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Properties for Helm operator.
      */
-    readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20201001preview.HelmOperatorPropertiesResponse;
+    readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20201001preview.HelmOperatorPropertiesInvokeResponse;
     /**
      * Resource Id
      */
@@ -112,7 +112,7 @@ export interface GetSourceControlConfigurationResult {
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    readonly systemData?: outputs.kubernetesconfiguration.v20201001preview.SystemDataResponse;
+    readonly systemData?: outputs.kubernetesconfiguration.v20201001preview.SystemDataInvokeResponse;
     /**
      * Resource type
      */

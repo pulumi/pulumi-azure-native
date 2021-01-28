@@ -62,7 +62,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets or sets the Microsoft peering config
      */
-    readonly microsoftPeeringConfig?: outputs.network.v20160601.ExpressRouteCircuitPeeringConfigResponse;
+    readonly microsoftPeeringConfig?: outputs.network.v20160601.ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
@@ -106,7 +106,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets or peering stats
      */
-    readonly stats?: outputs.network.v20160601.ExpressRouteCircuitStatsResponse;
+    readonly stats?: outputs.network.v20160601.ExpressRouteCircuitStatsInvokeResponse;
     /**
      * Gets or sets the vlan id
      */

@@ -38,7 +38,7 @@ export interface GetAccountResult {
      * Cloud connectors.
      * External cloud identifier used as part of scanning configuration.
      */
-    readonly cloudConnectors?: outputs.purview.v20201201preview.CloudConnectorsResponse;
+    readonly cloudConnectors?: outputs.purview.v20201201preview.CloudConnectorsInvokeResponse;
     /**
      * Gets the time at which the entity was created.
      */
@@ -54,7 +54,7 @@ export interface GetAccountResult {
     /**
      * The URIs that are the public endpoints of the account.
      */
-    readonly endpoints: outputs.purview.v20201201preview.AccountPropertiesResponseEndpoints;
+    readonly endpoints: outputs.purview.v20201201preview.AccountPropertiesInvokeResponseEndpoints;
     /**
      * Gets or sets the friendly name.
      */
@@ -66,7 +66,7 @@ export interface GetAccountResult {
     /**
      * Identity Info on the tracked resource
      */
-    readonly identity?: outputs.purview.v20201201preview.IdentityResponse;
+    readonly identity?: outputs.purview.v20201201preview.IdentityInvokeResponse;
     /**
      * Gets or sets the location.
      */
@@ -74,7 +74,7 @@ export interface GetAccountResult {
     /**
      * Gets the resource identifiers of the managed resources.
      */
-    readonly managedResources: outputs.purview.v20201201preview.AccountPropertiesResponseManagedResources;
+    readonly managedResources: outputs.purview.v20201201preview.AccountPropertiesInvokeResponseManagedResources;
     /**
      * Gets or sets the name.
      */
@@ -82,7 +82,7 @@ export interface GetAccountResult {
     /**
      * Gets the private endpoint connections information.
      */
-    readonly privateEndpointConnections: outputs.purview.v20201201preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.purview.v20201201preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Gets or sets the state of the provisioning.
      */
@@ -94,7 +94,7 @@ export interface GetAccountResult {
     /**
      * Gets or sets the Sku.
      */
-    readonly sku?: outputs.purview.v20201201preview.AccountSkuResponse;
+    readonly sku?: outputs.purview.v20201201preview.AccountSkuInvokeResponse;
     /**
      * Tags on the azure resource.
      */

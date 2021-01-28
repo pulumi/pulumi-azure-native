@@ -41,23 +41,23 @@ export interface GetApplicationResult {
     /**
      * The collection of managed application artifacts.
      */
-    readonly artifacts: outputs.solutions.latest.ApplicationArtifactResponse[];
+    readonly artifacts: outputs.solutions.latest.ApplicationArtifactInvokeResponse[];
     /**
      * The  read-only authorizations property that is retrieved from the application package.
      */
-    readonly authorizations: outputs.solutions.latest.ApplicationAuthorizationResponse[];
+    readonly authorizations: outputs.solutions.latest.ApplicationAuthorizationInvokeResponse[];
     /**
      * The managed application billing details.
      */
-    readonly billingDetails: outputs.solutions.latest.ApplicationBillingDetailsDefinitionResponse;
+    readonly billingDetails: outputs.solutions.latest.ApplicationBillingDetailsDefinitionInvokeResponse;
     /**
      * The client entity that created the JIT request.
      */
-    readonly createdBy: outputs.solutions.latest.ApplicationClientDetailsResponse;
+    readonly createdBy: outputs.solutions.latest.ApplicationClientDetailsInvokeResponse;
     /**
      * The read-only customer support property that is retrieved from the application package.
      */
-    readonly customerSupport: outputs.solutions.latest.ApplicationPackageContactResponse;
+    readonly customerSupport: outputs.solutions.latest.ApplicationPackageContactInvokeResponse;
     /**
      * Resource ID
      */
@@ -65,11 +65,11 @@ export interface GetApplicationResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.solutions.latest.IdentityResponse;
+    readonly identity?: outputs.solutions.latest.IdentityInvokeResponse;
     /**
      * The managed application Jit access policy.
      */
-    readonly jitAccessPolicy?: outputs.solutions.latest.ApplicationJitAccessPolicyResponse;
+    readonly jitAccessPolicy?: outputs.solutions.latest.ApplicationJitAccessPolicyInvokeResponse;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -105,7 +105,7 @@ export interface GetApplicationResult {
     /**
      * The plan information.
      */
-    readonly plan?: outputs.solutions.latest.PlanResponse;
+    readonly plan?: outputs.solutions.latest.PlanInvokeResponse;
     /**
      * The managed application provisioning state.
      */
@@ -117,11 +117,11 @@ export interface GetApplicationResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.solutions.latest.SkuResponse;
+    readonly sku?: outputs.solutions.latest.SkuInvokeResponse;
     /**
      * The read-only support URLs property that is retrieved from the application package.
      */
-    readonly supportUrls: outputs.solutions.latest.ApplicationPackageSupportUrlsResponse;
+    readonly supportUrls: outputs.solutions.latest.ApplicationPackageSupportUrlsInvokeResponse;
     /**
      * Resource tags
      */
@@ -133,5 +133,5 @@ export interface GetApplicationResult {
     /**
      * The client entity that last updated the JIT request.
      */
-    readonly updatedBy: outputs.solutions.latest.ApplicationClientDetailsResponse;
+    readonly updatedBy: outputs.solutions.latest.ApplicationClientDetailsInvokeResponse;
 }

@@ -41,7 +41,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * Gets or sets list of authorizations
      */
-    readonly authorizations?: outputs.network.v20160330.ExpressRouteCircuitAuthorizationResponse[];
+    readonly authorizations?: outputs.network.v20160330.ExpressRouteCircuitAuthorizationInvokeResponse[];
     /**
      * Gets or sets CircuitProvisioningState state of the resource 
      */
@@ -65,7 +65,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * Gets or sets list of peerings
      */
-    readonly peerings?: outputs.network.v20160330.ExpressRouteCircuitPeeringResponse[];
+    readonly peerings?: outputs.network.v20160330.ExpressRouteCircuitPeeringInvokeResponse[];
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -81,7 +81,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * Gets or sets ServiceProviderProperties
      */
-    readonly serviceProviderProperties?: outputs.network.v20160330.ExpressRouteCircuitServiceProviderPropertiesResponse;
+    readonly serviceProviderProperties?: outputs.network.v20160330.ExpressRouteCircuitServiceProviderPropertiesInvokeResponse;
     /**
      * Gets or sets ServiceProviderProvisioningState state of the resource 
      */
@@ -89,7 +89,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * Gets or sets sku
      */
-    readonly sku?: outputs.network.v20160330.ExpressRouteCircuitSkuResponse;
+    readonly sku?: outputs.network.v20160330.ExpressRouteCircuitSkuInvokeResponse;
     /**
      * Resource tags
      */

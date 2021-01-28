@@ -74,11 +74,11 @@ export interface GetVirtualNetworkPeeringResult {
     /**
      * The reference of the remote virtual network address space.
      */
-    readonly remoteAddressSpace?: outputs.network.v20171101.AddressSpaceResponse;
+    readonly remoteAddressSpace?: outputs.network.v20171101.AddressSpaceInvokeResponse;
     /**
      * The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
-    readonly remoteVirtualNetwork?: outputs.network.v20171101.SubResourceResponse;
+    readonly remoteVirtualNetwork?: outputs.network.v20171101.SubResourceInvokeResponse;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */

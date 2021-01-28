@@ -49,7 +49,7 @@ export interface GetIntegrationAccountResult {
     /**
      * The sku.
      */
-    readonly sku?: outputs.logic.v20160601.IntegrationAccountSkuResponse;
+    readonly sku?: outputs.logic.v20160601.IntegrationAccountSkuInvokeResponse;
     /**
      * The resource tags.
      */

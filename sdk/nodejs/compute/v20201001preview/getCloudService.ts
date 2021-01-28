@@ -49,7 +49,7 @@ export interface GetCloudServiceResult {
     /**
      * Cloud service properties
      */
-    readonly properties: outputs.compute.v20201001preview.CloudServicePropertiesResponse;
+    readonly properties: outputs.compute.v20201001preview.CloudServicePropertiesInvokeResponse;
     /**
      * Resource tags.
      */

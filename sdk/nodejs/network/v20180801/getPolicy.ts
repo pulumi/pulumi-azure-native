@@ -37,7 +37,7 @@ export interface GetPolicyResult {
     /**
      * Describes custom rules inside the policy
      */
-    readonly customRules?: outputs.network.v20180801.CustomRulesResponse;
+    readonly customRules?: outputs.network.v20180801.CustomRulesInvokeResponse;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -53,7 +53,7 @@ export interface GetPolicyResult {
     /**
      * Describes managed rules inside the policy
      */
-    readonly managedRules?: outputs.network.v20180801.ManagedRuleSetsResponse;
+    readonly managedRules?: outputs.network.v20180801.ManagedRuleSetsInvokeResponse;
     /**
      * Resource name.
      */
@@ -61,7 +61,7 @@ export interface GetPolicyResult {
     /**
      * Describes  policySettings for policy
      */
-    readonly policySettings?: outputs.network.v20180801.PolicySettingsResponse;
+    readonly policySettings?: outputs.network.v20180801.PolicySettingsInvokeResponse;
     /**
      * Provisioning state of the WebApplicationFirewallPolicy.
      */

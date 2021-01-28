@@ -46,5 +46,5 @@ export interface ListWebAppSiteBackupsSlotResult {
     /**
      * Collection of resources.
      */
-    readonly value: outputs.web.v20190801.BackupItemResponse[];
+    readonly value: outputs.web.v20190801.BackupItemInvokeResponse[];
 }

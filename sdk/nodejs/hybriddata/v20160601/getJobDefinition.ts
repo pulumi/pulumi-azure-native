@@ -47,7 +47,7 @@ export interface GetJobDefinitionResult {
     /**
      * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
      */
-    readonly customerSecrets?: outputs.hybriddata.v20160601.CustomerSecretResponse[];
+    readonly customerSecrets?: outputs.hybriddata.v20160601.CustomerSecretInvokeResponse[];
     /**
      * A generic json used differently by each data service type.
      */
@@ -79,7 +79,7 @@ export interface GetJobDefinitionResult {
     /**
      * Schedule for running the job definition
      */
-    readonly schedules?: outputs.hybriddata.v20160601.ScheduleResponse[];
+    readonly schedules?: outputs.hybriddata.v20160601.ScheduleInvokeResponse[];
     /**
      * State of the job definition.
      */

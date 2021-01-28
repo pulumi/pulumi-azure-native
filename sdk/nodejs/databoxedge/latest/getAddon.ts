@@ -59,7 +59,7 @@ export interface GetAddonResult {
     /**
      * Addon type
      */
-    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.latest.SystemDataInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

@@ -62,7 +62,7 @@ export interface GetObjectReplicationPolicyResult {
     /**
      * The storage account object replication rules.
      */
-    readonly rules?: outputs.storage.v20190601.ObjectReplicationPolicyRuleResponse[];
+    readonly rules?: outputs.storage.v20190601.ObjectReplicationPolicyRuleInvokeResponse[];
     /**
      * Required. Source account name.
      */

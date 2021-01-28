@@ -46,7 +46,7 @@ export interface GetFileServerResult {
     /**
      * Information about disks attached to File Server VM.
      */
-    readonly dataDisks?: outputs.batchai.latest.DataDisksResponse;
+    readonly dataDisks?: outputs.batchai.latest.DataDisksInvokeResponse;
     /**
      * The ID of the resource.
      */
@@ -54,7 +54,7 @@ export interface GetFileServerResult {
     /**
      * File Server mount settings.
      */
-    readonly mountSettings: outputs.batchai.latest.MountSettingsResponse;
+    readonly mountSettings: outputs.batchai.latest.MountSettingsInvokeResponse;
     /**
      * The name of the resource.
      */
@@ -70,11 +70,11 @@ export interface GetFileServerResult {
     /**
      * SSH configuration for accessing the File Server node.
      */
-    readonly sshConfiguration?: outputs.batchai.latest.SshConfigurationResponse;
+    readonly sshConfiguration?: outputs.batchai.latest.SshConfigurationInvokeResponse;
     /**
      * File Server virtual network subnet resource ID.
      */
-    readonly subnet?: outputs.batchai.latest.ResourceIdResponse;
+    readonly subnet?: outputs.batchai.latest.ResourceIdInvokeResponse;
     /**
      * The type of the resource.
      */

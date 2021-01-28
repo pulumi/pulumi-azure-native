@@ -54,11 +54,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Properties of the private endpoint object.
      */
-    readonly privateEndpoint?: outputs.relay.v20180101preview.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.relay.v20180101preview.PrivateEndpointInvokeResponse;
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.relay.v20180101preview.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.relay.v20180101preview.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * Provisioning state of the private endpoint connection.
      */

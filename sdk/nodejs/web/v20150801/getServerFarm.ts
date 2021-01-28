@@ -45,7 +45,7 @@ export interface GetServerFarmResult {
     /**
      * Specification for the hosting environment (App Service Environment) to use for the App Service Plan
      */
-    readonly hostingEnvironmentProfile?: outputs.web.v20150801.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.v20150801.HostingEnvironmentProfileInvokeResponse;
     /**
      * Resource Id
      */
@@ -86,7 +86,7 @@ export interface GetServerFarmResult {
     /**
      * Describes a sku for a scalable resource
      */
-    readonly sku?: outputs.web.v20150801.SkuDescriptionResponse;
+    readonly sku?: outputs.web.v20150801.SkuDescriptionInvokeResponse;
     /**
      * App Service Plan Status
      */

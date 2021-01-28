@@ -46,7 +46,7 @@ export interface GetProjectResult {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: outputs.datamigration.v20180419.DatabaseInfoResponse[];
+    readonly databasesInfo?: outputs.datamigration.v20180419.DatabaseInfoInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -66,7 +66,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.v20180419.MiSqlConnectionInfoResponse | outputs.datamigration.v20180419.MySqlConnectionInfoResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180419.SqlConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.v20180419.MiSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180419.MySqlConnectionInfoInvokeResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180419.SqlConnectionInfoInvokeResponse;
     /**
      * Source platform for the project
      */
@@ -78,7 +78,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.v20180419.MiSqlConnectionInfoResponse | outputs.datamigration.v20180419.MySqlConnectionInfoResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180419.SqlConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.v20180419.MiSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180419.MySqlConnectionInfoInvokeResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180419.SqlConnectionInfoInvokeResponse;
     /**
      * Target platform for the project
      */

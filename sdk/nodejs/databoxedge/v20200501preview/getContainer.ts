@@ -67,7 +67,7 @@ export interface GetContainerResult {
     /**
      * Details of the refresh job on this container.
      */
-    readonly refreshDetails: outputs.databoxedge.v20200501preview.RefreshDetailsResponse;
+    readonly refreshDetails: outputs.databoxedge.v20200501preview.RefreshDetailsInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

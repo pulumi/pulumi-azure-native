@@ -51,7 +51,7 @@ export interface GetBookmarkResult {
     /**
      * Describes a user that created the bookmark
      */
-    readonly createdBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
+    readonly createdBy?: outputs.securityinsights.v20190101preview.UserInfoInvokeResponse;
     /**
      * The display name of the bookmark
      */
@@ -67,7 +67,7 @@ export interface GetBookmarkResult {
     /**
      * Describes an incident that relates to bookmark
      */
-    readonly incidentInfo?: outputs.securityinsights.v20190101preview.IncidentInfoResponse;
+    readonly incidentInfo?: outputs.securityinsights.v20190101preview.IncidentInfoInvokeResponse;
     /**
      * List of labels relevant to this bookmark
      */
@@ -99,5 +99,5 @@ export interface GetBookmarkResult {
     /**
      * Describes a user that updated the bookmark
      */
-    readonly updatedBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
+    readonly updatedBy?: outputs.securityinsights.v20190101preview.UserInfoInvokeResponse;
 }

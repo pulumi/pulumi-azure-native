@@ -45,7 +45,7 @@ export interface GetNamespaceNetworkRuleSetResult {
     /**
      * List of IpRules
      */
-    readonly ipRules?: outputs.eventhub.v20180101preview.NWRuleSetIpRulesResponse[];
+    readonly ipRules?: outputs.eventhub.v20180101preview.NWRuleSetIpRulesInvokeResponse[];
     /**
      * Resource name.
      */
@@ -61,5 +61,5 @@ export interface GetNamespaceNetworkRuleSetResult {
     /**
      * List VirtualNetwork Rules
      */
-    readonly virtualNetworkRules?: outputs.eventhub.v20180101preview.NWRuleSetVirtualNetworkRulesResponse[];
+    readonly virtualNetworkRules?: outputs.eventhub.v20180101preview.NWRuleSetVirtualNetworkRulesInvokeResponse[];
 }

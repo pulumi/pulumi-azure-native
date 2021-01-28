@@ -62,7 +62,7 @@ export interface GetApiResult {
     /**
      * An API Version Set contains the common configuration for a set of API Versions relating 
      */
-    readonly apiVersionSet?: outputs.apimanagement.v20180601preview.ApiVersionSetContractDetailsResponse;
+    readonly apiVersionSet?: outputs.apimanagement.v20180601preview.ApiVersionSetContractDetailsInvokeResponse;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
@@ -70,7 +70,7 @@ export interface GetApiResult {
     /**
      * Collection of authentication settings included into this API.
      */
-    readonly authenticationSettings?: outputs.apimanagement.v20180601preview.AuthenticationSettingsContractResponse;
+    readonly authenticationSettings?: outputs.apimanagement.v20180601preview.AuthenticationSettingsContractInvokeResponse;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -110,7 +110,7 @@ export interface GetApiResult {
     /**
      * Protocols over which API is made available.
      */
-    readonly subscriptionKeyParameterNames?: outputs.apimanagement.v20180601preview.SubscriptionKeyParameterNamesContractResponse;
+    readonly subscriptionKeyParameterNames?: outputs.apimanagement.v20180601preview.SubscriptionKeyParameterNamesContractInvokeResponse;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */

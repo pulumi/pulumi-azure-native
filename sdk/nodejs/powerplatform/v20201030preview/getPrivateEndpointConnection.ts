@@ -54,11 +54,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.powerplatform.v20201030preview.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.powerplatform.v20201030preview.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.powerplatform.v20201030preview.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.powerplatform.v20201030preview.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */

@@ -37,7 +37,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * AppInsights configuration.
      */
-    readonly appInsights?: outputs.machinelearningcompute.v20170801preview.AppInsightsPropertiesResponse;
+    readonly appInsights?: outputs.machinelearningcompute.v20170801preview.AppInsightsPropertiesInvokeResponse;
     /**
      * The cluster type.
      */
@@ -45,11 +45,11 @@ export interface GetOperationalizationClusterResult {
     /**
      * Container Registry properties.
      */
-    readonly containerRegistry?: outputs.machinelearningcompute.v20170801preview.ContainerRegistryPropertiesResponse;
+    readonly containerRegistry?: outputs.machinelearningcompute.v20170801preview.ContainerRegistryPropertiesInvokeResponse;
     /**
      * Parameters for the Azure Container Service cluster.
      */
-    readonly containerService?: outputs.machinelearningcompute.v20170801preview.AcsClusterPropertiesResponse;
+    readonly containerService?: outputs.machinelearningcompute.v20170801preview.AcsClusterPropertiesInvokeResponse;
     /**
      * The date and time when the cluster was created.
      */
@@ -61,7 +61,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * Contains global configuration for the web services in the cluster.
      */
-    readonly globalServiceConfiguration?: outputs.machinelearningcompute.v20170801preview.GlobalServiceConfigurationResponse;
+    readonly globalServiceConfiguration?: outputs.machinelearningcompute.v20170801preview.GlobalServiceConfigurationInvokeResponse;
     /**
      * Specifies the resource ID.
      */
@@ -81,7 +81,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * List of provisioning errors reported by the resource provider.
      */
-    readonly provisioningErrors: outputs.machinelearningcompute.v20170801preview.ErrorResponseWrapperResponse[];
+    readonly provisioningErrors: outputs.machinelearningcompute.v20170801preview.ErrorResponseWrapperInvokeResponse[];
     /**
      * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
      */
@@ -89,7 +89,7 @@ export interface GetOperationalizationClusterResult {
     /**
      * Storage Account properties.
      */
-    readonly storageAccount?: outputs.machinelearningcompute.v20170801preview.StorageAccountPropertiesResponse;
+    readonly storageAccount?: outputs.machinelearningcompute.v20170801preview.StorageAccountPropertiesInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

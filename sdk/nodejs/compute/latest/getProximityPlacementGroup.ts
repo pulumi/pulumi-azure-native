@@ -42,11 +42,11 @@ export interface GetProximityPlacementGroupResult {
     /**
      * A list of references to all availability sets in the proximity placement group.
      */
-    readonly availabilitySets: outputs.compute.latest.SubResourceWithColocationStatusResponse[];
+    readonly availabilitySets: outputs.compute.latest.SubResourceWithColocationStatusInvokeResponse[];
     /**
      * Describes colocation status of the Proximity Placement Group.
      */
-    readonly colocationStatus?: outputs.compute.latest.InstanceViewStatusResponse;
+    readonly colocationStatus?: outputs.compute.latest.InstanceViewStatusInvokeResponse;
     /**
      * Resource Id
      */
@@ -74,9 +74,9 @@ export interface GetProximityPlacementGroupResult {
     /**
      * A list of references to all virtual machine scale sets in the proximity placement group.
      */
-    readonly virtualMachineScaleSets: outputs.compute.latest.SubResourceWithColocationStatusResponse[];
+    readonly virtualMachineScaleSets: outputs.compute.latest.SubResourceWithColocationStatusInvokeResponse[];
     /**
      * A list of references to all virtual machines in the proximity placement group.
      */
-    readonly virtualMachines: outputs.compute.latest.SubResourceWithColocationStatusResponse[];
+    readonly virtualMachines: outputs.compute.latest.SubResourceWithColocationStatusInvokeResponse[];
 }

@@ -50,7 +50,7 @@ export interface GetPacketCaptureResult {
     /**
      * A list of packet capture filters.
      */
-    readonly filters?: outputs.network.v20200301.PacketCaptureFilterResponse[];
+    readonly filters?: outputs.network.v20200301.PacketCaptureFilterInvokeResponse[];
     /**
      * ID of the packet capture operation.
      */
@@ -66,7 +66,7 @@ export interface GetPacketCaptureResult {
     /**
      * The storage location for a packet capture session.
      */
-    readonly storageLocation: outputs.network.v20200301.PacketCaptureStorageLocationResponse;
+    readonly storageLocation: outputs.network.v20200301.PacketCaptureStorageLocationInvokeResponse;
     /**
      * The ID of the targeted resource, only VM is currently supported.
      */

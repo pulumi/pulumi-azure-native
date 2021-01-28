@@ -74,7 +74,7 @@ export interface GetStorageAccountResult {
     /**
      * StorageAccount object on ASE device
      */
-    readonly systemData: outputs.databoxedge.latest.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.latest.SystemDataInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

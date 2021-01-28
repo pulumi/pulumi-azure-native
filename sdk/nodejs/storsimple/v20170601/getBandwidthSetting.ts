@@ -54,7 +54,7 @@ export interface GetBandwidthSettingResult {
     /**
      * The schedules.
      */
-    readonly schedules: outputs.storsimple.v20170601.BandwidthScheduleResponse[];
+    readonly schedules: outputs.storsimple.v20170601.BandwidthScheduleInvokeResponse[];
     /**
      * The hierarchical type of the object.
      */

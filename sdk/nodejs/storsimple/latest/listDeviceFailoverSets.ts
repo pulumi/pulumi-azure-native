@@ -42,5 +42,5 @@ export interface ListDeviceFailoverSetsResult {
     /**
      * The list of failover sets.
      */
-    readonly value?: outputs.storsimple.latest.FailoverSetResponse[];
+    readonly value?: outputs.storsimple.latest.FailoverSetInvokeResponse[];
 }

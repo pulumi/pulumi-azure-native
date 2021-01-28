@@ -54,7 +54,7 @@ export interface GetIntegrationRuntimeResult {
     /**
      * Integration runtime properties.
      */
-    readonly properties: outputs.synapse.v20201201.ManagedIntegrationRuntimeResponse | outputs.synapse.v20201201.SelfHostedIntegrationRuntimeResponse;
+    readonly properties: outputs.synapse.v20201201.ManagedIntegrationRuntimeInvokeResponse | outputs.synapse.v20201201.SelfHostedIntegrationRuntimeInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -37,19 +37,19 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
     /**
      * Application logs configuration.
      */
-    readonly applicationLogs?: outputs.web.latest.ApplicationLogsConfigResponse;
+    readonly applicationLogs?: outputs.web.latest.ApplicationLogsConfigInvokeResponse;
     /**
      * Detailed error messages configuration.
      */
-    readonly detailedErrorMessages?: outputs.web.latest.EnabledConfigResponse;
+    readonly detailedErrorMessages?: outputs.web.latest.EnabledConfigInvokeResponse;
     /**
      * Failed requests tracing configuration.
      */
-    readonly failedRequestsTracing?: outputs.web.latest.EnabledConfigResponse;
+    readonly failedRequestsTracing?: outputs.web.latest.EnabledConfigInvokeResponse;
     /**
      * HTTP logs configuration.
      */
-    readonly httpLogs?: outputs.web.latest.HttpLogsConfigResponse;
+    readonly httpLogs?: outputs.web.latest.HttpLogsConfigInvokeResponse;
     /**
      * Resource Id.
      */
@@ -65,7 +65,7 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

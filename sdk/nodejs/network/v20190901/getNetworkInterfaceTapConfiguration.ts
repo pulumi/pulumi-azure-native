@@ -62,5 +62,5 @@ export interface GetNetworkInterfaceTapConfigurationResult {
     /**
      * The reference of the Virtual Network Tap resource.
      */
-    readonly virtualNetworkTap?: outputs.network.v20190901.VirtualNetworkTapResponse;
+    readonly virtualNetworkTap?: outputs.network.v20190901.VirtualNetworkTapInvokeResponse;
 }

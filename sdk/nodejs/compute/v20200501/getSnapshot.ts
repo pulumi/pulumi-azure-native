@@ -37,7 +37,7 @@ export interface GetSnapshotResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.v20200501.CreationDataResponse;
+    readonly creationData: outputs.compute.v20200501.CreationDataInvokeResponse;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -53,11 +53,11 @@ export interface GetSnapshotResult {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: outputs.compute.v20200501.EncryptionResponse;
+    readonly encryption?: outputs.compute.v20200501.EncryptionInvokeResponse;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: outputs.compute.v20200501.EncryptionSettingsCollectionResponse;
+    readonly encryptionSettingsCollection?: outputs.compute.v20200501.EncryptionSettingsCollectionInvokeResponse;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -97,7 +97,7 @@ export interface GetSnapshotResult {
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
      */
-    readonly sku?: outputs.compute.v20200501.SnapshotSkuResponse;
+    readonly sku?: outputs.compute.v20200501.SnapshotSkuInvokeResponse;
     /**
      * Resource tags
      */

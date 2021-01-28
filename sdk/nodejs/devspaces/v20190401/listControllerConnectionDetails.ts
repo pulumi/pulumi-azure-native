@@ -39,5 +39,5 @@ export interface ListControllerConnectionDetailsResult {
     /**
      * List of Azure Dev Spaces Controller connection details.
      */
-    readonly connectionDetailsList?: outputs.devspaces.v20190401.ControllerConnectionDetailsResponse[];
+    readonly connectionDetailsList?: outputs.devspaces.v20190401.ControllerConnectionDetailsInvokeResponse[];
 }

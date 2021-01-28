@@ -41,7 +41,7 @@ export interface GetVirtualHubResult {
     /**
      * The azureFirewall associated with this VirtualHub.
      */
-    readonly azureFirewall?: outputs.network.v20190801.SubResourceResponse;
+    readonly azureFirewall?: outputs.network.v20190801.SubResourceInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -49,7 +49,7 @@ export interface GetVirtualHubResult {
     /**
      * The expressRouteGateway associated with this VirtualHub.
      */
-    readonly expressRouteGateway?: outputs.network.v20190801.SubResourceResponse;
+    readonly expressRouteGateway?: outputs.network.v20190801.SubResourceInvokeResponse;
     /**
      * Resource ID.
      */
@@ -65,7 +65,7 @@ export interface GetVirtualHubResult {
     /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
-    readonly p2SVpnGateway?: outputs.network.v20190801.SubResourceResponse;
+    readonly p2SVpnGateway?: outputs.network.v20190801.SubResourceInvokeResponse;
     /**
      * The provisioning state of the virtual hub resource.
      */
@@ -73,7 +73,7 @@ export interface GetVirtualHubResult {
     /**
      * The routeTable associated with this virtual hub.
      */
-    readonly routeTable?: outputs.network.v20190801.VirtualHubRouteTableResponse;
+    readonly routeTable?: outputs.network.v20190801.VirtualHubRouteTableInvokeResponse;
     /**
      * The Security Provider name.
      */
@@ -89,13 +89,13 @@ export interface GetVirtualHubResult {
     /**
      * List of all vnet connections with this VirtualHub.
      */
-    readonly virtualNetworkConnections?: outputs.network.v20190801.HubVirtualNetworkConnectionResponse[];
+    readonly virtualNetworkConnections?: outputs.network.v20190801.HubVirtualNetworkConnectionInvokeResponse[];
     /**
      * The VirtualWAN to which the VirtualHub belongs.
      */
-    readonly virtualWan?: outputs.network.v20190801.SubResourceResponse;
+    readonly virtualWan?: outputs.network.v20190801.SubResourceInvokeResponse;
     /**
      * The VpnGateway associated with this VirtualHub.
      */
-    readonly vpnGateway?: outputs.network.v20190801.SubResourceResponse;
+    readonly vpnGateway?: outputs.network.v20190801.SubResourceInvokeResponse;
 }

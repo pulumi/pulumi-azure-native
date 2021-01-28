@@ -41,5 +41,5 @@ export interface ListWebAppSiteBackupsResult {
     /**
      * Collection of resources.
      */
-    readonly value: outputs.web.v20200901.BackupItemResponse[];
+    readonly value: outputs.web.v20200901.BackupItemInvokeResponse[];
 }

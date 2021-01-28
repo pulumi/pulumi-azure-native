@@ -42,7 +42,7 @@ export interface GetInterfaceEndpointResult {
     /**
      * A reference to the service being brought into the virtual network.
      */
-    readonly endpointService?: outputs.network.v20180801.EndpointServiceResponse;
+    readonly endpointService?: outputs.network.v20180801.EndpointServiceInvokeResponse;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -66,7 +66,7 @@ export interface GetInterfaceEndpointResult {
     /**
      * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    readonly networkInterfaces: outputs.network.v20180801.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.v20180801.NetworkInterfaceInvokeResponse[];
     /**
      * A read-only property that identifies who created this interface endpoint.
      */
@@ -78,7 +78,7 @@ export interface GetInterfaceEndpointResult {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: outputs.network.v20180801.SubnetResponse;
+    readonly subnet?: outputs.network.v20180801.SubnetInvokeResponse;
     /**
      * Resource tags.
      */

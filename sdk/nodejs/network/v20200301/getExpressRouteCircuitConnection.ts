@@ -63,7 +63,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */
-    readonly expressRouteCircuitPeering?: outputs.network.v20200301.SubResourceResponse;
+    readonly expressRouteCircuitPeering?: outputs.network.v20200301.SubResourceInvokeResponse;
     /**
      * Resource ID.
      */
@@ -71,7 +71,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * IPv6 Address PrefixProperties of the express route circuit connection.
      */
-    readonly ipv6CircuitConnectionConfig?: outputs.network.v20200301.Ipv6CircuitConnectionConfigResponse;
+    readonly ipv6CircuitConnectionConfig?: outputs.network.v20200301.Ipv6CircuitConnectionConfigInvokeResponse;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -79,7 +79,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */
-    readonly peerExpressRouteCircuitPeering?: outputs.network.v20200301.SubResourceResponse;
+    readonly peerExpressRouteCircuitPeering?: outputs.network.v20200301.SubResourceInvokeResponse;
     /**
      * The provisioning state of the express route circuit connection resource.
      */

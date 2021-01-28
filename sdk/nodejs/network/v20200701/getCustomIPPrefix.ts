@@ -70,7 +70,7 @@ export interface GetCustomIPPrefixResult {
     /**
      * The list of all referenced PublicIpPrefixes.
      */
-    readonly publicIpPrefixes: outputs.network.v20200701.SubResourceResponse[];
+    readonly publicIpPrefixes: outputs.network.v20200701.SubResourceInvokeResponse[];
     /**
      * The resource GUID property of the custom IP prefix resource.
      */

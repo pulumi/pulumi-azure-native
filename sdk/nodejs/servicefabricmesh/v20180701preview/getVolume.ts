@@ -37,7 +37,7 @@ export interface GetVolumeResult {
     /**
      * This type describes a volume provided by an Azure Files file share.
      */
-    readonly azureFileParameters?: outputs.servicefabricmesh.v20180701preview.VolumeProviderParametersAzureFileResponse;
+    readonly azureFileParameters?: outputs.servicefabricmesh.v20180701preview.VolumeProviderParametersAzureFileInvokeResponse;
     /**
      * User readable description of the volume.
      */

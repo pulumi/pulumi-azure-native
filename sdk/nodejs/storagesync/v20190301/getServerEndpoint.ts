@@ -99,7 +99,7 @@ export interface GetServerEndpointResult {
     /**
      * Server Endpoint sync status
      */
-    readonly syncStatus: outputs.storagesync.v20190301.ServerEndpointSyncStatusResponse;
+    readonly syncStatus: outputs.storagesync.v20190301.ServerEndpointSyncStatusInvokeResponse;
     /**
      * Tier files older than days.
      */

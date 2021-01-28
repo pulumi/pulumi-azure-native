@@ -32,5 +32,5 @@ export interface ListGlobalUserLabsResult {
     /**
      * List of all the labs
      */
-    readonly labs?: outputs.labservices.v20181015.LabDetailsResponse[];
+    readonly labs?: outputs.labservices.v20181015.LabDetailsInvokeResponse[];
 }

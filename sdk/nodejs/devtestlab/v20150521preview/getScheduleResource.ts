@@ -42,11 +42,11 @@ export interface GetScheduleResourceResult {
     /**
      * The daily recurrence of the schedule.
      */
-    readonly dailyRecurrence?: outputs.devtestlab.v20150521preview.DayDetailsResponse;
+    readonly dailyRecurrence?: outputs.devtestlab.v20150521preview.DayDetailsInvokeResponse;
     /**
      * The hourly recurrence of the schedule.
      */
-    readonly hourlyRecurrence?: outputs.devtestlab.v20150521preview.HourDetailsResponse;
+    readonly hourlyRecurrence?: outputs.devtestlab.v20150521preview.HourDetailsInvokeResponse;
     /**
      * The identifier of the resource.
      */
@@ -86,5 +86,5 @@ export interface GetScheduleResourceResult {
     /**
      * The weekly recurrence of the schedule.
      */
-    readonly weeklyRecurrence?: outputs.devtestlab.v20150521preview.WeekDetailsResponse;
+    readonly weeklyRecurrence?: outputs.devtestlab.v20150521preview.WeekDetailsInvokeResponse;
 }

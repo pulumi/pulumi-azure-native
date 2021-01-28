@@ -46,7 +46,7 @@ export interface GetJobCollectionResult {
     /**
      * Gets or sets the job collection properties.
      */
-    readonly properties: outputs.scheduler.v20160101.JobCollectionPropertiesResponse;
+    readonly properties: outputs.scheduler.v20160101.JobCollectionPropertiesInvokeResponse;
     /**
      * Gets or sets the tags.
      */

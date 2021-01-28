@@ -60,7 +60,7 @@ export interface GetEnvironmentResult {
     /**
      * The deployment properties of the environment.
      */
-    readonly deploymentProperties?: outputs.devtestlab.v20180915.EnvironmentDeploymentPropertiesResponse;
+    readonly deploymentProperties?: outputs.devtestlab.v20180915.EnvironmentDeploymentPropertiesInvokeResponse;
     /**
      * The identifier of the resource.
      */

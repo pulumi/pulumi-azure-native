@@ -134,7 +134,7 @@ export interface GetAgentPoolResult {
     /**
      * Settings for upgrading the agentpool
      */
-    readonly upgradeSettings?: outputs.containerservice.v20200601.AgentPoolUpgradeSettingsResponse;
+    readonly upgradeSettings?: outputs.containerservice.v20200601.AgentPoolUpgradeSettingsInvokeResponse;
     /**
      * Size of agent VMs.
      */

@@ -39,7 +39,7 @@ export interface GetResourceTypeRegistrationResult {
      * The name of the resource
      */
     readonly name: string;
-    readonly properties: outputs.providerhub.latest.ResourceTypeRegistrationResponseProperties;
+    readonly properties: outputs.providerhub.latest.ResourceTypeRegistrationInvokeResponseProperties;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

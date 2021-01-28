@@ -57,7 +57,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbforpostgresql.latest.ResourceIdentityResponse;
+    readonly identity?: outputs.dbforpostgresql.latest.ResourceIdentityInvokeResponse;
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
@@ -81,7 +81,7 @@ export interface GetServerResult {
     /**
      * List of private endpoint connections on a server
      */
-    readonly privateEndpointConnections: outputs.dbforpostgresql.latest.ServerPrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.dbforpostgresql.latest.ServerPrivateEndpointConnectionInvokeResponse[];
     /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
@@ -97,7 +97,7 @@ export interface GetServerResult {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: outputs.dbforpostgresql.latest.SkuResponse;
+    readonly sku?: outputs.dbforpostgresql.latest.SkuInvokeResponse;
     /**
      * Enable ssl enforcement or not when connect to server.
      */
@@ -105,7 +105,7 @@ export interface GetServerResult {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: outputs.dbforpostgresql.latest.StorageProfileResponse;
+    readonly storageProfile?: outputs.dbforpostgresql.latest.StorageProfileInvokeResponse;
     /**
      * Resource tags.
      */

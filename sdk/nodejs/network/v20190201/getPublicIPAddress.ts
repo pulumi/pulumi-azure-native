@@ -42,11 +42,11 @@ export interface GetPublicIPAddressResult {
     /**
      * The DDoS protection custom policy associated with the public IP address.
      */
-    readonly ddosSettings?: outputs.network.v20190201.DdosSettingsResponse;
+    readonly ddosSettings?: outputs.network.v20190201.DdosSettingsInvokeResponse;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: outputs.network.v20190201.PublicIPAddressDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20190201.PublicIPAddressDnsSettingsInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -66,11 +66,11 @@ export interface GetPublicIPAddressResult {
     /**
      * The IP configuration associated with the public IP address.
      */
-    readonly ipConfiguration: outputs.network.v20190201.IPConfigurationResponse;
+    readonly ipConfiguration: outputs.network.v20190201.IPConfigurationInvokeResponse;
     /**
      * The list of tags associated with the public IP address.
      */
-    readonly ipTags?: outputs.network.v20190201.IpTagResponse[];
+    readonly ipTags?: outputs.network.v20190201.IpTagInvokeResponse[];
     /**
      * Resource location.
      */
@@ -94,7 +94,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */
-    readonly publicIPPrefix?: outputs.network.v20190201.SubResourceResponse;
+    readonly publicIPPrefix?: outputs.network.v20190201.SubResourceInvokeResponse;
     /**
      * The resource GUID property of the public IP resource.
      */
@@ -102,7 +102,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The public IP address SKU.
      */
-    readonly sku?: outputs.network.v20190201.PublicIPAddressSkuResponse;
+    readonly sku?: outputs.network.v20190201.PublicIPAddressSkuInvokeResponse;
     /**
      * Resource tags.
      */

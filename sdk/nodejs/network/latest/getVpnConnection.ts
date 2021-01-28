@@ -82,7 +82,7 @@ export interface GetVpnConnectionResult {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: outputs.network.latest.IpsecPolicyResponse[];
+    readonly ipsecPolicies?: outputs.network.latest.IpsecPolicyInvokeResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -94,11 +94,11 @@ export interface GetVpnConnectionResult {
     /**
      * Id of the connected vpn site.
      */
-    readonly remoteVpnSite?: outputs.network.latest.SubResourceResponse;
+    readonly remoteVpnSite?: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: outputs.network.latest.RoutingConfigurationResponse;
+    readonly routingConfiguration?: outputs.network.latest.RoutingConfigurationInvokeResponse;
     /**
      * Routing weight for vpn connection.
      */
@@ -122,5 +122,5 @@ export interface GetVpnConnectionResult {
     /**
      * List of all vpn site link connections to the gateway.
      */
-    readonly vpnLinkConnections?: outputs.network.latest.VpnSiteLinkConnectionResponse[];
+    readonly vpnLinkConnections?: outputs.network.latest.VpnSiteLinkConnectionInvokeResponse[];
 }

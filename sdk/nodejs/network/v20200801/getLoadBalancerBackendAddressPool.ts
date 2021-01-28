@@ -42,7 +42,7 @@ export interface GetLoadBalancerBackendAddressPoolResult {
     /**
      * An array of references to IP addresses defined in network interfaces.
      */
-    readonly backendIPConfigurations: outputs.network.v20200801.NetworkInterfaceIPConfigurationResponse[];
+    readonly backendIPConfigurations: outputs.network.v20200801.NetworkInterfaceIPConfigurationInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -54,11 +54,11 @@ export interface GetLoadBalancerBackendAddressPoolResult {
     /**
      * An array of backend addresses.
      */
-    readonly loadBalancerBackendAddresses?: outputs.network.v20200801.LoadBalancerBackendAddressResponse[];
+    readonly loadBalancerBackendAddresses?: outputs.network.v20200801.LoadBalancerBackendAddressInvokeResponse[];
     /**
      * An array of references to load balancing rules that use this backend address pool.
      */
-    readonly loadBalancingRules: outputs.network.v20200801.SubResourceResponse[];
+    readonly loadBalancingRules: outputs.network.v20200801.SubResourceInvokeResponse[];
     /**
      * The location of the backend address pool.
      */
@@ -70,11 +70,11 @@ export interface GetLoadBalancerBackendAddressPoolResult {
     /**
      * A reference to an outbound rule that uses this backend address pool.
      */
-    readonly outboundRule: outputs.network.v20200801.SubResourceResponse;
+    readonly outboundRule: outputs.network.v20200801.SubResourceInvokeResponse;
     /**
      * An array of references to outbound rules that use this backend address pool.
      */
-    readonly outboundRules: outputs.network.v20200801.SubResourceResponse[];
+    readonly outboundRules: outputs.network.v20200801.SubResourceInvokeResponse[];
     /**
      * The provisioning state of the backend address pool resource.
      */

@@ -41,7 +41,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The list of authorizations.
      */
-    readonly authorizations?: outputs.network.v20171101.ExpressRouteCircuitAuthorizationResponse[];
+    readonly authorizations?: outputs.network.v20171101.ExpressRouteCircuitAuthorizationInvokeResponse[];
     /**
      * The CircuitProvisioningState state of the resource.
      */
@@ -69,7 +69,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The list of peerings.
      */
-    readonly peerings?: outputs.network.v20171101.ExpressRouteCircuitPeeringResponse[];
+    readonly peerings?: outputs.network.v20171101.ExpressRouteCircuitPeeringInvokeResponse[];
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -85,7 +85,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The ServiceProviderProperties.
      */
-    readonly serviceProviderProperties?: outputs.network.v20171101.ExpressRouteCircuitServiceProviderPropertiesResponse;
+    readonly serviceProviderProperties?: outputs.network.v20171101.ExpressRouteCircuitServiceProviderPropertiesInvokeResponse;
     /**
      * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
      */
@@ -93,7 +93,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The SKU.
      */
-    readonly sku?: outputs.network.v20171101.ExpressRouteCircuitSkuResponse;
+    readonly sku?: outputs.network.v20171101.ExpressRouteCircuitSkuInvokeResponse;
     /**
      * Resource tags.
      */

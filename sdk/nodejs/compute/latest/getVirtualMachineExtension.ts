@@ -63,7 +63,7 @@ export interface GetVirtualMachineExtensionResult {
     /**
      * The virtual machine extension instance view.
      */
-    readonly instanceView?: outputs.compute.latest.VirtualMachineExtensionInstanceViewResponse;
+    readonly instanceView?: outputs.compute.latest.VirtualMachineExtensionInstanceViewInvokeResponse;
     /**
      * Resource location
      */

@@ -45,7 +45,7 @@ export interface GetIotHubResourceResult {
     /**
      * The managed identities for the IotHub.
      */
-    readonly identity?: outputs.devices.v20200831preview.ArmIdentityResponse;
+    readonly identity?: outputs.devices.v20200831preview.ArmIdentityInvokeResponse;
     /**
      * The resource location.
      */
@@ -57,11 +57,11 @@ export interface GetIotHubResourceResult {
     /**
      * IotHub properties
      */
-    readonly properties: outputs.devices.v20200831preview.IotHubPropertiesResponse;
+    readonly properties: outputs.devices.v20200831preview.IotHubPropertiesInvokeResponse;
     /**
      * IotHub SKU info
      */
-    readonly sku: outputs.devices.v20200831preview.IotHubSkuInfoResponse;
+    readonly sku: outputs.devices.v20200831preview.IotHubSkuInfoInvokeResponse;
     /**
      * The resource tags.
      */

@@ -55,7 +55,7 @@ export interface GetBackupScheduleGroupResult {
     /**
      * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */
-    readonly startTime: outputs.storsimple.latest.TimeResponse;
+    readonly startTime: outputs.storsimple.latest.TimeInvokeResponse;
     /**
      * The type.
      */

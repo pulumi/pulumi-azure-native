@@ -45,7 +45,7 @@ export interface GetGalleryResult {
     /**
      * Describes the gallery unique name.
      */
-    readonly identifier?: outputs.compute.v20190301.GalleryIdentifierResponse;
+    readonly identifier?: outputs.compute.v20190301.GalleryIdentifierInvokeResponse;
     /**
      * Resource location
      */

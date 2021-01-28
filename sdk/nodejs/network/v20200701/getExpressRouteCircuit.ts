@@ -41,7 +41,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The list of authorizations.
      */
-    readonly authorizations?: outputs.network.v20200701.ExpressRouteCircuitAuthorizationResponse[];
+    readonly authorizations?: outputs.network.v20200701.ExpressRouteCircuitAuthorizationInvokeResponse[];
     /**
      * The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
      */
@@ -57,7 +57,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
      */
-    readonly expressRoutePort?: outputs.network.v20200701.SubResourceResponse;
+    readonly expressRoutePort?: outputs.network.v20200701.SubResourceInvokeResponse;
     /**
      * The GatewayManager Etag.
      */
@@ -81,7 +81,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The list of peerings.
      */
-    readonly peerings?: outputs.network.v20200701.ExpressRouteCircuitPeeringResponse[];
+    readonly peerings?: outputs.network.v20200701.ExpressRouteCircuitPeeringInvokeResponse[];
     /**
      * The provisioning state of the express route circuit resource.
      */
@@ -97,7 +97,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The ServiceProviderProperties.
      */
-    readonly serviceProviderProperties?: outputs.network.v20200701.ExpressRouteCircuitServiceProviderPropertiesResponse;
+    readonly serviceProviderProperties?: outputs.network.v20200701.ExpressRouteCircuitServiceProviderPropertiesInvokeResponse;
     /**
      * The ServiceProviderProvisioningState state of the resource.
      */
@@ -105,7 +105,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * The SKU.
      */
-    readonly sku?: outputs.network.v20200701.ExpressRouteCircuitSkuResponse;
+    readonly sku?: outputs.network.v20200701.ExpressRouteCircuitSkuInvokeResponse;
     /**
      * The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
      */

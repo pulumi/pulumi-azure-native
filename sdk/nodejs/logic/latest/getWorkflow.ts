@@ -37,7 +37,7 @@ export interface GetWorkflowResult {
     /**
      * The access control configuration.
      */
-    readonly accessControl?: outputs.logic.latest.FlowAccessControlConfigurationResponse;
+    readonly accessControl?: outputs.logic.latest.FlowAccessControlConfigurationInvokeResponse;
     /**
      * Gets the access endpoint.
      */
@@ -57,7 +57,7 @@ export interface GetWorkflowResult {
     /**
      * The endpoints configuration.
      */
-    readonly endpointsConfiguration?: outputs.logic.latest.FlowEndpointsConfigurationResponse;
+    readonly endpointsConfiguration?: outputs.logic.latest.FlowEndpointsConfigurationInvokeResponse;
     /**
      * The resource id.
      */
@@ -65,11 +65,11 @@ export interface GetWorkflowResult {
     /**
      * The integration account.
      */
-    readonly integrationAccount?: outputs.logic.latest.ResourceReferenceResponse;
+    readonly integrationAccount?: outputs.logic.latest.ResourceReferenceInvokeResponse;
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: outputs.logic.latest.ResourceReferenceResponse;
+    readonly integrationServiceEnvironment?: outputs.logic.latest.ResourceReferenceInvokeResponse;
     /**
      * The resource location.
      */
@@ -81,7 +81,7 @@ export interface GetWorkflowResult {
     /**
      * The parameters.
      */
-    readonly parameters?: {[key: string]: outputs.logic.latest.WorkflowParameterResponse};
+    readonly parameters?: {[key: string]: outputs.logic.latest.WorkflowParameterInvokeResponse};
     /**
      * Gets the provisioning state.
      */
@@ -89,7 +89,7 @@ export interface GetWorkflowResult {
     /**
      * The sku.
      */
-    readonly sku: outputs.logic.latest.SkuResponse;
+    readonly sku: outputs.logic.latest.SkuInvokeResponse;
     /**
      * The state.
      */

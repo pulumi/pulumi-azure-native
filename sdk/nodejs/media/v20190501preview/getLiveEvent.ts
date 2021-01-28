@@ -46,7 +46,7 @@ export interface GetLiveEventResult {
     /**
      * The Live Event access policies.
      */
-    readonly crossSiteAccessPolicies?: outputs.media.v20190501preview.CrossSiteAccessPoliciesResponse;
+    readonly crossSiteAccessPolicies?: outputs.media.v20190501preview.CrossSiteAccessPoliciesInvokeResponse;
     /**
      * The Live Event description.
      */
@@ -54,7 +54,7 @@ export interface GetLiveEventResult {
     /**
      * The Live Event encoding.
      */
-    readonly encoding?: outputs.media.v20190501preview.LiveEventEncodingResponse;
+    readonly encoding?: outputs.media.v20190501preview.LiveEventEncodingInvokeResponse;
     /**
      * Fully qualified resource ID for the resource.
      */
@@ -62,7 +62,7 @@ export interface GetLiveEventResult {
     /**
      * The Live Event input.
      */
-    readonly input: outputs.media.v20190501preview.LiveEventInputResponse;
+    readonly input: outputs.media.v20190501preview.LiveEventInputInvokeResponse;
     /**
      * The exact time the Live Event was last modified.
      */
@@ -78,7 +78,7 @@ export interface GetLiveEventResult {
     /**
      * The Live Event preview.
      */
-    readonly preview?: outputs.media.v20190501preview.LiveEventPreviewResponse;
+    readonly preview?: outputs.media.v20190501preview.LiveEventPreviewInvokeResponse;
     /**
      * The provisioning state of the Live Event.
      */
@@ -98,7 +98,7 @@ export interface GetLiveEventResult {
     /**
      * The Live Event transcription.
      */
-    readonly transcriptions?: outputs.media.v20190501preview.LiveEventTranscriptionResponse[];
+    readonly transcriptions?: outputs.media.v20190501preview.LiveEventTranscriptionInvokeResponse[];
     /**
      * The type of the resource.
      */

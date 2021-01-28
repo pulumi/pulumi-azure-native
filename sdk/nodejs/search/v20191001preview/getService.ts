@@ -45,7 +45,7 @@ export interface GetServiceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.search.v20191001preview.IdentityResponse;
+    readonly identity?: outputs.search.v20191001preview.IdentityInvokeResponse;
     /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
      */
@@ -57,7 +57,7 @@ export interface GetServiceResult {
     /**
      * Network specific rules that determine how the Azure Cognitive Search service may be reached.
      */
-    readonly networkRuleSet?: outputs.search.v20191001preview.NetworkRuleSetResponse;
+    readonly networkRuleSet?: outputs.search.v20191001preview.NetworkRuleSetInvokeResponse;
     /**
      * The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
@@ -65,7 +65,7 @@ export interface GetServiceResult {
     /**
      * The list of private endpoint connections to the Azure Cognitive Search service.
      */
-    readonly privateEndpointConnections: outputs.search.v20191001preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.search.v20191001preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The state of the last provisioning operation performed on the Search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create Search service. This is because the free service uses capacity that is already set up.
      */
@@ -77,7 +77,7 @@ export interface GetServiceResult {
     /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
-    readonly sku?: outputs.search.v20191001preview.SkuResponse;
+    readonly sku?: outputs.search.v20191001preview.SkuInvokeResponse;
     /**
      * The status of the Search service. Possible values include: 'running': The Search service is running and no provisioning operations are underway. 'provisioning': The Search service is being provisioned or scaled up or down. 'deleting': The Search service is being deleted. 'degraded': The Search service is degraded. This can occur when the underlying search units are not healthy. The Search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The Search service is disabled. In this state, the service will reject all API requests. 'error': The Search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
      */

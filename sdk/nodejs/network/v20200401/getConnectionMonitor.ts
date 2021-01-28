@@ -50,11 +50,11 @@ export interface GetConnectionMonitorResult {
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination?: outputs.network.v20200401.ConnectionMonitorDestinationResponse;
+    readonly destination?: outputs.network.v20200401.ConnectionMonitorDestinationInvokeResponse;
     /**
      * List of connection monitor endpoints.
      */
-    readonly endpoints?: outputs.network.v20200401.ConnectionMonitorEndpointResponse[];
+    readonly endpoints?: outputs.network.v20200401.ConnectionMonitorEndpointInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -86,7 +86,7 @@ export interface GetConnectionMonitorResult {
     /**
      * List of connection monitor outputs.
      */
-    readonly outputs?: outputs.network.v20200401.ConnectionMonitorOutputResponse[];
+    readonly outputs?: outputs.network.v20200401.ConnectionMonitorOutputInvokeResponse[];
     /**
      * The provisioning state of the connection monitor.
      */
@@ -94,7 +94,7 @@ export interface GetConnectionMonitorResult {
     /**
      * Describes the source of connection monitor.
      */
-    readonly source?: outputs.network.v20200401.ConnectionMonitorSourceResponse;
+    readonly source?: outputs.network.v20200401.ConnectionMonitorSourceInvokeResponse;
     /**
      * The date and time when the connection monitor was started.
      */
@@ -106,11 +106,11 @@ export interface GetConnectionMonitorResult {
     /**
      * List of connection monitor test configurations.
      */
-    readonly testConfigurations?: outputs.network.v20200401.ConnectionMonitorTestConfigurationResponse[];
+    readonly testConfigurations?: outputs.network.v20200401.ConnectionMonitorTestConfigurationInvokeResponse[];
     /**
      * List of connection monitor test groups.
      */
-    readonly testGroups?: outputs.network.v20200401.ConnectionMonitorTestGroupResponse[];
+    readonly testGroups?: outputs.network.v20200401.ConnectionMonitorTestGroupInvokeResponse[];
     /**
      * Connection monitor type.
      */

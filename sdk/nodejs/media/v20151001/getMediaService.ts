@@ -37,7 +37,7 @@ export interface GetMediaServiceResult {
     /**
      * Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
      */
-    readonly apiEndpoints: outputs.media.v20151001.ApiEndpointResponse[];
+    readonly apiEndpoints: outputs.media.v20151001.ApiEndpointInvokeResponse[];
     /**
      * The id of the resource.
      */
@@ -53,7 +53,7 @@ export interface GetMediaServiceResult {
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: outputs.media.v20151001.StorageAccountResponse[];
+    readonly storageAccounts?: outputs.media.v20151001.StorageAccountInvokeResponse[];
     /**
      * Tags to help categorize the resource in the Azure portal.
      */

@@ -42,7 +42,7 @@ export interface GetNodeTypeResult {
     /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
-    readonly applicationPorts?: outputs.servicefabric.v20200101preview.EndpointRangeDescriptionResponse;
+    readonly applicationPorts?: outputs.servicefabric.v20200101preview.EndpointRangeDescriptionInvokeResponse;
     /**
      * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      */
@@ -54,7 +54,7 @@ export interface GetNodeTypeResult {
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
-    readonly ephemeralPorts?: outputs.servicefabric.v20200101preview.EndpointRangeDescriptionResponse;
+    readonly ephemeralPorts?: outputs.servicefabric.v20200101preview.EndpointRangeDescriptionInvokeResponse;
     /**
      * Azure resource identifier.
      */
@@ -86,7 +86,7 @@ export interface GetNodeTypeResult {
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
-    readonly vmExtensions?: outputs.servicefabric.v20200101preview.VMSSExtensionResponse[];
+    readonly vmExtensions?: outputs.servicefabric.v20200101preview.VMSSExtensionInvokeResponse[];
     /**
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
@@ -110,7 +110,7 @@ export interface GetNodeTypeResult {
     /**
      * The secrets to install in the virtual machines.
      */
-    readonly vmSecrets?: outputs.servicefabric.v20200101preview.VaultSecretGroupResponse[];
+    readonly vmSecrets?: outputs.servicefabric.v20200101preview.VaultSecretGroupInvokeResponse[];
     /**
      * The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
      */

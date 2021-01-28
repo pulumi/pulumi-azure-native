@@ -48,7 +48,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
     /**
      * The list of logs settings.
      */
-    readonly logs?: outputs.insights.v20170501preview.SubscriptionLogSettingsResponse[];
+    readonly logs?: outputs.insights.v20170501preview.SubscriptionLogSettingsInvokeResponse[];
     /**
      * Azure resource name
      */

@@ -87,7 +87,7 @@ export interface GetWebAppHostNameBindingSlotResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.v20200901.SystemDataResponse;
+    readonly systemData: outputs.web.v20200901.SystemDataInvokeResponse;
     /**
      * SSL certificate thumbprint
      */

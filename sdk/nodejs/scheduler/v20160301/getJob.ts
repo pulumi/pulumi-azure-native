@@ -47,7 +47,7 @@ export interface GetJobResult {
     /**
      * Gets or sets the job properties.
      */
-    readonly properties: outputs.scheduler.v20160301.JobPropertiesResponse;
+    readonly properties: outputs.scheduler.v20160301.JobPropertiesInvokeResponse;
     /**
      * Gets the job resource type.
      */

@@ -53,7 +53,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The managed identity associated with the policy assignment.
      */
-    readonly identity?: outputs.authorization.v20200901.IdentityResponse;
+    readonly identity?: outputs.authorization.v20200901.IdentityInvokeResponse;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -69,7 +69,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The messages that describe why a resource is non-compliant with the policy.
      */
-    readonly nonComplianceMessages?: outputs.authorization.v20200901.NonComplianceMessageResponse[];
+    readonly nonComplianceMessages?: outputs.authorization.v20200901.NonComplianceMessageInvokeResponse[];
     /**
      * The policy's excluded scopes.
      */
@@ -77,7 +77,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    readonly parameters?: {[key: string]: outputs.authorization.v20200901.ParameterValuesValueResponse};
+    readonly parameters?: {[key: string]: outputs.authorization.v20200901.ParameterValuesValueInvokeResponse};
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */

@@ -37,11 +37,11 @@ export interface GetWorkspaceResult {
     /**
      * The workspace provider authorizations.
      */
-    readonly authorizations?: outputs.databricks.v20180401.WorkspaceProviderAuthorizationResponse[];
+    readonly authorizations?: outputs.databricks.v20180401.WorkspaceProviderAuthorizationInvokeResponse[];
     /**
      * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
      */
-    readonly createdBy?: outputs.databricks.v20180401.CreatedByResponse;
+    readonly createdBy?: outputs.databricks.v20180401.CreatedByInvokeResponse;
     /**
      * Specifies the date and time when the workspace is created.
      */
@@ -65,7 +65,7 @@ export interface GetWorkspaceResult {
     /**
      * The workspace's custom parameters.
      */
-    readonly parameters?: outputs.databricks.v20180401.WorkspaceCustomParametersResponse;
+    readonly parameters?: outputs.databricks.v20180401.WorkspaceCustomParametersInvokeResponse;
     /**
      * The workspace provisioning state.
      */
@@ -73,11 +73,11 @@ export interface GetWorkspaceResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.databricks.v20180401.SkuResponse;
+    readonly sku?: outputs.databricks.v20180401.SkuInvokeResponse;
     /**
      * The details of Managed Identity of Storage Account
      */
-    readonly storageAccountIdentity?: outputs.databricks.v20180401.ManagedIdentityConfigurationResponse;
+    readonly storageAccountIdentity?: outputs.databricks.v20180401.ManagedIdentityConfigurationInvokeResponse;
     /**
      * Resource tags.
      */
@@ -93,7 +93,7 @@ export interface GetWorkspaceResult {
     /**
      * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
      */
-    readonly updatedBy?: outputs.databricks.v20180401.CreatedByResponse;
+    readonly updatedBy?: outputs.databricks.v20180401.CreatedByInvokeResponse;
     /**
      * The unique identifier of the databricks workspace in databricks control plane.
      */

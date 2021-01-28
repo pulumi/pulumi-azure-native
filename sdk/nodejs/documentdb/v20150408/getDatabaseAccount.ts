@@ -37,7 +37,7 @@ export interface GetDatabaseAccountResult {
     /**
      * List of Cosmos DB capabilities for the account
      */
-    readonly capabilities?: outputs.documentdb.v20150408.CapabilityResponse[];
+    readonly capabilities?: outputs.documentdb.v20150408.CapabilityInvokeResponse[];
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -45,7 +45,7 @@ export interface GetDatabaseAccountResult {
     /**
      * The consistency policy for the Cosmos DB database account.
      */
-    readonly consistencyPolicy?: outputs.documentdb.v20150408.ConsistencyPolicyResponse;
+    readonly consistencyPolicy?: outputs.documentdb.v20150408.ConsistencyPolicyInvokeResponse;
     /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
@@ -69,7 +69,7 @@ export interface GetDatabaseAccountResult {
     /**
      * An array that contains the regions ordered by their failover priorities.
      */
-    readonly failoverPolicies: outputs.documentdb.v20150408.FailoverPolicyResponse[];
+    readonly failoverPolicies: outputs.documentdb.v20150408.FailoverPolicyInvokeResponse[];
     /**
      * The unique resource identifier of the database account.
      */
@@ -101,7 +101,7 @@ export interface GetDatabaseAccountResult {
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
-    readonly readLocations: outputs.documentdb.v20150408.LocationResponse[];
+    readonly readLocations: outputs.documentdb.v20150408.LocationInvokeResponse[];
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -113,9 +113,9 @@ export interface GetDatabaseAccountResult {
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    readonly virtualNetworkRules?: outputs.documentdb.v20150408.VirtualNetworkRuleResponse[];
+    readonly virtualNetworkRules?: outputs.documentdb.v20150408.VirtualNetworkRuleInvokeResponse[];
     /**
      * An array that contains the write location for the Cosmos DB account.
      */
-    readonly writeLocations: outputs.documentdb.v20150408.LocationResponse[];
+    readonly writeLocations: outputs.documentdb.v20150408.LocationInvokeResponse[];
 }

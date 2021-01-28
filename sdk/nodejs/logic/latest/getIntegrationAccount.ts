@@ -41,7 +41,7 @@ export interface GetIntegrationAccountResult {
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: outputs.logic.latest.IntegrationServiceEnvironmentResponse;
+    readonly integrationServiceEnvironment?: outputs.logic.latest.IntegrationServiceEnvironmentInvokeResponse;
     /**
      * The resource location.
      */
@@ -53,7 +53,7 @@ export interface GetIntegrationAccountResult {
     /**
      * The sku.
      */
-    readonly sku?: outputs.logic.latest.IntegrationAccountSkuResponse;
+    readonly sku?: outputs.logic.latest.IntegrationAccountSkuInvokeResponse;
     /**
      * The workflow state.
      */

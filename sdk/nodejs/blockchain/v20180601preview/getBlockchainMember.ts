@@ -61,7 +61,7 @@ export interface GetBlockchainMemberResult {
     /**
      * Gets or sets firewall rules
      */
-    readonly firewallRules?: outputs.blockchain.v20180601preview.FirewallRuleResponse[];
+    readonly firewallRules?: outputs.blockchain.v20180601preview.FirewallRuleInvokeResponse[];
     /**
      * Fully qualified resource Id of the resource.
      */
@@ -97,7 +97,7 @@ export interface GetBlockchainMemberResult {
     /**
      * Gets or sets the blockchain member Sku.
      */
-    readonly sku?: outputs.blockchain.v20180601preview.SkuResponse;
+    readonly sku?: outputs.blockchain.v20180601preview.SkuInvokeResponse;
     /**
      * Tags of the service which is a list of key value pairs that describes the resource.
      */
@@ -113,5 +113,5 @@ export interface GetBlockchainMemberResult {
     /**
      * Gets or sets the blockchain validator nodes Sku.
      */
-    readonly validatorNodesSku?: outputs.blockchain.v20180601preview.BlockchainMemberNodesSkuResponse;
+    readonly validatorNodesSku?: outputs.blockchain.v20180601preview.BlockchainMemberNodesSkuInvokeResponse;
 }

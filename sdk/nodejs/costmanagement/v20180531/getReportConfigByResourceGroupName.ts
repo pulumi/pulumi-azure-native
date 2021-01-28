@@ -37,11 +37,11 @@ export interface GetReportConfigByResourceGroupNameResult {
     /**
      * Has definition for the report config.
      */
-    readonly definition: outputs.costmanagement.v20180531.ReportConfigDefinitionResponse;
+    readonly definition: outputs.costmanagement.v20180531.ReportConfigDefinitionInvokeResponse;
     /**
      * Has delivery information for the report config.
      */
-    readonly deliveryInfo: outputs.costmanagement.v20180531.ReportConfigDeliveryInfoResponse;
+    readonly deliveryInfo: outputs.costmanagement.v20180531.ReportConfigDeliveryInfoInvokeResponse;
     /**
      * The format of the report being delivered.
      */
@@ -57,7 +57,7 @@ export interface GetReportConfigByResourceGroupNameResult {
     /**
      * Has schedule information for the report config.
      */
-    readonly schedule?: outputs.costmanagement.v20180531.ReportConfigScheduleResponse;
+    readonly schedule?: outputs.costmanagement.v20180531.ReportConfigScheduleInvokeResponse;
     /**
      * Resource tags.
      */

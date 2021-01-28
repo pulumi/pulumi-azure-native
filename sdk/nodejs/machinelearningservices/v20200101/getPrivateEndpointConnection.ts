@@ -46,7 +46,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20200101.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20200101.IdentityInvokeResponse;
     /**
      * Specifies the location of the resource.
      */
@@ -58,11 +58,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.machinelearningservices.v20200101.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.machinelearningservices.v20200101.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.machinelearningservices.v20200101.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.machinelearningservices.v20200101.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -70,7 +70,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20200101.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20200101.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

@@ -29,7 +29,7 @@ export interface ListConnectionConsentLinksArgs {
     /**
      * Collection of resources
      */
-    readonly parameters?: inputs.web.latest.ConsentLinkParameterDefinition[];
+    readonly parameters?: inputs.web.latest.ConsentLinkParameterDefinitionInvoke[];
     /**
      * The resource group
      */
@@ -47,5 +47,5 @@ export interface ListConnectionConsentLinksResult {
     /**
      * Collection of resources
      */
-    readonly value?: outputs.web.latest.ConsentLinkDefinitionResponse[];
+    readonly value?: outputs.web.latest.ConsentLinkDefinitionInvokeResponse[];
 }

@@ -45,7 +45,7 @@ export interface GetCostAllocationRuleResult {
     /**
      * Cost allocation rule properties
      */
-    readonly properties: outputs.costmanagement.v20200301preview.CostAllocationRulePropertiesResponse;
+    readonly properties: outputs.costmanagement.v20200301preview.CostAllocationRulePropertiesInvokeResponse;
     /**
      * Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
      */

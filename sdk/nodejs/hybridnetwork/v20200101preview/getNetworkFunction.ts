@@ -37,7 +37,7 @@ export interface GetNetworkFunctionResult {
     /**
      * The reference to the device resource.
      */
-    readonly device?: outputs.hybridnetwork.v20200101preview.SubResourceResponse;
+    readonly device?: outputs.hybridnetwork.v20200101preview.SubResourceInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -53,7 +53,7 @@ export interface GetNetworkFunctionResult {
     /**
      * The resource URI of the managed application.
      */
-    readonly managedApplication: outputs.hybridnetwork.v20200101preview.SubResourceResponse;
+    readonly managedApplication: outputs.hybridnetwork.v20200101preview.SubResourceInvokeResponse;
     /**
      * The parameters for the managed application.
      */
@@ -65,7 +65,7 @@ export interface GetNetworkFunctionResult {
     /**
      * The network function configurations from the user.
      */
-    readonly networkFunctionUserConfigurations?: outputs.hybridnetwork.v20200101preview.NetworkFunctionUserConfigurationResponse[];
+    readonly networkFunctionUserConfigurations?: outputs.hybridnetwork.v20200101preview.NetworkFunctionUserConfigurationInvokeResponse[];
     /**
      * The provisioning state of the network function resource.
      */

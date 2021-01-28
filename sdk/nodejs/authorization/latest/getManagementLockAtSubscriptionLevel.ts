@@ -48,7 +48,7 @@ export interface GetManagementLockAtSubscriptionLevelResult {
     /**
      * The owners of the lock.
      */
-    readonly owners?: outputs.authorization.latest.ManagementLockOwnerResponse[];
+    readonly owners?: outputs.authorization.latest.ManagementLockOwnerInvokeResponse[];
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */

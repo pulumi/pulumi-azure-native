@@ -61,7 +61,7 @@ export interface GetWorkspaceResult {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearning.v20191001.SkuResponse;
+    readonly sku?: outputs.machinelearning.v20191001.SkuInvokeResponse;
     /**
      * The regional endpoint for the machine learning studio service which hosts this workspace.
      */

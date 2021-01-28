@@ -46,11 +46,11 @@ export interface GetDiagnosticResult {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    readonly backend?: outputs.apimanagement.latest.PipelineDiagnosticSettingsResponse;
+    readonly backend?: outputs.apimanagement.latest.PipelineDiagnosticSettingsInvokeResponse;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    readonly frontend?: outputs.apimanagement.latest.PipelineDiagnosticSettingsResponse;
+    readonly frontend?: outputs.apimanagement.latest.PipelineDiagnosticSettingsInvokeResponse;
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
@@ -74,7 +74,7 @@ export interface GetDiagnosticResult {
     /**
      * Sampling settings for Diagnostic.
      */
-    readonly sampling?: outputs.apimanagement.latest.SamplingSettingsResponse;
+    readonly sampling?: outputs.apimanagement.latest.SamplingSettingsInvokeResponse;
     /**
      * Resource type for API Management resource.
      */

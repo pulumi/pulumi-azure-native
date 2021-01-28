@@ -69,11 +69,11 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: outputs.network.v20170301.IpsecPolicyResponse[];
+    readonly ipsecPolicies?: outputs.network.v20170301.IpsecPolicyInvokeResponse[];
     /**
      * A common class for general resource information
      */
-    readonly localNetworkGateway2?: outputs.network.v20170301.LocalNetworkGatewayResponse;
+    readonly localNetworkGateway2?: outputs.network.v20170301.LocalNetworkGatewayInvokeResponse;
     /**
      * Resource location.
      */
@@ -85,7 +85,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: outputs.network.v20170301.SubResourceResponse;
+    readonly peer?: outputs.network.v20170301.SubResourceInvokeResponse;
     /**
      * The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -109,7 +109,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * Collection of all tunnels' connection health status.
      */
-    readonly tunnelConnectionStatus: outputs.network.v20170301.TunnelConnectionHealthResponse[];
+    readonly tunnelConnectionStatus: outputs.network.v20170301.TunnelConnectionHealthInvokeResponse[];
     /**
      * Resource type.
      */
@@ -121,9 +121,9 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway1: outputs.network.v20170301.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway1: outputs.network.v20170301.VirtualNetworkGatewayInvokeResponse;
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway2?: outputs.network.v20170301.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway2?: outputs.network.v20170301.VirtualNetworkGatewayInvokeResponse;
 }

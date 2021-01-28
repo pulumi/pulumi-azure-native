@@ -57,7 +57,7 @@ export interface GetSiteResult {
      * This is only valid for web app creation. If specified, web app is cloned from 
      *             a source web app
      */
-    readonly cloningInfo?: outputs.web.v20150801.CloningInfoResponse;
+    readonly cloningInfo?: outputs.web.v20150801.CloningInfoInvokeResponse;
     /**
      * Size of a function container
      */
@@ -82,7 +82,7 @@ export interface GetSiteResult {
     /**
      * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
      */
-    readonly hostNameSslStates?: outputs.web.v20150801.HostNameSslStateResponse[];
+    readonly hostNameSslStates?: outputs.web.v20150801.HostNameSslStateInvokeResponse[];
     /**
      * Hostnames associated with web app
      */
@@ -95,7 +95,7 @@ export interface GetSiteResult {
     /**
      * Specification for the hosting environment (App Service Environment) to use for the web app
      */
-    readonly hostingEnvironmentProfile?: outputs.web.v20150801.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.v20150801.HostingEnvironmentProfileInvokeResponse;
     /**
      * Resource Id
      */
@@ -150,7 +150,7 @@ export interface GetSiteResult {
     /**
      * Configuration of web app
      */
-    readonly siteConfig?: outputs.web.v20150801.SiteConfigResponse;
+    readonly siteConfig?: outputs.web.v20150801.SiteConfigInvokeResponse;
     /**
      * State of the web app
      */

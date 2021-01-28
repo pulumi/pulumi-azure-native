@@ -61,7 +61,7 @@ export interface GetWorkspaceResult {
     /**
      * The encryption settings of Azure ML workspace.
      */
-    readonly encryption?: outputs.machinelearningservices.latest.EncryptionPropertyResponse;
+    readonly encryption?: outputs.machinelearningservices.latest.EncryptionPropertyInvokeResponse;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -77,7 +77,7 @@ export interface GetWorkspaceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.latest.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.latest.IdentityInvokeResponse;
     /**
      * The compute name for image build
      */
@@ -97,11 +97,11 @@ export interface GetWorkspaceResult {
     /**
      * The notebook info of Azure ML workspace.
      */
-    readonly notebookInfo: outputs.machinelearningservices.latest.NotebookResourceInfoResponse;
+    readonly notebookInfo: outputs.machinelearningservices.latest.NotebookResourceInfoInvokeResponse;
     /**
      * The list of private endpoint connections in the workspace.
      */
-    readonly privateEndpointConnections: outputs.machinelearningservices.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.machinelearningservices.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Count of private connections in the workspace
      */
@@ -117,11 +117,11 @@ export interface GetWorkspaceResult {
     /**
      * The list of shared private link resources in this workspace.
      */
-    readonly sharedPrivateLinkResources?: outputs.machinelearningservices.latest.SharedPrivateLinkResourceResponse[];
+    readonly sharedPrivateLinkResources?: outputs.machinelearningservices.latest.SharedPrivateLinkResourceInvokeResponse[];
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.latest.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.latest.SkuInvokeResponse;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

@@ -46,7 +46,7 @@ export interface GetMachineLearningComputeResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20180301preview.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20180301preview.IdentityInvokeResponse;
     /**
      * Specifies the location of the resource.
      */
@@ -58,7 +58,7 @@ export interface GetMachineLearningComputeResult {
     /**
      * Compute properties
      */
-    readonly properties: outputs.machinelearningservices.v20180301preview.AKSResponse | outputs.machinelearningservices.v20180301preview.BatchAIResponse | outputs.machinelearningservices.v20180301preview.DataFactoryResponse | outputs.machinelearningservices.v20180301preview.HDInsightResponse | outputs.machinelearningservices.v20180301preview.VirtualMachineResponse;
+    readonly properties: outputs.machinelearningservices.v20180301preview.AKSInvokeResponse | outputs.machinelearningservices.v20180301preview.BatchAIInvokeResponse | outputs.machinelearningservices.v20180301preview.DataFactoryInvokeResponse | outputs.machinelearningservices.v20180301preview.HDInsightInvokeResponse | outputs.machinelearningservices.v20180301preview.VirtualMachineInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

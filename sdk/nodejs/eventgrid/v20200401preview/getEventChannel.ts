@@ -42,7 +42,7 @@ export interface GetEventChannelResult {
     /**
      * Represents the destination of an event channel.
      */
-    readonly destination?: outputs.eventgrid.v20200401preview.EventChannelDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20200401preview.EventChannelDestinationInvokeResponse;
     /**
      * Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
      * the event channel and corresponding partner topic are deleted.
@@ -51,7 +51,7 @@ export interface GetEventChannelResult {
     /**
      * Information about the filter for the event channel.
      */
-    readonly filter?: outputs.eventgrid.v20200401preview.EventChannelFilterResponse;
+    readonly filter?: outputs.eventgrid.v20200401preview.EventChannelFilterInvokeResponse;
     /**
      * Fully qualified identifier of the resource.
      */
@@ -76,7 +76,7 @@ export interface GetEventChannelResult {
     /**
      * Source of the event channel. This represents a unique resource in the partner's resource model.
      */
-    readonly source?: outputs.eventgrid.v20200401preview.EventChannelSourceResponse;
+    readonly source?: outputs.eventgrid.v20200401preview.EventChannelSourceInvokeResponse;
     /**
      * Type of the resource
      */

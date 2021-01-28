@@ -46,5 +46,5 @@ export interface GetIntegrationRuntimeStatusResult {
     /**
      * Integration runtime properties.
      */
-    readonly properties: outputs.datafactory.v20170901preview.ManagedIntegrationRuntimeStatusResponse | outputs.datafactory.v20170901preview.SelfHostedIntegrationRuntimeStatusResponse;
+    readonly properties: outputs.datafactory.v20170901preview.ManagedIntegrationRuntimeStatusInvokeResponse | outputs.datafactory.v20170901preview.SelfHostedIntegrationRuntimeStatusInvokeResponse;
 }

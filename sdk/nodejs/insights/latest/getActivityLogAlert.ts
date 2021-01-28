@@ -37,11 +37,11 @@ export interface GetActivityLogAlertResult {
     /**
      * The actions that will activate when the condition is met.
      */
-    readonly actions: outputs.insights.latest.ActivityLogAlertActionListResponse;
+    readonly actions: outputs.insights.latest.ActivityLogAlertActionListInvokeResponse;
     /**
      * The condition that will cause this alert to activate.
      */
-    readonly condition: outputs.insights.latest.ActivityLogAlertAllOfConditionResponse;
+    readonly condition: outputs.insights.latest.ActivityLogAlertAllOfConditionInvokeResponse;
     /**
      * A description of this activity log alert.
      */

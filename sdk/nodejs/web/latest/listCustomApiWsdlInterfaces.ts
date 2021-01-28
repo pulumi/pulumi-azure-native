@@ -39,7 +39,7 @@ export interface ListCustomApiWsdlInterfacesArgs {
     /**
      * The service with name and endpoint names
      */
-    readonly service?: inputs.web.latest.WsdlService;
+    readonly service?: inputs.web.latest.WsdlServiceInvoke;
     /**
      * Subscription Id
      */
@@ -57,5 +57,5 @@ export interface ListCustomApiWsdlInterfacesResult {
     /**
      * Collection of WSDL interfaces
      */
-    readonly value?: outputs.web.latest.WsdlServiceResponse[];
+    readonly value?: outputs.web.latest.WsdlServiceInvokeResponse[];
 }

@@ -65,7 +65,7 @@ export interface GetPostgresInstanceResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.azuredata.v20200908preview.SystemDataResponse;
+    readonly systemData: outputs.azuredata.v20200908preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

@@ -37,7 +37,7 @@ export interface GetManagedNetworkResult {
     /**
      * The collection of groups and policies concerned with connectivity
      */
-    readonly connectivity: outputs.managednetwork.v20190601preview.ConnectivityCollectionResponse;
+    readonly connectivity: outputs.managednetwork.v20190601preview.ConnectivityCollectionInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -61,7 +61,7 @@ export interface GetManagedNetworkResult {
     /**
      * The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
      */
-    readonly scope?: outputs.managednetwork.v20190601preview.ScopeResponse;
+    readonly scope?: outputs.managednetwork.v20190601preview.ScopeInvokeResponse;
     /**
      * Resource tags
      */

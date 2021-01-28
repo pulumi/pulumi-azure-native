@@ -59,7 +59,7 @@ export interface GetManagedPrivateEndpointResult {
     /**
      * Managed private endpoint properties.
      */
-    readonly properties: outputs.datafactory.latest.ManagedPrivateEndpointResponse;
+    readonly properties: outputs.datafactory.latest.ManagedPrivateEndpointInvokeResponse;
     /**
      * The resource type.
      */

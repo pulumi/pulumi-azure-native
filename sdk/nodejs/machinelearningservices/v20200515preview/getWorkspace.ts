@@ -61,7 +61,7 @@ export interface GetWorkspaceResult {
     /**
      * The encryption settings of Azure ML workspace.
      */
-    readonly encryption?: outputs.machinelearningservices.v20200515preview.EncryptionPropertyResponse;
+    readonly encryption?: outputs.machinelearningservices.v20200515preview.EncryptionPropertyInvokeResponse;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -77,7 +77,7 @@ export interface GetWorkspaceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20200515preview.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20200515preview.IdentityInvokeResponse;
     /**
      * The compute name for image build
      */
@@ -97,7 +97,7 @@ export interface GetWorkspaceResult {
     /**
      * The list of private endpoint connections in the workspace.
      */
-    readonly privateEndpointConnections: outputs.machinelearningservices.v20200515preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.machinelearningservices.v20200515preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Count of private connections in the workspace
      */
@@ -113,11 +113,11 @@ export interface GetWorkspaceResult {
     /**
      * The list of shared private link resources in this workspace.
      */
-    readonly sharedPrivateLinkResources?: outputs.machinelearningservices.v20200515preview.SharedPrivateLinkResourceResponse[];
+    readonly sharedPrivateLinkResources?: outputs.machinelearningservices.v20200515preview.SharedPrivateLinkResourceInvokeResponse[];
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20200515preview.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20200515preview.SkuInvokeResponse;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

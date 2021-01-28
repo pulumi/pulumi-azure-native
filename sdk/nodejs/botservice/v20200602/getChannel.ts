@@ -62,11 +62,11 @@ export interface GetChannelResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.v20200602.AlexaChannelResponse | outputs.botservice.v20200602.DirectLineChannelResponse | outputs.botservice.v20200602.DirectLineSpeechChannelResponse | outputs.botservice.v20200602.EmailChannelResponse | outputs.botservice.v20200602.FacebookChannelResponse | outputs.botservice.v20200602.KikChannelResponse | outputs.botservice.v20200602.LineChannelResponse | outputs.botservice.v20200602.MsTeamsChannelResponse | outputs.botservice.v20200602.SkypeChannelResponse | outputs.botservice.v20200602.SlackChannelResponse | outputs.botservice.v20200602.SmsChannelResponse | outputs.botservice.v20200602.TelegramChannelResponse | outputs.botservice.v20200602.WebChatChannelResponse;
+    readonly properties: outputs.botservice.v20200602.AlexaChannelInvokeResponse | outputs.botservice.v20200602.DirectLineChannelInvokeResponse | outputs.botservice.v20200602.DirectLineSpeechChannelInvokeResponse | outputs.botservice.v20200602.EmailChannelInvokeResponse | outputs.botservice.v20200602.FacebookChannelInvokeResponse | outputs.botservice.v20200602.KikChannelInvokeResponse | outputs.botservice.v20200602.LineChannelInvokeResponse | outputs.botservice.v20200602.MsTeamsChannelInvokeResponse | outputs.botservice.v20200602.SkypeChannelInvokeResponse | outputs.botservice.v20200602.SlackChannelInvokeResponse | outputs.botservice.v20200602.SmsChannelInvokeResponse | outputs.botservice.v20200602.TelegramChannelInvokeResponse | outputs.botservice.v20200602.WebChatChannelInvokeResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: outputs.botservice.v20200602.SkuResponse;
+    readonly sku?: outputs.botservice.v20200602.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

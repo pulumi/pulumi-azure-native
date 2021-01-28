@@ -64,7 +64,7 @@ export interface GetManagementAssociationResult {
     /**
      * Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
      */
-    readonly properties: outputs.operationsmanagement.v20151101preview.ManagementAssociationPropertiesResponse;
+    readonly properties: outputs.operationsmanagement.v20151101preview.ManagementAssociationPropertiesInvokeResponse;
     /**
      * Resource type.
      */

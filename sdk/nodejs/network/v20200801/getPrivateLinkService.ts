@@ -46,7 +46,7 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: outputs.network.v20200801.PrivateLinkServicePropertiesResponseAutoApproval;
+    readonly autoApproval?: outputs.network.v20200801.PrivateLinkServicePropertiesInvokeResponseAutoApproval;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
@@ -58,7 +58,7 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The extended location of the load balancer.
      */
-    readonly extendedLocation?: outputs.network.v20200801.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.v20200801.ExtendedLocationInvokeResponse;
     /**
      * The list of Fqdn.
      */
@@ -70,11 +70,11 @@ export interface GetPrivateLinkServiceResult {
     /**
      * An array of private link service IP configurations.
      */
-    readonly ipConfigurations?: outputs.network.v20200801.PrivateLinkServiceIpConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20200801.PrivateLinkServiceIpConfigurationInvokeResponse[];
     /**
      * An array of references to the load balancer IP configurations.
      */
-    readonly loadBalancerFrontendIpConfigurations?: outputs.network.v20200801.FrontendIPConfigurationResponse[];
+    readonly loadBalancerFrontendIpConfigurations?: outputs.network.v20200801.FrontendIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -86,11 +86,11 @@ export interface GetPrivateLinkServiceResult {
     /**
      * An array of references to the network interfaces created for this private link service.
      */
-    readonly networkInterfaces: outputs.network.v20200801.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.v20200801.NetworkInterfaceInvokeResponse[];
     /**
      * An array of list about connections to the private endpoint.
      */
-    readonly privateEndpointConnections: outputs.network.v20200801.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.network.v20200801.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The provisioning state of the private link service resource.
      */
@@ -106,5 +106,5 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: outputs.network.v20200801.PrivateLinkServicePropertiesResponseVisibility;
+    readonly visibility?: outputs.network.v20200801.PrivateLinkServicePropertiesInvokeResponseVisibility;
 }

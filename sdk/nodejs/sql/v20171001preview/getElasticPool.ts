@@ -70,7 +70,7 @@ export interface GetElasticPoolResult {
     /**
      * The per database settings for the elastic pool.
      */
-    readonly perDatabaseSettings?: outputs.sql.v20171001preview.ElasticPoolPerDatabaseSettingsResponse;
+    readonly perDatabaseSettings?: outputs.sql.v20171001preview.ElasticPoolPerDatabaseSettingsInvokeResponse;
     /**
      * The elastic pool SKU.
      * 
@@ -80,7 +80,7 @@ export interface GetElasticPoolResult {
      * az sql elastic-pool list-editions -l <location> -o table
      * ````
      */
-    readonly sku?: outputs.sql.v20171001preview.SkuResponse;
+    readonly sku?: outputs.sql.v20171001preview.SkuInvokeResponse;
     /**
      * The state of the elastic pool.
      */

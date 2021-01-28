@@ -37,11 +37,11 @@ export interface GetEventSubscriptionResult {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.v20180501preview.StorageBlobDeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.v20180501preview.StorageBlobDeadLetterDestinationInvokeResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: outputs.eventgrid.v20180501preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20180501preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20180501preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20180501preview.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20180501preview.EventHubEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20180501preview.HybridConnectionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20180501preview.StorageQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20180501preview.WebHookEventSubscriptionDestinationInvokeResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -49,7 +49,7 @@ export interface GetEventSubscriptionResult {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: outputs.eventgrid.v20180501preview.EventSubscriptionFilterResponse;
+    readonly filter?: outputs.eventgrid.v20180501preview.EventSubscriptionFilterInvokeResponse;
     /**
      * Fully qualified identifier of the resource
      */
@@ -69,7 +69,7 @@ export interface GetEventSubscriptionResult {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: outputs.eventgrid.v20180501preview.RetryPolicyResponse;
+    readonly retryPolicy?: outputs.eventgrid.v20180501preview.RetryPolicyInvokeResponse;
     /**
      * Name of the topic of the event subscription.
      */

@@ -55,7 +55,7 @@ export interface GetNotificationChannelResult {
     /**
      * The list of event for which this notification is enabled.
      */
-    readonly events?: outputs.devtestlab.v20160515.EventResponse[];
+    readonly events?: outputs.devtestlab.v20160515.EventInvokeResponse[];
     /**
      * The identifier of the resource.
      */

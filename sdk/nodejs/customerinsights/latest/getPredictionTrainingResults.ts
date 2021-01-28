@@ -42,11 +42,11 @@ export interface GetPredictionTrainingResultsResult {
     /**
      * Canonical profiles.
      */
-    readonly canonicalProfiles: outputs.customerinsights.latest.CanonicalProfileDefinitionResponse[];
+    readonly canonicalProfiles: outputs.customerinsights.latest.CanonicalProfileDefinitionInvokeResponse[];
     /**
      * Prediction distribution.
      */
-    readonly predictionDistribution: outputs.customerinsights.latest.PredictionDistributionDefinitionResponse;
+    readonly predictionDistribution: outputs.customerinsights.latest.PredictionDistributionDefinitionInvokeResponse;
     /**
      * Instance count of the primary profile.
      */

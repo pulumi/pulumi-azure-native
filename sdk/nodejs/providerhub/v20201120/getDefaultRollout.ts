@@ -43,8 +43,8 @@ export interface GetDefaultRolloutResult {
      */
     readonly name: string;
     readonly provisioningState?: string;
-    readonly specification?: outputs.providerhub.v20201120.DefaultRolloutPropertiesResponseSpecification;
-    readonly status?: outputs.providerhub.v20201120.DefaultRolloutPropertiesResponseStatus;
+    readonly specification?: outputs.providerhub.v20201120.DefaultRolloutPropertiesInvokeResponseSpecification;
+    readonly status?: outputs.providerhub.v20201120.DefaultRolloutPropertiesInvokeResponseStatus;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -45,7 +45,7 @@ export interface GetIotDpsResourceResult {
     /**
      * The managed identities for the IotDps instance.
      */
-    readonly identity?: outputs.devices.v20200901preview.ArmIdentityResponse;
+    readonly identity?: outputs.devices.v20200901preview.ArmIdentityInvokeResponse;
     /**
      * The resource location.
      */
@@ -57,11 +57,11 @@ export interface GetIotDpsResourceResult {
     /**
      * Service specific properties for a provisioning service
      */
-    readonly properties: outputs.devices.v20200901preview.IotDpsPropertiesDescriptionResponse;
+    readonly properties: outputs.devices.v20200901preview.IotDpsPropertiesDescriptionInvokeResponse;
     /**
      * Sku info for a provisioning Service.
      */
-    readonly sku: outputs.devices.v20200901preview.IotDpsSkuInfoResponse;
+    readonly sku: outputs.devices.v20200901preview.IotDpsSkuInfoInvokeResponse;
     /**
      * The resource tags.
      */

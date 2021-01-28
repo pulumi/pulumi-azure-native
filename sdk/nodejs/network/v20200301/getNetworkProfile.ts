@@ -42,11 +42,11 @@ export interface GetNetworkProfileResult {
     /**
      * List of chid container network interface configurations.
      */
-    readonly containerNetworkInterfaceConfigurations?: outputs.network.v20200301.ContainerNetworkInterfaceConfigurationResponse[];
+    readonly containerNetworkInterfaceConfigurations?: outputs.network.v20200301.ContainerNetworkInterfaceConfigurationInvokeResponse[];
     /**
      * List of child container network interfaces.
      */
-    readonly containerNetworkInterfaces: outputs.network.v20200301.ContainerNetworkInterfaceResponse[];
+    readonly containerNetworkInterfaces: outputs.network.v20200301.ContainerNetworkInterfaceInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

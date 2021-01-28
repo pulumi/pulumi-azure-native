@@ -37,7 +37,7 @@ export interface GetRedisResult {
     /**
      * The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
      */
-    readonly accessKeys: outputs.cache.v20160401.RedisAccessKeysResponse;
+    readonly accessKeys: outputs.cache.v20160401.RedisAccessKeysInvokeResponse;
     /**
      * Specifies whether the non-ssl Redis server port (6379) is enabled.
      */
@@ -81,7 +81,7 @@ export interface GetRedisResult {
     /**
      * The SKU of the Redis cache to deploy.
      */
-    readonly sku?: outputs.cache.v20160401.SkuResponse;
+    readonly sku?: outputs.cache.v20160401.SkuInvokeResponse;
     /**
      * Redis SSL port.
      */

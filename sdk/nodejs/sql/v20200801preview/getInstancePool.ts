@@ -53,7 +53,7 @@ export interface GetInstancePoolResult {
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: outputs.sql.v20200801preview.SkuResponse;
+    readonly sku?: outputs.sql.v20200801preview.SkuInvokeResponse;
     /**
      * Resource ID of the subnet to place this instance pool in.
      */

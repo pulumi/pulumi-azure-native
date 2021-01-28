@@ -67,9 +67,9 @@ export interface GetEntityInsightsResult {
     /**
      * The metadata from the get insights operation results.
      */
-    readonly metaData?: outputs.securityinsights.v20190101preview.GetInsightsResultsMetadataResponse;
+    readonly metaData?: outputs.securityinsights.v20190101preview.GetInsightsResultsMetadataInvokeResponse;
     /**
      * The insights result values.
      */
-    readonly value?: outputs.securityinsights.v20190101preview.EntityInsightItemResponse[];
+    readonly value?: outputs.securityinsights.v20190101preview.EntityInsightItemInvokeResponse[];
 }

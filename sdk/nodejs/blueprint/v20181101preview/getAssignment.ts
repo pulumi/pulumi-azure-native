@@ -53,7 +53,7 @@ export interface GetAssignmentResult {
     /**
      * Managed identity for this blueprint assignment.
      */
-    readonly identity: outputs.blueprint.v20181101preview.ManagedServiceIdentityResponse;
+    readonly identity: outputs.blueprint.v20181101preview.ManagedServiceIdentityInvokeResponse;
     /**
      * The location of this blueprint assignment.
      */
@@ -61,7 +61,7 @@ export interface GetAssignmentResult {
     /**
      * Defines how resources deployed by a blueprint assignment are locked.
      */
-    readonly locks?: outputs.blueprint.v20181101preview.AssignmentLockSettingsResponse;
+    readonly locks?: outputs.blueprint.v20181101preview.AssignmentLockSettingsInvokeResponse;
     /**
      * Name of this resource.
      */
@@ -69,7 +69,7 @@ export interface GetAssignmentResult {
     /**
      * Blueprint assignment parameter values.
      */
-    readonly parameters: {[key: string]: outputs.blueprint.v20181101preview.ParameterValueResponse};
+    readonly parameters: {[key: string]: outputs.blueprint.v20181101preview.ParameterValueInvokeResponse};
     /**
      * State of the blueprint assignment.
      */
@@ -77,7 +77,7 @@ export interface GetAssignmentResult {
     /**
      * Names and locations of resource group placeholders.
      */
-    readonly resourceGroups: {[key: string]: outputs.blueprint.v20181101preview.ResourceGroupValueResponse};
+    readonly resourceGroups: {[key: string]: outputs.blueprint.v20181101preview.ResourceGroupValueInvokeResponse};
     /**
      * The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
      */
@@ -85,7 +85,7 @@ export interface GetAssignmentResult {
     /**
      * Status of blueprint assignment. This field is readonly.
      */
-    readonly status: outputs.blueprint.v20181101preview.AssignmentStatusResponse;
+    readonly status: outputs.blueprint.v20181101preview.AssignmentStatusInvokeResponse;
     /**
      * Type of this resource.
      */

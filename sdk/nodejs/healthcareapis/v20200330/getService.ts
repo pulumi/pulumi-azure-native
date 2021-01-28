@@ -45,7 +45,7 @@ export interface GetServiceResult {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: outputs.healthcareapis.v20200330.ServicesResourceResponseIdentity;
+    readonly identity?: outputs.healthcareapis.v20200330.ServicesResourceInvokeResponseIdentity;
     /**
      * The kind of the service.
      */
@@ -61,7 +61,7 @@ export interface GetServiceResult {
     /**
      * The common properties of a service.
      */
-    readonly properties: outputs.healthcareapis.v20200330.ServicesPropertiesResponse;
+    readonly properties: outputs.healthcareapis.v20200330.ServicesPropertiesInvokeResponse;
     /**
      * The resource tags.
      */

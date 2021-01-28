@@ -49,7 +49,7 @@ export interface GetDedicatedHsmResult {
     /**
      * Specifies the network interfaces of the dedicated hsm.
      */
-    readonly networkProfile?: outputs.hardwaresecuritymodules.v20181031preview.NetworkProfileResponse;
+    readonly networkProfile?: outputs.hardwaresecuritymodules.v20181031preview.NetworkProfileInvokeResponse;
     /**
      * Provisioning state.
      */
@@ -57,7 +57,7 @@ export interface GetDedicatedHsmResult {
     /**
      * SKU details
      */
-    readonly sku: outputs.hardwaresecuritymodules.v20181031preview.SkuResponse;
+    readonly sku: outputs.hardwaresecuritymodules.v20181031preview.SkuInvokeResponse;
     /**
      * This field will be used when RP does not support Availability zones.
      */

@@ -81,7 +81,7 @@ export interface GetClusterResult {
     /**
      * Properties reported by cluster agent.
      */
-    readonly reportedProperties?: outputs.azurestackhci.v20200301preview.ClusterReportedPropertiesResponse;
+    readonly reportedProperties?: outputs.azurestackhci.v20200301preview.ClusterReportedPropertiesInvokeResponse;
     /**
      * Status of the cluster agent.
      */

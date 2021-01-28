@@ -61,7 +61,7 @@ export interface GetWorkspaceResult {
     /**
      * The encryption settings of Azure ML workspace.
      */
-    readonly encryption?: outputs.machinelearningservices.v20200401.EncryptionPropertyResponse;
+    readonly encryption?: outputs.machinelearningservices.v20200401.EncryptionPropertyInvokeResponse;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -77,7 +77,7 @@ export interface GetWorkspaceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20200401.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20200401.IdentityInvokeResponse;
     /**
      * The compute name for image build
      */
@@ -97,11 +97,11 @@ export interface GetWorkspaceResult {
     /**
      * The notebook info of Azure ML workspace.
      */
-    readonly notebookInfo: outputs.machinelearningservices.v20200401.NotebookResourceInfoResponse;
+    readonly notebookInfo: outputs.machinelearningservices.v20200401.NotebookResourceInfoInvokeResponse;
     /**
      * The list of private endpoint connections in the workspace.
      */
-    readonly privateEndpointConnections: outputs.machinelearningservices.v20200401.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.machinelearningservices.v20200401.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Count of private connections in the workspace
      */
@@ -117,11 +117,11 @@ export interface GetWorkspaceResult {
     /**
      * The list of shared private link resources in this workspace.
      */
-    readonly sharedPrivateLinkResources?: outputs.machinelearningservices.v20200401.SharedPrivateLinkResourceResponse[];
+    readonly sharedPrivateLinkResources?: outputs.machinelearningservices.v20200401.SharedPrivateLinkResourceInvokeResponse[];
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20200401.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20200401.SkuInvokeResponse;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

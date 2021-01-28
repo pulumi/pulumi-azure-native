@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: outputs.dbformysql.latest.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.dbformysql.latest.PrivateEndpointPropertyInvokeResponse;
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.dbformysql.latest.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState?: outputs.dbformysql.latest.PrivateLinkServiceConnectionStatePropertyInvokeResponse;
     /**
      * State of the private endpoint connection.
      */

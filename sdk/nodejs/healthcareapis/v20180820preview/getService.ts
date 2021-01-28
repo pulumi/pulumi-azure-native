@@ -57,7 +57,7 @@ export interface GetServiceResult {
     /**
      * The common properties of a service.
      */
-    readonly properties: outputs.healthcareapis.v20180820preview.ServicesPropertiesResponse;
+    readonly properties: outputs.healthcareapis.v20180820preview.ServicesPropertiesInvokeResponse;
     /**
      * The resource tags.
      */

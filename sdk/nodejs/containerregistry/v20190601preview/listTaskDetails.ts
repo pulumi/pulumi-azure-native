@@ -43,7 +43,7 @@ export interface ListTaskDetailsResult {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: outputs.containerregistry.v20190601preview.AgentPropertiesResponse;
+    readonly agentConfiguration?: outputs.containerregistry.v20190601preview.AgentPropertiesInvokeResponse;
     /**
      * The dedicated agent pool for the task.
      */
@@ -55,7 +55,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: outputs.containerregistry.v20190601preview.CredentialsResponse;
+    readonly credentials?: outputs.containerregistry.v20190601preview.CredentialsInvokeResponse;
     /**
      * The resource ID.
      */
@@ -63,7 +63,7 @@ export interface ListTaskDetailsResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.containerregistry.v20190601preview.IdentityPropertiesResponse;
+    readonly identity?: outputs.containerregistry.v20190601preview.IdentityPropertiesInvokeResponse;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
@@ -83,7 +83,7 @@ export interface ListTaskDetailsResult {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform?: outputs.containerregistry.v20190601preview.PlatformPropertiesResponse;
+    readonly platform?: outputs.containerregistry.v20190601preview.PlatformPropertiesInvokeResponse;
     /**
      * The provisioning state of the task.
      */
@@ -95,11 +95,11 @@ export interface ListTaskDetailsResult {
     /**
      * The properties of a task step.
      */
-    readonly step?: outputs.containerregistry.v20190601preview.DockerBuildStepResponse | outputs.containerregistry.v20190601preview.EncodedTaskStepResponse | outputs.containerregistry.v20190601preview.FileTaskStepResponse;
+    readonly step?: outputs.containerregistry.v20190601preview.DockerBuildStepInvokeResponse | outputs.containerregistry.v20190601preview.EncodedTaskStepInvokeResponse | outputs.containerregistry.v20190601preview.FileTaskStepInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20190601preview.SystemDataInvokeResponse;
     /**
      * The tags of the resource.
      */
@@ -111,7 +111,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: outputs.containerregistry.v20190601preview.TriggerPropertiesResponse;
+    readonly trigger?: outputs.containerregistry.v20190601preview.TriggerPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

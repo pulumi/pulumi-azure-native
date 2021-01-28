@@ -58,7 +58,7 @@ export interface GetNetworkVirtualApplianceResult {
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    readonly identity?: outputs.network.v20200301.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.network.v20200301.ManagedServiceIdentityInvokeResponse;
     /**
      * Resource location.
      */
@@ -74,7 +74,7 @@ export interface GetNetworkVirtualApplianceResult {
     /**
      * Network Virtual Appliance SKU.
      */
-    readonly sku?: outputs.network.v20200301.VirtualApplianceSkuPropertiesResponse;
+    readonly sku?: outputs.network.v20200301.VirtualApplianceSkuPropertiesInvokeResponse;
     /**
      * Resource tags.
      */
@@ -90,9 +90,9 @@ export interface GetNetworkVirtualApplianceResult {
     /**
      * List of Virtual Appliance Network Interfaces.
      */
-    readonly virtualApplianceNics: outputs.network.v20200301.VirtualApplianceNicPropertiesResponse[];
+    readonly virtualApplianceNics: outputs.network.v20200301.VirtualApplianceNicPropertiesInvokeResponse[];
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    readonly virtualHub?: outputs.network.v20200301.SubResourceResponse;
+    readonly virtualHub?: outputs.network.v20200301.SubResourceInvokeResponse;
 }

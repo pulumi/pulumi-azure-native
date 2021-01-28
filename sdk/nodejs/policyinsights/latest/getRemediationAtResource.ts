@@ -41,11 +41,11 @@ export interface GetRemediationAtResourceResult {
     /**
      * The deployment status summary for all deployments created by the remediation.
      */
-    readonly deploymentStatus: outputs.policyinsights.latest.RemediationDeploymentSummaryResponse;
+    readonly deploymentStatus: outputs.policyinsights.latest.RemediationDeploymentSummaryInvokeResponse;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    readonly filters?: outputs.policyinsights.latest.RemediationFiltersResponse;
+    readonly filters?: outputs.policyinsights.latest.RemediationFiltersInvokeResponse;
     /**
      * The ID of the remediation.
      */

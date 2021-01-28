@@ -37,7 +37,7 @@ export interface GetWebTestResult {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly configuration?: outputs.insights.latest.WebTestPropertiesResponseConfiguration;
+    readonly configuration?: outputs.insights.latest.WebTestPropertiesInvokeResponseConfiguration;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
@@ -65,7 +65,7 @@ export interface GetWebTestResult {
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly locations: outputs.insights.latest.WebTestGeolocationResponse[];
+    readonly locations: outputs.insights.latest.WebTestGeolocationInvokeResponse[];
     /**
      * Azure resource name
      */

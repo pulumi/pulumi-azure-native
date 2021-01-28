@@ -51,15 +51,15 @@ export interface GetVirtualMachineResult {
     /**
      * The applicable schedule for the virtual machine.
      */
-    readonly applicableSchedule?: outputs.devtestlab.v20160515.ApplicableScheduleResponse;
+    readonly applicableSchedule?: outputs.devtestlab.v20160515.ApplicableScheduleInvokeResponse;
     /**
      * The artifact deployment status for the virtual machine.
      */
-    readonly artifactDeploymentStatus?: outputs.devtestlab.v20160515.ArtifactDeploymentStatusPropertiesResponse;
+    readonly artifactDeploymentStatus?: outputs.devtestlab.v20160515.ArtifactDeploymentStatusPropertiesInvokeResponse;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: outputs.devtestlab.v20160515.ArtifactInstallPropertiesResponse[];
+    readonly artifacts?: outputs.devtestlab.v20160515.ArtifactInstallPropertiesInvokeResponse[];
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
@@ -67,7 +67,7 @@ export interface GetVirtualMachineResult {
     /**
      * The compute virtual machine properties.
      */
-    readonly computeVm?: outputs.devtestlab.v20160515.ComputeVmPropertiesResponse;
+    readonly computeVm?: outputs.devtestlab.v20160515.ComputeVmPropertiesInvokeResponse;
     /**
      * The email address of creator of the virtual machine.
      */
@@ -103,7 +103,7 @@ export interface GetVirtualMachineResult {
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: outputs.devtestlab.v20160515.GalleryImageReferenceResponse;
+    readonly galleryImageReference?: outputs.devtestlab.v20160515.GalleryImageReferenceInvokeResponse;
     /**
      * The identifier of the resource.
      */
@@ -131,7 +131,7 @@ export interface GetVirtualMachineResult {
     /**
      * The network interface properties.
      */
-    readonly networkInterface?: outputs.devtestlab.v20160515.NetworkInterfacePropertiesResponse;
+    readonly networkInterface?: outputs.devtestlab.v20160515.NetworkInterfacePropertiesInvokeResponse;
     /**
      * The notes of the virtual machine.
      */

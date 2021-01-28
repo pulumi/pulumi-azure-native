@@ -42,7 +42,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * The details of the storage account password
      */
-    readonly accessKey?: outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse;
+    readonly accessKey?: outputs.storsimple.v20161001.AsymmetricEncryptedSecretInvokeResponse;
     /**
      * The cloud service provider
      */

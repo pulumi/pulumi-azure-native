@@ -54,7 +54,7 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
     /**
      * Azure storage accounts.
      */
-    readonly properties: {[key: string]: outputs.web.v20200601.AzureStorageInfoValueResponse};
+    readonly properties: {[key: string]: outputs.web.v20200601.AzureStorageInfoValueInvokeResponse};
     /**
      * Resource type.
      */

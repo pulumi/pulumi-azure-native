@@ -58,7 +58,7 @@ export interface GetControllerResult {
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
-    readonly sku: outputs.devspaces.latest.SkuResponse;
+    readonly sku: outputs.devspaces.latest.SkuInvokeResponse;
     /**
      * Tags for the Azure resource.
      */

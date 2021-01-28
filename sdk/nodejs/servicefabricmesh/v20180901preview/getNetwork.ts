@@ -49,7 +49,7 @@ export interface GetNetworkResult {
     /**
      * Describes properties of a network resource.
      */
-    readonly properties: outputs.servicefabricmesh.v20180901preview.NetworkResourcePropertiesResponse;
+    readonly properties: outputs.servicefabricmesh.v20180901preview.NetworkResourcePropertiesInvokeResponse;
     /**
      * Resource tags.
      */

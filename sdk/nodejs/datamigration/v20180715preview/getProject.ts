@@ -46,7 +46,7 @@ export interface GetProjectResult {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: outputs.datamigration.v20180715preview.DatabaseInfoResponse[];
+    readonly databasesInfo?: outputs.datamigration.v20180715preview.DatabaseInfoInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -66,7 +66,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.v20180715preview.MiSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.v20180715preview.MiSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoInvokeResponse;
     /**
      * Source platform for the project
      */
@@ -78,7 +78,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.v20180715preview.MiSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.v20180715preview.MiSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoInvokeResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoInvokeResponse;
     /**
      * Target platform for the project
      */

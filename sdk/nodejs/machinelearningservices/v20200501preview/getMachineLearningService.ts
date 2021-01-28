@@ -51,7 +51,7 @@ export interface GetMachineLearningServiceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20200501preview.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20200501preview.IdentityInvokeResponse;
     /**
      * Specifies the location of the resource.
      */
@@ -63,11 +63,11 @@ export interface GetMachineLearningServiceResult {
     /**
      * Service properties
      */
-    readonly properties: outputs.machinelearningservices.v20200501preview.ACIServiceResponseResponse | outputs.machinelearningservices.v20200501preview.AKSServiceResponseResponse | outputs.machinelearningservices.v20200501preview.AKSVariantResponseResponse;
+    readonly properties: outputs.machinelearningservices.v20200501preview.ACIServiceResponseInvokeResponse | outputs.machinelearningservices.v20200501preview.AKSServiceResponseInvokeResponse | outputs.machinelearningservices.v20200501preview.AKSVariantResponseInvokeResponse;
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20200501preview.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20200501preview.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

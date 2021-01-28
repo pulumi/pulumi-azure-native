@@ -59,7 +59,7 @@ export interface GetSubnetResult {
     /**
      * Gets an array of references to the network interface IP configurations using subnet.
      */
-    readonly ipConfigurations: outputs.network.v20170601.IPConfigurationResponse[];
+    readonly ipConfigurations: outputs.network.v20170601.IPConfigurationInvokeResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -67,7 +67,7 @@ export interface GetSubnetResult {
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: outputs.network.v20170601.NetworkSecurityGroupResponse;
+    readonly networkSecurityGroup?: outputs.network.v20170601.NetworkSecurityGroupInvokeResponse;
     /**
      * The provisioning state of the resource.
      */
@@ -75,13 +75,13 @@ export interface GetSubnetResult {
     /**
      * Gets an array of references to the external resources using subnet.
      */
-    readonly resourceNavigationLinks?: outputs.network.v20170601.ResourceNavigationLinkResponse[];
+    readonly resourceNavigationLinks?: outputs.network.v20170601.ResourceNavigationLinkInvokeResponse[];
     /**
      * The reference of the RouteTable resource.
      */
-    readonly routeTable?: outputs.network.v20170601.RouteTableResponse;
+    readonly routeTable?: outputs.network.v20170601.RouteTableInvokeResponse;
     /**
      * An array of service endpoints.
      */
-    readonly serviceEndpoints?: outputs.network.v20170601.ServiceEndpointPropertiesFormatResponse[];
+    readonly serviceEndpoints?: outputs.network.v20170601.ServiceEndpointPropertiesFormatInvokeResponse[];
 }

@@ -69,7 +69,7 @@ export interface GetVirtualWanResult {
     /**
      * list of all P2SVpnServerConfigurations associated with the virtual wan.
      */
-    readonly p2SVpnServerConfigurations?: outputs.network.v20181001.P2SVpnServerConfigurationResponse[];
+    readonly p2SVpnServerConfigurations?: outputs.network.v20181001.P2SVpnServerConfigurationInvokeResponse[];
     /**
      * The provisioning state of the resource.
      */
@@ -89,6 +89,6 @@ export interface GetVirtualWanResult {
     /**
      * List of VirtualHubs in the VirtualWAN.
      */
-    readonly virtualHubs: outputs.network.v20181001.SubResourceResponse[];
-    readonly vpnSites: outputs.network.v20181001.SubResourceResponse[];
+    readonly virtualHubs: outputs.network.v20181001.SubResourceInvokeResponse[];
+    readonly vpnSites: outputs.network.v20181001.SubResourceInvokeResponse[];
 }

@@ -46,7 +46,7 @@ export interface GetLiveEventResult {
     /**
      * Live event cross site access policies.
      */
-    readonly crossSiteAccessPolicies?: outputs.media.latest.CrossSiteAccessPoliciesResponse;
+    readonly crossSiteAccessPolicies?: outputs.media.latest.CrossSiteAccessPoliciesInvokeResponse;
     /**
      * A description for the live event.
      */
@@ -54,7 +54,7 @@ export interface GetLiveEventResult {
     /**
      * Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
      */
-    readonly encoding?: outputs.media.latest.LiveEventEncodingResponse;
+    readonly encoding?: outputs.media.latest.LiveEventEncodingInvokeResponse;
     /**
      * When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
      */
@@ -66,7 +66,7 @@ export interface GetLiveEventResult {
     /**
      * Live event input settings. It defines how the live event receives input from a contribution encoder.
      */
-    readonly input: outputs.media.latest.LiveEventInputResponse;
+    readonly input: outputs.media.latest.LiveEventInputInvokeResponse;
     /**
      * The last modified time of the live event.
      */
@@ -82,7 +82,7 @@ export interface GetLiveEventResult {
     /**
      * Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
      */
-    readonly preview?: outputs.media.latest.LiveEventPreviewResponse;
+    readonly preview?: outputs.media.latest.LiveEventPreviewInvokeResponse;
     /**
      * The provisioning state of the live event.
      */
@@ -102,7 +102,7 @@ export interface GetLiveEventResult {
     /**
      * Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
      */
-    readonly transcriptions?: outputs.media.latest.LiveEventTranscriptionResponse[];
+    readonly transcriptions?: outputs.media.latest.LiveEventTranscriptionInvokeResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

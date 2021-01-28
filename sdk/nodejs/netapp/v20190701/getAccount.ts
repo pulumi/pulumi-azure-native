@@ -37,7 +37,7 @@ export interface GetAccountResult {
     /**
      * Active Directories
      */
-    readonly activeDirectories?: outputs.netapp.v20190701.ActiveDirectoryResponse[];
+    readonly activeDirectories?: outputs.netapp.v20190701.ActiveDirectoryInvokeResponse[];
     /**
      * Resource Id
      */

@@ -49,7 +49,7 @@ export interface GetVaultResult {
     /**
      * Properties of the vault
      */
-    readonly properties: outputs.keyvault.v20150601.VaultPropertiesResponse;
+    readonly properties: outputs.keyvault.v20150601.VaultPropertiesInvokeResponse;
     /**
      * The tags that will be assigned to the key vault. 
      */

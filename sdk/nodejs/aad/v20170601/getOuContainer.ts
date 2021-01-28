@@ -42,7 +42,7 @@ export interface GetOuContainerResult {
     /**
      * The list of container accounts
      */
-    readonly accounts?: outputs.aad.v20170601.ContainerAccountResponse[];
+    readonly accounts?: outputs.aad.v20170601.ContainerAccountInvokeResponse[];
     /**
      * The OuContainer name
      */

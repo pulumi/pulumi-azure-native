@@ -50,7 +50,7 @@ export interface GetCertificateResult {
     /**
      * Properties of the certificate resource payload.
      */
-    readonly properties: outputs.appplatform.v20201101preview.CertificatePropertiesResponse;
+    readonly properties: outputs.appplatform.v20201101preview.CertificatePropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

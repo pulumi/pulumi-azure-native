@@ -63,7 +63,7 @@ export interface GetLiveOutputResult {
     /**
      * The HLS configuration.
      */
-    readonly hls?: outputs.media.v20180330preview.HlsResponse;
+    readonly hls?: outputs.media.v20180330preview.HlsInvokeResponse;
     /**
      * Fully qualified resource ID for the resource.
      */

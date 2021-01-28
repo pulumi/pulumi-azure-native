@@ -58,5 +58,5 @@ export interface GetApplicationResult {
     /**
      * The list of packages under this application.
      */
-    readonly packages?: outputs.batch.v20151201.ApplicationPackageResponse[];
+    readonly packages?: outputs.batch.v20151201.ApplicationPackageInvokeResponse[];
 }

@@ -54,7 +54,7 @@ export interface GetReplicationPolicyResult {
     /**
      * The custom data.
      */
-    readonly properties: outputs.recoveryservices.v20180110.PolicyPropertiesResponse;
+    readonly properties: outputs.recoveryservices.v20180110.PolicyPropertiesInvokeResponse;
     /**
      * Resource Type
      */

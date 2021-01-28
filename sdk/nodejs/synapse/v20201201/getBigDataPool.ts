@@ -42,11 +42,11 @@ export interface GetBigDataPoolResult {
     /**
      * Auto-pausing properties
      */
-    readonly autoPause?: outputs.synapse.v20201201.AutoPausePropertiesResponse;
+    readonly autoPause?: outputs.synapse.v20201201.AutoPausePropertiesInvokeResponse;
     /**
      * Auto-scaling properties
      */
-    readonly autoScale?: outputs.synapse.v20201201.AutoScalePropertiesResponse;
+    readonly autoScale?: outputs.synapse.v20201201.AutoScalePropertiesInvokeResponse;
     /**
      * The cache size
      */
@@ -58,7 +58,7 @@ export interface GetBigDataPoolResult {
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    readonly customLibraries?: outputs.synapse.v20201201.LibraryInfoResponse[];
+    readonly customLibraries?: outputs.synapse.v20201201.LibraryInfoInvokeResponse[];
     /**
      * The default folder where Spark logs will be written.
      */
@@ -66,7 +66,7 @@ export interface GetBigDataPoolResult {
     /**
      * Dynamic Executor Allocation
      */
-    readonly dynamicExecutorAllocation?: outputs.synapse.v20201201.DynamicExecutorAllocationResponse;
+    readonly dynamicExecutorAllocation?: outputs.synapse.v20201201.DynamicExecutorAllocationInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -82,7 +82,7 @@ export interface GetBigDataPoolResult {
     /**
      * Library version requirements
      */
-    readonly libraryRequirements?: outputs.synapse.v20201201.LibraryRequirementsResponse;
+    readonly libraryRequirements?: outputs.synapse.v20201201.LibraryRequirementsInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -114,7 +114,7 @@ export interface GetBigDataPoolResult {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: outputs.synapse.v20201201.LibraryRequirementsResponse;
+    readonly sparkConfigProperties?: outputs.synapse.v20201201.LibraryRequirementsInvokeResponse;
     /**
      * The Spark events folder
      */

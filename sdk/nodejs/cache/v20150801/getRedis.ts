@@ -77,7 +77,7 @@ export interface GetRedisResult {
     /**
      * What SKU of Redis cache to deploy.
      */
-    readonly sku: outputs.cache.v20150801.SkuResponse;
+    readonly sku: outputs.cache.v20150801.SkuInvokeResponse;
     /**
      * Redis SSL port.
      */

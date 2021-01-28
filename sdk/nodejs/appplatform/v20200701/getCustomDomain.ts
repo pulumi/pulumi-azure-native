@@ -55,7 +55,7 @@ export interface GetCustomDomainResult {
     /**
      * Properties of the custom domain resource.
      */
-    readonly properties: outputs.appplatform.v20200701.CustomDomainPropertiesResponse;
+    readonly properties: outputs.appplatform.v20200701.CustomDomainPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

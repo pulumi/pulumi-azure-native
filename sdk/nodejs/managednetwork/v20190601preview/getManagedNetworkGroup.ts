@@ -58,7 +58,7 @@ export interface GetManagedNetworkGroupResult {
     /**
      * The collection of management groups covered by the Managed Network
      */
-    readonly managementGroups?: outputs.managednetwork.v20190601preview.ResourceIdResponse[];
+    readonly managementGroups?: outputs.managednetwork.v20190601preview.ResourceIdInvokeResponse[];
     /**
      * The name of the resource
      */
@@ -70,11 +70,11 @@ export interface GetManagedNetworkGroupResult {
     /**
      * The collection of  subnets covered by the Managed Network
      */
-    readonly subnets?: outputs.managednetwork.v20190601preview.ResourceIdResponse[];
+    readonly subnets?: outputs.managednetwork.v20190601preview.ResourceIdInvokeResponse[];
     /**
      * The collection of subscriptions covered by the Managed Network
      */
-    readonly subscriptions?: outputs.managednetwork.v20190601preview.ResourceIdResponse[];
+    readonly subscriptions?: outputs.managednetwork.v20190601preview.ResourceIdInvokeResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -82,5 +82,5 @@ export interface GetManagedNetworkGroupResult {
     /**
      * The collection of virtual nets covered by the Managed Network
      */
-    readonly virtualNetworks?: outputs.managednetwork.v20190601preview.ResourceIdResponse[];
+    readonly virtualNetworks?: outputs.managednetwork.v20190601preview.ResourceIdInvokeResponse[];
 }

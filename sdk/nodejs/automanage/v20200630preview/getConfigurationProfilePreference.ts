@@ -49,7 +49,7 @@ export interface GetConfigurationProfilePreferenceResult {
     /**
      * Properties of the configuration profile preference.
      */
-    readonly properties: outputs.automanage.v20200630preview.ConfigurationProfilePreferencePropertiesResponse;
+    readonly properties: outputs.automanage.v20200630preview.ConfigurationProfilePreferencePropertiesInvokeResponse;
     /**
      * Resource tags.
      */

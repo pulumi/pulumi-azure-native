@@ -53,7 +53,7 @@ export interface GetDdosCustomPolicyResult {
     /**
      * The protocol-specific DDoS policy customization parameters.
      */
-    readonly protocolCustomSettings?: outputs.network.v20190901.ProtocolCustomSettingsFormatResponse[];
+    readonly protocolCustomSettings?: outputs.network.v20190901.ProtocolCustomSettingsFormatInvokeResponse[];
     /**
      * The provisioning state of the DDoS custom policy resource.
      */
@@ -61,7 +61,7 @@ export interface GetDdosCustomPolicyResult {
     /**
      * The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
      */
-    readonly publicIPAddresses: outputs.network.v20190901.SubResourceResponse[];
+    readonly publicIPAddresses: outputs.network.v20190901.SubResourceInvokeResponse[];
     /**
      * The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
      */

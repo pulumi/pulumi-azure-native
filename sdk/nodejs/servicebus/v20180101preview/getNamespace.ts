@@ -41,7 +41,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: outputs.servicebus.v20180101preview.EncryptionResponse;
+    readonly encryption?: outputs.servicebus.v20180101preview.EncryptionInvokeResponse;
     /**
      * Resource Id
      */
@@ -49,7 +49,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: outputs.servicebus.v20180101preview.IdentityResponse;
+    readonly identity?: outputs.servicebus.v20180101preview.IdentityInvokeResponse;
     /**
      * The Geo-location where the resource lives
      */
@@ -73,7 +73,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of SKU
      */
-    readonly sku?: outputs.servicebus.v20180101preview.SBSkuResponse;
+    readonly sku?: outputs.servicebus.v20180101preview.SBSkuInvokeResponse;
     /**
      * Resource tags
      */

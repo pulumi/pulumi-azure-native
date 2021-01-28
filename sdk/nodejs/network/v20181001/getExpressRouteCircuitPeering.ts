@@ -46,7 +46,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The list of circuit connections associated with Azure Private Peering for this circuit.
      */
-    readonly connections?: outputs.network.v20181001.ExpressRouteCircuitConnectionResponse[];
+    readonly connections?: outputs.network.v20181001.ExpressRouteCircuitConnectionInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -54,7 +54,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The ExpressRoute connection.
      */
-    readonly expressRouteConnection?: outputs.network.v20181001.ExpressRouteConnectionIdResponse;
+    readonly expressRouteConnection?: outputs.network.v20181001.ExpressRouteConnectionIdInvokeResponse;
     /**
      * The GatewayManager Etag.
      */
@@ -66,7 +66,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: outputs.network.v20181001.Ipv6ExpressRouteCircuitPeeringConfigResponse;
+    readonly ipv6PeeringConfig?: outputs.network.v20181001.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets whether the provider or the customer last modified the peering.
      */
@@ -74,7 +74,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: outputs.network.v20181001.ExpressRouteCircuitPeeringConfigResponse;
+    readonly microsoftPeeringConfig?: outputs.network.v20181001.ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -102,7 +102,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The reference of the RouteFilter resource.
      */
-    readonly routeFilter?: outputs.network.v20181001.RouteFilterResponse;
+    readonly routeFilter?: outputs.network.v20181001.RouteFilterInvokeResponse;
     /**
      * The secondary port.
      */
@@ -122,7 +122,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets peering stats.
      */
-    readonly stats?: outputs.network.v20181001.ExpressRouteCircuitStatsResponse;
+    readonly stats?: outputs.network.v20181001.ExpressRouteCircuitStatsInvokeResponse;
     /**
      * The VLAN ID.
      */

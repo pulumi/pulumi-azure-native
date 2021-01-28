@@ -42,23 +42,23 @@ export interface GetDomainResult {
     /**
      * Legal agreement consent.
      */
-    readonly consent: outputs.domainregistration.latest.DomainPurchaseConsentResponse;
+    readonly consent: outputs.domainregistration.latest.DomainPurchaseConsentInvokeResponse;
     /**
      * Administrative contact.
      */
-    readonly contactAdmin: outputs.domainregistration.latest.ContactResponse;
+    readonly contactAdmin: outputs.domainregistration.latest.ContactInvokeResponse;
     /**
      * Billing contact.
      */
-    readonly contactBilling: outputs.domainregistration.latest.ContactResponse;
+    readonly contactBilling: outputs.domainregistration.latest.ContactInvokeResponse;
     /**
      * Registrant contact.
      */
-    readonly contactRegistrant: outputs.domainregistration.latest.ContactResponse;
+    readonly contactRegistrant: outputs.domainregistration.latest.ContactInvokeResponse;
     /**
      * Technical contact.
      */
-    readonly contactTech: outputs.domainregistration.latest.ContactResponse;
+    readonly contactTech: outputs.domainregistration.latest.ContactInvokeResponse;
     /**
      * Domain creation timestamp.
      */
@@ -98,7 +98,7 @@ export interface GetDomainResult {
     /**
      * All hostnames derived from the domain and assigned to Azure resources.
      */
-    readonly managedHostNames: outputs.domainregistration.latest.HostNameResponse[];
+    readonly managedHostNames: outputs.domainregistration.latest.HostNameInvokeResponse[];
     /**
      * Resource Name.
      */
@@ -127,7 +127,7 @@ export interface GetDomainResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.domainregistration.latest.SystemDataResponse;
+    readonly systemData: outputs.domainregistration.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

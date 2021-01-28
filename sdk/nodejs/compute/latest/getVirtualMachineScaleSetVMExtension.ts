@@ -68,7 +68,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
     /**
      * The virtual machine extension instance view.
      */
-    readonly instanceView?: outputs.compute.latest.VirtualMachineExtensionInstanceViewResponse;
+    readonly instanceView?: outputs.compute.latest.VirtualMachineExtensionInstanceViewInvokeResponse;
     /**
      * The name of the extension.
      */

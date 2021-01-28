@@ -69,7 +69,7 @@ export interface GetWorkspaceResult {
     /**
      * The SKU of the workspace.
      */
-    readonly sku?: outputs.operationalinsights.v20151101preview.SkuResponse;
+    readonly sku?: outputs.operationalinsights.v20151101preview.SkuInvokeResponse;
     /**
      * This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
      */

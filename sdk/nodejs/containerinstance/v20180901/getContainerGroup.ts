@@ -37,11 +37,11 @@ export interface GetContainerGroupResult {
     /**
      * The containers within the container group.
      */
-    readonly containers: outputs.containerinstance.v20180901.ContainerResponse[];
+    readonly containers: outputs.containerinstance.v20180901.ContainerInvokeResponse[];
     /**
      * The diagnostic information for a container group.
      */
-    readonly diagnostics?: outputs.containerinstance.v20180901.ContainerGroupDiagnosticsResponse;
+    readonly diagnostics?: outputs.containerinstance.v20180901.ContainerGroupDiagnosticsInvokeResponse;
     /**
      * The resource id.
      */
@@ -49,15 +49,15 @@ export interface GetContainerGroupResult {
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: outputs.containerinstance.v20180901.ImageRegistryCredentialResponse[];
+    readonly imageRegistryCredentials?: outputs.containerinstance.v20180901.ImageRegistryCredentialInvokeResponse[];
     /**
      * The instance view of the container group. Only valid in response.
      */
-    readonly instanceView: outputs.containerinstance.v20180901.ContainerGroupResponseInstanceView;
+    readonly instanceView: outputs.containerinstance.v20180901.ContainerGroupInvokeResponseInstanceView;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: outputs.containerinstance.v20180901.IpAddressResponse;
+    readonly ipAddress?: outputs.containerinstance.v20180901.IpAddressInvokeResponse;
     /**
      * The resource location.
      */
@@ -69,7 +69,7 @@ export interface GetContainerGroupResult {
     /**
      * The network profile information for a container group.
      */
-    readonly networkProfile?: outputs.containerinstance.v20180901.ContainerGroupNetworkProfileResponse;
+    readonly networkProfile?: outputs.containerinstance.v20180901.ContainerGroupNetworkProfileInvokeResponse;
     /**
      * The operating system type required by the containers in the container group.
      */
@@ -96,5 +96,5 @@ export interface GetContainerGroupResult {
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: outputs.containerinstance.v20180901.VolumeResponse[];
+    readonly volumes?: outputs.containerinstance.v20180901.VolumeInvokeResponse[];
 }

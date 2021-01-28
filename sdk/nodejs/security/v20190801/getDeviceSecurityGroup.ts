@@ -37,11 +37,11 @@ export interface GetDeviceSecurityGroupResult {
     /**
      * The allow-list custom alert rules.
      */
-    readonly allowlistRules?: outputs.security.v20190801.AllowlistCustomAlertRuleResponse[];
+    readonly allowlistRules?: outputs.security.v20190801.AllowlistCustomAlertRuleInvokeResponse[];
     /**
      * The deny-list custom alert rules.
      */
-    readonly denylistRules?: outputs.security.v20190801.DenylistCustomAlertRuleResponse[];
+    readonly denylistRules?: outputs.security.v20190801.DenylistCustomAlertRuleInvokeResponse[];
     /**
      * Resource Id
      */
@@ -53,11 +53,11 @@ export interface GetDeviceSecurityGroupResult {
     /**
      * The list of custom alert threshold rules.
      */
-    readonly thresholdRules?: outputs.security.v20190801.ThresholdCustomAlertRuleResponse[];
+    readonly thresholdRules?: outputs.security.v20190801.ThresholdCustomAlertRuleInvokeResponse[];
     /**
      * The list of custom alert time-window rules.
      */
-    readonly timeWindowRules?: outputs.security.v20190801.TimeWindowCustomAlertRuleResponse[];
+    readonly timeWindowRules?: outputs.security.v20190801.TimeWindowCustomAlertRuleInvokeResponse[];
     /**
      * Resource type
      */

@@ -55,7 +55,7 @@ export interface GetBuildStepResult {
     /**
      * The properties of a build step.
      */
-    readonly properties: outputs.containerregistry.v20180201preview.DockerBuildStepResponse;
+    readonly properties: outputs.containerregistry.v20180201preview.DockerBuildStepInvokeResponse;
     /**
      * The type of the resource.
      */

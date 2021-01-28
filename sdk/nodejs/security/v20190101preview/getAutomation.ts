@@ -37,7 +37,7 @@ export interface GetAutomationResult {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    readonly actions?: outputs.security.v20190101preview.AutomationActionEventHubResponse | outputs.security.v20190101preview.AutomationActionLogicAppResponse | outputs.security.v20190101preview.AutomationActionWorkspaceResponse[];
+    readonly actions?: outputs.security.v20190101preview.AutomationActionEventHubInvokeResponse | outputs.security.v20190101preview.AutomationActionLogicAppInvokeResponse | outputs.security.v20190101preview.AutomationActionWorkspaceInvokeResponse[];
     /**
      * The security automation description.
      */
@@ -69,11 +69,11 @@ export interface GetAutomationResult {
     /**
      * A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
      */
-    readonly scopes?: outputs.security.v20190101preview.AutomationScopeResponse[];
+    readonly scopes?: outputs.security.v20190101preview.AutomationScopeInvokeResponse[];
     /**
      * A collection of the source event types which evaluate the security automation set of rules.
      */
-    readonly sources?: outputs.security.v20190101preview.AutomationSourceResponse[];
+    readonly sources?: outputs.security.v20190101preview.AutomationSourceInvokeResponse[];
     /**
      * A list of key value pairs that describe the resource.
      */

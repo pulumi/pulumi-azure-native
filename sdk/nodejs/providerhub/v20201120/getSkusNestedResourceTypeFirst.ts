@@ -49,7 +49,7 @@ export interface GetSkusNestedResourceTypeFirstResult {
      * The name of the resource
      */
     readonly name: string;
-    readonly properties: outputs.providerhub.v20201120.SkuResourceResponseProperties;
+    readonly properties: outputs.providerhub.v20201120.SkuResourceInvokeResponseProperties;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

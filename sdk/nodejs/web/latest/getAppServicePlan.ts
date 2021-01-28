@@ -45,7 +45,7 @@ export interface GetAppServicePlanResult {
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    readonly hostingEnvironmentProfile?: outputs.web.latest.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.latest.HostingEnvironmentProfileInvokeResponse;
     /**
      * If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -106,7 +106,7 @@ export interface GetAppServicePlanResult {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: outputs.web.latest.SkuDescriptionResponse;
+    readonly sku?: outputs.web.latest.SkuDescriptionInvokeResponse;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */
@@ -122,7 +122,7 @@ export interface GetAppServicePlanResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

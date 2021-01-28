@@ -37,7 +37,7 @@ export interface GetSnapshotResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.v20170330.CreationDataResponse;
+    readonly creationData: outputs.compute.v20170330.CreationDataInvokeResponse;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
@@ -45,7 +45,7 @@ export interface GetSnapshotResult {
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: outputs.compute.v20170330.EncryptionSettingsResponse;
+    readonly encryptionSettings?: outputs.compute.v20170330.EncryptionSettingsInvokeResponse;
     /**
      * Resource Id
      */
@@ -73,7 +73,7 @@ export interface GetSnapshotResult {
     /**
      * The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
      */
-    readonly sku?: outputs.compute.v20170330.DiskSkuResponse;
+    readonly sku?: outputs.compute.v20170330.DiskSkuInvokeResponse;
     /**
      * Resource tags
      */

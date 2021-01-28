@@ -46,11 +46,11 @@ export interface GetRoleAssignmentResult {
     /**
      * Widget types set for the assignment.
      */
-    readonly conflationPolicies?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly conflationPolicies?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Connectors set for the assignment.
      */
-    readonly connectors?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly connectors?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Localized description for the metadata.
      */
@@ -66,15 +66,15 @@ export interface GetRoleAssignmentResult {
     /**
      * Interactions set for the assignment.
      */
-    readonly interactions?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly interactions?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Kpis set for the assignment.
      */
-    readonly kpis?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly kpis?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Links set for the assignment.
      */
-    readonly links?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly links?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Resource name.
      */
@@ -82,11 +82,11 @@ export interface GetRoleAssignmentResult {
     /**
      * The principals being assigned to.
      */
-    readonly principals: outputs.customerinsights.latest.AssignmentPrincipalResponse[];
+    readonly principals: outputs.customerinsights.latest.AssignmentPrincipalInvokeResponse[];
     /**
      * Profiles set for the assignment.
      */
-    readonly profiles?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly profiles?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Provisioning state.
      */
@@ -94,11 +94,11 @@ export interface GetRoleAssignmentResult {
     /**
      * The Role assignments set for the relationship links.
      */
-    readonly relationshipLinks?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly relationshipLinks?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * The Role assignments set for the relationships.
      */
-    readonly relationships?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly relationships?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Type of roles.
      */
@@ -106,15 +106,15 @@ export interface GetRoleAssignmentResult {
     /**
      * The Role assignments set for the assignment.
      */
-    readonly roleAssignments?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly roleAssignments?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Sas Policies set for the assignment.
      */
-    readonly sasPolicies?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly sasPolicies?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * The Role assignments set for the assignment.
      */
-    readonly segments?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly segments?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * The hub name.
      */
@@ -126,9 +126,9 @@ export interface GetRoleAssignmentResult {
     /**
      * Views set for the assignment.
      */
-    readonly views?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly views?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
     /**
      * Widget types set for the assignment.
      */
-    readonly widgetTypes?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;
+    readonly widgetTypes?: outputs.customerinsights.latest.ResourceSetDescriptionInvokeResponse;
 }

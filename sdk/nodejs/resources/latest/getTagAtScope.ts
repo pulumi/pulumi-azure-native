@@ -40,7 +40,7 @@ export interface GetTagAtScopeResult {
     /**
      * The set of tags.
      */
-    readonly properties: outputs.resources.latest.TagsResponse;
+    readonly properties: outputs.resources.latest.TagsInvokeResponse;
     /**
      * The type of the tags wrapper resource.
      */

@@ -45,7 +45,7 @@ export interface GetBatchAccountResult {
     /**
      * The properties and status of any auto storage account associated with the account.
      */
-    readonly autoStorage?: outputs.batch.v20151201.AutoStoragePropertiesResponse;
+    readonly autoStorage?: outputs.batch.v20151201.AutoStoragePropertiesInvokeResponse;
     /**
      * The core quota for this Batch account.
      */

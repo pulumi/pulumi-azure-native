@@ -42,7 +42,7 @@ export interface GetStreamingJobResult {
     /**
      * The cluster which streaming jobs will run on.
      */
-    readonly cluster?: outputs.streamanalytics.v20170401preview.ClusterInfoResponse;
+    readonly cluster?: outputs.streamanalytics.v20170401preview.ClusterInfoInvokeResponse;
     /**
      * Controls certain runtime behaviors of the streaming job.
      */
@@ -78,11 +78,11 @@ export interface GetStreamingJobResult {
     /**
      * The storage account where the custom code artifacts are located.
      */
-    readonly externals?: outputs.streamanalytics.v20170401preview.ExternalResponse;
+    readonly externals?: outputs.streamanalytics.v20170401preview.ExternalInvokeResponse;
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly functions?: outputs.streamanalytics.v20170401preview.FunctionResponse[];
+    readonly functions?: outputs.streamanalytics.v20170401preview.FunctionInvokeResponse[];
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -90,11 +90,11 @@ export interface GetStreamingJobResult {
     /**
      * Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
      */
-    readonly identity?: outputs.streamanalytics.v20170401preview.IdentityResponse;
+    readonly identity?: outputs.streamanalytics.v20170401preview.IdentityInvokeResponse;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
-    readonly inputs?: outputs.streamanalytics.v20170401preview.InputResponse[];
+    readonly inputs?: outputs.streamanalytics.v20170401preview.InputInvokeResponse[];
     /**
      * A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
      */
@@ -106,7 +106,7 @@ export interface GetStreamingJobResult {
     /**
      * The properties that are associated with an Azure Storage account with MSI
      */
-    readonly jobStorageAccount?: outputs.streamanalytics.v20170401preview.JobStorageAccountResponse;
+    readonly jobStorageAccount?: outputs.streamanalytics.v20170401preview.JobStorageAccountInvokeResponse;
     /**
      * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
      */
@@ -138,7 +138,7 @@ export interface GetStreamingJobResult {
     /**
      * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
      */
-    readonly outputs?: outputs.streamanalytics.v20170401preview.OutputResponse[];
+    readonly outputs?: outputs.streamanalytics.v20170401preview.OutputInvokeResponse[];
     /**
      * Describes the provisioning status of the streaming job.
      */
@@ -146,7 +146,7 @@ export interface GetStreamingJobResult {
     /**
      * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
      */
-    readonly sku?: outputs.streamanalytics.v20170401preview.StreamingJobSkuResponse;
+    readonly sku?: outputs.streamanalytics.v20170401preview.StreamingJobSkuInvokeResponse;
     /**
      * Resource tags.
      */
@@ -154,7 +154,7 @@ export interface GetStreamingJobResult {
     /**
      * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly transformation?: outputs.streamanalytics.v20170401preview.TransformationResponse;
+    readonly transformation?: outputs.streamanalytics.v20170401preview.TransformationInvokeResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

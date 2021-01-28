@@ -42,11 +42,11 @@ export interface GetSqlVirtualMachineResult {
     /**
      * Auto backup settings for SQL Server.
      */
-    readonly autoBackupSettings?: outputs.sqlvirtualmachine.v20170301preview.AutoBackupSettingsResponse;
+    readonly autoBackupSettings?: outputs.sqlvirtualmachine.v20170301preview.AutoBackupSettingsInvokeResponse;
     /**
      * Auto patching settings for applying critical security updates to SQL virtual machine.
      */
-    readonly autoPatchingSettings?: outputs.sqlvirtualmachine.v20170301preview.AutoPatchingSettingsResponse;
+    readonly autoPatchingSettings?: outputs.sqlvirtualmachine.v20170301preview.AutoPatchingSettingsInvokeResponse;
     /**
      * Resource ID.
      */
@@ -54,11 +54,11 @@ export interface GetSqlVirtualMachineResult {
     /**
      * Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.sqlvirtualmachine.v20170301preview.ResourceIdentityResponse;
+    readonly identity?: outputs.sqlvirtualmachine.v20170301preview.ResourceIdentityInvokeResponse;
     /**
      * Key vault credential settings.
      */
-    readonly keyVaultCredentialSettings?: outputs.sqlvirtualmachine.v20170301preview.KeyVaultCredentialSettingsResponse;
+    readonly keyVaultCredentialSettings?: outputs.sqlvirtualmachine.v20170301preview.KeyVaultCredentialSettingsInvokeResponse;
     /**
      * Resource location.
      */
@@ -74,7 +74,7 @@ export interface GetSqlVirtualMachineResult {
     /**
      * SQL Server configuration management settings.
      */
-    readonly serverConfigurationsManagementSettings?: outputs.sqlvirtualmachine.v20170301preview.ServerConfigurationsManagementSettingsResponse;
+    readonly serverConfigurationsManagementSettings?: outputs.sqlvirtualmachine.v20170301preview.ServerConfigurationsManagementSettingsInvokeResponse;
     /**
      * SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
      */
@@ -98,7 +98,7 @@ export interface GetSqlVirtualMachineResult {
     /**
      * Storage Configuration Settings.
      */
-    readonly storageConfigurationSettings?: outputs.sqlvirtualmachine.v20170301preview.StorageConfigurationSettingsResponse;
+    readonly storageConfigurationSettings?: outputs.sqlvirtualmachine.v20170301preview.StorageConfigurationSettingsInvokeResponse;
     /**
      * Resource tags.
      */
@@ -114,5 +114,5 @@ export interface GetSqlVirtualMachineResult {
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    readonly wsfcDomainCredentials?: outputs.sqlvirtualmachine.v20170301preview.WsfcDomainCredentialsResponse;
+    readonly wsfcDomainCredentials?: outputs.sqlvirtualmachine.v20170301preview.WsfcDomainCredentialsInvokeResponse;
 }

@@ -70,5 +70,5 @@ export interface GetFactoryDataPlaneAccessResult {
     /**
      * The user access policy.
      */
-    readonly policy?: outputs.datafactory.v20180601.UserAccessPolicyResponse;
+    readonly policy?: outputs.datafactory.v20180601.UserAccessPolicyInvokeResponse;
 }

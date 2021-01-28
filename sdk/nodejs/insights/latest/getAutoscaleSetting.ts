@@ -53,11 +53,11 @@ export interface GetAutoscaleSettingResult {
     /**
      * the collection of notifications.
      */
-    readonly notifications?: outputs.insights.latest.AutoscaleNotificationResponse[];
+    readonly notifications?: outputs.insights.latest.AutoscaleNotificationInvokeResponse[];
     /**
      * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
      */
-    readonly profiles: outputs.insights.latest.AutoscaleProfileResponse[];
+    readonly profiles: outputs.insights.latest.AutoscaleProfileInvokeResponse[];
     /**
      * Resource tags
      */

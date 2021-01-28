@@ -61,7 +61,7 @@ export interface GetStorageSyncServiceResult {
     /**
      * List of private endpoint connection associated with the specified storage sync service
      */
-    readonly privateEndpointConnections: outputs.storagesync.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.storagesync.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * StorageSyncService Provisioning State
      */

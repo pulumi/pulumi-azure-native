@@ -60,7 +60,7 @@ export interface ListIntegrationAccountMapContentCallbackUrlResult {
     /**
      * Gets the workflow trigger callback URL query parameters.
      */
-    readonly queries?: outputs.logic.latest.WorkflowTriggerListCallbackUrlQueriesResponse;
+    readonly queries?: outputs.logic.latest.WorkflowTriggerListCallbackUrlQueriesInvokeResponse;
     /**
      * Gets the workflow trigger callback URL relative path.
      */

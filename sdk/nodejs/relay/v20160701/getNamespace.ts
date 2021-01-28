@@ -65,7 +65,7 @@ export interface GetNamespaceResult {
     /**
      * Sku of the Namespace.
      */
-    readonly sku?: outputs.relay.v20160701.SkuResponse;
+    readonly sku?: outputs.relay.v20160701.SkuInvokeResponse;
     /**
      * Resource tags
      */

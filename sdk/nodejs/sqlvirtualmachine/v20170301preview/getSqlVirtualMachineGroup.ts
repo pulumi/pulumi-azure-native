@@ -81,5 +81,5 @@ export interface GetSqlVirtualMachineGroupResult {
     /**
      * Cluster Active Directory domain profile.
      */
-    readonly wsfcDomainProfile?: outputs.sqlvirtualmachine.v20170301preview.WsfcDomainProfileResponse;
+    readonly wsfcDomainProfile?: outputs.sqlvirtualmachine.v20170301preview.WsfcDomainProfileInvokeResponse;
 }

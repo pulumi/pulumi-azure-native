@@ -49,7 +49,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    readonly clusterSettings?: outputs.web.v20160901.NameValuePairResponse[];
+    readonly clusterSettings?: outputs.web.v20160901.NameValuePairInvokeResponse[];
     /**
      * Edition of the metadata database for the App Service Environment, e.g. "Standard".
      */
@@ -74,7 +74,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Current total, used, and available worker capacities.
      */
-    readonly environmentCapacities: outputs.web.v20160901.StampCapacityResponse[];
+    readonly environmentCapacities: outputs.web.v20160901.StampCapacityInvokeResponse[];
     /**
      * True/false indicating whether the App Service Environment is healthy.
      */
@@ -134,7 +134,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Access control list for controlling traffic to the App Service Environment.
      */
-    readonly networkAccessControlList?: outputs.web.v20160901.NetworkAccessControlEntryResponse[];
+    readonly networkAccessControlList?: outputs.web.v20160901.NetworkAccessControlEntryInvokeResponse[];
     /**
      * Provisioning state of the App Service Environment.
      */
@@ -175,11 +175,11 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Description of IP SSL mapping for the App Service Environment.
      */
-    readonly vipMappings: outputs.web.v20160901.VirtualIPMappingResponse[];
+    readonly vipMappings: outputs.web.v20160901.VirtualIPMappingInvokeResponse[];
     /**
      * Description of the Virtual Network.
      */
-    readonly virtualNetwork: outputs.web.v20160901.VirtualNetworkProfileResponse;
+    readonly virtualNetwork: outputs.web.v20160901.VirtualNetworkProfileInvokeResponse;
     /**
      * Name of the Virtual Network for the App Service Environment.
      */
@@ -195,5 +195,5 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
      */
-    readonly workerPools: outputs.web.v20160901.WorkerPoolResponse[];
+    readonly workerPools: outputs.web.v20160901.WorkerPoolInvokeResponse[];
 }

@@ -37,15 +37,15 @@ export interface GetVpnSiteResult {
     /**
      * The AddressSpace that contains an array of IP address ranges.
      */
-    readonly addressSpace?: outputs.network.v20200501.AddressSpaceResponse;
+    readonly addressSpace?: outputs.network.v20200501.AddressSpaceInvokeResponse;
     /**
      * The set of bgp properties.
      */
-    readonly bgpProperties?: outputs.network.v20200501.BgpSettingsResponse;
+    readonly bgpProperties?: outputs.network.v20200501.BgpSettingsInvokeResponse;
     /**
      * The device properties.
      */
-    readonly deviceProperties?: outputs.network.v20200501.DevicePropertiesResponse;
+    readonly deviceProperties?: outputs.network.v20200501.DevicePropertiesInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -89,9 +89,9 @@ export interface GetVpnSiteResult {
     /**
      * The VirtualWAN to which the vpnSite belongs.
      */
-    readonly virtualWan?: outputs.network.v20200501.SubResourceResponse;
+    readonly virtualWan?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * List of all vpn site links.
      */
-    readonly vpnSiteLinks?: outputs.network.v20200501.VpnSiteLinkResponse[];
+    readonly vpnSiteLinks?: outputs.network.v20200501.VpnSiteLinkInvokeResponse[];
 }

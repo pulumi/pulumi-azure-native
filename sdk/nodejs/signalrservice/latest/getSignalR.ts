@@ -37,7 +37,7 @@ export interface GetSignalRResult {
     /**
      * Cross-Origin Resource Sharing (CORS) settings.
      */
-    readonly cors?: outputs.signalrservice.latest.SignalRCorsSettingsResponse;
+    readonly cors?: outputs.signalrservice.latest.SignalRCorsSettingsInvokeResponse;
     /**
      * The publicly accessible IP of the SignalR service.
      */
@@ -50,7 +50,7 @@ export interface GetSignalRResult {
      * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
-    readonly features?: outputs.signalrservice.latest.SignalRFeatureResponse[];
+    readonly features?: outputs.signalrservice.latest.SignalRFeatureInvokeResponse[];
     /**
      * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
      */
@@ -79,11 +79,11 @@ export interface GetSignalRResult {
     /**
      * Network ACLs
      */
-    readonly networkACLs?: outputs.signalrservice.latest.SignalRNetworkACLsResponse;
+    readonly networkACLs?: outputs.signalrservice.latest.SignalRNetworkACLsInvokeResponse;
     /**
      * Private endpoint connections to the SignalR resource.
      */
-    readonly privateEndpointConnections: outputs.signalrservice.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.signalrservice.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Provisioning state of the resource.
      */
@@ -99,7 +99,7 @@ export interface GetSignalRResult {
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
-    readonly sku?: outputs.signalrservice.latest.ResourceSkuResponse;
+    readonly sku?: outputs.signalrservice.latest.ResourceSkuInvokeResponse;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
@@ -111,7 +111,7 @@ export interface GetSignalRResult {
     /**
      * Upstream settings when the Azure SignalR is in server-less mode.
      */
-    readonly upstream?: outputs.signalrservice.latest.ServerlessUpstreamSettingsResponse;
+    readonly upstream?: outputs.signalrservice.latest.ServerlessUpstreamSettingsInvokeResponse;
     /**
      * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
      */

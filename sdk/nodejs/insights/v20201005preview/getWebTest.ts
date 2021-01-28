@@ -37,11 +37,11 @@ export interface GetWebTestResult {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly configuration?: outputs.insights.v20201005preview.WebTestPropertiesResponseConfiguration;
+    readonly configuration?: outputs.insights.v20201005preview.WebTestPropertiesInvokeResponseConfiguration;
     /**
      * The collection of content validation properties
      */
-    readonly contentValidation?: outputs.insights.v20201005preview.WebTestPropertiesResponseContentValidation;
+    readonly contentValidation?: outputs.insights.v20201005preview.WebTestPropertiesInvokeResponseContentValidation;
     /**
      * User defined description for this WebTest.
      */
@@ -77,7 +77,7 @@ export interface GetWebTestResult {
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly locations: outputs.insights.v20201005preview.WebTestGeolocationResponse[];
+    readonly locations: outputs.insights.v20201005preview.WebTestGeolocationInvokeResponse[];
     /**
      * Azure resource name
      */
@@ -89,7 +89,7 @@ export interface GetWebTestResult {
     /**
      * The collection of request properties
      */
-    readonly request?: outputs.insights.v20201005preview.WebTestPropertiesResponseRequest;
+    readonly request?: outputs.insights.v20201005preview.WebTestPropertiesInvokeResponseRequest;
     /**
      * Allow for retries should this WebTest fail.
      */

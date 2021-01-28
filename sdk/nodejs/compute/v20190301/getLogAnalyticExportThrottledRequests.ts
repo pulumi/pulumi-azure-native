@@ -62,5 +62,5 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
     /**
      * LogAnalyticsOutput
      */
-    readonly properties: outputs.compute.v20190301.LogAnalyticsOutputResponse;
+    readonly properties: outputs.compute.v20190301.LogAnalyticsOutputInvokeResponse;
 }

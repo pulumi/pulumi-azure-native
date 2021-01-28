@@ -46,7 +46,7 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: outputs.network.v20190701.PrivateLinkServicePropertiesResponseAutoApproval;
+    readonly autoApproval?: outputs.network.v20190701.PrivateLinkServicePropertiesInvokeResponseAutoApproval;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -62,11 +62,11 @@ export interface GetPrivateLinkServiceResult {
     /**
      * An array of private link service IP configurations.
      */
-    readonly ipConfigurations?: outputs.network.v20190701.PrivateLinkServiceIpConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20190701.PrivateLinkServiceIpConfigurationInvokeResponse[];
     /**
      * An array of references to the load balancer IP configurations.
      */
-    readonly loadBalancerFrontendIpConfigurations?: outputs.network.v20190701.FrontendIPConfigurationResponse[];
+    readonly loadBalancerFrontendIpConfigurations?: outputs.network.v20190701.FrontendIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -78,11 +78,11 @@ export interface GetPrivateLinkServiceResult {
     /**
      * An array of references to the network interfaces created for this private link service.
      */
-    readonly networkInterfaces: outputs.network.v20190701.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.v20190701.NetworkInterfaceInvokeResponse[];
     /**
      * An array of list about connections to the private endpoint.
      */
-    readonly privateEndpointConnections?: outputs.network.v20190701.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections?: outputs.network.v20190701.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The provisioning state of the private link service resource.
      */
@@ -98,5 +98,5 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: outputs.network.v20190701.PrivateLinkServicePropertiesResponseVisibility;
+    readonly visibility?: outputs.network.v20190701.PrivateLinkServicePropertiesInvokeResponseVisibility;
 }

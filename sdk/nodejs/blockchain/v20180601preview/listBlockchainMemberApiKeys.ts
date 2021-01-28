@@ -37,5 +37,5 @@ export interface ListBlockchainMemberApiKeysResult {
     /**
      * Gets or sets the collection of API key.
      */
-    readonly keys?: outputs.blockchain.v20180601preview.ApiKeyResponse[];
+    readonly keys?: outputs.blockchain.v20180601preview.ApiKeyInvokeResponse[];
 }

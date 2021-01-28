@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: outputs.automation.v20200113preview.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.automation.v20200113preview.PrivateEndpointPropertyInvokeResponse;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.automation.v20200113preview.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState?: outputs.automation.v20200113preview.PrivateLinkServiceConnectionStatePropertyInvokeResponse;
     /**
      * The type of the resource.
      */

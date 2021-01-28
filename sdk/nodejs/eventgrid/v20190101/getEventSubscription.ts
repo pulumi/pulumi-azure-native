@@ -37,15 +37,15 @@ export interface GetEventSubscriptionResult {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.v20190101.StorageBlobDeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.v20190101.StorageBlobDeadLetterDestinationInvokeResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: outputs.eventgrid.v20190101.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20190101.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20190101.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190101.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20190101.EventHubEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190101.HybridConnectionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190101.StorageQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190101.WebHookEventSubscriptionDestinationInvokeResponse;
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: outputs.eventgrid.v20190101.EventSubscriptionFilterResponse;
+    readonly filter?: outputs.eventgrid.v20190101.EventSubscriptionFilterInvokeResponse;
     /**
      * Fully qualified identifier of the resource
      */
@@ -65,7 +65,7 @@ export interface GetEventSubscriptionResult {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: outputs.eventgrid.v20190101.RetryPolicyResponse;
+    readonly retryPolicy?: outputs.eventgrid.v20190101.RetryPolicyInvokeResponse;
     /**
      * Name of the topic of the event subscription.
      */

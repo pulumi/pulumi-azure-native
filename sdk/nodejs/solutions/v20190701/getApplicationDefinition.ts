@@ -37,11 +37,11 @@ export interface GetApplicationDefinitionResult {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    readonly artifacts?: outputs.solutions.v20190701.ApplicationDefinitionArtifactResponse[];
+    readonly artifacts?: outputs.solutions.v20190701.ApplicationDefinitionArtifactInvokeResponse[];
     /**
      * The managed application provider authorizations.
      */
-    readonly authorizations?: outputs.solutions.v20190701.ApplicationAuthorizationResponse[];
+    readonly authorizations?: outputs.solutions.v20190701.ApplicationAuthorizationInvokeResponse[];
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -49,7 +49,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The managed application deployment policy.
      */
-    readonly deploymentPolicy?: outputs.solutions.v20190701.ApplicationDeploymentPolicyResponse;
+    readonly deploymentPolicy?: outputs.solutions.v20190701.ApplicationDeploymentPolicyInvokeResponse;
     /**
      * The managed application definition description.
      */
@@ -77,7 +77,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The managed application locking policy.
      */
-    readonly lockingPolicy?: outputs.solutions.v20190701.ApplicationPackageLockingPolicyDefinitionResponse;
+    readonly lockingPolicy?: outputs.solutions.v20190701.ApplicationPackageLockingPolicyDefinitionInvokeResponse;
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
@@ -89,7 +89,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The managed application management policy that determines publisher's access to the managed resource group.
      */
-    readonly managementPolicy?: outputs.solutions.v20190701.ApplicationManagementPolicyResponse;
+    readonly managementPolicy?: outputs.solutions.v20190701.ApplicationManagementPolicyInvokeResponse;
     /**
      * Resource name
      */
@@ -97,7 +97,7 @@ export interface GetApplicationDefinitionResult {
     /**
      * The managed application notification policy.
      */
-    readonly notificationPolicy?: outputs.solutions.v20190701.ApplicationNotificationPolicyResponse;
+    readonly notificationPolicy?: outputs.solutions.v20190701.ApplicationNotificationPolicyInvokeResponse;
     /**
      * The managed application definition package file Uri. Use this element
      */
@@ -105,11 +105,11 @@ export interface GetApplicationDefinitionResult {
     /**
      * The managed application provider policies.
      */
-    readonly policies?: outputs.solutions.v20190701.ApplicationPolicyResponse[];
+    readonly policies?: outputs.solutions.v20190701.ApplicationPolicyInvokeResponse[];
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.solutions.v20190701.SkuResponse;
+    readonly sku?: outputs.solutions.v20190701.SkuInvokeResponse;
     /**
      * Resource tags
      */

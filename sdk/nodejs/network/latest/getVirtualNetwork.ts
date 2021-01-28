@@ -42,19 +42,19 @@ export interface GetVirtualNetworkResult {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    readonly addressSpace?: outputs.network.latest.AddressSpaceResponse;
+    readonly addressSpace?: outputs.network.latest.AddressSpaceInvokeResponse;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
-    readonly bgpCommunities?: outputs.network.latest.VirtualNetworkBgpCommunitiesResponse;
+    readonly bgpCommunities?: outputs.network.latest.VirtualNetworkBgpCommunitiesInvokeResponse;
     /**
      * The DDoS protection plan associated with the virtual network.
      */
-    readonly ddosProtectionPlan?: outputs.network.latest.SubResourceResponse;
+    readonly ddosProtectionPlan?: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    readonly dhcpOptions?: outputs.network.latest.DhcpOptionsResponse;
+    readonly dhcpOptions?: outputs.network.latest.DhcpOptionsInvokeResponse;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
      */
@@ -70,7 +70,7 @@ export interface GetVirtualNetworkResult {
     /**
      * The extended location of the virtual network.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * Resource ID.
      */
@@ -78,7 +78,7 @@ export interface GetVirtualNetworkResult {
     /**
      * Array of IpAllocation which reference this VNET.
      */
-    readonly ipAllocations?: outputs.network.latest.SubResourceResponse[];
+    readonly ipAllocations?: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * Resource location.
      */
@@ -98,7 +98,7 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of subnets in a Virtual Network.
      */
-    readonly subnets?: outputs.network.latest.SubnetResponse[];
+    readonly subnets?: outputs.network.latest.SubnetInvokeResponse[];
     /**
      * Resource tags.
      */
@@ -110,5 +110,5 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: outputs.network.latest.VirtualNetworkPeeringResponse[];
+    readonly virtualNetworkPeerings?: outputs.network.latest.VirtualNetworkPeeringInvokeResponse[];
 }

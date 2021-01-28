@@ -49,11 +49,11 @@ export interface GetIoTSpaceResult {
     /**
      * The common properties of a IoTSpaces service.
      */
-    readonly properties: outputs.iotspaces.v20171001preview.IoTSpacesPropertiesResponse;
+    readonly properties: outputs.iotspaces.v20171001preview.IoTSpacesPropertiesInvokeResponse;
     /**
      * A valid instance SKU.
      */
-    readonly sku: outputs.iotspaces.v20171001preview.IoTSpacesSkuInfoResponse;
+    readonly sku: outputs.iotspaces.v20171001preview.IoTSpacesSkuInfoInvokeResponse;
     /**
      * The resource tags.
      */

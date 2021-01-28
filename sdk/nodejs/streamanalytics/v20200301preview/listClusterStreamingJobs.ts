@@ -41,5 +41,5 @@ export interface ListClusterStreamingJobsResult {
     /**
      * A list of streaming jobs.
      */
-    readonly value: outputs.streamanalytics.v20200301preview.ClusterJobResponse[];
+    readonly value: outputs.streamanalytics.v20200301preview.ClusterJobInvokeResponse[];
 }

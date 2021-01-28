@@ -66,16 +66,16 @@ export interface GetMachineResult {
     /**
      * Details about the error state.
      */
-    readonly errorDetails: outputs.hybridcompute.v20200815preview.ErrorDetailResponse[];
+    readonly errorDetails: outputs.hybridcompute.v20200815preview.ErrorDetailInvokeResponse[];
     /**
      * Machine Extensions information
      */
-    readonly extensions?: outputs.hybridcompute.v20200815preview.MachineExtensionInstanceViewResponse[];
+    readonly extensions?: outputs.hybridcompute.v20200815preview.MachineExtensionInstanceViewInvokeResponse[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    readonly identity?: outputs.hybridcompute.v20200815preview.MachineResponseIdentity;
+    readonly identity?: outputs.hybridcompute.v20200815preview.MachineInvokeResponseIdentity;
     /**
      * The time of the last status change.
      */
@@ -87,7 +87,7 @@ export interface GetMachineResult {
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    readonly locationData?: outputs.hybridcompute.v20200815preview.LocationDataResponse;
+    readonly locationData?: outputs.hybridcompute.v20200815preview.LocationDataInvokeResponse;
     /**
      * Specifies the hybrid machine FQDN.
      */
@@ -103,7 +103,7 @@ export interface GetMachineResult {
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    readonly osProfile?: outputs.hybridcompute.v20200815preview.MachinePropertiesResponseOsProfile;
+    readonly osProfile?: outputs.hybridcompute.v20200815preview.MachinePropertiesInvokeResponseOsProfile;
     /**
      * Specifies the Operating System product SKU.
      */

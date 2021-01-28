@@ -47,7 +47,7 @@ export interface GetDatabaseAccountSqlContainerResult {
     /**
      * The conflict resolution policy for the container.
      */
-    readonly conflictResolutionPolicy?: outputs.documentdb.v20151106.ConflictResolutionPolicyResponse;
+    readonly conflictResolutionPolicy?: outputs.documentdb.v20151106.ConflictResolutionPolicyInvokeResponse;
     /**
      * Default time to live
      */
@@ -63,7 +63,7 @@ export interface GetDatabaseAccountSqlContainerResult {
     /**
      * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
      */
-    readonly indexingPolicy?: outputs.documentdb.v20151106.IndexingPolicyResponse;
+    readonly indexingPolicy?: outputs.documentdb.v20151106.IndexingPolicyInvokeResponse;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -75,7 +75,7 @@ export interface GetDatabaseAccountSqlContainerResult {
     /**
      * The configuration of the partition key to be used for partitioning data into multiple partitions
      */
-    readonly partitionKey?: outputs.documentdb.v20151106.ContainerPartitionKeyResponse;
+    readonly partitionKey?: outputs.documentdb.v20151106.ContainerPartitionKeyInvokeResponse;
     /**
      * A system generated property. A unique identifier.
      */
@@ -95,5 +95,5 @@ export interface GetDatabaseAccountSqlContainerResult {
     /**
      * The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
      */
-    readonly uniqueKeyPolicy?: outputs.documentdb.v20151106.UniqueKeyPolicyResponse;
+    readonly uniqueKeyPolicy?: outputs.documentdb.v20151106.UniqueKeyPolicyInvokeResponse;
 }

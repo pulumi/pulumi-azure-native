@@ -37,7 +37,7 @@ export interface GetConnectedClusterResult {
     /**
      * AAD profile of the connected cluster.
      */
-    readonly aadProfile: outputs.kubernetes.v20200101preview.ConnectedClusterAADProfileResponse;
+    readonly aadProfile: outputs.kubernetes.v20200101preview.ConnectedClusterAADProfileInvokeResponse;
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
      */
@@ -61,7 +61,7 @@ export interface GetConnectedClusterResult {
     /**
      * The identity of the connected cluster.
      */
-    readonly identity: outputs.kubernetes.v20200101preview.ConnectedClusterIdentityResponse;
+    readonly identity: outputs.kubernetes.v20200101preview.ConnectedClusterIdentityInvokeResponse;
     /**
      * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
      */

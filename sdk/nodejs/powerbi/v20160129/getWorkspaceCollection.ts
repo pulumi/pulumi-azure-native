@@ -47,7 +47,7 @@ export interface GetWorkspaceCollectionResult {
      * Properties
      */
     readonly properties: any;
-    readonly sku?: outputs.powerbi.v20160129.AzureSkuResponse;
+    readonly sku?: outputs.powerbi.v20160129.AzureSkuInvokeResponse;
     readonly tags?: {[key: string]: string};
     /**
      * Resource type

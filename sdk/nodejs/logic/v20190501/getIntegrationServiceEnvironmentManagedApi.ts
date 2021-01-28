@@ -54,7 +54,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiResult {
     /**
      * The api resource properties.
      */
-    readonly properties: outputs.logic.v20190501.ApiResourcePropertiesResponse;
+    readonly properties: outputs.logic.v20190501.ApiResourcePropertiesInvokeResponse;
     /**
      * The resource tags.
      */

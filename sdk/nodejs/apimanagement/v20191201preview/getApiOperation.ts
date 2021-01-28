@@ -71,15 +71,15 @@ export interface GetApiOperationResult {
     /**
      * An entity containing request details.
      */
-    readonly request?: outputs.apimanagement.v20191201preview.RequestContractResponse;
+    readonly request?: outputs.apimanagement.v20191201preview.RequestContractInvokeResponse;
     /**
      * Array of Operation responses.
      */
-    readonly responses?: outputs.apimanagement.v20191201preview.ResponseContractResponse[];
+    readonly responses?: outputs.apimanagement.v20191201preview.ResponseContractInvokeResponse[];
     /**
      * Collection of URL template parameters.
      */
-    readonly templateParameters?: outputs.apimanagement.v20191201preview.ParameterContractResponse[];
+    readonly templateParameters?: outputs.apimanagement.v20191201preview.ParameterContractInvokeResponse[];
     /**
      * Resource type for API Management resource.
      */

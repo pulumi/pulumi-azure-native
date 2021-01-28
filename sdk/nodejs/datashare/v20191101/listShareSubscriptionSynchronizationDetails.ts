@@ -66,5 +66,5 @@ export interface ListShareSubscriptionSynchronizationDetailsResult {
     /**
      * Collection of items of type DataTransferObjects.
      */
-    readonly value: outputs.datashare.v20191101.SynchronizationDetailsResponse[];
+    readonly value: outputs.datashare.v20191101.SynchronizationDetailsInvokeResponse[];
 }

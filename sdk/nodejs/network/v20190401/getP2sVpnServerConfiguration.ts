@@ -54,23 +54,23 @@ export interface GetP2sVpnServerConfigurationResult {
     /**
      * List of references to P2SVpnGateways.
      */
-    readonly p2SVpnGateways: outputs.network.v20190401.SubResourceResponse[];
+    readonly p2SVpnGateways: outputs.network.v20190401.SubResourceInvokeResponse[];
     /**
      * Radius client root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigRadiusClientRootCertificates?: outputs.network.v20190401.P2SVpnServerConfigRadiusClientRootCertificateResponse[];
+    readonly p2SVpnServerConfigRadiusClientRootCertificates?: outputs.network.v20190401.P2SVpnServerConfigRadiusClientRootCertificateInvokeResponse[];
     /**
      * Radius Server root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigRadiusServerRootCertificates?: outputs.network.v20190401.P2SVpnServerConfigRadiusServerRootCertificateResponse[];
+    readonly p2SVpnServerConfigRadiusServerRootCertificates?: outputs.network.v20190401.P2SVpnServerConfigRadiusServerRootCertificateInvokeResponse[];
     /**
      * VPN client revoked certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: outputs.network.v20190401.P2SVpnServerConfigVpnClientRevokedCertificateResponse[];
+    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: outputs.network.v20190401.P2SVpnServerConfigVpnClientRevokedCertificateInvokeResponse[];
     /**
      * VPN client root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigVpnClientRootCertificates?: outputs.network.v20190401.P2SVpnServerConfigVpnClientRootCertificateResponse[];
+    readonly p2SVpnServerConfigVpnClientRootCertificates?: outputs.network.v20190401.P2SVpnServerConfigVpnClientRootCertificateInvokeResponse[];
     /**
      * The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -86,7 +86,7 @@ export interface GetP2sVpnServerConfigurationResult {
     /**
      * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
      */
-    readonly vpnClientIpsecPolicies?: outputs.network.v20190401.IpsecPolicyResponse[];
+    readonly vpnClientIpsecPolicies?: outputs.network.v20190401.IpsecPolicyInvokeResponse[];
     /**
      * VPN protocols for the P2SVpnServerConfiguration.
      */

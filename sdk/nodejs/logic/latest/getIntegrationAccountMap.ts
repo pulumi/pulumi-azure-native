@@ -50,7 +50,7 @@ export interface GetIntegrationAccountMapResult {
     /**
      * The content link.
      */
-    readonly contentLink: outputs.logic.latest.ContentLinkResponse;
+    readonly contentLink: outputs.logic.latest.ContentLinkInvokeResponse;
     /**
      * The content type.
      */
@@ -82,7 +82,7 @@ export interface GetIntegrationAccountMapResult {
     /**
      * The parameters schema of integration account map.
      */
-    readonly parametersSchema?: outputs.logic.latest.IntegrationAccountMapPropertiesResponseParametersSchema;
+    readonly parametersSchema?: outputs.logic.latest.IntegrationAccountMapPropertiesInvokeResponseParametersSchema;
     /**
      * The resource tags.
      */

@@ -51,5 +51,5 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
     /**
      * List of SSIS object metadata.
      */
-    readonly value?: outputs.synapse.v20201201.SsisEnvironmentResponse | outputs.synapse.v20201201.SsisFolderResponse | outputs.synapse.v20201201.SsisPackageResponse | outputs.synapse.v20201201.SsisProjectResponse[];
+    readonly value?: outputs.synapse.v20201201.SsisEnvironmentInvokeResponse | outputs.synapse.v20201201.SsisFolderInvokeResponse | outputs.synapse.v20201201.SsisPackageInvokeResponse | outputs.synapse.v20201201.SsisProjectInvokeResponse[];
 }

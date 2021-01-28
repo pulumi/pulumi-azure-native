@@ -47,11 +47,11 @@ export interface GetRouteResult {
     /**
      * compression settings.
      */
-    readonly compressionSettings?: outputs.cdn.v20200901.CompressionSettingsResponse[];
+    readonly compressionSettings?: outputs.cdn.v20200901.CompressionSettingsInvokeResponse[];
     /**
      * Domains referenced by this endpoint.
      */
-    readonly customDomains?: outputs.cdn.v20200901.ResourceReferenceResponse[];
+    readonly customDomains?: outputs.cdn.v20200901.ResourceReferenceInvokeResponse[];
     readonly deploymentStatus: string;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -80,7 +80,7 @@ export interface GetRouteResult {
     /**
      * A reference to the origin group.
      */
-    readonly originGroup: outputs.cdn.v20200901.ResourceReferenceResponse;
+    readonly originGroup: outputs.cdn.v20200901.ResourceReferenceInvokeResponse;
     /**
      * A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
      */
@@ -100,7 +100,7 @@ export interface GetRouteResult {
     /**
      * rule sets referenced by this endpoint.
      */
-    readonly ruleSets?: outputs.cdn.v20200901.ResourceReferenceResponse[];
+    readonly ruleSets?: outputs.cdn.v20200901.ResourceReferenceInvokeResponse[];
     /**
      * List of supported protocols for this route.
      */
@@ -108,7 +108,7 @@ export interface GetRouteResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

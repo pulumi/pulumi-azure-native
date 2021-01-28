@@ -46,5 +46,5 @@ export interface ListConfigurationStoreKeysResult {
     /**
      * The collection value.
      */
-    readonly value?: outputs.appconfiguration.v20200701preview.ApiKeyResponse[];
+    readonly value?: outputs.appconfiguration.v20200701preview.ApiKeyInvokeResponse[];
 }

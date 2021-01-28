@@ -42,11 +42,11 @@ export interface GetOutputResult {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: outputs.streamanalytics.latest.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.latest.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.latest.AzureTableOutputDataSourceResponse | outputs.streamanalytics.latest.BlobOutputDataSourceResponse | outputs.streamanalytics.latest.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.latest.EventHubOutputDataSourceResponse | outputs.streamanalytics.latest.PowerBIOutputDataSourceResponse | outputs.streamanalytics.latest.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.latest.ServiceBusTopicOutputDataSourceResponse;
+    readonly datasource?: outputs.streamanalytics.latest.AzureDataLakeStoreOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.AzureSqlDatabaseOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.AzureTableOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.BlobOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.DocumentDbOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.EventHubOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.PowerBIOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.ServiceBusQueueOutputDataSourceInvokeResponse | outputs.streamanalytics.latest.ServiceBusTopicOutputDataSourceInvokeResponse;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
-    readonly diagnostics: outputs.streamanalytics.latest.DiagnosticsResponse;
+    readonly diagnostics: outputs.streamanalytics.latest.DiagnosticsInvokeResponse;
     /**
      * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
@@ -62,7 +62,7 @@ export interface GetOutputResult {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: outputs.streamanalytics.latest.AvroSerializationResponse | outputs.streamanalytics.latest.CsvSerializationResponse | outputs.streamanalytics.latest.JsonSerializationResponse;
+    readonly serialization?: outputs.streamanalytics.latest.AvroSerializationInvokeResponse | outputs.streamanalytics.latest.CsvSerializationInvokeResponse | outputs.streamanalytics.latest.JsonSerializationInvokeResponse;
     /**
      * Resource type
      */

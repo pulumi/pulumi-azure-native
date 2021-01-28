@@ -54,7 +54,7 @@ export interface GetServerResult {
      * The mode to create a new PostgreSQL server.
      */
     readonly createMode?: string;
-    readonly delegatedSubnetArguments?: outputs.dbforpostgresql.v20200214preview.ServerPropertiesResponseDelegatedSubnetArguments;
+    readonly delegatedSubnetArguments?: outputs.dbforpostgresql.v20200214preview.ServerPropertiesInvokeResponseDelegatedSubnetArguments;
     /**
      * The display name of a server.
      */
@@ -78,7 +78,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbforpostgresql.v20200214preview.IdentityResponse;
+    readonly identity?: outputs.dbforpostgresql.v20200214preview.IdentityInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -86,7 +86,7 @@ export interface GetServerResult {
     /**
      * Maintenance window of a server.
      */
-    readonly maintenanceWindow?: outputs.dbforpostgresql.v20200214preview.MaintenanceWindowResponse;
+    readonly maintenanceWindow?: outputs.dbforpostgresql.v20200214preview.MaintenanceWindowInvokeResponse;
     /**
      * The name of the resource
      */
@@ -102,7 +102,7 @@ export interface GetServerResult {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: outputs.dbforpostgresql.v20200214preview.SkuResponse;
+    readonly sku?: outputs.dbforpostgresql.v20200214preview.SkuInvokeResponse;
     /**
      * The source PostgreSQL server name to restore from.
      */
@@ -118,7 +118,7 @@ export interface GetServerResult {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: outputs.dbforpostgresql.v20200214preview.StorageProfileResponse;
+    readonly storageProfile?: outputs.dbforpostgresql.v20200214preview.StorageProfileInvokeResponse;
     /**
      * Resource tags.
      */

@@ -54,7 +54,7 @@ export interface GetContentKeyPolicyPropertiesWithSecretsResult {
     /**
      * The Key Policy options.
      */
-    readonly options: outputs.media.v20200501.ContentKeyPolicyOptionResponse[];
+    readonly options: outputs.media.v20200501.ContentKeyPolicyOptionInvokeResponse[];
     /**
      * The legacy Policy ID.
      */

@@ -50,7 +50,7 @@ export interface GetStreamingLocatorResult {
     /**
      * ContentKeys used by this Streaming Locator
      */
-    readonly contentKeys?: outputs.media.v20180601preview.StreamingLocatorContentKeyResponse[];
+    readonly contentKeys?: outputs.media.v20180601preview.StreamingLocatorContentKeyInvokeResponse[];
     /**
      * Creation time of Streaming Locator
      */

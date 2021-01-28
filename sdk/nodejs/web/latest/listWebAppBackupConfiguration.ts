@@ -41,11 +41,11 @@ export interface ListWebAppBackupConfigurationResult {
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    readonly backupSchedule?: outputs.web.latest.BackupScheduleResponse;
+    readonly backupSchedule?: outputs.web.latest.BackupScheduleInvokeResponse;
     /**
      * Databases included in the backup.
      */
-    readonly databases?: outputs.web.latest.DatabaseBackupSettingResponse[];
+    readonly databases?: outputs.web.latest.DatabaseBackupSettingInvokeResponse[];
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
@@ -69,7 +69,7 @@ export interface ListWebAppBackupConfigurationResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

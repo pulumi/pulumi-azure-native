@@ -47,11 +47,11 @@ export interface GetManagementGroupResult {
     /**
      * The list of children.
      */
-    readonly children?: outputs.management.v20200501.ManagementGroupChildInfoResponse[];
+    readonly children?: outputs.management.v20200501.ManagementGroupChildInfoInvokeResponse[];
     /**
      * The details of a management group.
      */
-    readonly details?: outputs.management.v20200501.ManagementGroupDetailsResponse;
+    readonly details?: outputs.management.v20200501.ManagementGroupDetailsInvokeResponse;
     /**
      * The friendly name of the management group.
      */
@@ -67,7 +67,7 @@ export interface GetManagementGroupResult {
     /**
      * The path from the root to the current group.
      */
-    readonly path?: outputs.management.v20200501.ManagementGroupPathElementResponse[];
+    readonly path?: outputs.management.v20200501.ManagementGroupPathElementInvokeResponse[];
     /**
      * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
      */

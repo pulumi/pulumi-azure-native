@@ -49,7 +49,7 @@ export interface GetManagedClusterResult {
     /**
      * Azure active directory.
      */
-    readonly azureActiveDirectory?: outputs.servicefabric.v20200101preview.AzureActiveDirectoryResponse;
+    readonly azureActiveDirectory?: outputs.servicefabric.v20200101preview.AzureActiveDirectoryInvokeResponse;
     /**
      * The port used for client connections to the cluster.
      */
@@ -57,7 +57,7 @@ export interface GetManagedClusterResult {
     /**
      * client certificates for the cluster.
      */
-    readonly clients?: outputs.servicefabric.v20200101preview.ClientCertificateResponse[];
+    readonly clients?: outputs.servicefabric.v20200101preview.ClientCertificateInvokeResponse[];
     /**
      * The cluster certificate thumbprint used node to node communication.
      */
@@ -85,7 +85,7 @@ export interface GetManagedClusterResult {
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: outputs.servicefabric.v20200101preview.SettingsSectionDescriptionResponse[];
+    readonly fabricSettings?: outputs.servicefabric.v20200101preview.SettingsSectionDescriptionInvokeResponse[];
     /**
      * the cluster Fully qualified domain name.
      */
@@ -101,7 +101,7 @@ export interface GetManagedClusterResult {
     /**
      * Describes load balancing rules.
      */
-    readonly loadBalancingRules?: outputs.servicefabric.v20200101preview.LoadBalancingRuleResponse[];
+    readonly loadBalancingRules?: outputs.servicefabric.v20200101preview.LoadBalancingRuleInvokeResponse[];
     /**
      * Azure resource location.
      */
@@ -117,7 +117,7 @@ export interface GetManagedClusterResult {
     /**
      * The sku of the managed cluster
      */
-    readonly sku?: outputs.servicefabric.v20200101preview.SkuResponse;
+    readonly sku?: outputs.servicefabric.v20200101preview.SkuInvokeResponse;
     /**
      * Azure resource tags.
      */

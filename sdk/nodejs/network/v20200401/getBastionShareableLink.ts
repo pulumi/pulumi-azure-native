@@ -32,7 +32,7 @@ export interface GetBastionShareableLinkArgs {
     /**
      * List of VM references.
      */
-    readonly vms?: inputs.network.v20200401.BastionShareableLink[];
+    readonly vms?: inputs.network.v20200401.BastionShareableLinkInvoke[];
 }
 
 /**
@@ -46,5 +46,5 @@ export interface GetBastionShareableLinkResult {
     /**
      * List of Bastion Shareable Links for the request.
      */
-    readonly value?: outputs.network.v20200401.BastionShareableLinkResponse[];
+    readonly value?: outputs.network.v20200401.BastionShareableLinkInvokeResponse[];
 }

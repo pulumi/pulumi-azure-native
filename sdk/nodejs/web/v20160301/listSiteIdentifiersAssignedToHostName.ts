@@ -37,5 +37,5 @@ export interface ListSiteIdentifiersAssignedToHostNameResult {
     /**
      * Collection of resources.
      */
-    readonly value: outputs.web.v20160301.IdentifierResponse[];
+    readonly value: outputs.web.v20160301.IdentifierInvokeResponse[];
 }

@@ -43,7 +43,7 @@ export interface GetAdaptiveApplicationControlResult {
      * Resource Id
      */
     readonly id: string;
-    readonly issues: outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryResponse[];
+    readonly issues: outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryInvokeResponse[];
     /**
      * Location where the resource is stored
      */
@@ -52,11 +52,11 @@ export interface GetAdaptiveApplicationControlResult {
      * Resource name
      */
     readonly name: string;
-    readonly pathRecommendations?: outputs.security.v20200101.PathRecommendationResponse[];
+    readonly pathRecommendations?: outputs.security.v20200101.PathRecommendationInvokeResponse[];
     /**
      * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
      */
-    readonly protectionMode?: outputs.security.v20200101.ProtectionModeResponse;
+    readonly protectionMode?: outputs.security.v20200101.ProtectionModeInvokeResponse;
     /**
      * The initial recommendation status of the machine group or machine
      */
@@ -69,5 +69,5 @@ export interface GetAdaptiveApplicationControlResult {
      * Resource type
      */
     readonly type: string;
-    readonly vmRecommendations?: outputs.security.v20200101.VmRecommendationResponse[];
+    readonly vmRecommendations?: outputs.security.v20200101.VmRecommendationInvokeResponse[];
 }

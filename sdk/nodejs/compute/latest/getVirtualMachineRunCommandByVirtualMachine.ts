@@ -59,7 +59,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
     /**
      * The virtual machine run command instance view.
      */
-    readonly instanceView: outputs.compute.latest.VirtualMachineRunCommandInstanceViewResponse;
+    readonly instanceView: outputs.compute.latest.VirtualMachineRunCommandInstanceViewInvokeResponse;
     /**
      * Resource location
      */
@@ -75,11 +75,11 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
     /**
      * The parameters used by the script.
      */
-    readonly parameters?: outputs.compute.latest.RunCommandInputParameterResponse[];
+    readonly parameters?: outputs.compute.latest.RunCommandInputParameterInvokeResponse[];
     /**
      * The parameters used by the script.
      */
-    readonly protectedParameters?: outputs.compute.latest.RunCommandInputParameterResponse[];
+    readonly protectedParameters?: outputs.compute.latest.RunCommandInputParameterInvokeResponse[];
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -95,7 +95,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
     /**
      * The source of the run command script.
      */
-    readonly source?: outputs.compute.latest.VirtualMachineRunCommandScriptSourceResponse;
+    readonly source?: outputs.compute.latest.VirtualMachineRunCommandScriptSourceInvokeResponse;
     /**
      * Resource tags
      */

@@ -65,7 +65,7 @@ export interface GetManagedInstanceResult {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: outputs.sql.v20180601preview.ResourceIdentityResponse;
+    readonly identity?: outputs.sql.v20180601preview.ResourceIdentityInvokeResponse;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
@@ -113,7 +113,7 @@ export interface GetManagedInstanceResult {
     /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
      */
-    readonly sku?: outputs.sql.v20180601preview.SkuResponse;
+    readonly sku?: outputs.sql.v20180601preview.SkuInvokeResponse;
     /**
      * The resource identifier of the source managed instance associated with create operation of this instance.
      */

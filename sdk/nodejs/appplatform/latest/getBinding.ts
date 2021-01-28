@@ -55,7 +55,7 @@ export interface GetBindingResult {
     /**
      * Properties of the Binding resource
      */
-    readonly properties: outputs.appplatform.latest.BindingResourcePropertiesResponse;
+    readonly properties: outputs.appplatform.latest.BindingResourcePropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

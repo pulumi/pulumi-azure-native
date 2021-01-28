@@ -47,7 +47,7 @@ export interface GetDatabaseAccountGremlinGraphResult {
     /**
      * The conflict resolution policy for the graph.
      */
-    readonly conflictResolutionPolicy?: outputs.documentdb.latest.ConflictResolutionPolicyResponse;
+    readonly conflictResolutionPolicy?: outputs.documentdb.latest.ConflictResolutionPolicyInvokeResponse;
     /**
      * Default time to live
      */
@@ -63,7 +63,7 @@ export interface GetDatabaseAccountGremlinGraphResult {
     /**
      * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
      */
-    readonly indexingPolicy?: outputs.documentdb.latest.IndexingPolicyResponse;
+    readonly indexingPolicy?: outputs.documentdb.latest.IndexingPolicyInvokeResponse;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -75,7 +75,7 @@ export interface GetDatabaseAccountGremlinGraphResult {
     /**
      * The configuration of the partition key to be used for partitioning data into multiple partitions
      */
-    readonly partitionKey?: outputs.documentdb.latest.ContainerPartitionKeyResponse;
+    readonly partitionKey?: outputs.documentdb.latest.ContainerPartitionKeyInvokeResponse;
     /**
      * A system generated property. A unique identifier.
      */
@@ -95,5 +95,5 @@ export interface GetDatabaseAccountGremlinGraphResult {
     /**
      * The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
      */
-    readonly uniqueKeyPolicy?: outputs.documentdb.latest.UniqueKeyPolicyResponse;
+    readonly uniqueKeyPolicy?: outputs.documentdb.latest.UniqueKeyPolicyInvokeResponse;
 }

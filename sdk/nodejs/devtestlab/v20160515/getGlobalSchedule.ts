@@ -46,11 +46,11 @@ export interface GetGlobalScheduleResult {
     /**
      * If the schedule will occur once each day of the week, specify the daily recurrence.
      */
-    readonly dailyRecurrence?: outputs.devtestlab.v20160515.DayDetailsResponse;
+    readonly dailyRecurrence?: outputs.devtestlab.v20160515.DayDetailsInvokeResponse;
     /**
      * If the schedule will occur multiple times a day, specify the hourly recurrence.
      */
-    readonly hourlyRecurrence?: outputs.devtestlab.v20160515.HourDetailsResponse;
+    readonly hourlyRecurrence?: outputs.devtestlab.v20160515.HourDetailsInvokeResponse;
     /**
      * The identifier of the resource.
      */
@@ -66,7 +66,7 @@ export interface GetGlobalScheduleResult {
     /**
      * Notification settings.
      */
-    readonly notificationSettings?: outputs.devtestlab.v20160515.NotificationSettingsResponse;
+    readonly notificationSettings?: outputs.devtestlab.v20160515.NotificationSettingsInvokeResponse;
     /**
      * The provisioning status of the resource.
      */
@@ -102,5 +102,5 @@ export interface GetGlobalScheduleResult {
     /**
      * If the schedule will occur only some days of the week, specify the weekly recurrence.
      */
-    readonly weeklyRecurrence?: outputs.devtestlab.v20160515.WeekDetailsResponse;
+    readonly weeklyRecurrence?: outputs.devtestlab.v20160515.WeekDetailsInvokeResponse;
 }

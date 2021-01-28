@@ -54,11 +54,11 @@ export interface GetPublicIPPrefixResult {
     /**
      * The list of tags associated with the public IP prefix.
      */
-    readonly ipTags?: outputs.network.v20181001.IpTagResponse[];
+    readonly ipTags?: outputs.network.v20181001.IpTagInvokeResponse[];
     /**
      * The reference to load balancer frontend IP configuration associated with the public IP prefix.
      */
-    readonly loadBalancerFrontendIpConfiguration: outputs.network.v20181001.SubResourceResponse;
+    readonly loadBalancerFrontendIpConfiguration: outputs.network.v20181001.SubResourceInvokeResponse;
     /**
      * Resource location.
      */
@@ -82,7 +82,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The list of all referenced PublicIPAddresses
      */
-    readonly publicIPAddresses?: outputs.network.v20181001.ReferencedPublicIpAddressResponse[];
+    readonly publicIPAddresses?: outputs.network.v20181001.ReferencedPublicIpAddressInvokeResponse[];
     /**
      * The resource GUID property of the public IP prefix resource.
      */
@@ -90,7 +90,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The public IP prefix SKU.
      */
-    readonly sku?: outputs.network.v20181001.PublicIPPrefixSkuResponse;
+    readonly sku?: outputs.network.v20181001.PublicIPPrefixSkuInvokeResponse;
     /**
      * Resource tags.
      */

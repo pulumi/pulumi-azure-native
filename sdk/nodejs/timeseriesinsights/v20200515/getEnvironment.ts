@@ -58,7 +58,7 @@ export interface GetEnvironmentResult {
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: outputs.timeseriesinsights.v20200515.SkuResponse;
+    readonly sku: outputs.timeseriesinsights.v20200515.SkuInvokeResponse;
     /**
      * Resource tags
      */

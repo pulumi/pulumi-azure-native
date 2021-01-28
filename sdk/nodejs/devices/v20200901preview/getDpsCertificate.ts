@@ -54,7 +54,7 @@ export interface GetDpsCertificateResult {
     /**
      * properties of a certificate
      */
-    readonly properties: outputs.devices.v20200901preview.CertificatePropertiesResponse;
+    readonly properties: outputs.devices.v20200901preview.CertificatePropertiesInvokeResponse;
     /**
      * The resource type.
      */

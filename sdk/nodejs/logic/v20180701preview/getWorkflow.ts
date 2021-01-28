@@ -57,7 +57,7 @@ export interface GetWorkflowResult {
     /**
      * The integration account.
      */
-    readonly integrationAccount?: outputs.logic.v20180701preview.ResourceReferenceResponse;
+    readonly integrationAccount?: outputs.logic.v20180701preview.ResourceReferenceInvokeResponse;
     /**
      * The resource location.
      */
@@ -69,7 +69,7 @@ export interface GetWorkflowResult {
     /**
      * The parameters.
      */
-    readonly parameters?: {[key: string]: outputs.logic.v20180701preview.WorkflowParameterResponse};
+    readonly parameters?: {[key: string]: outputs.logic.v20180701preview.WorkflowParameterInvokeResponse};
     /**
      * Gets the provisioning state.
      */
@@ -77,7 +77,7 @@ export interface GetWorkflowResult {
     /**
      * The sku.
      */
-    readonly sku?: outputs.logic.v20180701preview.SkuResponse;
+    readonly sku?: outputs.logic.v20180701preview.SkuInvokeResponse;
     /**
      * The state.
      */

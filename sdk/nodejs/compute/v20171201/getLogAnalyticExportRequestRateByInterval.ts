@@ -71,7 +71,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
     /**
      * Api error
      */
-    readonly error: outputs.compute.v20171201.ApiErrorResponse;
+    readonly error: outputs.compute.v20171201.ApiErrorInvokeResponse;
     /**
      * Operation ID
      */
@@ -79,7 +79,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
     /**
      * LogAnalyticsOutput
      */
-    readonly properties: outputs.compute.v20171201.LogAnalyticsOutputResponse;
+    readonly properties: outputs.compute.v20171201.LogAnalyticsOutputInvokeResponse;
     /**
      * Start time of the operation
      */

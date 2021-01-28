@@ -64,7 +64,7 @@ export interface GetReplicationProtectedItemResult {
     /**
      * The custom data.
      */
-    readonly properties: outputs.recoveryservices.latest.ReplicationProtectedItemPropertiesResponse;
+    readonly properties: outputs.recoveryservices.latest.ReplicationProtectedItemPropertiesInvokeResponse;
     /**
      * Resource Type
      */

@@ -46,7 +46,7 @@ export interface GetMachineLearningDatastoreResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20200501preview.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20200501preview.IdentityInvokeResponse;
     /**
      * Specifies the location of the resource.
      */
@@ -58,11 +58,11 @@ export interface GetMachineLearningDatastoreResult {
     /**
      * Datastore properties
      */
-    readonly properties: outputs.machinelearningservices.v20200501preview.DatastoreResponse;
+    readonly properties: outputs.machinelearningservices.v20200501preview.DatastoreInvokeResponse;
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20200501preview.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20200501preview.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

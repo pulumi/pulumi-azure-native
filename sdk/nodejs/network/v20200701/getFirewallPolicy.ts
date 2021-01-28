@@ -42,15 +42,15 @@ export interface GetFirewallPolicyResult {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: outputs.network.v20200701.SubResourceResponse;
+    readonly basePolicy?: outputs.network.v20200701.SubResourceInvokeResponse;
     /**
      * List of references to Child Firewall Policies.
      */
-    readonly childPolicies: outputs.network.v20200701.SubResourceResponse[];
+    readonly childPolicies: outputs.network.v20200701.SubResourceInvokeResponse[];
     /**
      * DNS Proxy Settings definition.
      */
-    readonly dnsSettings?: outputs.network.v20200701.DnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20200701.DnsSettingsInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -58,7 +58,7 @@ export interface GetFirewallPolicyResult {
     /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
-    readonly firewalls: outputs.network.v20200701.SubResourceResponse[];
+    readonly firewalls: outputs.network.v20200701.SubResourceInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -66,11 +66,11 @@ export interface GetFirewallPolicyResult {
     /**
      * The identity of the firewall policy.
      */
-    readonly identity?: outputs.network.v20200701.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.network.v20200701.ManagedServiceIdentityInvokeResponse;
     /**
      * The configuration for Intrusion detection.
      */
-    readonly intrusionDetection?: outputs.network.v20200701.FirewallPolicyIntrusionDetectionResponse;
+    readonly intrusionDetection?: outputs.network.v20200701.FirewallPolicyIntrusionDetectionInvokeResponse;
     /**
      * Resource location.
      */
@@ -86,11 +86,11 @@ export interface GetFirewallPolicyResult {
     /**
      * List of references to FirewallPolicyRuleCollectionGroups.
      */
-    readonly ruleCollectionGroups: outputs.network.v20200701.SubResourceResponse[];
+    readonly ruleCollectionGroups: outputs.network.v20200701.SubResourceInvokeResponse[];
     /**
      * The Firewall Policy SKU.
      */
-    readonly sku?: outputs.network.v20200701.FirewallPolicySkuResponse;
+    readonly sku?: outputs.network.v20200701.FirewallPolicySkuInvokeResponse;
     /**
      * Resource tags.
      */
@@ -102,11 +102,11 @@ export interface GetFirewallPolicyResult {
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    readonly threatIntelWhitelist?: outputs.network.v20200701.FirewallPolicyThreatIntelWhitelistResponse;
+    readonly threatIntelWhitelist?: outputs.network.v20200701.FirewallPolicyThreatIntelWhitelistInvokeResponse;
     /**
      * TLS Configuration definition.
      */
-    readonly transportSecurity?: outputs.network.v20200701.FirewallPolicyTransportSecurityResponse;
+    readonly transportSecurity?: outputs.network.v20200701.FirewallPolicyTransportSecurityInvokeResponse;
     /**
      * Resource type.
      */

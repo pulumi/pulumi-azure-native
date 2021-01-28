@@ -46,5 +46,5 @@ export interface GetProductsResult {
     /**
      * List of products.
      */
-    readonly value?: outputs.azurestack.latest.ProductResponse[];
+    readonly value?: outputs.azurestack.latest.ProductInvokeResponse[];
 }

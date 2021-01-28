@@ -62,7 +62,7 @@ export interface GetFirewallPolicyRuleCollectionGroupResult {
     /**
      * Group of Firewall Policy rule collections.
      */
-    readonly ruleCollections?: outputs.network.v20200701.FirewallPolicyFilterRuleCollectionResponse | outputs.network.v20200701.FirewallPolicyNatRuleCollectionResponse[];
+    readonly ruleCollections?: outputs.network.v20200701.FirewallPolicyFilterRuleCollectionInvokeResponse | outputs.network.v20200701.FirewallPolicyNatRuleCollectionInvokeResponse[];
     /**
      * Rule Group type.
      */

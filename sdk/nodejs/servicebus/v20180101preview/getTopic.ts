@@ -50,7 +50,7 @@ export interface GetTopicResult {
     /**
      * Message count details
      */
-    readonly countDetails: outputs.servicebus.v20180101preview.MessageCountDetailsResponse;
+    readonly countDetails: outputs.servicebus.v20180101preview.MessageCountDetailsInvokeResponse;
     /**
      * Exact time the message was created.
      */

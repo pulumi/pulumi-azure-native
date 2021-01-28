@@ -50,7 +50,7 @@ export interface GetDataPoolResult {
     /**
      * Gets or sets the collection of locations where Data Pool resources should be created.
      */
-    readonly locations: outputs.autonomousdevelopmentplatform.v20200701preview.DataPoolLocationResponse[];
+    readonly locations: outputs.autonomousdevelopmentplatform.v20200701preview.DataPoolLocationInvokeResponse[];
     /**
      * The name of the resource
      */
@@ -62,7 +62,7 @@ export interface GetDataPoolResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.autonomousdevelopmentplatform.v20200701preview.SystemDataResponse;
+    readonly systemData: outputs.autonomousdevelopmentplatform.v20200701preview.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -37,7 +37,7 @@ export interface GetDiskResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.v20200501.CreationDataResponse;
+    readonly creationData: outputs.compute.v20200501.CreationDataInvokeResponse;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -73,11 +73,11 @@ export interface GetDiskResult {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: outputs.compute.v20200501.EncryptionResponse;
+    readonly encryption?: outputs.compute.v20200501.EncryptionInvokeResponse;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: outputs.compute.v20200501.EncryptionSettingsCollectionResponse;
+    readonly encryptionSettingsCollection?: outputs.compute.v20200501.EncryptionSettingsCollectionInvokeResponse;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -121,11 +121,11 @@ export interface GetDiskResult {
     /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
-    readonly shareInfo: outputs.compute.v20200501.ShareInfoElementResponse[];
+    readonly shareInfo: outputs.compute.v20200501.ShareInfoElementInvokeResponse[];
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: outputs.compute.v20200501.DiskSkuResponse;
+    readonly sku?: outputs.compute.v20200501.DiskSkuInvokeResponse;
     /**
      * Resource tags
      */

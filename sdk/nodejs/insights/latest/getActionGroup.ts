@@ -37,23 +37,23 @@ export interface GetActionGroupResult {
     /**
      * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
      */
-    readonly armRoleReceivers?: outputs.insights.latest.ArmRoleReceiverResponse[];
+    readonly armRoleReceivers?: outputs.insights.latest.ArmRoleReceiverInvokeResponse[];
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    readonly automationRunbookReceivers?: outputs.insights.latest.AutomationRunbookReceiverResponse[];
+    readonly automationRunbookReceivers?: outputs.insights.latest.AutomationRunbookReceiverInvokeResponse[];
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    readonly azureAppPushReceivers?: outputs.insights.latest.AzureAppPushReceiverResponse[];
+    readonly azureAppPushReceivers?: outputs.insights.latest.AzureAppPushReceiverInvokeResponse[];
     /**
      * The list of azure function receivers that are part of this action group.
      */
-    readonly azureFunctionReceivers?: outputs.insights.latest.AzureFunctionReceiverResponse[];
+    readonly azureFunctionReceivers?: outputs.insights.latest.AzureFunctionReceiverInvokeResponse[];
     /**
      * The list of email receivers that are part of this action group.
      */
-    readonly emailReceivers?: outputs.insights.latest.EmailReceiverResponse[];
+    readonly emailReceivers?: outputs.insights.latest.EmailReceiverInvokeResponse[];
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
@@ -69,7 +69,7 @@ export interface GetActionGroupResult {
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    readonly itsmReceivers?: outputs.insights.latest.ItsmReceiverResponse[];
+    readonly itsmReceivers?: outputs.insights.latest.ItsmReceiverInvokeResponse[];
     /**
      * Resource location
      */
@@ -77,7 +77,7 @@ export interface GetActionGroupResult {
     /**
      * The list of logic app receivers that are part of this action group.
      */
-    readonly logicAppReceivers?: outputs.insights.latest.LogicAppReceiverResponse[];
+    readonly logicAppReceivers?: outputs.insights.latest.LogicAppReceiverInvokeResponse[];
     /**
      * Azure resource name
      */
@@ -85,7 +85,7 @@ export interface GetActionGroupResult {
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    readonly smsReceivers?: outputs.insights.latest.SmsReceiverResponse[];
+    readonly smsReceivers?: outputs.insights.latest.SmsReceiverInvokeResponse[];
     /**
      * Resource tags
      */
@@ -97,9 +97,9 @@ export interface GetActionGroupResult {
     /**
      * The list of voice receivers that are part of this action group.
      */
-    readonly voiceReceivers?: outputs.insights.latest.VoiceReceiverResponse[];
+    readonly voiceReceivers?: outputs.insights.latest.VoiceReceiverInvokeResponse[];
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    readonly webhookReceivers?: outputs.insights.latest.WebhookReceiverResponse[];
+    readonly webhookReceivers?: outputs.insights.latest.WebhookReceiverInvokeResponse[];
 }

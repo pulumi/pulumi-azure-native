@@ -50,11 +50,11 @@ export interface GetIotDpsResourceResult {
      * The resource name.
      */
     readonly name: string;
-    readonly properties: outputs.devices.v20170821preview.IotDpsPropertiesDescriptionResponse;
+    readonly properties: outputs.devices.v20170821preview.IotDpsPropertiesDescriptionInvokeResponse;
     /**
      * List of possible provisioning service SKUs.
      */
-    readonly sku: outputs.devices.v20170821preview.IotDpsSkuInfoResponse;
+    readonly sku: outputs.devices.v20170821preview.IotDpsSkuInfoInvokeResponse;
     /**
      * The resource tags.
      */

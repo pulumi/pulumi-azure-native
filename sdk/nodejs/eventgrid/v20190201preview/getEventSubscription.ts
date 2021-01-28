@@ -37,11 +37,11 @@ export interface GetEventSubscriptionResult {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.v20190201preview.StorageBlobDeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.v20190201preview.StorageBlobDeadLetterDestinationInvokeResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: outputs.eventgrid.v20190201preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20190201preview.EventHubEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190201preview.HybridConnectionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190201preview.ServiceBusQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190201preview.StorageQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.v20190201preview.WebHookEventSubscriptionDestinationInvokeResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -53,7 +53,7 @@ export interface GetEventSubscriptionResult {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: outputs.eventgrid.v20190201preview.EventSubscriptionFilterResponse;
+    readonly filter?: outputs.eventgrid.v20190201preview.EventSubscriptionFilterInvokeResponse;
     /**
      * Fully qualified identifier of the resource
      */
@@ -73,7 +73,7 @@ export interface GetEventSubscriptionResult {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: outputs.eventgrid.v20190201preview.RetryPolicyResponse;
+    readonly retryPolicy?: outputs.eventgrid.v20190201preview.RetryPolicyInvokeResponse;
     /**
      * Name of the topic of the event subscription.
      */

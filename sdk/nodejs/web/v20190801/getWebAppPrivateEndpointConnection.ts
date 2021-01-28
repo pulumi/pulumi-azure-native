@@ -51,11 +51,11 @@ export interface GetWebAppPrivateEndpointConnectionResult {
     /**
      * PrivateEndpoint of a remote private endpoint connection
      */
-    readonly privateEndpoint?: outputs.web.v20190801.ArmIdWrapperResponse;
+    readonly privateEndpoint?: outputs.web.v20190801.ArmIdWrapperInvokeResponse;
     /**
      * The state of a private link connection
      */
-    readonly privateLinkServiceConnectionState?: outputs.web.v20190801.PrivateLinkConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.web.v20190801.PrivateLinkConnectionStateInvokeResponse;
     readonly provisioningState: string;
     /**
      * Resource type.

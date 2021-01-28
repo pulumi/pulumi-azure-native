@@ -62,11 +62,11 @@ export interface GetAgentPoolResult {
     /**
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
-    readonly kubeletConfig?: outputs.containerservice.v20201101.KubeletConfigResponse;
+    readonly kubeletConfig?: outputs.containerservice.v20201101.KubeletConfigInvokeResponse;
     /**
      * LinuxOSConfig specifies the OS configuration of linux agent nodes.
      */
-    readonly linuxOSConfig?: outputs.containerservice.v20201101.LinuxOSConfigResponse;
+    readonly linuxOSConfig?: outputs.containerservice.v20201101.LinuxOSConfigInvokeResponse;
     /**
      * Maximum number of nodes for auto-scaling
      */
@@ -122,7 +122,7 @@ export interface GetAgentPoolResult {
     /**
      * Describes whether the Agent Pool is Running or Stopped
      */
-    readonly powerState: outputs.containerservice.v20201101.PowerStateResponse;
+    readonly powerState: outputs.containerservice.v20201101.PowerStateInvokeResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -154,7 +154,7 @@ export interface GetAgentPoolResult {
     /**
      * Settings for upgrading the agentpool
      */
-    readonly upgradeSettings?: outputs.containerservice.v20201101.AgentPoolUpgradeSettingsResponse;
+    readonly upgradeSettings?: outputs.containerservice.v20201101.AgentPoolUpgradeSettingsInvokeResponse;
     /**
      * Size of agent VMs.
      */

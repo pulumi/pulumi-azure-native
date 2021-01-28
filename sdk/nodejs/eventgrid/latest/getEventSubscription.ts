@@ -37,11 +37,11 @@ export interface GetEventSubscriptionResult {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.latest.StorageBlobDeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.latest.StorageBlobDeadLetterDestinationInvokeResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: outputs.eventgrid.latest.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.latest.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.latest.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.latest.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.latest.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.latest.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.latest.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.latest.AzureFunctionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.latest.EventHubEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.latest.HybridConnectionEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.latest.ServiceBusQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.latest.ServiceBusTopicEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.latest.StorageQueueEventSubscriptionDestinationInvokeResponse | outputs.eventgrid.latest.WebHookEventSubscriptionDestinationInvokeResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -53,7 +53,7 @@ export interface GetEventSubscriptionResult {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: outputs.eventgrid.latest.EventSubscriptionFilterResponse;
+    readonly filter?: outputs.eventgrid.latest.EventSubscriptionFilterInvokeResponse;
     /**
      * Fully qualified identifier of the resource.
      */
@@ -73,7 +73,7 @@ export interface GetEventSubscriptionResult {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: outputs.eventgrid.latest.RetryPolicyResponse;
+    readonly retryPolicy?: outputs.eventgrid.latest.RetryPolicyInvokeResponse;
     /**
      * Name of the topic of the event subscription.
      */

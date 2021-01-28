@@ -32,7 +32,7 @@ export interface ListWorkspaceKeysArgs {
 
 export interface ListWorkspaceKeysResult {
     readonly appInsightsInstrumentationKey: string;
-    readonly containerRegistryCredentials: outputs.machinelearningservices.v20200101.RegistryListCredentialsResultResponse;
+    readonly containerRegistryCredentials: outputs.machinelearningservices.v20200101.RegistryListCredentialsResultInvokeResponse;
     readonly userStorageKey: string;
     readonly userStorageResourceId: string;
 }

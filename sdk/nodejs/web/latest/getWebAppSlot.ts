@@ -65,7 +65,7 @@ export interface GetWebAppSlotResult {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: outputs.web.latest.CloningInfoResponse;
+    readonly cloningInfo?: outputs.web.latest.CloningInfoInvokeResponse;
     /**
      * Size of the function container.
      */
@@ -94,7 +94,7 @@ export interface GetWebAppSlotResult {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: outputs.web.latest.HostNameSslStateResponse[];
+    readonly hostNameSslStates?: outputs.web.latest.HostNameSslStateInvokeResponse[];
     /**
      * Hostnames associated with the app.
      */
@@ -107,7 +107,7 @@ export interface GetWebAppSlotResult {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: outputs.web.latest.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile?: outputs.web.latest.HostingEnvironmentProfileInvokeResponse;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -124,7 +124,7 @@ export interface GetWebAppSlotResult {
     /**
      * Managed service identity.
      */
-    readonly identity?: outputs.web.latest.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.web.latest.ManagedServiceIdentityInvokeResponse;
     /**
      * Specifies an operation id if this site has a pending operation.
      */
@@ -193,11 +193,11 @@ export interface GetWebAppSlotResult {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: outputs.web.latest.SiteConfigResponse;
+    readonly siteConfig?: outputs.web.latest.SiteConfigInvokeResponse;
     /**
      * Status of the last deployment slot swap operation.
      */
-    readonly slotSwapStatus: outputs.web.latest.SlotSwapStatusResponse;
+    readonly slotSwapStatus: outputs.web.latest.SlotSwapStatusInvokeResponse;
     /**
      * Current state of the app.
      */
@@ -209,7 +209,7 @@ export interface GetWebAppSlotResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

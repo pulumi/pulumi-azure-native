@@ -34,11 +34,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: outputs.virtualmachineimages.v20180201preview.ImageTemplateShellCustomizerResponse[];
+    readonly customize?: outputs.virtualmachineimages.v20180201preview.ImageTemplateShellCustomizerInvokeResponse[];
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse[];
+    readonly distribute: outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorInvokeResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorInvokeResponse[];
     /**
      * Resource Id
      */
@@ -46,7 +46,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * State of 'run' that is currently executing or was last executed.
      */
-    readonly lastRunStatus: outputs.virtualmachineimages.v20180201preview.ImageTemplateLastRunStatusResponse;
+    readonly lastRunStatus: outputs.virtualmachineimages.v20180201preview.ImageTemplateLastRunStatusInvokeResponse;
     /**
      * Resource location
      */
@@ -58,7 +58,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Provisioning error, if any
      */
-    readonly provisioningError: outputs.virtualmachineimages.v20180201preview.ProvisioningErrorResponse;
+    readonly provisioningError: outputs.virtualmachineimages.v20180201preview.ProvisioningErrorInvokeResponse;
     /**
      * Provisioning state of the resource
      */
@@ -66,7 +66,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: outputs.virtualmachineimages.v20180201preview.ImageTemplateIsoSourceResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplatePlatformImageSourceResponse;
+    readonly source: outputs.virtualmachineimages.v20180201preview.ImageTemplateIsoSourceInvokeResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplatePlatformImageSourceInvokeResponse;
     /**
      * Resource tags
      */

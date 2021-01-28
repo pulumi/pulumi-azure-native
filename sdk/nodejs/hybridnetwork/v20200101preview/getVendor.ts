@@ -44,7 +44,7 @@ export interface GetVendorResult {
     /**
      * A list of IDs of the vendor skus offered by the vendor.
      */
-    readonly skus: outputs.hybridnetwork.v20200101preview.SubResourceResponse[];
+    readonly skus: outputs.hybridnetwork.v20200101preview.SubResourceInvokeResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

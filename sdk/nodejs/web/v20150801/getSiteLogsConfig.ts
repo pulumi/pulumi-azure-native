@@ -37,19 +37,19 @@ export interface GetSiteLogsConfigResult {
     /**
      * Application logs configuration
      */
-    readonly applicationLogs?: outputs.web.v20150801.ApplicationLogsConfigResponse;
+    readonly applicationLogs?: outputs.web.v20150801.ApplicationLogsConfigInvokeResponse;
     /**
      * Detailed error messages configuration
      */
-    readonly detailedErrorMessages?: outputs.web.v20150801.EnabledConfigResponse;
+    readonly detailedErrorMessages?: outputs.web.v20150801.EnabledConfigInvokeResponse;
     /**
      * Failed requests tracing configuration
      */
-    readonly failedRequestsTracing?: outputs.web.v20150801.EnabledConfigResponse;
+    readonly failedRequestsTracing?: outputs.web.v20150801.EnabledConfigInvokeResponse;
     /**
      * Http logs configuration
      */
-    readonly httpLogs?: outputs.web.v20150801.HttpLogsConfigResponse;
+    readonly httpLogs?: outputs.web.v20150801.HttpLogsConfigInvokeResponse;
     /**
      * Resource Id
      */

@@ -55,7 +55,7 @@ export interface GetVolumeContainerResult {
     /**
      * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
      */
-    readonly encryptionKey?: outputs.storsimple.latest.AsymmetricEncryptedSecretResponse;
+    readonly encryptionKey?: outputs.storsimple.latest.AsymmetricEncryptedSecretInvokeResponse;
     /**
      * The flag to denote whether encryption is enabled or not.
      */

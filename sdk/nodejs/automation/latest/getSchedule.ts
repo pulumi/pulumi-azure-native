@@ -42,7 +42,7 @@ export interface GetScheduleResult {
     /**
      * Gets or sets the advanced schedule.
      */
-    readonly advancedSchedule?: outputs.automation.latest.AdvancedScheduleResponse;
+    readonly advancedSchedule?: outputs.automation.latest.AdvancedScheduleInvokeResponse;
     /**
      * Gets or sets the creation time.
      */

@@ -45,7 +45,7 @@ export interface GetClusterResult {
     /**
      * The identity of the cluster, if configured.
      */
-    readonly identity?: outputs.hdinsight.v20150301preview.ClusterIdentityResponse;
+    readonly identity?: outputs.hdinsight.v20150301preview.ClusterIdentityInvokeResponse;
     /**
      * The Azure Region where the resource lives
      */
@@ -57,7 +57,7 @@ export interface GetClusterResult {
     /**
      * The properties of the cluster.
      */
-    readonly properties: outputs.hdinsight.v20150301preview.ClusterGetPropertiesResponse;
+    readonly properties: outputs.hdinsight.v20150301preview.ClusterGetPropertiesInvokeResponse;
     /**
      * Resource tags.
      */

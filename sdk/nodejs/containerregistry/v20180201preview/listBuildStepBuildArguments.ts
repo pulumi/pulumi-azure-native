@@ -51,5 +51,5 @@ export interface ListBuildStepBuildArgumentsResult {
     /**
      * The collection value.
      */
-    readonly value?: outputs.containerregistry.v20180201preview.BuildArgumentResponse[];
+    readonly value?: outputs.containerregistry.v20180201preview.BuildArgumentInvokeResponse[];
 }

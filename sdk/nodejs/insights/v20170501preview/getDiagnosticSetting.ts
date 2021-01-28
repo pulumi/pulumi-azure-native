@@ -53,11 +53,11 @@ export interface GetDiagnosticSettingResult {
     /**
      * The list of logs settings.
      */
-    readonly logs?: outputs.insights.v20170501preview.LogSettingsResponse[];
+    readonly logs?: outputs.insights.v20170501preview.LogSettingsInvokeResponse[];
     /**
      * The list of metric settings.
      */
-    readonly metrics?: outputs.insights.v20170501preview.MetricSettingsResponse[];
+    readonly metrics?: outputs.insights.v20170501preview.MetricSettingsInvokeResponse[];
     /**
      * Azure resource name
      */

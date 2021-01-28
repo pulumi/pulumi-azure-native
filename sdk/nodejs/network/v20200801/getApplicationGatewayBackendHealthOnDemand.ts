@@ -36,11 +36,11 @@ export interface GetApplicationGatewayBackendHealthOnDemandArgs {
     /**
      * Reference to backend pool of application gateway to which probe request will be sent.
      */
-    readonly backendAddressPool?: inputs.network.v20200801.SubResource;
+    readonly backendAddressPool?: inputs.network.v20200801.SubResourceInvoke;
     /**
      * Reference to backend http setting of application gateway to be used for test probe.
      */
-    readonly backendHttpSettings?: inputs.network.v20200801.SubResource;
+    readonly backendHttpSettings?: inputs.network.v20200801.SubResourceInvoke;
     /**
      * Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
      */
@@ -52,7 +52,7 @@ export interface GetApplicationGatewayBackendHealthOnDemandArgs {
     /**
      * Criterion for classifying a healthy probe response.
      */
-    readonly match?: inputs.network.v20200801.ApplicationGatewayProbeHealthResponseMatch;
+    readonly match?: inputs.network.v20200801.ApplicationGatewayProbeHealthResponseMatchInvoke;
     /**
      * Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
      */
@@ -82,9 +82,9 @@ export interface GetApplicationGatewayBackendHealthOnDemandResult {
     /**
      * Reference to an ApplicationGatewayBackendAddressPool resource.
      */
-    readonly backendAddressPool?: outputs.network.v20200801.ApplicationGatewayBackendAddressPoolResponse;
+    readonly backendAddressPool?: outputs.network.v20200801.ApplicationGatewayBackendAddressPoolInvokeResponse;
     /**
      * Application gateway BackendHealthHttp settings.
      */
-    readonly backendHealthHttpSettings?: outputs.network.v20200801.ApplicationGatewayBackendHealthHttpSettingsResponse;
+    readonly backendHealthHttpSettings?: outputs.network.v20200801.ApplicationGatewayBackendHealthHttpSettingsInvokeResponse;
 }

@@ -45,7 +45,7 @@ export interface GetMoveCollectionResult {
     /**
      * Defines the MSI properties of the Move Collection.
      */
-    readonly identity?: outputs.migrate.v20191001preview.IdentityResponse;
+    readonly identity?: outputs.migrate.v20191001preview.IdentityInvokeResponse;
     /**
      * The geo-location where the resource lives.
      */
@@ -57,7 +57,7 @@ export interface GetMoveCollectionResult {
     /**
      * Defines the move collection properties.
      */
-    readonly properties: outputs.migrate.v20191001preview.MoveCollectionPropertiesResponse;
+    readonly properties: outputs.migrate.v20191001preview.MoveCollectionPropertiesInvokeResponse;
     /**
      * Resource tags.
      */

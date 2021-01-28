@@ -57,7 +57,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.v20200901.SystemDataResponse;
+    readonly systemData: outputs.web.v20200901.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

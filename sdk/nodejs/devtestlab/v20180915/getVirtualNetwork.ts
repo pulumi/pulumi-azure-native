@@ -47,7 +47,7 @@ export interface GetVirtualNetworkResult {
     /**
      * The allowed subnets of the virtual network.
      */
-    readonly allowedSubnets?: outputs.devtestlab.v20180915.SubnetResponse[];
+    readonly allowedSubnets?: outputs.devtestlab.v20180915.SubnetInvokeResponse[];
     /**
      * The creation date of the virtual network.
      */
@@ -63,7 +63,7 @@ export interface GetVirtualNetworkResult {
     /**
      * The external subnet properties.
      */
-    readonly externalSubnets: outputs.devtestlab.v20180915.ExternalSubnetResponse[];
+    readonly externalSubnets: outputs.devtestlab.v20180915.ExternalSubnetInvokeResponse[];
     /**
      * The identifier of the resource.
      */
@@ -83,7 +83,7 @@ export interface GetVirtualNetworkResult {
     /**
      * The subnet overrides of the virtual network.
      */
-    readonly subnetOverrides?: outputs.devtestlab.v20180915.SubnetOverrideResponse[];
+    readonly subnetOverrides?: outputs.devtestlab.v20180915.SubnetOverrideInvokeResponse[];
     /**
      * The tags of the resource.
      */

@@ -57,11 +57,11 @@ export interface GetAvailabilitySetResult {
     /**
      * Sku of the availability set
      */
-    readonly sku?: outputs.compute.v20171201.SkuResponse;
+    readonly sku?: outputs.compute.v20171201.SkuInvokeResponse;
     /**
      * The resource status information.
      */
-    readonly statuses: outputs.compute.v20171201.InstanceViewStatusResponse[];
+    readonly statuses: outputs.compute.v20171201.InstanceViewStatusInvokeResponse[];
     /**
      * Resource tags
      */
@@ -73,5 +73,5 @@ export interface GetAvailabilitySetResult {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: outputs.compute.v20171201.SubResourceResponse[];
+    readonly virtualMachines?: outputs.compute.v20171201.SubResourceInvokeResponse[];
 }

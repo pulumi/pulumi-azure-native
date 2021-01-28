@@ -41,7 +41,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: outputs.compute.v20160430preview.VirtualMachineScaleSetIdentityResponse;
+    readonly identity?: outputs.compute.v20160430preview.VirtualMachineScaleSetIdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -57,7 +57,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: outputs.compute.v20160430preview.PlanResponse;
+    readonly plan?: outputs.compute.v20160430preview.PlanInvokeResponse;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -69,7 +69,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: outputs.compute.v20160430preview.SkuResponse;
+    readonly sku?: outputs.compute.v20160430preview.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -81,9 +81,9 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: outputs.compute.v20160430preview.UpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.compute.v20160430preview.UpgradePolicyInvokeResponse;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: outputs.compute.v20160430preview.VirtualMachineScaleSetVMProfileResponse;
+    readonly virtualMachineProfile?: outputs.compute.v20160430preview.VirtualMachineScaleSetVMProfileInvokeResponse;
 }

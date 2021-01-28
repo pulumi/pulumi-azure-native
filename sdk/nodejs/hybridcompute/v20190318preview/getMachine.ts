@@ -54,7 +54,7 @@ export interface GetMachineResult {
     /**
      * Details about the error state.
      */
-    readonly errorDetails: outputs.hybridcompute.v20190318preview.ErrorDetailResponse[];
+    readonly errorDetails: outputs.hybridcompute.v20190318preview.ErrorDetailInvokeResponse[];
     /**
      * Resource Id
      */
@@ -82,7 +82,7 @@ export interface GetMachineResult {
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    readonly osProfile: outputs.hybridcompute.v20190318preview.OSProfileResponse;
+    readonly osProfile: outputs.hybridcompute.v20190318preview.OSProfileInvokeResponse;
     /**
      * The version of Operating System running on the hybrid machine.
      */

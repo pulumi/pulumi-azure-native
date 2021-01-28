@@ -32,5 +32,5 @@ export interface ListListTenantConfigurationViolationResult {
     /**
      * The array of violations.
      */
-    readonly value?: outputs.portal.v20200901preview.ViolationResponse[];
+    readonly value?: outputs.portal.v20200901preview.ViolationInvokeResponse[];
 }

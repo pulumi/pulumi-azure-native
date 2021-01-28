@@ -70,7 +70,7 @@ export interface GetStreamingJobResult {
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly functions?: outputs.streamanalytics.v20160301.FunctionResponse[];
+    readonly functions?: outputs.streamanalytics.v20160301.FunctionInvokeResponse[];
     /**
      * Resource Id
      */
@@ -78,7 +78,7 @@ export interface GetStreamingJobResult {
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
-    readonly inputs?: outputs.streamanalytics.v20160301.InputResponse[];
+    readonly inputs?: outputs.streamanalytics.v20160301.InputInvokeResponse[];
     /**
      * A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
      */
@@ -114,7 +114,7 @@ export interface GetStreamingJobResult {
     /**
      * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
      */
-    readonly outputs?: outputs.streamanalytics.v20160301.OutputResponse[];
+    readonly outputs?: outputs.streamanalytics.v20160301.OutputInvokeResponse[];
     /**
      * Describes the provisioning status of the streaming job.
      */
@@ -122,7 +122,7 @@ export interface GetStreamingJobResult {
     /**
      * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
      */
-    readonly sku?: outputs.streamanalytics.v20160301.SkuResponse;
+    readonly sku?: outputs.streamanalytics.v20160301.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -130,7 +130,7 @@ export interface GetStreamingJobResult {
     /**
      * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    readonly transformation?: outputs.streamanalytics.v20160301.TransformationResponse;
+    readonly transformation?: outputs.streamanalytics.v20160301.TransformationInvokeResponse;
     /**
      * Resource type
      */

@@ -71,7 +71,7 @@ export interface GetAFDEndpointResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    readonly systemData: outputs.cdn.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

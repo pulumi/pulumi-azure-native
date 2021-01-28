@@ -81,9 +81,9 @@ export interface GetVirtualWanResult {
     /**
      * List of VirtualHubs in the VirtualWAN.
      */
-    readonly virtualHubs: outputs.network.v20191101.SubResourceResponse[];
+    readonly virtualHubs: outputs.network.v20191101.SubResourceInvokeResponse[];
     /**
      * List of VpnSites in the VirtualWAN.
      */
-    readonly vpnSites: outputs.network.v20191101.SubResourceResponse[];
+    readonly vpnSites: outputs.network.v20191101.SubResourceInvokeResponse[];
 }

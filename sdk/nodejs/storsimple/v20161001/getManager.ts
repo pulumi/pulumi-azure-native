@@ -37,7 +37,7 @@ export interface GetManagerResult {
     /**
      * Specifies if the Manager is Garda or Helsinki
      */
-    readonly cisIntrinsicSettings?: outputs.storsimple.v20161001.ManagerIntrinsicSettingsResponse;
+    readonly cisIntrinsicSettings?: outputs.storsimple.v20161001.ManagerIntrinsicSettingsInvokeResponse;
     /**
      * ETag of the Manager
      */
@@ -61,7 +61,7 @@ export interface GetManagerResult {
     /**
      * Specifies the Sku
      */
-    readonly sku?: outputs.storsimple.v20161001.ManagerSkuResponse;
+    readonly sku?: outputs.storsimple.v20161001.ManagerSkuInvokeResponse;
     /**
      * Tags attached to the Manager
      */

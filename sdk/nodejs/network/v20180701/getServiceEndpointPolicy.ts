@@ -66,7 +66,7 @@ export interface GetServiceEndpointPolicyResult {
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
-    readonly serviceEndpointPolicyDefinitions?: outputs.network.v20180701.ServiceEndpointPolicyDefinitionResponse[];
+    readonly serviceEndpointPolicyDefinitions?: outputs.network.v20180701.ServiceEndpointPolicyDefinitionInvokeResponse[];
     /**
      * Resource tags.
      */

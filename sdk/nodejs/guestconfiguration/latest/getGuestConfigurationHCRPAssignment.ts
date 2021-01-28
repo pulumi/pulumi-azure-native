@@ -54,7 +54,7 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
     /**
      * Properties of the Guest configuration assignment.
      */
-    readonly properties: outputs.guestconfiguration.latest.GuestConfigurationAssignmentPropertiesResponse;
+    readonly properties: outputs.guestconfiguration.latest.GuestConfigurationAssignmentPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

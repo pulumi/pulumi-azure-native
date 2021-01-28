@@ -43,7 +43,7 @@ export interface GetTaskResult {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: outputs.containerregistry.latest.AgentPropertiesResponse;
+    readonly agentConfiguration?: outputs.containerregistry.latest.AgentPropertiesInvokeResponse;
     /**
      * The creation date of task.
      */
@@ -51,7 +51,7 @@ export interface GetTaskResult {
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: outputs.containerregistry.latest.CredentialsResponse;
+    readonly credentials?: outputs.containerregistry.latest.CredentialsInvokeResponse;
     /**
      * The resource ID.
      */
@@ -59,7 +59,7 @@ export interface GetTaskResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.containerregistry.latest.IdentityPropertiesResponse;
+    readonly identity?: outputs.containerregistry.latest.IdentityPropertiesInvokeResponse;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -71,7 +71,7 @@ export interface GetTaskResult {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform: outputs.containerregistry.latest.PlatformPropertiesResponse;
+    readonly platform: outputs.containerregistry.latest.PlatformPropertiesInvokeResponse;
     /**
      * The provisioning state of the task.
      */
@@ -83,7 +83,7 @@ export interface GetTaskResult {
     /**
      * The properties of a task step.
      */
-    readonly step: outputs.containerregistry.latest.DockerBuildStepResponse | outputs.containerregistry.latest.EncodedTaskStepResponse | outputs.containerregistry.latest.FileTaskStepResponse;
+    readonly step: outputs.containerregistry.latest.DockerBuildStepInvokeResponse | outputs.containerregistry.latest.EncodedTaskStepInvokeResponse | outputs.containerregistry.latest.FileTaskStepInvokeResponse;
     /**
      * The tags of the resource.
      */
@@ -95,7 +95,7 @@ export interface GetTaskResult {
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: outputs.containerregistry.latest.TriggerPropertiesResponse;
+    readonly trigger?: outputs.containerregistry.latest.TriggerPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

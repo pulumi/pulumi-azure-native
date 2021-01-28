@@ -50,7 +50,7 @@ export interface GetRegistrationAssignmentResult {
     /**
      * Properties of a registration assignment.
      */
-    readonly properties: outputs.managedservices.v20200201preview.RegistrationAssignmentPropertiesResponse;
+    readonly properties: outputs.managedservices.v20200201preview.RegistrationAssignmentPropertiesInvokeResponse;
     /**
      * Type of the resource.
      */

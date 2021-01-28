@@ -82,7 +82,7 @@ export interface GetEndpointResult {
     /**
      * The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
      */
-    readonly origins?: outputs.cdn.v20150601.DeepCreatedOriginResponse[];
+    readonly origins?: outputs.cdn.v20150601.DeepCreatedOriginInvokeResponse[];
     /**
      * Provisioning status of the endpoint.
      */

@@ -50,11 +50,11 @@ export interface GetFlowLogResult {
     /**
      * Parameters that define the configuration of traffic analytics.
      */
-    readonly flowAnalyticsConfiguration?: outputs.network.v20200401.TrafficAnalyticsPropertiesResponse;
+    readonly flowAnalyticsConfiguration?: outputs.network.v20200401.TrafficAnalyticsPropertiesInvokeResponse;
     /**
      * Parameters that define the flow log format.
      */
-    readonly format?: outputs.network.v20200401.FlowLogFormatParametersResponse;
+    readonly format?: outputs.network.v20200401.FlowLogFormatParametersInvokeResponse;
     /**
      * Resource ID.
      */
@@ -74,7 +74,7 @@ export interface GetFlowLogResult {
     /**
      * Parameters that define the retention policy for flow log.
      */
-    readonly retentionPolicy?: outputs.network.v20200401.RetentionPolicyParametersResponse;
+    readonly retentionPolicy?: outputs.network.v20200401.RetentionPolicyParametersInvokeResponse;
     /**
      * ID of the storage account which is used to store the flow log.
      */

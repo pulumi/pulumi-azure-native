@@ -54,7 +54,7 @@ export interface GetMachineExtensionResult {
     /**
      * The machine extension instance view.
      */
-    readonly instanceView?: outputs.hybridcompute.v20200815preview.MachineExtensionPropertiesResponseInstanceView;
+    readonly instanceView?: outputs.hybridcompute.v20200815preview.MachineExtensionPropertiesInvokeResponseInstanceView;
     /**
      * The geo-location where the resource lives
      */

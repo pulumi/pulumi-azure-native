@@ -45,7 +45,7 @@ export interface GetBudgetByResourceGroupNameResult {
     /**
      * The current amount of cost which is being tracked for a budget.
      */
-    readonly currentSpend: outputs.consumption.v20181001.CurrentSpendResponse;
+    readonly currentSpend: outputs.consumption.v20181001.CurrentSpendInvokeResponse;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
@@ -53,7 +53,7 @@ export interface GetBudgetByResourceGroupNameResult {
     /**
      * May be used to filter budgets by resource group, resource, or meter.
      */
-    readonly filters?: outputs.consumption.v20181001.FiltersResponse;
+    readonly filters?: outputs.consumption.v20181001.FiltersInvokeResponse;
     /**
      * Resource Id.
      */
@@ -65,7 +65,7 @@ export interface GetBudgetByResourceGroupNameResult {
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly notifications?: {[key: string]: outputs.consumption.v20181001.NotificationResponse};
+    readonly notifications?: {[key: string]: outputs.consumption.v20181001.NotificationInvokeResponse};
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
@@ -73,7 +73,7 @@ export interface GetBudgetByResourceGroupNameResult {
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    readonly timePeriod: outputs.consumption.v20181001.BudgetTimePeriodResponse;
+    readonly timePeriod: outputs.consumption.v20181001.BudgetTimePeriodInvokeResponse;
     /**
      * Resource type.
      */

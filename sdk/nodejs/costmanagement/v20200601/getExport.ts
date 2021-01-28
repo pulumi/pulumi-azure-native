@@ -42,11 +42,11 @@ export interface GetExportResult {
     /**
      * Has the definition for the export.
      */
-    readonly definition: outputs.costmanagement.v20200601.ExportDefinitionResponse;
+    readonly definition: outputs.costmanagement.v20200601.ExportDefinitionInvokeResponse;
     /**
      * Has delivery information for the export.
      */
-    readonly deliveryInfo: outputs.costmanagement.v20200601.ExportDeliveryInfoResponse;
+    readonly deliveryInfo: outputs.costmanagement.v20200601.ExportDeliveryInfoInvokeResponse;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
@@ -70,11 +70,11 @@ export interface GetExportResult {
     /**
      * If requested, has the most recent execution history for the export.
      */
-    readonly runHistory?: outputs.costmanagement.v20200601.ExportExecutionListResultResponse;
+    readonly runHistory?: outputs.costmanagement.v20200601.ExportExecutionListResultInvokeResponse;
     /**
      * Has schedule information for the export.
      */
-    readonly schedule?: outputs.costmanagement.v20200601.ExportScheduleResponse;
+    readonly schedule?: outputs.costmanagement.v20200601.ExportScheduleInvokeResponse;
     /**
      * Resource type.
      */

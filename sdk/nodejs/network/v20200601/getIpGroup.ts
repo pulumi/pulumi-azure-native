@@ -46,7 +46,7 @@ export interface GetIpGroupResult {
     /**
      * List of references to Azure resources that this IpGroups is associated with.
      */
-    readonly firewalls: outputs.network.v20200601.SubResourceResponse[];
+    readonly firewalls: outputs.network.v20200601.SubResourceInvokeResponse[];
     /**
      * Resource ID.
      */

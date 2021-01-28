@@ -57,7 +57,7 @@ export interface GetServerResult {
     /**
      * Delegated subnet arguments.
      */
-    readonly delegatedSubnetArguments?: outputs.dbformysql.v20200701privatepreview.DelegatedSubnetArgumentsResponse;
+    readonly delegatedSubnetArguments?: outputs.dbformysql.v20200701privatepreview.DelegatedSubnetArgumentsInvokeResponse;
     /**
      * Earliest restore point creation time (ISO8601 format)
      */
@@ -81,7 +81,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbformysql.v20200701privatepreview.IdentityResponse;
+    readonly identity?: outputs.dbformysql.v20200701privatepreview.IdentityInvokeResponse;
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
@@ -93,7 +93,7 @@ export interface GetServerResult {
     /**
      * Maintenance window of a server.
      */
-    readonly maintenanceWindow?: outputs.dbformysql.v20200701privatepreview.MaintenanceWindowResponse;
+    readonly maintenanceWindow?: outputs.dbformysql.v20200701privatepreview.MaintenanceWindowInvokeResponse;
     /**
      * The name of the resource
      */
@@ -117,7 +117,7 @@ export interface GetServerResult {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: outputs.dbformysql.v20200701privatepreview.SkuResponse;
+    readonly sku?: outputs.dbformysql.v20200701privatepreview.SkuInvokeResponse;
     /**
      * The source MySQL server id.
      */
@@ -137,7 +137,7 @@ export interface GetServerResult {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: outputs.dbformysql.v20200701privatepreview.StorageProfileResponse;
+    readonly storageProfile?: outputs.dbformysql.v20200701privatepreview.StorageProfileInvokeResponse;
     /**
      * Resource tags.
      */

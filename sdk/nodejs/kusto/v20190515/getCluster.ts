@@ -61,7 +61,7 @@ export interface GetClusterResult {
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: outputs.kusto.v20190515.OptimizedAutoscaleResponse;
+    readonly optimizedAutoscale?: outputs.kusto.v20190515.OptimizedAutoscaleInvokeResponse;
     /**
      * The provisioned state of the resource.
      */
@@ -69,7 +69,7 @@ export interface GetClusterResult {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: outputs.kusto.v20190515.AzureSkuResponse;
+    readonly sku: outputs.kusto.v20190515.AzureSkuInvokeResponse;
     /**
      * The state of the resource.
      */
@@ -81,7 +81,7 @@ export interface GetClusterResult {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: outputs.kusto.v20190515.TrustedExternalTenantResponse[];
+    readonly trustedExternalTenants?: outputs.kusto.v20190515.TrustedExternalTenantInvokeResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -93,7 +93,7 @@ export interface GetClusterResult {
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: outputs.kusto.v20190515.VirtualNetworkConfigurationResponse;
+    readonly virtualNetworkConfiguration?: outputs.kusto.v20190515.VirtualNetworkConfigurationInvokeResponse;
     /**
      * The availability zones of the cluster.
      */

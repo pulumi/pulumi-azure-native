@@ -67,9 +67,9 @@ export interface GetEntitiesGetTimelineResult {
     /**
      * The metadata from the timeline operation results.
      */
-    readonly metaData?: outputs.securityinsights.v20190101preview.TimelineResultsMetadataResponse;
+    readonly metaData?: outputs.securityinsights.v20190101preview.TimelineResultsMetadataInvokeResponse;
     /**
      * The timeline result values.
      */
-    readonly value?: outputs.securityinsights.v20190101preview.ActivityTimelineItemResponse | outputs.securityinsights.v20190101preview.BookmarkTimelineItemResponse | outputs.securityinsights.v20190101preview.SecurityAlertTimelineItemResponse[];
+    readonly value?: outputs.securityinsights.v20190101preview.ActivityTimelineItemInvokeResponse | outputs.securityinsights.v20190101preview.BookmarkTimelineItemInvokeResponse | outputs.securityinsights.v20190101preview.SecurityAlertTimelineItemInvokeResponse[];
 }

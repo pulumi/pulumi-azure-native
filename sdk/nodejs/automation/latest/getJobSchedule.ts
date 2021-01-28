@@ -62,11 +62,11 @@ export interface GetJobScheduleResult {
     /**
      * Gets or sets the runbook.
      */
-    readonly runbook?: outputs.automation.latest.RunbookAssociationPropertyResponse;
+    readonly runbook?: outputs.automation.latest.RunbookAssociationPropertyInvokeResponse;
     /**
      * Gets or sets the schedule.
      */
-    readonly schedule?: outputs.automation.latest.ScheduleAssociationPropertyResponse;
+    readonly schedule?: outputs.automation.latest.ScheduleAssociationPropertyInvokeResponse;
     /**
      * Resource type
      */

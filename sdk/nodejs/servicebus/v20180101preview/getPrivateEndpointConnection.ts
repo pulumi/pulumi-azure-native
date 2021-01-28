@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The Private Endpoint resource for this Connection.
      */
-    readonly privateEndpoint?: outputs.servicebus.v20180101preview.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.servicebus.v20180101preview.PrivateEndpointInvokeResponse;
     /**
      * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.servicebus.v20180101preview.ConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.servicebus.v20180101preview.ConnectionStateInvokeResponse;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */

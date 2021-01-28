@@ -62,11 +62,11 @@ export interface GetImageResult {
     /**
      * The source virtual machine from which Image is created.
      */
-    readonly sourceVirtualMachine?: outputs.compute.v20190301.SubResourceResponse;
+    readonly sourceVirtualMachine?: outputs.compute.v20190301.SubResourceInvokeResponse;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    readonly storageProfile?: outputs.compute.v20190301.ImageStorageProfileResponse;
+    readonly storageProfile?: outputs.compute.v20190301.ImageStorageProfileInvokeResponse;
     /**
      * Resource tags
      */

@@ -41,5 +41,5 @@ export interface ListLinkedResourceResult {
     /**
      * Results of a list operation.
      */
-    readonly value?: outputs.datadog.v20200201preview.LinkedResourceResponse[];
+    readonly value?: outputs.datadog.v20200201preview.LinkedResourceInvokeResponse[];
 }

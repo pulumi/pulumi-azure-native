@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: outputs.sql.v20200202preview.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.sql.v20200202preview.PrivateEndpointPropertyInvokeResponse;
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.sql.v20200202preview.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState?: outputs.sql.v20200202preview.PrivateLinkServiceConnectionStatePropertyInvokeResponse;
     /**
      * State of the private endpoint connection.
      */

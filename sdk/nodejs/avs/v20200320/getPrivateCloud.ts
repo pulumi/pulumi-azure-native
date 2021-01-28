@@ -37,11 +37,11 @@ export interface GetPrivateCloudResult {
     /**
      * An ExpressRoute Circuit
      */
-    readonly circuit?: outputs.avs.v20200320.CircuitResponse;
+    readonly circuit?: outputs.avs.v20200320.CircuitInvokeResponse;
     /**
      * The endpoints
      */
-    readonly endpoints: outputs.avs.v20200320.EndpointsResponse;
+    readonly endpoints: outputs.avs.v20200320.EndpointsInvokeResponse;
     /**
      * Resource ID.
      */
@@ -49,7 +49,7 @@ export interface GetPrivateCloudResult {
     /**
      * vCenter Single Sign On Identity Sources
      */
-    readonly identitySources?: outputs.avs.v20200320.IdentitySourceResponse[];
+    readonly identitySources?: outputs.avs.v20200320.IdentitySourceInvokeResponse[];
     /**
      * Connectivity to internet is enabled or disabled
      */
@@ -61,7 +61,7 @@ export interface GetPrivateCloudResult {
     /**
      * The default cluster used for management
      */
-    readonly managementCluster: outputs.avs.v20200320.ManagementClusterResponse;
+    readonly managementCluster: outputs.avs.v20200320.ManagementClusterInvokeResponse;
     /**
      * Network used to access vCenter Server and NSX-T Manager
      */
@@ -93,7 +93,7 @@ export interface GetPrivateCloudResult {
     /**
      * The private cloud SKU
      */
-    readonly sku: outputs.avs.v20200320.SkuResponse;
+    readonly sku: outputs.avs.v20200320.SkuInvokeResponse;
     /**
      * Resource tags
      */

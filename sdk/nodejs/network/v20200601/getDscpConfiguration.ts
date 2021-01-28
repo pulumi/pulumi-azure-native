@@ -37,15 +37,15 @@ export interface GetDscpConfigurationResult {
     /**
      * Associated Network Interfaces to the DSCP Configuration.
      */
-    readonly associatedNetworkInterfaces: outputs.network.v20200601.NetworkInterfaceResponse[];
+    readonly associatedNetworkInterfaces: outputs.network.v20200601.NetworkInterfaceInvokeResponse[];
     /**
      * Destination IP ranges.
      */
-    readonly destinationIpRanges?: outputs.network.v20200601.QosIpRangeResponse[];
+    readonly destinationIpRanges?: outputs.network.v20200601.QosIpRangeInvokeResponse[];
     /**
      * Destination port ranges.
      */
-    readonly destinationPortRanges?: outputs.network.v20200601.QosPortRangeResponse[];
+    readonly destinationPortRanges?: outputs.network.v20200601.QosPortRangeInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -85,11 +85,11 @@ export interface GetDscpConfigurationResult {
     /**
      * Source IP ranges.
      */
-    readonly sourceIpRanges?: outputs.network.v20200601.QosIpRangeResponse[];
+    readonly sourceIpRanges?: outputs.network.v20200601.QosIpRangeInvokeResponse[];
     /**
      * Sources port ranges.
      */
-    readonly sourcePortRanges?: outputs.network.v20200601.QosPortRangeResponse[];
+    readonly sourcePortRanges?: outputs.network.v20200601.QosPortRangeInvokeResponse[];
     /**
      * Resource tags.
      */

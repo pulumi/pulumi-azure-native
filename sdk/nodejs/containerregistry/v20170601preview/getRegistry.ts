@@ -65,15 +65,15 @@ export interface GetRegistryResult {
     /**
      * The SKU of the container registry.
      */
-    readonly sku: outputs.containerregistry.v20170601preview.SkuResponse;
+    readonly sku: outputs.containerregistry.v20170601preview.SkuInvokeResponse;
     /**
      * The status of the container registry at the time the operation was called.
      */
-    readonly status: outputs.containerregistry.v20170601preview.StatusResponse;
+    readonly status: outputs.containerregistry.v20170601preview.StatusInvokeResponse;
     /**
      * The properties of the storage account for the container registry. Only applicable to Basic SKU.
      */
-    readonly storageAccount?: outputs.containerregistry.v20170601preview.StorageAccountPropertiesResponse;
+    readonly storageAccount?: outputs.containerregistry.v20170601preview.StorageAccountPropertiesInvokeResponse;
     /**
      * The tags of the resource.
      */

@@ -37,5 +37,5 @@ export interface GetVirtualNetworkGatewayVpnclientConnectionHealthResult {
     /**
      * List of vpn client connection health.
      */
-    readonly value?: outputs.network.v20191101.VpnClientConnectionHealthDetailResponse[];
+    readonly value?: outputs.network.v20191101.VpnClientConnectionHealthDetailInvokeResponse[];
 }

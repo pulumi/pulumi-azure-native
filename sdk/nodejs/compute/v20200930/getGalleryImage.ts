@@ -46,7 +46,7 @@ export interface GetGalleryImageResult {
     /**
      * Describes the disallowed disk types.
      */
-    readonly disallowed?: outputs.compute.v20200930.DisallowedResponse;
+    readonly disallowed?: outputs.compute.v20200930.DisallowedInvokeResponse;
     /**
      * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
@@ -58,7 +58,7 @@ export interface GetGalleryImageResult {
     /**
      * A list of gallery image features.
      */
-    readonly features?: outputs.compute.v20200930.GalleryImageFeatureResponse[];
+    readonly features?: outputs.compute.v20200930.GalleryImageFeatureInvokeResponse[];
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -70,7 +70,7 @@ export interface GetGalleryImageResult {
     /**
      * This is the gallery image definition identifier.
      */
-    readonly identifier: outputs.compute.v20200930.GalleryImageIdentifierResponse;
+    readonly identifier: outputs.compute.v20200930.GalleryImageIdentifierInvokeResponse;
     /**
      * Resource location
      */
@@ -98,11 +98,11 @@ export interface GetGalleryImageResult {
     /**
      * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
-    readonly purchasePlan?: outputs.compute.v20200930.ImagePurchasePlanResponse;
+    readonly purchasePlan?: outputs.compute.v20200930.ImagePurchasePlanInvokeResponse;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    readonly recommended?: outputs.compute.v20200930.RecommendedMachineConfigurationResponse;
+    readonly recommended?: outputs.compute.v20200930.RecommendedMachineConfigurationInvokeResponse;
     /**
      * The release note uri.
      */

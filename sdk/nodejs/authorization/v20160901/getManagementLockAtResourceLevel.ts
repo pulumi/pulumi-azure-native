@@ -73,7 +73,7 @@ export interface GetManagementLockAtResourceLevelResult {
     /**
      * The owners of the lock.
      */
-    readonly owners?: outputs.authorization.v20160901.ManagementLockOwnerResponse[];
+    readonly owners?: outputs.authorization.v20160901.ManagementLockOwnerInvokeResponse[];
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */

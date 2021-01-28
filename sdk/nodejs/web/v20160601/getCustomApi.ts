@@ -58,7 +58,7 @@ export interface GetCustomApiResult {
     /**
      * Custom API properties
      */
-    readonly properties: outputs.web.v20160601.CustomApiPropertiesDefinitionResponse;
+    readonly properties: outputs.web.v20160601.CustomApiPropertiesDefinitionInvokeResponse;
     /**
      * Resource tags
      */

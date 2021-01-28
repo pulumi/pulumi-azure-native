@@ -42,7 +42,7 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets Pools of backend IP addresses
      */
-    readonly backendAddressPools?: outputs.network.v20160601.BackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.v20160601.BackendAddressPoolInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -50,7 +50,7 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets frontend IP addresses of the load balancer
      */
-    readonly frontendIPConfigurations?: outputs.network.v20160601.FrontendIPConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.v20160601.FrontendIPConfigurationInvokeResponse[];
     /**
      * Resource Id
      */
@@ -58,15 +58,15 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets inbound NAT pools
      */
-    readonly inboundNatPools?: outputs.network.v20160601.InboundNatPoolResponse[];
+    readonly inboundNatPools?: outputs.network.v20160601.InboundNatPoolInvokeResponse[];
     /**
      * Gets or sets list of inbound rules
      */
-    readonly inboundNatRules?: outputs.network.v20160601.InboundNatRuleResponse[];
+    readonly inboundNatRules?: outputs.network.v20160601.InboundNatRuleInvokeResponse[];
     /**
      * Gets or sets load balancing rules
      */
-    readonly loadBalancingRules?: outputs.network.v20160601.LoadBalancingRuleResponse[];
+    readonly loadBalancingRules?: outputs.network.v20160601.LoadBalancingRuleInvokeResponse[];
     /**
      * Resource location
      */
@@ -78,11 +78,11 @@ export interface GetLoadBalancerResult {
     /**
      * Gets or sets outbound NAT rules
      */
-    readonly outboundNatRules?: outputs.network.v20160601.OutboundNatRuleResponse[];
+    readonly outboundNatRules?: outputs.network.v20160601.OutboundNatRuleInvokeResponse[];
     /**
      * Gets or sets list of Load balancer probes
      */
-    readonly probes?: outputs.network.v20160601.ProbeResponse[];
+    readonly probes?: outputs.network.v20160601.ProbeInvokeResponse[];
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

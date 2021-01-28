@@ -50,7 +50,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Resource properties.
      */
-    readonly properties: outputs.cognitiveservices.latest.PrivateEndpointConnectionPropertiesResponse;
+    readonly properties: outputs.cognitiveservices.latest.PrivateEndpointConnectionPropertiesInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

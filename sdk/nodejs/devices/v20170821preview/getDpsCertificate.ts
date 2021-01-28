@@ -54,7 +54,7 @@ export interface GetDpsCertificateResult {
     /**
      * The description of an X509 CA Certificate.
      */
-    readonly properties: outputs.devices.v20170821preview.CertificatePropertiesResponse;
+    readonly properties: outputs.devices.v20170821preview.CertificatePropertiesInvokeResponse;
     /**
      * The resource type.
      */

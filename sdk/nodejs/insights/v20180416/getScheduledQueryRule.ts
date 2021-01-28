@@ -37,7 +37,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Action needs to be taken on rule execution.
      */
-    readonly action: outputs.insights.v20180416.AlertingActionResponse | outputs.insights.v20180416.LogToMetricActionResponse;
+    readonly action: outputs.insights.v20180416.AlertingActionInvokeResponse | outputs.insights.v20180416.LogToMetricActionInvokeResponse;
     /**
      * The description of the Log Search rule.
      */
@@ -81,11 +81,11 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
      */
-    readonly schedule?: outputs.insights.v20180416.ScheduleResponse;
+    readonly schedule?: outputs.insights.v20180416.ScheduleInvokeResponse;
     /**
      * Data Source against which rule will Query Data
      */
-    readonly source: outputs.insights.v20180416.SourceResponse;
+    readonly source: outputs.insights.v20180416.SourceInvokeResponse;
     /**
      * Resource tags
      */

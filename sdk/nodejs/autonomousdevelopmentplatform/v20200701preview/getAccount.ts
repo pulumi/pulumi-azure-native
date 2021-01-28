@@ -57,7 +57,7 @@ export interface GetAccountResult {
     /**
      * The system meta data relating to this resource.
      */
-    readonly systemData: outputs.autonomousdevelopmentplatform.v20200701preview.SystemDataResponse;
+    readonly systemData: outputs.autonomousdevelopmentplatform.v20200701preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

@@ -37,27 +37,27 @@ export interface GetJobResult {
     /**
      * Specifies the settings for Caffe job.
      */
-    readonly caffeSettings?: outputs.batchai.v20170901preview.CaffeSettingsResponse;
+    readonly caffeSettings?: outputs.batchai.v20170901preview.CaffeSettingsInvokeResponse;
     /**
      * Specifies the settings for Chainer job.
      */
-    readonly chainerSettings?: outputs.batchai.v20170901preview.ChainerSettingsResponse;
+    readonly chainerSettings?: outputs.batchai.v20170901preview.ChainerSettingsInvokeResponse;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly cluster?: outputs.batchai.v20170901preview.ResourceIdResponse;
+    readonly cluster?: outputs.batchai.v20170901preview.ResourceIdInvokeResponse;
     /**
      * Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
      */
-    readonly cntkSettings?: outputs.batchai.v20170901preview.CNTKsettingsResponse;
+    readonly cntkSettings?: outputs.batchai.v20170901preview.CNTKsettingsInvokeResponse;
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: outputs.batchai.v20170901preview.JobPropertiesResponseConstraints;
+    readonly constraints?: outputs.batchai.v20170901preview.JobPropertiesInvokeResponseConstraints;
     /**
      * If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
      */
-    readonly containerSettings?: outputs.batchai.v20170901preview.ContainerSettingsResponse;
+    readonly containerSettings?: outputs.batchai.v20170901preview.ContainerSettingsInvokeResponse;
     /**
      * The creation time of the job.
      */
@@ -65,15 +65,15 @@ export interface GetJobResult {
     /**
      * Specifies the settings for a custom tool kit job.
      */
-    readonly customToolkitSettings?: outputs.batchai.v20170901preview.CustomToolkitSettingsResponse;
+    readonly customToolkitSettings?: outputs.batchai.v20170901preview.CustomToolkitSettingsInvokeResponse;
     /**
      * Batch AI services sets the following environment variables for all jobs: AZ_BATCHAI_INPUT_id, AZ_BATCHAI_OUTPUT_id, AZ_BATCHAI_NUM_GPUS_PER_NODE, For distributed TensorFlow jobs, following additional environment variables are set by the Batch AI Service: AZ_BATCHAI_PS_HOSTS, AZ_BATCHAI_WORKER_HOSTS.
      */
-    readonly environmentVariables?: outputs.batchai.v20170901preview.EnvironmentSettingResponse[];
+    readonly environmentVariables?: outputs.batchai.v20170901preview.EnvironmentSettingInvokeResponse[];
     /**
      * Contains information about the execution of a job in the Azure Batch service.
      */
-    readonly executionInfo?: outputs.batchai.v20170901preview.JobPropertiesResponseExecutionInfo;
+    readonly executionInfo?: outputs.batchai.v20170901preview.JobPropertiesInvokeResponseExecutionInfo;
     /**
      * The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
      */
@@ -90,11 +90,11 @@ export interface GetJobResult {
      * The ID of the resource
      */
     readonly id: string;
-    readonly inputDirectories?: outputs.batchai.v20170901preview.InputDirectoryResponse[];
+    readonly inputDirectories?: outputs.batchai.v20170901preview.InputDirectoryInvokeResponse[];
     /**
      * The specified actions will run on all the nodes that are part of the job
      */
-    readonly jobPreparation?: outputs.batchai.v20170901preview.JobPreparationResponse;
+    readonly jobPreparation?: outputs.batchai.v20170901preview.JobPreparationInvokeResponse;
     /**
      * The location of the resource
      */
@@ -107,7 +107,7 @@ export interface GetJobResult {
      * The job will be gang scheduled on that many compute nodes
      */
     readonly nodeCount?: number;
-    readonly outputDirectories?: outputs.batchai.v20170901preview.OutputDirectoryResponse[];
+    readonly outputDirectories?: outputs.batchai.v20170901preview.OutputDirectoryInvokeResponse[];
     /**
      * Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
      */
@@ -131,7 +131,7 @@ export interface GetJobResult {
     /**
      * Specifies the settings for TensorFlow job.
      */
-    readonly tensorFlowSettings?: outputs.batchai.v20170901preview.TensorFlowSettingsResponse;
+    readonly tensorFlowSettings?: outputs.batchai.v20170901preview.TensorFlowSettingsInvokeResponse;
     /**
      * Possible values are: cntk, tensorflow, caffe, caffe2, chainer, custom.
      */

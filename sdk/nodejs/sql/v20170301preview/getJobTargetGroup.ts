@@ -51,7 +51,7 @@ export interface GetJobTargetGroupResult {
     /**
      * Members of the target group.
      */
-    readonly members: outputs.sql.v20170301preview.JobTargetResponse[];
+    readonly members: outputs.sql.v20170301preview.JobTargetInvokeResponse[];
     /**
      * Resource name.
      */

@@ -49,7 +49,7 @@ export interface GetDeploymentResult {
     /**
      * Deployment properties.
      */
-    readonly properties: outputs.resources.v20180501.DeploymentPropertiesExtendedResponse;
+    readonly properties: outputs.resources.v20180501.DeploymentPropertiesExtendedInvokeResponse;
     /**
      * The type of the deployment.
      */

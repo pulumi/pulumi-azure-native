@@ -37,7 +37,7 @@ export interface GetDiskEncryptionSetResult {
     /**
      * The key vault key which is currently used by this disk encryption set.
      */
-    readonly activeKey?: outputs.compute.latest.KeyForDiskEncryptionSetResponse;
+    readonly activeKey?: outputs.compute.latest.KeyForDiskEncryptionSetInvokeResponse;
     /**
      * The type of key used to encrypt the data of the disk.
      */
@@ -49,7 +49,7 @@ export interface GetDiskEncryptionSetResult {
     /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
-    readonly identity?: outputs.compute.latest.EncryptionSetIdentityResponse;
+    readonly identity?: outputs.compute.latest.EncryptionSetIdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -61,7 +61,7 @@ export interface GetDiskEncryptionSetResult {
     /**
      * A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
      */
-    readonly previousKeys: outputs.compute.latest.KeyForDiskEncryptionSetResponse[];
+    readonly previousKeys: outputs.compute.latest.KeyForDiskEncryptionSetInvokeResponse[];
     /**
      * The disk encryption set provisioning state.
      */

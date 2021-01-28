@@ -55,11 +55,11 @@ export interface GetDeploymentResult {
     /**
      * Properties of the Deployment resource
      */
-    readonly properties: outputs.appplatform.v20190501preview.DeploymentResourcePropertiesResponse;
+    readonly properties: outputs.appplatform.v20190501preview.DeploymentResourcePropertiesInvokeResponse;
     /**
      * Sku of the Deployment resource
      */
-    readonly sku?: outputs.appplatform.v20190501preview.SkuResponse;
+    readonly sku?: outputs.appplatform.v20190501preview.SkuInvokeResponse;
     /**
      * The type of the resource.
      */

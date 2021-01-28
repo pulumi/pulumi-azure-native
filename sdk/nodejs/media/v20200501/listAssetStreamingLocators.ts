@@ -42,5 +42,5 @@ export interface ListAssetStreamingLocatorsResult {
     /**
      * The list of Streaming Locators.
      */
-    readonly streamingLocators: outputs.media.v20200501.AssetStreamingLocatorResponse[];
+    readonly streamingLocators: outputs.media.v20200501.AssetStreamingLocatorInvokeResponse[];
 }

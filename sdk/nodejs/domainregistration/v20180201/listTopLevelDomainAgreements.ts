@@ -46,5 +46,5 @@ export interface ListTopLevelDomainAgreementsResult {
     /**
      * Collection of resources.
      */
-    readonly value: outputs.domainregistration.v20180201.TldLegalAgreementResponse[];
+    readonly value: outputs.domainregistration.v20180201.TldLegalAgreementInvokeResponse[];
 }

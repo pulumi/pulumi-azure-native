@@ -61,7 +61,7 @@ export interface GetRegistryResult {
     /**
      * The network rule set for a container registry.
      */
-    readonly networkRuleSet?: outputs.containerregistry.v20171001.NetworkRuleSetResponse;
+    readonly networkRuleSet?: outputs.containerregistry.v20171001.NetworkRuleSetInvokeResponse;
     /**
      * The provisioning state of the container registry at the time the operation was called.
      */
@@ -69,15 +69,15 @@ export interface GetRegistryResult {
     /**
      * The SKU of the container registry.
      */
-    readonly sku: outputs.containerregistry.v20171001.SkuResponse;
+    readonly sku: outputs.containerregistry.v20171001.SkuInvokeResponse;
     /**
      * The status of the container registry at the time the operation was called.
      */
-    readonly status: outputs.containerregistry.v20171001.StatusResponse;
+    readonly status: outputs.containerregistry.v20171001.StatusInvokeResponse;
     /**
      * The properties of the storage account for the container registry. Only applicable to Classic SKU.
      */
-    readonly storageAccount?: outputs.containerregistry.v20171001.StorageAccountPropertiesResponse;
+    readonly storageAccount?: outputs.containerregistry.v20171001.StorageAccountPropertiesInvokeResponse;
     /**
      * The tags of the resource.
      */

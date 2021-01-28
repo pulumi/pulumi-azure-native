@@ -45,7 +45,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the user assigned custom domain assigned to this storage account.
      */
-    readonly customDomain?: outputs.storage.v20150501preview.CustomDomainResponse;
+    readonly customDomain?: outputs.storage.v20150501preview.CustomDomainInvokeResponse;
     /**
      * Resource Id
      */
@@ -65,7 +65,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
      */
-    readonly primaryEndpoints?: outputs.storage.v20150501preview.EndpointsResponse;
+    readonly primaryEndpoints?: outputs.storage.v20150501preview.EndpointsInvokeResponse;
     /**
      * Gets the location of the primary for the storage account.
      */
@@ -77,7 +77,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
      */
-    readonly secondaryEndpoints?: outputs.storage.v20150501preview.EndpointsResponse;
+    readonly secondaryEndpoints?: outputs.storage.v20150501preview.EndpointsInvokeResponse;
     /**
      * Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.
      */

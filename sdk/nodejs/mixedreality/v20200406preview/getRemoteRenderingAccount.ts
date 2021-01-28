@@ -46,7 +46,7 @@ export interface GetRemoteRenderingAccountResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    readonly identity?: outputs.mixedreality.v20200406preview.RemoteRenderingAccountResponseIdentity;
+    readonly identity?: outputs.mixedreality.v20200406preview.RemoteRenderingAccountInvokeResponseIdentity;
     /**
      * The geo-location where the resource lives
      */

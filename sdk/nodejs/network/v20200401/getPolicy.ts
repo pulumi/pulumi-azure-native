@@ -37,7 +37,7 @@ export interface GetPolicyResult {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: outputs.network.v20200401.CustomRuleListResponse;
+    readonly customRules?: outputs.network.v20200401.CustomRuleListInvokeResponse;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -45,7 +45,7 @@ export interface GetPolicyResult {
     /**
      * Describes Frontend Endpoints associated with this Web Application Firewall policy.
      */
-    readonly frontendEndpointLinks: outputs.network.v20200401.FrontendEndpointLinkResponse[];
+    readonly frontendEndpointLinks: outputs.network.v20200401.FrontendEndpointLinkInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -57,7 +57,7 @@ export interface GetPolicyResult {
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: outputs.network.v20200401.ManagedRuleSetListResponse;
+    readonly managedRules?: outputs.network.v20200401.ManagedRuleSetListInvokeResponse;
     /**
      * Resource name.
      */
@@ -65,7 +65,7 @@ export interface GetPolicyResult {
     /**
      * Describes settings for the policy.
      */
-    readonly policySettings?: outputs.network.v20200401.PolicySettingsResponse;
+    readonly policySettings?: outputs.network.v20200401.PolicySettingsInvokeResponse;
     /**
      * Provisioning state of the policy.
      */
@@ -74,7 +74,7 @@ export interface GetPolicyResult {
     /**
      * Describes Routing Rules associated with this Web Application Firewall policy.
      */
-    readonly routingRuleLinks: outputs.network.v20200401.RoutingRuleLinkResponse[];
+    readonly routingRuleLinks: outputs.network.v20200401.RoutingRuleLinkInvokeResponse[];
     /**
      * Resource tags.
      */

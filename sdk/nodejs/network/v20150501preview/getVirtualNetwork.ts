@@ -37,11 +37,11 @@ export interface GetVirtualNetworkResult {
     /**
      * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
      */
-    readonly addressSpace?: outputs.network.v20150501preview.AddressSpaceResponse;
+    readonly addressSpace?: outputs.network.v20150501preview.AddressSpaceInvokeResponse;
     /**
      * Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
      */
-    readonly dhcpOptions?: outputs.network.v20150501preview.DhcpOptionsResponse;
+    readonly dhcpOptions?: outputs.network.v20150501preview.DhcpOptionsInvokeResponse;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
@@ -69,7 +69,7 @@ export interface GetVirtualNetworkResult {
     /**
      * Gets or sets List of subnets in a VirtualNetwork
      */
-    readonly subnets?: outputs.network.v20150501preview.SubnetResponse[];
+    readonly subnets?: outputs.network.v20150501preview.SubnetInvokeResponse[];
     /**
      * Resource tags
      */

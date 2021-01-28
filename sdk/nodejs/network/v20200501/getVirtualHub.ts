@@ -41,11 +41,11 @@ export interface GetVirtualHubResult {
     /**
      * The azureFirewall associated with this VirtualHub.
      */
-    readonly azureFirewall?: outputs.network.v20200501.SubResourceResponse;
+    readonly azureFirewall?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * List of references to Bgp Connections.
      */
-    readonly bgpConnections: outputs.network.v20200501.SubResourceResponse[];
+    readonly bgpConnections: outputs.network.v20200501.SubResourceInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -53,7 +53,7 @@ export interface GetVirtualHubResult {
     /**
      * The expressRouteGateway associated with this VirtualHub.
      */
-    readonly expressRouteGateway?: outputs.network.v20200501.SubResourceResponse;
+    readonly expressRouteGateway?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * Resource ID.
      */
@@ -61,7 +61,7 @@ export interface GetVirtualHubResult {
     /**
      * List of references to IpConfigurations.
      */
-    readonly ipConfigurations: outputs.network.v20200501.SubResourceResponse[];
+    readonly ipConfigurations: outputs.network.v20200501.SubResourceInvokeResponse[];
     /**
      * Resource location.
      */
@@ -73,7 +73,7 @@ export interface GetVirtualHubResult {
     /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
-    readonly p2SVpnGateway?: outputs.network.v20200501.SubResourceResponse;
+    readonly p2SVpnGateway?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * The provisioning state of the virtual hub resource.
      */
@@ -81,7 +81,7 @@ export interface GetVirtualHubResult {
     /**
      * The routeTable associated with this virtual hub.
      */
-    readonly routeTable?: outputs.network.v20200501.VirtualHubRouteTableResponse;
+    readonly routeTable?: outputs.network.v20200501.VirtualHubRouteTableInvokeResponse;
     /**
      * The routing state.
      */
@@ -89,7 +89,7 @@ export interface GetVirtualHubResult {
     /**
      * The securityPartnerProvider associated with this VirtualHub.
      */
-    readonly securityPartnerProvider?: outputs.network.v20200501.SubResourceResponse;
+    readonly securityPartnerProvider?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * The Security Provider name.
      */
@@ -109,7 +109,7 @@ export interface GetVirtualHubResult {
     /**
      * List of all virtual hub route table v2s associated with this VirtualHub.
      */
-    readonly virtualHubRouteTableV2s?: outputs.network.v20200501.VirtualHubRouteTableV2Response[];
+    readonly virtualHubRouteTableV2s?: outputs.network.v20200501.VirtualHubRouteTableV2InvokeResponse[];
     /**
      * VirtualRouter ASN.
      */
@@ -121,9 +121,9 @@ export interface GetVirtualHubResult {
     /**
      * The VirtualWAN to which the VirtualHub belongs.
      */
-    readonly virtualWan?: outputs.network.v20200501.SubResourceResponse;
+    readonly virtualWan?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * The VpnGateway associated with this VirtualHub.
      */
-    readonly vpnGateway?: outputs.network.v20200501.SubResourceResponse;
+    readonly vpnGateway?: outputs.network.v20200501.SubResourceInvokeResponse;
 }

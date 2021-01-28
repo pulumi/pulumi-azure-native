@@ -42,7 +42,7 @@ export interface GetCertificateResult {
     /**
      * This is only returned when the certificate provisioningState is 'Failed'.
      */
-    readonly deleteCertificateError: outputs.batch.latest.DeleteCertificateErrorResponse;
+    readonly deleteCertificateError: outputs.batch.latest.DeleteCertificateErrorInvokeResponse;
     /**
      * The ETag of the resource, used for concurrency statements.
      */

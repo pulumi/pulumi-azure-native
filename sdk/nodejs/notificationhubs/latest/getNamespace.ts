@@ -89,7 +89,7 @@ export interface GetNamespaceResult {
     /**
      * The sku of the created namespace
      */
-    readonly sku?: outputs.notificationhubs.latest.SkuResponse;
+    readonly sku?: outputs.notificationhubs.latest.SkuInvokeResponse;
     /**
      * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
      */

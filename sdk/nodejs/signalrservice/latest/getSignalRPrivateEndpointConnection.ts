@@ -50,11 +50,11 @@ export interface GetSignalRPrivateEndpointConnectionResult {
     /**
      * Private endpoint associated with the private endpoint connection
      */
-    readonly privateEndpoint?: outputs.signalrservice.latest.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.signalrservice.latest.PrivateEndpointInvokeResponse;
     /**
      * Connection state
      */
-    readonly privateLinkServiceConnectionState?: outputs.signalrservice.latest.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.signalrservice.latest.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * Provisioning state of the private endpoint connection
      */

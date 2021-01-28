@@ -42,15 +42,15 @@ export interface GetVirtualMachineScaleSetVMResult {
     /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
-    readonly availabilitySet?: outputs.compute.v20180401.SubResourceResponse;
+    readonly availabilitySet?: outputs.compute.v20180401.SubResourceInvokeResponse;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */
-    readonly diagnosticsProfile?: outputs.compute.v20180401.DiagnosticsProfileResponse;
+    readonly diagnosticsProfile?: outputs.compute.v20180401.DiagnosticsProfileInvokeResponse;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
-    readonly hardwareProfile?: outputs.compute.v20180401.HardwareProfileResponse;
+    readonly hardwareProfile?: outputs.compute.v20180401.HardwareProfileInvokeResponse;
     /**
      * Resource Id
      */
@@ -62,7 +62,7 @@ export interface GetVirtualMachineScaleSetVMResult {
     /**
      * The virtual machine instance view.
      */
-    readonly instanceView: outputs.compute.v20180401.VirtualMachineScaleSetVMInstanceViewResponse;
+    readonly instanceView: outputs.compute.v20180401.VirtualMachineScaleSetVMInstanceViewInvokeResponse;
     /**
      * Specifies whether the latest model has been applied to the virtual machine.
      */
@@ -82,15 +82,15 @@ export interface GetVirtualMachineScaleSetVMResult {
     /**
      * Specifies the network interfaces of the virtual machine.
      */
-    readonly networkProfile?: outputs.compute.v20180401.NetworkProfileResponse;
+    readonly networkProfile?: outputs.compute.v20180401.NetworkProfileInvokeResponse;
     /**
      * Specifies the operating system settings for the virtual machine.
      */
-    readonly osProfile?: outputs.compute.v20180401.OSProfileResponse;
+    readonly osProfile?: outputs.compute.v20180401.OSProfileInvokeResponse;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: outputs.compute.v20180401.PlanResponse;
+    readonly plan?: outputs.compute.v20180401.PlanInvokeResponse;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -98,15 +98,15 @@ export interface GetVirtualMachineScaleSetVMResult {
     /**
      * The virtual machine child extension resources.
      */
-    readonly resources: outputs.compute.v20180401.VirtualMachineExtensionResponse[];
+    readonly resources: outputs.compute.v20180401.VirtualMachineExtensionInvokeResponse[];
     /**
      * The virtual machine SKU.
      */
-    readonly sku: outputs.compute.v20180401.SkuResponse;
+    readonly sku: outputs.compute.v20180401.SkuInvokeResponse;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    readonly storageProfile?: outputs.compute.v20180401.StorageProfileResponse;
+    readonly storageProfile?: outputs.compute.v20180401.StorageProfileInvokeResponse;
     /**
      * Resource tags
      */

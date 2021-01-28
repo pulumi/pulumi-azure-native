@@ -69,7 +69,7 @@ export interface GetNamespaceResult {
     /**
      * SKU parameters supplied to the create Namespace operation
      */
-    readonly sku?: outputs.eventhub.v20150801.SkuResponse;
+    readonly sku?: outputs.eventhub.v20150801.SkuInvokeResponse;
     /**
      * State of the Namespace.
      */

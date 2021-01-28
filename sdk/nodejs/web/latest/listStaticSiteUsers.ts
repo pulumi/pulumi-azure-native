@@ -46,5 +46,5 @@ export interface ListStaticSiteUsersResult {
     /**
      * Collection of resources.
      */
-    readonly value: outputs.web.latest.StaticSiteUserARMResourceResponse[];
+    readonly value: outputs.web.latest.StaticSiteUserARMResourceInvokeResponse[];
 }

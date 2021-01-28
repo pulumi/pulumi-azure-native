@@ -54,7 +54,7 @@ export interface GetTriggerResult {
     /**
      * Trigger in DataBoxEdge Resource
      */
-    readonly systemData: outputs.databoxedge.v20200901preview.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.v20200901preview.SystemDataInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

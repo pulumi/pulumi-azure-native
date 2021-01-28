@@ -50,7 +50,7 @@ export interface GetConfigurationProfileAssignmentResult {
     /**
      * Properties of the configuration profile assignment.
      */
-    readonly properties: outputs.automanage.v20200630preview.ConfigurationProfileAssignmentPropertiesResponse;
+    readonly properties: outputs.automanage.v20200630preview.ConfigurationProfileAssignmentPropertiesInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

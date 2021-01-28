@@ -54,7 +54,7 @@ export interface GetPredictionResult {
     /**
      * The prediction grades.
      */
-    readonly grades?: outputs.customerinsights.v20170426.PredictionResponseGrades[];
+    readonly grades?: outputs.customerinsights.v20170426.PredictionInvokeResponseGrades[];
     /**
      * Resource ID.
      */
@@ -74,7 +74,7 @@ export interface GetPredictionResult {
     /**
      * Definition of the link mapping of prediction.
      */
-    readonly mappings: outputs.customerinsights.v20170426.PredictionResponseMappings;
+    readonly mappings: outputs.customerinsights.v20170426.PredictionInvokeResponseMappings;
     /**
      * Resource name.
      */
@@ -110,7 +110,7 @@ export interface GetPredictionResult {
     /**
      * System generated entities.
      */
-    readonly systemGeneratedEntities: outputs.customerinsights.v20170426.PredictionResponseSystemGeneratedEntities;
+    readonly systemGeneratedEntities: outputs.customerinsights.v20170426.PredictionInvokeResponseSystemGeneratedEntities;
     /**
      * The hub name.
      */

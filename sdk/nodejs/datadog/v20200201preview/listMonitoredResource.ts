@@ -41,5 +41,5 @@ export interface ListMonitoredResourceResult {
     /**
      * Results of a list operation.
      */
-    readonly value?: outputs.datadog.v20200201preview.MonitoredResourceResponse[];
+    readonly value?: outputs.datadog.v20200201preview.MonitoredResourceInvokeResponse[];
 }

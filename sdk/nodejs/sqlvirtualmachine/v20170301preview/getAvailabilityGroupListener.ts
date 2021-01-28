@@ -54,7 +54,7 @@ export interface GetAvailabilityGroupListenerResult {
     /**
      * List of load balancer configurations for an availability group listener.
      */
-    readonly loadBalancerConfigurations?: outputs.sqlvirtualmachine.v20170301preview.LoadBalancerConfigurationResponse[];
+    readonly loadBalancerConfigurations?: outputs.sqlvirtualmachine.v20170301preview.LoadBalancerConfigurationInvokeResponse[];
     /**
      * Resource name.
      */

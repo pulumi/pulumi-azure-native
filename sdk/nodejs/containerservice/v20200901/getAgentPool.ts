@@ -110,7 +110,7 @@ export interface GetAgentPoolResult {
     /**
      * Describes whether the Agent Pool is Running or Stopped
      */
-    readonly powerState: outputs.containerservice.v20200901.PowerStateResponse;
+    readonly powerState: outputs.containerservice.v20200901.PowerStateInvokeResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -142,7 +142,7 @@ export interface GetAgentPoolResult {
     /**
      * Settings for upgrading the agentpool
      */
-    readonly upgradeSettings?: outputs.containerservice.v20200901.AgentPoolUpgradeSettingsResponse;
+    readonly upgradeSettings?: outputs.containerservice.v20200901.AgentPoolUpgradeSettingsInvokeResponse;
     /**
      * Size of agent VMs.
      */

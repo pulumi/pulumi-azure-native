@@ -49,7 +49,7 @@ export interface GetViewByScopeResult {
     /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: outputs.costmanagement.v20190401preview.ReportConfigDatasetResponse;
+    readonly dataset?: outputs.costmanagement.v20190401preview.ReportConfigDatasetInvokeResponse;
     /**
      * User input name of the view. Required.
      */
@@ -65,7 +65,7 @@ export interface GetViewByScopeResult {
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
-    readonly kpis?: outputs.costmanagement.v20190401preview.KpiPropertiesResponse[];
+    readonly kpis?: outputs.costmanagement.v20190401preview.KpiPropertiesInvokeResponse[];
     /**
      * Metric to use when displaying costs.
      */
@@ -81,7 +81,7 @@ export interface GetViewByScopeResult {
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    readonly pivots?: outputs.costmanagement.v20190401preview.PivotPropertiesResponse[];
+    readonly pivots?: outputs.costmanagement.v20190401preview.PivotPropertiesInvokeResponse[];
     /**
      * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
@@ -89,7 +89,7 @@ export interface GetViewByScopeResult {
     /**
      * Has time period for pulling data for the report.
      */
-    readonly timePeriod?: outputs.costmanagement.v20190401preview.ReportConfigTimePeriodResponse;
+    readonly timePeriod?: outputs.costmanagement.v20190401preview.ReportConfigTimePeriodInvokeResponse;
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */

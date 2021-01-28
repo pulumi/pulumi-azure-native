@@ -45,7 +45,7 @@ export interface GetExpressRoutePortResult {
     /**
      * Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
      */
-    readonly circuits: outputs.network.latest.SubResourceResponse[];
+    readonly circuits: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * Encapsulation method on physical ports.
      */
@@ -65,11 +65,11 @@ export interface GetExpressRoutePortResult {
     /**
      * The identity of ExpressRoutePort, if configured.
      */
-    readonly identity?: outputs.network.latest.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.network.latest.ManagedServiceIdentityInvokeResponse;
     /**
      * The set of physical links of the ExpressRoutePort resource.
      */
-    readonly links?: outputs.network.latest.ExpressRouteLinkResponse[];
+    readonly links?: outputs.network.latest.ExpressRouteLinkInvokeResponse[];
     /**
      * Resource location.
      */

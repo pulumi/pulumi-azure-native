@@ -37,7 +37,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * Virtual network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: outputs.network.v20150615.BgpSettingsResponse;
+    readonly bgpSettings?: outputs.network.v20150615.BgpSettingsInvokeResponse;
     /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
@@ -49,7 +49,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    readonly gatewayDefaultSite?: outputs.network.v20150615.SubResourceResponse;
+    readonly gatewayDefaultSite?: outputs.network.v20150615.SubResourceInvokeResponse;
     /**
      * The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
      */
@@ -61,7 +61,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * IP configurations for virtual network gateway.
      */
-    readonly ipConfigurations?: outputs.network.v20150615.VirtualNetworkGatewayIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20150615.VirtualNetworkGatewayIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -81,7 +81,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
      */
-    readonly sku?: outputs.network.v20150615.VirtualNetworkGatewaySkuResponse;
+    readonly sku?: outputs.network.v20150615.VirtualNetworkGatewaySkuInvokeResponse;
     /**
      * Resource tags.
      */
@@ -93,7 +93,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    readonly vpnClientConfiguration?: outputs.network.v20150615.VpnClientConfigurationResponse;
+    readonly vpnClientConfiguration?: outputs.network.v20150615.VpnClientConfigurationInvokeResponse;
     /**
      * The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
      */

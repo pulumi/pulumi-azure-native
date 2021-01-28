@@ -36,5 +36,5 @@ export interface ListMediaServiceEdgePoliciesArgs {
 }
 
 export interface ListMediaServiceEdgePoliciesResult {
-    readonly usageDataCollectionPolicy?: outputs.media.v20200501.EdgeUsageDataCollectionPolicyResponse;
+    readonly usageDataCollectionPolicy?: outputs.media.v20200501.EdgeUsageDataCollectionPolicyInvokeResponse;
 }

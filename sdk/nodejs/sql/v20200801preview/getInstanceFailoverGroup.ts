@@ -46,7 +46,7 @@ export interface GetInstanceFailoverGroupResult {
     /**
      * List of managed instance pairs in the failover group.
      */
-    readonly managedInstancePairs: outputs.sql.v20200801preview.ManagedInstancePairInfoResponse[];
+    readonly managedInstancePairs: outputs.sql.v20200801preview.ManagedInstancePairInfoInvokeResponse[];
     /**
      * Resource name.
      */
@@ -54,15 +54,15 @@ export interface GetInstanceFailoverGroupResult {
     /**
      * Partner region information for the failover group.
      */
-    readonly partnerRegions: outputs.sql.v20200801preview.PartnerRegionInfoResponse[];
+    readonly partnerRegions: outputs.sql.v20200801preview.PartnerRegionInfoInvokeResponse[];
     /**
      * Read-only endpoint of the failover group instance.
      */
-    readonly readOnlyEndpoint?: outputs.sql.v20200801preview.InstanceFailoverGroupReadOnlyEndpointResponse;
+    readonly readOnlyEndpoint?: outputs.sql.v20200801preview.InstanceFailoverGroupReadOnlyEndpointInvokeResponse;
     /**
      * Read-write endpoint of the failover group instance.
      */
-    readonly readWriteEndpoint: outputs.sql.v20200801preview.InstanceFailoverGroupReadWriteEndpointResponse;
+    readonly readWriteEndpoint: outputs.sql.v20200801preview.InstanceFailoverGroupReadWriteEndpointInvokeResponse;
     /**
      * Local replication role of the failover group instance.
      */

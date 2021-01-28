@@ -53,7 +53,7 @@ export interface GetRoleDefinitionResult {
     /**
      * Role definition permissions.
      */
-    readonly permissions?: outputs.authorization.v20180101preview.PermissionResponse[];
+    readonly permissions?: outputs.authorization.v20180101preview.PermissionInvokeResponse[];
     /**
      * The role name.
      */

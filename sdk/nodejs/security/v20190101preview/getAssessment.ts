@@ -54,7 +54,7 @@ export interface GetAssessmentResult {
     /**
      * Links relevant to the assessment
      */
-    readonly links: outputs.security.v20190101preview.AssessmentLinksResponse;
+    readonly links: outputs.security.v20190101preview.AssessmentLinksInvokeResponse;
     /**
      * Resource name
      */
@@ -62,11 +62,11 @@ export interface GetAssessmentResult {
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: outputs.security.v20190101preview.AzureResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseResourceDetailsResponse | outputs.security.v20190101preview.OnPremiseSqlResourceDetailsResponse;
+    readonly resourceDetails: outputs.security.v20190101preview.AzureResourceDetailsInvokeResponse | outputs.security.v20190101preview.OnPremiseResourceDetailsInvokeResponse | outputs.security.v20190101preview.OnPremiseSqlResourceDetailsInvokeResponse;
     /**
      * The result of the assessment
      */
-    readonly status: outputs.security.v20190101preview.AssessmentStatusResponse;
+    readonly status: outputs.security.v20190101preview.AssessmentStatusInvokeResponse;
     /**
      * Resource type
      */

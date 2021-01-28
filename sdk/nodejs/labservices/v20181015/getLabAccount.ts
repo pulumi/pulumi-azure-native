@@ -50,7 +50,7 @@ export interface GetLabAccountResult {
     /**
      * The details of the latest operation. ex: status, error
      */
-    readonly latestOperationResult: outputs.labservices.v20181015.LatestOperationResultResponse;
+    readonly latestOperationResult: outputs.labservices.v20181015.LatestOperationResultInvokeResponse;
     /**
      * The location of the resource.
      */
@@ -66,7 +66,7 @@ export interface GetLabAccountResult {
     /**
      * Represents the size configuration under the lab account
      */
-    readonly sizeConfiguration: outputs.labservices.v20181015.SizeConfigurationPropertiesResponse;
+    readonly sizeConfiguration: outputs.labservices.v20181015.SizeConfigurationPropertiesInvokeResponse;
     /**
      * The tags of the resource.
      */

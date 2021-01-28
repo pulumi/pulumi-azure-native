@@ -46,11 +46,11 @@ export interface GetRemediationAtManagementGroupResult {
     /**
      * The deployment status summary for all deployments created by the remediation.
      */
-    readonly deploymentStatus: outputs.policyinsights.v20190701.RemediationDeploymentSummaryResponse;
+    readonly deploymentStatus: outputs.policyinsights.v20190701.RemediationDeploymentSummaryInvokeResponse;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    readonly filters?: outputs.policyinsights.v20190701.RemediationFiltersResponse;
+    readonly filters?: outputs.policyinsights.v20190701.RemediationFiltersInvokeResponse;
     /**
      * The ID of the remediation.
      */

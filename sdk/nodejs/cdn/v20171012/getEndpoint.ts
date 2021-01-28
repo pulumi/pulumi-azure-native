@@ -46,11 +46,11 @@ export interface GetEndpointResult {
     /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    readonly deliveryPolicy?: outputs.cdn.v20171012.EndpointPropertiesUpdateParametersResponseDeliveryPolicy;
+    readonly deliveryPolicy?: outputs.cdn.v20171012.EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy;
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
-    readonly geoFilters?: outputs.cdn.v20171012.GeoFilterResponse[];
+    readonly geoFilters?: outputs.cdn.v20171012.GeoFilterInvokeResponse[];
     /**
      * The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
      */
@@ -94,7 +94,7 @@ export interface GetEndpointResult {
     /**
      * The source of the content being delivered via CDN.
      */
-    readonly origins: outputs.cdn.v20171012.DeepCreatedOriginResponse[];
+    readonly origins: outputs.cdn.v20171012.DeepCreatedOriginInvokeResponse[];
     /**
      * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
      */

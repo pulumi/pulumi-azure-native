@@ -45,7 +45,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: outputs.eventhub.v20180101preview.EncryptionResponse;
+    readonly encryption?: outputs.eventhub.v20180101preview.EncryptionInvokeResponse;
     /**
      * Resource ID.
      */
@@ -53,7 +53,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: outputs.eventhub.v20180101preview.IdentityResponse;
+    readonly identity?: outputs.eventhub.v20180101preview.IdentityInvokeResponse;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -89,7 +89,7 @@ export interface GetNamespaceResult {
     /**
      * Properties of sku resource
      */
-    readonly sku?: outputs.eventhub.v20180101preview.SkuResponse;
+    readonly sku?: outputs.eventhub.v20180101preview.SkuInvokeResponse;
     /**
      * Resource tags.
      */

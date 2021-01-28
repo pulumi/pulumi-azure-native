@@ -47,7 +47,7 @@ export interface GetServiceResult {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly correlationScheme?: outputs.servicefabric.v20170701preview.ServiceCorrelationDescriptionResponse[];
+    readonly correlationScheme?: outputs.servicefabric.v20170701preview.ServiceCorrelationDescriptionInvokeResponse[];
     /**
      * Specifies the move cost for the service.
      */
@@ -67,7 +67,7 @@ export interface GetServiceResult {
     /**
      * Describes how the service is partitioned.
      */
-    readonly partitionDescription?: outputs.servicefabric.v20170701preview.NamedPartitionSchemeDescriptionResponse | outputs.servicefabric.v20170701preview.SingletonPartitionSchemeDescriptionResponse | outputs.servicefabric.v20170701preview.UniformInt64RangePartitionSchemeDescriptionResponse;
+    readonly partitionDescription?: outputs.servicefabric.v20170701preview.NamedPartitionSchemeDescriptionInvokeResponse | outputs.servicefabric.v20170701preview.SingletonPartitionSchemeDescriptionInvokeResponse | outputs.servicefabric.v20170701preview.UniformInt64RangePartitionSchemeDescriptionInvokeResponse;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */
@@ -83,11 +83,11 @@ export interface GetServiceResult {
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
-    readonly serviceLoadMetrics?: outputs.servicefabric.v20170701preview.ServiceLoadMetricDescriptionResponse[];
+    readonly serviceLoadMetrics?: outputs.servicefabric.v20170701preview.ServiceLoadMetricDescriptionInvokeResponse[];
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly servicePlacementPolicies?: outputs.servicefabric.v20170701preview.ServicePlacementPolicyDescriptionResponse[];
+    readonly servicePlacementPolicies?: outputs.servicefabric.v20170701preview.ServicePlacementPolicyDescriptionInvokeResponse[];
     /**
      * The name of the service type
      */

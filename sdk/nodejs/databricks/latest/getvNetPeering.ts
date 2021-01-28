@@ -54,11 +54,11 @@ export interface GetvNetPeeringResult {
     /**
      * The reference to the databricks virtual network address space.
      */
-    readonly databricksAddressSpace?: outputs.databricks.latest.AddressSpaceResponse;
+    readonly databricksAddressSpace?: outputs.databricks.latest.AddressSpaceInvokeResponse;
     /**
      *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    readonly databricksVirtualNetwork?: outputs.databricks.latest.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork;
+    readonly databricksVirtualNetwork?: outputs.databricks.latest.VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetwork;
     /**
      * Resource ID.
      */
@@ -78,11 +78,11 @@ export interface GetvNetPeeringResult {
     /**
      * The reference to the remote virtual network address space.
      */
-    readonly remoteAddressSpace?: outputs.databricks.latest.AddressSpaceResponse;
+    readonly remoteAddressSpace?: outputs.databricks.latest.AddressSpaceInvokeResponse;
     /**
      *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    readonly remoteVirtualNetwork: outputs.databricks.latest.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork;
+    readonly remoteVirtualNetwork: outputs.databricks.latest.VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetwork;
     /**
      * type of the virtual network peering resource
      */

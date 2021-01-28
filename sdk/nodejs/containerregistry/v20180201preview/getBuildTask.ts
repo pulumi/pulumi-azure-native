@@ -62,7 +62,7 @@ export interface GetBuildTaskResult {
     /**
      * The platform properties against which the build has to happen.
      */
-    readonly platform: outputs.containerregistry.v20180201preview.PlatformPropertiesResponse;
+    readonly platform: outputs.containerregistry.v20180201preview.PlatformPropertiesInvokeResponse;
     /**
      * The provisioning state of the build task.
      */
@@ -70,7 +70,7 @@ export interface GetBuildTaskResult {
     /**
      * The properties that describes the source(code) for the build task.
      */
-    readonly sourceRepository: outputs.containerregistry.v20180201preview.SourceRepositoryPropertiesResponse;
+    readonly sourceRepository: outputs.containerregistry.v20180201preview.SourceRepositoryPropertiesInvokeResponse;
     /**
      * The current status of build task.
      */

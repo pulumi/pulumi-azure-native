@@ -37,7 +37,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
     /**
      * controller details
      */
-    readonly controllerDetails?: outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse;
+    readonly controllerDetails?: outputs.delegatednetwork.v20200808preview.ControllerDetailsInvokeResponse;
     /**
      * An identifier that represents the resource.
      */
@@ -61,7 +61,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
     /**
      * orchestrator details
      */
-    readonly subnetDetails?: outputs.delegatednetwork.v20200808preview.SubnetDetailsResponse;
+    readonly subnetDetails?: outputs.delegatednetwork.v20200808preview.SubnetDetailsInvokeResponse;
     /**
      * The resource tags.
      */

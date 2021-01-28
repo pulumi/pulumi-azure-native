@@ -42,7 +42,7 @@ export interface GetDedicatedHostGroupResult {
     /**
      * A list of references to all dedicated hosts in the dedicated host group.
      */
-    readonly hosts: outputs.compute.v20200601.SubResourceReadOnlyResponse[];
+    readonly hosts: outputs.compute.v20200601.SubResourceReadOnlyInvokeResponse[];
     /**
      * Resource Id
      */
@@ -50,7 +50,7 @@ export interface GetDedicatedHostGroupResult {
     /**
      * The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
      */
-    readonly instanceView: outputs.compute.v20200601.DedicatedHostGroupInstanceViewResponse;
+    readonly instanceView: outputs.compute.v20200601.DedicatedHostGroupInstanceViewInvokeResponse;
     /**
      * Resource location
      */

@@ -54,7 +54,7 @@ export interface GetDataFlowResult {
     /**
      * Data flow properties.
      */
-    readonly properties: outputs.datafactory.v20180601.MappingDataFlowResponse;
+    readonly properties: outputs.datafactory.v20180601.MappingDataFlowInvokeResponse;
     /**
      * The resource type.
      */

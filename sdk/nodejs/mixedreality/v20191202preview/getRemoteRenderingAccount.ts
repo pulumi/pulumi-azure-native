@@ -49,7 +49,7 @@ export interface GetRemoteRenderingAccountResult {
     /**
      * The identity associated with this account
      */
-    readonly identity?: outputs.mixedreality.v20191202preview.IdentityResponse;
+    readonly identity?: outputs.mixedreality.v20191202preview.IdentityInvokeResponse;
     /**
      * The geo-location where the resource lives
      */

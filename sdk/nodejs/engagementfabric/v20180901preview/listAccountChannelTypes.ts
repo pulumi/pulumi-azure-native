@@ -37,5 +37,5 @@ export interface ListAccountChannelTypesResult {
     /**
      * Channel descriptions
      */
-    readonly value?: outputs.engagementfabric.v20180901preview.ChannelTypeDescriptionResponse[];
+    readonly value?: outputs.engagementfabric.v20180901preview.ChannelTypeDescriptionInvokeResponse[];
 }

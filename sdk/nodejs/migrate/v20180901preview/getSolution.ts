@@ -54,7 +54,7 @@ export interface GetSolutionResult {
     /**
      * Gets or sets the properties of the solution.
      */
-    readonly properties: outputs.migrate.v20180901preview.SolutionPropertiesResponse;
+    readonly properties: outputs.migrate.v20180901preview.SolutionPropertiesInvokeResponse;
     /**
      * Gets the type of this REST resource.
      */

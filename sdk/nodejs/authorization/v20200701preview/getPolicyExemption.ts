@@ -73,7 +73,7 @@ export interface GetPolicyExemptionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.authorization.v20200701preview.SystemDataResponse;
+    readonly systemData: outputs.authorization.v20200701preview.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

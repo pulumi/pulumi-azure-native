@@ -37,11 +37,11 @@ export interface GetVpnGatewayResult {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: outputs.network.v20200801.BgpSettingsResponse;
+    readonly bgpSettings?: outputs.network.v20200801.BgpSettingsInvokeResponse;
     /**
      * List of all vpn connections to the gateway.
      */
-    readonly connections?: outputs.network.v20200801.VpnConnectionResponse[];
+    readonly connections?: outputs.network.v20200801.VpnConnectionInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -53,7 +53,7 @@ export interface GetVpnGatewayResult {
     /**
      * List of all IPs configured on the gateway.
      */
-    readonly ipConfigurations: outputs.network.v20200801.VpnGatewayIpConfigurationResponse[];
+    readonly ipConfigurations: outputs.network.v20200801.VpnGatewayIpConfigurationInvokeResponse[];
     /**
      * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
      */
@@ -69,7 +69,7 @@ export interface GetVpnGatewayResult {
     /**
      * List of all the nat Rules associated with the gateway.
      */
-    readonly natRules?: outputs.network.v20200801.VpnGatewayNatRuleResponse[];
+    readonly natRules?: outputs.network.v20200801.VpnGatewayNatRuleInvokeResponse[];
     /**
      * The provisioning state of the VPN gateway resource.
      */
@@ -85,7 +85,7 @@ export interface GetVpnGatewayResult {
     /**
      * The VirtualHub to which the gateway belongs.
      */
-    readonly virtualHub?: outputs.network.v20200801.SubResourceResponse;
+    readonly virtualHub?: outputs.network.v20200801.SubResourceInvokeResponse;
     /**
      * The scale unit for this vpn gateway.
      */

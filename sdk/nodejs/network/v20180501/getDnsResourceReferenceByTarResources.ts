@@ -23,7 +23,7 @@ export interface GetDnsResourceReferenceByTarResourcesArgs {
     /**
      * A list of references to azure resources for which referencing dns records need to be queried.
      */
-    readonly targetResources?: inputs.network.v20180501.SubResource[];
+    readonly targetResources?: inputs.network.v20180501.SubResourceInvoke[];
 }
 
 /**
@@ -33,5 +33,5 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
     /**
      * The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
      */
-    readonly dnsResourceReferences?: outputs.network.v20180501.DnsResourceReferenceResponse[];
+    readonly dnsResourceReferences?: outputs.network.v20180501.DnsResourceReferenceInvokeResponse[];
 }

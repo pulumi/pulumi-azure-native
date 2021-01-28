@@ -56,11 +56,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The Private Endpoint resource for this Connection.
      */
-    readonly privateEndpoint?: outputs.eventgrid.v20200601.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.eventgrid.v20200601.PrivateEndpointInvokeResponse;
     /**
      * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.eventgrid.v20200601.ConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.eventgrid.v20200601.ConnectionStateInvokeResponse;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */

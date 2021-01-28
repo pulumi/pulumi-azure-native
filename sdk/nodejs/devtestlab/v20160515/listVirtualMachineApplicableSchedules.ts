@@ -46,11 +46,11 @@ export interface ListVirtualMachineApplicableSchedulesResult {
     /**
      * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
      */
-    readonly labVmsShutdown?: outputs.devtestlab.v20160515.ScheduleResponse;
+    readonly labVmsShutdown?: outputs.devtestlab.v20160515.ScheduleInvokeResponse;
     /**
      * The auto-startup schedule, if one has been set at the lab or lab resource level.
      */
-    readonly labVmsStartup?: outputs.devtestlab.v20160515.ScheduleResponse;
+    readonly labVmsStartup?: outputs.devtestlab.v20160515.ScheduleInvokeResponse;
     /**
      * The location of the resource.
      */

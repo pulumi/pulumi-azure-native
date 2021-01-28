@@ -42,7 +42,7 @@ export interface GetFileServicePropertiesResult {
     /**
      * Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
      */
-    readonly cors?: outputs.storage.v20200801preview.CorsRulesResponse;
+    readonly cors?: outputs.storage.v20200801preview.CorsRulesInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -54,15 +54,15 @@ export interface GetFileServicePropertiesResult {
     /**
      * Protocol settings for file service
      */
-    readonly protocolSettings?: outputs.storage.v20200801preview.ProtocolSettingsResponse;
+    readonly protocolSettings?: outputs.storage.v20200801preview.ProtocolSettingsInvokeResponse;
     /**
      * The file service properties for share soft delete.
      */
-    readonly shareDeleteRetentionPolicy?: outputs.storage.v20200801preview.DeleteRetentionPolicyResponse;
+    readonly shareDeleteRetentionPolicy?: outputs.storage.v20200801preview.DeleteRetentionPolicyInvokeResponse;
     /**
      * Sku name and tier.
      */
-    readonly sku: outputs.storage.v20200801preview.SkuResponse;
+    readonly sku: outputs.storage.v20200801preview.SkuInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

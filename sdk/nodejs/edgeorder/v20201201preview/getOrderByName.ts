@@ -37,7 +37,7 @@ export interface GetOrderByNameResult {
     /**
      * Represents shipping and return address for order
      */
-    readonly addressDetails: outputs.edgeorder.v20201201preview.AddressDetailsResponse;
+    readonly addressDetails: outputs.edgeorder.v20201201preview.AddressDetailsInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -57,7 +57,7 @@ export interface GetOrderByNameResult {
     /**
      * Represents order details.
      */
-    readonly orderDetails: outputs.edgeorder.v20201201preview.OrderDetailsResponse;
+    readonly orderDetails: outputs.edgeorder.v20201201preview.OrderDetailsInvokeResponse;
     /**
      * Start time of order
      */
@@ -65,7 +65,7 @@ export interface GetOrderByNameResult {
     /**
      * Represents resource creation and update time
      */
-    readonly systemData: outputs.edgeorder.v20201201preview.SystemDataResponse;
+    readonly systemData: outputs.edgeorder.v20201201preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

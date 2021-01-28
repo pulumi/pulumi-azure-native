@@ -37,11 +37,11 @@ export interface GetWorkspaceResult {
     /**
      * The workspace provider authorizations.
      */
-    readonly authorizations?: outputs.databricks.latest.WorkspaceProviderAuthorizationResponse[];
+    readonly authorizations?: outputs.databricks.latest.WorkspaceProviderAuthorizationInvokeResponse[];
     /**
      * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
      */
-    readonly createdBy?: outputs.databricks.latest.CreatedByResponse;
+    readonly createdBy?: outputs.databricks.latest.CreatedByInvokeResponse;
     /**
      * Specifies the date and time when the workspace is created.
      */
@@ -65,7 +65,7 @@ export interface GetWorkspaceResult {
     /**
      * The workspace's custom parameters.
      */
-    readonly parameters?: outputs.databricks.latest.WorkspaceCustomParametersResponse;
+    readonly parameters?: outputs.databricks.latest.WorkspaceCustomParametersInvokeResponse;
     /**
      * The workspace provisioning state.
      */
@@ -73,11 +73,11 @@ export interface GetWorkspaceResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.databricks.latest.SkuResponse;
+    readonly sku?: outputs.databricks.latest.SkuInvokeResponse;
     /**
      * The details of Managed Identity of Storage Account
      */
-    readonly storageAccountIdentity?: outputs.databricks.latest.ManagedIdentityConfigurationResponse;
+    readonly storageAccountIdentity?: outputs.databricks.latest.ManagedIdentityConfigurationInvokeResponse;
     /**
      * Resource tags.
      */
@@ -93,7 +93,7 @@ export interface GetWorkspaceResult {
     /**
      * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
      */
-    readonly updatedBy?: outputs.databricks.latest.CreatedByResponse;
+    readonly updatedBy?: outputs.databricks.latest.CreatedByInvokeResponse;
     /**
      * The unique identifier of the databricks workspace in databricks control plane.
      */

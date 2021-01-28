@@ -45,7 +45,7 @@ export interface GetVirtualHubResult {
     /**
      * list of all vnet connections with this VirtualHub.
      */
-    readonly hubVirtualNetworkConnections?: outputs.network.v20180701.HubVirtualNetworkConnectionResponse[];
+    readonly hubVirtualNetworkConnections?: outputs.network.v20180701.HubVirtualNetworkConnectionInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -73,5 +73,5 @@ export interface GetVirtualHubResult {
     /**
      * The VirtualWAN to which the VirtualHub belongs
      */
-    readonly virtualWan?: outputs.network.v20180701.SubResourceResponse;
+    readonly virtualWan?: outputs.network.v20180701.SubResourceInvokeResponse;
 }

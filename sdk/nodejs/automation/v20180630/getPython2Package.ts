@@ -46,7 +46,7 @@ export interface GetPython2PackageResult {
     /**
      * Gets or sets the contentLink of the module.
      */
-    readonly contentLink?: outputs.automation.v20180630.ContentLinkResponse;
+    readonly contentLink?: outputs.automation.v20180630.ContentLinkInvokeResponse;
     /**
      * Gets or sets the creation time.
      */
@@ -58,7 +58,7 @@ export interface GetPython2PackageResult {
     /**
      * Gets or sets the error info of the module.
      */
-    readonly error?: outputs.automation.v20180630.ModuleErrorInfoResponse;
+    readonly error?: outputs.automation.v20180630.ModuleErrorInfoInvokeResponse;
     /**
      * Gets or sets the etag of the resource.
      */

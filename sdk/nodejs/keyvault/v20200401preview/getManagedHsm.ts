@@ -49,11 +49,11 @@ export interface GetManagedHsmResult {
     /**
      * Properties of the managed HSM
      */
-    readonly properties: outputs.keyvault.v20200401preview.ManagedHsmPropertiesResponse;
+    readonly properties: outputs.keyvault.v20200401preview.ManagedHsmPropertiesInvokeResponse;
     /**
      * SKU details
      */
-    readonly sku?: outputs.keyvault.v20200401preview.ManagedHsmSkuResponse;
+    readonly sku?: outputs.keyvault.v20200401preview.ManagedHsmSkuInvokeResponse;
     /**
      * Resource tags
      */

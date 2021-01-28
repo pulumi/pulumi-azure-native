@@ -37,15 +37,15 @@ export interface GetApiManagementServiceResult {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: outputs.apimanagement.latest.AdditionalLocationResponse[];
+    readonly additionalLocations?: outputs.apimanagement.latest.AdditionalLocationInvokeResponse[];
     /**
      * Control Plane Apis version constraint for the API Management service.
      */
-    readonly apiVersionConstraint?: outputs.apimanagement.latest.ApiVersionConstraintResponse;
+    readonly apiVersionConstraint?: outputs.apimanagement.latest.ApiVersionConstraintInvokeResponse;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
-    readonly certificates?: outputs.apimanagement.latest.CertificateConfigurationResponse[];
+    readonly certificates?: outputs.apimanagement.latest.CertificateConfigurationInvokeResponse[];
     /**
      * Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
@@ -81,7 +81,7 @@ export interface GetApiManagementServiceResult {
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: outputs.apimanagement.latest.HostnameConfigurationResponse[];
+    readonly hostnameConfigurations?: outputs.apimanagement.latest.HostnameConfigurationInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -89,7 +89,7 @@ export interface GetApiManagementServiceResult {
     /**
      * Managed service identity of the Api Management service.
      */
-    readonly identity?: outputs.apimanagement.latest.ApiManagementServiceIdentityResponse;
+    readonly identity?: outputs.apimanagement.latest.ApiManagementServiceIdentityInvokeResponse;
     /**
      * Resource location.
      */
@@ -137,7 +137,7 @@ export interface GetApiManagementServiceResult {
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: outputs.apimanagement.latest.ApiManagementServiceSkuPropertiesResponse;
+    readonly sku: outputs.apimanagement.latest.ApiManagementServiceSkuPropertiesInvokeResponse;
     /**
      * Resource tags.
      */
@@ -153,7 +153,7 @@ export interface GetApiManagementServiceResult {
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly virtualNetworkConfiguration?: outputs.apimanagement.latest.VirtualNetworkConfigurationResponse;
+    readonly virtualNetworkConfiguration?: outputs.apimanagement.latest.VirtualNetworkConfigurationInvokeResponse;
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */

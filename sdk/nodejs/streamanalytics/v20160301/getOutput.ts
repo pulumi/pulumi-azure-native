@@ -42,11 +42,11 @@ export interface GetOutputResult {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: outputs.streamanalytics.v20160301.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.v20160301.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.v20160301.AzureTableOutputDataSourceResponse | outputs.streamanalytics.v20160301.BlobOutputDataSourceResponse | outputs.streamanalytics.v20160301.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.v20160301.EventHubOutputDataSourceResponse | outputs.streamanalytics.v20160301.PowerBIOutputDataSourceResponse | outputs.streamanalytics.v20160301.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.v20160301.ServiceBusTopicOutputDataSourceResponse;
+    readonly datasource?: outputs.streamanalytics.v20160301.AzureDataLakeStoreOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.AzureSqlDatabaseOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.AzureTableOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.BlobOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.DocumentDbOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.EventHubOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.PowerBIOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.ServiceBusQueueOutputDataSourceInvokeResponse | outputs.streamanalytics.v20160301.ServiceBusTopicOutputDataSourceInvokeResponse;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
-    readonly diagnostics: outputs.streamanalytics.v20160301.DiagnosticsResponse;
+    readonly diagnostics: outputs.streamanalytics.v20160301.DiagnosticsInvokeResponse;
     /**
      * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
@@ -62,7 +62,7 @@ export interface GetOutputResult {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: outputs.streamanalytics.v20160301.AvroSerializationResponse | outputs.streamanalytics.v20160301.CsvSerializationResponse | outputs.streamanalytics.v20160301.JsonSerializationResponse;
+    readonly serialization?: outputs.streamanalytics.v20160301.AvroSerializationInvokeResponse | outputs.streamanalytics.v20160301.CsvSerializationInvokeResponse | outputs.streamanalytics.v20160301.JsonSerializationInvokeResponse;
     /**
      * Resource type
      */

@@ -41,7 +41,7 @@ export interface GetConfigurationStoreResult {
     /**
      * The encryption settings of the configuration store.
      */
-    readonly encryption?: outputs.appconfiguration.v20191101preview.EncryptionPropertiesResponse;
+    readonly encryption?: outputs.appconfiguration.v20191101preview.EncryptionPropertiesInvokeResponse;
     /**
      * The DNS endpoint where the configuration store API will be available.
      */
@@ -53,7 +53,7 @@ export interface GetConfigurationStoreResult {
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: outputs.appconfiguration.v20191101preview.ResourceIdentityResponse;
+    readonly identity?: outputs.appconfiguration.v20191101preview.ResourceIdentityInvokeResponse;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -65,7 +65,7 @@ export interface GetConfigurationStoreResult {
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    readonly privateEndpointConnections: outputs.appconfiguration.v20191101preview.PrivateEndpointConnectionReferenceResponse[];
+    readonly privateEndpointConnections: outputs.appconfiguration.v20191101preview.PrivateEndpointConnectionReferenceInvokeResponse[];
     /**
      * The provisioning state of the configuration store.
      */
@@ -77,7 +77,7 @@ export interface GetConfigurationStoreResult {
     /**
      * The sku of the configuration store.
      */
-    readonly sku: outputs.appconfiguration.v20191101preview.SkuResponse;
+    readonly sku: outputs.appconfiguration.v20191101preview.SkuInvokeResponse;
     /**
      * The tags of the resource.
      */

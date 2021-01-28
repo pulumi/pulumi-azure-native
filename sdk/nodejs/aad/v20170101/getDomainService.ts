@@ -49,7 +49,7 @@ export interface GetDomainServiceResult {
     /**
      * DomainSecurity Settings
      */
-    readonly domainSecuritySettings?: outputs.aad.v20170101.DomainSecuritySettingsResponse;
+    readonly domainSecuritySettings?: outputs.aad.v20170101.DomainSecuritySettingsInvokeResponse;
     /**
      * Resource etag
      */
@@ -61,7 +61,7 @@ export interface GetDomainServiceResult {
     /**
      * List of Domain Health Alerts
      */
-    readonly healthAlerts: outputs.aad.v20170101.HealthAlertResponse[];
+    readonly healthAlerts: outputs.aad.v20170101.HealthAlertInvokeResponse[];
     /**
      * Last domain evaluation run DateTime
      */
@@ -69,7 +69,7 @@ export interface GetDomainServiceResult {
     /**
      * List of Domain Health Monitors
      */
-    readonly healthMonitors: outputs.aad.v20170101.HealthMonitorResponse[];
+    readonly healthMonitors: outputs.aad.v20170101.HealthMonitorInvokeResponse[];
     /**
      * Resource Id
      */
@@ -77,7 +77,7 @@ export interface GetDomainServiceResult {
     /**
      * Secure LDAP Settings
      */
-    readonly ldapsSettings?: outputs.aad.v20170101.LdapsSettingsResponse;
+    readonly ldapsSettings?: outputs.aad.v20170101.LdapsSettingsInvokeResponse;
     /**
      * Resource location
      */
@@ -89,7 +89,7 @@ export interface GetDomainServiceResult {
     /**
      * Notification Settings
      */
-    readonly notificationSettings?: outputs.aad.v20170101.NotificationSettingsResponse;
+    readonly notificationSettings?: outputs.aad.v20170101.NotificationSettingsInvokeResponse;
     /**
      * the current deployment or provisioning state, which only appears in the response.
      */

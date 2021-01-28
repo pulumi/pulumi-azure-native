@@ -59,11 +59,11 @@ export interface GetVolumeResult {
     /**
      * DataProtection type volumes include an object containing details of the replication
      */
-    readonly dataProtection?: outputs.netapp.latest.VolumePropertiesResponseDataProtection;
+    readonly dataProtection?: outputs.netapp.latest.VolumePropertiesInvokeResponseDataProtection;
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: outputs.netapp.latest.VolumePropertiesResponseExportPolicy;
+    readonly exportPolicy?: outputs.netapp.latest.VolumePropertiesInvokeResponseExportPolicy;
     /**
      * Unique FileSystem Identifier.
      */
@@ -87,7 +87,7 @@ export interface GetVolumeResult {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: outputs.netapp.latest.MountTargetPropertiesResponse[];
+    readonly mountTargets?: outputs.netapp.latest.MountTargetPropertiesInvokeResponse[];
     /**
      * Resource name
      */

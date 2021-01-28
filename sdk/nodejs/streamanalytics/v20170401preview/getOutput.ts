@@ -42,11 +42,11 @@ export interface GetOutputResult {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: outputs.streamanalytics.v20170401preview.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.AzureTableOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.BlobOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.EventHubOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.v20170401preview.PowerBIOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.v20170401preview.ServiceBusTopicOutputDataSourceResponse;
+    readonly datasource?: outputs.streamanalytics.v20170401preview.AzureDataLakeStoreOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.AzureFunctionOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.AzureSqlDatabaseOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.AzureSynapseOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.AzureTableOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.BlobOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.DocumentDbOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.EventHubOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.EventHubV2OutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.PowerBIOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.ServiceBusQueueOutputDataSourceInvokeResponse | outputs.streamanalytics.v20170401preview.ServiceBusTopicOutputDataSourceInvokeResponse;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
-    readonly diagnostics: outputs.streamanalytics.v20170401preview.DiagnosticsResponse;
+    readonly diagnostics: outputs.streamanalytics.v20170401preview.DiagnosticsInvokeResponse;
     /**
      * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
@@ -62,7 +62,7 @@ export interface GetOutputResult {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: outputs.streamanalytics.v20170401preview.AvroSerializationResponse | outputs.streamanalytics.v20170401preview.CsvSerializationResponse | outputs.streamanalytics.v20170401preview.CustomClrSerializationResponse | outputs.streamanalytics.v20170401preview.JsonSerializationResponse | outputs.streamanalytics.v20170401preview.ParquetSerializationResponse;
+    readonly serialization?: outputs.streamanalytics.v20170401preview.AvroSerializationInvokeResponse | outputs.streamanalytics.v20170401preview.CsvSerializationInvokeResponse | outputs.streamanalytics.v20170401preview.CustomClrSerializationInvokeResponse | outputs.streamanalytics.v20170401preview.JsonSerializationInvokeResponse | outputs.streamanalytics.v20170401preview.ParquetSerializationInvokeResponse;
     readonly sizeWindow?: number;
     readonly timeWindow?: string;
     /**

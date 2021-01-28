@@ -77,11 +77,11 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: outputs.network.v20181101.IpsecPolicyResponse[];
+    readonly ipsecPolicies?: outputs.network.v20181101.IpsecPolicyInvokeResponse[];
     /**
      * The reference to local network gateway resource.
      */
-    readonly localNetworkGateway2?: outputs.network.v20181101.LocalNetworkGatewayResponse;
+    readonly localNetworkGateway2?: outputs.network.v20181101.LocalNetworkGatewayInvokeResponse;
     /**
      * Resource location.
      */
@@ -93,7 +93,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: outputs.network.v20181101.SubResourceResponse;
+    readonly peer?: outputs.network.v20181101.SubResourceInvokeResponse;
     /**
      * The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -117,7 +117,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * Collection of all tunnels' connection health status.
      */
-    readonly tunnelConnectionStatus: outputs.network.v20181101.TunnelConnectionHealthResponse[];
+    readonly tunnelConnectionStatus: outputs.network.v20181101.TunnelConnectionHealthInvokeResponse[];
     /**
      * Resource type.
      */
@@ -129,9 +129,9 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway1: outputs.network.v20181101.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway1: outputs.network.v20181101.VirtualNetworkGatewayInvokeResponse;
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway2?: outputs.network.v20181101.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway2?: outputs.network.v20181101.VirtualNetworkGatewayInvokeResponse;
 }

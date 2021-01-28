@@ -57,7 +57,7 @@ export interface GetCertificateResult {
     /**
      * Specification for the App Service Environment to use for the certificate.
      */
-    readonly hostingEnvironmentProfile: outputs.web.v20200901.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile: outputs.web.v20200901.HostingEnvironmentProfileInvokeResponse;
     /**
      * Resource Id.
      */
@@ -125,7 +125,7 @@ export interface GetCertificateResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.v20200901.SystemDataResponse;
+    readonly systemData: outputs.web.v20200901.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

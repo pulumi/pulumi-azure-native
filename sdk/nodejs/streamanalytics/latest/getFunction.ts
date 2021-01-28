@@ -50,7 +50,7 @@ export interface GetFunctionResult {
     /**
      * The properties that are associated with a function.
      */
-    readonly properties: outputs.streamanalytics.latest.ScalarFunctionPropertiesResponse;
+    readonly properties: outputs.streamanalytics.latest.ScalarFunctionPropertiesInvokeResponse;
     /**
      * Resource type
      */

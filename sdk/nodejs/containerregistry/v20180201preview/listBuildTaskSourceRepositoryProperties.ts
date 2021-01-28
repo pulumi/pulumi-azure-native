@@ -50,7 +50,7 @@ export interface ListBuildTaskSourceRepositoryPropertiesResult {
     /**
      * The authorization properties for accessing the source code repository.
      */
-    readonly sourceControlAuthProperties?: outputs.containerregistry.v20180201preview.SourceControlAuthInfoResponse;
+    readonly sourceControlAuthProperties?: outputs.containerregistry.v20180201preview.SourceControlAuthInfoInvokeResponse;
     /**
      * The type of source control service.
      */

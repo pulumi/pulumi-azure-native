@@ -46,7 +46,7 @@ export interface GetMonitoringConfigResult {
     /**
      * The metrics configuration details
      */
-    readonly metricConfigurations: outputs.databoxedge.latest.MetricConfigurationResponse[];
+    readonly metricConfigurations: outputs.databoxedge.latest.MetricConfigurationInvokeResponse[];
     /**
      * The object name.
      */

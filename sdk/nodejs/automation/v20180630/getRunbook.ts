@@ -50,7 +50,7 @@ export interface GetRunbookResult {
     /**
      * Gets or sets the draft runbook properties.
      */
-    readonly draft?: outputs.automation.v20180630.RunbookDraftResponse;
+    readonly draft?: outputs.automation.v20180630.RunbookDraftInvokeResponse;
     /**
      * Gets or sets the etag of the resource.
      */
@@ -98,7 +98,7 @@ export interface GetRunbookResult {
     /**
      * Gets or sets the runbook parameters.
      */
-    readonly parameters?: {[key: string]: outputs.automation.v20180630.RunbookParameterResponse};
+    readonly parameters?: {[key: string]: outputs.automation.v20180630.RunbookParameterInvokeResponse};
     /**
      * Gets or sets the provisioning state of the runbook.
      */
@@ -106,7 +106,7 @@ export interface GetRunbookResult {
     /**
      * Gets or sets the published runbook content link.
      */
-    readonly publishContentLink?: outputs.automation.v20180630.ContentLinkResponse;
+    readonly publishContentLink?: outputs.automation.v20180630.ContentLinkInvokeResponse;
     /**
      * Gets or sets the type of the runbook.
      */

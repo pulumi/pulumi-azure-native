@@ -50,7 +50,7 @@ export interface GetDigitalTwinsEndpointResult {
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */
-    readonly properties: outputs.digitaltwins.v20201031.EventGridResponse | outputs.digitaltwins.v20201031.EventHubResponse | outputs.digitaltwins.v20201031.ServiceBusResponse;
+    readonly properties: outputs.digitaltwins.v20201031.EventGridInvokeResponse | outputs.digitaltwins.v20201031.EventHubInvokeResponse | outputs.digitaltwins.v20201031.ServiceBusInvokeResponse;
     /**
      * The resource type.
      */

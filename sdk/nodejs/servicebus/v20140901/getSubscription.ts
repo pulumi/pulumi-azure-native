@@ -55,7 +55,7 @@ export interface GetSubscriptionResult {
     /**
      * Message Count Details.
      */
-    readonly countDetails: outputs.servicebus.v20140901.MessageCountDetailsResponse;
+    readonly countDetails: outputs.servicebus.v20140901.MessageCountDetailsInvokeResponse;
     /**
      * Exact time the message was created.
      */

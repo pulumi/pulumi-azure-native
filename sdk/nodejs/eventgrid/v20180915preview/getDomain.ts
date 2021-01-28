@@ -49,7 +49,7 @@ export interface GetDomainResult {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: outputs.eventgrid.v20180915preview.JsonInputSchemaMappingResponse;
+    readonly inputSchemaMapping?: outputs.eventgrid.v20180915preview.JsonInputSchemaMappingInvokeResponse;
     /**
      * Location of the resource
      */

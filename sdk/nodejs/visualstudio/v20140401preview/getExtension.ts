@@ -54,7 +54,7 @@ export interface GetExtensionResult {
     /**
      * The extension plan that was purchased.
      */
-    readonly plan?: outputs.visualstudio.v20140401preview.ExtensionResourcePlanResponse;
+    readonly plan?: outputs.visualstudio.v20140401preview.ExtensionResourcePlanInvokeResponse;
     /**
      * Resource properties.
      */

@@ -46,5 +46,5 @@ export interface ListScheduleApplicableResult {
     /**
      * Results of the list operation.
      */
-    readonly value?: outputs.devtestlab.latest.ScheduleResponse[];
+    readonly value?: outputs.devtestlab.latest.ScheduleInvokeResponse[];
 }

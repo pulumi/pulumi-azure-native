@@ -54,7 +54,7 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
     /**
      * The set of operations allowed through this Role Definition.
      */
-    readonly permissions?: outputs.documentdb.v20200601preview.PermissionResponse[];
+    readonly permissions?: outputs.documentdb.v20200601preview.PermissionInvokeResponse[];
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */

@@ -59,7 +59,7 @@ export interface GetReplicationRecoveryServicesProviderResult {
     /**
      * Provider properties.
      */
-    readonly properties: outputs.recoveryservices.v20180110.RecoveryServicesProviderPropertiesResponse;
+    readonly properties: outputs.recoveryservices.v20180110.RecoveryServicesProviderPropertiesInvokeResponse;
     /**
      * Resource Type
      */

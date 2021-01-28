@@ -65,7 +65,7 @@ export interface GetServerResult {
     /**
      * List of private endpoint connections on a server
      */
-    readonly privateEndpointConnections: outputs.dbformariadb.latest.ServerPrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.dbformariadb.latest.ServerPrivateEndpointConnectionInvokeResponse[];
     /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
@@ -81,7 +81,7 @@ export interface GetServerResult {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: outputs.dbformariadb.latest.SkuResponse;
+    readonly sku?: outputs.dbformariadb.latest.SkuInvokeResponse;
     /**
      * Enable ssl enforcement or not when connect to server.
      */
@@ -89,7 +89,7 @@ export interface GetServerResult {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: outputs.dbformariadb.latest.StorageProfileResponse;
+    readonly storageProfile?: outputs.dbformariadb.latest.StorageProfileInvokeResponse;
     /**
      * Resource tags.
      */

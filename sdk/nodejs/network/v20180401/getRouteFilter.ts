@@ -58,7 +58,7 @@ export interface GetRouteFilterResult {
     /**
      * A collection of references to express route circuit peerings.
      */
-    readonly peerings?: outputs.network.v20180401.ExpressRouteCircuitPeeringResponse[];
+    readonly peerings?: outputs.network.v20180401.ExpressRouteCircuitPeeringInvokeResponse[];
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
      */
@@ -66,7 +66,7 @@ export interface GetRouteFilterResult {
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: outputs.network.v20180401.RouteFilterRuleResponse[];
+    readonly rules?: outputs.network.v20180401.RouteFilterRuleInvokeResponse[];
     /**
      * Resource tags.
      */

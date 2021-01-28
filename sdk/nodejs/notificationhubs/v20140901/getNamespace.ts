@@ -49,7 +49,7 @@ export interface GetNamespaceResult {
     /**
      * Gets or sets properties of the Namespace.
      */
-    readonly properties: outputs.notificationhubs.v20140901.NamespacePropertiesResponse;
+    readonly properties: outputs.notificationhubs.v20140901.NamespacePropertiesInvokeResponse;
     /**
      * Gets or sets tags of the Namespace.
      */

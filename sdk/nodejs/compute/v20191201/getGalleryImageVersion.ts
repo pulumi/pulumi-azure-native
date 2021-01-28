@@ -68,15 +68,15 @@ export interface GetGalleryImageVersionResult {
     /**
      * The publishing profile of a gallery Image Version.
      */
-    readonly publishingProfile?: outputs.compute.v20191201.GalleryImageVersionPublishingProfileResponse;
+    readonly publishingProfile?: outputs.compute.v20191201.GalleryImageVersionPublishingProfileInvokeResponse;
     /**
      * This is the replication status of the gallery Image Version.
      */
-    readonly replicationStatus: outputs.compute.v20191201.ReplicationStatusResponse;
+    readonly replicationStatus: outputs.compute.v20191201.ReplicationStatusInvokeResponse;
     /**
      * This is the storage profile of a Gallery Image Version.
      */
-    readonly storageProfile: outputs.compute.v20191201.GalleryImageVersionStorageProfileResponse;
+    readonly storageProfile: outputs.compute.v20191201.GalleryImageVersionStorageProfileInvokeResponse;
     /**
      * Resource tags
      */

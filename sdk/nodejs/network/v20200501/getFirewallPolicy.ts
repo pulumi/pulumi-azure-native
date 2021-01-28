@@ -42,15 +42,15 @@ export interface GetFirewallPolicyResult {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: outputs.network.v20200501.SubResourceResponse;
+    readonly basePolicy?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * List of references to Child Firewall Policies.
      */
-    readonly childPolicies: outputs.network.v20200501.SubResourceResponse[];
+    readonly childPolicies: outputs.network.v20200501.SubResourceInvokeResponse[];
     /**
      * DNS Proxy Settings definition.
      */
-    readonly dnsSettings?: outputs.network.v20200501.DnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20200501.DnsSettingsInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -58,7 +58,7 @@ export interface GetFirewallPolicyResult {
     /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
-    readonly firewalls: outputs.network.v20200501.SubResourceResponse[];
+    readonly firewalls: outputs.network.v20200501.SubResourceInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -78,7 +78,7 @@ export interface GetFirewallPolicyResult {
     /**
      * List of references to FirewallPolicyRuleCollectionGroups.
      */
-    readonly ruleCollectionGroups: outputs.network.v20200501.SubResourceResponse[];
+    readonly ruleCollectionGroups: outputs.network.v20200501.SubResourceInvokeResponse[];
     /**
      * Resource tags.
      */
@@ -90,7 +90,7 @@ export interface GetFirewallPolicyResult {
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    readonly threatIntelWhitelist?: outputs.network.v20200501.FirewallPolicyThreatIntelWhitelistResponse;
+    readonly threatIntelWhitelist?: outputs.network.v20200501.FirewallPolicyThreatIntelWhitelistInvokeResponse;
     /**
      * Resource type.
      */

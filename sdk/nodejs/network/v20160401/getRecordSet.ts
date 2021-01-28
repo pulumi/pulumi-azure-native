@@ -47,15 +47,15 @@ export interface GetRecordSetResult {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: outputs.network.v20160401.ARecordResponse[];
+    readonly aRecords?: outputs.network.v20160401.ARecordInvokeResponse[];
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: outputs.network.v20160401.AaaaRecordResponse[];
+    readonly aaaaRecords?: outputs.network.v20160401.AaaaRecordInvokeResponse[];
     /**
      * The CNAME record in the  record set.
      */
-    readonly cnameRecord?: outputs.network.v20160401.CnameRecordResponse;
+    readonly cnameRecord?: outputs.network.v20160401.CnameRecordInvokeResponse;
     /**
      * The etag of the record set.
      */
@@ -75,7 +75,7 @@ export interface GetRecordSetResult {
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: outputs.network.v20160401.MxRecordResponse[];
+    readonly mxRecords?: outputs.network.v20160401.MxRecordInvokeResponse[];
     /**
      * The name of the record set.
      */
@@ -83,19 +83,19 @@ export interface GetRecordSetResult {
     /**
      * The list of NS records in the record set.
      */
-    readonly nsRecords?: outputs.network.v20160401.NsRecordResponse[];
+    readonly nsRecords?: outputs.network.v20160401.NsRecordInvokeResponse[];
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: outputs.network.v20160401.PtrRecordResponse[];
+    readonly ptrRecords?: outputs.network.v20160401.PtrRecordInvokeResponse[];
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: outputs.network.v20160401.SoaRecordResponse;
+    readonly soaRecord?: outputs.network.v20160401.SoaRecordInvokeResponse;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: outputs.network.v20160401.SrvRecordResponse[];
+    readonly srvRecords?: outputs.network.v20160401.SrvRecordInvokeResponse[];
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -103,7 +103,7 @@ export interface GetRecordSetResult {
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: outputs.network.v20160401.TxtRecordResponse[];
+    readonly txtRecords?: outputs.network.v20160401.TxtRecordInvokeResponse[];
     /**
      * The type of the record set.
      */

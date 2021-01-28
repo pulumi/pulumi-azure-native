@@ -54,7 +54,7 @@ export interface GetGroupResult {
     /**
      * Properties of the group.
      */
-    readonly properties: outputs.migrate.v20191001.GroupPropertiesResponse;
+    readonly properties: outputs.migrate.v20191001.GroupPropertiesInvokeResponse;
     /**
      * Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
      */

@@ -55,7 +55,7 @@ export interface GetChapSettingResult {
     /**
      * The chap password.
      */
-    readonly password: outputs.storsimple.latest.AsymmetricEncryptedSecretResponse;
+    readonly password: outputs.storsimple.latest.AsymmetricEncryptedSecretInvokeResponse;
     /**
      * The type.
      */

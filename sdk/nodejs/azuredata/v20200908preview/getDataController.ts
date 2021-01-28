@@ -54,11 +54,11 @@ export interface GetDataControllerResult {
     /**
      * Properties from the on premise data controller
      */
-    readonly onPremiseProperty: outputs.azuredata.v20200908preview.OnPremisePropertyResponse;
+    readonly onPremiseProperty: outputs.azuredata.v20200908preview.OnPremisePropertyInvokeResponse;
     /**
      * Read only system data
      */
-    readonly systemData: outputs.azuredata.v20200908preview.SystemDataResponse;
+    readonly systemData: outputs.azuredata.v20200908preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

@@ -42,7 +42,7 @@ export interface GetLoadBalancerResult {
     /**
      * Collection of backend address pools used by a load balancer.
      */
-    readonly backendAddressPools?: outputs.network.latest.BackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.latest.BackendAddressPoolInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,11 +50,11 @@ export interface GetLoadBalancerResult {
     /**
      * The extended location of the load balancer.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
-    readonly frontendIPConfigurations?: outputs.network.latest.FrontendIPConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.latest.FrontendIPConfigurationInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -62,15 +62,15 @@ export interface GetLoadBalancerResult {
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatPools?: outputs.network.latest.InboundNatPoolResponse[];
+    readonly inboundNatPools?: outputs.network.latest.InboundNatPoolInvokeResponse[];
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatRules?: outputs.network.latest.InboundNatRuleResponse[];
+    readonly inboundNatRules?: outputs.network.latest.InboundNatRuleInvokeResponse[];
     /**
      * Object collection representing the load balancing rules Gets the provisioning.
      */
-    readonly loadBalancingRules?: outputs.network.latest.LoadBalancingRuleResponse[];
+    readonly loadBalancingRules?: outputs.network.latest.LoadBalancingRuleInvokeResponse[];
     /**
      * Resource location.
      */
@@ -82,11 +82,11 @@ export interface GetLoadBalancerResult {
     /**
      * The outbound rules.
      */
-    readonly outboundRules?: outputs.network.latest.OutboundRuleResponse[];
+    readonly outboundRules?: outputs.network.latest.OutboundRuleInvokeResponse[];
     /**
      * Collection of probe objects used in the load balancer.
      */
-    readonly probes?: outputs.network.latest.ProbeResponse[];
+    readonly probes?: outputs.network.latest.ProbeInvokeResponse[];
     /**
      * The provisioning state of the load balancer resource.
      */
@@ -98,7 +98,7 @@ export interface GetLoadBalancerResult {
     /**
      * The load balancer SKU.
      */
-    readonly sku?: outputs.network.latest.LoadBalancerSkuResponse;
+    readonly sku?: outputs.network.latest.LoadBalancerSkuInvokeResponse;
     /**
      * Resource tags.
      */

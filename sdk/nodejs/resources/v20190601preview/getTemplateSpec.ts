@@ -62,7 +62,7 @@ export interface GetTemplateSpecResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.resources.v20190601preview.SystemDataResponse;
+    readonly systemData: outputs.resources.v20190601preview.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */
@@ -74,5 +74,5 @@ export interface GetTemplateSpecResult {
     /**
      * High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
      */
-    readonly versions: {[key: string]: outputs.resources.v20190601preview.TemplateSpecVersionInfoResponse};
+    readonly versions: {[key: string]: outputs.resources.v20190601preview.TemplateSpecVersionInfoInvokeResponse};
 }

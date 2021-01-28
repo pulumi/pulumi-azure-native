@@ -37,11 +37,11 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * A collection of references to application gateways.
      */
-    readonly applicationGateways: outputs.network.v20190801.ApplicationGatewayResponse[];
+    readonly applicationGateways: outputs.network.v20190801.ApplicationGatewayInvokeResponse[];
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: outputs.network.v20190801.WebApplicationFirewallCustomRuleResponse[];
+    readonly customRules?: outputs.network.v20190801.WebApplicationFirewallCustomRuleInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -57,7 +57,7 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * Describes the managedRules structure
      */
-    readonly managedRules: outputs.network.v20190801.ManagedRulesDefinitionResponse;
+    readonly managedRules: outputs.network.v20190801.ManagedRulesDefinitionInvokeResponse;
     /**
      * Resource name.
      */
@@ -65,7 +65,7 @@ export interface GetWebApplicationFirewallPolicyResult {
     /**
      * Describes policySettings for policy.
      */
-    readonly policySettings?: outputs.network.v20190801.PolicySettingsResponse;
+    readonly policySettings?: outputs.network.v20190801.PolicySettingsInvokeResponse;
     /**
      * The provisioning state of the web application firewall policy resource.
      */

@@ -37,15 +37,15 @@ export interface GetApplicationGatewayResult {
     /**
      * Authentication certificates of the application gateway resource.
      */
-    readonly authenticationCertificates?: outputs.network.v20170301.ApplicationGatewayAuthenticationCertificateResponse[];
+    readonly authenticationCertificates?: outputs.network.v20170301.ApplicationGatewayAuthenticationCertificateInvokeResponse[];
     /**
      * Backend address pool of the application gateway resource.
      */
-    readonly backendAddressPools?: outputs.network.v20170301.ApplicationGatewayBackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.v20170301.ApplicationGatewayBackendAddressPoolInvokeResponse[];
     /**
      * Backend http settings of the application gateway resource.
      */
-    readonly backendHttpSettingsCollection?: outputs.network.v20170301.ApplicationGatewayBackendHttpSettingsResponse[];
+    readonly backendHttpSettingsCollection?: outputs.network.v20170301.ApplicationGatewayBackendHttpSettingsInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -53,19 +53,19 @@ export interface GetApplicationGatewayResult {
     /**
      * Frontend IP addresses of the application gateway resource.
      */
-    readonly frontendIPConfigurations?: outputs.network.v20170301.ApplicationGatewayFrontendIPConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.v20170301.ApplicationGatewayFrontendIPConfigurationInvokeResponse[];
     /**
      * Frontend ports of the application gateway resource.
      */
-    readonly frontendPorts?: outputs.network.v20170301.ApplicationGatewayFrontendPortResponse[];
+    readonly frontendPorts?: outputs.network.v20170301.ApplicationGatewayFrontendPortInvokeResponse[];
     /**
      * Subnets of application the gateway resource.
      */
-    readonly gatewayIPConfigurations?: outputs.network.v20170301.ApplicationGatewayIPConfigurationResponse[];
+    readonly gatewayIPConfigurations?: outputs.network.v20170301.ApplicationGatewayIPConfigurationInvokeResponse[];
     /**
      * Http listeners of the application gateway resource.
      */
-    readonly httpListeners?: outputs.network.v20170301.ApplicationGatewayHttpListenerResponse[];
+    readonly httpListeners?: outputs.network.v20170301.ApplicationGatewayHttpListenerInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -85,7 +85,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Probes of the application gateway resource.
      */
-    readonly probes?: outputs.network.v20170301.ApplicationGatewayProbeResponse[];
+    readonly probes?: outputs.network.v20170301.ApplicationGatewayProbeInvokeResponse[];
     /**
      * Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -93,7 +93,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Request routing rules of the application gateway resource.
      */
-    readonly requestRoutingRules?: outputs.network.v20170301.ApplicationGatewayRequestRoutingRuleResponse[];
+    readonly requestRoutingRules?: outputs.network.v20170301.ApplicationGatewayRequestRoutingRuleInvokeResponse[];
     /**
      * Resource GUID property of the application gateway resource.
      */
@@ -101,15 +101,15 @@ export interface GetApplicationGatewayResult {
     /**
      * SKU of the application gateway resource.
      */
-    readonly sku?: outputs.network.v20170301.ApplicationGatewaySkuResponse;
+    readonly sku?: outputs.network.v20170301.ApplicationGatewaySkuInvokeResponse;
     /**
      * SSL certificates of the application gateway resource.
      */
-    readonly sslCertificates?: outputs.network.v20170301.ApplicationGatewaySslCertificateResponse[];
+    readonly sslCertificates?: outputs.network.v20170301.ApplicationGatewaySslCertificateInvokeResponse[];
     /**
      * SSL policy of the application gateway resource.
      */
-    readonly sslPolicy?: outputs.network.v20170301.ApplicationGatewaySslPolicyResponse;
+    readonly sslPolicy?: outputs.network.v20170301.ApplicationGatewaySslPolicyInvokeResponse;
     /**
      * Resource tags.
      */
@@ -121,9 +121,9 @@ export interface GetApplicationGatewayResult {
     /**
      * URL path map of the application gateway resource.
      */
-    readonly urlPathMaps?: outputs.network.v20170301.ApplicationGatewayUrlPathMapResponse[];
+    readonly urlPathMaps?: outputs.network.v20170301.ApplicationGatewayUrlPathMapInvokeResponse[];
     /**
      * Web application firewall configuration.
      */
-    readonly webApplicationFirewallConfiguration?: outputs.network.v20170301.ApplicationGatewayWebApplicationFirewallConfigurationResponse;
+    readonly webApplicationFirewallConfiguration?: outputs.network.v20170301.ApplicationGatewayWebApplicationFirewallConfigurationInvokeResponse;
 }

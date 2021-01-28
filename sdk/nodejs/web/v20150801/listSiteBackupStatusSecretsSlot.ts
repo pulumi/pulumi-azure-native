@@ -38,11 +38,11 @@ export interface ListSiteBackupStatusSecretsSlotArgs {
     /**
      * Schedule for the backup if it is executed periodically
      */
-    readonly backupSchedule?: inputs.web.v20150801.BackupSchedule;
+    readonly backupSchedule?: inputs.web.v20150801.BackupScheduleInvoke;
     /**
      * Databases included in the backup
      */
-    readonly databases?: inputs.web.v20150801.DatabaseBackupSetting[];
+    readonly databases?: inputs.web.v20150801.DatabaseBackupSettingInvoke[];
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
      */
@@ -104,7 +104,7 @@ export interface ListSiteBackupStatusSecretsSlotResult {
     /**
      * List of databases included in the backup
      */
-    readonly databases?: outputs.web.v20150801.DatabaseBackupSettingResponse[];
+    readonly databases?: outputs.web.v20150801.DatabaseBackupSettingInvokeResponse[];
     /**
      * Timestamp when this backup finished.
      */

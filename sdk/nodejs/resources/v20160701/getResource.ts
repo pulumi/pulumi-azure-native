@@ -56,7 +56,7 @@ export interface GetResourceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.resources.v20160701.IdentityResponse;
+    readonly identity?: outputs.resources.v20160701.IdentityInvokeResponse;
     /**
      * The kind of the resource.
      */
@@ -76,7 +76,7 @@ export interface GetResourceResult {
     /**
      * The plan of the resource.
      */
-    readonly plan?: outputs.resources.v20160701.PlanResponse;
+    readonly plan?: outputs.resources.v20160701.PlanInvokeResponse;
     /**
      * The resource properties.
      */
@@ -84,7 +84,7 @@ export interface GetResourceResult {
     /**
      * The sku of the resource.
      */
-    readonly sku?: outputs.resources.v20160701.SkuResponse;
+    readonly sku?: outputs.resources.v20160701.SkuInvokeResponse;
     /**
      * Resource tags
      */

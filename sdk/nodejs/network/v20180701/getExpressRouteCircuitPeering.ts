@@ -46,7 +46,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The list of circuit connections associated with Azure Private Peering for this circuit.
      */
-    readonly connections?: outputs.network.v20180701.ExpressRouteCircuitConnectionResponse[];
+    readonly connections?: outputs.network.v20180701.ExpressRouteCircuitConnectionInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -62,7 +62,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: outputs.network.v20180701.Ipv6ExpressRouteCircuitPeeringConfigResponse;
+    readonly ipv6PeeringConfig?: outputs.network.v20180701.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets whether the provider or the customer last modified the peering.
      */
@@ -70,7 +70,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: outputs.network.v20180701.ExpressRouteCircuitPeeringConfigResponse;
+    readonly microsoftPeeringConfig?: outputs.network.v20180701.ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -98,7 +98,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The reference of the RouteFilter resource.
      */
-    readonly routeFilter?: outputs.network.v20180701.RouteFilterResponse;
+    readonly routeFilter?: outputs.network.v20180701.RouteFilterInvokeResponse;
     /**
      * The secondary port.
      */
@@ -118,7 +118,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets peering stats.
      */
-    readonly stats?: outputs.network.v20180701.ExpressRouteCircuitStatsResponse;
+    readonly stats?: outputs.network.v20180701.ExpressRouteCircuitStatsInvokeResponse;
     /**
      * The VLAN ID.
      */

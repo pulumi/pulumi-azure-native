@@ -66,7 +66,7 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
     /**
      * Api error
      */
-    readonly error: outputs.compute.v20171201.ApiErrorResponse;
+    readonly error: outputs.compute.v20171201.ApiErrorInvokeResponse;
     /**
      * Operation ID
      */
@@ -74,7 +74,7 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
     /**
      * LogAnalyticsOutput
      */
-    readonly properties: outputs.compute.v20171201.LogAnalyticsOutputResponse;
+    readonly properties: outputs.compute.v20171201.LogAnalyticsOutputInvokeResponse;
     /**
      * Start time of the operation
      */

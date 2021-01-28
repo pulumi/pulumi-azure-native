@@ -46,7 +46,7 @@ export interface GetModuleResult {
     /**
      * Gets or sets the contentLink of the module.
      */
-    readonly contentLink?: outputs.automation.v20151031.ContentLinkResponse;
+    readonly contentLink?: outputs.automation.v20151031.ContentLinkInvokeResponse;
     /**
      * Gets or sets the creation time.
      */
@@ -58,7 +58,7 @@ export interface GetModuleResult {
     /**
      * Gets or sets the error info of the module.
      */
-    readonly error?: outputs.automation.v20151031.ModuleErrorInfoResponse;
+    readonly error?: outputs.automation.v20151031.ModuleErrorInfoInvokeResponse;
     /**
      * Gets or sets the etag of the resource.
      */

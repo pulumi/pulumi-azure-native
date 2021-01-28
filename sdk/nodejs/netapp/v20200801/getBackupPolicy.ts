@@ -78,7 +78,7 @@ export interface GetBackupPolicyResult {
     /**
      * A list of volumes assigned to this policy
      */
-    readonly volumeBackups?: outputs.netapp.v20200801.VolumeBackupsResponse[];
+    readonly volumeBackups?: outputs.netapp.v20200801.VolumeBackupsInvokeResponse[];
     /**
      * Volumes using current backup policy
      */

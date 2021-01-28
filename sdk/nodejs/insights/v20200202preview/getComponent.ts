@@ -105,7 +105,7 @@ export interface GetComponentResult {
     /**
      * List of linked private link scope resources.
      */
-    readonly privateLinkScopedResources: outputs.insights.v20200202preview.PrivateLinkScopedResourceResponse[];
+    readonly privateLinkScopedResources: outputs.insights.v20200202preview.PrivateLinkScopedResourceInvokeResponse[];
     /**
      * Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */

@@ -61,7 +61,7 @@ export interface GetRegistryResult {
     /**
      * The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
      */
-    readonly storageAccount: outputs.containerregistry.v20160627preview.StorageAccountPropertiesResponse;
+    readonly storageAccount: outputs.containerregistry.v20160627preview.StorageAccountPropertiesInvokeResponse;
     /**
      * The tags of the resource.
      */

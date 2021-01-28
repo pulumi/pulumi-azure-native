@@ -49,7 +49,7 @@ export interface GetHostingEnvironmentResult {
     /**
      * Custom settings for changing the behavior of the hosting environment
      */
-    readonly clusterSettings?: outputs.web.v20150801.NameValuePairResponse[];
+    readonly clusterSettings?: outputs.web.v20150801.NameValuePairInvokeResponse[];
     /**
      * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
      */
@@ -65,7 +65,7 @@ export interface GetHostingEnvironmentResult {
     /**
      * Current total, used, and available worker capacities
      */
-    readonly environmentCapacities?: outputs.web.v20150801.StampCapacityResponse[];
+    readonly environmentCapacities?: outputs.web.v20150801.StampCapacityInvokeResponse[];
     /**
      * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
      */
@@ -121,7 +121,7 @@ export interface GetHostingEnvironmentResult {
     /**
      * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
      */
-    readonly networkAccessControlList?: outputs.web.v20150801.NetworkAccessControlEntryResponse[];
+    readonly networkAccessControlList?: outputs.web.v20150801.NetworkAccessControlEntryInvokeResponse[];
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
@@ -158,11 +158,11 @@ export interface GetHostingEnvironmentResult {
     /**
      * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
      */
-    readonly vipMappings?: outputs.web.v20150801.VirtualIPMappingResponse[];
+    readonly vipMappings?: outputs.web.v20150801.VirtualIPMappingInvokeResponse[];
     /**
      * Description of the hostingEnvironment's (App Service Environment) virtual network
      */
-    readonly virtualNetwork?: outputs.web.v20150801.VirtualNetworkProfileResponse;
+    readonly virtualNetwork?: outputs.web.v20150801.VirtualNetworkProfileInvokeResponse;
     /**
      * Name of the hostingEnvironment's (App Service Environment) virtual network
      */
@@ -178,5 +178,5 @@ export interface GetHostingEnvironmentResult {
     /**
      * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
      */
-    readonly workerPools?: outputs.web.v20150801.WorkerPoolResponse[];
+    readonly workerPools?: outputs.web.v20150801.WorkerPoolInvokeResponse[];
 }

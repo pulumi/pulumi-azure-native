@@ -62,11 +62,11 @@ export interface ListChannelWithKeysResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.v20180712.DirectLineChannelResponse | outputs.botservice.v20180712.EmailChannelResponse | outputs.botservice.v20180712.FacebookChannelResponse | outputs.botservice.v20180712.KikChannelResponse | outputs.botservice.v20180712.MsTeamsChannelResponse | outputs.botservice.v20180712.SkypeChannelResponse | outputs.botservice.v20180712.SlackChannelResponse | outputs.botservice.v20180712.SmsChannelResponse | outputs.botservice.v20180712.TelegramChannelResponse | outputs.botservice.v20180712.WebChatChannelResponse;
+    readonly properties: outputs.botservice.v20180712.DirectLineChannelInvokeResponse | outputs.botservice.v20180712.EmailChannelInvokeResponse | outputs.botservice.v20180712.FacebookChannelInvokeResponse | outputs.botservice.v20180712.KikChannelInvokeResponse | outputs.botservice.v20180712.MsTeamsChannelInvokeResponse | outputs.botservice.v20180712.SkypeChannelInvokeResponse | outputs.botservice.v20180712.SlackChannelInvokeResponse | outputs.botservice.v20180712.SmsChannelInvokeResponse | outputs.botservice.v20180712.TelegramChannelInvokeResponse | outputs.botservice.v20180712.WebChatChannelInvokeResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: outputs.botservice.v20180712.SkuResponse;
+    readonly sku?: outputs.botservice.v20180712.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

@@ -37,19 +37,19 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
     /**
      * Application logs configuration.
      */
-    readonly applicationLogs?: outputs.web.v20180201.ApplicationLogsConfigResponse;
+    readonly applicationLogs?: outputs.web.v20180201.ApplicationLogsConfigInvokeResponse;
     /**
      * Detailed error messages configuration.
      */
-    readonly detailedErrorMessages?: outputs.web.v20180201.EnabledConfigResponse;
+    readonly detailedErrorMessages?: outputs.web.v20180201.EnabledConfigInvokeResponse;
     /**
      * Failed requests tracing configuration.
      */
-    readonly failedRequestsTracing?: outputs.web.v20180201.EnabledConfigResponse;
+    readonly failedRequestsTracing?: outputs.web.v20180201.EnabledConfigInvokeResponse;
     /**
      * HTTP logs configuration.
      */
-    readonly httpLogs?: outputs.web.v20180201.HttpLogsConfigResponse;
+    readonly httpLogs?: outputs.web.v20180201.HttpLogsConfigInvokeResponse;
     /**
      * Resource Id.
      */

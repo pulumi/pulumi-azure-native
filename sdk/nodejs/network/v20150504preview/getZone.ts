@@ -53,7 +53,7 @@ export interface GetZoneResult {
     /**
      * Gets or sets the properties of the zone.
      */
-    readonly properties: outputs.network.v20150504preview.ZonePropertiesResponse;
+    readonly properties: outputs.network.v20150504preview.ZonePropertiesInvokeResponse;
     /**
      * Resource tags.
      */

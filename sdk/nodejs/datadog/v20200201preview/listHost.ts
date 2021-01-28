@@ -41,5 +41,5 @@ export interface ListHostResult {
     /**
      * Results of a list operation.
      */
-    readonly value?: outputs.datadog.v20200201preview.DatadogHostResponse[];
+    readonly value?: outputs.datadog.v20200201preview.DatadogHostInvokeResponse[];
 }

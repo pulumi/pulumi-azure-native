@@ -61,7 +61,7 @@ export interface GetHybridUseBenefitResult {
     /**
      * Hybrid use benefit SKU
      */
-    readonly sku: outputs.softwareplan.v20191201.SkuResponse;
+    readonly sku: outputs.softwareplan.v20191201.SkuInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

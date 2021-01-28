@@ -37,7 +37,7 @@ export interface GetSignalRResult {
     /**
      * Cross-Origin Resource Sharing (CORS) settings.
      */
-    readonly cors?: outputs.signalrservice.v20181001.SignalRCorsSettingsResponse;
+    readonly cors?: outputs.signalrservice.v20181001.SignalRCorsSettingsInvokeResponse;
     /**
      * The publicly accessible IP of the SignalR service.
      */
@@ -50,7 +50,7 @@ export interface GetSignalRResult {
      * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
-    readonly features?: outputs.signalrservice.v20181001.SignalRFeatureResponse[];
+    readonly features?: outputs.signalrservice.v20181001.SignalRFeatureInvokeResponse[];
     /**
      * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
      */
@@ -87,7 +87,7 @@ export interface GetSignalRResult {
     /**
      * SKU of the service.
      */
-    readonly sku?: outputs.signalrservice.v20181001.ResourceSkuResponse;
+    readonly sku?: outputs.signalrservice.v20181001.ResourceSkuInvokeResponse;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */

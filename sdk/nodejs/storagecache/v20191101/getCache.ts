@@ -41,7 +41,7 @@ export interface GetCacheResult {
     /**
      * Health of the Cache.
      */
-    readonly health: outputs.storagecache.v20191101.CacheHealthResponse;
+    readonly health: outputs.storagecache.v20191101.CacheHealthInvokeResponse;
     /**
      * Resource ID of the Cache.
      */
@@ -65,7 +65,7 @@ export interface GetCacheResult {
     /**
      * SKU for the Cache.
      */
-    readonly sku?: outputs.storagecache.v20191101.CacheResponseSku;
+    readonly sku?: outputs.storagecache.v20191101.CacheInvokeResponseSku;
     /**
      * Subnet used for the Cache.
      */
@@ -81,5 +81,5 @@ export interface GetCacheResult {
     /**
      * Upgrade status of the Cache.
      */
-    readonly upgradeStatus?: outputs.storagecache.v20191101.CacheUpgradeStatusResponse;
+    readonly upgradeStatus?: outputs.storagecache.v20191101.CacheUpgradeStatusInvokeResponse;
 }

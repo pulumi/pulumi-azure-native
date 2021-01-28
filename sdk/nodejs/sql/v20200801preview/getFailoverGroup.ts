@@ -58,15 +58,15 @@ export interface GetFailoverGroupResult {
     /**
      * List of partner server information for the failover group.
      */
-    readonly partnerServers: outputs.sql.v20200801preview.PartnerInfoResponse[];
+    readonly partnerServers: outputs.sql.v20200801preview.PartnerInfoInvokeResponse[];
     /**
      * Read-only endpoint of the failover group instance.
      */
-    readonly readOnlyEndpoint?: outputs.sql.v20200801preview.FailoverGroupReadOnlyEndpointResponse;
+    readonly readOnlyEndpoint?: outputs.sql.v20200801preview.FailoverGroupReadOnlyEndpointInvokeResponse;
     /**
      * Read-write endpoint of the failover group instance.
      */
-    readonly readWriteEndpoint: outputs.sql.v20200801preview.FailoverGroupReadWriteEndpointResponse;
+    readonly readWriteEndpoint: outputs.sql.v20200801preview.FailoverGroupReadWriteEndpointInvokeResponse;
     /**
      * Local replication role of the failover group instance.
      */

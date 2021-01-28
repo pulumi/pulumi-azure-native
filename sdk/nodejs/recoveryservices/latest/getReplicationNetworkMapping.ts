@@ -64,7 +64,7 @@ export interface GetReplicationNetworkMappingResult {
     /**
      * The Network Mapping Properties.
      */
-    readonly properties: outputs.recoveryservices.latest.NetworkMappingPropertiesResponse;
+    readonly properties: outputs.recoveryservices.latest.NetworkMappingPropertiesInvokeResponse;
     /**
      * Resource Type
      */

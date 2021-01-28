@@ -61,7 +61,7 @@ export interface GetPolicyDefinitionAtManagementGroupResult {
     /**
      * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    readonly parameters?: {[key: string]: outputs.authorization.latest.ParameterDefinitionsValueResponse};
+    readonly parameters?: {[key: string]: outputs.authorization.latest.ParameterDefinitionsValueInvokeResponse};
     /**
      * The policy rule.
      */

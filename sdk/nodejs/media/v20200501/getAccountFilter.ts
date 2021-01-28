@@ -42,7 +42,7 @@ export interface GetAccountFilterResult {
     /**
      * The first quality.
      */
-    readonly firstQuality?: outputs.media.v20200501.FirstQualityResponse;
+    readonly firstQuality?: outputs.media.v20200501.FirstQualityInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -54,11 +54,11 @@ export interface GetAccountFilterResult {
     /**
      * The presentation time range.
      */
-    readonly presentationTimeRange?: outputs.media.v20200501.PresentationTimeRangeResponse;
+    readonly presentationTimeRange?: outputs.media.v20200501.PresentationTimeRangeInvokeResponse;
     /**
      * The tracks selection conditions.
      */
-    readonly tracks?: outputs.media.v20200501.FilterTrackSelectionResponse[];
+    readonly tracks?: outputs.media.v20200501.FilterTrackSelectionInvokeResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -82,7 +82,7 @@ export interface GetDscConfigurationResult {
     /**
      * Gets or sets the configuration parameters.
      */
-    readonly parameters?: {[key: string]: outputs.automation.v20151031.DscConfigurationParameterResponse};
+    readonly parameters?: {[key: string]: outputs.automation.v20151031.DscConfigurationParameterInvokeResponse};
     /**
      * Gets or sets the provisioning state of the configuration.
      */
@@ -90,7 +90,7 @@ export interface GetDscConfigurationResult {
     /**
      * Gets or sets the source.
      */
-    readonly source?: outputs.automation.v20151031.ContentSourceResponse;
+    readonly source?: outputs.automation.v20151031.ContentSourceInvokeResponse;
     /**
      * Gets or sets the state of the configuration.
      */

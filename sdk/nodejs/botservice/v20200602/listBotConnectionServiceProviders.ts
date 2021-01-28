@@ -32,5 +32,5 @@ export interface ListBotConnectionServiceProvidersResult {
     /**
      * Gets the list of bot service providers and their properties.
      */
-    readonly value: outputs.botservice.v20200602.ServiceProviderResponse[];
+    readonly value: outputs.botservice.v20200602.ServiceProviderInvokeResponse[];
 }

@@ -53,7 +53,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.sql.v20150501preview.ResourceIdentityResponse;
+    readonly identity?: outputs.sql.v20150501preview.ResourceIdentityInvokeResponse;
     /**
      * Kind of sql server. This is metadata used for the Azure portal experience.
      */

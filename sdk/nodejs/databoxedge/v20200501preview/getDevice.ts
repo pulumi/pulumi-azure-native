@@ -105,7 +105,7 @@ export interface GetDeviceResult {
     /**
      * The SKU type.
      */
-    readonly sku?: outputs.databoxedge.v20200501preview.SkuResponse;
+    readonly sku?: outputs.databoxedge.v20200501preview.SkuInvokeResponse;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

@@ -64,7 +64,7 @@ export interface GetTaskResult {
     /**
      * Custom task properties
      */
-    readonly properties: outputs.datamigration.v20180315preview.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.v20180315preview.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.v20180315preview.ConnectToTargetSqlMITaskPropertiesResponse | outputs.datamigration.v20180315preview.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.v20180315preview.MigrateSqlServerSqlDbTaskPropertiesResponse | outputs.datamigration.v20180315preview.MigrateSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.v20180315preview.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse;
+    readonly properties: outputs.datamigration.v20180315preview.ConnectToSourceSqlServerTaskPropertiesInvokeResponse | outputs.datamigration.v20180315preview.ConnectToTargetSqlDbTaskPropertiesInvokeResponse | outputs.datamigration.v20180315preview.ConnectToTargetSqlMITaskPropertiesInvokeResponse | outputs.datamigration.v20180315preview.GetUserTablesSqlTaskPropertiesInvokeResponse | outputs.datamigration.v20180315preview.MigrateSqlServerSqlDbTaskPropertiesInvokeResponse | outputs.datamigration.v20180315preview.MigrateSqlServerSqlMITaskPropertiesInvokeResponse | outputs.datamigration.v20180315preview.ValidateMigrationInputSqlServerSqlMITaskPropertiesInvokeResponse;
     /**
      * Resource type.
      */

@@ -37,7 +37,7 @@ export interface GetApiManagementServiceResult {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: outputs.apimanagement.v20160707.AdditionalRegionResponse[];
+    readonly additionalLocations?: outputs.apimanagement.v20160707.AdditionalRegionInvokeResponse[];
     /**
      * Addresser email.
      */
@@ -57,7 +57,7 @@ export interface GetApiManagementServiceResult {
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: outputs.apimanagement.v20160707.HostnameConfigurationResponse[];
+    readonly hostnameConfigurations?: outputs.apimanagement.v20160707.HostnameConfigurationInvokeResponse[];
     /**
      * The ID of the created API Management service.
      */
@@ -101,7 +101,7 @@ export interface GetApiManagementServiceResult {
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: outputs.apimanagement.v20160707.ApiManagementServiceSkuPropertiesResponse;
+    readonly sku: outputs.apimanagement.v20160707.ApiManagementServiceSkuPropertiesInvokeResponse;
     /**
      * Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
      */
@@ -125,5 +125,5 @@ export interface GetApiManagementServiceResult {
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly vpnconfiguration?: outputs.apimanagement.v20160707.VirtualNetworkConfigurationResponse;
+    readonly vpnconfiguration?: outputs.apimanagement.v20160707.VirtualNetworkConfigurationInvokeResponse;
 }

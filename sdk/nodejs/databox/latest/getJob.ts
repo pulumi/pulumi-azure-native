@@ -46,7 +46,7 @@ export interface GetJobResult {
     /**
      * Delivery Info of Job.
      */
-    readonly deliveryInfo?: outputs.databox.latest.JobDeliveryInfoResponse;
+    readonly deliveryInfo?: outputs.databox.latest.JobDeliveryInfoInvokeResponse;
     /**
      * Delivery type of Job.
      */
@@ -54,11 +54,11 @@ export interface GetJobResult {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: outputs.databox.latest.DataBoxDiskJobDetailsResponse | outputs.databox.latest.DataBoxHeavyJobDetailsResponse | outputs.databox.latest.DataBoxJobDetailsResponse;
+    readonly details?: outputs.databox.latest.DataBoxDiskJobDetailsInvokeResponse | outputs.databox.latest.DataBoxHeavyJobDetailsInvokeResponse | outputs.databox.latest.DataBoxJobDetailsInvokeResponse;
     /**
      * Top level error for the job.
      */
-    readonly error: outputs.databox.latest.CloudErrorResponse;
+    readonly error: outputs.databox.latest.CloudErrorInvokeResponse;
     /**
      * Id of the object.
      */
@@ -66,7 +66,7 @@ export interface GetJobResult {
     /**
      * Msi identity of the resource
      */
-    readonly identity?: outputs.databox.latest.ResourceIdentityResponse;
+    readonly identity?: outputs.databox.latest.ResourceIdentityInvokeResponse;
     /**
      * Describes whether the job is cancellable or not.
      */
@@ -98,7 +98,7 @@ export interface GetJobResult {
     /**
      * The sku type.
      */
-    readonly sku: outputs.databox.latest.SkuResponse;
+    readonly sku: outputs.databox.latest.SkuInvokeResponse;
     /**
      * Time at which the job was started in UTC ISO 8601 format.
      */

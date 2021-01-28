@@ -54,7 +54,7 @@ export interface GetManagementPolicyResult {
     /**
      * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly policy: outputs.storage.v20200801preview.ManagementPolicySchemaResponse;
+    readonly policy: outputs.storage.v20200801preview.ManagementPolicySchemaInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

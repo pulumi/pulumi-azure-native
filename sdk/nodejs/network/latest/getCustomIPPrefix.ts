@@ -54,7 +54,7 @@ export interface GetCustomIPPrefixResult {
     /**
      * The extended location of the custom IP prefix.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * Resource ID.
      */
@@ -74,7 +74,7 @@ export interface GetCustomIPPrefixResult {
     /**
      * The list of all referenced PublicIpPrefixes.
      */
-    readonly publicIpPrefixes: outputs.network.latest.SubResourceResponse[];
+    readonly publicIpPrefixes: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * The resource GUID property of the custom IP prefix resource.
      */

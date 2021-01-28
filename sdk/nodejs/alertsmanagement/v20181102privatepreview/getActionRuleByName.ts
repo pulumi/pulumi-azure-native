@@ -49,7 +49,7 @@ export interface GetActionRuleByNameResult {
     /**
      * Action rule properties defining scope, conditions, suppression logic for action rule
      */
-    readonly properties: outputs.alertsmanagement.v20181102privatepreview.ActionRulePropertiesResponse;
+    readonly properties: outputs.alertsmanagement.v20181102privatepreview.ActionRulePropertiesInvokeResponse;
     /**
      * Resource tags
      */

@@ -37,5 +37,5 @@ export interface ListManagedClusterUserCredentialsResult {
     /**
      * Base64-encoded Kubernetes configuration file.
      */
-    readonly kubeconfigs: outputs.containerservice.v20191001.CredentialResultResponse[];
+    readonly kubeconfigs: outputs.containerservice.v20191001.CredentialResultInvokeResponse[];
 }

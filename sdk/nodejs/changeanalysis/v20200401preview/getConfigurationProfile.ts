@@ -36,7 +36,7 @@ export interface GetConfigurationProfileResult {
     /**
      * The identity block returned by ARM resource that supports managed identity.
      */
-    readonly identity?: outputs.changeanalysis.v20200401preview.ResourceIdentityResponse;
+    readonly identity?: outputs.changeanalysis.v20200401preview.ResourceIdentityInvokeResponse;
     /**
      * The name of the resource
      */
@@ -44,11 +44,11 @@ export interface GetConfigurationProfileResult {
     /**
      * The properties of a configuration profile.
      */
-    readonly properties: outputs.changeanalysis.v20200401preview.ConfigurationProfileResourcePropertiesResponse;
+    readonly properties: outputs.changeanalysis.v20200401preview.ConfigurationProfileResourcePropertiesInvokeResponse;
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    readonly systemData?: outputs.changeanalysis.v20200401preview.SystemDataResponse;
+    readonly systemData?: outputs.changeanalysis.v20200401preview.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

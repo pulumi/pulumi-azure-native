@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.healthcareapis.latest.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.healthcareapis.latest.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: outputs.healthcareapis.latest.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState: outputs.healthcareapis.latest.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the private endpoint connection resource.
      */
@@ -62,7 +62,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * System metadata for this resource.
      */
-    readonly systemData: outputs.healthcareapis.latest.SystemDataResponse;
+    readonly systemData: outputs.healthcareapis.latest.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

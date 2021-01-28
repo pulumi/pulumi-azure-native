@@ -66,11 +66,11 @@ export interface GetRouteTableResult {
     /**
      * Collection of routes contained within a route table.
      */
-    readonly routes?: outputs.network.v20171001.RouteResponse[];
+    readonly routes?: outputs.network.v20171001.RouteInvokeResponse[];
     /**
      * A collection of references to subnets.
      */
-    readonly subnets: outputs.network.v20171001.SubnetResponse[];
+    readonly subnets: outputs.network.v20171001.SubnetInvokeResponse[];
     /**
      * Resource tags.
      */

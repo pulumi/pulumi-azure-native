@@ -56,7 +56,7 @@ export interface GetPolicyDefinitionResult {
     /**
      * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    readonly parameters?: {[key: string]: outputs.authorization.v20190901.ParameterDefinitionsValueResponse};
+    readonly parameters?: {[key: string]: outputs.authorization.v20190901.ParameterDefinitionsValueInvokeResponse};
     /**
      * The policy rule.
      */

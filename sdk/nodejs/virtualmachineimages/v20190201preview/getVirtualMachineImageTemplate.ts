@@ -34,11 +34,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: outputs.virtualmachineimages.v20190201preview.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateShellCustomizerResponse[];
+    readonly customize?: outputs.virtualmachineimages.v20190201preview.ImageTemplatePowerShellCustomizerInvokeResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateRestartCustomizerInvokeResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateShellCustomizerInvokeResponse[];
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateVhdDistributorResponse[];
+    readonly distribute: outputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageDistributorInvokeResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateSharedImageDistributorInvokeResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateVhdDistributorInvokeResponse[];
     /**
      * Resource Id
      */
@@ -46,7 +46,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * State of 'run' that is currently executing or was last executed.
      */
-    readonly lastRunStatus: outputs.virtualmachineimages.v20190201preview.ImageTemplateLastRunStatusResponse;
+    readonly lastRunStatus: outputs.virtualmachineimages.v20190201preview.ImageTemplateLastRunStatusInvokeResponse;
     /**
      * Resource location
      */
@@ -58,7 +58,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Provisioning error, if any
      */
-    readonly provisioningError: outputs.virtualmachineimages.v20190201preview.ProvisioningErrorResponse;
+    readonly provisioningError: outputs.virtualmachineimages.v20190201preview.ProvisioningErrorInvokeResponse;
     /**
      * Provisioning state of the resource
      */
@@ -66,7 +66,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: outputs.virtualmachineimages.v20190201preview.ImageTemplateIsoSourceResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplatePlatformImageSourceResponse;
+    readonly source: outputs.virtualmachineimages.v20190201preview.ImageTemplateIsoSourceInvokeResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplateManagedImageSourceInvokeResponse | outputs.virtualmachineimages.v20190201preview.ImageTemplatePlatformImageSourceInvokeResponse;
     /**
      * Resource tags
      */

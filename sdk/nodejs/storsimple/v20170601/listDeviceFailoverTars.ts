@@ -47,5 +47,5 @@ export interface ListDeviceFailoverTarsResult {
     /**
      * The list of all the failover targets.
      */
-    readonly value?: outputs.storsimple.v20170601.FailoverTargetResponse[];
+    readonly value?: outputs.storsimple.v20170601.FailoverTargetInvokeResponse[];
 }

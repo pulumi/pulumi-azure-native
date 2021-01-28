@@ -50,7 +50,7 @@ export interface GetNamedValueResult {
     /**
      * KeyVault location details of the namedValue.
      */
-    readonly keyVault?: outputs.apimanagement.v20200601preview.KeyVaultContractPropertiesResponse;
+    readonly keyVault?: outputs.apimanagement.v20200601preview.KeyVaultContractPropertiesInvokeResponse;
     /**
      * Resource name.
      */

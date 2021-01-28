@@ -42,5 +42,5 @@ export interface ListDatabasePrincipalsResult {
     /**
      * The list of Kusto database principals.
      */
-    readonly value?: outputs.kusto.v20200918.DatabasePrincipalResponse[];
+    readonly value?: outputs.kusto.v20200918.DatabasePrincipalInvokeResponse[];
 }

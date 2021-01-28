@@ -57,7 +57,7 @@ export interface ListWebAppSitePushSettingsResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */

@@ -42,7 +42,7 @@ export interface GetSmartDetectorAlertRuleResult {
     /**
      * The alert rule actions.
      */
-    readonly actionGroups: outputs.alertsmanagement.v20190601.ActionGroupsInformationResponse;
+    readonly actionGroups: outputs.alertsmanagement.v20190601.ActionGroupsInformationInvokeResponse;
     /**
      * The alert rule description.
      */
@@ -50,7 +50,7 @@ export interface GetSmartDetectorAlertRuleResult {
     /**
      * The alert rule's detector.
      */
-    readonly detector: outputs.alertsmanagement.v20190601.DetectorResponse;
+    readonly detector: outputs.alertsmanagement.v20190601.DetectorInvokeResponse;
     /**
      * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
      */
@@ -86,7 +86,7 @@ export interface GetSmartDetectorAlertRuleResult {
     /**
      * The alert rule throttling information.
      */
-    readonly throttling?: outputs.alertsmanagement.v20190601.ThrottlingInformationResponse;
+    readonly throttling?: outputs.alertsmanagement.v20190601.ThrottlingInformationInvokeResponse;
     /**
      * The resource type.
      */

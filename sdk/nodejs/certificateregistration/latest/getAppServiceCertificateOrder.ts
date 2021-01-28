@@ -45,7 +45,7 @@ export interface GetAppServiceCertificateOrderResult {
     /**
      * State of the Key Vault secret.
      */
-    readonly certificates?: {[key: string]: outputs.certificateregistration.latest.AppServiceCertificateResponse};
+    readonly certificates?: {[key: string]: outputs.certificateregistration.latest.AppServiceCertificateInvokeResponse};
     /**
      * Last CSR that was created for this order.
      */
@@ -69,7 +69,7 @@ export interface GetAppServiceCertificateOrderResult {
     /**
      * Intermediate certificate.
      */
-    readonly intermediate: outputs.certificateregistration.latest.CertificateDetailsResponse;
+    readonly intermediate: outputs.certificateregistration.latest.CertificateDetailsInvokeResponse;
     /**
      * <code>true</code> if private key is external; otherwise, <code>false</code>.
      */
@@ -109,7 +109,7 @@ export interface GetAppServiceCertificateOrderResult {
     /**
      * Root certificate.
      */
-    readonly root: outputs.certificateregistration.latest.CertificateDetailsResponse;
+    readonly root: outputs.certificateregistration.latest.CertificateDetailsInvokeResponse;
     /**
      * Current serial number of the certificate.
      */
@@ -117,7 +117,7 @@ export interface GetAppServiceCertificateOrderResult {
     /**
      * Signed certificate.
      */
-    readonly signedCertificate: outputs.certificateregistration.latest.CertificateDetailsResponse;
+    readonly signedCertificate: outputs.certificateregistration.latest.CertificateDetailsInvokeResponse;
     /**
      * Current order status.
      */
@@ -125,7 +125,7 @@ export interface GetAppServiceCertificateOrderResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.certificateregistration.latest.SystemDataResponse;
+    readonly systemData: outputs.certificateregistration.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

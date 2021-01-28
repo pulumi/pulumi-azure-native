@@ -57,15 +57,15 @@ export interface GetAvailabilitySetResult {
     /**
      * Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: outputs.compute.v20180401.SubResourceResponse;
+    readonly proximityPlacementGroup?: outputs.compute.v20180401.SubResourceInvokeResponse;
     /**
      * Sku of the availability set
      */
-    readonly sku?: outputs.compute.v20180401.SkuResponse;
+    readonly sku?: outputs.compute.v20180401.SkuInvokeResponse;
     /**
      * The resource status information.
      */
-    readonly statuses: outputs.compute.v20180401.InstanceViewStatusResponse[];
+    readonly statuses: outputs.compute.v20180401.InstanceViewStatusInvokeResponse[];
     /**
      * Resource tags
      */
@@ -77,5 +77,5 @@ export interface GetAvailabilitySetResult {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: outputs.compute.v20180401.SubResourceResponse[];
+    readonly virtualMachines?: outputs.compute.v20180401.SubResourceInvokeResponse[];
 }

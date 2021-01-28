@@ -42,23 +42,23 @@ export interface GetDomainResult {
     /**
      * Legal agreement consent.
      */
-    readonly consent: outputs.domainregistration.v20200601.DomainPurchaseConsentResponse;
+    readonly consent: outputs.domainregistration.v20200601.DomainPurchaseConsentInvokeResponse;
     /**
      * Administrative contact.
      */
-    readonly contactAdmin: outputs.domainregistration.v20200601.ContactResponse;
+    readonly contactAdmin: outputs.domainregistration.v20200601.ContactInvokeResponse;
     /**
      * Billing contact.
      */
-    readonly contactBilling: outputs.domainregistration.v20200601.ContactResponse;
+    readonly contactBilling: outputs.domainregistration.v20200601.ContactInvokeResponse;
     /**
      * Registrant contact.
      */
-    readonly contactRegistrant: outputs.domainregistration.v20200601.ContactResponse;
+    readonly contactRegistrant: outputs.domainregistration.v20200601.ContactInvokeResponse;
     /**
      * Technical contact.
      */
-    readonly contactTech: outputs.domainregistration.v20200601.ContactResponse;
+    readonly contactTech: outputs.domainregistration.v20200601.ContactInvokeResponse;
     /**
      * Domain creation timestamp.
      */
@@ -98,7 +98,7 @@ export interface GetDomainResult {
     /**
      * All hostnames derived from the domain and assigned to Azure resources.
      */
-    readonly managedHostNames: outputs.domainregistration.v20200601.HostNameResponse[];
+    readonly managedHostNames: outputs.domainregistration.v20200601.HostNameInvokeResponse[];
     /**
      * Resource Name.
      */

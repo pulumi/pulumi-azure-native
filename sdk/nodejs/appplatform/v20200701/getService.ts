@@ -49,11 +49,11 @@ export interface GetServiceResult {
     /**
      * Properties of the Service resource
      */
-    readonly properties: outputs.appplatform.v20200701.ClusterResourcePropertiesResponse;
+    readonly properties: outputs.appplatform.v20200701.ClusterResourcePropertiesInvokeResponse;
     /**
      * Sku of the Service resource
      */
-    readonly sku?: outputs.appplatform.v20200701.SkuResponse;
+    readonly sku?: outputs.appplatform.v20200701.SkuInvokeResponse;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */

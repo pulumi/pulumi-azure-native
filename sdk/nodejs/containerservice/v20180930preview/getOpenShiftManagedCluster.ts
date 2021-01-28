@@ -37,11 +37,11 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.v20180930preview.OpenShiftManagedClusterAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.v20180930preview.OpenShiftManagedClusterAgentPoolProfileInvokeResponse[];
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: outputs.containerservice.v20180930preview.OpenShiftManagedClusterAuthProfileResponse;
+    readonly authProfile?: outputs.containerservice.v20180930preview.OpenShiftManagedClusterAuthProfileInvokeResponse;
     /**
      * User-specified FQDN for OpenShift API server loadbalancer internal hostname.
      */
@@ -57,7 +57,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: outputs.containerservice.v20180930preview.OpenShiftManagedClusterMasterPoolProfileResponse;
+    readonly masterPoolProfile?: outputs.containerservice.v20180930preview.OpenShiftManagedClusterMasterPoolProfileInvokeResponse;
     /**
      * Resource name
      */
@@ -65,7 +65,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: outputs.containerservice.v20180930preview.NetworkProfileResponse;
+    readonly networkProfile?: outputs.containerservice.v20180930preview.NetworkProfileInvokeResponse;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -73,7 +73,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: outputs.containerservice.v20180930preview.PurchasePlanResponse;
+    readonly plan?: outputs.containerservice.v20180930preview.PurchasePlanInvokeResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -85,7 +85,7 @@ export interface GetOpenShiftManagedClusterResult {
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: outputs.containerservice.v20180930preview.OpenShiftRouterProfileResponse[];
+    readonly routerProfiles?: outputs.containerservice.v20180930preview.OpenShiftRouterProfileInvokeResponse[];
     /**
      * Resource tags
      */

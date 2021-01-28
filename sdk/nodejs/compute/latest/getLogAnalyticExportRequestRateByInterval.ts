@@ -77,5 +77,5 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
     /**
      * LogAnalyticsOutput
      */
-    readonly properties: outputs.compute.latest.LogAnalyticsOutputResponse;
+    readonly properties: outputs.compute.latest.LogAnalyticsOutputInvokeResponse;
 }

@@ -69,7 +69,7 @@ export interface GetAutomationAccountResult {
     /**
      * Gets or sets the SKU of account.
      */
-    readonly sku?: outputs.automation.v20190601.SkuResponse;
+    readonly sku?: outputs.automation.v20190601.SkuInvokeResponse;
     /**
      * Gets status of account.
      */

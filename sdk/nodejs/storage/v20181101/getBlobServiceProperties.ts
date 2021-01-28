@@ -42,7 +42,7 @@ export interface GetBlobServicePropertiesResult {
     /**
      * Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
      */
-    readonly cors?: outputs.storage.v20181101.CorsRulesResponse;
+    readonly cors?: outputs.storage.v20181101.CorsRulesInvokeResponse;
     /**
      * DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
      */
@@ -50,7 +50,7 @@ export interface GetBlobServicePropertiesResult {
     /**
      * The blob service properties for soft delete.
      */
-    readonly deleteRetentionPolicy?: outputs.storage.v20181101.DeleteRetentionPolicyResponse;
+    readonly deleteRetentionPolicy?: outputs.storage.v20181101.DeleteRetentionPolicyInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

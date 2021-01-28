@@ -42,7 +42,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: outputs.network.v20170601.PublicIPAddressDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20170601.PublicIPAddressDnsSettingsInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -62,7 +62,7 @@ export interface GetPublicIPAddressResult {
     /**
      * The IP configuration associated with the public IP address.
      */
-    readonly ipConfiguration: outputs.network.v20170601.IPConfigurationResponse;
+    readonly ipConfiguration: outputs.network.v20170601.IPConfigurationInvokeResponse;
     /**
      * Resource location.
      */

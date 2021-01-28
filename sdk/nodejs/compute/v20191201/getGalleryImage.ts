@@ -46,7 +46,7 @@ export interface GetGalleryImageResult {
     /**
      * Describes the disallowed disk types.
      */
-    readonly disallowed?: outputs.compute.v20191201.DisallowedResponse;
+    readonly disallowed?: outputs.compute.v20191201.DisallowedInvokeResponse;
     /**
      * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
      */
@@ -66,7 +66,7 @@ export interface GetGalleryImageResult {
     /**
      * This is the gallery Image Definition identifier.
      */
-    readonly identifier: outputs.compute.v20191201.GalleryImageIdentifierResponse;
+    readonly identifier: outputs.compute.v20191201.GalleryImageIdentifierInvokeResponse;
     /**
      * Resource location
      */
@@ -94,11 +94,11 @@ export interface GetGalleryImageResult {
     /**
      * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
      */
-    readonly purchasePlan?: outputs.compute.v20191201.ImagePurchasePlanResponse;
+    readonly purchasePlan?: outputs.compute.v20191201.ImagePurchasePlanInvokeResponse;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    readonly recommended?: outputs.compute.v20191201.RecommendedMachineConfigurationResponse;
+    readonly recommended?: outputs.compute.v20191201.RecommendedMachineConfigurationInvokeResponse;
     /**
      * The release note uri.
      */

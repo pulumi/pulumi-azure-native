@@ -37,5 +37,5 @@ export interface ListClusterLanguageExtensionsResult {
     /**
      * The list of language extensions.
      */
-    readonly value?: outputs.kusto.latest.LanguageExtensionResponse[];
+    readonly value?: outputs.kusto.latest.LanguageExtensionInvokeResponse[];
 }

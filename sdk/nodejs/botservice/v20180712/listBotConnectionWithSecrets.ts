@@ -62,11 +62,11 @@ export interface ListBotConnectionWithSecretsResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.v20180712.ConnectionSettingPropertiesResponse;
+    readonly properties: outputs.botservice.v20180712.ConnectionSettingPropertiesInvokeResponse;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: outputs.botservice.v20180712.SkuResponse;
+    readonly sku?: outputs.botservice.v20180712.SkuInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

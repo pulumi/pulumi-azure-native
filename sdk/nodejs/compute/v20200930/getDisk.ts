@@ -41,7 +41,7 @@ export interface GetDiskResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.v20200930.CreationDataResponse;
+    readonly creationData: outputs.compute.v20200930.CreationDataInvokeResponse;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -77,15 +77,15 @@ export interface GetDiskResult {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: outputs.compute.v20200930.EncryptionResponse;
+    readonly encryption?: outputs.compute.v20200930.EncryptionInvokeResponse;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: outputs.compute.v20200930.EncryptionSettingsCollectionResponse;
+    readonly encryptionSettingsCollection?: outputs.compute.v20200930.EncryptionSettingsCollectionInvokeResponse;
     /**
      * The extended location where the disk will be created. Extended location cannot be changed.
      */
-    readonly extendedLocation?: outputs.compute.v20200930.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.compute.v20200930.ExtendedLocationInvokeResponse;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -129,15 +129,15 @@ export interface GetDiskResult {
     /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
-    readonly purchasePlan?: outputs.compute.v20200930.PurchasePlanResponse;
+    readonly purchasePlan?: outputs.compute.v20200930.PurchasePlanInvokeResponse;
     /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
-    readonly shareInfo: outputs.compute.v20200930.ShareInfoElementResponse[];
+    readonly shareInfo: outputs.compute.v20200930.ShareInfoElementInvokeResponse[];
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: outputs.compute.v20200930.DiskSkuResponse;
+    readonly sku?: outputs.compute.v20200930.DiskSkuInvokeResponse;
     /**
      * Resource tags
      */

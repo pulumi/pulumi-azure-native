@@ -37,15 +37,15 @@ export interface GetOrderResult {
     /**
      * The contact details.
      */
-    readonly contactInformation: outputs.databoxedge.v20190701.ContactDetailsResponse;
+    readonly contactInformation: outputs.databoxedge.v20190701.ContactDetailsInvokeResponse;
     /**
      * Current status of the order.
      */
-    readonly currentStatus?: outputs.databoxedge.v20190701.OrderStatusResponse;
+    readonly currentStatus?: outputs.databoxedge.v20190701.OrderStatusInvokeResponse;
     /**
      * Tracking information for the package delivered to the customer whether it has an original or a replacement device.
      */
-    readonly deliveryTrackingInfo: outputs.databoxedge.v20190701.TrackingInfoResponse[];
+    readonly deliveryTrackingInfo: outputs.databoxedge.v20190701.TrackingInfoInvokeResponse[];
     /**
      * The path ID that uniquely identifies the object.
      */
@@ -57,11 +57,11 @@ export interface GetOrderResult {
     /**
      * List of status changes in the order.
      */
-    readonly orderHistory: outputs.databoxedge.v20190701.OrderStatusResponse[];
+    readonly orderHistory: outputs.databoxedge.v20190701.OrderStatusInvokeResponse[];
     /**
      * Tracking information for the package returned from the customer whether it has an original or a replacement device.
      */
-    readonly returnTrackingInfo: outputs.databoxedge.v20190701.TrackingInfoResponse[];
+    readonly returnTrackingInfo: outputs.databoxedge.v20190701.TrackingInfoInvokeResponse[];
     /**
      * Serial number of the device.
      */
@@ -69,7 +69,7 @@ export interface GetOrderResult {
     /**
      * The shipping address.
      */
-    readonly shippingAddress: outputs.databoxedge.v20190701.AddressResponse;
+    readonly shippingAddress: outputs.databoxedge.v20190701.AddressInvokeResponse;
     /**
      * The hierarchical type of the object.
      */

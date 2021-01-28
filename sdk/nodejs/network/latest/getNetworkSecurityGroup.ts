@@ -42,7 +42,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * The default security rules of network security group.
      */
-    readonly defaultSecurityRules: outputs.network.latest.SecurityRuleResponse[];
+    readonly defaultSecurityRules: outputs.network.latest.SecurityRuleInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,7 +50,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * A collection of references to flow log resources.
      */
-    readonly flowLogs: outputs.network.latest.FlowLogResponse[];
+    readonly flowLogs: outputs.network.latest.FlowLogInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -66,7 +66,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * A collection of references to network interfaces.
      */
-    readonly networkInterfaces: outputs.network.latest.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.latest.NetworkInterfaceInvokeResponse[];
     /**
      * The provisioning state of the network security group resource.
      */
@@ -78,11 +78,11 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * A collection of security rules of the network security group.
      */
-    readonly securityRules?: outputs.network.latest.SecurityRuleResponse[];
+    readonly securityRules?: outputs.network.latest.SecurityRuleInvokeResponse[];
     /**
      * A collection of references to subnets.
      */
-    readonly subnets: outputs.network.latest.SubnetResponse[];
+    readonly subnets: outputs.network.latest.SubnetInvokeResponse[];
     /**
      * Resource tags.
      */

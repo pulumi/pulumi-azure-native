@@ -37,23 +37,23 @@ export interface GetClusterResult {
     /**
      * The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
      */
-    readonly availableClusterVersions: outputs.servicefabric.v20160901.ClusterVersionDetailsResponse[];
+    readonly availableClusterVersions: outputs.servicefabric.v20160901.ClusterVersionDetailsInvokeResponse[];
     /**
      * The settings to enable AAD authentication on the cluster
      */
-    readonly azureActiveDirectory?: outputs.servicefabric.v20160901.AzureActiveDirectoryResponse;
+    readonly azureActiveDirectory?: outputs.servicefabric.v20160901.AzureActiveDirectoryInvokeResponse;
     /**
      * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
      */
-    readonly certificate?: outputs.servicefabric.v20160901.CertificateDescriptionResponse;
+    readonly certificate?: outputs.servicefabric.v20160901.CertificateDescriptionInvokeResponse;
     /**
      *  List of client certificates to whitelist based on common names
      */
-    readonly clientCertificateCommonNames?: outputs.servicefabric.v20160901.ClientCertificateCommonNameResponse[];
+    readonly clientCertificateCommonNames?: outputs.servicefabric.v20160901.ClientCertificateCommonNameInvokeResponse[];
     /**
      * The client thumbprint details ,it is used for client access for cluster operation
      */
-    readonly clientCertificateThumbprints?: outputs.servicefabric.v20160901.ClientCertificateThumbprintResponse[];
+    readonly clientCertificateThumbprints?: outputs.servicefabric.v20160901.ClientCertificateThumbprintInvokeResponse[];
     /**
      * The ServiceFabric code version running in your cluster
      */
@@ -73,11 +73,11 @@ export interface GetClusterResult {
     /**
      * The storage diagnostics account configuration details
      */
-    readonly diagnosticsStorageAccountConfig?: outputs.servicefabric.v20160901.DiagnosticsStorageAccountConfigResponse;
+    readonly diagnosticsStorageAccountConfig?: outputs.servicefabric.v20160901.DiagnosticsStorageAccountConfigInvokeResponse;
     /**
      * List of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: outputs.servicefabric.v20160901.SettingsSectionDescriptionResponse[];
+    readonly fabricSettings?: outputs.servicefabric.v20160901.SettingsSectionDescriptionInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -97,7 +97,7 @@ export interface GetClusterResult {
     /**
      * The list of node types that make up the cluster
      */
-    readonly nodeTypes: outputs.servicefabric.v20160901.NodeTypeDescriptionResponse[];
+    readonly nodeTypes: outputs.servicefabric.v20160901.NodeTypeDescriptionInvokeResponse[];
     /**
      * The provisioning state of the cluster resource
      */
@@ -109,7 +109,7 @@ export interface GetClusterResult {
     /**
      * The server certificate used by reverse proxy
      */
-    readonly reverseProxyCertificate?: outputs.servicefabric.v20160901.CertificateDescriptionResponse;
+    readonly reverseProxyCertificate?: outputs.servicefabric.v20160901.CertificateDescriptionInvokeResponse;
     /**
      * Resource tags.
      */
@@ -121,7 +121,7 @@ export interface GetClusterResult {
     /**
      * The policy to use when upgrading the cluster.
      */
-    readonly upgradeDescription?: outputs.servicefabric.v20160901.ClusterUpgradePolicyResponse;
+    readonly upgradeDescription?: outputs.servicefabric.v20160901.ClusterUpgradePolicyInvokeResponse;
     /**
      * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
      */

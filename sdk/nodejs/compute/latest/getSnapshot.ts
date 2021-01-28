@@ -37,7 +37,7 @@ export interface GetSnapshotResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.latest.CreationDataResponse;
+    readonly creationData: outputs.compute.latest.CreationDataInvokeResponse;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
@@ -57,15 +57,15 @@ export interface GetSnapshotResult {
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: outputs.compute.latest.EncryptionResponse;
+    readonly encryption?: outputs.compute.latest.EncryptionInvokeResponse;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: outputs.compute.latest.EncryptionSettingsCollectionResponse;
+    readonly encryptionSettingsCollection?: outputs.compute.latest.EncryptionSettingsCollectionInvokeResponse;
     /**
      * The extended location where the snapshot will be created. Extended location cannot be changed.
      */
-    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationInvokeResponse;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
@@ -105,11 +105,11 @@ export interface GetSnapshotResult {
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    readonly purchasePlan?: outputs.compute.latest.PurchasePlanResponse;
+    readonly purchasePlan?: outputs.compute.latest.PurchasePlanInvokeResponse;
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
-    readonly sku?: outputs.compute.latest.SnapshotSkuResponse;
+    readonly sku?: outputs.compute.latest.SnapshotSkuInvokeResponse;
     /**
      * Resource tags
      */

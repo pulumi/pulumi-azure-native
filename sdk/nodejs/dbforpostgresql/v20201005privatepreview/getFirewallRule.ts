@@ -58,7 +58,7 @@ export interface GetFirewallRuleResult {
     /**
      * The system metadata relating to this resource
      */
-    readonly systemData: outputs.dbforpostgresql.v20201005privatepreview.SystemDataResponse;
+    readonly systemData: outputs.dbforpostgresql.v20201005privatepreview.SystemDataInvokeResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

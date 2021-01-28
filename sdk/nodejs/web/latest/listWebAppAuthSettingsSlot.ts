@@ -218,7 +218,7 @@ export interface ListWebAppAuthSettingsSlotResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
+    readonly systemData: outputs.web.latest.SystemDataInvokeResponse;
     /**
      * The number of hours after session token expiration that a session token can be used to
      * call the token refresh API. The default is 72 hours.

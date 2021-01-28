@@ -65,7 +65,7 @@ export interface GetServiceResult {
     /**
      * Service SKU
      */
-    readonly sku?: outputs.datamigration.v20180419.ServiceSkuResponse;
+    readonly sku?: outputs.datamigration.v20180419.ServiceSkuInvokeResponse;
     /**
      * Resource tags.
      */

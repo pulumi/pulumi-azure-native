@@ -46,23 +46,23 @@ export interface GetClusterResult {
     /**
      * The Service Fabric runtime versions available for this cluster.
      */
-    readonly availableClusterVersions?: outputs.servicefabric.v20170701preview.ClusterVersionDetailsResponse[];
+    readonly availableClusterVersions?: outputs.servicefabric.v20170701preview.ClusterVersionDetailsInvokeResponse[];
     /**
      * The AAD authentication settings of the cluster.
      */
-    readonly azureActiveDirectory?: outputs.servicefabric.v20170701preview.AzureActiveDirectoryResponse;
+    readonly azureActiveDirectory?: outputs.servicefabric.v20170701preview.AzureActiveDirectoryInvokeResponse;
     /**
      * The certificate to use for securing the cluster. The certificate provided will be used for  node to node security within the cluster, SSL certificate for cluster management endpoint and default  admin client.
      */
-    readonly certificate?: outputs.servicefabric.v20170701preview.CertificateDescriptionResponse;
+    readonly certificate?: outputs.servicefabric.v20170701preview.CertificateDescriptionInvokeResponse;
     /**
      * The list of client certificates referenced by common name that are allowed to manage the cluster.
      */
-    readonly clientCertificateCommonNames?: outputs.servicefabric.v20170701preview.ClientCertificateCommonNameResponse[];
+    readonly clientCertificateCommonNames?: outputs.servicefabric.v20170701preview.ClientCertificateCommonNameInvokeResponse[];
     /**
      * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
      */
-    readonly clientCertificateThumbprints?: outputs.servicefabric.v20170701preview.ClientCertificateThumbprintResponse[];
+    readonly clientCertificateThumbprints?: outputs.servicefabric.v20170701preview.ClientCertificateThumbprintInvokeResponse[];
     /**
      * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
@@ -93,11 +93,11 @@ export interface GetClusterResult {
     /**
      * The storage account information for storing Service Fabric diagnostic logs.
      */
-    readonly diagnosticsStorageAccountConfig?: outputs.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigResponse;
+    readonly diagnosticsStorageAccountConfig?: outputs.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigInvokeResponse;
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: outputs.servicefabric.v20170701preview.SettingsSectionDescriptionResponse[];
+    readonly fabricSettings?: outputs.servicefabric.v20170701preview.SettingsSectionDescriptionInvokeResponse[];
     /**
      * Azure resource ID.
      */
@@ -117,7 +117,7 @@ export interface GetClusterResult {
     /**
      * The list of node types in the cluster.
      */
-    readonly nodeTypes: outputs.servicefabric.v20170701preview.NodeTypeDescriptionResponse[];
+    readonly nodeTypes: outputs.servicefabric.v20170701preview.NodeTypeDescriptionInvokeResponse[];
     /**
      * The provisioning state of the cluster resource.
      */
@@ -135,7 +135,7 @@ export interface GetClusterResult {
     /**
      * The server certificate used by reverse proxy.
      */
-    readonly reverseProxyCertificate?: outputs.servicefabric.v20170701preview.CertificateDescriptionResponse;
+    readonly reverseProxyCertificate?: outputs.servicefabric.v20170701preview.CertificateDescriptionInvokeResponse;
     /**
      * Resource tags.
      */
@@ -147,7 +147,7 @@ export interface GetClusterResult {
     /**
      * The policy to use when upgrading the cluster.
      */
-    readonly upgradeDescription?: outputs.servicefabric.v20170701preview.ClusterUpgradePolicyResponse;
+    readonly upgradeDescription?: outputs.servicefabric.v20170701preview.ClusterUpgradePolicyInvokeResponse;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
      *

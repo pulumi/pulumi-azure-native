@@ -42,5 +42,5 @@ export interface ListDomainRecommendationsResult {
     /**
      * Collection of resources.
      */
-    readonly value: outputs.domainregistration.v20180201.NameIdentifierResponse[];
+    readonly value: outputs.domainregistration.v20180201.NameIdentifierInvokeResponse[];
 }

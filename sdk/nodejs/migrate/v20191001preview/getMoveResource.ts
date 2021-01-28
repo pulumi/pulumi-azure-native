@@ -50,7 +50,7 @@ export interface GetMoveResourceResult {
     /**
      * Defines the move resource properties.
      */
-    readonly properties: outputs.migrate.v20191001preview.MoveResourcePropertiesResponse;
+    readonly properties: outputs.migrate.v20191001preview.MoveResourcePropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

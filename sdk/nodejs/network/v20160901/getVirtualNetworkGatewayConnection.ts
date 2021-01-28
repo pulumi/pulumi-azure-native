@@ -69,7 +69,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * A common class for general resource information
      */
-    readonly localNetworkGateway2?: outputs.network.v20160901.LocalNetworkGatewayResponse;
+    readonly localNetworkGateway2?: outputs.network.v20160901.LocalNetworkGatewayInvokeResponse;
     /**
      * Resource location.
      */
@@ -81,7 +81,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: outputs.network.v20160901.SubResourceResponse;
+    readonly peer?: outputs.network.v20160901.SubResourceInvokeResponse;
     /**
      * The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -105,7 +105,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * Collection of all tunnels' connection health status.
      */
-    readonly tunnelConnectionStatus: outputs.network.v20160901.TunnelConnectionHealthResponse[];
+    readonly tunnelConnectionStatus: outputs.network.v20160901.TunnelConnectionHealthInvokeResponse[];
     /**
      * Resource type.
      */
@@ -113,9 +113,9 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway1: outputs.network.v20160901.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway1: outputs.network.v20160901.VirtualNetworkGatewayInvokeResponse;
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway2?: outputs.network.v20160901.VirtualNetworkGatewayResponse;
+    readonly virtualNetworkGateway2?: outputs.network.v20160901.VirtualNetworkGatewayInvokeResponse;
 }

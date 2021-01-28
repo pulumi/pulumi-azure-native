@@ -41,5 +41,5 @@ export interface ListClusterRemoteLoginInformationResult {
     /**
      * The collection of returned remote login details.
      */
-    readonly value?: outputs.batchai.v20180301.RemoteLoginInformationResponse[];
+    readonly value?: outputs.batchai.v20180301.RemoteLoginInformationInvokeResponse[];
 }

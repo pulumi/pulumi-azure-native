@@ -42,7 +42,7 @@ export interface GetNatRuleResult {
     /**
      * List of egress VpnSiteLinkConnections.
      */
-    readonly egressVpnSiteLinkConnections: outputs.network.latest.SubResourceResponse[];
+    readonly egressVpnSiteLinkConnections: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,7 +50,7 @@ export interface GetNatRuleResult {
     /**
      * The private IP address external mapping for NAT.
      */
-    readonly externalMappings?: outputs.network.latest.VpnNatRuleMappingResponse[];
+    readonly externalMappings?: outputs.network.latest.VpnNatRuleMappingInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -58,11 +58,11 @@ export interface GetNatRuleResult {
     /**
      * List of ingress VpnSiteLinkConnections.
      */
-    readonly ingressVpnSiteLinkConnections: outputs.network.latest.SubResourceResponse[];
+    readonly ingressVpnSiteLinkConnections: outputs.network.latest.SubResourceInvokeResponse[];
     /**
      * The private IP address internal mapping for NAT.
      */
-    readonly internalMappings?: outputs.network.latest.VpnNatRuleMappingResponse[];
+    readonly internalMappings?: outputs.network.latest.VpnNatRuleMappingInvokeResponse[];
     /**
      * The IP Configuration ID this NAT rule applies to.
      */

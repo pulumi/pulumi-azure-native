@@ -58,7 +58,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: outputs.network.v20170601.Ipv6ExpressRouteCircuitPeeringConfigResponse;
+    readonly ipv6PeeringConfig?: outputs.network.v20170601.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets whether the provider or the customer last modified the peering.
      */
@@ -66,7 +66,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: outputs.network.v20170601.ExpressRouteCircuitPeeringConfigResponse;
+    readonly microsoftPeeringConfig?: outputs.network.v20170601.ExpressRouteCircuitPeeringConfigInvokeResponse;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -94,7 +94,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * The reference of the RouteFilter resource.
      */
-    readonly routeFilter?: outputs.network.v20170601.RouteFilterResponse;
+    readonly routeFilter?: outputs.network.v20170601.RouteFilterInvokeResponse;
     /**
      * The secondary port.
      */
@@ -114,7 +114,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets peering stats.
      */
-    readonly stats?: outputs.network.v20170601.ExpressRouteCircuitStatsResponse;
+    readonly stats?: outputs.network.v20170601.ExpressRouteCircuitStatsInvokeResponse;
     /**
      * The VLAN ID.
      */

@@ -37,11 +37,11 @@ export interface GetPolicyResult {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: outputs.cdn.latest.CustomRuleListResponse;
+    readonly customRules?: outputs.cdn.latest.CustomRuleListInvokeResponse;
     /**
      * Describes Azure CDN endpoints associated with this Web Application Firewall policy.
      */
-    readonly endpointLinks: outputs.cdn.latest.CdnEndpointResponse[];
+    readonly endpointLinks: outputs.cdn.latest.CdnEndpointInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -57,7 +57,7 @@ export interface GetPolicyResult {
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: outputs.cdn.latest.ManagedRuleSetListResponse;
+    readonly managedRules?: outputs.cdn.latest.ManagedRuleSetListInvokeResponse;
     /**
      * Resource name.
      */
@@ -65,7 +65,7 @@ export interface GetPolicyResult {
     /**
      * Describes  policySettings for policy
      */
-    readonly policySettings?: outputs.cdn.latest.PolicySettingsResponse;
+    readonly policySettings?: outputs.cdn.latest.PolicySettingsInvokeResponse;
     /**
      * Provisioning state of the WebApplicationFirewallPolicy.
      */
@@ -73,16 +73,16 @@ export interface GetPolicyResult {
     /**
      * Describes rate limit rules inside the policy.
      */
-    readonly rateLimitRules?: outputs.cdn.latest.RateLimitRuleListResponse;
+    readonly rateLimitRules?: outputs.cdn.latest.RateLimitRuleListInvokeResponse;
     readonly resourceState: string;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
-    readonly sku: outputs.cdn.latest.SkuResponse;
+    readonly sku: outputs.cdn.latest.SkuInvokeResponse;
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    readonly systemData: outputs.cdn.latest.SystemDataInvokeResponse;
     /**
      * Resource tags.
      */

@@ -37,7 +37,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * List of additional workspaces
      */
-    readonly additionalWorkspaces?: outputs.security.v20190801.AdditionalWorkspacesPropertiesResponse[];
+    readonly additionalWorkspaces?: outputs.security.v20190801.AdditionalWorkspacesPropertiesInvokeResponse[];
     /**
      * List of resources that were automatically discovered as relevant to the security solution.
      */
@@ -73,7 +73,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * List of the configuration status for each recommendation type.
      */
-    readonly recommendationsConfiguration?: outputs.security.v20190801.RecommendationConfigurationPropertiesResponse[];
+    readonly recommendationsConfiguration?: outputs.security.v20190801.RecommendationConfigurationPropertiesInvokeResponse[];
     /**
      * Status of the IoT Security solution.
      */
@@ -81,7 +81,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.security.v20190801.SystemDataResponse;
+    readonly systemData: outputs.security.v20190801.SystemDataInvokeResponse;
     /**
      * Resource tags
      */
@@ -97,7 +97,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * Properties of the IoT Security solution's user defined resources.
      */
-    readonly userDefinedResources?: outputs.security.v20190801.UserDefinedResourcesPropertiesResponse;
+    readonly userDefinedResources?: outputs.security.v20190801.UserDefinedResourcesPropertiesInvokeResponse;
     /**
      * Workspace resource ID
      */

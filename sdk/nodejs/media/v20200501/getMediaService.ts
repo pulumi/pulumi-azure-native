@@ -37,7 +37,7 @@ export interface GetMediaServiceResult {
     /**
      * The account encryption properties.
      */
-    readonly encryption?: outputs.media.v20200501.AccountEncryptionResponse;
+    readonly encryption?: outputs.media.v20200501.AccountEncryptionInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -45,7 +45,7 @@ export interface GetMediaServiceResult {
     /**
      * The Managed Identity for the Media Services account.
      */
-    readonly identity?: outputs.media.v20200501.MediaServiceIdentityResponse;
+    readonly identity?: outputs.media.v20200501.MediaServiceIdentityInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -61,7 +61,7 @@ export interface GetMediaServiceResult {
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: outputs.media.v20200501.StorageAccountResponse[];
+    readonly storageAccounts?: outputs.media.v20200501.StorageAccountInvokeResponse[];
     readonly storageAuthentication?: string;
     /**
      * Resource tags.

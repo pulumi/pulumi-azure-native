@@ -69,7 +69,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * List of recommendation configuration
      */
-    readonly recommendationsConfiguration?: outputs.security.v20170801preview.RecommendationConfigurationPropertiesResponse[];
+    readonly recommendationsConfiguration?: outputs.security.v20170801preview.RecommendationConfigurationPropertiesInvokeResponse[];
     /**
      * Security solution status
      */
@@ -85,7 +85,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * Properties of the solution's user defined resources.
      */
-    readonly userDefinedResources?: outputs.security.v20170801preview.UserDefinedResourcesPropertiesResponse;
+    readonly userDefinedResources?: outputs.security.v20170801preview.UserDefinedResourcesPropertiesInvokeResponse;
     /**
      * Workspace resource ID
      */

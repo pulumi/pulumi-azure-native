@@ -46,7 +46,7 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: outputs.network.latest.PrivateLinkServicePropertiesResponseAutoApproval;
+    readonly autoApproval?: outputs.network.latest.PrivateLinkServicePropertiesInvokeResponseAutoApproval;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
@@ -58,7 +58,7 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The extended location of the load balancer.
      */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
+    readonly extendedLocation?: outputs.network.latest.ExtendedLocationInvokeResponse;
     /**
      * The list of Fqdn.
      */
@@ -70,11 +70,11 @@ export interface GetPrivateLinkServiceResult {
     /**
      * An array of private link service IP configurations.
      */
-    readonly ipConfigurations?: outputs.network.latest.PrivateLinkServiceIpConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.latest.PrivateLinkServiceIpConfigurationInvokeResponse[];
     /**
      * An array of references to the load balancer IP configurations.
      */
-    readonly loadBalancerFrontendIpConfigurations?: outputs.network.latest.FrontendIPConfigurationResponse[];
+    readonly loadBalancerFrontendIpConfigurations?: outputs.network.latest.FrontendIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -86,11 +86,11 @@ export interface GetPrivateLinkServiceResult {
     /**
      * An array of references to the network interfaces created for this private link service.
      */
-    readonly networkInterfaces: outputs.network.latest.NetworkInterfaceResponse[];
+    readonly networkInterfaces: outputs.network.latest.NetworkInterfaceInvokeResponse[];
     /**
      * An array of list about connections to the private endpoint.
      */
-    readonly privateEndpointConnections: outputs.network.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.network.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The provisioning state of the private link service resource.
      */
@@ -106,5 +106,5 @@ export interface GetPrivateLinkServiceResult {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: outputs.network.latest.PrivateLinkServicePropertiesResponseVisibility;
+    readonly visibility?: outputs.network.latest.PrivateLinkServicePropertiesInvokeResponseVisibility;
 }

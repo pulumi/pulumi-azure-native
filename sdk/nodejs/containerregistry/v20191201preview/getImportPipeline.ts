@@ -46,7 +46,7 @@ export interface GetImportPipelineResult {
     /**
      * The identity of the import pipeline.
      */
-    readonly identity?: outputs.containerregistry.v20191201preview.IdentityPropertiesResponse;
+    readonly identity?: outputs.containerregistry.v20191201preview.IdentityPropertiesInvokeResponse;
     /**
      * The location of the import pipeline.
      */
@@ -66,15 +66,15 @@ export interface GetImportPipelineResult {
     /**
      * The source properties of the import pipeline.
      */
-    readonly source: outputs.containerregistry.v20191201preview.ImportPipelineSourcePropertiesResponse;
+    readonly source: outputs.containerregistry.v20191201preview.ImportPipelineSourcePropertiesInvokeResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataResponse;
+    readonly systemData: outputs.containerregistry.v20191201preview.SystemDataInvokeResponse;
     /**
      * The properties that describe the trigger of the import pipeline.
      */
-    readonly trigger?: outputs.containerregistry.v20191201preview.PipelineTriggerPropertiesResponse;
+    readonly trigger?: outputs.containerregistry.v20191201preview.PipelineTriggerPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

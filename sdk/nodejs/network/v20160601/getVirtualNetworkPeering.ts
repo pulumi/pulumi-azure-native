@@ -74,7 +74,7 @@ export interface GetVirtualNetworkPeeringResult {
     /**
      * Gets or sets the reference of the remote virtual network
      */
-    readonly remoteVirtualNetwork?: outputs.network.v20160601.SubResourceResponse;
+    readonly remoteVirtualNetwork?: outputs.network.v20160601.SubResourceInvokeResponse;
     /**
      * Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */

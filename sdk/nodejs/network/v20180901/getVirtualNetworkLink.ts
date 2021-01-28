@@ -74,7 +74,7 @@ export interface GetVirtualNetworkLinkResult {
     /**
      * The reference of the virtual network.
      */
-    readonly virtualNetwork?: outputs.network.v20180901.SubResourceResponse;
+    readonly virtualNetwork?: outputs.network.v20180901.SubResourceInvokeResponse;
     /**
      * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
      */

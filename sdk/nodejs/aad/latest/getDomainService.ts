@@ -49,7 +49,7 @@ export interface GetDomainServiceResult {
     /**
      * DomainSecurity Settings
      */
-    readonly domainSecuritySettings?: outputs.aad.latest.DomainSecuritySettingsResponse;
+    readonly domainSecuritySettings?: outputs.aad.latest.DomainSecuritySettingsInvokeResponse;
     /**
      * Resource etag
      */
@@ -65,7 +65,7 @@ export interface GetDomainServiceResult {
     /**
      * Secure LDAP Settings
      */
-    readonly ldapsSettings?: outputs.aad.latest.LdapsSettingsResponse;
+    readonly ldapsSettings?: outputs.aad.latest.LdapsSettingsInvokeResponse;
     /**
      * Resource location
      */
@@ -73,7 +73,7 @@ export interface GetDomainServiceResult {
     /**
      * Migration Properties
      */
-    readonly migrationProperties: outputs.aad.latest.MigrationPropertiesResponse;
+    readonly migrationProperties: outputs.aad.latest.MigrationPropertiesInvokeResponse;
     /**
      * Resource name
      */
@@ -81,7 +81,7 @@ export interface GetDomainServiceResult {
     /**
      * Notification Settings
      */
-    readonly notificationSettings?: outputs.aad.latest.NotificationSettingsResponse;
+    readonly notificationSettings?: outputs.aad.latest.NotificationSettingsInvokeResponse;
     /**
      * the current deployment or provisioning state, which only appears in the response.
      */
@@ -89,11 +89,11 @@ export interface GetDomainServiceResult {
     /**
      * List of ReplicaSets
      */
-    readonly replicaSets?: outputs.aad.latest.ReplicaSetResponse[];
+    readonly replicaSets?: outputs.aad.latest.ReplicaSetInvokeResponse[];
     /**
      * Resource Forest Settings
      */
-    readonly resourceForestSettings?: outputs.aad.latest.ResourceForestSettingsResponse;
+    readonly resourceForestSettings?: outputs.aad.latest.ResourceForestSettingsInvokeResponse;
     /**
      * Sku Type
      */

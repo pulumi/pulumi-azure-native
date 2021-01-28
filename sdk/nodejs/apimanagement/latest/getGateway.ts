@@ -50,7 +50,7 @@ export interface GetGatewayResult {
     /**
      * Gateway location.
      */
-    readonly locationData?: outputs.apimanagement.latest.ResourceLocationDataContractResponse;
+    readonly locationData?: outputs.apimanagement.latest.ResourceLocationDataContractInvokeResponse;
     /**
      * Resource name.
      */

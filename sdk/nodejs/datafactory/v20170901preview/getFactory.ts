@@ -45,7 +45,7 @@ export interface GetFactoryResult {
     /**
      * Managed service identity of the factory.
      */
-    readonly identity?: outputs.datafactory.v20170901preview.FactoryIdentityResponse;
+    readonly identity?: outputs.datafactory.v20170901preview.FactoryIdentityInvokeResponse;
     /**
      * The resource location.
      */
@@ -73,5 +73,5 @@ export interface GetFactoryResult {
     /**
      * VSTS repo information of the factory.
      */
-    readonly vstsConfiguration?: outputs.datafactory.v20170901preview.FactoryVSTSConfigurationResponse;
+    readonly vstsConfiguration?: outputs.datafactory.v20170901preview.FactoryVSTSConfigurationInvokeResponse;
 }

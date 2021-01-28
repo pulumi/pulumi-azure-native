@@ -54,7 +54,7 @@ export interface GetReplicationRecoveryPlanResult {
     /**
      * The custom details.
      */
-    readonly properties: outputs.recoveryservices.latest.RecoveryPlanPropertiesResponse;
+    readonly properties: outputs.recoveryservices.latest.RecoveryPlanPropertiesInvokeResponse;
     /**
      * Resource Type
      */

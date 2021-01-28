@@ -47,7 +47,7 @@ export interface GetEndpointResult {
     /**
      * List of custom headers.
      */
-    readonly customHeaders?: outputs.network.v20180301.EndpointPropertiesResponseCustomHeaders[];
+    readonly customHeaders?: outputs.network.v20180301.EndpointPropertiesInvokeResponseCustomHeaders[];
     /**
      * Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
      */

@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The private endpoint information.
      */
-    readonly privateEndpoint?: outputs.purview.v20201201preview.PrivateEndpointResponse;
+    readonly privateEndpoint?: outputs.purview.v20201201preview.PrivateEndpointInvokeResponse;
     /**
      * The private link service connection state.
      */
-    readonly privateLinkServiceConnectionState?: outputs.purview.v20201201preview.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.purview.v20201201preview.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state.
      */

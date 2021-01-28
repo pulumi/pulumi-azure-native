@@ -51,5 +51,5 @@ export interface ListShareSubscriptionSourceShareSynchronizationSettingsResult {
     /**
      * Collection of items of type DataTransferObjects.
      */
-    readonly value: outputs.datashare.v20181101preview.ScheduledSourceSynchronizationSettingResponse[];
+    readonly value: outputs.datashare.v20181101preview.ScheduledSourceSynchronizationSettingInvokeResponse[];
 }

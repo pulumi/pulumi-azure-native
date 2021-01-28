@@ -61,7 +61,7 @@ export interface GetClusterResult {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: outputs.kusto.v20170907privatepreview.AzureSkuResponse;
+    readonly sku: outputs.kusto.v20170907privatepreview.AzureSkuInvokeResponse;
     /**
      * The state of the resource.
      */
@@ -73,7 +73,7 @@ export interface GetClusterResult {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: outputs.kusto.v20170907privatepreview.TrustedExternalTenantResponse[];
+    readonly trustedExternalTenants?: outputs.kusto.v20170907privatepreview.TrustedExternalTenantInvokeResponse[];
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

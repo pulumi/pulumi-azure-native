@@ -40,7 +40,7 @@ export interface GetBudgetResult {
     /**
      * The current amount of cost which is being tracked for a budget.
      */
-    readonly currentSpend: outputs.consumption.v20171230preview.CurrentSpendResponse;
+    readonly currentSpend: outputs.consumption.v20171230preview.CurrentSpendInvokeResponse;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
@@ -56,7 +56,7 @@ export interface GetBudgetResult {
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly notifications?: {[key: string]: outputs.consumption.v20171230preview.NotificationResponse};
+    readonly notifications?: {[key: string]: outputs.consumption.v20171230preview.NotificationInvokeResponse};
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
@@ -64,7 +64,7 @@ export interface GetBudgetResult {
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    readonly timePeriod: outputs.consumption.v20171230preview.BudgetTimePeriodResponse;
+    readonly timePeriod: outputs.consumption.v20171230preview.BudgetTimePeriodInvokeResponse;
     /**
      * Resource type.
      */

@@ -44,7 +44,7 @@ export interface GetDeploymentAtSubscriptionScopeResult {
     /**
      * Deployment properties.
      */
-    readonly properties: outputs.resources.v20190301.DeploymentPropertiesExtendedResponse;
+    readonly properties: outputs.resources.v20190301.DeploymentPropertiesExtendedInvokeResponse;
     /**
      * The type of the deployment.
      */

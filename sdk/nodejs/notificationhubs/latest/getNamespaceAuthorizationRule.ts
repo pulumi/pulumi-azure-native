@@ -90,7 +90,7 @@ export interface GetNamespaceAuthorizationRuleResult {
     /**
      * The sku of the created namespace
      */
-    readonly sku?: outputs.notificationhubs.latest.SkuResponse;
+    readonly sku?: outputs.notificationhubs.latest.SkuInvokeResponse;
     /**
      * Resource tags
      */

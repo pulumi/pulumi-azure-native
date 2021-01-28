@@ -58,7 +58,7 @@ export interface GetApplicationResult {
     /**
      * List of application capacity metric description.
      */
-    readonly metrics?: outputs.servicefabric.v20190301.ApplicationMetricDescriptionResponse[];
+    readonly metrics?: outputs.servicefabric.v20190301.ApplicationMetricDescriptionInvokeResponse[];
     /**
      * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
      */
@@ -98,5 +98,5 @@ export interface GetApplicationResult {
     /**
      * Describes the policy for a monitored application upgrade.
      */
-    readonly upgradePolicy?: outputs.servicefabric.v20190301.ApplicationUpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.servicefabric.v20190301.ApplicationUpgradePolicyInvokeResponse;
 }

@@ -42,7 +42,7 @@ export interface GetSnapshotPolicyResult {
     /**
      * Schedule for daily snapshots
      */
-    readonly dailySchedule?: outputs.netapp.v20200601.DailyScheduleResponse;
+    readonly dailySchedule?: outputs.netapp.v20200601.DailyScheduleInvokeResponse;
     /**
      * The property to decide policy is enabled or not
      */
@@ -50,7 +50,7 @@ export interface GetSnapshotPolicyResult {
     /**
      * Schedule for hourly snapshots
      */
-    readonly hourlySchedule?: outputs.netapp.v20200601.HourlyScheduleResponse;
+    readonly hourlySchedule?: outputs.netapp.v20200601.HourlyScheduleInvokeResponse;
     /**
      * Resource Id
      */
@@ -62,7 +62,7 @@ export interface GetSnapshotPolicyResult {
     /**
      * Schedule for monthly snapshots
      */
-    readonly monthlySchedule?: outputs.netapp.v20200601.MonthlyScheduleResponse;
+    readonly monthlySchedule?: outputs.netapp.v20200601.MonthlyScheduleInvokeResponse;
     /**
      * Snapshot policy name
      */
@@ -82,5 +82,5 @@ export interface GetSnapshotPolicyResult {
     /**
      * Schedule for weekly snapshots
      */
-    readonly weeklySchedule?: outputs.netapp.v20200601.WeeklyScheduleResponse;
+    readonly weeklySchedule?: outputs.netapp.v20200601.WeeklyScheduleInvokeResponse;
 }

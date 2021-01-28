@@ -50,11 +50,11 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: outputs.dbforpostgresql.v20180601privatepreview.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.dbforpostgresql.v20180601privatepreview.PrivateEndpointPropertyInvokeResponse;
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: outputs.dbforpostgresql.v20180601privatepreview.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState?: outputs.dbforpostgresql.v20180601privatepreview.PrivateLinkServiceConnectionStatePropertyInvokeResponse;
     /**
      * State of the private endpoint connection.
      */

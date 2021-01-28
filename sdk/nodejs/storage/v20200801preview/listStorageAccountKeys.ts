@@ -42,5 +42,5 @@ export interface ListStorageAccountKeysResult {
     /**
      * Gets the list of storage account keys and their properties for the specified storage account.
      */
-    readonly keys: outputs.storage.v20200801preview.StorageAccountKeyResponse[];
+    readonly keys: outputs.storage.v20200801preview.StorageAccountKeyInvokeResponse[];
 }

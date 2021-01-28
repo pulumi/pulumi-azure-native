@@ -37,5 +37,5 @@ export interface GetConsoleWithLocationResult {
     /**
      * Cloud shell console properties.
      */
-    readonly properties: outputs.portal.latest.ConsolePropertiesResponse;
+    readonly properties: outputs.portal.latest.ConsolePropertiesInvokeResponse;
 }

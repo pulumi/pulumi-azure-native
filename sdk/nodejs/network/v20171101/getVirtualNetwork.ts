@@ -42,11 +42,11 @@ export interface GetVirtualNetworkResult {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    readonly addressSpace?: outputs.network.v20171101.AddressSpaceResponse;
+    readonly addressSpace?: outputs.network.v20171101.AddressSpaceInvokeResponse;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    readonly dhcpOptions?: outputs.network.v20171101.DhcpOptionsResponse;
+    readonly dhcpOptions?: outputs.network.v20171101.DhcpOptionsInvokeResponse;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in a Virtual Network.
      */
@@ -82,7 +82,7 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of subnets in a Virtual Network.
      */
-    readonly subnets?: outputs.network.v20171101.SubnetResponse[];
+    readonly subnets?: outputs.network.v20171101.SubnetInvokeResponse[];
     /**
      * Resource tags.
      */
@@ -94,5 +94,5 @@ export interface GetVirtualNetworkResult {
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: outputs.network.v20171101.VirtualNetworkPeeringResponse[];
+    readonly virtualNetworkPeerings?: outputs.network.v20171101.VirtualNetworkPeeringInvokeResponse[];
 }

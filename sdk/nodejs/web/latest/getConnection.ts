@@ -55,7 +55,7 @@ export interface GetConnectionResult {
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.web.latest.ApiConnectionDefinitionResponseProperties;
+    readonly properties: outputs.web.latest.ApiConnectionDefinitionInvokeResponseProperties;
     /**
      * Resource tags
      */

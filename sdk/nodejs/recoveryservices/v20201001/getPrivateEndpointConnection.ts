@@ -58,7 +58,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * PrivateEndpointConnectionResource properties
      */
-    readonly properties: outputs.recoveryservices.v20201001.PrivateEndpointConnectionResponse;
+    readonly properties: outputs.recoveryservices.v20201001.PrivateEndpointConnectionInvokeResponse;
     /**
      * Resource tags.
      */

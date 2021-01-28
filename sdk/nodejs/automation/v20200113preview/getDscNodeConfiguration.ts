@@ -42,7 +42,7 @@ export interface GetDscNodeConfigurationResult {
     /**
      * Gets or sets the configuration of the node.
      */
-    readonly configuration?: outputs.automation.v20200113preview.DscConfigurationAssociationPropertyResponse;
+    readonly configuration?: outputs.automation.v20200113preview.DscConfigurationAssociationPropertyInvokeResponse;
     /**
      * Gets or sets creation time.
      */

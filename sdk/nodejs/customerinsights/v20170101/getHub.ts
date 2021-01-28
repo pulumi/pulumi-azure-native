@@ -41,7 +41,7 @@ export interface GetHubResult {
     /**
      * Billing settings of the hub.
      */
-    readonly hubBillingInfo?: outputs.customerinsights.v20170101.HubBillingInfoFormatResponse;
+    readonly hubBillingInfo?: outputs.customerinsights.v20170101.HubBillingInfoFormatInvokeResponse;
     /**
      * Resource ID.
      */

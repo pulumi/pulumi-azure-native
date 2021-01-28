@@ -74,7 +74,7 @@ export interface GetBlobContainerResult {
     /**
      * The ImmutabilityPolicy property of the container.
      */
-    readonly immutabilityPolicy: outputs.storage.v20190601.ImmutabilityPolicyPropertiesResponse;
+    readonly immutabilityPolicy: outputs.storage.v20190601.ImmutabilityPolicyPropertiesInvokeResponse;
     /**
      * Returns the date and time the container was last modified.
      */
@@ -94,7 +94,7 @@ export interface GetBlobContainerResult {
     /**
      * The LegalHold property of the container.
      */
-    readonly legalHold: outputs.storage.v20190601.LegalHoldPropertiesResponse;
+    readonly legalHold: outputs.storage.v20190601.LegalHoldPropertiesInvokeResponse;
     /**
      * A name-value pair to associate with the container as metadata.
      */

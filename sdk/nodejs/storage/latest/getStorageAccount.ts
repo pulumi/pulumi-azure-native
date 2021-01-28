@@ -50,11 +50,11 @@ export interface GetStorageAccountResult {
     /**
      * Provides the identity based authentication settings for Azure Files.
      */
-    readonly azureFilesIdentityBasedAuthentication?: outputs.storage.latest.AzureFilesIdentityBasedAuthenticationResponse;
+    readonly azureFilesIdentityBasedAuthentication?: outputs.storage.latest.AzureFilesIdentityBasedAuthenticationInvokeResponse;
     /**
      * Blob restore status
      */
-    readonly blobRestoreStatus: outputs.storage.latest.BlobRestoreStatusResponse;
+    readonly blobRestoreStatus: outputs.storage.latest.BlobRestoreStatusInvokeResponse;
     /**
      * Gets the creation date and time of the storage account in UTC.
      */
@@ -62,7 +62,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the custom domain the user assigned to this storage account.
      */
-    readonly customDomain: outputs.storage.latest.CustomDomainResponse;
+    readonly customDomain: outputs.storage.latest.CustomDomainInvokeResponse;
     /**
      * Allows https traffic only to storage service if sets to true.
      */
@@ -70,7 +70,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the encryption settings on the account. If unspecified, the account is unencrypted.
      */
-    readonly encryption: outputs.storage.latest.EncryptionResponse;
+    readonly encryption: outputs.storage.latest.EncryptionInvokeResponse;
     /**
      * If the failover is in progress, the value will be true, otherwise, it will be null.
      */
@@ -78,7 +78,7 @@ export interface GetStorageAccountResult {
     /**
      * Geo Replication Stats
      */
-    readonly geoReplicationStats: outputs.storage.latest.GeoReplicationStatsResponse;
+    readonly geoReplicationStats: outputs.storage.latest.GeoReplicationStatsInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -86,7 +86,7 @@ export interface GetStorageAccountResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.storage.latest.IdentityResponse;
+    readonly identity?: outputs.storage.latest.IdentityInvokeResponse;
     /**
      * Account HierarchicalNamespace enabled if sets to true.
      */
@@ -118,11 +118,11 @@ export interface GetStorageAccountResult {
     /**
      * Network rule set
      */
-    readonly networkRuleSet: outputs.storage.latest.NetworkRuleSetResponse;
+    readonly networkRuleSet: outputs.storage.latest.NetworkRuleSetInvokeResponse;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
      */
-    readonly primaryEndpoints: outputs.storage.latest.EndpointsResponse;
+    readonly primaryEndpoints: outputs.storage.latest.EndpointsInvokeResponse;
     /**
      * Gets the location of the primary data center for the storage account.
      */
@@ -130,7 +130,7 @@ export interface GetStorageAccountResult {
     /**
      * List of private endpoint connection associated with the specified storage account
      */
-    readonly privateEndpointConnections: outputs.storage.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.storage.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Gets the status of the storage account at the time the operation was called.
      */
@@ -138,11 +138,11 @@ export interface GetStorageAccountResult {
     /**
      * Maintains information about the network routing choice opted by the user for data transfer
      */
-    readonly routingPreference?: outputs.storage.latest.RoutingPreferenceResponse;
+    readonly routingPreference?: outputs.storage.latest.RoutingPreferenceInvokeResponse;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
-    readonly secondaryEndpoints: outputs.storage.latest.EndpointsResponse;
+    readonly secondaryEndpoints: outputs.storage.latest.EndpointsInvokeResponse;
     /**
      * Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
@@ -150,7 +150,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the SKU.
      */
-    readonly sku: outputs.storage.latest.SkuResponse;
+    readonly sku: outputs.storage.latest.SkuInvokeResponse;
     /**
      * Gets the status indicating whether the primary location of the storage account is available or unavailable.
      */

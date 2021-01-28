@@ -57,7 +57,7 @@ export interface GetAvailabilitySetResult {
     /**
      * The resource status information.
      */
-    readonly statuses: outputs.compute.v20150615.InstanceViewStatusResponse[];
+    readonly statuses: outputs.compute.v20150615.InstanceViewStatusInvokeResponse[];
     /**
      * Resource tags
      */
@@ -69,5 +69,5 @@ export interface GetAvailabilitySetResult {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: outputs.compute.v20150615.SubResourceResponse[];
+    readonly virtualMachines?: outputs.compute.v20150615.SubResourceInvokeResponse[];
 }

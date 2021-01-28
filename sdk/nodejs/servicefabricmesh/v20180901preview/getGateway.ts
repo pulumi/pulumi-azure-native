@@ -41,11 +41,11 @@ export interface GetGatewayResult {
     /**
      * Network that the Application is using.
      */
-    readonly destinationNetwork: outputs.servicefabricmesh.v20180901preview.NetworkRefResponse;
+    readonly destinationNetwork: outputs.servicefabricmesh.v20180901preview.NetworkRefInvokeResponse;
     /**
      * Configuration for http connectivity for this gateway.
      */
-    readonly http?: outputs.servicefabricmesh.v20180901preview.HttpConfigResponse[];
+    readonly http?: outputs.servicefabricmesh.v20180901preview.HttpConfigInvokeResponse[];
     /**
      * Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -69,7 +69,7 @@ export interface GetGatewayResult {
     /**
      * Network the gateway should listen on for requests.
      */
-    readonly sourceNetwork: outputs.servicefabricmesh.v20180901preview.NetworkRefResponse;
+    readonly sourceNetwork: outputs.servicefabricmesh.v20180901preview.NetworkRefInvokeResponse;
     /**
      * Status of the resource.
      */
@@ -85,7 +85,7 @@ export interface GetGatewayResult {
     /**
      * Configuration for tcp connectivity for this gateway.
      */
-    readonly tcp?: outputs.servicefabricmesh.v20180901preview.TcpConfigResponse[];
+    readonly tcp?: outputs.servicefabricmesh.v20180901preview.TcpConfigInvokeResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

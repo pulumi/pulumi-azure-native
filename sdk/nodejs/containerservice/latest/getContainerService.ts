@@ -37,15 +37,15 @@ export interface GetContainerServiceResult {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles: outputs.containerservice.latest.ContainerServiceAgentPoolProfileResponse[];
+    readonly agentPoolProfiles: outputs.containerservice.latest.ContainerServiceAgentPoolProfileInvokeResponse[];
     /**
      * Properties for custom clusters.
      */
-    readonly customProfile?: outputs.containerservice.latest.ContainerServiceCustomProfileResponse;
+    readonly customProfile?: outputs.containerservice.latest.ContainerServiceCustomProfileInvokeResponse;
     /**
      * Properties of the diagnostic agent.
      */
-    readonly diagnosticsProfile?: outputs.containerservice.latest.ContainerServiceDiagnosticsProfileResponse;
+    readonly diagnosticsProfile?: outputs.containerservice.latest.ContainerServiceDiagnosticsProfileInvokeResponse;
     /**
      * Resource Id
      */
@@ -53,7 +53,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties of Linux VMs.
      */
-    readonly linuxProfile: outputs.containerservice.latest.ContainerServiceLinuxProfileResponse;
+    readonly linuxProfile: outputs.containerservice.latest.ContainerServiceLinuxProfileInvokeResponse;
     /**
      * Resource location
      */
@@ -61,7 +61,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties of master agents.
      */
-    readonly masterProfile: outputs.containerservice.latest.ContainerServiceMasterProfileResponse;
+    readonly masterProfile: outputs.containerservice.latest.ContainerServiceMasterProfileInvokeResponse;
     /**
      * Resource name
      */
@@ -69,7 +69,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties of the orchestrator.
      */
-    readonly orchestratorProfile?: outputs.containerservice.latest.ContainerServiceOrchestratorProfileResponse;
+    readonly orchestratorProfile?: outputs.containerservice.latest.ContainerServiceOrchestratorProfileInvokeResponse;
     /**
      * the current deployment or provisioning state, which only appears in the response.
      */
@@ -77,7 +77,7 @@ export interface GetContainerServiceResult {
     /**
      * Properties for cluster service principals.
      */
-    readonly servicePrincipalProfile?: outputs.containerservice.latest.ContainerServiceServicePrincipalProfileResponse;
+    readonly servicePrincipalProfile?: outputs.containerservice.latest.ContainerServiceServicePrincipalProfileInvokeResponse;
     /**
      * Resource tags
      */
@@ -89,5 +89,5 @@ export interface GetContainerServiceResult {
     /**
      * Properties of Windows VMs.
      */
-    readonly windowsProfile?: outputs.containerservice.latest.ContainerServiceWindowsProfileResponse;
+    readonly windowsProfile?: outputs.containerservice.latest.ContainerServiceWindowsProfileInvokeResponse;
 }

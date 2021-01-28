@@ -73,7 +73,7 @@ export interface GetDeviceResult {
     /**
      * The details of Edge Profile for this resource
      */
-    readonly edgeProfile?: outputs.databoxedge.v20200901preview.EdgeProfileResponse;
+    readonly edgeProfile?: outputs.databoxedge.v20200901preview.EdgeProfileInvokeResponse;
     /**
      * The etag for the devices.
      */
@@ -89,7 +89,7 @@ export interface GetDeviceResult {
     /**
      * Msi identity of the resource
      */
-    readonly identity?: outputs.databoxedge.v20200901preview.ResourceIdentityResponse;
+    readonly identity?: outputs.databoxedge.v20200901preview.ResourceIdentityInvokeResponse;
     /**
      * The etag for the devices.
      */
@@ -113,7 +113,7 @@ export interface GetDeviceResult {
     /**
      * The details of the move operation on this resource.
      */
-    readonly resourceMoveDetails?: outputs.databoxedge.v20200901preview.ResourceMoveDetailsResponse;
+    readonly resourceMoveDetails?: outputs.databoxedge.v20200901preview.ResourceMoveDetailsInvokeResponse;
     /**
      * The Serial Number of Data Box Edge/Gateway device.
      */
@@ -121,11 +121,11 @@ export interface GetDeviceResult {
     /**
      * The SKU type.
      */
-    readonly sku?: outputs.databoxedge.v20200901preview.SkuResponse;
+    readonly sku?: outputs.databoxedge.v20200901preview.SkuInvokeResponse;
     /**
      * DataBoxEdge Resource
      */
-    readonly systemData: outputs.databoxedge.v20200901preview.SystemDataResponse;
+    readonly systemData: outputs.databoxedge.v20200901preview.SystemDataInvokeResponse;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

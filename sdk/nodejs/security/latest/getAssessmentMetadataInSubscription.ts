@@ -57,7 +57,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
     /**
      * Describes the partner that created the assessment
      */
-    readonly partnerData?: outputs.security.latest.SecurityAssessmentMetadataPartnerDataResponse;
+    readonly partnerData?: outputs.security.latest.SecurityAssessmentMetadataPartnerDataInvokeResponse;
     /**
      * Azure resource ID of the policy definition that turns this assessment calculation on
      */

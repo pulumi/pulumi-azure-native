@@ -42,7 +42,7 @@ export interface GetAFDCustomDomainResult {
     /**
      * Resource reference to the Azure DNS zone
      */
-    readonly azureDnsZone?: outputs.cdn.v20200901.ResourceReferenceResponse;
+    readonly azureDnsZone?: outputs.cdn.v20200901.ResourceReferenceInvokeResponse;
     readonly deploymentStatus: string;
     /**
      * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
@@ -67,11 +67,11 @@ export interface GetAFDCustomDomainResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.v20200901.SystemDataResponse;
+    readonly systemData: outputs.cdn.v20200901.SystemDataInvokeResponse;
     /**
      * The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
      */
-    readonly tlsSettings?: outputs.cdn.v20200901.AFDDomainHttpsParametersResponse;
+    readonly tlsSettings?: outputs.cdn.v20200901.AFDDomainHttpsParametersInvokeResponse;
     /**
      * Resource type.
      */
@@ -79,5 +79,5 @@ export interface GetAFDCustomDomainResult {
     /**
      * Values the customer needs to validate domain ownership
      */
-    readonly validationProperties: outputs.cdn.v20200901.DomainValidationPropertiesResponse;
+    readonly validationProperties: outputs.cdn.v20200901.DomainValidationPropertiesInvokeResponse;
 }

@@ -41,5 +41,5 @@ export interface ListIotHubResourceKeysResult {
     /**
      * The list of shared access policies.
      */
-    readonly value?: outputs.devices.v20181201preview.SharedAccessSignatureAuthorizationRuleResponse[];
+    readonly value?: outputs.devices.v20181201preview.SharedAccessSignatureAuthorizationRuleInvokeResponse[];
 }

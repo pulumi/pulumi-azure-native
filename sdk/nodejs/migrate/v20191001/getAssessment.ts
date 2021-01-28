@@ -59,7 +59,7 @@ export interface GetAssessmentResult {
     /**
      * Properties of the assessment.
      */
-    readonly properties: outputs.migrate.v20191001.AssessmentPropertiesResponse;
+    readonly properties: outputs.migrate.v20191001.AssessmentPropertiesInvokeResponse;
     /**
      * Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
      */

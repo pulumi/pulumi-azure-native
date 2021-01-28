@@ -42,11 +42,11 @@ export interface GetBigDataPoolResult {
     /**
      * Auto-pausing properties
      */
-    readonly autoPause?: outputs.synapse.v20190601preview.AutoPausePropertiesResponse;
+    readonly autoPause?: outputs.synapse.v20190601preview.AutoPausePropertiesInvokeResponse;
     /**
      * Auto-scaling properties
      */
-    readonly autoScale?: outputs.synapse.v20190601preview.AutoScalePropertiesResponse;
+    readonly autoScale?: outputs.synapse.v20190601preview.AutoScalePropertiesInvokeResponse;
     /**
      * The cache size
      */
@@ -62,7 +62,7 @@ export interface GetBigDataPoolResult {
     /**
      * Dynamic Executor Allocation
      */
-    readonly dynamicExecutorAllocation?: outputs.synapse.v20190601preview.DynamicExecutorAllocationResponse;
+    readonly dynamicExecutorAllocation?: outputs.synapse.v20190601preview.DynamicExecutorAllocationInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -74,7 +74,7 @@ export interface GetBigDataPoolResult {
     /**
      * Library version requirements
      */
-    readonly libraryRequirements?: outputs.synapse.v20190601preview.LibraryRequirementsResponse;
+    readonly libraryRequirements?: outputs.synapse.v20190601preview.LibraryRequirementsInvokeResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -106,7 +106,7 @@ export interface GetBigDataPoolResult {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: outputs.synapse.v20190601preview.LibraryRequirementsResponse;
+    readonly sparkConfigProperties?: outputs.synapse.v20190601preview.LibraryRequirementsInvokeResponse;
     /**
      * The Spark events folder
      */

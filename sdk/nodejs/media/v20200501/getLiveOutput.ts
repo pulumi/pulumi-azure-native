@@ -63,7 +63,7 @@ export interface GetLiveOutputResult {
     /**
      * HTTP Live Streaming (HLS) packing setting for the live output.
      */
-    readonly hls?: outputs.media.v20200501.HlsResponse;
+    readonly hls?: outputs.media.v20200501.HlsInvokeResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

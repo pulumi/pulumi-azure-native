@@ -42,7 +42,7 @@ export interface GetKeyResult {
     /**
      * The attributes of the key.
      */
-    readonly attributes?: outputs.keyvault.v20190901.KeyAttributesResponse;
+    readonly attributes?: outputs.keyvault.v20190901.KeyAttributesInvokeResponse;
     /**
      * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
      */

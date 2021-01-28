@@ -42,7 +42,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: outputs.network.v20181101.NetworkInterfaceDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20181101.NetworkInterfaceDnsSettingsInvokeResponse;
     /**
      * If the network interface is accelerated networking enabled.
      */
@@ -66,11 +66,11 @@ export interface GetNetworkInterfaceResult {
     /**
      * A reference to the interface endpoint to which the network interface is linked.
      */
-    readonly interfaceEndpoint: outputs.network.v20181101.InterfaceEndpointResponse;
+    readonly interfaceEndpoint: outputs.network.v20181101.InterfaceEndpointInvokeResponse;
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: outputs.network.v20181101.NetworkInterfaceIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20181101.NetworkInterfaceIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -86,7 +86,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: outputs.network.v20181101.NetworkSecurityGroupResponse;
+    readonly networkSecurityGroup?: outputs.network.v20181101.NetworkSecurityGroupInvokeResponse;
     /**
      * Gets whether this is a primary network interface on a virtual machine.
      */
@@ -106,7 +106,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * A list of TapConfigurations of the network interface.
      */
-    readonly tapConfigurations?: outputs.network.v20181101.NetworkInterfaceTapConfigurationResponse[];
+    readonly tapConfigurations?: outputs.network.v20181101.NetworkInterfaceTapConfigurationInvokeResponse[];
     /**
      * Resource type.
      */
@@ -114,5 +114,5 @@ export interface GetNetworkInterfaceResult {
     /**
      * The reference of a virtual machine.
      */
-    readonly virtualMachine: outputs.network.v20181101.SubResourceResponse;
+    readonly virtualMachine: outputs.network.v20181101.SubResourceInvokeResponse;
 }

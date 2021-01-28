@@ -46,7 +46,7 @@ export interface GetIntegrationAccountPartnerResult {
     /**
      * The partner content.
      */
-    readonly content: outputs.logic.v20190501.PartnerContentResponse;
+    readonly content: outputs.logic.v20190501.PartnerContentInvokeResponse;
     /**
      * The created time.
      */

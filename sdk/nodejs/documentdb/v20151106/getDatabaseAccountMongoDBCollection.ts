@@ -51,7 +51,7 @@ export interface GetDatabaseAccountMongoDBCollectionResult {
     /**
      * List of index keys
      */
-    readonly indexes?: outputs.documentdb.v20151106.MongoIndexResponse[];
+    readonly indexes?: outputs.documentdb.v20151106.MongoIndexInvokeResponse[];
     /**
      * The location of the resource group to which the resource belongs.
      */

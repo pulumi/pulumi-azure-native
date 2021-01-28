@@ -46,7 +46,7 @@ export interface GetJobResult {
     /**
      * Delivery Info of Job.
      */
-    readonly deliveryInfo?: outputs.databox.v20190901.JobDeliveryInfoResponse;
+    readonly deliveryInfo?: outputs.databox.v20190901.JobDeliveryInfoInvokeResponse;
     /**
      * Delivery type of Job.
      */
@@ -54,11 +54,11 @@ export interface GetJobResult {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: outputs.databox.v20190901.DataBoxDiskJobDetailsResponse | outputs.databox.v20190901.DataBoxHeavyJobDetailsResponse | outputs.databox.v20190901.DataBoxJobDetailsResponse;
+    readonly details?: outputs.databox.v20190901.DataBoxDiskJobDetailsInvokeResponse | outputs.databox.v20190901.DataBoxHeavyJobDetailsInvokeResponse | outputs.databox.v20190901.DataBoxJobDetailsInvokeResponse;
     /**
      * Top level error for the job.
      */
-    readonly error: outputs.databox.v20190901.ErrorResponse;
+    readonly error: outputs.databox.v20190901.ErrorInvokeResponse;
     /**
      * Id of the object.
      */
@@ -90,7 +90,7 @@ export interface GetJobResult {
     /**
      * The sku type.
      */
-    readonly sku: outputs.databox.v20190901.SkuResponse;
+    readonly sku: outputs.databox.v20190901.SkuInvokeResponse;
     /**
      * Time at which the job was started in UTC ISO 8601 format.
      */

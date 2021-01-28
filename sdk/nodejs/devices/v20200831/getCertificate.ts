@@ -54,7 +54,7 @@ export interface GetCertificateResult {
     /**
      * The description of an X509 CA Certificate.
      */
-    readonly properties: outputs.devices.v20200831.CertificatePropertiesResponse;
+    readonly properties: outputs.devices.v20200831.CertificatePropertiesInvokeResponse;
     /**
      * The resource type.
      */

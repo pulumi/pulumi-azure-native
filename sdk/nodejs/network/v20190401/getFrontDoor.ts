@@ -37,11 +37,11 @@ export interface GetFrontDoorResult {
     /**
      * Backend pools available to routing rules.
      */
-    readonly backendPools?: outputs.network.v20190401.BackendPoolResponse[];
+    readonly backendPools?: outputs.network.v20190401.BackendPoolInvokeResponse[];
     /**
      * Settings for all backendPools
      */
-    readonly backendPoolsSettings?: outputs.network.v20190401.BackendPoolsSettingsResponse;
+    readonly backendPoolsSettings?: outputs.network.v20190401.BackendPoolsSettingsInvokeResponse;
     /**
      * The host that each frontendEndpoint must CNAME to.
      */
@@ -57,11 +57,11 @@ export interface GetFrontDoorResult {
     /**
      * Frontend endpoints available to routing rules.
      */
-    readonly frontendEndpoints?: outputs.network.v20190401.FrontendEndpointResponse[];
+    readonly frontendEndpoints?: outputs.network.v20190401.FrontendEndpointInvokeResponse[];
     /**
      * Health probe settings associated with this Front Door instance.
      */
-    readonly healthProbeSettings?: outputs.network.v20190401.HealthProbeSettingsModelResponse[];
+    readonly healthProbeSettings?: outputs.network.v20190401.HealthProbeSettingsModelInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -69,7 +69,7 @@ export interface GetFrontDoorResult {
     /**
      * Load balancing settings associated with this Front Door instance.
      */
-    readonly loadBalancingSettings?: outputs.network.v20190401.LoadBalancingSettingsModelResponse[];
+    readonly loadBalancingSettings?: outputs.network.v20190401.LoadBalancingSettingsModelInvokeResponse[];
     /**
      * Resource location.
      */
@@ -89,7 +89,7 @@ export interface GetFrontDoorResult {
     /**
      * Routing rules associated with this Front Door.
      */
-    readonly routingRules?: outputs.network.v20190401.RoutingRuleResponse[];
+    readonly routingRules?: outputs.network.v20190401.RoutingRuleInvokeResponse[];
     /**
      * Resource tags.
      */

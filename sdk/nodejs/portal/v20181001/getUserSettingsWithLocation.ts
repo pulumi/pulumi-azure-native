@@ -37,5 +37,5 @@ export interface GetUserSettingsWithLocationResult {
     /**
      * The cloud shell user settings properties.
      */
-    readonly properties: outputs.portal.v20181001.UserPropertiesResponse;
+    readonly properties: outputs.portal.v20181001.UserPropertiesInvokeResponse;
 }

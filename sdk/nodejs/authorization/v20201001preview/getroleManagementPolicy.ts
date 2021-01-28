@@ -45,7 +45,7 @@ export interface GetroleManagementPolicyResult {
     /**
      * The readonly computed rule applied to the policy.
      */
-    readonly effectiveRules: outputs.authorization.v20201001preview.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyNotificationRuleResponse[];
+    readonly effectiveRules: outputs.authorization.v20201001preview.RoleManagementPolicyApprovalRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyAuthenticationContextRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyEnablementRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyExpirationRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyNotificationRuleInvokeResponse[];
     /**
      * The role management policy Id.
      */
@@ -65,7 +65,7 @@ export interface GetroleManagementPolicyResult {
     /**
      * The rule applied to the policy.
      */
-    readonly rules?: outputs.authorization.v20201001preview.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.v20201001preview.RoleManagementPolicyNotificationRuleResponse[];
+    readonly rules?: outputs.authorization.v20201001preview.RoleManagementPolicyApprovalRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyAuthenticationContextRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyEnablementRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyExpirationRuleInvokeResponse | outputs.authorization.v20201001preview.RoleManagementPolicyNotificationRuleInvokeResponse[];
     /**
      * The role management policy scope.
      */

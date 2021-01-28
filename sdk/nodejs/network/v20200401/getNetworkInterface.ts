@@ -42,7 +42,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: outputs.network.v20200401.NetworkInterfaceDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20200401.NetworkInterfaceDnsSettingsInvokeResponse;
     /**
      * If the network interface is accelerated networking enabled.
      */
@@ -66,7 +66,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: outputs.network.v20200401.NetworkInterfaceIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20200401.NetworkInterfaceIPConfigurationInvokeResponse[];
     /**
      * Resource location.
      */
@@ -82,7 +82,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: outputs.network.v20200401.NetworkSecurityGroupResponse;
+    readonly networkSecurityGroup?: outputs.network.v20200401.NetworkSecurityGroupInvokeResponse;
     /**
      * Whether this is a primary network interface on a virtual machine.
      */
@@ -90,7 +90,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * A reference to the private endpoint to which the network interface is linked.
      */
-    readonly privateEndpoint: outputs.network.v20200401.PrivateEndpointResponse;
+    readonly privateEndpoint: outputs.network.v20200401.PrivateEndpointInvokeResponse;
     /**
      * The provisioning state of the network interface resource.
      */
@@ -106,7 +106,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * A list of TapConfigurations of the network interface.
      */
-    readonly tapConfigurations: outputs.network.v20200401.NetworkInterfaceTapConfigurationResponse[];
+    readonly tapConfigurations: outputs.network.v20200401.NetworkInterfaceTapConfigurationInvokeResponse[];
     /**
      * Resource type.
      */
@@ -114,5 +114,5 @@ export interface GetNetworkInterfaceResult {
     /**
      * The reference to a virtual machine.
      */
-    readonly virtualMachine: outputs.network.v20200401.SubResourceResponse;
+    readonly virtualMachine: outputs.network.v20200401.SubResourceInvokeResponse;
 }

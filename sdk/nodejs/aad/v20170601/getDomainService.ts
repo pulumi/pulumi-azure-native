@@ -53,7 +53,7 @@ export interface GetDomainServiceResult {
     /**
      * DomainSecurity Settings
      */
-    readonly domainSecuritySettings?: outputs.aad.v20170601.DomainSecuritySettingsResponse;
+    readonly domainSecuritySettings?: outputs.aad.v20170601.DomainSecuritySettingsInvokeResponse;
     /**
      * Resource etag
      */
@@ -65,7 +65,7 @@ export interface GetDomainServiceResult {
     /**
      * List of Domain Health Alerts
      */
-    readonly healthAlerts: outputs.aad.v20170601.HealthAlertResponse[];
+    readonly healthAlerts: outputs.aad.v20170601.HealthAlertInvokeResponse[];
     /**
      * Last domain evaluation run DateTime
      */
@@ -73,7 +73,7 @@ export interface GetDomainServiceResult {
     /**
      * List of Domain Health Monitors
      */
-    readonly healthMonitors: outputs.aad.v20170601.HealthMonitorResponse[];
+    readonly healthMonitors: outputs.aad.v20170601.HealthMonitorInvokeResponse[];
     /**
      * Resource Id
      */
@@ -81,7 +81,7 @@ export interface GetDomainServiceResult {
     /**
      * Secure LDAP Settings
      */
-    readonly ldapsSettings?: outputs.aad.v20170601.LdapsSettingsResponse;
+    readonly ldapsSettings?: outputs.aad.v20170601.LdapsSettingsInvokeResponse;
     /**
      * Resource location
      */
@@ -89,7 +89,7 @@ export interface GetDomainServiceResult {
     /**
      * Migration Properties
      */
-    readonly migrationProperties: outputs.aad.v20170601.MigrationPropertiesResponse;
+    readonly migrationProperties: outputs.aad.v20170601.MigrationPropertiesInvokeResponse;
     /**
      * Resource name
      */
@@ -97,7 +97,7 @@ export interface GetDomainServiceResult {
     /**
      * Notification Settings
      */
-    readonly notificationSettings?: outputs.aad.v20170601.NotificationSettingsResponse;
+    readonly notificationSettings?: outputs.aad.v20170601.NotificationSettingsInvokeResponse;
     /**
      * the current deployment or provisioning state, which only appears in the response.
      */
@@ -105,7 +105,7 @@ export interface GetDomainServiceResult {
     /**
      * Resource Forest Settings
      */
-    readonly resourceForestSettings?: outputs.aad.v20170601.ResourceForestSettingsResponse;
+    readonly resourceForestSettings?: outputs.aad.v20170601.ResourceForestSettingsInvokeResponse;
     /**
      * Status of Domain Service instance
      */

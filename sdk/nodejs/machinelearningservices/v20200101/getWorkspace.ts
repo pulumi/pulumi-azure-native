@@ -57,7 +57,7 @@ export interface GetWorkspaceResult {
     /**
      * The encryption settings of Azure ML workspace.
      */
-    readonly encryption?: outputs.machinelearningservices.v20200101.EncryptionPropertyResponse;
+    readonly encryption?: outputs.machinelearningservices.v20200101.EncryptionPropertyInvokeResponse;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -73,7 +73,7 @@ export interface GetWorkspaceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.machinelearningservices.v20200101.IdentityResponse;
+    readonly identity?: outputs.machinelearningservices.v20200101.IdentityInvokeResponse;
     /**
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
@@ -97,7 +97,7 @@ export interface GetWorkspaceResult {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: outputs.machinelearningservices.v20200101.SkuResponse;
+    readonly sku?: outputs.machinelearningservices.v20200101.SkuInvokeResponse;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

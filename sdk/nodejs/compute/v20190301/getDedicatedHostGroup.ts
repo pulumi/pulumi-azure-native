@@ -37,7 +37,7 @@ export interface GetDedicatedHostGroupResult {
     /**
      * A list of references to all dedicated hosts in the dedicated host group.
      */
-    readonly hosts: outputs.compute.v20190301.SubResourceReadOnlyResponse[];
+    readonly hosts: outputs.compute.v20190301.SubResourceReadOnlyInvokeResponse[];
     /**
      * Resource Id
      */

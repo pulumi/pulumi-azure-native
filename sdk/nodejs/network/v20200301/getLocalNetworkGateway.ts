@@ -37,7 +37,7 @@ export interface GetLocalNetworkGatewayResult {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: outputs.network.v20200301.BgpSettingsResponse;
+    readonly bgpSettings?: outputs.network.v20200301.BgpSettingsInvokeResponse;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -57,7 +57,7 @@ export interface GetLocalNetworkGatewayResult {
     /**
      * Local network site address space.
      */
-    readonly localNetworkAddressSpace?: outputs.network.v20200301.AddressSpaceResponse;
+    readonly localNetworkAddressSpace?: outputs.network.v20200301.AddressSpaceInvokeResponse;
     /**
      * Resource location.
      */

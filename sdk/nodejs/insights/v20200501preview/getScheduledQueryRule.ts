@@ -34,11 +34,11 @@ export interface GetScheduledQueryRuleArgs {
  * The scheduled query rule resource.
  */
 export interface GetScheduledQueryRuleResult {
-    readonly actions?: outputs.insights.v20200501preview.ActionResponse[];
+    readonly actions?: outputs.insights.v20200501preview.ActionInvokeResponse[];
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria: outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse;
+    readonly criteria: outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaInvokeResponse;
     /**
      * The description of the scheduled query rule.
      */

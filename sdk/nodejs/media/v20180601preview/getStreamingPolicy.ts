@@ -42,11 +42,11 @@ export interface GetStreamingPolicyResult {
     /**
      * Configuration of CommonEncryptionCbcs
      */
-    readonly commonEncryptionCbcs?: outputs.media.v20180601preview.CommonEncryptionCbcsResponse;
+    readonly commonEncryptionCbcs?: outputs.media.v20180601preview.CommonEncryptionCbcsInvokeResponse;
     /**
      * Configuration of CommonEncryptionCenc
      */
-    readonly commonEncryptionCenc?: outputs.media.v20180601preview.CommonEncryptionCencResponse;
+    readonly commonEncryptionCenc?: outputs.media.v20180601preview.CommonEncryptionCencInvokeResponse;
     /**
      * Creation time of Streaming Policy
      */
@@ -58,7 +58,7 @@ export interface GetStreamingPolicyResult {
     /**
      * Configuration of EnvelopeEncryption
      */
-    readonly envelopeEncryption?: outputs.media.v20180601preview.EnvelopeEncryptionResponse;
+    readonly envelopeEncryption?: outputs.media.v20180601preview.EnvelopeEncryptionInvokeResponse;
     /**
      * Fully qualified resource ID for the resource.
      */
@@ -70,7 +70,7 @@ export interface GetStreamingPolicyResult {
     /**
      * Configurations of NoEncryption
      */
-    readonly noEncryption?: outputs.media.v20180601preview.NoEncryptionResponse;
+    readonly noEncryption?: outputs.media.v20180601preview.NoEncryptionInvokeResponse;
     /**
      * The type of the resource.
      */

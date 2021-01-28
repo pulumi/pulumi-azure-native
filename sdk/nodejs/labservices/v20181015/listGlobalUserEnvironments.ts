@@ -37,5 +37,5 @@ export interface ListGlobalUserEnvironmentsResult {
     /**
      * List of all the environments
      */
-    readonly environments?: outputs.labservices.v20181015.EnvironmentDetailsResponse[];
+    readonly environments?: outputs.labservices.v20181015.EnvironmentDetailsInvokeResponse[];
 }

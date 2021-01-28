@@ -53,7 +53,7 @@ export interface GetCertificateResult {
     /**
      * Specification for the App Service Environment to use for the certificate.
      */
-    readonly hostingEnvironmentProfile: outputs.web.v20180201.HostingEnvironmentProfileResponse;
+    readonly hostingEnvironmentProfile: outputs.web.v20180201.HostingEnvironmentProfileInvokeResponse;
     /**
      * Resource Id.
      */

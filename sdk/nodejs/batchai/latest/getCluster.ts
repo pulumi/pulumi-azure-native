@@ -58,7 +58,7 @@ export interface GetClusterResult {
     /**
      * Collection of errors encountered by various compute nodes during node setup.
      */
-    readonly errors: outputs.batchai.latest.BatchAIErrorResponse[];
+    readonly errors: outputs.batchai.latest.BatchAIErrorInvokeResponse[];
     /**
      * The ID of the resource.
      */
@@ -70,11 +70,11 @@ export interface GetClusterResult {
     /**
      * Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
      */
-    readonly nodeSetup?: outputs.batchai.latest.NodeSetupResponse;
+    readonly nodeSetup?: outputs.batchai.latest.NodeSetupInvokeResponse;
     /**
      * Counts of various node states on the cluster.
      */
-    readonly nodeStateCounts: outputs.batchai.latest.NodeStateCountsResponse;
+    readonly nodeStateCounts: outputs.batchai.latest.NodeStateCountsInvokeResponse;
     /**
      * Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
      */
@@ -86,11 +86,11 @@ export interface GetClusterResult {
     /**
      * Scale settings of the cluster.
      */
-    readonly scaleSettings?: outputs.batchai.latest.ScaleSettingsResponse;
+    readonly scaleSettings?: outputs.batchai.latest.ScaleSettingsInvokeResponse;
     /**
      * Virtual network subnet resource ID the cluster nodes belong to.
      */
-    readonly subnet?: outputs.batchai.latest.ResourceIdResponse;
+    readonly subnet?: outputs.batchai.latest.ResourceIdInvokeResponse;
     /**
      * The type of the resource.
      */
@@ -98,11 +98,11 @@ export interface GetClusterResult {
     /**
      * Administrator user account settings which can be used to SSH to compute nodes.
      */
-    readonly userAccountSettings?: outputs.batchai.latest.UserAccountSettingsResponse;
+    readonly userAccountSettings?: outputs.batchai.latest.UserAccountSettingsInvokeResponse;
     /**
      * Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
      */
-    readonly virtualMachineConfiguration?: outputs.batchai.latest.VirtualMachineConfigurationResponse;
+    readonly virtualMachineConfiguration?: outputs.batchai.latest.VirtualMachineConfigurationInvokeResponse;
     /**
      * VM priority of cluster nodes.
      */

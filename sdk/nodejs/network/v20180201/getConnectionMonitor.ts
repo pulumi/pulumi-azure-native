@@ -46,7 +46,7 @@ export interface GetConnectionMonitorResult {
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination: outputs.network.v20180201.ConnectionMonitorDestinationResponse;
+    readonly destination: outputs.network.v20180201.ConnectionMonitorDestinationInvokeResponse;
     readonly etag?: string;
     /**
      * ID of the connection monitor.
@@ -75,7 +75,7 @@ export interface GetConnectionMonitorResult {
     /**
      * Describes the source of connection monitor.
      */
-    readonly source: outputs.network.v20180201.ConnectionMonitorSourceResponse;
+    readonly source: outputs.network.v20180201.ConnectionMonitorSourceInvokeResponse;
     /**
      * The date and time when the connection monitor was started.
      */

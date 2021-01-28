@@ -61,7 +61,7 @@ export interface GetPeeringServiceResult {
     /**
      * The SKU that defines the type of the peering service.
      */
-    readonly sku?: outputs.peering.v20200101preview.PeeringServiceSkuResponse;
+    readonly sku?: outputs.peering.v20200101preview.PeeringServiceSkuInvokeResponse;
     /**
      * The resource tags.
      */

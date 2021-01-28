@@ -37,7 +37,7 @@ export interface GetProximityPlacementGroupResult {
     /**
      * A list of references to all availability sets in the proximity placement group.
      */
-    readonly availabilitySets: outputs.compute.v20180401.SubResourceResponse[];
+    readonly availabilitySets: outputs.compute.v20180401.SubResourceInvokeResponse[];
     /**
      * Resource Id
      */
@@ -65,9 +65,9 @@ export interface GetProximityPlacementGroupResult {
     /**
      * A list of references to all virtual machine scale sets in the proximity placement group.
      */
-    readonly virtualMachineScaleSets: outputs.compute.v20180401.SubResourceResponse[];
+    readonly virtualMachineScaleSets: outputs.compute.v20180401.SubResourceInvokeResponse[];
     /**
      * A list of references to all virtual machines in the proximity placement group.
      */
-    readonly virtualMachines: outputs.compute.v20180401.SubResourceResponse[];
+    readonly virtualMachines: outputs.compute.v20180401.SubResourceInvokeResponse[];
 }

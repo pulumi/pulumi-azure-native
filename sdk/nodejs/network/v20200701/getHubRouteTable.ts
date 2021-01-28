@@ -70,7 +70,7 @@ export interface GetHubRouteTableResult {
     /**
      * List of all routes.
      */
-    readonly routes?: outputs.network.v20200701.HubRouteResponse[];
+    readonly routes?: outputs.network.v20200701.HubRouteInvokeResponse[];
     /**
      * Resource type.
      */

@@ -51,7 +51,7 @@ export interface GetApiDiagnosticResult {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    readonly backend?: outputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsResponse;
+    readonly backend?: outputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsInvokeResponse;
     /**
      * Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
      */
@@ -59,7 +59,7 @@ export interface GetApiDiagnosticResult {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    readonly frontend?: outputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsResponse;
+    readonly frontend?: outputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsInvokeResponse;
     /**
      * Resource ID.
      */
@@ -75,7 +75,7 @@ export interface GetApiDiagnosticResult {
     /**
      * Sampling settings for Diagnostic.
      */
-    readonly sampling?: outputs.apimanagement.v20180601preview.SamplingSettingsResponse;
+    readonly sampling?: outputs.apimanagement.v20180601preview.SamplingSettingsInvokeResponse;
     /**
      * Resource type for API Management resource.
      */

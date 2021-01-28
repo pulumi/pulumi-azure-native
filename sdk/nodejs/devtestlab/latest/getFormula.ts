@@ -59,7 +59,7 @@ export interface GetFormulaResult {
     /**
      * The content of the formula.
      */
-    readonly formulaContent?: outputs.devtestlab.latest.LabVirtualMachineCreationParameterResponse;
+    readonly formulaContent?: outputs.devtestlab.latest.LabVirtualMachineCreationParameterInvokeResponse;
     /**
      * The identifier of the resource.
      */
@@ -95,5 +95,5 @@ export interface GetFormulaResult {
     /**
      * Information about a VM from which a formula is to be created.
      */
-    readonly vm?: outputs.devtestlab.latest.FormulaPropertiesFromVmResponse;
+    readonly vm?: outputs.devtestlab.latest.FormulaPropertiesFromVmInvokeResponse;
 }

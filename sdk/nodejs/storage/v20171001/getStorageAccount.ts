@@ -45,7 +45,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the custom domain the user assigned to this storage account.
      */
-    readonly customDomain: outputs.storage.v20171001.CustomDomainResponse;
+    readonly customDomain: outputs.storage.v20171001.CustomDomainInvokeResponse;
     /**
      * Allows https traffic only to storage service if sets to true.
      */
@@ -53,7 +53,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the encryption settings on the account. If unspecified, the account is unencrypted.
      */
-    readonly encryption: outputs.storage.v20171001.EncryptionResponse;
+    readonly encryption: outputs.storage.v20171001.EncryptionInvokeResponse;
     /**
      * Resource Id
      */
@@ -61,7 +61,7 @@ export interface GetStorageAccountResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.storage.v20171001.IdentityResponse;
+    readonly identity?: outputs.storage.v20171001.IdentityInvokeResponse;
     /**
      * Gets the Kind.
      */
@@ -81,11 +81,11 @@ export interface GetStorageAccountResult {
     /**
      * Network rule set
      */
-    readonly networkRuleSet: outputs.storage.v20171001.NetworkRuleSetResponse;
+    readonly networkRuleSet: outputs.storage.v20171001.NetworkRuleSetInvokeResponse;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
      */
-    readonly primaryEndpoints: outputs.storage.v20171001.EndpointsResponse;
+    readonly primaryEndpoints: outputs.storage.v20171001.EndpointsInvokeResponse;
     /**
      * Gets the location of the primary data center for the storage account.
      */
@@ -97,7 +97,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
-    readonly secondaryEndpoints: outputs.storage.v20171001.EndpointsResponse;
+    readonly secondaryEndpoints: outputs.storage.v20171001.EndpointsInvokeResponse;
     /**
      * Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
@@ -105,7 +105,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the SKU.
      */
-    readonly sku: outputs.storage.v20171001.SkuResponse;
+    readonly sku: outputs.storage.v20171001.SkuInvokeResponse;
     /**
      * Gets the status indicating whether the primary location of the storage account is available or unavailable.
      */

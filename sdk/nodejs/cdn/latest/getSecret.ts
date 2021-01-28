@@ -51,7 +51,7 @@ export interface GetSecretResult {
     /**
      * object which contains secret parameters
      */
-    readonly parameters?: outputs.cdn.latest.CustomerCertificateParametersResponse | outputs.cdn.latest.ManagedCertificateParametersResponse | outputs.cdn.latest.UrlSigningKeyParametersResponse;
+    readonly parameters?: outputs.cdn.latest.CustomerCertificateParametersInvokeResponse | outputs.cdn.latest.ManagedCertificateParametersInvokeResponse | outputs.cdn.latest.UrlSigningKeyParametersInvokeResponse;
     /**
      * Provisioning status
      */
@@ -59,7 +59,7 @@ export interface GetSecretResult {
     /**
      * Read only system data
      */
-    readonly systemData: outputs.cdn.latest.SystemDataResponse;
+    readonly systemData: outputs.cdn.latest.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

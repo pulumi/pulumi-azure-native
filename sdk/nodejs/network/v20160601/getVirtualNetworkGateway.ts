@@ -41,7 +41,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * Virtual network gateway's BGP speaker settings
      */
-    readonly bgpSettings?: outputs.network.v20160601.BgpSettingsResponse;
+    readonly bgpSettings?: outputs.network.v20160601.BgpSettingsInvokeResponse;
     /**
      * EnableBgp Flag
      */
@@ -53,7 +53,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    readonly gatewayDefaultSite?: outputs.network.v20160601.SubResourceResponse;
+    readonly gatewayDefaultSite?: outputs.network.v20160601.SubResourceInvokeResponse;
     /**
      * The type of this virtual network gateway.
      */
@@ -65,7 +65,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * IpConfigurations for Virtual network gateway.
      */
-    readonly ipConfigurations?: outputs.network.v20160601.VirtualNetworkGatewayIPConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20160601.VirtualNetworkGatewayIPConfigurationInvokeResponse[];
     /**
      * Resource location
      */
@@ -85,7 +85,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
      */
-    readonly sku?: outputs.network.v20160601.VirtualNetworkGatewaySkuResponse;
+    readonly sku?: outputs.network.v20160601.VirtualNetworkGatewaySkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -97,7 +97,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    readonly vpnClientConfiguration?: outputs.network.v20160601.VpnClientConfigurationResponse;
+    readonly vpnClientConfiguration?: outputs.network.v20160601.VpnClientConfigurationInvokeResponse;
     /**
      * The type of this virtual network gateway.
      */

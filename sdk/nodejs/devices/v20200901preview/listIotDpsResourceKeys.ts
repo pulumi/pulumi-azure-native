@@ -41,5 +41,5 @@ export interface ListIotDpsResourceKeysResult {
     /**
      * The list of shared access policies.
      */
-    readonly value?: outputs.devices.v20200901preview.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse[];
+    readonly value?: outputs.devices.v20200901preview.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse[];
 }

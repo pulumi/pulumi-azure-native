@@ -82,7 +82,7 @@ export interface GetSqlPoolResult {
     /**
      * SQL pool SKU
      */
-    readonly sku?: outputs.synapse.v20190601preview.SkuResponse;
+    readonly sku?: outputs.synapse.v20190601preview.SkuInvokeResponse;
     /**
      * Source database to create from
      */

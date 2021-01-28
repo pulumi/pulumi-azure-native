@@ -41,7 +41,7 @@ export interface GetDiskPoolResult {
     /**
      * List of Azure managed disks to attach to a DiskPool
      */
-    readonly disks?: outputs.storagepool.v20200315preview.DiskResponse[];
+    readonly disks?: outputs.storagepool.v20200315preview.DiskInvokeResponse[];
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -61,7 +61,7 @@ export interface GetDiskPoolResult {
     /**
      * Sku description.
      */
-    readonly sku?: outputs.storagepool.v20200315preview.SkuResponse;
+    readonly sku?: outputs.storagepool.v20200315preview.SkuInvokeResponse;
     /**
      * Operational status of the Disk pool
      */
@@ -73,7 +73,7 @@ export interface GetDiskPoolResult {
     /**
      * Resource metadata required by ARM RPC
      */
-    readonly systemData: outputs.storagepool.v20200315preview.SystemMetadataResponse;
+    readonly systemData: outputs.storagepool.v20200315preview.SystemMetadataInvokeResponse;
     /**
      * Resource tags.
      */

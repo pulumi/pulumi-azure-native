@@ -37,11 +37,11 @@ export interface GetVirtualNetworkTapResult {
     /**
      * The reference to the private IP address on the internal Load Balancer that will receive the tap.
      */
-    readonly destinationLoadBalancerFrontEndIPConfiguration?: outputs.network.latest.FrontendIPConfigurationResponse;
+    readonly destinationLoadBalancerFrontEndIPConfiguration?: outputs.network.latest.FrontendIPConfigurationInvokeResponse;
     /**
      * The reference to the private IP Address of the collector nic that will receive the tap.
      */
-    readonly destinationNetworkInterfaceIPConfiguration?: outputs.network.latest.NetworkInterfaceIPConfigurationResponse;
+    readonly destinationNetworkInterfaceIPConfiguration?: outputs.network.latest.NetworkInterfaceIPConfigurationInvokeResponse;
     /**
      * The VXLAN destination port that will receive the tapped traffic.
      */
@@ -65,7 +65,7 @@ export interface GetVirtualNetworkTapResult {
     /**
      * Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
      */
-    readonly networkInterfaceTapConfigurations: outputs.network.latest.NetworkInterfaceTapConfigurationResponse[];
+    readonly networkInterfaceTapConfigurations: outputs.network.latest.NetworkInterfaceTapConfigurationInvokeResponse[];
     /**
      * The provisioning state of the virtual network tap resource.
      */

@@ -63,7 +63,7 @@ export interface GetJobResult {
     /**
      * The inputs for the Job.
      */
-    readonly input: outputs.media.v20180601preview.JobInputAssetResponse | outputs.media.v20180601preview.JobInputClipResponse | outputs.media.v20180601preview.JobInputHttpResponse | outputs.media.v20180601preview.JobInputsResponse;
+    readonly input: outputs.media.v20180601preview.JobInputAssetInvokeResponse | outputs.media.v20180601preview.JobInputClipInvokeResponse | outputs.media.v20180601preview.JobInputHttpInvokeResponse | outputs.media.v20180601preview.JobInputsInvokeResponse;
     /**
      * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
@@ -75,7 +75,7 @@ export interface GetJobResult {
     /**
      * The outputs for the Job.
      */
-    readonly outputs: outputs.media.v20180601preview.JobOutputAssetResponse[];
+    readonly outputs: outputs.media.v20180601preview.JobOutputAssetInvokeResponse[];
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */

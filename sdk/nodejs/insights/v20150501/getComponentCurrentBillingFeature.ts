@@ -41,5 +41,5 @@ export interface GetComponentCurrentBillingFeatureResult {
     /**
      * An Application Insights component daily data volume cap
      */
-    readonly dataVolumeCap?: outputs.insights.v20150501.ApplicationInsightsComponentDataVolumeCapResponse;
+    readonly dataVolumeCap?: outputs.insights.v20150501.ApplicationInsightsComponentDataVolumeCapInvokeResponse;
 }

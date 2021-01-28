@@ -37,11 +37,11 @@ export interface GetDatabaseAccountResult {
     /**
      * API specific properties.
      */
-    readonly apiProperties?: outputs.documentdb.v20200401.ApiPropertiesResponse;
+    readonly apiProperties?: outputs.documentdb.v20200401.ApiPropertiesInvokeResponse;
     /**
      * List of Cosmos DB capabilities for the account
      */
-    readonly capabilities?: outputs.documentdb.v20200401.CapabilityResponse[];
+    readonly capabilities?: outputs.documentdb.v20200401.CapabilityInvokeResponse[];
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -49,11 +49,11 @@ export interface GetDatabaseAccountResult {
     /**
      * The consistency policy for the Cosmos DB database account.
      */
-    readonly consistencyPolicy?: outputs.documentdb.v20200401.ConsistencyPolicyResponse;
+    readonly consistencyPolicy?: outputs.documentdb.v20200401.ConsistencyPolicyInvokeResponse;
     /**
      * The CORS policy for the Cosmos DB database account.
      */
-    readonly cors?: outputs.documentdb.v20200401.CorsPolicyResponse[];
+    readonly cors?: outputs.documentdb.v20200401.CorsPolicyInvokeResponse[];
     /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
@@ -89,7 +89,7 @@ export interface GetDatabaseAccountResult {
     /**
      * An array that contains the regions ordered by their failover priorities.
      */
-    readonly failoverPolicies: outputs.documentdb.v20200401.FailoverPolicyResponse[];
+    readonly failoverPolicies: outputs.documentdb.v20200401.FailoverPolicyInvokeResponse[];
     /**
      * The unique resource identifier of the ARM resource.
      */
@@ -97,7 +97,7 @@ export interface GetDatabaseAccountResult {
     /**
      * List of IpRules.
      */
-    readonly ipRules?: outputs.documentdb.v20200401.IpAddressOrRangeResponse[];
+    readonly ipRules?: outputs.documentdb.v20200401.IpAddressOrRangeInvokeResponse[];
     /**
      * Flag to indicate whether to enable/disable Virtual Network ACL rules.
      */
@@ -117,7 +117,7 @@ export interface GetDatabaseAccountResult {
     /**
      * An array that contains all of the locations enabled for the Cosmos DB account.
      */
-    readonly locations: outputs.documentdb.v20200401.LocationResponse[];
+    readonly locations: outputs.documentdb.v20200401.LocationInvokeResponse[];
     /**
      * The name of the ARM resource.
      */
@@ -125,7 +125,7 @@ export interface GetDatabaseAccountResult {
     /**
      * List of Private Endpoint Connections configured for the Cosmos DB account.
      */
-    readonly privateEndpointConnections: outputs.documentdb.v20200401.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.documentdb.v20200401.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
      */
@@ -137,7 +137,7 @@ export interface GetDatabaseAccountResult {
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
-    readonly readLocations: outputs.documentdb.v20200401.LocationResponse[];
+    readonly readLocations: outputs.documentdb.v20200401.LocationInvokeResponse[];
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -149,9 +149,9 @@ export interface GetDatabaseAccountResult {
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    readonly virtualNetworkRules?: outputs.documentdb.v20200401.VirtualNetworkRuleResponse[];
+    readonly virtualNetworkRules?: outputs.documentdb.v20200401.VirtualNetworkRuleInvokeResponse[];
     /**
      * An array that contains the write location for the Cosmos DB account.
      */
-    readonly writeLocations: outputs.documentdb.v20200401.LocationResponse[];
+    readonly writeLocations: outputs.documentdb.v20200401.LocationInvokeResponse[];
 }

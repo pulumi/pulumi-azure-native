@@ -37,7 +37,7 @@ export interface ListRegistryCredentialsResult {
     /**
      * The list of passwords for a container registry.
      */
-    readonly passwords?: outputs.containerregistry.v20171001.RegistryPasswordResponse[];
+    readonly passwords?: outputs.containerregistry.v20171001.RegistryPasswordInvokeResponse[];
     /**
      * The username for a container registry.
      */

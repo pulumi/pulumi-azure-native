@@ -37,7 +37,7 @@ export interface GetCustomResourceProviderResult {
     /**
      * A list of actions that the custom resource provider implements.
      */
-    readonly actions?: outputs.customproviders.v20180901preview.CustomRPActionRouteDefinitionResponse[];
+    readonly actions?: outputs.customproviders.v20180901preview.CustomRPActionRouteDefinitionInvokeResponse[];
     /**
      * Resource Id
      */
@@ -57,7 +57,7 @@ export interface GetCustomResourceProviderResult {
     /**
      * A list of resource types that the custom resource provider implements.
      */
-    readonly resourceTypes?: outputs.customproviders.v20180901preview.CustomRPResourceTypeRouteDefinitionResponse[];
+    readonly resourceTypes?: outputs.customproviders.v20180901preview.CustomRPResourceTypeRouteDefinitionInvokeResponse[];
     /**
      * Resource tags
      */
@@ -69,5 +69,5 @@ export interface GetCustomResourceProviderResult {
     /**
      * A list of validations to run on the custom resource provider's requests.
      */
-    readonly validations?: outputs.customproviders.v20180901preview.CustomRPValidationsResponse[];
+    readonly validations?: outputs.customproviders.v20180901preview.CustomRPValidationsInvokeResponse[];
 }

@@ -45,7 +45,7 @@ export interface GetAutomationAccountResult {
     /**
      * Encryption properties for the automation account
      */
-    readonly encryption?: outputs.automation.v20200113preview.EncryptionPropertiesResponse;
+    readonly encryption?: outputs.automation.v20200113preview.EncryptionPropertiesInvokeResponse;
     /**
      * Gets or sets the etag of the resource.
      */
@@ -57,7 +57,7 @@ export interface GetAutomationAccountResult {
     /**
      * Identity for the resource.
      */
-    readonly identity?: outputs.automation.v20200113preview.IdentityResponse;
+    readonly identity?: outputs.automation.v20200113preview.IdentityInvokeResponse;
     /**
      * Gets or sets the last modified by.
      */
@@ -77,7 +77,7 @@ export interface GetAutomationAccountResult {
     /**
      * List of Automation operations supported by the Automation resource provider.
      */
-    readonly privateEndpointConnections?: outputs.automation.v20200113preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections?: outputs.automation.v20200113preview.PrivateEndpointConnectionInvokeResponse[];
     /**
      * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
      */
@@ -85,7 +85,7 @@ export interface GetAutomationAccountResult {
     /**
      * Gets or sets the SKU of account.
      */
-    readonly sku?: outputs.automation.v20200113preview.SkuResponse;
+    readonly sku?: outputs.automation.v20200113preview.SkuInvokeResponse;
     /**
      * Gets status of account.
      */

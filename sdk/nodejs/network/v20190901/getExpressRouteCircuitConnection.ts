@@ -63,7 +63,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */
-    readonly expressRouteCircuitPeering?: outputs.network.v20190901.SubResourceResponse;
+    readonly expressRouteCircuitPeering?: outputs.network.v20190901.SubResourceInvokeResponse;
     /**
      * Resource ID.
      */
@@ -75,7 +75,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */
-    readonly peerExpressRouteCircuitPeering?: outputs.network.v20190901.SubResourceResponse;
+    readonly peerExpressRouteCircuitPeering?: outputs.network.v20190901.SubResourceInvokeResponse;
     /**
      * The provisioning state of the express route circuit connection resource.
      */

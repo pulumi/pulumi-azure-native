@@ -37,7 +37,7 @@ export interface GetServerDetailsResult {
     /**
      * A collection of AS server administrators
      */
-    readonly asAdministrators?: outputs.analysisservices.v20160516.ServerAdministratorsResponse;
+    readonly asAdministrators?: outputs.analysisservices.v20160516.ServerAdministratorsInvokeResponse;
     /**
      * The container URI of backup blob.
      */
@@ -73,7 +73,7 @@ export interface GetServerDetailsResult {
     /**
      * The SKU of the Analysis Services resource.
      */
-    readonly sku: outputs.analysisservices.v20160516.ResourceSkuResponse;
+    readonly sku: outputs.analysisservices.v20160516.ResourceSkuInvokeResponse;
     /**
      * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
      */

@@ -42,7 +42,7 @@ export interface GetLoadBalancerResult {
     /**
      * Collection of backend address pools used by a load balancer
      */
-    readonly backendAddressPools?: outputs.network.v20170601.BackendAddressPoolResponse[];
+    readonly backendAddressPools?: outputs.network.v20170601.BackendAddressPoolInvokeResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,7 +50,7 @@ export interface GetLoadBalancerResult {
     /**
      * Object representing the frontend IPs to be used for the load balancer
      */
-    readonly frontendIPConfigurations?: outputs.network.v20170601.FrontendIPConfigurationResponse[];
+    readonly frontendIPConfigurations?: outputs.network.v20170601.FrontendIPConfigurationInvokeResponse[];
     /**
      * Resource ID.
      */
@@ -58,15 +58,15 @@ export interface GetLoadBalancerResult {
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatPools?: outputs.network.v20170601.InboundNatPoolResponse[];
+    readonly inboundNatPools?: outputs.network.v20170601.InboundNatPoolInvokeResponse[];
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatRules?: outputs.network.v20170601.InboundNatRuleResponse[];
+    readonly inboundNatRules?: outputs.network.v20170601.InboundNatRuleInvokeResponse[];
     /**
      * Object collection representing the load balancing rules Gets the provisioning 
      */
-    readonly loadBalancingRules?: outputs.network.v20170601.LoadBalancingRuleResponse[];
+    readonly loadBalancingRules?: outputs.network.v20170601.LoadBalancingRuleInvokeResponse[];
     /**
      * Resource location.
      */
@@ -78,11 +78,11 @@ export interface GetLoadBalancerResult {
     /**
      * The outbound NAT rules.
      */
-    readonly outboundNatRules?: outputs.network.v20170601.OutboundNatRuleResponse[];
+    readonly outboundNatRules?: outputs.network.v20170601.OutboundNatRuleInvokeResponse[];
     /**
      * Collection of probe objects used in the load balancer
      */
-    readonly probes?: outputs.network.v20170601.ProbeResponse[];
+    readonly probes?: outputs.network.v20170601.ProbeInvokeResponse[];
     /**
      * Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

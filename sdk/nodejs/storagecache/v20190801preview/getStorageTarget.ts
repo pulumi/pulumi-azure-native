@@ -42,7 +42,7 @@ export interface GetStorageTargetResult {
     /**
      * Properties when clfs target.
      */
-    readonly clfs?: outputs.storagecache.v20190801preview.ClfsTargetResponse;
+    readonly clfs?: outputs.storagecache.v20190801preview.ClfsTargetInvokeResponse;
     /**
      * Resource Id
      */
@@ -50,7 +50,7 @@ export interface GetStorageTargetResult {
     /**
      * List of cache namespace to target namespace associations.
      */
-    readonly junctions?: outputs.storagecache.v20190801preview.NamespaceJunctionResponse[];
+    readonly junctions?: outputs.storagecache.v20190801preview.NamespaceJunctionInvokeResponse[];
     /**
      * A fully qualified URL.
      */
@@ -58,7 +58,7 @@ export interface GetStorageTargetResult {
     /**
      * Properties when nfs3 target.
      */
-    readonly nfs3?: outputs.storagecache.v20190801preview.Nfs3TargetResponse;
+    readonly nfs3?: outputs.storagecache.v20190801preview.Nfs3TargetInvokeResponse;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -74,5 +74,5 @@ export interface GetStorageTargetResult {
     /**
      * Properties when unknown target.
      */
-    readonly unknown?: outputs.storagecache.v20190801preview.UnknownTargetResponse;
+    readonly unknown?: outputs.storagecache.v20190801preview.UnknownTargetInvokeResponse;
 }

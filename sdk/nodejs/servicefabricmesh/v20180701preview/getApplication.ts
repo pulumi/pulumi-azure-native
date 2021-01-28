@@ -45,7 +45,7 @@ export interface GetApplicationResult {
     /**
      * Describes the diagnostics definition and usage for an application resource.
      */
-    readonly diagnostics?: outputs.servicefabricmesh.v20180701preview.DiagnosticsDescriptionResponse;
+    readonly diagnostics?: outputs.servicefabricmesh.v20180701preview.DiagnosticsDescriptionInvokeResponse;
     /**
      * Describes the health state of an application resource.
      */
@@ -73,7 +73,7 @@ export interface GetApplicationResult {
     /**
      * describes the services in the application.
      */
-    readonly services?: outputs.servicefabricmesh.v20180701preview.ServiceResourceDescriptionResponse[];
+    readonly services?: outputs.servicefabricmesh.v20180701preview.ServiceResourceDescriptionInvokeResponse[];
     /**
      * Status of the application resource.
      */

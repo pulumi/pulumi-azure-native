@@ -49,5 +49,5 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesArgs {
  * The expression traces.
  */
 export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
-    readonly inputs?: outputs.logic.latest.ExpressionRootResponse[];
+    readonly inputs?: outputs.logic.latest.ExpressionRootInvokeResponse[];
 }

@@ -138,7 +138,7 @@ export interface GetDatabaseResult {
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: outputs.sql.v20170301preview.SkuResponse;
+    readonly sku?: outputs.sql.v20170301preview.SkuInvokeResponse;
     /**
      * Specifies the time that the database was deleted.
      */

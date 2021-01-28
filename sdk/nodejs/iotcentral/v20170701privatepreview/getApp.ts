@@ -57,7 +57,7 @@ export interface GetAppResult {
     /**
      * A valid instance SKU.
      */
-    readonly sku: outputs.iotcentral.v20170701privatepreview.AppSkuInfoResponse;
+    readonly sku: outputs.iotcentral.v20170701privatepreview.AppSkuInfoInvokeResponse;
     /**
      * The subdomain of the application.
      */

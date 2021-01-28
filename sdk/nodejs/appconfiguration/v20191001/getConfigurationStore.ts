@@ -49,7 +49,7 @@ export interface GetConfigurationStoreResult {
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: outputs.appconfiguration.v20191001.ResourceIdentityResponse;
+    readonly identity?: outputs.appconfiguration.v20191001.ResourceIdentityInvokeResponse;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -65,7 +65,7 @@ export interface GetConfigurationStoreResult {
     /**
      * The sku of the configuration store.
      */
-    readonly sku: outputs.appconfiguration.v20191001.SkuResponse;
+    readonly sku: outputs.appconfiguration.v20191001.SkuInvokeResponse;
     /**
      * The tags of the resource.
      */

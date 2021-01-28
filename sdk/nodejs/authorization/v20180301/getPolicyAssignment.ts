@@ -73,7 +73,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
-    readonly sku?: outputs.authorization.v20180301.PolicySkuResponse;
+    readonly sku?: outputs.authorization.v20180301.PolicySkuInvokeResponse;
     /**
      * The type of the policy assignment.
      */

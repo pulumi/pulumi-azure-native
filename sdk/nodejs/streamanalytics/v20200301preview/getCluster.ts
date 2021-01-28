@@ -53,11 +53,11 @@ export interface GetClusterResult {
     /**
      * The properties associated with a Stream Analytics cluster.
      */
-    readonly properties: outputs.streamanalytics.v20200301preview.ClusterPropertiesResponse;
+    readonly properties: outputs.streamanalytics.v20200301preview.ClusterPropertiesInvokeResponse;
     /**
      * The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
      */
-    readonly sku?: outputs.streamanalytics.v20200301preview.ClusterSkuResponse;
+    readonly sku?: outputs.streamanalytics.v20200301preview.ClusterSkuInvokeResponse;
     /**
      * Resource tags.
      */

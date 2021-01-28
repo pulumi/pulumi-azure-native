@@ -70,9 +70,9 @@ export interface GetHubVirtualNetworkConnectionResult {
     /**
      * Reference to the remote virtual network.
      */
-    readonly remoteVirtualNetwork?: outputs.network.v20200501.SubResourceResponse;
+    readonly remoteVirtualNetwork?: outputs.network.v20200501.SubResourceInvokeResponse;
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: outputs.network.v20200501.RoutingConfigurationResponse;
+    readonly routingConfiguration?: outputs.network.v20200501.RoutingConfigurationInvokeResponse;
 }

@@ -58,7 +58,7 @@ export interface GetDomainOwnershipIdentifierResult {
     /**
      * The system metadata relating to this resource.
      */
-    readonly systemData: outputs.domainregistration.latest.SystemDataResponse;
+    readonly systemData: outputs.domainregistration.latest.SystemDataInvokeResponse;
     /**
      * Resource type.
      */

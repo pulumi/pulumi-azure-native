@@ -42,11 +42,11 @@ export interface GetVirtualMachineResourceResult {
     /**
      * The artifact deployment status for the virtual machine.
      */
-    readonly artifactDeploymentStatus?: outputs.devtestlab.v20150521preview.ArtifactDeploymentStatusPropertiesResponse;
+    readonly artifactDeploymentStatus?: outputs.devtestlab.v20150521preview.ArtifactDeploymentStatusPropertiesInvokeResponse;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: outputs.devtestlab.v20150521preview.ArtifactInstallPropertiesResponse[];
+    readonly artifacts?: outputs.devtestlab.v20150521preview.ArtifactInstallPropertiesInvokeResponse[];
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
@@ -74,7 +74,7 @@ export interface GetVirtualMachineResourceResult {
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: outputs.devtestlab.v20150521preview.GalleryImageReferenceResponse;
+    readonly galleryImageReference?: outputs.devtestlab.v20150521preview.GalleryImageReferenceInvokeResponse;
     /**
      * The identifier of the resource.
      */

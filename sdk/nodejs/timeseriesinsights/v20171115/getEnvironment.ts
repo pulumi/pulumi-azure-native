@@ -70,7 +70,7 @@ export interface GetEnvironmentResult {
     /**
      * The list of partition keys according to which the data in the environment will be ordered.
      */
-    readonly partitionKeyProperties?: outputs.timeseriesinsights.v20171115.PartitionKeyPropertyResponse[];
+    readonly partitionKeyProperties?: outputs.timeseriesinsights.v20171115.PartitionKeyPropertyInvokeResponse[];
     /**
      * Provisioning state of the resource.
      */
@@ -78,11 +78,11 @@ export interface GetEnvironmentResult {
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
-    readonly sku?: outputs.timeseriesinsights.v20171115.SkuResponse;
+    readonly sku?: outputs.timeseriesinsights.v20171115.SkuInvokeResponse;
     /**
      * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
      */
-    readonly status: outputs.timeseriesinsights.v20171115.EnvironmentStatusResponse;
+    readonly status: outputs.timeseriesinsights.v20171115.EnvironmentStatusInvokeResponse;
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */

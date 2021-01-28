@@ -43,7 +43,7 @@ export interface ListTaskDetailsResult {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: outputs.containerregistry.v20180901.AgentPropertiesResponse;
+    readonly agentConfiguration?: outputs.containerregistry.v20180901.AgentPropertiesInvokeResponse;
     /**
      * The creation date of task.
      */
@@ -51,7 +51,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: outputs.containerregistry.v20180901.CredentialsResponse;
+    readonly credentials?: outputs.containerregistry.v20180901.CredentialsInvokeResponse;
     /**
      * The resource ID.
      */
@@ -67,7 +67,7 @@ export interface ListTaskDetailsResult {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform: outputs.containerregistry.v20180901.PlatformPropertiesResponse;
+    readonly platform: outputs.containerregistry.v20180901.PlatformPropertiesInvokeResponse;
     /**
      * The provisioning state of the task.
      */
@@ -79,7 +79,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties of a task step.
      */
-    readonly step: outputs.containerregistry.v20180901.DockerBuildStepResponse | outputs.containerregistry.v20180901.EncodedTaskStepResponse | outputs.containerregistry.v20180901.FileTaskStepResponse;
+    readonly step: outputs.containerregistry.v20180901.DockerBuildStepInvokeResponse | outputs.containerregistry.v20180901.EncodedTaskStepInvokeResponse | outputs.containerregistry.v20180901.FileTaskStepInvokeResponse;
     /**
      * The tags of the resource.
      */
@@ -91,7 +91,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: outputs.containerregistry.v20180901.TriggerPropertiesResponse;
+    readonly trigger?: outputs.containerregistry.v20180901.TriggerPropertiesInvokeResponse;
     /**
      * The type of the resource.
      */

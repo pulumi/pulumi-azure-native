@@ -37,7 +37,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * Gets or sets DNS Settings in  NetworkInterface
      */
-    readonly dnsSettings?: outputs.network.v20150501preview.NetworkInterfaceDnsSettingsResponse;
+    readonly dnsSettings?: outputs.network.v20150501preview.NetworkInterfaceDnsSettingsInvokeResponse;
     /**
      * Gets or sets whether IPForwarding is enabled on the NIC
      */
@@ -53,7 +53,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * Gets or sets list of IPConfigurations of the NetworkInterface
      */
-    readonly ipConfigurations?: outputs.network.v20150501preview.NetworkInterfaceIpConfigurationResponse[];
+    readonly ipConfigurations?: outputs.network.v20150501preview.NetworkInterfaceIpConfigurationInvokeResponse[];
     /**
      * Resource location
      */
@@ -69,7 +69,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly networkSecurityGroup?: outputs.network.v20150501preview.SubResourceResponse;
+    readonly networkSecurityGroup?: outputs.network.v20150501preview.SubResourceInvokeResponse;
     /**
      * Gets whether this is a primary NIC on a virtual machine
      */
@@ -93,5 +93,5 @@ export interface GetNetworkInterfaceResult {
     /**
      * Gets or sets the reference of a VirtualMachine
      */
-    readonly virtualMachine?: outputs.network.v20150501preview.SubResourceResponse;
+    readonly virtualMachine?: outputs.network.v20150501preview.SubResourceInvokeResponse;
 }

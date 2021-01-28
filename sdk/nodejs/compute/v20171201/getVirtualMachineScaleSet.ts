@@ -41,7 +41,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: outputs.compute.v20171201.VirtualMachineScaleSetIdentityResponse;
+    readonly identity?: outputs.compute.v20171201.VirtualMachineScaleSetIdentityInvokeResponse;
     /**
      * Resource location
      */
@@ -57,7 +57,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: outputs.compute.v20171201.PlanResponse;
+    readonly plan?: outputs.compute.v20171201.PlanInvokeResponse;
     /**
      * Fault Domain count for each placement group.
      */
@@ -73,7 +73,7 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: outputs.compute.v20171201.SkuResponse;
+    readonly sku?: outputs.compute.v20171201.SkuInvokeResponse;
     /**
      * Resource tags
      */
@@ -89,11 +89,11 @@ export interface GetVirtualMachineScaleSetResult {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: outputs.compute.v20171201.UpgradePolicyResponse;
+    readonly upgradePolicy?: outputs.compute.v20171201.UpgradePolicyInvokeResponse;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: outputs.compute.v20171201.VirtualMachineScaleSetVMProfileResponse;
+    readonly virtualMachineProfile?: outputs.compute.v20171201.VirtualMachineScaleSetVMProfileInvokeResponse;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
      */

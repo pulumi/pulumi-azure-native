@@ -37,5 +37,5 @@ export interface ListAccountKeysResult {
     /**
      * Account keys
      */
-    readonly value: outputs.engagementfabric.v20180901preview.KeyDescriptionResponse[];
+    readonly value: outputs.engagementfabric.v20180901preview.KeyDescriptionInvokeResponse[];
 }

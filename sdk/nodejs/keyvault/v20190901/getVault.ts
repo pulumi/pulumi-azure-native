@@ -49,7 +49,7 @@ export interface GetVaultResult {
     /**
      * Properties of the vault
      */
-    readonly properties: outputs.keyvault.v20190901.VaultPropertiesResponse;
+    readonly properties: outputs.keyvault.v20190901.VaultPropertiesInvokeResponse;
     /**
      * Tags assigned to the key vault resource.
      */

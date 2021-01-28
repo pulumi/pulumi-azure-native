@@ -37,7 +37,7 @@ export interface GetDiskResult {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: outputs.compute.v20180601.CreationDataResponse;
+    readonly creationData: outputs.compute.v20180601.CreationDataInvokeResponse;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
      */
@@ -53,7 +53,7 @@ export interface GetDiskResult {
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: outputs.compute.v20180601.EncryptionSettingsResponse;
+    readonly encryptionSettings?: outputs.compute.v20180601.EncryptionSettingsInvokeResponse;
     /**
      * Resource Id
      */
@@ -81,7 +81,7 @@ export interface GetDiskResult {
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: outputs.compute.v20180601.DiskSkuResponse;
+    readonly sku?: outputs.compute.v20180601.DiskSkuInvokeResponse;
     /**
      * Resource tags
      */

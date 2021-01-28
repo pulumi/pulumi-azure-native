@@ -37,7 +37,7 @@ export interface GetClusterResult {
     /**
      * The list of Log Analytics workspaces associated with the cluster
      */
-    readonly associatedWorkspaces?: outputs.operationalinsights.latest.AssociatedWorkspaceResponse[];
+    readonly associatedWorkspaces?: outputs.operationalinsights.latest.AssociatedWorkspaceInvokeResponse[];
     /**
      * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
      */
@@ -45,7 +45,7 @@ export interface GetClusterResult {
     /**
      * Additional properties for capacity reservation
      */
-    readonly capacityReservationProperties?: outputs.operationalinsights.latest.CapacityReservationPropertiesResponse;
+    readonly capacityReservationProperties?: outputs.operationalinsights.latest.CapacityReservationPropertiesInvokeResponse;
     /**
      * The ID associated with the cluster.
      */
@@ -61,7 +61,7 @@ export interface GetClusterResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.operationalinsights.latest.IdentityResponse;
+    readonly identity?: outputs.operationalinsights.latest.IdentityInvokeResponse;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
@@ -73,7 +73,7 @@ export interface GetClusterResult {
     /**
      * The associated key properties.
      */
-    readonly keyVaultProperties?: outputs.operationalinsights.latest.KeyVaultPropertiesResponse;
+    readonly keyVaultProperties?: outputs.operationalinsights.latest.KeyVaultPropertiesInvokeResponse;
     /**
      * The last time the cluster was updated.
      */
@@ -93,7 +93,7 @@ export interface GetClusterResult {
     /**
      * The sku properties.
      */
-    readonly sku?: outputs.operationalinsights.latest.ClusterSkuResponse;
+    readonly sku?: outputs.operationalinsights.latest.ClusterSkuInvokeResponse;
     /**
      * Resource tags.
      */

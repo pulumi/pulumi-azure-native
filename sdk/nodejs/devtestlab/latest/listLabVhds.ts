@@ -41,5 +41,5 @@ export interface ListLabVhdsResult {
     /**
      * Results of the list operation.
      */
-    readonly value?: outputs.devtestlab.latest.LabVhdResponse[];
+    readonly value?: outputs.devtestlab.latest.LabVhdInvokeResponse[];
 }

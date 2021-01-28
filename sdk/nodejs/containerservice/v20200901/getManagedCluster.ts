@@ -37,23 +37,23 @@ export interface GetManagedClusterResult {
     /**
      * Profile of Azure Active Directory configuration.
      */
-    readonly aadProfile?: outputs.containerservice.v20200901.ManagedClusterAADProfileResponse;
+    readonly aadProfile?: outputs.containerservice.v20200901.ManagedClusterAADProfileInvokeResponse;
     /**
      * Profile of managed cluster add-on.
      */
-    readonly addonProfiles?: {[key: string]: outputs.containerservice.v20200901.ManagedClusterAddonProfileResponse};
+    readonly addonProfiles?: {[key: string]: outputs.containerservice.v20200901.ManagedClusterAddonProfileInvokeResponse};
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: outputs.containerservice.v20200901.ManagedClusterAgentPoolProfileResponse[];
+    readonly agentPoolProfiles?: outputs.containerservice.v20200901.ManagedClusterAgentPoolProfileInvokeResponse[];
     /**
      * Access profile for managed cluster API server.
      */
-    readonly apiServerAccessProfile?: outputs.containerservice.v20200901.ManagedClusterAPIServerAccessProfileResponse;
+    readonly apiServerAccessProfile?: outputs.containerservice.v20200901.ManagedClusterAPIServerAccessProfileInvokeResponse;
     /**
      * Parameters to be applied to the cluster-autoscaler when enabled
      */
-    readonly autoScalerProfile?: outputs.containerservice.v20200901.ManagedClusterPropertiesResponseAutoScalerProfile;
+    readonly autoScalerProfile?: outputs.containerservice.v20200901.ManagedClusterPropertiesInvokeResponseAutoScalerProfile;
     /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
@@ -81,11 +81,11 @@ export interface GetManagedClusterResult {
     /**
      * The identity of the managed cluster, if configured.
      */
-    readonly identity?: outputs.containerservice.v20200901.ManagedClusterIdentityResponse;
+    readonly identity?: outputs.containerservice.v20200901.ManagedClusterIdentityInvokeResponse;
     /**
      * Identities associated with the cluster.
      */
-    readonly identityProfile?: {[key: string]: outputs.containerservice.v20200901.ManagedClusterPropertiesResponseIdentityProfile};
+    readonly identityProfile?: {[key: string]: outputs.containerservice.v20200901.ManagedClusterPropertiesInvokeResponseIdentityProfile};
     /**
      * Version of Kubernetes specified when creating the managed cluster.
      */
@@ -93,7 +93,7 @@ export interface GetManagedClusterResult {
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: outputs.containerservice.v20200901.ContainerServiceLinuxProfileResponse;
+    readonly linuxProfile?: outputs.containerservice.v20200901.ContainerServiceLinuxProfileInvokeResponse;
     /**
      * Resource location
      */
@@ -109,7 +109,7 @@ export interface GetManagedClusterResult {
     /**
      * Profile of network configuration.
      */
-    readonly networkProfile?: outputs.containerservice.v20200901.ContainerServiceNetworkProfileResponse;
+    readonly networkProfile?: outputs.containerservice.v20200901.ContainerServiceNetworkProfileInvokeResponse;
     /**
      * Name of the resource group containing agent pool nodes.
      */
@@ -117,7 +117,7 @@ export interface GetManagedClusterResult {
     /**
      * Represents the Power State of the cluster
      */
-    readonly powerState: outputs.containerservice.v20200901.PowerStateResponse;
+    readonly powerState: outputs.containerservice.v20200901.PowerStateInvokeResponse;
     /**
      * FQDN of private cluster.
      */
@@ -129,11 +129,11 @@ export interface GetManagedClusterResult {
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
-    readonly servicePrincipalProfile?: outputs.containerservice.v20200901.ManagedClusterServicePrincipalProfileResponse;
+    readonly servicePrincipalProfile?: outputs.containerservice.v20200901.ManagedClusterServicePrincipalProfileInvokeResponse;
     /**
      * The managed cluster SKU.
      */
-    readonly sku?: outputs.containerservice.v20200901.ManagedClusterSKUResponse;
+    readonly sku?: outputs.containerservice.v20200901.ManagedClusterSKUInvokeResponse;
     /**
      * Resource tags
      */
@@ -145,5 +145,5 @@ export interface GetManagedClusterResult {
     /**
      * Profile for Windows VMs in the container service cluster.
      */
-    readonly windowsProfile?: outputs.containerservice.v20200901.ManagedClusterWindowsProfileResponse;
+    readonly windowsProfile?: outputs.containerservice.v20200901.ManagedClusterWindowsProfileInvokeResponse;
 }

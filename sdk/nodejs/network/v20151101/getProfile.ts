@@ -37,11 +37,11 @@ export interface GetProfileResult {
     /**
      * Gets or sets the DNS settings of the Traffic Manager profile.
      */
-    readonly dnsConfig?: outputs.network.v20151101.DnsConfigResponse;
+    readonly dnsConfig?: outputs.network.v20151101.DnsConfigInvokeResponse;
     /**
      * Gets or sets the list of endpoints in the Traffic Manager profile.
      */
-    readonly endpoints?: outputs.network.v20151101.EndpointResponse[];
+    readonly endpoints?: outputs.network.v20151101.EndpointInvokeResponse[];
     /**
      * Resource Id
      */
@@ -53,7 +53,7 @@ export interface GetProfileResult {
     /**
      * Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
      */
-    readonly monitorConfig?: outputs.network.v20151101.MonitorConfigResponse;
+    readonly monitorConfig?: outputs.network.v20151101.MonitorConfigInvokeResponse;
     /**
      * Resource name
      */

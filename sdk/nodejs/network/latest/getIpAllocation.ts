@@ -78,7 +78,7 @@ export interface GetIpAllocationResult {
     /**
      * The Subnet that using the prefix of this IpAllocation resource.
      */
-    readonly subnet: outputs.network.latest.SubResourceResponse;
+    readonly subnet: outputs.network.latest.SubResourceInvokeResponse;
     /**
      * Resource tags.
      */
@@ -90,5 +90,5 @@ export interface GetIpAllocationResult {
     /**
      * The VirtualNetwork that using the prefix of this IpAllocation resource.
      */
-    readonly virtualNetwork: outputs.network.latest.SubResourceResponse;
+    readonly virtualNetwork: outputs.network.latest.SubResourceInvokeResponse;
 }

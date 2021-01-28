@@ -58,11 +58,11 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint: outputs.network.v20200701.PrivateEndpointResponse;
+    readonly privateEndpoint: outputs.network.v20200701.PrivateEndpointInvokeResponse;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState?: outputs.network.v20200701.PrivateLinkServiceConnectionStateResponse;
+    readonly privateLinkServiceConnectionState?: outputs.network.v20200701.PrivateLinkServiceConnectionStateInvokeResponse;
     /**
      * The provisioning state of the application gateway private endpoint connection resource.
      */

@@ -49,7 +49,7 @@ export interface GetDiskAccessResult {
     /**
      * A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
      */
-    readonly privateEndpointConnections: outputs.compute.latest.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.compute.latest.PrivateEndpointConnectionInvokeResponse[];
     /**
      * The disk access resource provisioning state.
      */

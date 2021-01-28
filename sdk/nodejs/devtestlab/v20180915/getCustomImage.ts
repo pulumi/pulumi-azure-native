@@ -55,11 +55,11 @@ export interface GetCustomImageResult {
     /**
      * Storage information about the plan related to this custom image
      */
-    readonly customImagePlan?: outputs.devtestlab.v20180915.CustomImagePropertiesFromPlanResponse;
+    readonly customImagePlan?: outputs.devtestlab.v20180915.CustomImagePropertiesFromPlanInvokeResponse;
     /**
      * Storage information about the data disks present in the custom image
      */
-    readonly dataDiskStorageInfo?: outputs.devtestlab.v20180915.DataDiskStorageTypeInfoResponse[];
+    readonly dataDiskStorageInfo?: outputs.devtestlab.v20180915.DataDiskStorageTypeInfoInvokeResponse[];
     /**
      * The description of the custom image.
      */
@@ -107,9 +107,9 @@ export interface GetCustomImageResult {
     /**
      * The VHD from which the image is to be created.
      */
-    readonly vhd?: outputs.devtestlab.v20180915.CustomImagePropertiesCustomResponse;
+    readonly vhd?: outputs.devtestlab.v20180915.CustomImagePropertiesCustomInvokeResponse;
     /**
      * The virtual machine from which the image is to be created.
      */
-    readonly vm?: outputs.devtestlab.v20180915.CustomImagePropertiesFromVmResponse;
+    readonly vm?: outputs.devtestlab.v20180915.CustomImagePropertiesFromVmInvokeResponse;
 }

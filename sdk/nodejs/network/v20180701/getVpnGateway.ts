@@ -37,11 +37,11 @@ export interface GetVpnGatewayResult {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: outputs.network.v20180701.BgpSettingsResponse;
+    readonly bgpSettings?: outputs.network.v20180701.BgpSettingsInvokeResponse;
     /**
      * list of all vpn connections to the gateway.
      */
-    readonly connections?: outputs.network.v20180701.VpnConnectionResponse[];
+    readonly connections?: outputs.network.v20180701.VpnConnectionInvokeResponse[];
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -61,7 +61,7 @@ export interface GetVpnGatewayResult {
     /**
      * The policies applied to this vpn gateway.
      */
-    readonly policies?: outputs.network.v20180701.PoliciesResponse;
+    readonly policies?: outputs.network.v20180701.PoliciesInvokeResponse;
     /**
      * The provisioning state of the resource.
      */
@@ -77,5 +77,5 @@ export interface GetVpnGatewayResult {
     /**
      * The VirtualHub to which the gateway belongs
      */
-    readonly virtualHub?: outputs.network.v20180701.SubResourceResponse;
+    readonly virtualHub?: outputs.network.v20180701.SubResourceInvokeResponse;
 }

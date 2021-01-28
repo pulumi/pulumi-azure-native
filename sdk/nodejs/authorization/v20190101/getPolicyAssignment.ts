@@ -49,7 +49,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The managed identity associated with the policy assignment.
      */
-    readonly identity?: outputs.authorization.v20190101.IdentityResponse;
+    readonly identity?: outputs.authorization.v20190101.IdentityInvokeResponse;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -81,7 +81,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
-    readonly sku?: outputs.authorization.v20190101.PolicySkuResponse;
+    readonly sku?: outputs.authorization.v20190101.PolicySkuInvokeResponse;
     /**
      * The type of the policy assignment.
      */

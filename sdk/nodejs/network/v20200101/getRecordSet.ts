@@ -47,15 +47,15 @@ export interface GetRecordSetResult {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: outputs.network.v20200101.ARecordResponse[];
+    readonly aRecords?: outputs.network.v20200101.ARecordInvokeResponse[];
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: outputs.network.v20200101.AaaaRecordResponse[];
+    readonly aaaaRecords?: outputs.network.v20200101.AaaaRecordInvokeResponse[];
     /**
      * The CNAME record in the record set.
      */
-    readonly cnameRecord?: outputs.network.v20200101.CnameRecordResponse;
+    readonly cnameRecord?: outputs.network.v20200101.CnameRecordInvokeResponse;
     /**
      * The ETag of the record set.
      */
@@ -79,7 +79,7 @@ export interface GetRecordSetResult {
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: outputs.network.v20200101.MxRecordResponse[];
+    readonly mxRecords?: outputs.network.v20200101.MxRecordInvokeResponse[];
     /**
      * The name of the resource
      */
@@ -87,15 +87,15 @@ export interface GetRecordSetResult {
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: outputs.network.v20200101.PtrRecordResponse[];
+    readonly ptrRecords?: outputs.network.v20200101.PtrRecordInvokeResponse[];
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: outputs.network.v20200101.SoaRecordResponse;
+    readonly soaRecord?: outputs.network.v20200101.SoaRecordInvokeResponse;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: outputs.network.v20200101.SrvRecordResponse[];
+    readonly srvRecords?: outputs.network.v20200101.SrvRecordInvokeResponse[];
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -103,7 +103,7 @@ export interface GetRecordSetResult {
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: outputs.network.v20200101.TxtRecordResponse[];
+    readonly txtRecords?: outputs.network.v20200101.TxtRecordInvokeResponse[];
     /**
      * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
      */

@@ -54,7 +54,7 @@ export interface GetWebServiceResult {
     /**
      * Contains the property payload that describes the web service.
      */
-    readonly properties: outputs.machinelearning.latest.WebServicePropertiesForGraphResponse;
+    readonly properties: outputs.machinelearning.latest.WebServicePropertiesForGraphInvokeResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

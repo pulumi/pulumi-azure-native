@@ -58,11 +58,11 @@ export interface GetStorageInsightConfigResult {
     /**
      * The status of the storage insight
      */
-    readonly status: outputs.operationalinsights.v20200801.StorageInsightStatusResponse;
+    readonly status: outputs.operationalinsights.v20200801.StorageInsightStatusInvokeResponse;
     /**
      * The storage account connection details
      */
-    readonly storageAccount: outputs.operationalinsights.v20200801.StorageAccountResponse;
+    readonly storageAccount: outputs.operationalinsights.v20200801.StorageAccountInvokeResponse;
     /**
      * The names of the Azure tables that the workspace should read
      */

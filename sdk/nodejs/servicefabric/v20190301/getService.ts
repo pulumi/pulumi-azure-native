@@ -47,7 +47,7 @@ export interface GetServiceResult {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly correlationScheme?: outputs.servicefabric.v20190301.ServiceCorrelationDescriptionResponse[];
+    readonly correlationScheme?: outputs.servicefabric.v20190301.ServiceCorrelationDescriptionInvokeResponse[];
     /**
      * Specifies the move cost for the service.
      */
@@ -71,7 +71,7 @@ export interface GetServiceResult {
     /**
      * Describes how the service is partitioned.
      */
-    readonly partitionDescription?: outputs.servicefabric.v20190301.NamedPartitionSchemeDescriptionResponse | outputs.servicefabric.v20190301.SingletonPartitionSchemeDescriptionResponse | outputs.servicefabric.v20190301.UniformInt64RangePartitionSchemeDescriptionResponse;
+    readonly partitionDescription?: outputs.servicefabric.v20190301.NamedPartitionSchemeDescriptionInvokeResponse | outputs.servicefabric.v20190301.SingletonPartitionSchemeDescriptionInvokeResponse | outputs.servicefabric.v20190301.UniformInt64RangePartitionSchemeDescriptionInvokeResponse;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */
@@ -87,7 +87,7 @@ export interface GetServiceResult {
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
-    readonly serviceLoadMetrics?: outputs.servicefabric.v20190301.ServiceLoadMetricDescriptionResponse[];
+    readonly serviceLoadMetrics?: outputs.servicefabric.v20190301.ServiceLoadMetricDescriptionInvokeResponse[];
     /**
      * The activation Mode of the service package
      */
@@ -95,7 +95,7 @@ export interface GetServiceResult {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly servicePlacementPolicies?: outputs.servicefabric.v20190301.ServicePlacementPolicyDescriptionResponse[];
+    readonly servicePlacementPolicies?: outputs.servicefabric.v20190301.ServicePlacementPolicyDescriptionInvokeResponse[];
     /**
      * The name of the service type
      */

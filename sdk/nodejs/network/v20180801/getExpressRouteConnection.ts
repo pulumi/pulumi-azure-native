@@ -46,7 +46,7 @@ export interface GetExpressRouteConnectionResult {
     /**
      * The ExpressRoute circuit peering.
      */
-    readonly expressRouteCircuitPeering: outputs.network.v20180801.ExpressRouteCircuitPeeringIdResponse;
+    readonly expressRouteCircuitPeering: outputs.network.v20180801.ExpressRouteCircuitPeeringIdInvokeResponse;
     /**
      * Resource ID.
      */

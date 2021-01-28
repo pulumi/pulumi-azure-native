@@ -24,11 +24,11 @@ export interface ListConfigurationsArgs {
     /**
      * Holds details about product hierarchy information and filterable property.
      */
-    readonly configurationFilters: inputs.edgeorder.v20201201preview.ConfigurationFilters[];
+    readonly configurationFilters: inputs.edgeorder.v20201201preview.ConfigurationFiltersInvoke[];
     /**
      * Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
      */
-    readonly customerSubscriptionDetails?: inputs.edgeorder.v20201201preview.CustomerSubscriptionDetails;
+    readonly customerSubscriptionDetails?: inputs.edgeorder.v20201201preview.CustomerSubscriptionDetailsInvoke;
     /**
      * $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
      */
@@ -46,5 +46,5 @@ export interface ListConfigurationsResult {
     /**
      * List of configurations.
      */
-    readonly value: outputs.edgeorder.v20201201preview.ConfigurationResponse[];
+    readonly value: outputs.edgeorder.v20201201preview.ConfigurationInvokeResponse[];
 }

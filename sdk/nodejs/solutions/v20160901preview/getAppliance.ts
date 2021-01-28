@@ -45,7 +45,7 @@ export interface GetApplianceResult {
     /**
      * The identity of the resource.
      */
-    readonly identity?: outputs.solutions.v20160901preview.IdentityResponse;
+    readonly identity?: outputs.solutions.v20160901preview.IdentityInvokeResponse;
     /**
      * The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -77,7 +77,7 @@ export interface GetApplianceResult {
     /**
      * The plan information.
      */
-    readonly plan?: outputs.solutions.v20160901preview.PlanResponse;
+    readonly plan?: outputs.solutions.v20160901preview.PlanInvokeResponse;
     /**
      * The appliance provisioning state.
      */
@@ -85,7 +85,7 @@ export interface GetApplianceResult {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: outputs.solutions.v20160901preview.SkuResponse;
+    readonly sku?: outputs.solutions.v20160901preview.SkuInvokeResponse;
     /**
      * Resource tags
      */

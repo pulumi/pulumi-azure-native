@@ -45,7 +45,7 @@ export interface GetAccountResult {
     /**
      * The identity of Cognitive Services account.
      */
-    readonly identity?: outputs.cognitiveservices.v20170418.IdentityResponse;
+    readonly identity?: outputs.cognitiveservices.v20170418.IdentityInvokeResponse;
     /**
      * The Kind of the resource.
      */
@@ -61,11 +61,11 @@ export interface GetAccountResult {
     /**
      * Properties of Cognitive Services account.
      */
-    readonly properties: outputs.cognitiveservices.v20170418.CognitiveServicesAccountPropertiesResponse;
+    readonly properties: outputs.cognitiveservices.v20170418.CognitiveServicesAccountPropertiesInvokeResponse;
     /**
      * The SKU of Cognitive Services account.
      */
-    readonly sku?: outputs.cognitiveservices.v20170418.SkuResponse;
+    readonly sku?: outputs.cognitiveservices.v20170418.SkuInvokeResponse;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */

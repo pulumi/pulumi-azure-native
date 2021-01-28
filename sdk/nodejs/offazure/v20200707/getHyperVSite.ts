@@ -53,7 +53,7 @@ export interface GetHyperVSiteResult {
     /**
      * Nested properties of Hyper-V site.
      */
-    readonly properties: outputs.offazure.v20200707.SitePropertiesResponse;
+    readonly properties: outputs.offazure.v20200707.SitePropertiesInvokeResponse;
     readonly tags?: {[key: string]: string};
     /**
      * Type of resource. Type = Microsoft.OffAzure/HyperVSites.

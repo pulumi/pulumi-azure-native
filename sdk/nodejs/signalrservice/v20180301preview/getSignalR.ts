@@ -74,7 +74,7 @@ export interface GetSignalRResult {
     /**
      * SKU of the service.
      */
-    readonly sku?: outputs.signalrservice.v20180301preview.ResourceSkuResponse;
+    readonly sku?: outputs.signalrservice.v20180301preview.ResourceSkuInvokeResponse;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */

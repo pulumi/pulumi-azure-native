@@ -45,7 +45,7 @@ export interface GetNamespaceNetworkRuleSetResult {
     /**
      * List of IpRules
      */
-    readonly ipRules?: outputs.servicebus.latest.NWRuleSetIpRulesResponse[];
+    readonly ipRules?: outputs.servicebus.latest.NWRuleSetIpRulesInvokeResponse[];
     /**
      * Resource name
      */
@@ -57,5 +57,5 @@ export interface GetNamespaceNetworkRuleSetResult {
     /**
      * List VirtualNetwork Rules
      */
-    readonly virtualNetworkRules?: outputs.servicebus.latest.NWRuleSetVirtualNetworkRulesResponse[];
+    readonly virtualNetworkRules?: outputs.servicebus.latest.NWRuleSetVirtualNetworkRulesInvokeResponse[];
 }
