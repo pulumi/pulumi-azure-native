@@ -64,15 +64,15 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The request parameters for a pipeline run.
         /// </summary>
-        public readonly Outputs.PipelineRunRequestResponse? Request;
+        public readonly Outputs.PipelineRunRequestInvokeResponseResult? Request;
         /// <summary>
         /// The response of a pipeline run.
         /// </summary>
-        public readonly Outputs.PipelineRunResponseResponse Response;
+        public readonly Outputs.PipelineRunResponseInvokeResponseResult Response;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string provisioningState,
 
-            Outputs.PipelineRunRequestResponse? request,
+            Outputs.PipelineRunRequestInvokeResponseResult? request,
 
-            Outputs.PipelineRunResponseResponse response,
+            Outputs.PipelineRunResponseInvokeResponseResult response,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

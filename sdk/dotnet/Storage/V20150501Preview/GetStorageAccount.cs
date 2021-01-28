@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
         /// <summary>
         /// Gets the user assigned custom domain assigned to this storage account.
         /// </summary>
-        public readonly Outputs.CustomDomainResponse? CustomDomain;
+        public readonly Outputs.CustomDomainInvokeResponseResult? CustomDomain;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
         /// </summary>
-        public readonly Outputs.EndpointsResponse? PrimaryEndpoints;
+        public readonly Outputs.EndpointsInvokeResponseResult? PrimaryEndpoints;
         /// <summary>
         /// Gets the location of the primary for the storage account.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
         /// </summary>
-        public readonly Outputs.EndpointsResponse? SecondaryEndpoints;
+        public readonly Outputs.EndpointsInvokeResponseResult? SecondaryEndpoints;
         /// <summary>
         /// Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
 
             string? creationTime,
 
-            Outputs.CustomDomainResponse? customDomain,
+            Outputs.CustomDomainInvokeResponseResult? customDomain,
 
             string id,
 
@@ -120,13 +120,13 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
 
             string name,
 
-            Outputs.EndpointsResponse? primaryEndpoints,
+            Outputs.EndpointsInvokeResponseResult? primaryEndpoints,
 
             string? primaryLocation,
 
             string? provisioningState,
 
-            Outputs.EndpointsResponse? secondaryEndpoints,
+            Outputs.EndpointsInvokeResponseResult? secondaryEndpoints,
 
             string? secondaryLocation,
 

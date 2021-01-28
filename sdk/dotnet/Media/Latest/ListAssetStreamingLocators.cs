@@ -48,10 +48,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The list of Streaming Locators.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssetStreamingLocatorResponseResult> StreamingLocators;
+        public readonly ImmutableArray<Outputs.AssetStreamingLocatorInvokeResponseResult> StreamingLocators;
 
         [OutputConstructor]
-        private ListAssetStreamingLocatorsResult(ImmutableArray<Outputs.AssetStreamingLocatorResponseResult> streamingLocators)
+        private ListAssetStreamingLocatorsResult(ImmutableArray<Outputs.AssetStreamingLocatorInvokeResponseResult> streamingLocators)
         {
             StreamingLocators = streamingLocators;
         }

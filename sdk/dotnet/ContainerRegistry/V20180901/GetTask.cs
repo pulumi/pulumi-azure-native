@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// <summary>
         /// The machine configuration of the run agent.
         /// </summary>
-        public readonly Outputs.AgentPropertiesResponse? AgentConfiguration;
+        public readonly Outputs.AgentPropertiesInvokeResponseResult? AgentConfiguration;
         /// <summary>
         /// The creation date of task.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// <summary>
         /// The properties that describes a set of credentials that will be used when this run is invoked.
         /// </summary>
-        public readonly Outputs.CredentialsResponse? Credentials;
+        public readonly Outputs.CredentialsInvokeResponseResult? Credentials;
         /// <summary>
         /// The resource ID.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        public readonly Outputs.PlatformPropertiesResponse Platform;
+        public readonly Outputs.PlatformPropertiesInvokeResponseResult Platform;
         /// <summary>
         /// The provisioning state of the task.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// <summary>
         /// The properties that describe all triggers for the task.
         /// </summary>
-        public readonly Outputs.TriggerPropertiesResponse? Trigger;
+        public readonly Outputs.TriggerPropertiesInvokeResponseResult? Trigger;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
 
         [OutputConstructor]
         private GetTaskResult(
-            Outputs.AgentPropertiesResponse? agentConfiguration,
+            Outputs.AgentPropertiesInvokeResponseResult? agentConfiguration,
 
             string creationDate,
 
-            Outputs.CredentialsResponse? credentials,
+            Outputs.CredentialsInvokeResponseResult? credentials,
 
             string id,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
 
             string name,
 
-            Outputs.PlatformPropertiesResponse platform,
+            Outputs.PlatformPropertiesInvokeResponseResult platform,
 
             string provisioningState,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
 
             int? timeout,
 
-            Outputs.TriggerPropertiesResponse? trigger,
+            Outputs.TriggerPropertiesInvokeResponseResult? trigger,
 
             string type)
         {

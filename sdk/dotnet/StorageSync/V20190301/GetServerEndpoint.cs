@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190301
         /// <summary>
         /// Server Endpoint sync status
         /// </summary>
-        public readonly Outputs.ServerEndpointSyncStatusResponse SyncStatus;
+        public readonly Outputs.ServerEndpointSyncStatusInvokeResponseResult SyncStatus;
         /// <summary>
         /// Tier files older than days.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190301
 
             string? serverResourceId,
 
-            Outputs.ServerEndpointSyncStatusResponse syncStatus,
+            Outputs.ServerEndpointSyncStatusInvokeResponseResult syncStatus,
 
             int? tierFilesOlderThanDays,
 

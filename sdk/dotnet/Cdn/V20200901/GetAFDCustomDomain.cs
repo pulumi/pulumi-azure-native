@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Resource reference to the Azure DNS zone
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? AzureDnsZone;
+        public readonly Outputs.ResourceReferenceInvokeResponseResult? AzureDnsZone;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
@@ -73,11 +73,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
         /// </summary>
-        public readonly Outputs.AFDDomainHttpsParametersResponse? TlsSettings;
+        public readonly Outputs.AFDDomainHttpsParametersInvokeResponseResult? TlsSettings;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -85,11 +85,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Values the customer needs to validate domain ownership
         /// </summary>
-        public readonly Outputs.DomainValidationPropertiesResponse ValidationProperties;
+        public readonly Outputs.DomainValidationPropertiesInvokeResponseResult ValidationProperties;
 
         [OutputConstructor]
         private GetAFDCustomDomainResult(
-            Outputs.ResourceReferenceResponse? azureDnsZone,
+            Outputs.ResourceReferenceInvokeResponseResult? azureDnsZone,
 
             string deploymentStatus,
 
@@ -103,13 +103,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
-            Outputs.AFDDomainHttpsParametersResponse? tlsSettings,
+            Outputs.AFDDomainHttpsParametersInvokeResponseResult? tlsSettings,
 
             string type,
 
-            Outputs.DomainValidationPropertiesResponse validationProperties)
+            Outputs.DomainValidationPropertiesInvokeResponseResult validationProperties)
         {
             AzureDnsZone = azureDnsZone;
             DeploymentStatus = deploymentStatus;

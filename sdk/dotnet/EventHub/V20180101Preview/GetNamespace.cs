@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <summary>
         /// Properties of BYOK Encryption description
         /// </summary>
-        public readonly Outputs.EncryptionResponse? Encryption;
+        public readonly Outputs.EncryptionInvokeResponseResult? Encryption;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <summary>
         /// Properties of BYOK Identity description
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <summary>
         /// Properties of sku resource
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -118,11 +118,11 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string createdAt,
 
-            Outputs.EncryptionResponse? encryption,
+            Outputs.EncryptionInvokeResponseResult? encryption,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             bool? isAutoInflateEnabled,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

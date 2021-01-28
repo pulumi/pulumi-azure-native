@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
         /// <summary>
         /// The DeadLetter destination of the event subscription.
         /// </summary>
-        public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationInvokeResponseResult? DeadLetterDestination;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionFilterResponse? Filter;
+        public readonly Outputs.EventSubscriptionFilterInvokeResponseResult? Filter;
         /// <summary>
         /// Fully qualified identifier of the resource
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
         /// <summary>
         /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         /// </summary>
-        public readonly Outputs.RetryPolicyResponse? RetryPolicy;
+        public readonly Outputs.RetryPolicyInvokeResponseResult? RetryPolicy;
         /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationInvokeResponseResult? deadLetterDestination,
 
             object? destination,
 
-            Outputs.EventSubscriptionFilterResponse? filter,
+            Outputs.EventSubscriptionFilterInvokeResponseResult? filter,
 
             string id,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190101
 
             string provisioningState,
 
-            Outputs.RetryPolicyResponse? retryPolicy,
+            Outputs.RetryPolicyInvokeResponseResult? retryPolicy,
 
             string topic,
 

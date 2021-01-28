@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplicationArtifactInvokeResponseResult> Artifacts;
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplicationProviderAuthorizationInvokeResponseResult> Authorizations;
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// A value indicating whether the package is enabled or not.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -110,9 +110,9 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
 
         [OutputConstructor]
         private GetApplicationDefinitionResult(
-            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
+            ImmutableArray<Outputs.ApplicationArtifactInvokeResponseResult> artifacts,
 
-            ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> authorizations,
+            ImmutableArray<Outputs.ApplicationProviderAuthorizationInvokeResponseResult> authorizations,
 
             object? createUiDefinition,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? isEnabled,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601
 
             string? packageFileUri,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

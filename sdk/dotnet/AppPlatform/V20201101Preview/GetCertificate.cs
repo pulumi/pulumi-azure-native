@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
         /// <summary>
         /// Properties of the certificate resource payload.
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponse Properties;
+        public readonly Outputs.CertificatePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
 
             string name,
 
-            Outputs.CertificatePropertiesResponse properties,
+            Outputs.CertificatePropertiesInvokeResponseResult properties,
 
             string type)
         {

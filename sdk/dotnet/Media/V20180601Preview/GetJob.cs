@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <summary>
         /// The outputs for the Job.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JobOutputAssetResponse> Outputs;
+        public readonly ImmutableArray<Outputs.JobOutputAssetInvokeResponseResult> Outputs;
         /// <summary>
         /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
 
             string name,
 
-            ImmutableArray<Outputs.JobOutputAssetResponse> outputs,
+            ImmutableArray<Outputs.JobOutputAssetInvokeResponseResult> outputs,
 
             string? priority,
 

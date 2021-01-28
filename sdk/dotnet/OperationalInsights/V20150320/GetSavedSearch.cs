@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
         /// <summary>
         /// The tags attached to the saved search.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TagResponse> Tags;
+        public readonly ImmutableArray<Outputs.TagInvokeResponseResult> Tags;
         /// <summary>
         /// The type of the saved search.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 
             string query,
 
-            ImmutableArray<Outputs.TagResponse> tags,
+            ImmutableArray<Outputs.TagInvokeResponseResult> tags,
 
             string type,
 

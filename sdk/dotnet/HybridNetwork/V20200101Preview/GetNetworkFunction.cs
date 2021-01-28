@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The reference to the device resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Device;
+        public readonly Outputs.SubResourceInvokeResponseResult? Device;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The resource URI of the managed application.
         /// </summary>
-        public readonly Outputs.SubResourceResponse ManagedApplication;
+        public readonly Outputs.SubResourceInvokeResponseResult ManagedApplication;
         /// <summary>
         /// The parameters for the managed application.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The network function configurations from the user.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse> NetworkFunctionUserConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkFunctionUserConfigurationInvokeResponseResult> NetworkFunctionUserConfigurations;
         /// <summary>
         /// The provisioning state of the network function resource.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
         [OutputConstructor]
         private GetNetworkFunctionResult(
-            Outputs.SubResourceResponse? device,
+            Outputs.SubResourceInvokeResponseResult? device,
 
             string? etag,
 
@@ -114,13 +114,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string location,
 
-            Outputs.SubResourceResponse managedApplication,
+            Outputs.SubResourceInvokeResponseResult managedApplication,
 
             object? managedApplicationParameters,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkFunctionUserConfigurationResponse> networkFunctionUserConfigurations,
+            ImmutableArray<Outputs.NetworkFunctionUserConfigurationInvokeResponseResult> networkFunctionUserConfigurations,
 
             string provisioningState,
 

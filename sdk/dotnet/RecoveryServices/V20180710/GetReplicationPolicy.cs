@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
         /// <summary>
         /// The custom data.
         /// </summary>
-        public readonly Outputs.PolicyPropertiesResponse Properties;
+        public readonly Outputs.PolicyPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 
             string name,
 
-            Outputs.PolicyPropertiesResponse properties,
+            Outputs.PolicyPropertiesInvokeResponseResult properties,
 
             string type)
         {

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
         /// <summary>
         /// Specification for the App Service Environment to use for the App Service plan.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult? HostingEnvironmentProfile;
         /// <summary>
         /// Resource Id.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
         /// <summary>
         /// Description of a SKU for a scalable resource.
         /// </summary>
-        public readonly Outputs.SkuDescriptionResponse? Sku;
+        public readonly Outputs.SkuDescriptionInvokeResponseResult? Sku;
         /// <summary>
         /// The time when the server farm expires. Valid only if it is a spot server farm.
         /// </summary>
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
 
             string geoRegion,
 
-            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult? hostingEnvironmentProfile,
 
             string id,
 
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
 
             string resourceGroup,
 
-            Outputs.SkuDescriptionResponse? sku,
+            Outputs.SkuDescriptionInvokeResponseResult? sku,
 
             string? spotExpirationTime,
 

@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// <summary>
         /// The list of language extensions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LanguageExtensionResponse> Value;
+        public readonly ImmutableArray<Outputs.LanguageExtensionInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListClusterLanguageExtensionsResult(ImmutableArray<Outputs.LanguageExtensionResponse> value)
+        private ListClusterLanguageExtensionsResult(ImmutableArray<Outputs.LanguageExtensionInvokeResponseResult> value)
         {
             Value = value;
         }

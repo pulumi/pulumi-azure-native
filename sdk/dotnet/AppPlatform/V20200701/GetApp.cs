@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
         /// <summary>
         /// The Managed Identity type of the app resource
         /// </summary>
-        public readonly Outputs.ManagedIdentityPropertiesResponse? Identity;
+        public readonly Outputs.ManagedIdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The GEO location of the application, always the same with its parent resource
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
         /// <summary>
         /// Properties of the App resource
         /// </summary>
-        public readonly Outputs.AppResourcePropertiesResponse Properties;
+        public readonly Outputs.AppResourcePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
         private GetAppResult(
             string id,
 
-            Outputs.ManagedIdentityPropertiesResponse? identity,
+            Outputs.ManagedIdentityPropertiesInvokeResponseResult? identity,
 
             string? location,
 
             string name,
 
-            Outputs.AppResourcePropertiesResponse properties,
+            Outputs.AppResourcePropertiesInvokeResponseResult properties,
 
             string type)
         {

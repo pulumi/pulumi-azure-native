@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101
         /// <summary>
         /// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? P2SVpnServerConfiguration;
+        public readonly Outputs.SubResourceInvokeResponseResult? P2SVpnServerConfiguration;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureNextGen.Network.V20181101
         /// <summary>
         /// The VirtualHub to which the gateway belongs
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
         /// <summary>
         /// The reference of the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? VpnClientAddressPool;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? VpnClientAddressPool;
         /// <summary>
         /// All P2S VPN clients' connection health status.
         /// </summary>
-        public readonly Outputs.VpnClientConnectionHealthResponse VpnClientConnectionHealth;
+        public readonly Outputs.VpnClientConnectionHealthInvokeResponseResult VpnClientConnectionHealth;
         /// <summary>
         /// The scale unit for this p2s vpn gateway.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 
             string name,
 
-            Outputs.SubResourceResponse? p2SVpnServerConfiguration,
+            Outputs.SubResourceInvokeResponseResult? p2SVpnServerConfiguration,
 
             string provisioningState,
 
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub,
+            Outputs.SubResourceInvokeResponseResult? virtualHub,
 
-            Outputs.AddressSpaceResponse? vpnClientAddressPool,
+            Outputs.AddressSpaceInvokeResponseResult? vpnClientAddressPool,
 
-            Outputs.VpnClientConnectionHealthResponse vpnClientConnectionHealth,
+            Outputs.VpnClientConnectionHealthInvokeResponseResult vpnClientConnectionHealth,
 
             int? vpnGatewayScaleUnit)
         {

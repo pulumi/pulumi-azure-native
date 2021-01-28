@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// <summary>
         /// Datastore properties
         /// </summary>
-        public readonly Outputs.DatastoreResponse Properties;
+        public readonly Outputs.DatastoreInvokeResponseResult Properties;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         private GetMachineLearningDatastoreResult(
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
             string name,
 
-            Outputs.DatastoreResponse properties,
+            Outputs.DatastoreInvokeResponseResult properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

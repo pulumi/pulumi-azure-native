@@ -40,13 +40,13 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview
     public sealed class ListIotDpsResourceKeysResult
     {
         public readonly string NextLink;
-        public readonly ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse> Value;
+        public readonly ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListIotDpsResourceKeysResult(
             string nextLink,
 
-            ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse> value)
+            ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

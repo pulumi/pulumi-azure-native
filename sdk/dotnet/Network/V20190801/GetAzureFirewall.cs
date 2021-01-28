@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// Collection of application rule collections used by Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> ApplicationRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionInvokeResponseResult> ApplicationRuleCollections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The firewallPolicy associated with this azure firewall.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? FirewallPolicy;
+        public readonly Outputs.SubResourceInvokeResponseResult? FirewallPolicy;
         /// <summary>
         /// IP addresses associated with AzureFirewall.
         /// </summary>
-        public readonly Outputs.HubIPAddressesResponse HubIpAddresses;
+        public readonly Outputs.HubIPAddressesInvokeResponseResult HubIpAddresses;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponse> NatRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleCollectionInvokeResponseResult> NatRuleCollections;
         /// <summary>
         /// Collection of network rule collections used by Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> NetworkRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionInvokeResponseResult> NetworkRuleCollections;
         /// <summary>
         /// The provisioning state of the Azure firewall resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The Azure Firewall Resource SKU.
         /// </summary>
-        public readonly Outputs.AzureFirewallSkuResponse? Sku;
+        public readonly Outputs.AzureFirewallSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The virtualHub to which the firewall belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.
         /// </summary>
@@ -110,29 +110,29 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
         [OutputConstructor]
         private GetAzureFirewallResult(
-            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> applicationRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionInvokeResponseResult> applicationRuleCollections,
 
             string etag,
 
-            Outputs.SubResourceResponse? firewallPolicy,
+            Outputs.SubResourceInvokeResponseResult? firewallPolicy,
 
-            Outputs.HubIPAddressesResponse hubIpAddresses,
+            Outputs.HubIPAddressesInvokeResponseResult hubIpAddresses,
 
             string? id,
 
-            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.AzureFirewallIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponse> natRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallNatRuleCollectionInvokeResponseResult> natRuleCollections,
 
-            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> networkRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionInvokeResponseResult> networkRuleCollections,
 
             string provisioningState,
 
-            Outputs.AzureFirewallSkuResponse? sku,
+            Outputs.AzureFirewallSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub,
+            Outputs.SubResourceInvokeResponseResult? virtualHub,
 
             ImmutableArray<string> zones)
         {

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The agreement content.
         /// </summary>
-        public readonly Outputs.AgreementContentResponse? Content;
+        public readonly Outputs.AgreementContentInvokeResponseResult? Content;
         /// <summary>
         /// The created time.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The guest identity.
         /// </summary>
-        public readonly Outputs.BusinessIdentityResponse? GuestIdentity;
+        public readonly Outputs.BusinessIdentityInvokeResponseResult? GuestIdentity;
         /// <summary>
         /// The guest partner.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The host identity.
         /// </summary>
-        public readonly Outputs.BusinessIdentityResponse? HostIdentity;
+        public readonly Outputs.BusinessIdentityInvokeResponseResult? HostIdentity;
         /// <summary>
         /// The host partner.
         /// </summary>
@@ -108,15 +108,15 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
 
             string changedTime,
 
-            Outputs.AgreementContentResponse? content,
+            Outputs.AgreementContentInvokeResponseResult? content,
 
             string createdTime,
 
-            Outputs.BusinessIdentityResponse? guestIdentity,
+            Outputs.BusinessIdentityInvokeResponseResult? guestIdentity,
 
             string? guestPartner,
 
-            Outputs.BusinessIdentityResponse? hostIdentity,
+            Outputs.BusinessIdentityInvokeResponseResult? hostIdentity,
 
             string? hostPartner,
 

@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
         /// <summary>
         /// List of private endpoint connections on a server
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
         /// <summary>
         /// Storage profile of a server.
         /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.StorageProfileInvokeResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 
             string name,
 
-            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.ServerPrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string? publicNetworkAccess,
 
@@ -136,11 +136,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 
             string? replicationRole,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? sslEnforcement,
 
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.StorageProfileInvokeResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

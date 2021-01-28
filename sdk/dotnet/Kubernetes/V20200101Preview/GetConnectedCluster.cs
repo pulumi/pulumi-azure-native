@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// <summary>
         /// AAD profile of the connected cluster.
         /// </summary>
-        public readonly Outputs.ConnectedClusterAADProfileResponse AadProfile;
+        public readonly Outputs.ConnectedClusterAADProfileInvokeResponseResult AadProfile;
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// <summary>
         /// The identity of the connected cluster.
         /// </summary>
-        public readonly Outputs.ConnectedClusterIdentityResponse Identity;
+        public readonly Outputs.ConnectedClusterIdentityInvokeResponseResult Identity;
         /// <summary>
         /// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
 
         [OutputConstructor]
         private GetConnectedClusterResult(
-            Outputs.ConnectedClusterAADProfileResponse aadProfile,
+            Outputs.ConnectedClusterAADProfileInvokeResponseResult aadProfile,
 
             string agentPublicKeyCertificate,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
 
             string id,
 
-            Outputs.ConnectedClusterIdentityResponse identity,
+            Outputs.ConnectedClusterIdentityInvokeResponseResult identity,
 
             string? infrastructure,
 

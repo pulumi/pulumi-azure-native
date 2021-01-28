@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes the client that created the comment
         /// </summary>
-        public readonly Outputs.ClientInfoResponse Author;
+        public readonly Outputs.ClientInfoInvokeResponseResult Author;
         /// <summary>
         /// The time the comment was created
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
         [OutputConstructor]
         private GetIncidentCommentResult(
-            Outputs.ClientInfoResponse author,
+            Outputs.ClientInfoInvokeResponseResult author,
 
             string createdTimeUtc,
 

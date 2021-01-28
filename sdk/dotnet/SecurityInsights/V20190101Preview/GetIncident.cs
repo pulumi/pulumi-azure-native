@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// Additional data on the incident
         /// </summary>
-        public readonly Outputs.IncidentAdditionalDataResponse AdditionalData;
+        public readonly Outputs.IncidentAdditionalDataInvokeResponseResult AdditionalData;
         /// <summary>
         /// The reason the incident was closed
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// List of labels relevant to this incident
         /// </summary>
-        public readonly ImmutableArray<Outputs.IncidentLabelResponse> Labels;
+        public readonly ImmutableArray<Outputs.IncidentLabelInvokeResponseResult> Labels;
         /// <summary>
         /// The time of the last activity in the incident
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes a user that the incident is assigned to
         /// </summary>
-        public readonly Outputs.IncidentOwnerInfoResponse? Owner;
+        public readonly Outputs.IncidentOwnerInfoInvokeResponseResult? Owner;
         /// <summary>
         /// List of resource ids of Analytic rules related to the incident
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
         [OutputConstructor]
         private GetIncidentResult(
-            Outputs.IncidentAdditionalDataResponse additionalData,
+            Outputs.IncidentAdditionalDataInvokeResponseResult additionalData,
 
             string? classification,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string incidentUrl,
 
-            ImmutableArray<Outputs.IncidentLabelResponse> labels,
+            ImmutableArray<Outputs.IncidentLabelInvokeResponseResult> labels,
 
             string? lastActivityTimeUtc,
 
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string name,
 
-            Outputs.IncidentOwnerInfoResponse? owner,
+            Outputs.IncidentOwnerInfoInvokeResponseResult? owner,
 
             ImmutableArray<string> relatedAnalyticRuleIds,
 

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityDataResponse? Identity;
+        public readonly Outputs.IdentityDataInvokeResponseResult? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Properties of the vault.
         /// </summary>
-        public readonly Outputs.VaultPropertiesResponse Properties;
+        public readonly Outputs.VaultPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Identifies the unique system identifier for each Azure resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string id,
 
-            Outputs.IdentityDataResponse? identity,
+            Outputs.IdentityDataInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.VaultPropertiesResponse properties,
+            Outputs.VaultPropertiesInvokeResponseResult properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

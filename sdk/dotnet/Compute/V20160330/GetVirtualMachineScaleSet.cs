@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
         /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
+        public readonly Outputs.VirtualMachineScaleSetIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -78,17 +78,17 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyInvokeResponseResult? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult? VirtualMachineProfile;
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
             string id,
 
-            Outputs.VirtualMachineScaleSetIdentityResponse? identity,
+            Outputs.VirtualMachineScaleSetIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -98,15 +98,15 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.UpgradePolicyResponse? upgradePolicy,
+            Outputs.UpgradePolicyInvokeResponseResult? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile)
+            Outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult? virtualMachineProfile)
         {
             Id = id;
             Identity = identity;

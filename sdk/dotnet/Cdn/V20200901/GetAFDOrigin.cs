@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Resource reference to the Azure origin resource.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? AzureOrigin;
+        public readonly Outputs.ResourceReferenceInvokeResponseResult? AzureOrigin;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// The properties of the private link resource for private origin.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse> SharedPrivateLinkResource;
+        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesInvokeResponseResult> SharedPrivateLinkResource;
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
         [OutputConstructor]
         private GetAFDOriginResult(
-            Outputs.ResourceReferenceResponse? azureOrigin,
+            Outputs.ResourceReferenceInvokeResponseResult? azureOrigin,
 
             string deploymentStatus,
 
@@ -133,9 +133,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse> sharedPrivateLinkResource,
+            ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesInvokeResponseResult> sharedPrivateLinkResource,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type,
 

@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualNetworks;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VirtualNetworks;
 
         [OutputConstructor]
         private GetDdosProtectionPlanResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualNetworks)
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> virtualNetworks)
         {
             Etag = etag;
             Id = id;

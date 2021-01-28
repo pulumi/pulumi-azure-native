@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// The allow-list custom alert rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> AllowlistRules;
+        public readonly ImmutableArray<Outputs.AllowlistCustomAlertRuleInvokeResponseResult> AllowlistRules;
         /// <summary>
         /// The deny-list custom alert rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> DenylistRules;
+        public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleInvokeResponseResult> DenylistRules;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// The list of custom alert threshold rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse> ThresholdRules;
+        public readonly ImmutableArray<Outputs.ThresholdCustomAlertRuleInvokeResponseResult> ThresholdRules;
         /// <summary>
         /// The list of custom alert time-window rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse> TimeWindowRules;
+        public readonly ImmutableArray<Outputs.TimeWindowCustomAlertRuleInvokeResponseResult> TimeWindowRules;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -70,17 +70,17 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
         [OutputConstructor]
         private GetDeviceSecurityGroupResult(
-            ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> allowlistRules,
+            ImmutableArray<Outputs.AllowlistCustomAlertRuleInvokeResponseResult> allowlistRules,
 
-            ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> denylistRules,
+            ImmutableArray<Outputs.DenylistCustomAlertRuleInvokeResponseResult> denylistRules,
 
             string id,
 
             string name,
 
-            ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse> thresholdRules,
+            ImmutableArray<Outputs.ThresholdCustomAlertRuleInvokeResponseResult> thresholdRules,
 
-            ImmutableArray<Outputs.TimeWindowCustomAlertRuleResponse> timeWindowRules,
+            ImmutableArray<Outputs.TimeWindowCustomAlertRuleInvokeResponseResult> timeWindowRules,
 
             string type)
         {

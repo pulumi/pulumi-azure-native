@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// Gets or sets the runbook.
         /// </summary>
-        public readonly Outputs.RunbookAssociationPropertyResponse? Runbook;
+        public readonly Outputs.RunbookAssociationPropertyInvokeResponseResult? Runbook;
         /// <summary>
         /// Gets or sets the schedule.
         /// </summary>
-        public readonly Outputs.ScheduleAssociationPropertyResponse? Schedule;
+        public readonly Outputs.ScheduleAssociationPropertyInvokeResponseResult? Schedule;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
 
             string? runOn,
 
-            Outputs.RunbookAssociationPropertyResponse? runbook,
+            Outputs.RunbookAssociationPropertyInvokeResponseResult? runbook,
 
-            Outputs.ScheduleAssociationPropertyResponse? schedule,
+            Outputs.ScheduleAssociationPropertyInvokeResponseResult? schedule,
 
             string type)
         {

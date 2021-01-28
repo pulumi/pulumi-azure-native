@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The key details in the key vault.
         /// </summary>
-        public readonly Outputs.KeyVaultKeyReferenceResponse? Key;
+        public readonly Outputs.KeyVaultKeyReferenceInvokeResponseResult? Key;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string id,
 
-            Outputs.KeyVaultKeyReferenceResponse? key,
+            Outputs.KeyVaultKeyReferenceInvokeResponseResult? key,
 
             string? location,
 

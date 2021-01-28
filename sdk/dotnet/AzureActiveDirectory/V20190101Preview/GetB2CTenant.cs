@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
         /// <summary>
         /// The billing configuration for the tenant.
         /// </summary>
-        public readonly Outputs.B2CTenantResourcePropertiesResponseBillingConfig? BillingConfig;
+        public readonly Outputs.B2CTenantResourcePropertiesInvokeResponseBillingConfigResult? BillingConfig;
         /// <summary>
         /// An identifier that represents the B2C tenant resource.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
         /// <summary>
         /// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
         /// </summary>
-        public readonly Outputs.B2CResourceSKUResponse Sku;
+        public readonly Outputs.B2CResourceSKUInvokeResponseResult Sku;
         /// <summary>
         /// Resource Tags
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
 
         [OutputConstructor]
         private GetB2CTenantResult(
-            Outputs.B2CTenantResourcePropertiesResponseBillingConfig? billingConfig,
+            Outputs.B2CTenantResourcePropertiesInvokeResponseBillingConfigResult? billingConfig,
 
             string id,
 
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
 
             string name,
 
-            Outputs.B2CResourceSKUResponse sku,
+            Outputs.B2CResourceSKUInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

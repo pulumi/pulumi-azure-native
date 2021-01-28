@@ -54,11 +54,11 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
         /// <summary>
         /// Properties of Confidential Ledger Resource.
         /// </summary>
-        public readonly Outputs.LedgerPropertiesResponse Properties;
+        public readonly Outputs.LedgerPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Additional tags for Confidential Ledger
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger.V20201201Preview
 
             string name,
 
-            Outputs.LedgerPropertiesResponse properties,
+            Outputs.LedgerPropertiesInvokeResponseResult properties,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

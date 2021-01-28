@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <summary>
         /// The applicable schedule for the virtual machine.
         /// </summary>
-        public readonly Outputs.ApplicableScheduleResponse ApplicableSchedule;
+        public readonly Outputs.ApplicableScheduleInvokeResponseResult ApplicableSchedule;
         /// <summary>
         /// The resource id of the environment under which the service fabric resource is present
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
         [OutputConstructor]
         private GetServiceFabricResult(
-            Outputs.ApplicableScheduleResponse applicableSchedule,
+            Outputs.ApplicableScheduleInvokeResponseResult applicableSchedule,
 
             string? environmentId,
 

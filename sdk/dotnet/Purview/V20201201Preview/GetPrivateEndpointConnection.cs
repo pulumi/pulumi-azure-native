@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// The private endpoint information.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// The private link service connection state.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Describes custom rules inside the policy
         /// </summary>
-        public readonly Outputs.CustomRulesResponse? CustomRules;
+        public readonly Outputs.CustomRulesInvokeResponseResult? CustomRules;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Describes managed rules inside the policy
         /// </summary>
-        public readonly Outputs.ManagedRuleSetsResponse? ManagedRules;
+        public readonly Outputs.ManagedRuleSetsInvokeResponseResult? ManagedRules;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Describes  policySettings for policy
         /// </summary>
-        public readonly Outputs.PolicySettingsResponse? PolicySettings;
+        public readonly Outputs.PolicySettingsInvokeResponseResult? PolicySettings;
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
         [OutputConstructor]
         private GetPolicyResult(
-            Outputs.CustomRulesResponse? customRules,
+            Outputs.CustomRulesInvokeResponseResult? customRules,
 
             string? etag,
 
@@ -91,11 +91,11 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? location,
 
-            Outputs.ManagedRuleSetsResponse? managedRules,
+            Outputs.ManagedRuleSetsInvokeResponseResult? managedRules,
 
             string name,
 
-            Outputs.PolicySettingsResponse? policySettings,
+            Outputs.PolicySettingsInvokeResponseResult? policySettings,
 
             string provisioningState,
 

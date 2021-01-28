@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
         /// <summary>
         /// Gets or sets the plan of the resource.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// Gets or sets the resource properties.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
 
             string name,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             object properties,
 

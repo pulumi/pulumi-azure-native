@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Management.V20180301Preview
         /// <summary>
         /// The list of entities.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EntityInfoResponseResult> Value;
+        public readonly ImmutableArray<Outputs.EntityInfoInvokeResponseResult> Value;
 
         [OutputConstructor]
         private GetEntityResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Management.V20180301Preview
 
             string nextLink,
 
-            ImmutableArray<Outputs.EntityInfoResponseResult> value)
+            ImmutableArray<Outputs.EntityInfoInvokeResponseResult> value)
         {
             Count = count;
             NextLink = nextLink;

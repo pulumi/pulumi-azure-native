@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Properties when targetType is clfs.
         /// </summary>
-        public readonly Outputs.ClfsTargetResponse? Clfs;
+        public readonly Outputs.ClfsTargetInvokeResponseResult? Clfs;
         /// <summary>
         /// Resource ID of the Storage Target.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// List of Cache namespace junctions to target for namespace associations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NamespaceJunctionResponse> Junctions;
+        public readonly ImmutableArray<Outputs.NamespaceJunctionInvokeResponseResult> Junctions;
         /// <summary>
         /// Region name string.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Properties when targetType is nfs3.
         /// </summary>
-        public readonly Outputs.Nfs3TargetResponse? Nfs3;
+        public readonly Outputs.Nfs3TargetInvokeResponseResult? Nfs3;
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Type of the Storage Target.
         /// </summary>
@@ -88,31 +88,31 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Properties when targetType is unknown.
         /// </summary>
-        public readonly Outputs.UnknownTargetResponse? Unknown;
+        public readonly Outputs.UnknownTargetInvokeResponseResult? Unknown;
 
         [OutputConstructor]
         private GetStorageTargetResult(
-            Outputs.ClfsTargetResponse? clfs,
+            Outputs.ClfsTargetInvokeResponseResult? clfs,
 
             string id,
 
-            ImmutableArray<Outputs.NamespaceJunctionResponse> junctions,
+            ImmutableArray<Outputs.NamespaceJunctionInvokeResponseResult> junctions,
 
             string location,
 
             string name,
 
-            Outputs.Nfs3TargetResponse? nfs3,
+            Outputs.Nfs3TargetInvokeResponseResult? nfs3,
 
             string? provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string targetType,
 
             string type,
 
-            Outputs.UnknownTargetResponse? unknown)
+            Outputs.UnknownTargetInvokeResponseResult? unknown)
         {
             Clfs = clfs;
             Id = id;

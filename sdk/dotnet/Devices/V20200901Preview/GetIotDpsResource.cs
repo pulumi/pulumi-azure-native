@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
         /// <summary>
         /// The managed identities for the IotDps instance.
         /// </summary>
-        public readonly Outputs.ArmIdentityResponse? Identity;
+        public readonly Outputs.ArmIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
         /// <summary>
         /// Service specific properties for a provisioning service
         /// </summary>
-        public readonly Outputs.IotDpsPropertiesDescriptionResponse Properties;
+        public readonly Outputs.IotDpsPropertiesDescriptionInvokeResponseResult Properties;
         /// <summary>
         /// Sku info for a provisioning Service.
         /// </summary>
-        public readonly Outputs.IotDpsSkuInfoResponse Sku;
+        public readonly Outputs.IotDpsSkuInfoInvokeResponseResult Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
 
             string id,
 
-            Outputs.ArmIdentityResponse? identity,
+            Outputs.ArmIdentityInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.IotDpsPropertiesDescriptionResponse properties,
+            Outputs.IotDpsPropertiesDescriptionInvokeResponseResult properties,
 
-            Outputs.IotDpsSkuInfoResponse sku,
+            Outputs.IotDpsSkuInfoInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

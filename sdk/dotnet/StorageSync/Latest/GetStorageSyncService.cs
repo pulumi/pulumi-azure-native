@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// <summary>
         /// List of private endpoint connection associated with the specified storage sync service
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// StorageSyncService Provisioning State
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 

@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
         /// </summary>
-        public readonly Outputs.FrontendIPConfigurationResponse? DestinationLoadBalancerFrontEndIPConfiguration;
+        public readonly Outputs.FrontendIPConfigurationInvokeResponseResult? DestinationLoadBalancerFrontEndIPConfiguration;
         /// <summary>
         /// The reference to the private IP Address of the collector nic that will receive the tap.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceIPConfigurationResponse? DestinationNetworkInterfaceIPConfiguration;
+        public readonly Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult? DestinationNetworkInterfaceIPConfiguration;
         /// <summary>
         /// The VXLAN destination port that will receive the tapped traffic.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> NetworkInterfaceTapConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationInvokeResponseResult> NetworkInterfaceTapConfigurations;
         /// <summary>
         /// The provisioning state of the virtual network tap resource.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
         [OutputConstructor]
         private GetVirtualNetworkTapResult(
-            Outputs.FrontendIPConfigurationResponse? destinationLoadBalancerFrontEndIPConfiguration,
+            Outputs.FrontendIPConfigurationInvokeResponseResult? destinationLoadBalancerFrontEndIPConfiguration,
 
-            Outputs.NetworkInterfaceIPConfigurationResponse? destinationNetworkInterfaceIPConfiguration,
+            Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult? destinationNetworkInterfaceIPConfiguration,
 
             int? destinationPort,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> networkInterfaceTapConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationInvokeResponseResult> networkInterfaceTapConfigurations,
 
             string provisioningState,
 

@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
         /// <summary>
         /// SKU parameters supplied to the create Namespace operation
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// State of the Namespace.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
 
             string? serviceBusEndpoint,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? status,
 

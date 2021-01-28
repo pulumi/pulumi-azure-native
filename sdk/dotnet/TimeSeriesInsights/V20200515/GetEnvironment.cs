@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
         /// <summary>
         /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
 
             string name,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

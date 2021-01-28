@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// <summary>
         /// The virtualHub to which the Security Partner Provider belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
 
         [OutputConstructor]
         private GetSecurityPartnerProviderResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub)
+            Outputs.SubResourceInvokeResponseResult? virtualHub)
         {
             ConnectionStatus = connectionStatus;
             Etag = etag;

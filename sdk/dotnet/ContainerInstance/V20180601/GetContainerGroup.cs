@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         /// <summary>
         /// The containers within the container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
+        public readonly ImmutableArray<Outputs.ContainerInvokeResponseResult> Containers;
         /// <summary>
         /// The diagnostic information for a container group.
         /// </summary>
-        public readonly Outputs.ContainerGroupDiagnosticsResponse? Diagnostics;
+        public readonly Outputs.ContainerGroupDiagnosticsInvokeResponseResult? Diagnostics;
         /// <summary>
         /// The resource id.
         /// </summary>
@@ -54,15 +54,15 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialInvokeResponseResult> ImageRegistryCredentials;
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerGroupResponseInstanceView InstanceView;
+        public readonly Outputs.ContainerGroupInvokeResponseInstanceViewResult InstanceView;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
-        public readonly Outputs.IpAddressResponse? IpAddress;
+        public readonly Outputs.IpAddressInvokeResponseResult? IpAddress;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -97,21 +97,21 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         /// <summary>
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
+        public readonly ImmutableArray<Outputs.VolumeInvokeResponseResult> Volumes;
 
         [OutputConstructor]
         private GetContainerGroupResult(
-            ImmutableArray<Outputs.ContainerResponse> containers,
+            ImmutableArray<Outputs.ContainerInvokeResponseResult> containers,
 
-            Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
+            Outputs.ContainerGroupDiagnosticsInvokeResponseResult? diagnostics,
 
             string id,
 
-            ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
+            ImmutableArray<Outputs.ImageRegistryCredentialInvokeResponseResult> imageRegistryCredentials,
 
-            Outputs.ContainerGroupResponseInstanceView instanceView,
+            Outputs.ContainerGroupInvokeResponseInstanceViewResult instanceView,
 
-            Outputs.IpAddressResponse? ipAddress,
+            Outputs.IpAddressInvokeResponseResult? ipAddress,
 
             string? location,
 
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponse> volumes)
+            ImmutableArray<Outputs.VolumeInvokeResponseResult> volumes)
         {
             Containers = containers;
             Diagnostics = diagnostics;

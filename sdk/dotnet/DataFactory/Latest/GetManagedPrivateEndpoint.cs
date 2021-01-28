@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// Managed private endpoint properties.
         /// </summary>
-        public readonly Outputs.ManagedPrivateEndpointResponse Properties;
+        public readonly Outputs.ManagedPrivateEndpointInvokeResponseResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             string name,
 
-            Outputs.ManagedPrivateEndpointResponse properties,
+            Outputs.ManagedPrivateEndpointInvokeResponseResult properties,
 
             string type)
         {

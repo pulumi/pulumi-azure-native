@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
         /// <summary>
         /// Managed Identity information.
         /// </summary>
-        public readonly Outputs.QuantumWorkspaceResponseIdentity? Identity;
+        public readonly Outputs.QuantumWorkspaceInvokeResponseIdentityResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
         /// <summary>
         /// List of Providers selected for this Workspace
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProviderResponse> Providers;
+        public readonly ImmutableArray<Outputs.ProviderInvokeResponseResult> Providers;
         /// <summary>
         /// Provisioning status field
         /// </summary>
@@ -90,13 +90,13 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
 
             string id,
 
-            Outputs.QuantumWorkspaceResponseIdentity? identity,
+            Outputs.QuantumWorkspaceInvokeResponseIdentityResult? identity,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.ProviderResponse> providers,
+            ImmutableArray<Outputs.ProviderInvokeResponseResult> providers,
 
             string provisioningState,
 

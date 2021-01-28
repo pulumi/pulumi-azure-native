@@ -66,11 +66,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string resourceState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

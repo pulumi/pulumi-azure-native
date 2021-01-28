@@ -72,10 +72,10 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// LogAnalyticsOutput
         /// </summary>
-        public readonly Outputs.LogAnalyticsOutputResponseResult Properties;
+        public readonly Outputs.LogAnalyticsOutputInvokeResponseResult Properties;
 
         [OutputConstructor]
-        private GetLogAnalyticExportThrottledRequestsResult(Outputs.LogAnalyticsOutputResponseResult properties)
+        private GetLogAnalyticExportThrottledRequestsResult(Outputs.LogAnalyticsOutputInvokeResponseResult properties)
         {
             Properties = properties;
         }

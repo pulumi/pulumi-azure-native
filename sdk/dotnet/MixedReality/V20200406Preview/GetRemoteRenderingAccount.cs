@@ -51,7 +51,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.RemoteRenderingAccountResponseIdentity? Identity;
+        public readonly Outputs.RemoteRenderingAccountInvokeResponseIdentityResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview
 
             string id,
 
-            Outputs.RemoteRenderingAccountResponseIdentity? identity,
+            Outputs.RemoteRenderingAccountInvokeResponseIdentityResult? identity,
 
             string location,
 

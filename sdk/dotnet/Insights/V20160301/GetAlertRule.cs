@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> Actions;
+        public readonly ImmutableArray<Union<Outputs.RuleEmailActionInvokeResponseResult, Outputs.RuleWebhookActionInvokeResponseResult>> Actions;
         /// <summary>
         /// the condition that results in the alert rule being activated.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
 
         [OutputConstructor]
         private GetAlertRuleResult(
-            ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> actions,
+            ImmutableArray<Union<Outputs.RuleEmailActionInvokeResponseResult, Outputs.RuleWebhookActionInvokeResponseResult>> actions,
 
             object condition,
 

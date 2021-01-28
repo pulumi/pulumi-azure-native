@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Additional datacenter locations of the API Management service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalLocationResponse> AdditionalLocations;
+        public readonly ImmutableArray<Outputs.AdditionalLocationInvokeResponseResult> AdditionalLocations;
         /// <summary>
         /// Control Plane Apis version constraint for the API Management service.
         /// </summary>
-        public readonly Outputs.ApiVersionConstraintResponse? ApiVersionConstraint;
+        public readonly Outputs.ApiVersionConstraintInvokeResponseResult? ApiVersionConstraint;
         /// <summary>
         /// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateConfigurationResponse> Certificates;
+        public readonly ImmutableArray<Outputs.CertificateConfigurationInvokeResponseResult> Certificates;
         /// <summary>
         /// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Custom hostname configuration of the API Management service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostnameConfigurationResponse> HostnameConfigurations;
+        public readonly ImmutableArray<Outputs.HostnameConfigurationInvokeResponseResult> HostnameConfigurations;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Managed service identity of the Api Management service.
         /// </summary>
-        public readonly Outputs.ApiManagementServiceIdentityResponse? Identity;
+        public readonly Outputs.ApiManagementServiceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
-        public readonly Outputs.ApiManagementServiceSkuPropertiesResponse Sku;
+        public readonly Outputs.ApiManagementServiceSkuPropertiesInvokeResponseResult Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Virtual network configuration of the API Management service.
         /// </summary>
-        public readonly Outputs.VirtualNetworkConfigurationResponse? VirtualNetworkConfiguration;
+        public readonly Outputs.VirtualNetworkConfigurationInvokeResponseResult? VirtualNetworkConfiguration;
         /// <summary>
         /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         /// </summary>
@@ -174,11 +174,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
         [OutputConstructor]
         private GetApiManagementServiceResult(
-            ImmutableArray<Outputs.AdditionalLocationResponse> additionalLocations,
+            ImmutableArray<Outputs.AdditionalLocationInvokeResponseResult> additionalLocations,
 
-            Outputs.ApiVersionConstraintResponse? apiVersionConstraint,
+            Outputs.ApiVersionConstraintInvokeResponseResult? apiVersionConstraint,
 
-            ImmutableArray<Outputs.CertificateConfigurationResponse> certificates,
+            ImmutableArray<Outputs.CertificateConfigurationInvokeResponseResult> certificates,
 
             string createdAtUtc,
 
@@ -196,11 +196,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string gatewayUrl,
 
-            ImmutableArray<Outputs.HostnameConfigurationResponse> hostnameConfigurations,
+            ImmutableArray<Outputs.HostnameConfigurationInvokeResponseResult> hostnameConfigurations,
 
             string id,
 
-            Outputs.ApiManagementServiceIdentityResponse? identity,
+            Outputs.ApiManagementServiceIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -226,7 +226,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string scmUrl,
 
-            Outputs.ApiManagementServiceSkuPropertiesResponse sku,
+            Outputs.ApiManagementServiceSkuPropertiesInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -234,7 +234,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string type,
 
-            Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration,
+            Outputs.VirtualNetworkConfigurationInvokeResponseResult? virtualNetworkConfiguration,
 
             string? virtualNetworkType,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
         /// <summary>
         /// The contact information of the peer.
         /// </summary>
-        public readonly Outputs.ContactInfoResponse? PeerContactInfo;
+        public readonly Outputs.ContactInfoInvokeResponseResult? PeerContactInfo;
         /// <summary>
         /// The name of the peer.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 
             int? peerAsn,
 
-            Outputs.ContactInfoResponse? peerContactInfo,
+            Outputs.ContactInfoInvokeResponseResult? peerContactInfo,
 
             string? peerName,
 

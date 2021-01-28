@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the link to definition.
         /// </summary>
-        public readonly Outputs.ContentLinkResponse? DefinitionLink;
+        public readonly Outputs.ContentLinkInvokeResponseResult? DefinitionLink;
         /// <summary>
         /// Gets or sets the resource id.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterInvokeResponseResult>? Parameters;
         /// <summary>
         /// Gets or sets the link to parameters.
         /// </summary>
-        public readonly Outputs.ContentLinkResponse? ParametersLink;
+        public readonly Outputs.ContentLinkInvokeResponseResult? ParametersLink;
         /// <summary>
         /// Gets the provisioning state.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the sku.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Gets or sets the state.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
             object? definition,
 
-            Outputs.ContentLinkResponse? definitionLink,
+            Outputs.ContentLinkInvokeResponseResult? definitionLink,
 
             string? id,
 
@@ -122,13 +122,13 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
             string? name,
 
-            ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? parameters,
+            ImmutableDictionary<string, Outputs.WorkflowParameterInvokeResponseResult>? parameters,
 
-            Outputs.ContentLinkResponse? parametersLink,
+            Outputs.ContentLinkInvokeResponseResult? parametersLink,
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? state,
 

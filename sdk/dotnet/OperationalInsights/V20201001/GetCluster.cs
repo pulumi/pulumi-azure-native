@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// The list of Log Analytics workspaces associated with the cluster
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssociatedWorkspaceResponse> AssociatedWorkspaces;
+        public readonly ImmutableArray<Outputs.AssociatedWorkspaceInvokeResponseResult> AssociatedWorkspaces;
         /// <summary>
         /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// Additional properties for capacity reservation
         /// </summary>
-        public readonly Outputs.CapacityReservationPropertiesResponse? CapacityReservationProperties;
+        public readonly Outputs.CapacityReservationPropertiesInvokeResponseResult? CapacityReservationProperties;
         /// <summary>
         /// The ID associated with the cluster.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// The associated key properties.
         /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        public readonly Outputs.KeyVaultPropertiesInvokeResponseResult? KeyVaultProperties;
         /// <summary>
         /// The last time the cluster was updated.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// The sku properties.
         /// </summary>
-        public readonly Outputs.ClusterSkuResponse? Sku;
+        public readonly Outputs.ClusterSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
 
         [OutputConstructor]
         private GetClusterResult(
-            ImmutableArray<Outputs.AssociatedWorkspaceResponse> associatedWorkspaces,
+            ImmutableArray<Outputs.AssociatedWorkspaceInvokeResponseResult> associatedWorkspaces,
 
             string? billingType,
 
-            Outputs.CapacityReservationPropertiesResponse? capacityReservationProperties,
+            Outputs.CapacityReservationPropertiesInvokeResponseResult? capacityReservationProperties,
 
             string clusterId,
 
@@ -122,13 +122,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             bool? isAvailabilityZonesEnabled,
 
             bool? isDoubleEncryptionEnabled,
 
-            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
+            Outputs.KeyVaultPropertiesInvokeResponseResult? keyVaultProperties,
 
             string lastModifiedDate,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
 
             string provisioningState,
 
-            Outputs.ClusterSkuResponse? sku,
+            Outputs.ClusterSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

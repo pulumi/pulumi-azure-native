@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

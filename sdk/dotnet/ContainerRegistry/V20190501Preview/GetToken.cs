@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// <summary>
         /// The credentials that can be used for authenticating the token.
         /// </summary>
-        public readonly Outputs.TokenCredentialsPropertiesResponse? Credentials;
+        public readonly Outputs.TokenCredentialsPropertiesInvokeResponseResult? Credentials;
         /// <summary>
         /// The resource ID.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         private GetTokenResult(
             string creationDate,
 
-            Outputs.TokenCredentialsPropertiesResponse? credentials,
+            Outputs.TokenCredentialsPropertiesInvokeResponseResult? credentials,
 
             string id,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// <summary>
         /// list of all vnet connections with this VirtualHub.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> HubVirtualNetworkConnections;
+        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionInvokeResponseResult> HubVirtualNetworkConnections;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualWan;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualWan;
 
         [OutputConstructor]
         private GetVirtualHubResult(
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
 
             string etag,
 
-            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> hubVirtualNetworkConnections,
+            ImmutableArray<Outputs.HubVirtualNetworkConnectionInvokeResponseResult> hubVirtualNetworkConnections,
 
             string? id,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
 
             string type,
 
-            Outputs.SubResourceResponse? virtualWan)
+            Outputs.SubResourceInvokeResponseResult? virtualWan)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

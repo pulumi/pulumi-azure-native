@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult? HostingEnvironmentProfile;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Describes a sku for a scalable resource
         /// </summary>
-        public readonly Outputs.SkuDescriptionResponse? Sku;
+        public readonly Outputs.SkuDescriptionInvokeResponseResult? Sku;
         /// <summary>
         /// App Service Plan Status
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string geoRegion,
 
-            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult? hostingEnvironmentProfile,
 
             string? id,
 
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string resourceGroup,
 
-            Outputs.SkuDescriptionResponse? sku,
+            Outputs.SkuDescriptionInvokeResponseResult? sku,
 
             string status,
 

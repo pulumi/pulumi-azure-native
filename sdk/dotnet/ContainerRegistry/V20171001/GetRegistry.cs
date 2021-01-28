@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
         /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetInvokeResponseResult? NetworkRuleSet;
         /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The status of the container registry at the time the operation was called.
         /// </summary>
-        public readonly Outputs.StatusResponse Status;
+        public readonly Outputs.StatusInvokeResponseResult Status;
         /// <summary>
         /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesInvokeResponseResult? StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -106,15 +106,15 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
 
             string name,
 
-            Outputs.NetworkRuleSetResponse? networkRuleSet,
+            Outputs.NetworkRuleSetInvokeResponseResult? networkRuleSet,
 
             string provisioningState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.StatusResponse status,
+            Outputs.StatusInvokeResponseResult status,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
+            Outputs.StorageAccountPropertiesInvokeResponseResult? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

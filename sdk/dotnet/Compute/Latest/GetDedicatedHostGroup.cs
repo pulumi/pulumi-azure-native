@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyInvokeResponseResult> Hosts;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
         /// </summary>
-        public readonly Outputs.DedicatedHostGroupInstanceViewResponse InstanceView;
+        public readonly Outputs.DedicatedHostGroupInstanceViewInvokeResponseResult InstanceView;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
-            ImmutableArray<Outputs.SubResourceReadOnlyResponse> hosts,
+            ImmutableArray<Outputs.SubResourceReadOnlyInvokeResponseResult> hosts,
 
             string id,
 
-            Outputs.DedicatedHostGroupInstanceViewResponse instanceView,
+            Outputs.DedicatedHostGroupInstanceViewInvokeResponseResult instanceView,
 
             string location,
 

@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// <summary>
         /// Details about the error state.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
+        public readonly ImmutableArray<Outputs.ErrorDetailInvokeResponseResult> ErrorDetails;
         /// <summary>
         /// Machine Extensions information
         /// </summary>
-        public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> Extensions;
+        public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewInvokeResponseResult> Extensions;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// <summary>
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
-        public readonly Outputs.OSProfileResponse OsProfile;
+        public readonly Outputs.OSProfileInvokeResponseResult OsProfile;
         /// <summary>
         /// The version of Operating System running on the hybrid machine.
         /// </summary>
@@ -138,9 +138,9 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
 
             string displayName,
 
-            ImmutableArray<Outputs.ErrorDetailResponse> errorDetails,
+            ImmutableArray<Outputs.ErrorDetailInvokeResponseResult> errorDetails,
 
-            ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> extensions,
+            ImmutableArray<Outputs.MachineExtensionInstanceViewInvokeResponseResult> extensions,
 
             string id,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
 
             string? osName,
 
-            Outputs.OSProfileResponse osProfile,
+            Outputs.OSProfileInvokeResponseResult osProfile,
 
             string? osVersion,
 

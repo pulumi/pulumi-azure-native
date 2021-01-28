@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// <summary>
         /// Gets the custom domain the user assigned to this storage account.
         /// </summary>
-        public readonly Outputs.CustomDomainResponse CustomDomain;
+        public readonly Outputs.CustomDomainInvokeResponseResult CustomDomain;
         /// <summary>
         /// Allows https traffic only to storage service if sets to true.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// <summary>
         /// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         /// </summary>
-        public readonly Outputs.EncryptionResponse Encryption;
+        public readonly Outputs.EncryptionInvokeResponseResult Encryption;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Gets the Kind.
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// <summary>
         /// Network rule set
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponse NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetInvokeResponseResult NetworkRuleSet;
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         /// </summary>
-        public readonly Outputs.EndpointsResponse PrimaryEndpoints;
+        public readonly Outputs.EndpointsInvokeResponseResult PrimaryEndpoints;
         /// <summary>
         /// Gets the location of the primary data center for the storage account.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         /// </summary>
-        public readonly Outputs.EndpointsResponse SecondaryEndpoints;
+        public readonly Outputs.EndpointsInvokeResponseResult SecondaryEndpoints;
         /// <summary>
         /// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// <summary>
         /// Gets the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Gets the status indicating whether the primary location of the storage account is available or unavailable.
         /// </summary>
@@ -134,15 +134,15 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
 
             string creationTime,
 
-            Outputs.CustomDomainResponse customDomain,
+            Outputs.CustomDomainInvokeResponseResult customDomain,
 
             bool? enableHttpsTrafficOnly,
 
-            Outputs.EncryptionResponse encryption,
+            Outputs.EncryptionInvokeResponseResult encryption,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string kind,
 
@@ -152,19 +152,19 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
 
             string name,
 
-            Outputs.NetworkRuleSetResponse networkRuleSet,
+            Outputs.NetworkRuleSetInvokeResponseResult networkRuleSet,
 
-            Outputs.EndpointsResponse primaryEndpoints,
+            Outputs.EndpointsInvokeResponseResult primaryEndpoints,
 
             string primaryLocation,
 
             string provisioningState,
 
-            Outputs.EndpointsResponse secondaryEndpoints,
+            Outputs.EndpointsInvokeResponseResult secondaryEndpoints,
 
             string secondaryLocation,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             string statusOfPrimary,
 

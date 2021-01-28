@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
         /// <summary>
         /// Account keys
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyDescriptionResponseResult> Value;
+        public readonly ImmutableArray<Outputs.KeyDescriptionInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListAccountKeysResult(ImmutableArray<Outputs.KeyDescriptionResponseResult> value)
+        private ListAccountKeysResult(ImmutableArray<Outputs.KeyDescriptionInvokeResponseResult> value)
         {
             Value = value;
         }

@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// Private endpoint which the connection belongs to.
         /// </summary>
-        public readonly Outputs.ManagedInstancePrivateEndpointPropertyResponse? PrivateEndpoint;
+        public readonly Outputs.ManagedInstancePrivateEndpointPropertyInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// Connection State of the Private Endpoint Connection.
         /// </summary>
-        public readonly Outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// State of the Private Endpoint Connection.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string name,
 
-            Outputs.ManagedInstancePrivateEndpointPropertyResponse? privateEndpoint,
+            Outputs.ManagedInstancePrivateEndpointPropertyInvokeResponseResult? privateEndpoint,
 
-            Outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
+            Outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 

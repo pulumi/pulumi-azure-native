@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// Product compatibility with current device.
         /// </summary>
-        public readonly Outputs.CompatibilityResponseResult? Compatibility;
+        public readonly Outputs.CompatibilityInvokeResponseResult? Compatibility;
         /// <summary>
         /// The description of the product.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// Additional links available for this product.
         /// </summary>
-        public readonly Outputs.IconUrisResponseResult? IconUris;
+        public readonly Outputs.IconUrisInvokeResponseResult? IconUris;
         /// <summary>
         /// ID of the resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// Additional links available for this product.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProductLinkResponseResult> Links;
+        public readonly ImmutableArray<Outputs.ProductLinkInvokeResponseResult> Links;
         /// <summary>
         /// Name of the resource.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// Additional properties for the product.
         /// </summary>
-        public readonly Outputs.ProductPropertiesResponseResult? ProductProperties;
+        public readonly Outputs.ProductPropertiesInvokeResponseResult? ProductProperties;
         /// <summary>
         /// The user-friendly name of the product publisher.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         private GetProductResult(
             string? billingPartNumber,
 
-            Outputs.CompatibilityResponseResult? compatibility,
+            Outputs.CompatibilityInvokeResponseResult? compatibility,
 
             string? description,
 
@@ -148,13 +148,13 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
 
             string? galleryItemIdentity,
 
-            Outputs.IconUrisResponseResult? iconUris,
+            Outputs.IconUrisInvokeResponseResult? iconUris,
 
             string id,
 
             string? legalTerms,
 
-            ImmutableArray<Outputs.ProductLinkResponseResult> links,
+            ImmutableArray<Outputs.ProductLinkInvokeResponseResult> links,
 
             string name,
 
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
 
             string? productKind,
 
-            Outputs.ProductPropertiesResponseResult? productProperties,
+            Outputs.ProductPropertiesInvokeResponseResult? productProperties,
 
             string? publisherDisplayName,
 

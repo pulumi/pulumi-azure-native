@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// The statistics of the database.
         /// </summary>
-        public readonly Outputs.DatabaseStatisticsResponse Statistics;
+        public readonly Outputs.DatabaseStatisticsInvokeResponseResult Statistics;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
 
             string? softDeletePeriod,
 
-            Outputs.DatabaseStatisticsResponse statistics,
+            Outputs.DatabaseStatisticsInvokeResponseResult statistics,
 
             string type)
         {

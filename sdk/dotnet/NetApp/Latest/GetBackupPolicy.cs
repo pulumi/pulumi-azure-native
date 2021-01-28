@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// <summary>
         /// A list of volumes assigned to this policy
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeBackupsResponse> VolumeBackups;
+        public readonly ImmutableArray<Outputs.VolumeBackupsInvokeResponseResult> VolumeBackups;
         /// <summary>
         /// Volumes using current backup policy
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
             string type,
 
-            ImmutableArray<Outputs.VolumeBackupsResponse> volumeBackups,
+            ImmutableArray<Outputs.VolumeBackupsInvokeResponseResult> volumeBackups,
 
             int? volumesAssigned,
 

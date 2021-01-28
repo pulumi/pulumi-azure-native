@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
         /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
         /// <summary>
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
-        public readonly Outputs.PolicySkuResponse? Sku;
+        public readonly Outputs.PolicySkuInvokeResponseResult? Sku;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
 
             string? scope,
 
-            Outputs.PolicySkuResponse? sku,
+            Outputs.PolicySkuInvokeResponseResult? sku,
 
             string type)
         {

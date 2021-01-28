@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster API server profile.
         /// </summary>
-        public readonly Outputs.APIServerProfileResponse? ApiserverProfile;
+        public readonly Outputs.APIServerProfileInvokeResponseResult? ApiserverProfile;
         /// <summary>
         /// The cluster profile.
         /// </summary>
-        public readonly Outputs.ClusterProfileResponse? ClusterProfile;
+        public readonly Outputs.ClusterProfileInvokeResponseResult? ClusterProfile;
         /// <summary>
         /// The console profile.
         /// </summary>
-        public readonly Outputs.ConsoleProfileResponse? ConsoleProfile;
+        public readonly Outputs.ConsoleProfileInvokeResponseResult? ConsoleProfile;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster ingress profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IngressProfileResponse> IngressProfiles;
+        public readonly ImmutableArray<Outputs.IngressProfileInvokeResponseResult> IngressProfiles;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster master profile.
         /// </summary>
-        public readonly Outputs.MasterProfileResponse? MasterProfile;
+        public readonly Outputs.MasterProfileInvokeResponseResult? MasterProfile;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster network profile.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
+        public readonly Outputs.NetworkProfileInvokeResponseResult? NetworkProfile;
         /// <summary>
         /// The cluster provisioning state (immutable).
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster service principal profile.
         /// </summary>
-        public readonly Outputs.ServicePrincipalProfileResponse? ServicePrincipalProfile;
+        public readonly Outputs.ServicePrincipalProfileInvokeResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,37 +94,37 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <summary>
         /// The cluster worker profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkerProfileResponse> WorkerProfiles;
+        public readonly ImmutableArray<Outputs.WorkerProfileInvokeResponseResult> WorkerProfiles;
 
         [OutputConstructor]
         private GetOpenShiftClusterResult(
-            Outputs.APIServerProfileResponse? apiserverProfile,
+            Outputs.APIServerProfileInvokeResponseResult? apiserverProfile,
 
-            Outputs.ClusterProfileResponse? clusterProfile,
+            Outputs.ClusterProfileInvokeResponseResult? clusterProfile,
 
-            Outputs.ConsoleProfileResponse? consoleProfile,
+            Outputs.ConsoleProfileInvokeResponseResult? consoleProfile,
 
             string id,
 
-            ImmutableArray<Outputs.IngressProfileResponse> ingressProfiles,
+            ImmutableArray<Outputs.IngressProfileInvokeResponseResult> ingressProfiles,
 
             string location,
 
-            Outputs.MasterProfileResponse? masterProfile,
+            Outputs.MasterProfileInvokeResponseResult? masterProfile,
 
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
+            Outputs.NetworkProfileInvokeResponseResult? networkProfile,
 
             string? provisioningState,
 
-            Outputs.ServicePrincipalProfileResponse? servicePrincipalProfile,
+            Outputs.ServicePrincipalProfileInvokeResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.WorkerProfileResponse> workerProfiles)
+            ImmutableArray<Outputs.WorkerProfileInvokeResponseResult> workerProfiles)
         {
             ApiserverProfile = apiserverProfile;
             ClusterProfile = clusterProfile;

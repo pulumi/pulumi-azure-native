@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         /// <summary>
         /// A collection of AS server administrators
         /// </summary>
-        public readonly Outputs.ServerAdministratorsResponse? AsAdministrators;
+        public readonly Outputs.ServerAdministratorsInvokeResponseResult? AsAdministrators;
         /// <summary>
         /// The SAS container URI to the backup container.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         /// <summary>
         /// The gateway details configured for the AS server.
         /// </summary>
-        public readonly Outputs.GatewayDetailsResponse? GatewayDetails;
+        public readonly Outputs.GatewayDetailsInvokeResponseResult? GatewayDetails;
         /// <summary>
         /// An identifier that represents the Analysis Services resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponse Sku;
+        public readonly Outputs.ResourceSkuInvokeResponseResult Sku;
         /// <summary>
         /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
 
         [OutputConstructor]
         private GetServerDetailsResult(
-            Outputs.ServerAdministratorsResponse? asAdministrators,
+            Outputs.ServerAdministratorsInvokeResponseResult? asAdministrators,
 
             string? backupBlobContainerUri,
 
-            Outputs.GatewayDetailsResponse? gatewayDetails,
+            Outputs.GatewayDetailsInvokeResponseResult? gatewayDetails,
 
             string id,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
 
             int? serverMonitorMode,
 
-            Outputs.ResourceSkuResponse sku,
+            Outputs.ResourceSkuInvokeResponseResult sku,
 
             string state,
 

@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
 
             string resultKind,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

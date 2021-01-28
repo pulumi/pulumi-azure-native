@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <summary>
         /// Results of the list operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleResponse> Value;
+        public readonly ImmutableArray<Outputs.ScheduleInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListScheduleApplicableResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ScheduleResponse> value)
+            ImmutableArray<Outputs.ScheduleInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

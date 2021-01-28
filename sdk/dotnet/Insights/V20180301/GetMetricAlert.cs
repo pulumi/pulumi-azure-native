@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetricAlertActionResponse> Actions;
+        public readonly ImmutableArray<Outputs.MetricAlertActionInvokeResponseResult> Actions;
         /// <summary>
         /// the flag that indicates whether the alert should be auto resolved or not. The default is true.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
 
         [OutputConstructor]
         private GetMetricAlertResult(
-            ImmutableArray<Outputs.MetricAlertActionResponse> actions,
+            ImmutableArray<Outputs.MetricAlertActionInvokeResponseResult> actions,
 
             bool? autoMitigate,
 

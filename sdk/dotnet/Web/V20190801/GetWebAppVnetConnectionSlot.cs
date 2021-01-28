@@ -87,7 +87,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <summary>
         /// The routes that this Virtual Network connection uses.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VnetRouteResponse> Routes;
+        public readonly ImmutableArray<Outputs.VnetRouteInvokeResponseResult> Routes;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
             bool resyncRequired,
 
-            ImmutableArray<Outputs.VnetRouteResponse> routes,
+            ImmutableArray<Outputs.VnetRouteInvokeResponseResult> routes,
 
             string type,
 

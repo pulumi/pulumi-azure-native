@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// Configuration of CommonEncryptionCbcs
         /// </summary>
-        public readonly Outputs.CommonEncryptionCbcsResponse? CommonEncryptionCbcs;
+        public readonly Outputs.CommonEncryptionCbcsInvokeResponseResult? CommonEncryptionCbcs;
         /// <summary>
         /// Configuration of CommonEncryptionCenc
         /// </summary>
-        public readonly Outputs.CommonEncryptionCencResponse? CommonEncryptionCenc;
+        public readonly Outputs.CommonEncryptionCencInvokeResponseResult? CommonEncryptionCenc;
         /// <summary>
         /// Creation time of Streaming Policy
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// Configuration of EnvelopeEncryption
         /// </summary>
-        public readonly Outputs.EnvelopeEncryptionResponse? EnvelopeEncryption;
+        public readonly Outputs.EnvelopeEncryptionInvokeResponseResult? EnvelopeEncryption;
         /// <summary>
         /// Fully qualified resource ID for the resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// Configurations of NoEncryption
         /// </summary>
-        public readonly Outputs.NoEncryptionResponse? NoEncryption;
+        public readonly Outputs.NoEncryptionInvokeResponseResult? NoEncryption;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -84,21 +84,21 @@ namespace Pulumi.AzureNextGen.Media.V20180701
 
         [OutputConstructor]
         private GetStreamingPolicyResult(
-            Outputs.CommonEncryptionCbcsResponse? commonEncryptionCbcs,
+            Outputs.CommonEncryptionCbcsInvokeResponseResult? commonEncryptionCbcs,
 
-            Outputs.CommonEncryptionCencResponse? commonEncryptionCenc,
+            Outputs.CommonEncryptionCencInvokeResponseResult? commonEncryptionCenc,
 
             string created,
 
             string? defaultContentKeyPolicyName,
 
-            Outputs.EnvelopeEncryptionResponse? envelopeEncryption,
+            Outputs.EnvelopeEncryptionInvokeResponseResult? envelopeEncryption,
 
             string id,
 
             string name,
 
-            Outputs.NoEncryptionResponse? noEncryption,
+            Outputs.NoEncryptionInvokeResponseResult? noEncryption,
 
             string type)
         {

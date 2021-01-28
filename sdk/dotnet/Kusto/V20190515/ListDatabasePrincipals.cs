@@ -48,10 +48,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// The list of Kusto database principals.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabasePrincipalResponseResult> Value;
+        public readonly ImmutableArray<Outputs.DatabasePrincipalInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListDatabasePrincipalsResult(ImmutableArray<Outputs.DatabasePrincipalResponseResult> value)
+        private ListDatabasePrincipalsResult(ImmutableArray<Outputs.DatabasePrincipalInvokeResponseResult> value)
         {
             Value = value;
         }

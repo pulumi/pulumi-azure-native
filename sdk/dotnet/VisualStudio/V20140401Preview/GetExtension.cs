@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         /// <summary>
         /// The extension plan that was purchased.
         /// </summary>
-        public readonly Outputs.ExtensionResourcePlanResponse? Plan;
+        public readonly Outputs.ExtensionResourcePlanInvokeResponseResult? Plan;
         /// <summary>
         /// Resource properties.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
 
             string name,
 
-            Outputs.ExtensionResourcePlanResponse? plan,
+            Outputs.ExtensionResourcePlanInvokeResponseResult? plan,
 
             ImmutableDictionary<string, string> properties,
 

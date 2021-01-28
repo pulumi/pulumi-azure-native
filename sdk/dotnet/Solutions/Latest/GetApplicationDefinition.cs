@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationDefinitionArtifactResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplicationDefinitionArtifactInvokeResponseResult> Artifacts;
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplicationAuthorizationInvokeResponseResult> Authorizations;
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The managed application deployment policy.
         /// </summary>
-        public readonly Outputs.ApplicationDeploymentPolicyResponse? DeploymentPolicy;
+        public readonly Outputs.ApplicationDeploymentPolicyInvokeResponseResult? DeploymentPolicy;
         /// <summary>
         /// The managed application definition description.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The managed application locking policy.
         /// </summary>
-        public readonly Outputs.ApplicationPackageLockingPolicyDefinitionResponse? LockingPolicy;
+        public readonly Outputs.ApplicationPackageLockingPolicyDefinitionInvokeResponseResult? LockingPolicy;
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The managed application management policy that determines publisher's access to the managed resource group.
         /// </summary>
-        public readonly Outputs.ApplicationManagementPolicyResponse? ManagementPolicy;
+        public readonly Outputs.ApplicationManagementPolicyInvokeResponseResult? ManagementPolicy;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The managed application notification policy.
         /// </summary>
-        public readonly Outputs.ApplicationNotificationPolicyResponse? NotificationPolicy;
+        public readonly Outputs.ApplicationNotificationPolicyInvokeResponseResult? NotificationPolicy;
         /// <summary>
         /// The managed application definition package file Uri. Use this element
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <summary>
         /// The managed application provider policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationPolicyResponse> Policies;
+        public readonly ImmutableArray<Outputs.ApplicationPolicyInvokeResponseResult> Policies;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -126,13 +126,13 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 
         [OutputConstructor]
         private GetApplicationDefinitionResult(
-            ImmutableArray<Outputs.ApplicationDefinitionArtifactResponse> artifacts,
+            ImmutableArray<Outputs.ApplicationDefinitionArtifactInvokeResponseResult> artifacts,
 
-            ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
+            ImmutableArray<Outputs.ApplicationAuthorizationInvokeResponseResult> authorizations,
 
             object? createUiDefinition,
 
-            Outputs.ApplicationDeploymentPolicyResponse? deploymentPolicy,
+            Outputs.ApplicationDeploymentPolicyInvokeResponseResult? deploymentPolicy,
 
             string? description,
 
@@ -146,23 +146,23 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 
             string lockLevel,
 
-            Outputs.ApplicationPackageLockingPolicyDefinitionResponse? lockingPolicy,
+            Outputs.ApplicationPackageLockingPolicyDefinitionInvokeResponseResult? lockingPolicy,
 
             object? mainTemplate,
 
             string? managedBy,
 
-            Outputs.ApplicationManagementPolicyResponse? managementPolicy,
+            Outputs.ApplicationManagementPolicyInvokeResponseResult? managementPolicy,
 
             string name,
 
-            Outputs.ApplicationNotificationPolicyResponse? notificationPolicy,
+            Outputs.ApplicationNotificationPolicyInvokeResponseResult? notificationPolicy,
 
             string? packageFileUri,
 
-            ImmutableArray<Outputs.ApplicationPolicyResponse> policies,
+            ImmutableArray<Outputs.ApplicationPolicyInvokeResponseResult> policies,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

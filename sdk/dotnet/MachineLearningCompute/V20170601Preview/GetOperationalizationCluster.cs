@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// AppInsights configuration
         /// </summary>
-        public readonly Outputs.AppInsightsCredentialsResponse? AppInsights;
+        public readonly Outputs.AppInsightsCredentialsInvokeResponseResult? AppInsights;
         /// <summary>
         /// The cluster type.
         /// </summary>
@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Container Registry properties.
         /// </summary>
-        public readonly Outputs.ContainerRegistryPropertiesResponse? ContainerRegistry;
+        public readonly Outputs.ContainerRegistryPropertiesInvokeResponseResult? ContainerRegistry;
         /// <summary>
         /// Parameters for the Azure Container Service cluster.
         /// </summary>
-        public readonly Outputs.AcsClusterPropertiesResponse ContainerService;
+        public readonly Outputs.AcsClusterPropertiesInvokeResponseResult ContainerService;
         /// <summary>
         /// The date and time when the cluster was created.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Contains global configuration for the web services in the cluster.
         /// </summary>
-        public readonly Outputs.GlobalServiceConfigurationResponse? GlobalServiceConfiguration;
+        public readonly Outputs.GlobalServiceConfigurationInvokeResponseResult? GlobalServiceConfiguration;
         /// <summary>
         /// Specifies the resource ID.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
         /// <summary>
         /// Storage Account properties.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesInvokeResponseResult? StorageAccount;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -102,19 +102,19 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
 
         [OutputConstructor]
         private GetOperationalizationClusterResult(
-            Outputs.AppInsightsCredentialsResponse? appInsights,
+            Outputs.AppInsightsCredentialsInvokeResponseResult? appInsights,
 
             string clusterType,
 
-            Outputs.ContainerRegistryPropertiesResponse? containerRegistry,
+            Outputs.ContainerRegistryPropertiesInvokeResponseResult? containerRegistry,
 
-            Outputs.AcsClusterPropertiesResponse containerService,
+            Outputs.AcsClusterPropertiesInvokeResponseResult containerService,
 
             string createdOn,
 
             string? description,
 
-            Outputs.GlobalServiceConfigurationResponse? globalServiceConfiguration,
+            Outputs.GlobalServiceConfigurationInvokeResponseResult? globalServiceConfiguration,
 
             string id,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
 
             string provisioningState,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
+            Outputs.StorageAccountPropertiesInvokeResponseResult? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <summary>
         /// The set of operations allowed through this Role Definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PermissionResponse> Permissions;
+        public readonly ImmutableArray<Outputs.PermissionInvokeResponseResult> Permissions;
         /// <summary>
         /// A user-friendly name for the Role Definition. Must be unique for the database account.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 
             string name,
 
-            ImmutableArray<Outputs.PermissionResponse> permissions,
+            ImmutableArray<Outputs.PermissionInvokeResponseResult> permissions,
 
             string? roleName,
 

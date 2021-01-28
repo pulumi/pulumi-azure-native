@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
         /// </summary>
-        public readonly Outputs.BootstrapConfigurationResponse BootstrapConfiguration;
+        public readonly Outputs.BootstrapConfigurationInvokeResponseResult BootstrapConfiguration;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
         /// <summary>
         /// The system metadata pertaining to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource Tags
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
 
         [OutputConstructor]
         private GetPipelineResult(
-            Outputs.BootstrapConfigurationResponse bootstrapConfiguration,
+            Outputs.BootstrapConfigurationInvokeResponseResult bootstrapConfiguration,
 
             string id,
 
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20200713Preview
 
             string pipelineType,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

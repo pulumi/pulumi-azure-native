@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <summary>
         /// Delegated subnet arguments.
         /// </summary>
-        public readonly Outputs.DelegatedSubnetArgumentsResponse? DelegatedSubnetArguments;
+        public readonly Outputs.DelegatedSubnetArgumentsInvokeResponseResult? DelegatedSubnetArguments;
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Status showing whether the server enabled infrastructure encryption.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <summary>
         /// Maintenance window of a server.
         /// </summary>
-        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
+        public readonly Outputs.MaintenanceWindowInvokeResponseResult? MaintenanceWindow;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The source MySQL server id.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <summary>
         /// Storage profile of a server.
         /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.StorageProfileInvokeResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
 
             string? createMode,
 
-            Outputs.DelegatedSubnetArgumentsResponse? delegatedSubnetArguments,
+            Outputs.DelegatedSubnetArgumentsInvokeResponseResult? delegatedSubnetArguments,
 
             string earliestRestoreDate,
 
@@ -180,13 +180,13 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? infrastructureEncryption,
 
             string location,
 
-            Outputs.MaintenanceWindowResponse? maintenanceWindow,
+            Outputs.MaintenanceWindowInvokeResponseResult? maintenanceWindow,
 
             string name,
 
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
 
             string? restorePointInTime,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? sourceServerId,
 
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
 
             string state,
 
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.StorageProfileInvokeResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

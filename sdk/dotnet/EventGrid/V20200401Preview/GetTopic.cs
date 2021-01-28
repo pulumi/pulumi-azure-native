@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// Identity information for the resource.
         /// </summary>
-        public readonly Outputs.IdentityInfoResponse? Identity;
+        public readonly Outputs.IdentityInfoInvokeResponseResult? Identity;
         /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundIpRuleResponse> InboundIpRules;
+        public readonly ImmutableArray<Outputs.InboundIpRuleInvokeResponseResult> InboundIpRules;
         /// <summary>
         /// This determines the format that Event Grid should expect for incoming events published to the topic.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         /// </summary>
-        public readonly Outputs.JsonInputSchemaMappingResponse? InputSchemaMapping;
+        public readonly Outputs.JsonInputSchemaMappingInvokeResponseResult? InputSchemaMapping;
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// Name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the topic.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// The Sku pricing tier for the topic.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponse? Sku;
+        public readonly Outputs.ResourceSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Tags of the resource.
         /// </summary>
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string id,
 
-            Outputs.IdentityInfoResponse? identity,
+            Outputs.IdentityInfoInvokeResponseResult? identity,
 
-            ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
+            ImmutableArray<Outputs.InboundIpRuleInvokeResponseResult> inboundIpRules,
 
             string? inputSchema,
 
-            Outputs.JsonInputSchemaMappingResponse? inputSchemaMapping,
+            Outputs.JsonInputSchemaMappingInvokeResponseResult? inputSchemaMapping,
 
             string location,
 
@@ -118,13 +118,13 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Outputs.ResourceSkuResponse? sku,
+            Outputs.ResourceSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -63,8 +63,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// The name of the ARM resource.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.MongoDBCollectionGetPropertiesResponseOptions? Options;
-        public readonly Outputs.MongoDBCollectionGetPropertiesResponseResource? Resource;
+        public readonly Outputs.MongoDBCollectionGetPropertiesInvokeResponseOptionsResult? Options;
+        public readonly Outputs.MongoDBCollectionGetPropertiesInvokeResponseResourceResult? Resource;
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 
             string name,
 
-            Outputs.MongoDBCollectionGetPropertiesResponseOptions? options,
+            Outputs.MongoDBCollectionGetPropertiesInvokeResponseOptionsResult? options,
 
-            Outputs.MongoDBCollectionGetPropertiesResponseResource? resource,
+            Outputs.MongoDBCollectionGetPropertiesInvokeResponseResourceResult? resource,
 
             ImmutableDictionary<string, string>? tags,
 

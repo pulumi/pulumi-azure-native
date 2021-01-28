@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpsecPolicyResponse> IpsecPolicies;
+        public readonly ImmutableArray<Outputs.IpsecPolicyInvokeResponseResult> IpsecPolicies;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// Id of the connected vpn site.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? RemoteVpnSite;
+        public readonly Outputs.SubResourceInvokeResponseResult? RemoteVpnSite;
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationInvokeResponseResult? RoutingConfiguration;
         /// <summary>
         /// Routing weight for vpn connection.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// List of all vpn site link connections to the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnSiteLinkConnectionResponse> VpnLinkConnections;
+        public readonly ImmutableArray<Outputs.VpnSiteLinkConnectionInvokeResponseResult> VpnLinkConnections;
 
         [OutputConstructor]
         private GetVpnConnectionResult(
@@ -152,15 +152,15 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 
             double ingressBytesTransferred,
 
-            ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
+            ImmutableArray<Outputs.IpsecPolicyInvokeResponseResult> ipsecPolicies,
 
             string? name,
 
             string provisioningState,
 
-            Outputs.SubResourceResponse? remoteVpnSite,
+            Outputs.SubResourceInvokeResponseResult? remoteVpnSite,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationInvokeResponseResult? routingConfiguration,
 
             int? routingWeight,
 
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 
             string? vpnConnectionProtocolType,
 
-            ImmutableArray<Outputs.VpnSiteLinkConnectionResponse> vpnLinkConnections)
+            ImmutableArray<Outputs.VpnSiteLinkConnectionInvokeResponseResult> vpnLinkConnections)
         {
             ConnectionBandwidth = connectionBandwidth;
             ConnectionStatus = connectionStatus;

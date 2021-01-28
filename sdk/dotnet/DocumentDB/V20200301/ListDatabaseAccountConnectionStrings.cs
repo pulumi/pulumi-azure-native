@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301
         /// <summary>
         /// An array that contains the connection strings for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseAccountConnectionStringResponseResult> ConnectionStrings;
+        public readonly ImmutableArray<Outputs.DatabaseAccountConnectionStringInvokeResponseResult> ConnectionStrings;
 
         [OutputConstructor]
-        private ListDatabaseAccountConnectionStringsResult(ImmutableArray<Outputs.DatabaseAccountConnectionStringResponseResult> connectionStrings)
+        private ListDatabaseAccountConnectionStringsResult(ImmutableArray<Outputs.DatabaseAccountConnectionStringInvokeResponseResult> connectionStrings)
         {
             ConnectionStrings = connectionStrings;
         }

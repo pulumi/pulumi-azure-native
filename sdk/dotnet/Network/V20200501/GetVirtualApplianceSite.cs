@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// Office 365 Policy.
         /// </summary>
-        public readonly Outputs.Office365PolicyPropertiesResponse? O365Policy;
+        public readonly Outputs.Office365PolicyPropertiesInvokeResponseResult? O365Policy;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string? name,
 
-            Outputs.Office365PolicyPropertiesResponse? o365Policy,
+            Outputs.Office365PolicyPropertiesInvokeResponseResult? o365Policy,
 
             string provisioningState,
 

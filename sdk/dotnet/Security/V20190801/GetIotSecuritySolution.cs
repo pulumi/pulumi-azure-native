@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// <summary>
         /// List of additional workspaces
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalWorkspacesPropertiesResponse> AdditionalWorkspaces;
+        public readonly ImmutableArray<Outputs.AdditionalWorkspacesPropertiesInvokeResponseResult> AdditionalWorkspaces;
         /// <summary>
         /// List of resources that were automatically discovered as relevant to the security solution.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// <summary>
         /// List of the configuration status for each recommendation type.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse> RecommendationsConfiguration;
+        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesInvokeResponseResult> RecommendationsConfiguration;
         /// <summary>
         /// Status of the IoT Security solution.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// <summary>
         /// Properties of the IoT Security solution's user defined resources.
         /// </summary>
-        public readonly Outputs.UserDefinedResourcesPropertiesResponse? UserDefinedResources;
+        public readonly Outputs.UserDefinedResourcesPropertiesInvokeResponseResult? UserDefinedResources;
         /// <summary>
         /// Workspace resource ID
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
         [OutputConstructor]
         private GetIotSecuritySolutionResult(
-            ImmutableArray<Outputs.AdditionalWorkspacesPropertiesResponse> additionalWorkspaces,
+            ImmutableArray<Outputs.AdditionalWorkspacesPropertiesInvokeResponseResult> additionalWorkspaces,
 
             ImmutableArray<string> autoDiscoveredResources,
 
@@ -128,11 +128,11 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
             string name,
 
-            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse> recommendationsConfiguration,
+            ImmutableArray<Outputs.RecommendationConfigurationPropertiesInvokeResponseResult> recommendationsConfiguration,
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
             string? unmaskedIpLoggingStatus,
 
-            Outputs.UserDefinedResourcesPropertiesResponse? userDefinedResources,
+            Outputs.UserDefinedResourcesPropertiesInvokeResponseResult? userDefinedResources,
 
             string? workspace)
         {

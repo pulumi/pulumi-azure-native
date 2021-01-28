@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         /// <summary>
         /// Sku of the Namespace.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
         /// <summary>
         /// Profile of Azure Active Directory configuration.
         /// </summary>
-        public readonly Outputs.ManagedClusterAADProfileResponse? AadProfile;
+        public readonly Outputs.ManagedClusterAADProfileInvokeResponseResult? AadProfile;
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? AddonProfiles;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileInvokeResponseResult>? AddonProfiles;
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileInvokeResponseResult> AgentPoolProfiles;
         /// <summary>
         /// DNS prefix specified when creating the managed cluster.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
         /// <summary>
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponse? LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileInvokeResponseResult? LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
         /// <summary>
         /// Profile of network configuration.
         /// </summary>
-        public readonly Outputs.ContainerServiceNetworkProfileResponse? NetworkProfile;
+        public readonly Outputs.ContainerServiceNetworkProfileInvokeResponseResult? NetworkProfile;
         /// <summary>
         /// Name of the resource group containing agent pool nodes.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         /// </summary>
-        public readonly Outputs.ManagedClusterServicePrincipalProfileResponse? ServicePrincipalProfile;
+        public readonly Outputs.ManagedClusterServicePrincipalProfileInvokeResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
 
         [OutputConstructor]
         private GetManagedClusterResult(
-            Outputs.ManagedClusterAADProfileResponse? aadProfile,
+            Outputs.ManagedClusterAADProfileInvokeResponseResult? aadProfile,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? addonProfiles,
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileInvokeResponseResult>? addonProfiles,
 
-            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> agentPoolProfiles,
+            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileInvokeResponseResult> agentPoolProfiles,
 
             string? dnsPrefix,
 
@@ -126,19 +126,19 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
 
             string? kubernetesVersion,
 
-            Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
+            Outputs.ContainerServiceLinuxProfileInvokeResponseResult? linuxProfile,
 
             string location,
 
             string name,
 
-            Outputs.ContainerServiceNetworkProfileResponse? networkProfile,
+            Outputs.ContainerServiceNetworkProfileInvokeResponseResult? networkProfile,
 
             string nodeResourceGroup,
 
             string provisioningState,
 
-            Outputs.ManagedClusterServicePrincipalProfileResponse? servicePrincipalProfile,
+            Outputs.ManagedClusterServicePrincipalProfileInvokeResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 

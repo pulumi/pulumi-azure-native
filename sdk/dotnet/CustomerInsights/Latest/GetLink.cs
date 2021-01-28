@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The set of properties mappings between the source and target Types.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TypePropertiesMappingResponse> Mappings;
+        public readonly ImmutableArray<Outputs.TypePropertiesMappingInvokeResponseResult> Mappings;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The properties that represent the participating profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceResponse> ParticipantPropertyReferences;
+        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceInvokeResponseResult> ParticipantPropertyReferences;
         /// <summary>
         /// Provisioning state.
         /// </summary>
@@ -120,13 +120,13 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             string linkName,
 
-            ImmutableArray<Outputs.TypePropertiesMappingResponse> mappings,
+            ImmutableArray<Outputs.TypePropertiesMappingInvokeResponseResult> mappings,
 
             string name,
 
             string? operationType,
 
-            ImmutableArray<Outputs.ParticipantPropertyReferenceResponse> participantPropertyReferences,
+            ImmutableArray<Outputs.ParticipantPropertyReferenceInvokeResponseResult> participantPropertyReferences,
 
             string provisioningState,
 

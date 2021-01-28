@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <summary>
         /// Properties of capture description
         /// </summary>
-        public readonly Outputs.CaptureDescriptionResponse? CaptureDescription;
+        public readonly Outputs.CaptureDescriptionInvokeResponseResult? CaptureDescription;
         /// <summary>
         /// Exact time the Event Hub was created.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
 
         [OutputConstructor]
         private GetEventHubResult(
-            Outputs.CaptureDescriptionResponse? captureDescription,
+            Outputs.CaptureDescriptionInvokeResponseResult? captureDescription,
 
             string createdAt,
 

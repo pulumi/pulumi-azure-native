@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// Gets or sets the SKU of account.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Gets status of account.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
 
             string name,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string state,
 

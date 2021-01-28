@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// The ExpressRoute circuit peering.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
+        public readonly Outputs.ExpressRouteCircuitPeeringIdInvokeResponseResult ExpressRouteCircuitPeering;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationInvokeResponseResult? RoutingConfiguration;
         /// <summary>
         /// The routing weight associated to the connection.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             bool? enableInternetSecurity,
 
-            Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
+            Outputs.ExpressRouteCircuitPeeringIdInvokeResponseResult expressRouteCircuitPeering,
 
             string? id,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationInvokeResponseResult? routingConfiguration,
 
             int? routingWeight)
         {

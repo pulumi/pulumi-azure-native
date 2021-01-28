@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
         /// <summary>
         /// The set of tags.
         /// </summary>
-        public readonly Outputs.TagsResponse Properties;
+        public readonly Outputs.TagsInvokeResponseResult Properties;
         /// <summary>
         /// The type of the tags wrapper resource.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
 
             string name,
 
-            Outputs.TagsResponse properties,
+            Outputs.TagsInvokeResponseResult properties,
 
             string type)
         {

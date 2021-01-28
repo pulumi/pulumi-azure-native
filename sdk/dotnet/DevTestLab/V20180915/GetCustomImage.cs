@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <summary>
         /// Storage information about the plan related to this custom image
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesFromPlanResponse? CustomImagePlan;
+        public readonly Outputs.CustomImagePropertiesFromPlanInvokeResponseResult? CustomImagePlan;
         /// <summary>
         /// Storage information about the data disks present in the custom image
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataDiskStorageTypeInfoResponse> DataDiskStorageInfo;
+        public readonly ImmutableArray<Outputs.DataDiskStorageTypeInfoInvokeResponseResult> DataDiskStorageInfo;
         /// <summary>
         /// The description of the custom image.
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <summary>
         /// The VHD from which the image is to be created.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesCustomResponse? Vhd;
+        public readonly Outputs.CustomImagePropertiesCustomInvokeResponseResult? Vhd;
         /// <summary>
         /// The virtual machine from which the image is to be created.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesFromVmResponse? Vm;
+        public readonly Outputs.CustomImagePropertiesFromVmInvokeResponseResult? Vm;
 
         [OutputConstructor]
         private GetCustomImageResult(
@@ -126,9 +126,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
             string creationDate,
 
-            Outputs.CustomImagePropertiesFromPlanResponse? customImagePlan,
+            Outputs.CustomImagePropertiesFromPlanInvokeResponseResult? customImagePlan,
 
-            ImmutableArray<Outputs.DataDiskStorageTypeInfoResponse> dataDiskStorageInfo,
+            ImmutableArray<Outputs.DataDiskStorageTypeInfoInvokeResponseResult> dataDiskStorageInfo,
 
             string? description,
 
@@ -152,9 +152,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
             string uniqueIdentifier,
 
-            Outputs.CustomImagePropertiesCustomResponse? vhd,
+            Outputs.CustomImagePropertiesCustomInvokeResponseResult? vhd,
 
-            Outputs.CustomImagePropertiesFromVmResponse? vm)
+            Outputs.CustomImagePropertiesFromVmInvokeResponseResult? vm)
         {
             Author = author;
             CreationDate = creationDate;

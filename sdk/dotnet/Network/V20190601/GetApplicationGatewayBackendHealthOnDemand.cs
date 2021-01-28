@@ -28,13 +28,13 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// Reference of backend pool of application gateway to which probe request will be sent.
         /// </summary>
         [Input("backendAddressPool")]
-        public Inputs.SubResourceArgs? BackendAddressPool { get; set; }
+        public Inputs.SubResourceInvokeArgs? BackendAddressPool { get; set; }
 
         /// <summary>
         /// Reference of backend http setting of application gateway to be used for test probe.
         /// </summary>
         [Input("backendHttpSettings")]
-        public Inputs.SubResourceArgs? BackendHttpSettings { get; set; }
+        public Inputs.SubResourceInvokeArgs? BackendHttpSettings { get; set; }
 
         /// <summary>
         /// Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// Criterion for classifying a healthy probe response.
         /// </summary>
         [Input("match")]
-        public Inputs.ApplicationGatewayProbeHealthResponseMatchArgs? Match { get; set; }
+        public Inputs.ApplicationGatewayProbeHealthResponseMatchInvokeArgs? Match { get; set; }
 
         /// <summary>
         /// Relative path of probe. Valid path starts from '/'. Probe is sent to &lt;Protocol&gt;://&lt;host&gt;:&lt;port&gt;&lt;path&gt;.
@@ -96,17 +96,17 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// Reference of an ApplicationGatewayBackendAddressPool resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendAddressPoolResponse? BackendAddressPool;
+        public readonly Outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult? BackendAddressPool;
         /// <summary>
         /// Application gateway BackendHealthHttp settings.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendHealthHttpSettingsResponseResult? BackendHealthHttpSettings;
+        public readonly Outputs.ApplicationGatewayBackendHealthHttpSettingsInvokeResponseResult? BackendHealthHttpSettings;
 
         [OutputConstructor]
         private GetApplicationGatewayBackendHealthOnDemandResult(
-            Outputs.ApplicationGatewayBackendAddressPoolResponse? backendAddressPool,
+            Outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult? backendAddressPool,
 
-            Outputs.ApplicationGatewayBackendHealthHttpSettingsResponseResult? backendHealthHttpSettings)
+            Outputs.ApplicationGatewayBackendHealthHttpSettingsInvokeResponseResult? backendHealthHttpSettings)
         {
             BackendAddressPool = backendAddressPool;
             BackendHealthHttpSettings = backendHealthHttpSettings;

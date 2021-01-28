@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// Integration runtime properties.
         /// </summary>
-        public readonly Union<Outputs.ManagedIntegrationRuntimeStatusResponseResult, Outputs.SelfHostedIntegrationRuntimeStatusResponseResult> Properties;
+        public readonly Union<Outputs.ManagedIntegrationRuntimeStatusInvokeResponseResult, Outputs.SelfHostedIntegrationRuntimeStatusInvokeResponseResult> Properties;
 
         [OutputConstructor]
         private GetIntegrationRuntimeStatusResult(
             string name,
 
-            Union<Outputs.ManagedIntegrationRuntimeStatusResponseResult, Outputs.SelfHostedIntegrationRuntimeStatusResponseResult> properties)
+            Union<Outputs.ManagedIntegrationRuntimeStatusInvokeResponseResult, Outputs.SelfHostedIntegrationRuntimeStatusInvokeResponseResult> properties)
         {
             Name = name;
             Properties = properties;

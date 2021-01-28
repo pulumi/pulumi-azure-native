@@ -54,11 +54,11 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The integration service environment properties.
         /// </summary>
-        public readonly Outputs.IntegrationServiceEnvironmentPropertiesResponse Properties;
+        public readonly Outputs.IntegrationServiceEnvironmentPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.IntegrationServiceEnvironmentSkuResponse? Sku;
+        public readonly Outputs.IntegrationServiceEnvironmentSkuInvokeResponseResult? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string name,
 
-            Outputs.IntegrationServiceEnvironmentPropertiesResponse properties,
+            Outputs.IntegrationServiceEnvironmentPropertiesInvokeResponseResult properties,
 
-            Outputs.IntegrationServiceEnvironmentSkuResponse? sku,
+            Outputs.IntegrationServiceEnvironmentSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

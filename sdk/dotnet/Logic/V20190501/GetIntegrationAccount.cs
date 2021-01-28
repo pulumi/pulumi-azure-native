@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The integration service environment.
         /// </summary>
-        public readonly Outputs.IntegrationServiceEnvironmentResponse? IntegrationServiceEnvironment;
+        public readonly Outputs.IntegrationServiceEnvironmentInvokeResponseResult? IntegrationServiceEnvironment;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.IntegrationAccountSkuResponse? Sku;
+        public readonly Outputs.IntegrationAccountSkuInvokeResponseResult? Sku;
         /// <summary>
         /// The workflow state.
         /// </summary>
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         private GetIntegrationAccountResult(
             string id,
 
-            Outputs.IntegrationServiceEnvironmentResponse? integrationServiceEnvironment,
+            Outputs.IntegrationServiceEnvironmentInvokeResponseResult? integrationServiceEnvironment,
 
             string? location,
 
             string name,
 
-            Outputs.IntegrationAccountSkuResponse? sku,
+            Outputs.IntegrationAccountSkuInvokeResponseResult? sku,
 
             string? state,
 

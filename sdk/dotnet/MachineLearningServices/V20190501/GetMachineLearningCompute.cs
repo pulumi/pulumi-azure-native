@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20190501
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20190501
         private GetMachineLearningComputeResult(
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 

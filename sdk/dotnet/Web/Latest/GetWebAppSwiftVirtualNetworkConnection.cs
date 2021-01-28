@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             bool? swiftSupported,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

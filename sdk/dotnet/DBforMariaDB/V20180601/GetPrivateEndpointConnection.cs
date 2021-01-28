@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
         /// <summary>
         /// Private endpoint which the connection belongs to.
         /// </summary>
-        public readonly Outputs.PrivateEndpointPropertyResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointPropertyInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// Connection state of the private endpoint connection.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// State of the private endpoint connection.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 
             string name,
 
-            Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
+            Outputs.PrivateEndpointPropertyInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 

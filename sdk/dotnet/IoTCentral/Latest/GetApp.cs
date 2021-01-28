@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
         /// <summary>
         /// A valid instance SKU.
         /// </summary>
-        public readonly Outputs.AppSkuInfoResponse Sku;
+        public readonly Outputs.AppSkuInfoInvokeResponseResult Sku;
         /// <summary>
         /// The subdomain of the application.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
 
             string name,
 
-            Outputs.AppSkuInfoResponse sku,
+            Outputs.AppSkuInfoInvokeResponseResult sku,
 
             string? subdomain,
 

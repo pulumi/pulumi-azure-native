@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountResponse> StorageAccounts;
+        public readonly ImmutableArray<Outputs.StorageAccountInvokeResponseResult> StorageAccounts;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
 
             string name,
 
-            ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
+            ImmutableArray<Outputs.StorageAccountInvokeResponseResult> storageAccounts,
 
             ImmutableDictionary<string, string>? tags,
 

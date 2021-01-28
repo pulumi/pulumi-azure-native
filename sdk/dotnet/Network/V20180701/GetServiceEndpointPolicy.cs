@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// A collection of service endpoint policy definitions of the service endpoint policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> ServiceEndpointPolicyDefinitions;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionInvokeResponseResult> ServiceEndpointPolicyDefinitions;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             string? resourceGuid,
 
-            ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionResponse> serviceEndpointPolicyDefinitions,
+            ImmutableArray<Outputs.ServiceEndpointPolicyDefinitionInvokeResponseResult> serviceEndpointPolicyDefinitions,
 
             ImmutableDictionary<string, string>? tags,
 

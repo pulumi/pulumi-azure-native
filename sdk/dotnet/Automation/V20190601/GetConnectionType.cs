@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// Gets the field definitions of the connection type.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.FieldDefinitionResponse> FieldDefinitions;
+        public readonly ImmutableDictionary<string, Outputs.FieldDefinitionInvokeResponseResult> FieldDefinitions;
         /// <summary>
         /// Gets the id of the resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
 
             string? description,
 
-            ImmutableDictionary<string, Outputs.FieldDefinitionResponse> fieldDefinitions,
+            ImmutableDictionary<string, Outputs.FieldDefinitionInvokeResponseResult> fieldDefinitions,
 
             string id,
 

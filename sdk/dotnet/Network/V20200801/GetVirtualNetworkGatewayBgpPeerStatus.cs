@@ -48,10 +48,10 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// List of BGP peers.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BgpPeerStatusResponseResult> Value;
+        public readonly ImmutableArray<Outputs.BgpPeerStatusInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private GetVirtualNetworkGatewayBgpPeerStatusResult(ImmutableArray<Outputs.BgpPeerStatusResponseResult> value)
+        private GetVirtualNetworkGatewayBgpPeerStatusResult(ImmutableArray<Outputs.BgpPeerStatusInvokeResponseResult> value)
         {
             Value = value;
         }

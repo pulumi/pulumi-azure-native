@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200101Preview
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> Logs;
+        public readonly ImmutableArray<Outputs.ManagementGroupLogSettingsInvokeResponseResult> Logs;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200101Preview
 
             string? location,
 
-            ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> logs,
+            ImmutableArray<Outputs.ManagementGroupLogSettingsInvokeResponseResult> logs,
 
             string name,
 

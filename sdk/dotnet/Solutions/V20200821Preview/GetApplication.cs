@@ -46,23 +46,23 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// <summary>
         /// The collection of managed application artifacts.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplicationArtifactInvokeResponseResult> Artifacts;
         /// <summary>
         /// The  read-only authorizations property that is retrieved from the application package.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplicationAuthorizationInvokeResponseResult> Authorizations;
         /// <summary>
         /// The managed application billing details.
         /// </summary>
-        public readonly Outputs.ApplicationBillingDetailsDefinitionResponse BillingDetails;
+        public readonly Outputs.ApplicationBillingDetailsDefinitionInvokeResponseResult BillingDetails;
         /// <summary>
         /// The client entity that created the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponse CreatedBy;
+        public readonly Outputs.ApplicationClientDetailsInvokeResponseResult CreatedBy;
         /// <summary>
         /// The read-only customer support property that is retrieved from the application package.
         /// </summary>
-        public readonly Outputs.ApplicationPackageContactResponse CustomerSupport;
+        public readonly Outputs.ApplicationPackageContactInvokeResponseResult CustomerSupport;
         /// <summary>
         /// Resource ID
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The managed application Jit access policy.
         /// </summary>
-        public readonly Outputs.ApplicationJitAccessPolicyResponse? JitAccessPolicy;
+        public readonly Outputs.ApplicationJitAccessPolicyInvokeResponseResult? JitAccessPolicy;
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// <summary>
         /// The plan information.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// The managed application provisioning state.
         /// </summary>
@@ -122,11 +122,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The read-only support URLs property that is retrieved from the application package.
         /// </summary>
-        public readonly Outputs.ApplicationPackageSupportUrlsResponse SupportUrls;
+        public readonly Outputs.ApplicationPackageSupportUrlsInvokeResponseResult SupportUrls;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -138,27 +138,27 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// <summary>
         /// The client entity that last updated the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponse UpdatedBy;
+        public readonly Outputs.ApplicationClientDetailsInvokeResponseResult UpdatedBy;
 
         [OutputConstructor]
         private GetApplicationResult(
             string? applicationDefinitionId,
 
-            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
+            ImmutableArray<Outputs.ApplicationArtifactInvokeResponseResult> artifacts,
 
-            ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
+            ImmutableArray<Outputs.ApplicationAuthorizationInvokeResponseResult> authorizations,
 
-            Outputs.ApplicationBillingDetailsDefinitionResponse billingDetails,
+            Outputs.ApplicationBillingDetailsDefinitionInvokeResponseResult billingDetails,
 
-            Outputs.ApplicationClientDetailsResponse createdBy,
+            Outputs.ApplicationClientDetailsInvokeResponseResult createdBy,
 
-            Outputs.ApplicationPackageContactResponse customerSupport,
+            Outputs.ApplicationPackageContactInvokeResponseResult customerSupport,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
-            Outputs.ApplicationJitAccessPolicyResponse? jitAccessPolicy,
+            Outputs.ApplicationJitAccessPolicyInvokeResponseResult? jitAccessPolicy,
 
             string kind,
 
@@ -176,21 +176,21 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
 
             object? parameters,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             string provisioningState,
 
             string publisherTenantId,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
-            Outputs.ApplicationPackageSupportUrlsResponse supportUrls,
+            Outputs.ApplicationPackageSupportUrlsInvokeResponseResult supportUrls,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ApplicationClientDetailsResponse updatedBy)
+            Outputs.ApplicationClientDetailsInvokeResponseResult updatedBy)
         {
             ApplicationDefinitionId = applicationDefinitionId;
             Artifacts = artifacts;

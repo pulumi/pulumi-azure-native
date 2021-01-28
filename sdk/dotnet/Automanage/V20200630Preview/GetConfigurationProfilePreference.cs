@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         /// <summary>
         /// Properties of the configuration profile preference.
         /// </summary>
-        public readonly Outputs.ConfigurationProfilePreferencePropertiesResponse Properties;
+        public readonly Outputs.ConfigurationProfilePreferencePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 
             string name,
 
-            Outputs.ConfigurationProfilePreferencePropertiesResponse properties,
+            Outputs.ConfigurationProfilePreferencePropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <summary>
         /// Properties of the cluster SKU.
         /// </summary>
-        public readonly Outputs.ClusterSkuResponse? Sku;
+        public readonly Outputs.ClusterSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Status of the Cluster resource
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string name,
 
-            Outputs.ClusterSkuResponse? sku,
+            Outputs.ClusterSkuInvokeResponseResult? sku,
 
             string status,
 

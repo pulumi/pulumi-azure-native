@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// <summary>
         /// A list of packet capture filters.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PacketCaptureFilterResponse> Filters;
+        public readonly ImmutableArray<Outputs.PacketCaptureFilterInvokeResponseResult> Filters;
         /// <summary>
         /// ID of the packet capture operation.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// <summary>
         /// Describes the storage location for a packet capture session.
         /// </summary>
-        public readonly Outputs.PacketCaptureStorageLocationResponse StorageLocation;
+        public readonly Outputs.PacketCaptureStorageLocationInvokeResponseResult StorageLocation;
         /// <summary>
         /// The ID of the targeted resource, only VM is currently supported.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 
             string? etag,
 
-            ImmutableArray<Outputs.PacketCaptureFilterResponse> filters,
+            ImmutableArray<Outputs.PacketCaptureFilterInvokeResponseResult> filters,
 
             string id,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 
             string provisioningState,
 
-            Outputs.PacketCaptureStorageLocationResponse storageLocation,
+            Outputs.PacketCaptureStorageLocationInvokeResponseResult storageLocation,
 
             string target,
 

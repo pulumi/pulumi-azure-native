@@ -82,11 +82,11 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpsecPolicyResponse> IpsecPolicies;
+        public readonly ImmutableArray<Outputs.IpsecPolicyInvokeResponseResult> IpsecPolicies;
         /// <summary>
         /// The reference to local network gateway resource.
         /// </summary>
-        public readonly Outputs.LocalNetworkGatewayResponse? LocalNetworkGateway2;
+        public readonly Outputs.LocalNetworkGatewayInvokeResponseResult? LocalNetworkGateway2;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The reference to peerings resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Peer;
+        public readonly Outputs.SubResourceInvokeResponseResult? Peer;
         /// <summary>
         /// The provisioning state of the virtual network gateway connection resource.
         /// </summary>
@@ -122,11 +122,11 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The Traffic Selector Policies to be considered by this connection.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrafficSelectorPolicyResponse> TrafficSelectorPolicies;
+        public readonly ImmutableArray<Outputs.TrafficSelectorPolicyInvokeResponseResult> TrafficSelectorPolicies;
         /// <summary>
         /// Collection of all tunnels' connection health status.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TunnelConnectionHealthResponse> TunnelConnectionStatus;
+        public readonly ImmutableArray<Outputs.TunnelConnectionHealthInvokeResponseResult> TunnelConnectionStatus;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -138,11 +138,11 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The reference to virtual network gateway resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponse VirtualNetworkGateway1;
+        public readonly Outputs.VirtualNetworkGatewayInvokeResponseResult VirtualNetworkGateway1;
         /// <summary>
         /// The reference to virtual network gateway resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponse? VirtualNetworkGateway2;
+        public readonly Outputs.VirtualNetworkGatewayInvokeResponseResult? VirtualNetworkGateway2;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayConnectionResult(
@@ -166,15 +166,15 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 
             double ingressBytesTransferred,
 
-            ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
+            ImmutableArray<Outputs.IpsecPolicyInvokeResponseResult> ipsecPolicies,
 
-            Outputs.LocalNetworkGatewayResponse? localNetworkGateway2,
+            Outputs.LocalNetworkGatewayInvokeResponseResult? localNetworkGateway2,
 
             string? location,
 
             string name,
 
-            Outputs.SubResourceResponse? peer,
+            Outputs.SubResourceInvokeResponseResult? peer,
 
             string provisioningState,
 
@@ -186,17 +186,17 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TrafficSelectorPolicyResponse> trafficSelectorPolicies,
+            ImmutableArray<Outputs.TrafficSelectorPolicyInvokeResponseResult> trafficSelectorPolicies,
 
-            ImmutableArray<Outputs.TunnelConnectionHealthResponse> tunnelConnectionStatus,
+            ImmutableArray<Outputs.TunnelConnectionHealthInvokeResponseResult> tunnelConnectionStatus,
 
             string type,
 
             bool? usePolicyBasedTrafficSelectors,
 
-            Outputs.VirtualNetworkGatewayResponse virtualNetworkGateway1,
+            Outputs.VirtualNetworkGatewayInvokeResponseResult virtualNetworkGateway1,
 
-            Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway2)
+            Outputs.VirtualNetworkGatewayInvokeResponseResult? virtualNetworkGateway2)
         {
             AuthorizationKey = authorizationKey;
             ConnectionProtocol = connectionProtocol;

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyInvokeResponseResult> Hosts;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
-            ImmutableArray<Outputs.SubResourceReadOnlyResponse> hosts,
+            ImmutableArray<Outputs.SubResourceReadOnlyInvokeResponseResult> hosts,
 
             string id,
 

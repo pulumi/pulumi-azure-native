@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// <summary>
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
-        public readonly Outputs.PolicySkuResponse? Sku;
+        public readonly Outputs.PolicySkuInvokeResponseResult? Sku;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
 
             string? scope,
 
-            Outputs.PolicySkuResponse? sku,
+            Outputs.PolicySkuInvokeResponseResult? sku,
 
             string type)
         {

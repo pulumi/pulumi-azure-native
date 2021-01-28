@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
         /// </summary>
-        public readonly Outputs.CloningInfoResponse? CloningInfo;
+        public readonly Outputs.CloningInfoInvokeResponseResult? CloningInfo;
         /// <summary>
         /// Size of the function container.
         /// </summary>
@@ -89,11 +89,11 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// GeoDistributions for this site
         /// </summary>
-        public readonly ImmutableArray<Outputs.GeoDistributionResponse> GeoDistributions;
+        public readonly ImmutableArray<Outputs.GeoDistributionInvokeResponseResult> GeoDistributions;
         /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostNameSslStateResponse> HostNameSslStates;
+        public readonly ImmutableArray<Outputs.HostNameSslStateInvokeResponseResult> HostNameSslStates;
         /// <summary>
         /// Hostnames associated with the app.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// App Service Environment to use for the app.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult? HostingEnvironmentProfile;
         /// <summary>
         /// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
         /// http requests
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// Managed service identity.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Specifies an operation id if this site has a pending operation.
         /// </summary>
@@ -192,11 +192,11 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// Configuration of the app.
         /// </summary>
-        public readonly Outputs.SiteConfigResponse? SiteConfig;
+        public readonly Outputs.SiteConfigInvokeResponseResult? SiteConfig;
         /// <summary>
         /// Status of the last deployment slot swap operation.
         /// </summary>
-        public readonly Outputs.SlotSwapStatusResponse SlotSwapStatus;
+        public readonly Outputs.SlotSwapStatusInvokeResponseResult SlotSwapStatus;
         /// <summary>
         /// Current state of the app.
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             string? clientCertExclusionPaths,
 
-            Outputs.CloningInfoResponse? cloningInfo,
+            Outputs.CloningInfoInvokeResponseResult? cloningInfo,
 
             int? containerSize,
 
@@ -248,15 +248,15 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             ImmutableArray<string> enabledHostNames,
 
-            ImmutableArray<Outputs.GeoDistributionResponse> geoDistributions,
+            ImmutableArray<Outputs.GeoDistributionInvokeResponseResult> geoDistributions,
 
-            ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
+            ImmutableArray<Outputs.HostNameSslStateInvokeResponseResult> hostNameSslStates,
 
             ImmutableArray<string> hostNames,
 
             bool? hostNamesDisabled,
 
-            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult? hostingEnvironmentProfile,
 
             bool? httpsOnly,
 
@@ -264,7 +264,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityInvokeResponseResult? identity,
 
             string inProgressOperationId,
 
@@ -298,9 +298,9 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             string? serverFarmId,
 
-            Outputs.SiteConfigResponse? siteConfig,
+            Outputs.SiteConfigInvokeResponseResult? siteConfig,
 
-            Outputs.SlotSwapStatusResponse slotSwapStatus,
+            Outputs.SlotSwapStatusInvokeResponseResult slotSwapStatus,
 
             string state,
 

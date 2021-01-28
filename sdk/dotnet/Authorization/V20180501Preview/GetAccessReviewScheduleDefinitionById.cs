@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
         /// <summary>
         /// This is the collection of instances returned when one does an expand on it.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccessReviewInstanceResponse> Instances;
+        public readonly ImmutableArray<Outputs.AccessReviewInstanceInvokeResponseResult> Instances;
         /// <summary>
         /// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
         /// <summary>
         /// This is the collection of reviewers.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AccessReviewReviewerResponse> Reviewers;
+        public readonly ImmutableArray<Outputs.AccessReviewReviewerInvokeResponseResult> Reviewers;
         /// <summary>
         /// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
 
             int? instanceDurationInDays,
 
-            ImmutableArray<Outputs.AccessReviewInstanceResponse> instances,
+            ImmutableArray<Outputs.AccessReviewInstanceInvokeResponseResult> instances,
 
             int? interval,
 
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501Preview
 
             string resourceId,
 
-            ImmutableArray<Outputs.AccessReviewReviewerResponse> reviewers,
+            ImmutableArray<Outputs.AccessReviewReviewerInvokeResponseResult> reviewers,
 
             string reviewersType,
 

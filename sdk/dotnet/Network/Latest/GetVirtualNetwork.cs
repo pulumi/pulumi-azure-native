@@ -48,19 +48,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? AddressSpace;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? AddressSpace;
         /// <summary>
         /// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
         /// </summary>
-        public readonly Outputs.VirtualNetworkBgpCommunitiesResponse? BgpCommunities;
+        public readonly Outputs.VirtualNetworkBgpCommunitiesInvokeResponseResult? BgpCommunities;
         /// <summary>
         /// The DDoS protection plan associated with the virtual network.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? DdosProtectionPlan;
+        public readonly Outputs.SubResourceInvokeResponseResult? DdosProtectionPlan;
         /// <summary>
         /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         /// </summary>
-        public readonly Outputs.DhcpOptionsResponse? DhcpOptions;
+        public readonly Outputs.DhcpOptionsInvokeResponseResult? DhcpOptions;
         /// <summary>
         /// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The extended location of the virtual network.
         /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.ExtendedLocationInvokeResponseResult? ExtendedLocation;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Array of IpAllocation which reference this VNET.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> IpAllocations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// A list of subnets in a Virtual Network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetInvokeResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -116,17 +116,17 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// A list of peerings in a Virtual Network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponse> VirtualNetworkPeerings;
+        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringInvokeResponseResult> VirtualNetworkPeerings;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
-            Outputs.AddressSpaceResponse? addressSpace,
+            Outputs.AddressSpaceInvokeResponseResult? addressSpace,
 
-            Outputs.VirtualNetworkBgpCommunitiesResponse? bgpCommunities,
+            Outputs.VirtualNetworkBgpCommunitiesInvokeResponseResult? bgpCommunities,
 
-            Outputs.SubResourceResponse? ddosProtectionPlan,
+            Outputs.SubResourceInvokeResponseResult? ddosProtectionPlan,
 
-            Outputs.DhcpOptionsResponse? dhcpOptions,
+            Outputs.DhcpOptionsInvokeResponseResult? dhcpOptions,
 
             bool? enableDdosProtection,
 
@@ -134,11 +134,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
-            Outputs.ExtendedLocationResponse? extendedLocation,
+            Outputs.ExtendedLocationInvokeResponseResult? extendedLocation,
 
             string? id,
 
-            ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> ipAllocations,
 
             string? location,
 
@@ -148,13 +148,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string resourceGuid,
 
-            ImmutableArray<Outputs.SubnetResponse> subnets,
+            ImmutableArray<Outputs.SubnetInvokeResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkPeeringResponse> virtualNetworkPeerings)
+            ImmutableArray<Outputs.VirtualNetworkPeeringInvokeResponseResult> virtualNetworkPeerings)
         {
             AddressSpace = addressSpace;
             BgpCommunities = bgpCommunities;

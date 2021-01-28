@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
         /// <summary>
         /// properties of a certificate
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponse Properties;
+        public readonly Outputs.CertificatePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
 
             string name,
 
-            Outputs.CertificatePropertiesResponse properties,
+            Outputs.CertificatePropertiesInvokeResponseResult properties,
 
             string type)
         {

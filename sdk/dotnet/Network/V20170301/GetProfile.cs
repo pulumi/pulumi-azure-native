@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// Gets or sets the DNS settings of the Traffic Manager profile.
         /// </summary>
-        public readonly Outputs.DnsConfigResponse? DnsConfig;
+        public readonly Outputs.DnsConfigInvokeResponseResult? DnsConfig;
         /// <summary>
         /// Gets or sets the list of endpoints in the Traffic Manager profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EndpointResponse> Endpoints;
+        public readonly ImmutableArray<Outputs.EndpointInvokeResponseResult> Endpoints;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
         /// </summary>
-        public readonly Outputs.MonitorConfigResponse? MonitorConfig;
+        public readonly Outputs.MonitorConfigInvokeResponseResult? MonitorConfig;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNextGen.Network.V20170301
 
         [OutputConstructor]
         private GetProfileResult(
-            Outputs.DnsConfigResponse? dnsConfig,
+            Outputs.DnsConfigInvokeResponseResult? dnsConfig,
 
-            ImmutableArray<Outputs.EndpointResponse> endpoints,
+            ImmutableArray<Outputs.EndpointInvokeResponseResult> endpoints,
 
             string id,
 
             string? location,
 
-            Outputs.MonitorConfigResponse? monitorConfig,
+            Outputs.MonitorConfigInvokeResponseResult? monitorConfig,
 
             string name,
 

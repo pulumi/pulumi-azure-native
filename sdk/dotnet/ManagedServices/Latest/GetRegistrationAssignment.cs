@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
         /// <summary>
         /// Properties of a registration assignment.
         /// </summary>
-        public readonly Outputs.RegistrationAssignmentPropertiesResponse Properties;
+        public readonly Outputs.RegistrationAssignmentPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
 
             string name,
 
-            Outputs.RegistrationAssignmentPropertiesResponse properties,
+            Outputs.RegistrationAssignmentPropertiesInvokeResponseResult properties,
 
             string type)
         {

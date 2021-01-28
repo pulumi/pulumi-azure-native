@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// <summary>
         /// The alert rule actions.
         /// </summary>
-        public readonly Outputs.ActionGroupsInformationResponse ActionGroups;
+        public readonly Outputs.ActionGroupsInformationInvokeResponseResult ActionGroups;
         /// <summary>
         /// The alert rule description.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// <summary>
         /// The alert rule's detector.
         /// </summary>
-        public readonly Outputs.DetectorResponse Detector;
+        public readonly Outputs.DetectorInvokeResponseResult Detector;
         /// <summary>
         /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// <summary>
         /// The alert rule throttling information.
         /// </summary>
-        public readonly Outputs.ThrottlingInformationResponse? Throttling;
+        public readonly Outputs.ThrottlingInformationInvokeResponseResult? Throttling;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
 
         [OutputConstructor]
         private GetSmartDetectorAlertRuleResult(
-            Outputs.ActionGroupsInformationResponse actionGroups,
+            Outputs.ActionGroupsInformationInvokeResponseResult actionGroups,
 
             string? description,
 
-            Outputs.DetectorResponse detector,
+            Outputs.DetectorInvokeResponseResult detector,
 
             string frequency,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.ThrottlingInformationResponse? throttling,
+            Outputs.ThrottlingInformationInvokeResponseResult? throttling,
 
             string type)
         {

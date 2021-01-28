@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         /// <summary>
         /// The identity block returned by ARM resource that supports managed identity.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         /// <summary>
         /// The properties of a configuration profile.
         /// </summary>
-        public readonly Outputs.ConfigurationProfileResourcePropertiesResponse Properties;
+        public readonly Outputs.ConfigurationProfileResourcePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult? SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -62,13 +62,13 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         private GetConfigurationProfileResult(
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             string name,
 
-            Outputs.ConfigurationProfileResourcePropertiesResponse properties,
+            Outputs.ConfigurationProfileResourcePropertiesInvokeResponseResult properties,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataInvokeResponseResult? systemData,
 
             string type)
         {

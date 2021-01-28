@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Network that the Application is using.
         /// </summary>
-        public readonly Outputs.NetworkRefResponse DestinationNetwork;
+        public readonly Outputs.NetworkRefInvokeResponseResult DestinationNetwork;
         /// <summary>
         /// Configuration for http connectivity for this gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HttpConfigResponse> Http;
+        public readonly ImmutableArray<Outputs.HttpConfigInvokeResponseResult> Http;
         /// <summary>
         /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Network the gateway should listen on for requests.
         /// </summary>
-        public readonly Outputs.NetworkRefResponse SourceNetwork;
+        public readonly Outputs.NetworkRefInvokeResponseResult SourceNetwork;
         /// <summary>
         /// Status of the resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Configuration for tcp connectivity for this gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TcpConfigResponse> Tcp;
+        public readonly ImmutableArray<Outputs.TcpConfigInvokeResponseResult> Tcp;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         private GetGatewayResult(
             string? description,
 
-            Outputs.NetworkRefResponse destinationNetwork,
+            Outputs.NetworkRefInvokeResponseResult destinationNetwork,
 
-            ImmutableArray<Outputs.HttpConfigResponse> http,
+            ImmutableArray<Outputs.HttpConfigInvokeResponseResult> http,
 
             string id,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 
             string provisioningState,
 
-            Outputs.NetworkRefResponse sourceNetwork,
+            Outputs.NetworkRefInvokeResponseResult sourceNetwork,
 
             string status,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TcpConfigResponse> tcp,
+            ImmutableArray<Outputs.TcpConfigInvokeResponseResult> tcp,
 
             string type)
         {

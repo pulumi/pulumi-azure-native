@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
         /// <summary>
         /// Nested properties of VMWare site.
         /// </summary>
-        public readonly Outputs.SitePropertiesResponse Properties;
+        public readonly Outputs.SitePropertiesInvokeResponseResult Properties;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
 
             string? name,
 
-            Outputs.SitePropertiesResponse properties,
+            Outputs.SitePropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

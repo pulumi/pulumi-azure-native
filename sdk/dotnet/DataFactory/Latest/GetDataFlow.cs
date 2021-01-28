@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// Data flow properties.
         /// </summary>
-        public readonly Outputs.MappingDataFlowResponse Properties;
+        public readonly Outputs.MappingDataFlowInvokeResponseResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             string name,
 
-            Outputs.MappingDataFlowResponse properties,
+            Outputs.MappingDataFlowInvokeResponseResult properties,
 
             string type)
         {

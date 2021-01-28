@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// Encryption properties for the automation account
         /// </summary>
-        public readonly Outputs.EncryptionPropertiesResponse? Encryption;
+        public readonly Outputs.EncryptionPropertiesInvokeResponseResult? Encryption;
         /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Gets or sets the last modified by.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// List of Automation operations supported by the Automation resource provider.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// Gets or sets the SKU of account.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Gets status of account.
         /// </summary>
@@ -110,13 +110,13 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
 
             string? description,
 
-            Outputs.EncryptionPropertiesResponse? encryption,
+            Outputs.EncryptionPropertiesInvokeResponseResult? encryption,
 
             string? etag,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? lastModifiedBy,
 
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             bool? publicNetworkAccess,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string state,
 

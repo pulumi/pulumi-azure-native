@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The application security group specified as destination.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponse> DestinationApplicationSecurityGroups;
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupInvokeResponseResult> DestinationApplicationSecurityGroups;
         /// <summary>
         /// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The application security group specified as source.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponse> SourceApplicationSecurityGroups;
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupInvokeResponseResult> SourceApplicationSecurityGroups;
         /// <summary>
         /// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<string> destinationAddressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationSecurityGroupResponse> destinationApplicationSecurityGroups,
+            ImmutableArray<Outputs.ApplicationSecurityGroupInvokeResponseResult> destinationApplicationSecurityGroups,
 
             string? destinationPortRange,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<string> sourceAddressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationSecurityGroupResponse> sourceApplicationSecurityGroups,
+            ImmutableArray<Outputs.ApplicationSecurityGroupInvokeResponseResult> sourceApplicationSecurityGroups,
 
             string? sourcePortRange,
 

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
-        public readonly Outputs.ServicesResourceResponseIdentity? Identity;
+        public readonly Outputs.ServicesResourceInvokeResponseIdentityResult? Identity;
         /// <summary>
         /// The kind of the service.
         /// </summary>
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
         /// <summary>
         /// The common properties of a service.
         /// </summary>
-        public readonly Outputs.ServicesPropertiesResponse Properties;
+        public readonly Outputs.ServicesPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
 
             string id,
 
-            Outputs.ServicesResourceResponseIdentity? identity,
+            Outputs.ServicesResourceInvokeResponseIdentityResult? identity,
 
             string kind,
 
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
 
             string name,
 
-            Outputs.ServicesPropertiesResponse properties,
+            Outputs.ServicesPropertiesInvokeResponseResult properties,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

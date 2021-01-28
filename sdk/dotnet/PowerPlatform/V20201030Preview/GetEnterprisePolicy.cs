@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// The encryption settings for a configuration store.
         /// </summary>
-        public readonly Outputs.PropertiesResponseEncryption? Encryption;
+        public readonly Outputs.PropertiesInvokeResponseEncryptionResult? Encryption;
         /// <summary>
         /// ARM resource id of the EnterprisePolicy.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
-        public readonly Outputs.EnterprisePolicyIdentityResponse? Identity;
+        public readonly Outputs.EnterprisePolicyIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Region where the EnterprisePolicy is located.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// Settings concerning lockbox.
         /// </summary>
-        public readonly Outputs.PropertiesResponseLockbox? Lockbox;
+        public readonly Outputs.PropertiesInvokeResponseLockboxResult? Lockbox;
         /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,19 +78,19 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
         [OutputConstructor]
         private GetEnterprisePolicyResult(
-            Outputs.PropertiesResponseEncryption? encryption,
+            Outputs.PropertiesInvokeResponseEncryptionResult? encryption,
 
             string id,
 
-            Outputs.EnterprisePolicyIdentityResponse? identity,
+            Outputs.EnterprisePolicyIdentityInvokeResponseResult? identity,
 
             string location,
 
-            Outputs.PropertiesResponseLockbox? lockbox,
+            Outputs.PropertiesInvokeResponseLockboxResult? lockbox,
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

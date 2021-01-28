@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200707
         /// <summary>
         /// Nested properties of Master site.
         /// </summary>
-        public readonly Outputs.MasterSitePropertiesResponse Properties;
+        public readonly Outputs.MasterSitePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Type of resource. Type = Microsoft.OffAzure/MasterSites.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200707
 
             string? name,
 
-            Outputs.MasterSitePropertiesResponse properties,
+            Outputs.MasterSitePropertiesInvokeResponseResult properties,
 
             string type)
         {

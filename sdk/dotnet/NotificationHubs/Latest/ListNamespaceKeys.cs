@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
         /// <summary>
         /// Result of the List AuthorizationRules operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRuleResourceResponseResult> Value;
+        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRuleResourceInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListNamespaceKeysResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.SharedAccessAuthorizationRuleResourceResponseResult> value)
+            ImmutableArray<Outputs.SharedAccessAuthorizationRuleResourceInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

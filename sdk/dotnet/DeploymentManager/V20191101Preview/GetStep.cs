@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// <summary>
         /// The properties that define the step.
         /// </summary>
-        public readonly Union<Outputs.HealthCheckStepPropertiesResponse, Outputs.WaitStepPropertiesResponse> Properties;
+        public readonly Union<Outputs.HealthCheckStepPropertiesInvokeResponseResult, Outputs.WaitStepPropertiesInvokeResponseResult> Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
 
             string name,
 
-            Union<Outputs.HealthCheckStepPropertiesResponse, Outputs.WaitStepPropertiesResponse> properties,
+            Union<Outputs.HealthCheckStepPropertiesInvokeResponseResult, Outputs.WaitStepPropertiesInvokeResponseResult> properties,
 
             ImmutableDictionary<string, string>? tags,
 

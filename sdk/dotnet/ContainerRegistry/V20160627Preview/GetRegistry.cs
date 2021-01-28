@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20160627Preview
         /// <summary>
         /// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesInvokeResponseResult StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20160627Preview
 
             string name,
 
-            Outputs.StorageAccountPropertiesResponse storageAccount,
+            Outputs.StorageAccountPropertiesInvokeResponseResult storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

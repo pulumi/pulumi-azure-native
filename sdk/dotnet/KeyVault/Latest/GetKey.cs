@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// <summary>
         /// The attributes of the key.
         /// </summary>
-        public readonly Outputs.KeyAttributesResponse? Attributes;
+        public readonly Outputs.KeyAttributesInvokeResponseResult? Attributes;
         /// <summary>
         /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
         [OutputConstructor]
         private GetKeyResult(
-            Outputs.KeyAttributesResponse? attributes,
+            Outputs.KeyAttributesInvokeResponseResult? attributes,
 
             string? curveName,
 

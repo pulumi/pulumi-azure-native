@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// Describes the destination of connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorDestinationResponse Destination;
+        public readonly Outputs.ConnectionMonitorDestinationInvokeResponseResult Destination;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// <summary>
         /// Describes the source of connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorSourceResponse Source;
+        public readonly Outputs.ConnectionMonitorSourceInvokeResponseResult Source;
         /// <summary>
         /// The date and time when the connection monitor was started.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         private GetConnectionMonitorResult(
             bool? autoStart,
 
-            Outputs.ConnectionMonitorDestinationResponse destination,
+            Outputs.ConnectionMonitorDestinationInvokeResponseResult destination,
 
             string? etag,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
 
             string provisioningState,
 
-            Outputs.ConnectionMonitorSourceResponse source,
+            Outputs.ConnectionMonitorSourceInvokeResponseResult source,
 
             string? startTime,
 

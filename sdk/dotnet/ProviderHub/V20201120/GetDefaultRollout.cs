@@ -48,8 +48,8 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
         /// </summary>
         public readonly string Name;
         public readonly string? ProvisioningState;
-        public readonly Outputs.DefaultRolloutPropertiesResponseSpecification? Specification;
-        public readonly Outputs.DefaultRolloutPropertiesResponseStatus? Status;
+        public readonly Outputs.DefaultRolloutPropertiesInvokeResponseSpecificationResult? Specification;
+        public readonly Outputs.DefaultRolloutPropertiesInvokeResponseStatusResult? Status;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -63,9 +63,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 
             string? provisioningState,
 
-            Outputs.DefaultRolloutPropertiesResponseSpecification? specification,
+            Outputs.DefaultRolloutPropertiesInvokeResponseSpecificationResult? specification,
 
-            Outputs.DefaultRolloutPropertiesResponseStatus? status,
+            Outputs.DefaultRolloutPropertiesInvokeResponseStatusResult? status,
 
             string type)
         {

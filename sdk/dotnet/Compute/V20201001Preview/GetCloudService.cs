@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
         /// <summary>
         /// Cloud service properties
         /// </summary>
-        public readonly Outputs.CloudServicePropertiesResponse Properties;
+        public readonly Outputs.CloudServicePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
 
             string name,
 
-            Outputs.CloudServicePropertiesResponse properties,
+            Outputs.CloudServicePropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

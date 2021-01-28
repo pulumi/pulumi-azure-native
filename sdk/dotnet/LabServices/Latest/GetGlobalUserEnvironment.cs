@@ -48,10 +48,10 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// <summary>
         /// Details of the environment
         /// </summary>
-        public readonly Outputs.EnvironmentDetailsResponseResult Environment;
+        public readonly Outputs.EnvironmentDetailsInvokeResponseResult Environment;
 
         [OutputConstructor]
-        private GetGlobalUserEnvironmentResult(Outputs.EnvironmentDetailsResponseResult environment)
+        private GetGlobalUserEnvironmentResult(Outputs.EnvironmentDetailsInvokeResponseResult environment)
         {
             Environment = environment;
         }

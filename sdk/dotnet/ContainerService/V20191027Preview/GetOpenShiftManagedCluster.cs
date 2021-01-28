@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
         /// <summary>
         /// Configuration of OpenShift cluster VMs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileResponse> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileInvokeResponseResult> AgentPoolProfiles;
         /// <summary>
         /// Configures OpenShift authentication.
         /// </summary>
-        public readonly Outputs.OpenShiftManagedClusterAuthProfileResponse? AuthProfile;
+        public readonly Outputs.OpenShiftManagedClusterAuthProfileInvokeResponseResult? AuthProfile;
         /// <summary>
         /// Version of OpenShift specified when creating the cluster.
         /// </summary>
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
         /// <summary>
         /// Configuration for OpenShift master VMs.
         /// </summary>
-        public readonly Outputs.OpenShiftManagedClusterMasterPoolProfileResponse? MasterPoolProfile;
+        public readonly Outputs.OpenShiftManagedClusterMasterPoolProfileInvokeResponseResult? MasterPoolProfile;
         /// <summary>
         /// Configures Log Analytics integration.
         /// </summary>
-        public readonly Outputs.OpenShiftManagedClusterMonitorProfileResponse? MonitorProfile;
+        public readonly Outputs.OpenShiftManagedClusterMonitorProfileInvokeResponseResult? MonitorProfile;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
         /// <summary>
         /// Configuration for OpenShift networking.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
+        public readonly Outputs.NetworkProfileInvokeResponseResult? NetworkProfile;
         /// <summary>
         /// Version of OpenShift specified when creating the cluster.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
         /// <summary>
         /// Define the resource plan as required by ARM for billing purposes
         /// </summary>
-        public readonly Outputs.PurchasePlanResponse? Plan;
+        public readonly Outputs.PurchasePlanInvokeResponseResult? Plan;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
         /// <summary>
         /// Configuration for OpenShift router(s).
         /// </summary>
-        public readonly ImmutableArray<Outputs.OpenShiftRouterProfileResponse> RouterProfiles;
+        public readonly ImmutableArray<Outputs.OpenShiftRouterProfileInvokeResponseResult> RouterProfiles;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -114,9 +114,9 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
 
         [OutputConstructor]
         private GetOpenShiftManagedClusterResult(
-            ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileResponse> agentPoolProfiles,
+            ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileInvokeResponseResult> agentPoolProfiles,
 
-            Outputs.OpenShiftManagedClusterAuthProfileResponse? authProfile,
+            Outputs.OpenShiftManagedClusterAuthProfileInvokeResponseResult? authProfile,
 
             string clusterVersion,
 
@@ -126,17 +126,17 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
 
             string location,
 
-            Outputs.OpenShiftManagedClusterMasterPoolProfileResponse? masterPoolProfile,
+            Outputs.OpenShiftManagedClusterMasterPoolProfileInvokeResponseResult? masterPoolProfile,
 
-            Outputs.OpenShiftManagedClusterMonitorProfileResponse? monitorProfile,
+            Outputs.OpenShiftManagedClusterMonitorProfileInvokeResponseResult? monitorProfile,
 
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
+            Outputs.NetworkProfileInvokeResponseResult? networkProfile,
 
             string openShiftVersion,
 
-            Outputs.PurchasePlanResponse? plan,
+            Outputs.PurchasePlanInvokeResponseResult? plan,
 
             string provisioningState,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview
 
             bool? refreshCluster,
 
-            ImmutableArray<Outputs.OpenShiftRouterProfileResponse> routerProfiles,
+            ImmutableArray<Outputs.OpenShiftRouterProfileInvokeResponseResult> routerProfiles,
 
             ImmutableDictionary<string, string>? tags,
 

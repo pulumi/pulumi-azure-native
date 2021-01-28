@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         private GetServiceRunnerResult(
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             string? location,
 

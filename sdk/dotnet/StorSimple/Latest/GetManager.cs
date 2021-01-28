@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// Represents the type of StorSimple Manager.
         /// </summary>
-        public readonly Outputs.ManagerIntrinsicSettingsResponse? CisIntrinsicSettings;
+        public readonly Outputs.ManagerIntrinsicSettingsInvokeResponseResult? CisIntrinsicSettings;
         /// <summary>
         /// The etag of the manager.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// Specifies the Sku.
         /// </summary>
-        public readonly Outputs.ManagerSkuResponse? Sku;
+        public readonly Outputs.ManagerSkuInvokeResponseResult? Sku;
         /// <summary>
         /// The tags attached to the resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
         [OutputConstructor]
         private GetManagerResult(
-            Outputs.ManagerIntrinsicSettingsResponse? cisIntrinsicSettings,
+            Outputs.ManagerIntrinsicSettingsInvokeResponseResult? cisIntrinsicSettings,
 
             string? etag,
 
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string? provisioningState,
 
-            Outputs.ManagerSkuResponse? sku,
+            Outputs.ManagerSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

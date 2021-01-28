@@ -48,23 +48,23 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// <summary>
         /// The AdmCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.AdmCredentialResponse? AdmCredential;
+        public readonly Outputs.AdmCredentialInvokeResponseResult? AdmCredential;
         /// <summary>
         /// The ApnsCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.ApnsCredentialResponse? ApnsCredential;
+        public readonly Outputs.ApnsCredentialInvokeResponseResult? ApnsCredential;
         /// <summary>
         /// The AuthorizationRules of the created NotificationHub
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse> AuthorizationRules;
+        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesInvokeResponseResult> AuthorizationRules;
         /// <summary>
         /// The BaiduCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.BaiduCredentialResponse? BaiduCredential;
+        public readonly Outputs.BaiduCredentialInvokeResponseResult? BaiduCredential;
         /// <summary>
         /// The GcmCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.GcmCredentialResponse? GcmCredential;
+        public readonly Outputs.GcmCredentialInvokeResponseResult? GcmCredential;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// <summary>
         /// The MpnsCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.MpnsCredentialResponse? MpnsCredential;
+        public readonly Outputs.MpnsCredentialInvokeResponseResult? MpnsCredential;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,37 +100,37 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// <summary>
         /// The WnsCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.WnsCredentialResponse? WnsCredential;
+        public readonly Outputs.WnsCredentialInvokeResponseResult? WnsCredential;
 
         [OutputConstructor]
         private GetNotificationHubResult(
-            Outputs.AdmCredentialResponse? admCredential,
+            Outputs.AdmCredentialInvokeResponseResult? admCredential,
 
-            Outputs.ApnsCredentialResponse? apnsCredential,
+            Outputs.ApnsCredentialInvokeResponseResult? apnsCredential,
 
-            ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse> authorizationRules,
+            ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesInvokeResponseResult> authorizationRules,
 
-            Outputs.BaiduCredentialResponse? baiduCredential,
+            Outputs.BaiduCredentialInvokeResponseResult? baiduCredential,
 
-            Outputs.GcmCredentialResponse? gcmCredential,
+            Outputs.GcmCredentialInvokeResponseResult? gcmCredential,
 
             string id,
 
             string? location,
 
-            Outputs.MpnsCredentialResponse? mpnsCredential,
+            Outputs.MpnsCredentialInvokeResponseResult? mpnsCredential,
 
             string name,
 
             string? registrationTtl,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.WnsCredentialResponse? wnsCredential)
+            Outputs.WnsCredentialInvokeResponseResult? wnsCredential)
         {
             AdmCredential = admCredential;
             ApnsCredential = apnsCredential;

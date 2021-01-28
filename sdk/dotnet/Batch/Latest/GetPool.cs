@@ -54,22 +54,22 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// <summary>
         /// Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationPackageReferenceResponse> ApplicationPackages;
+        public readonly ImmutableArray<Outputs.ApplicationPackageReferenceInvokeResponseResult> ApplicationPackages;
         /// <summary>
         /// This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
         /// </summary>
-        public readonly Outputs.AutoScaleRunResponse AutoScaleRun;
+        public readonly Outputs.AutoScaleRunInvokeResponseResult AutoScaleRun;
         /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateReferenceResponse> Certificates;
+        public readonly ImmutableArray<Outputs.CertificateReferenceInvokeResponseResult> Certificates;
         public readonly string CreationTime;
         public readonly int CurrentDedicatedNodes;
         public readonly int CurrentLowPriorityNodes;
         /// <summary>
         /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         /// </summary>
-        public readonly Outputs.DeploymentConfigurationResponse? DeploymentConfiguration;
+        public readonly Outputs.DeploymentConfigurationInvokeResponseResult? DeploymentConfiguration;
         /// <summary>
         /// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// <summary>
         /// The type of identity used for the Batch Pool.
         /// </summary>
-        public readonly Outputs.BatchPoolIdentityResponse? Identity;
+        public readonly Outputs.BatchPoolIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
@@ -97,11 +97,11 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// <summary>
         /// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetadataItemResponse> Metadata;
+        public readonly ImmutableArray<Outputs.MetadataItemInvokeResponseResult> Metadata;
         /// <summary>
         /// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MountConfigurationResponse> MountConfiguration;
+        public readonly ImmutableArray<Outputs.MountConfigurationInvokeResponseResult> MountConfiguration;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -109,25 +109,25 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// <summary>
         /// The network configuration for a pool.
         /// </summary>
-        public readonly Outputs.NetworkConfigurationResponse? NetworkConfiguration;
+        public readonly Outputs.NetworkConfigurationInvokeResponseResult? NetworkConfiguration;
         public readonly string ProvisioningState;
         public readonly string ProvisioningStateTransitionTime;
         /// <summary>
         /// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
         /// </summary>
-        public readonly Outputs.ResizeOperationStatusResponse ResizeOperationStatus;
+        public readonly Outputs.ResizeOperationStatusInvokeResponseResult ResizeOperationStatus;
         /// <summary>
         /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         /// </summary>
-        public readonly Outputs.ScaleSettingsResponse? ScaleSettings;
+        public readonly Outputs.ScaleSettingsInvokeResponseResult? ScaleSettings;
         /// <summary>
         /// In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         /// </summary>
-        public readonly Outputs.StartTaskResponse? StartTask;
+        public readonly Outputs.StartTaskInvokeResponseResult? StartTask;
         /// <summary>
         /// If not specified, the default is spread.
         /// </summary>
-        public readonly Outputs.TaskSchedulingPolicyResponse? TaskSchedulingPolicy;
+        public readonly Outputs.TaskSchedulingPolicyInvokeResponseResult? TaskSchedulingPolicy;
         /// <summary>
         /// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        public readonly ImmutableArray<Outputs.UserAccountResponse> UserAccounts;
+        public readonly ImmutableArray<Outputs.UserAccountInvokeResponseResult> UserAccounts;
         /// <summary>
         /// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         /// </summary>
@@ -150,11 +150,11 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 
             ImmutableArray<string> applicationLicenses,
 
-            ImmutableArray<Outputs.ApplicationPackageReferenceResponse> applicationPackages,
+            ImmutableArray<Outputs.ApplicationPackageReferenceInvokeResponseResult> applicationPackages,
 
-            Outputs.AutoScaleRunResponse autoScaleRun,
+            Outputs.AutoScaleRunInvokeResponseResult autoScaleRun,
 
-            ImmutableArray<Outputs.CertificateReferenceResponse> certificates,
+            ImmutableArray<Outputs.CertificateReferenceInvokeResponseResult> certificates,
 
             string creationTime,
 
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 
             int currentLowPriorityNodes,
 
-            Outputs.DeploymentConfigurationResponse? deploymentConfiguration,
+            Outputs.DeploymentConfigurationInvokeResponseResult? deploymentConfiguration,
 
             string? displayName,
 
@@ -170,37 +170,37 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 
             string id,
 
-            Outputs.BatchPoolIdentityResponse? identity,
+            Outputs.BatchPoolIdentityInvokeResponseResult? identity,
 
             string? interNodeCommunication,
 
             string lastModified,
 
-            ImmutableArray<Outputs.MetadataItemResponse> metadata,
+            ImmutableArray<Outputs.MetadataItemInvokeResponseResult> metadata,
 
-            ImmutableArray<Outputs.MountConfigurationResponse> mountConfiguration,
+            ImmutableArray<Outputs.MountConfigurationInvokeResponseResult> mountConfiguration,
 
             string name,
 
-            Outputs.NetworkConfigurationResponse? networkConfiguration,
+            Outputs.NetworkConfigurationInvokeResponseResult? networkConfiguration,
 
             string provisioningState,
 
             string provisioningStateTransitionTime,
 
-            Outputs.ResizeOperationStatusResponse resizeOperationStatus,
+            Outputs.ResizeOperationStatusInvokeResponseResult resizeOperationStatus,
 
-            Outputs.ScaleSettingsResponse? scaleSettings,
+            Outputs.ScaleSettingsInvokeResponseResult? scaleSettings,
 
-            Outputs.StartTaskResponse? startTask,
+            Outputs.StartTaskInvokeResponseResult? startTask,
 
-            Outputs.TaskSchedulingPolicyResponse? taskSchedulingPolicy,
+            Outputs.TaskSchedulingPolicyInvokeResponseResult? taskSchedulingPolicy,
 
             int? taskSlotsPerNode,
 
             string type,
 
-            ImmutableArray<Outputs.UserAccountResponse> userAccounts,
+            ImmutableArray<Outputs.UserAccountInvokeResponseResult> userAccounts,
 
             string? vmSize)
         {

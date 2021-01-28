@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// The IPv6 peering configuration.
         /// </summary>
-        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? Ipv6PeeringConfig;
+        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult? Ipv6PeeringConfig;
         /// <summary>
         /// Who was the last to modify the peering.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <summary>
         /// The Microsoft peering configuration.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringConfigResponse? MicrosoftPeeringConfig;
+        public readonly Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? MicrosoftPeeringConfig;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -128,11 +128,11 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string? id,
 
-            Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? ipv6PeeringConfig,
+            Outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult? ipv6PeeringConfig,
 
             string lastModifiedBy,
 
-            Outputs.ExpressRouteCircuitPeeringConfigResponse? microsoftPeeringConfig,
+            Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? microsoftPeeringConfig,
 
             string? name,
 

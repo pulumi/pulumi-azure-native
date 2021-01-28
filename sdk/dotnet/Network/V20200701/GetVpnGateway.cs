@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// Local network gateway's BGP speaker settings.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpSettings;
+        public readonly Outputs.BgpSettingsInvokeResponseResult? BgpSettings;
         /// <summary>
         /// List of all vpn connections to the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnConnectionResponse> Connections;
+        public readonly ImmutableArray<Outputs.VpnConnectionInvokeResponseResult> Connections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// List of all IPs configured on the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.VpnGatewayIpConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
         /// <summary>
         /// The scale unit for this vpn gateway.
         /// </summary>
@@ -94,15 +94,15 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
         [OutputConstructor]
         private GetVpnGatewayResult(
-            Outputs.BgpSettingsResponse? bgpSettings,
+            Outputs.BgpSettingsInvokeResponseResult? bgpSettings,
 
-            ImmutableArray<Outputs.VpnConnectionResponse> connections,
+            ImmutableArray<Outputs.VpnConnectionInvokeResponseResult> connections,
 
             string etag,
 
             string? id,
 
-            ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.VpnGatewayIpConfigurationInvokeResponseResult> ipConfigurations,
 
             bool? isRoutingPreferenceInternet,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub,
+            Outputs.SubResourceInvokeResponseResult? virtualHub,
 
             int? vpnGatewayScaleUnit)
         {

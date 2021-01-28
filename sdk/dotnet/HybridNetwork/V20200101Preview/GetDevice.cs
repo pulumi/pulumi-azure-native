@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The reference to the Azure stack edge device.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? AzureStackEdge;
+        public readonly Outputs.SubResourceInvokeResponseResult? AzureStackEdge;
         /// <summary>
         /// The type of the device.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The list of network functions deployed on the device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> NetworkFunctions;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> NetworkFunctions;
         /// <summary>
         /// The provisioning state of the device resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
         [OutputConstructor]
         private GetDeviceResult(
-            Outputs.SubResourceResponse? azureStackEdge,
+            Outputs.SubResourceInvokeResponseResult? azureStackEdge,
 
             string deviceType,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string name,
 
-            ImmutableArray<Outputs.SubResourceResponse> networkFunctions,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> networkFunctions,
 
             string provisioningState,
 

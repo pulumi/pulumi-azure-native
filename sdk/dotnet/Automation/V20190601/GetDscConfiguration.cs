@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// Gets or sets the configuration parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.DscConfigurationParameterResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.DscConfigurationParameterInvokeResponseResult>? Parameters;
         /// <summary>
         /// Gets or sets the provisioning state of the configuration.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
-        public readonly Outputs.ContentSourceResponse? Source;
+        public readonly Outputs.ContentSourceInvokeResponseResult? Source;
         /// <summary>
         /// Gets or sets the state of the configuration.
         /// </summary>
@@ -132,11 +132,11 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
 
             int? nodeConfigurationCount,
 
-            ImmutableDictionary<string, Outputs.DscConfigurationParameterResponse>? parameters,
+            ImmutableDictionary<string, Outputs.DscConfigurationParameterInvokeResponseResult>? parameters,
 
             string? provisioningState,
 
-            Outputs.ContentSourceResponse? source,
+            Outputs.ContentSourceInvokeResponseResult? source,
 
             string? state,
 

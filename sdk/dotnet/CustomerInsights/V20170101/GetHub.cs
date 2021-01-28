@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <summary>
         /// Billing settings of the hub.
         /// </summary>
-        public readonly Outputs.HubBillingInfoFormatResponse? HubBillingInfo;
+        public readonly Outputs.HubBillingInfoFormatInvokeResponseResult? HubBillingInfo;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         private GetHubResult(
             string apiEndpoint,
 
-            Outputs.HubBillingInfoFormatResponse? hubBillingInfo,
+            Outputs.HubBillingInfoFormatInvokeResponseResult? hubBillingInfo,
 
             string id,
 

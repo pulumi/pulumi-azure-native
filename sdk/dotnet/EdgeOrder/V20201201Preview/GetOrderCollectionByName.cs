@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// Represents resource creation and update time
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
 
             ImmutableArray<string> orderIds,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

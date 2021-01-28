@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets Pools of backend IP addresses
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackendAddressPoolResponse> BackendAddressPools;
+        public readonly ImmutableArray<Outputs.BackendAddressPoolInvokeResponseResult> BackendAddressPools;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets frontend IP addresses of the load balancer
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendIpConfigurationResponse> FrontendIPConfigurations;
+        public readonly ImmutableArray<Outputs.FrontendIpConfigurationInvokeResponseResult> FrontendIPConfigurations;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -58,15 +58,15 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets inbound NAT pools
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundNatPoolResponse> InboundNatPools;
+        public readonly ImmutableArray<Outputs.InboundNatPoolInvokeResponseResult> InboundNatPools;
         /// <summary>
         /// Gets or sets list of inbound rules
         /// </summary>
-        public readonly ImmutableArray<Outputs.InboundNatRuleResponse> InboundNatRules;
+        public readonly ImmutableArray<Outputs.InboundNatRuleInvokeResponseResult> InboundNatRules;
         /// <summary>
         /// Gets or sets load balancing rules
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
+        public readonly ImmutableArray<Outputs.LoadBalancingRuleInvokeResponseResult> LoadBalancingRules;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -78,11 +78,11 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets outbound NAT rules
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutboundNatRuleResponse> OutboundNatRules;
+        public readonly ImmutableArray<Outputs.OutboundNatRuleInvokeResponseResult> OutboundNatRules;
         /// <summary>
         /// Gets or sets list of Load balancer probes
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProbeResponse> Probes;
+        public readonly ImmutableArray<Outputs.ProbeInvokeResponseResult> Probes;
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
@@ -102,27 +102,27 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            ImmutableArray<Outputs.BackendAddressPoolResponse> backendAddressPools,
+            ImmutableArray<Outputs.BackendAddressPoolInvokeResponseResult> backendAddressPools,
 
             string? etag,
 
-            ImmutableArray<Outputs.FrontendIpConfigurationResponse> frontendIPConfigurations,
+            ImmutableArray<Outputs.FrontendIpConfigurationInvokeResponseResult> frontendIPConfigurations,
 
             string id,
 
-            ImmutableArray<Outputs.InboundNatPoolResponse> inboundNatPools,
+            ImmutableArray<Outputs.InboundNatPoolInvokeResponseResult> inboundNatPools,
 
-            ImmutableArray<Outputs.InboundNatRuleResponse> inboundNatRules,
+            ImmutableArray<Outputs.InboundNatRuleInvokeResponseResult> inboundNatRules,
 
-            ImmutableArray<Outputs.LoadBalancingRuleResponse> loadBalancingRules,
+            ImmutableArray<Outputs.LoadBalancingRuleInvokeResponseResult> loadBalancingRules,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.OutboundNatRuleResponse> outboundNatRules,
+            ImmutableArray<Outputs.OutboundNatRuleInvokeResponseResult> outboundNatRules,
 
-            ImmutableArray<Outputs.ProbeResponse> probes,
+            ImmutableArray<Outputs.ProbeInvokeResponseResult> probes,
 
             string? provisioningState,
 

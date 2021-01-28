@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// Canonical profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CanonicalProfileDefinitionResponseResult> CanonicalProfiles;
+        public readonly ImmutableArray<Outputs.CanonicalProfileDefinitionInvokeResponseResult> CanonicalProfiles;
         /// <summary>
         /// Prediction distribution.
         /// </summary>
-        public readonly Outputs.PredictionDistributionDefinitionResponseResult PredictionDistribution;
+        public readonly Outputs.PredictionDistributionDefinitionInvokeResponseResult PredictionDistribution;
         /// <summary>
         /// Instance count of the primary profile.
         /// </summary>
@@ -68,9 +68,9 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
         [OutputConstructor]
         private GetPredictionTrainingResultsResult(
-            ImmutableArray<Outputs.CanonicalProfileDefinitionResponseResult> canonicalProfiles,
+            ImmutableArray<Outputs.CanonicalProfileDefinitionInvokeResponseResult> canonicalProfiles,
 
-            Outputs.PredictionDistributionDefinitionResponseResult predictionDistribution,
+            Outputs.PredictionDistributionDefinitionInvokeResponseResult predictionDistribution,
 
             double primaryProfileInstanceCount,
 

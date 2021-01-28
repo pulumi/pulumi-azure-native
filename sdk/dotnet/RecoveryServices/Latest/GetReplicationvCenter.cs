@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// VCenter related data.
         /// </summary>
-        public readonly Outputs.VCenterPropertiesResponse Properties;
+        public readonly Outputs.VCenterPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string name,
 
-            Outputs.VCenterPropertiesResponse properties,
+            Outputs.VCenterPropertiesInvokeResponseResult properties,
 
             string type)
         {

@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <summary>
         /// Azure active directory.
         /// </summary>
-        public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
+        public readonly Outputs.AzureActiveDirectoryInvokeResponseResult? AzureActiveDirectory;
         /// <summary>
         /// The port used for client connections to the cluster.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <summary>
         /// client certificates for the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateResponse> Clients;
+        public readonly ImmutableArray<Outputs.ClientCertificateInvokeResponseResult> Clients;
         /// <summary>
         /// The cluster certificate thumbprint used node to node communication.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <summary>
         /// The list of custom fabric settings to configure the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
+        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionInvokeResponseResult> FabricSettings;
         /// <summary>
         /// the cluster Fully qualified domain name.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <summary>
         /// Describes load balancing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
+        public readonly ImmutableArray<Outputs.LoadBalancingRuleInvokeResponseResult> LoadBalancingRules;
         /// <summary>
         /// Azure resource location.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <summary>
         /// The sku of the managed cluster
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -140,11 +140,11 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
             string adminUserName,
 
-            Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
+            Outputs.AzureActiveDirectoryInvokeResponseResult? azureActiveDirectory,
 
             int? clientConnectionPort,
 
-            ImmutableArray<Outputs.ClientCertificateResponse> clients,
+            ImmutableArray<Outputs.ClientCertificateInvokeResponseResult> clients,
 
             string clusterCertificateThumbprint,
 
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
             string etag,
 
-            ImmutableArray<Outputs.SettingsSectionDescriptionResponse> fabricSettings,
+            ImmutableArray<Outputs.SettingsSectionDescriptionInvokeResponseResult> fabricSettings,
 
             string fqdn,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
             string id,
 
-            ImmutableArray<Outputs.LoadBalancingRuleResponse> loadBalancingRules,
+            ImmutableArray<Outputs.LoadBalancingRuleInvokeResponseResult> loadBalancingRules,
 
             string location,
 
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

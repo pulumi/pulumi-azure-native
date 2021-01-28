@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101
         /// <summary>
         /// Has definition for the export.
         /// </summary>
-        public readonly Outputs.QueryDefinitionResponse Definition;
+        public readonly Outputs.QueryDefinitionInvokeResponseResult Definition;
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
-        public readonly Outputs.ExportDeliveryInfoResponse DeliveryInfo;
+        public readonly Outputs.ExportDeliveryInfoInvokeResponseResult DeliveryInfo;
         /// <summary>
         /// The format of the export being delivered.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101
         /// <summary>
         /// Has schedule information for the export.
         /// </summary>
-        public readonly Outputs.ExportScheduleResponse? Schedule;
+        public readonly Outputs.ExportScheduleInvokeResponseResult? Schedule;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -74,9 +74,9 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101
 
         [OutputConstructor]
         private GetExportResult(
-            Outputs.QueryDefinitionResponse definition,
+            Outputs.QueryDefinitionInvokeResponseResult definition,
 
-            Outputs.ExportDeliveryInfoResponse deliveryInfo,
+            Outputs.ExportDeliveryInfoInvokeResponseResult deliveryInfo,
 
             string? format,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101
 
             string name,
 
-            Outputs.ExportScheduleResponse? schedule,
+            Outputs.ExportScheduleInvokeResponseResult? schedule,
 
             ImmutableDictionary<string, string> tags,
 

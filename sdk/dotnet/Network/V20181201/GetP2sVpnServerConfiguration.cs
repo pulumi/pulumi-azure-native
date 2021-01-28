@@ -57,23 +57,23 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         /// </summary>
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.SubResourceResponse> P2SVpnGateways;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> P2SVpnGateways;
         /// <summary>
         /// Radius client root certificate of P2SVpnServerConfiguration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse> P2SVpnServerConfigRadiusClientRootCertificates;
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateInvokeResponseResult> P2SVpnServerConfigRadiusClientRootCertificates;
         /// <summary>
         /// Radius Server root certificate of P2SVpnServerConfiguration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse> P2SVpnServerConfigRadiusServerRootCertificates;
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateInvokeResponseResult> P2SVpnServerConfigRadiusServerRootCertificates;
         /// <summary>
         /// VPN client revoked certificate of P2SVpnServerConfiguration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse> P2SVpnServerConfigVpnClientRevokedCertificates;
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateInvokeResponseResult> P2SVpnServerConfigVpnClientRevokedCertificates;
         /// <summary>
         /// VPN client root certificate of P2SVpnServerConfiguration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponse> P2SVpnServerConfigVpnClientRootCertificates;
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateInvokeResponseResult> P2SVpnServerConfigVpnClientRootCertificates;
         /// <summary>
         /// The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// <summary>
         /// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpsecPolicyResponse> VpnClientIpsecPolicies;
+        public readonly ImmutableArray<Outputs.IpsecPolicyInvokeResponseResult> VpnClientIpsecPolicies;
         /// <summary>
         /// VPN protocols for the P2SVpnServerConfiguration.
         /// </summary>
@@ -103,15 +103,15 @@ namespace Pulumi.AzureNextGen.Network.V20181201
 
             string? name,
 
-            ImmutableArray<Outputs.SubResourceResponse> p2SVpnGateways,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> p2SVpnGateways,
 
-            ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse> p2SVpnServerConfigRadiusClientRootCertificates,
+            ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateInvokeResponseResult> p2SVpnServerConfigRadiusClientRootCertificates,
 
-            ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse> p2SVpnServerConfigRadiusServerRootCertificates,
+            ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateInvokeResponseResult> p2SVpnServerConfigRadiusServerRootCertificates,
 
-            ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse> p2SVpnServerConfigVpnClientRevokedCertificates,
+            ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateInvokeResponseResult> p2SVpnServerConfigVpnClientRevokedCertificates,
 
-            ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponse> p2SVpnServerConfigVpnClientRootCertificates,
+            ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateInvokeResponseResult> p2SVpnServerConfigVpnClientRootCertificates,
 
             string provisioningState,
 
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
 
             string? radiusServerSecret,
 
-            ImmutableArray<Outputs.IpsecPolicyResponse> vpnClientIpsecPolicies,
+            ImmutableArray<Outputs.IpsecPolicyInvokeResponseResult> vpnClientIpsecPolicies,
 
             ImmutableArray<string> vpnProtocols)
         {

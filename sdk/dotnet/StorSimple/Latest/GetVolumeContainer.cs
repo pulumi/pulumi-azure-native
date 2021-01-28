@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptionKey;
+        public readonly Outputs.AsymmetricEncryptedSecretInvokeResponseResult? EncryptionKey;
         /// <summary>
         /// The flag to denote whether encryption is enabled or not.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string? bandwidthSettingId,
 
-            Outputs.AsymmetricEncryptedSecretResponse? encryptionKey,
+            Outputs.AsymmetricEncryptedSecretInvokeResponseResult? encryptionKey,
 
             string encryptionStatus,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200401
         /// <summary>
         /// The contact details of the peer.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContactDetailResponse> PeerContactDetail;
+        public readonly ImmutableArray<Outputs.ContactDetailInvokeResponseResult> PeerContactDetail;
         /// <summary>
         /// The name of the peer.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200401
 
             int? peerAsn,
 
-            ImmutableArray<Outputs.ContactDetailResponse> peerContactDetail,
+            ImmutableArray<Outputs.ContactDetailInvokeResponseResult> peerContactDetail,
 
             string? peerName,
 

@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         public readonly string? Title;
         /// <summary>
         /// Resource type.
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? summary,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string? title,
 

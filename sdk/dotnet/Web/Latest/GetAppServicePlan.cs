@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Specification for the App Service Environment to use for the App Service plan.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult? HostingEnvironmentProfile;
         /// <summary>
         /// If Hyper-V container app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Description of a SKU for a scalable resource.
         /// </summary>
-        public readonly Outputs.SkuDescriptionResponse? Sku;
+        public readonly Outputs.SkuDescriptionInvokeResponseResult? Sku;
         /// <summary>
         /// The time when the server farm expires. Valid only if it is a spot server farm.
         /// </summary>
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string geoRegion,
 
-            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult? hostingEnvironmentProfile,
 
             bool? hyperV,
 
@@ -185,7 +185,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string resourceGroup,
 
-            Outputs.SkuDescriptionResponse? sku,
+            Outputs.SkuDescriptionInvokeResponseResult? sku,
 
             string? spotExpirationTime,
 
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string subscription,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

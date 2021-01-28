@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <summary>
         /// The Live Event access policies.
         /// </summary>
-        public readonly Outputs.CrossSiteAccessPoliciesResponse? CrossSiteAccessPolicies;
+        public readonly Outputs.CrossSiteAccessPoliciesInvokeResponseResult? CrossSiteAccessPolicies;
         /// <summary>
         /// The Live Event description.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <summary>
         /// The Live Event encoding.
         /// </summary>
-        public readonly Outputs.LiveEventEncodingResponse? Encoding;
+        public readonly Outputs.LiveEventEncodingInvokeResponseResult? Encoding;
         /// <summary>
         /// Fully qualified resource ID for the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <summary>
         /// The Live Event input.
         /// </summary>
-        public readonly Outputs.LiveEventInputResponse Input;
+        public readonly Outputs.LiveEventInputInvokeResponseResult Input;
         /// <summary>
         /// The exact time the Live Event was last modified.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <summary>
         /// The Live Event preview.
         /// </summary>
-        public readonly Outputs.LiveEventPreviewResponse? Preview;
+        public readonly Outputs.LiveEventPreviewInvokeResponseResult? Preview;
         /// <summary>
         /// The provisioning state of the Live Event.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// <summary>
         /// The Live Event transcription.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LiveEventTranscriptionResponse> Transcriptions;
+        public readonly ImmutableArray<Outputs.LiveEventTranscriptionInvokeResponseResult> Transcriptions;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -118,15 +118,15 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         private GetLiveEventResult(
             string created,
 
-            Outputs.CrossSiteAccessPoliciesResponse? crossSiteAccessPolicies,
+            Outputs.CrossSiteAccessPoliciesInvokeResponseResult? crossSiteAccessPolicies,
 
             string? description,
 
-            Outputs.LiveEventEncodingResponse? encoding,
+            Outputs.LiveEventEncodingInvokeResponseResult? encoding,
 
             string id,
 
-            Outputs.LiveEventInputResponse input,
+            Outputs.LiveEventInputInvokeResponseResult input,
 
             string lastModified,
 
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
 
             string name,
 
-            Outputs.LiveEventPreviewResponse? preview,
+            Outputs.LiveEventPreviewInvokeResponseResult? preview,
 
             string provisioningState,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.LiveEventTranscriptionResponse> transcriptions,
+            ImmutableArray<Outputs.LiveEventTranscriptionInvokeResponseResult> transcriptions,
 
             string type,
 

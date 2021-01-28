@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// List of references to Firewall Policies resources that this IpGroups is associated with.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> FirewallPolicies;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> FirewallPolicies;
         /// <summary>
         /// List of references to Firewall resources that this IpGroups is associated with.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> Firewalls;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         private GetIpGroupResult(
             string etag,
 
-            ImmutableArray<Outputs.SubResourceResponse> firewallPolicies,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> firewallPolicies,
 
-            ImmutableArray<Outputs.SubResourceResponse> firewalls,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> firewalls,
 
             string? id,
 

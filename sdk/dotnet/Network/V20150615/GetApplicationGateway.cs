@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// <summary>
         /// Backend address pool of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse> BackendAddressPools;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult> BackendAddressPools;
         /// <summary>
         /// Backend http settings of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> BackendHttpSettingsCollection;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsInvokeResponseResult> BackendHttpSettingsCollection;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,19 +54,19 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// <summary>
         /// Frontend IP addresses of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse> FrontendIPConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationInvokeResponseResult> FrontendIPConfigurations;
         /// <summary>
         /// Frontend ports of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse> FrontendPorts;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortInvokeResponseResult> FrontendPorts;
         /// <summary>
         /// Gets or sets subnets of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> GatewayIPConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationInvokeResponseResult> GatewayIPConfigurations;
         /// <summary>
         /// Http listeners of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> HttpListeners;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerInvokeResponseResult> HttpListeners;
         /// <summary>
         /// Resource Identifier.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// <summary>
         /// Probes of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayProbeResponse> Probes;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayProbeInvokeResponseResult> Probes;
         /// <summary>
         /// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// <summary>
         /// Request routing rules of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse> RequestRoutingRules;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleInvokeResponseResult> RequestRoutingRules;
         /// <summary>
         /// Resource GUID property of the application gateway resource.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// <summary>
         /// SKU of the application gateway resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewaySkuResponse? Sku;
+        public readonly Outputs.ApplicationGatewaySkuInvokeResponseResult? Sku;
         /// <summary>
         /// SSL certificates of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse> SslCertificates;
+        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateInvokeResponseResult> SslCertificates;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -118,23 +118,23 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// <summary>
         /// URL path map of the application gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponse> UrlPathMaps;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapInvokeResponseResult> UrlPathMaps;
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
-            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse> backendAddressPools,
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult> backendAddressPools,
 
-            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> backendHttpSettingsCollection,
+            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsInvokeResponseResult> backendHttpSettingsCollection,
 
             string? etag,
 
-            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse> frontendIPConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationInvokeResponseResult> frontendIPConfigurations,
 
-            ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse> frontendPorts,
+            ImmutableArray<Outputs.ApplicationGatewayFrontendPortInvokeResponseResult> frontendPorts,
 
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> gatewayIPConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationInvokeResponseResult> gatewayIPConfigurations,
 
-            ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> httpListeners,
+            ImmutableArray<Outputs.ApplicationGatewayHttpListenerInvokeResponseResult> httpListeners,
 
             string? id,
 
@@ -144,23 +144,23 @@ namespace Pulumi.AzureNextGen.Network.V20150615
 
             string operationalState,
 
-            ImmutableArray<Outputs.ApplicationGatewayProbeResponse> probes,
+            ImmutableArray<Outputs.ApplicationGatewayProbeInvokeResponseResult> probes,
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse> requestRoutingRules,
+            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleInvokeResponseResult> requestRoutingRules,
 
             string? resourceGuid,
 
-            Outputs.ApplicationGatewaySkuResponse? sku,
+            Outputs.ApplicationGatewaySkuInvokeResponseResult? sku,
 
-            ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse> sslCertificates,
+            ImmutableArray<Outputs.ApplicationGatewaySslCertificateInvokeResponseResult> sslCertificates,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponse> urlPathMaps)
+            ImmutableArray<Outputs.ApplicationGatewayUrlPathMapInvokeResponseResult> urlPathMaps)
         {
             BackendAddressPools = backendAddressPools;
             BackendHttpSettingsCollection = backendHttpSettingsCollection;

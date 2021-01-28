@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Schedule for the backup if it is executed periodically.
         /// </summary>
-        public readonly Outputs.BackupScheduleResponseResult? BackupSchedule;
+        public readonly Outputs.BackupScheduleInvokeResponseResult? BackupSchedule;
         /// <summary>
         /// Databases included in the backup.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> Databases;
+        public readonly ImmutableArray<Outputs.DatabaseBackupSettingInvokeResponseResult> Databases;
         /// <summary>
         /// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureNextGen.Web.Latest
         private ListWebAppBackupConfigurationResult(
             string? backupName,
 
-            Outputs.BackupScheduleResponseResult? backupSchedule,
+            Outputs.BackupScheduleInvokeResponseResult? backupSchedule,
 
-            ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> databases,
+            ImmutableArray<Outputs.DatabaseBackupSettingInvokeResponseResult> databases,
 
             bool? enabled,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string storageAccountUrl,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

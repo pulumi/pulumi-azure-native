@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// Local network gateway's BGP speaker settings.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpSettings;
+        public readonly Outputs.BgpSettingsInvokeResponseResult? BgpSettings;
         /// <summary>
         /// list of all vpn connections to the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnConnectionResponse> Connections;
+        public readonly ImmutableArray<Outputs.VpnConnectionInvokeResponseResult> Connections;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The policies applied to this vpn gateway.
         /// </summary>
-        public readonly Outputs.PoliciesResponse? Policies;
+        public readonly Outputs.PoliciesInvokeResponseResult? Policies;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -82,13 +82,13 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The VirtualHub to which the gateway belongs
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
 
         [OutputConstructor]
         private GetVpnGatewayResult(
-            Outputs.BgpSettingsResponse? bgpSettings,
+            Outputs.BgpSettingsInvokeResponseResult? bgpSettings,
 
-            ImmutableArray<Outputs.VpnConnectionResponse> connections,
+            ImmutableArray<Outputs.VpnConnectionInvokeResponseResult> connections,
 
             string etag,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             string name,
 
-            Outputs.PoliciesResponse? policies,
+            Outputs.PoliciesInvokeResponseResult? policies,
 
             string provisioningState,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub)
+            Outputs.SubResourceInvokeResponseResult? virtualHub)
         {
             BgpSettings = bgpSettings;
             Connections = connections;

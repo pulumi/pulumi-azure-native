@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// Information about disks attached to File Server VM.
         /// </summary>
-        public readonly Outputs.DataDisksResponse? DataDisks;
+        public readonly Outputs.DataDisksInvokeResponseResult? DataDisks;
         /// <summary>
         /// The ID of the resource.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// File Server mount settings.
         /// </summary>
-        public readonly Outputs.MountSettingsResponse MountSettings;
+        public readonly Outputs.MountSettingsInvokeResponseResult MountSettings;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// SSH configuration for accessing the File Server node.
         /// </summary>
-        public readonly Outputs.SshConfigurationResponse? SshConfiguration;
+        public readonly Outputs.SshConfigurationInvokeResponseResult? SshConfiguration;
         /// <summary>
         /// File Server virtual network subnet resource ID.
         /// </summary>
-        public readonly Outputs.ResourceIdResponse? Subnet;
+        public readonly Outputs.ResourceIdInvokeResponseResult? Subnet;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         private GetFileServerResult(
             string creationTime,
 
-            Outputs.DataDisksResponse? dataDisks,
+            Outputs.DataDisksInvokeResponseResult? dataDisks,
 
             string id,
 
-            Outputs.MountSettingsResponse mountSettings,
+            Outputs.MountSettingsInvokeResponseResult mountSettings,
 
             string name,
 
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
 
             string provisioningStateTransitionTime,
 
-            Outputs.SshConfigurationResponse? sshConfiguration,
+            Outputs.SshConfigurationInvokeResponseResult? sshConfiguration,
 
-            Outputs.ResourceIdResponse? subnet,
+            Outputs.ResourceIdInvokeResponseResult? subnet,
 
             string type,
 

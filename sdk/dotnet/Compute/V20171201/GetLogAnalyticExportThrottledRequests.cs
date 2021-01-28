@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// <summary>
         /// Api error
         /// </summary>
-        public readonly Outputs.ApiErrorResponseResult Error;
+        public readonly Outputs.ApiErrorInvokeResponseResult Error;
         /// <summary>
         /// Operation ID
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// <summary>
         /// LogAnalyticsOutput
         /// </summary>
-        public readonly Outputs.LogAnalyticsOutputResponseResult Properties;
+        public readonly Outputs.LogAnalyticsOutputInvokeResponseResult Properties;
         /// <summary>
         /// Start time of the operation
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         private GetLogAnalyticExportThrottledRequestsResult(
             string endTime,
 
-            Outputs.ApiErrorResponseResult error,
+            Outputs.ApiErrorInvokeResponseResult error,
 
             string name,
 
-            Outputs.LogAnalyticsOutputResponseResult properties,
+            Outputs.LogAnalyticsOutputInvokeResponseResult properties,
 
             string startTime,
 

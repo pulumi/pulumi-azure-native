@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
-        public readonly Outputs.PublicIPAddressDnsSettingsResponse? DnsSettings;
+        public readonly Outputs.PublicIPAddressDnsSettingsInvokeResponseResult? DnsSettings;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// <summary>
         /// The IP configuration associated with the public IP address.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponse IpConfiguration;
+        public readonly Outputs.IPConfigurationInvokeResponseResult IpConfiguration;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
-        public readonly Outputs.PublicIPAddressSkuResponse? Sku;
+        public readonly Outputs.PublicIPAddressSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
 
         [OutputConstructor]
         private GetPublicIPAddressResult(
-            Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
+            Outputs.PublicIPAddressDnsSettingsInvokeResponseResult? dnsSettings,
 
             string? etag,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
 
             string? ipAddress,
 
-            Outputs.IPConfigurationResponse ipConfiguration,
+            Outputs.IPConfigurationInvokeResponseResult ipConfiguration,
 
             string? location,
 
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
 
             string? resourceGuid,
 
-            Outputs.PublicIPAddressSkuResponse? sku,
+            Outputs.PublicIPAddressSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

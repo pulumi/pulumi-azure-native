@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         /// <summary>
         /// DataProtection type volumes include an object containing details of the replication
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
+        public readonly Outputs.VolumePropertiesInvokeResponseDataProtectionResult? DataProtection;
         /// <summary>
         /// Set of export policy rules
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
+        public readonly Outputs.VolumePropertiesInvokeResponseExportPolicyResult? ExportPolicy;
         /// <summary>
         /// Unique FileSystem Identifier.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         /// <summary>
         /// List of mount targets
         /// </summary>
-        public readonly ImmutableArray<Outputs.MountTargetPropertiesResponse> MountTargets;
+        public readonly ImmutableArray<Outputs.MountTargetPropertiesInvokeResponseResult> MountTargets;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -134,9 +134,9 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
 
             string creationToken,
 
-            Outputs.VolumePropertiesResponseDataProtection? dataProtection,
+            Outputs.VolumePropertiesInvokeResponseDataProtectionResult? dataProtection,
 
-            Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
+            Outputs.VolumePropertiesInvokeResponseExportPolicyResult? exportPolicy,
 
             string fileSystemId,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
 
             string location,
 
-            ImmutableArray<Outputs.MountTargetPropertiesResponse> mountTargets,
+            ImmutableArray<Outputs.MountTargetPropertiesInvokeResponseResult> mountTargets,
 
             string name,
 

@@ -34,17 +34,17 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// Schedule for the backup if it is executed periodically.
         /// </summary>
         [Input("backupSchedule")]
-        public Inputs.BackupScheduleArgs? BackupSchedule { get; set; }
+        public Inputs.BackupScheduleInvokeArgs? BackupSchedule { get; set; }
 
         [Input("databases")]
-        private List<Inputs.DatabaseBackupSettingArgs>? _databases;
+        private List<Inputs.DatabaseBackupSettingInvokeArgs>? _databases;
 
         /// <summary>
         /// Databases included in the backup.
         /// </summary>
-        public List<Inputs.DatabaseBackupSettingArgs> Databases
+        public List<Inputs.DatabaseBackupSettingInvokeArgs> Databases
         {
-            get => _databases ?? (_databases = new List<Inputs.DatabaseBackupSettingArgs>());
+            get => _databases ?? (_databases = new List<Inputs.DatabaseBackupSettingInvokeArgs>());
             set => _databases = value;
         }
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// <summary>
         /// List of databases included in the backup.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> Databases;
+        public readonly ImmutableArray<Outputs.DatabaseBackupSettingInvokeResponseResult> Databases;
         /// <summary>
         /// Timestamp when this backup finished.
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string created,
 
-            ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> databases,
+            ImmutableArray<Outputs.DatabaseBackupSettingInvokeResponseResult> databases,
 
             string finishedTimeStamp,
 

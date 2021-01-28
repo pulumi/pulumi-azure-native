@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// <summary>
         /// Operational information of the rollout.
         /// </summary>
-        public readonly Outputs.RolloutOperationInfoResponseResult OperationInfo;
+        public readonly Outputs.RolloutOperationInfoInvokeResponseResult OperationInfo;
         /// <summary>
         /// The detailed information on the services being deployed.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceResponseResult> Services;
+        public readonly ImmutableArray<Outputs.ServiceInvokeResponseResult> Services;
         /// <summary>
         /// The current status of the rollout.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// <summary>
         /// The list of step groups that define the orchestration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StepGroupResponse> StepGroups;
+        public readonly ImmutableArray<Outputs.StepGroupInvokeResponseResult> StepGroups;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -110,19 +110,19 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.RolloutOperationInfoResponseResult operationInfo,
+            Outputs.RolloutOperationInfoInvokeResponseResult operationInfo,
 
-            ImmutableArray<Outputs.ServiceResponseResult> services,
+            ImmutableArray<Outputs.ServiceInvokeResponseResult> services,
 
             string status,
 
-            ImmutableArray<Outputs.StepGroupResponse> stepGroups,
+            ImmutableArray<Outputs.StepGroupInvokeResponseResult> stepGroups,
 
             ImmutableDictionary<string, string>? tags,
 

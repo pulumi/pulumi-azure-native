@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// <summary>
         /// The reference to the databricks virtual network address space.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? DatabricksAddressSpace;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? DatabricksAddressSpace;
         /// <summary>
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? DatabricksVirtualNetwork;
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkResult? DatabricksVirtualNetwork;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// <summary>
         /// The reference to the remote virtual network address space.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? RemoteAddressSpace;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? RemoteAddressSpace;
         /// <summary>
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork RemoteVirtualNetwork;
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkResult RemoteVirtualNetwork;
         /// <summary>
         /// type of the virtual network peering resource
         /// </summary>
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
 
             bool? allowVirtualNetworkAccess,
 
-            Outputs.AddressSpaceResponse? databricksAddressSpace,
+            Outputs.AddressSpaceInvokeResponseResult? databricksAddressSpace,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? databricksVirtualNetwork,
+            Outputs.VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkResult? databricksVirtualNetwork,
 
             string id,
 
@@ -118,9 +118,9 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
 
             string provisioningState,
 
-            Outputs.AddressSpaceResponse? remoteAddressSpace,
+            Outputs.AddressSpaceInvokeResponseResult? remoteAddressSpace,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork remoteVirtualNetwork,
+            Outputs.VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkResult remoteVirtualNetwork,
 
             string type,
 

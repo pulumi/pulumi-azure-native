@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
         /// <summary>
         /// Properties reported by cluster agent.
         /// </summary>
-        public readonly Outputs.ClusterReportedPropertiesResponse? ReportedProperties;
+        public readonly Outputs.ClusterReportedPropertiesInvokeResponseResult? ReportedProperties;
         /// <summary>
         /// Status of the cluster agent.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
 
             string registrationTimestamp,
 
-            Outputs.ClusterReportedPropertiesResponse? reportedProperties,
+            Outputs.ClusterReportedPropertiesInvokeResponseResult? reportedProperties,
 
             string status,
 

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// <summary>
         /// The content link.
         /// </summary>
-        public readonly Outputs.IntegrationAccountContentLinkResponse ContentLink;
+        public readonly Outputs.IntegrationAccountContentLinkInvokeResponseResult ContentLink;
         /// <summary>
         /// The content type.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
 
             object? content,
 
-            Outputs.IntegrationAccountContentLinkResponse contentLink,
+            Outputs.IntegrationAccountContentLinkInvokeResponseResult contentLink,
 
             string? contentType,
 

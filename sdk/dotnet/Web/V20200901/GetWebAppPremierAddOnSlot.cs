@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             string? sku,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

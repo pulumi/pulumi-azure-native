@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// <summary>
         /// The SKU of the cognitive services account.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

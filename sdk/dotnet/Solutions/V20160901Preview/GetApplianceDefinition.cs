@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplianceArtifactResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplianceArtifactInvokeResponseResult> Artifacts;
         /// <summary>
         /// The appliance provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplianceProviderAuthorizationInvokeResponseResult> Authorizations;
         /// <summary>
         /// The appliance definition description.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -98,9 +98,9 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 
         [OutputConstructor]
         private GetApplianceDefinitionResult(
-            ImmutableArray<Outputs.ApplianceArtifactResponse> artifacts,
+            ImmutableArray<Outputs.ApplianceArtifactInvokeResponseResult> artifacts,
 
-            ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse> authorizations,
+            ImmutableArray<Outputs.ApplianceProviderAuthorizationInvokeResponseResult> authorizations,
 
             string? description,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 
             string packageFileUri,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
         /// <summary>
         /// Contains information about the auto-storage account associated with a Batch account.
         /// </summary>
-        public readonly Outputs.AutoStoragePropertiesResponse AutoStorage;
+        public readonly Outputs.AutoStoragePropertiesInvokeResponseResult AutoStorage;
         /// <summary>
         /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
         /// <summary>
         /// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse> DedicatedCoreQuotaPerVMFamily;
+        public readonly ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaInvokeResponseResult> DedicatedCoreQuotaPerVMFamily;
         /// <summary>
         /// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
         /// <summary>
         /// Identifies the Azure key vault associated with a Batch account.
         /// </summary>
-        public readonly Outputs.KeyVaultReferenceResponse KeyVaultReference;
+        public readonly Outputs.KeyVaultReferenceInvokeResponseResult KeyVaultReference;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -104,17 +104,17 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
 
             int activeJobAndJobScheduleQuota,
 
-            Outputs.AutoStoragePropertiesResponse autoStorage,
+            Outputs.AutoStoragePropertiesInvokeResponseResult autoStorage,
 
             int dedicatedCoreQuota,
 
-            ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse> dedicatedCoreQuotaPerVMFamily,
+            ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaInvokeResponseResult> dedicatedCoreQuotaPerVMFamily,
 
             bool dedicatedCoreQuotaPerVMFamilyEnforced,
 
             string id,
 
-            Outputs.KeyVaultReferenceResponse keyVaultReference,
+            Outputs.KeyVaultReferenceInvokeResponseResult keyVaultReference,
 
             string location,
 

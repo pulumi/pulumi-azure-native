@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// <summary>
         /// Specification for the App Service Environment to use for the certificate.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult HostingEnvironmentProfile;
         /// <summary>
         /// Resource Id.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 
             ImmutableArray<string> hostNames,
 
-            Outputs.HostingEnvironmentProfileResponse hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult hostingEnvironmentProfile,
 
             string id,
 

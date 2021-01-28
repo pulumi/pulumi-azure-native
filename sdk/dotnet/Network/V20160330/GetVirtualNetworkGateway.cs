@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// Virtual network gateway's BGP speaker settings
         /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpSettings;
+        public readonly Outputs.BgpSettingsInvokeResponseResult? BgpSettings;
         /// <summary>
         /// EnableBgp Flag
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? GatewayDefaultSite;
+        public readonly Outputs.SubResourceInvokeResponseResult? GatewayDefaultSite;
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// IpConfigurations for Virtual network gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewaySkuResponse? Sku;
+        public readonly Outputs.VirtualNetworkGatewaySkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
-        public readonly Outputs.VpnClientConfigurationResponse? VpnClientConfiguration;
+        public readonly Outputs.VpnClientConfigurationInvokeResponseResult? VpnClientConfiguration;
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayResult(
-            Outputs.BgpSettingsResponse? bgpSettings,
+            Outputs.BgpSettingsInvokeResponseResult? bgpSettings,
 
             bool? enableBgp,
 
             string? etag,
 
-            Outputs.SubResourceResponse? gatewayDefaultSite,
+            Outputs.SubResourceInvokeResponseResult? gatewayDefaultSite,
 
             string? gatewayType,
 
             string? id,
 
-            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 
@@ -128,13 +128,13 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
             string? resourceGuid,
 
-            Outputs.VirtualNetworkGatewaySkuResponse? sku,
+            Outputs.VirtualNetworkGatewaySkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
+            Outputs.VpnClientConfigurationInvokeResponseResult? vpnClientConfiguration,
 
             string? vpnType)
         {

@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// <summary>
         /// The collection of management groups covered by the Managed Network
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceIdResponse> ManagementGroups;
+        public readonly ImmutableArray<Outputs.ResourceIdInvokeResponseResult> ManagementGroups;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// <summary>
         /// The collection of  subnets covered by the Managed Network
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceIdResponse> Subnets;
+        public readonly ImmutableArray<Outputs.ResourceIdInvokeResponseResult> Subnets;
         /// <summary>
         /// The collection of subscriptions covered by the Managed Network
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceIdResponse> Subscriptions;
+        public readonly ImmutableArray<Outputs.ResourceIdInvokeResponseResult> Subscriptions;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// <summary>
         /// The collection of virtual nets covered by the Managed Network
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceIdResponse> VirtualNetworks;
+        public readonly ImmutableArray<Outputs.ResourceIdInvokeResponseResult> VirtualNetworks;
 
         [OutputConstructor]
         private GetManagedNetworkGroupResult(
@@ -100,19 +100,19 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
 
             string? location,
 
-            ImmutableArray<Outputs.ResourceIdResponse> managementGroups,
+            ImmutableArray<Outputs.ResourceIdInvokeResponseResult> managementGroups,
 
             string name,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.ResourceIdResponse> subnets,
+            ImmutableArray<Outputs.ResourceIdInvokeResponseResult> subnets,
 
-            ImmutableArray<Outputs.ResourceIdResponse> subscriptions,
+            ImmutableArray<Outputs.ResourceIdInvokeResponseResult> subscriptions,
 
             string type,
 
-            ImmutableArray<Outputs.ResourceIdResponse> virtualNetworks)
+            ImmutableArray<Outputs.ResourceIdInvokeResponseResult> virtualNetworks)
         {
             Etag = etag;
             Id = id;

@@ -54,11 +54,11 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// <summary>
         /// The identity associated with this account
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The kind of account, if supported
         /// </summary>
-        public readonly Outputs.SkuResponse? Kind;
+        public readonly Outputs.SkuInvokeResponseResult? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -70,15 +70,15 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// <summary>
         /// The plan associated with this account
         /// </summary>
-        public readonly Outputs.IdentityResponse? Plan;
+        public readonly Outputs.IdentityInvokeResponseResult? Plan;
         /// <summary>
         /// The sku associated with this account
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// System metadata for this account
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,19 +96,19 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
-            Outputs.SkuResponse? kind,
+            Outputs.SkuInvokeResponseResult? kind,
 
             string location,
 
             string name,
 
-            Outputs.IdentityResponse? plan,
+            Outputs.IdentityInvokeResponseResult? plan,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

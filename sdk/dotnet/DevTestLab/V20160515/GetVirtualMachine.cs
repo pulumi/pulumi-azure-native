@@ -58,15 +58,15 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The applicable schedule for the virtual machine.
         /// </summary>
-        public readonly Outputs.ApplicableScheduleResponse? ApplicableSchedule;
+        public readonly Outputs.ApplicableScheduleInvokeResponseResult? ApplicableSchedule;
         /// <summary>
         /// The artifact deployment status for the virtual machine.
         /// </summary>
-        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse? ArtifactDeploymentStatus;
+        public readonly Outputs.ArtifactDeploymentStatusPropertiesInvokeResponseResult? ArtifactDeploymentStatus;
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesInvokeResponseResult> Artifacts;
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The compute virtual machine properties.
         /// </summary>
-        public readonly Outputs.ComputeVmPropertiesResponse? ComputeVm;
+        public readonly Outputs.ComputeVmPropertiesInvokeResponseResult? ComputeVm;
         /// <summary>
         /// The email address of creator of the virtual machine.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
-        public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
+        public readonly Outputs.GalleryImageReferenceInvokeResponseResult? GalleryImageReference;
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The network interface properties.
         /// </summary>
-        public readonly Outputs.NetworkInterfacePropertiesResponse? NetworkInterface;
+        public readonly Outputs.NetworkInterfacePropertiesInvokeResponseResult? NetworkInterface;
         /// <summary>
         /// The notes of the virtual machine.
         /// </summary>
@@ -200,15 +200,15 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         private GetVirtualMachineResult(
             bool? allowClaim,
 
-            Outputs.ApplicableScheduleResponse? applicableSchedule,
+            Outputs.ApplicableScheduleInvokeResponseResult? applicableSchedule,
 
-            Outputs.ArtifactDeploymentStatusPropertiesResponse? artifactDeploymentStatus,
+            Outputs.ArtifactDeploymentStatusPropertiesInvokeResponseResult? artifactDeploymentStatus,
 
-            ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
+            ImmutableArray<Outputs.ArtifactInstallPropertiesInvokeResponseResult> artifacts,
 
             string computeId,
 
-            Outputs.ComputeVmPropertiesResponse? computeVm,
+            Outputs.ComputeVmPropertiesInvokeResponseResult? computeVm,
 
             string? createdByUser,
 
@@ -226,7 +226,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string? fqdn,
 
-            Outputs.GalleryImageReferenceResponse? galleryImageReference,
+            Outputs.GalleryImageReferenceInvokeResponseResult? galleryImageReference,
 
             string id,
 
@@ -240,7 +240,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string name,
 
-            Outputs.NetworkInterfacePropertiesResponse? networkInterface,
+            Outputs.NetworkInterfacePropertiesInvokeResponseResult? networkInterface,
 
             string? notes,
 

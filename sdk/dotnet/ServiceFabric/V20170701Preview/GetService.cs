@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse> CorrelationScheme;
+        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionInvokeResponseResult> CorrelationScheme;
         /// <summary>
         /// Specifies the move cost for the service.
         /// </summary>
@@ -90,11 +90,11 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// <summary>
         /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse> ServiceLoadMetrics;
+        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionInvokeResponseResult> ServiceLoadMetrics;
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse> ServicePlacementPolicies;
+        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionInvokeResponseResult> ServicePlacementPolicies;
         /// <summary>
         /// The name of the service type
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
 
         [OutputConstructor]
         private GetServiceResult(
-            ImmutableArray<Outputs.ServiceCorrelationDescriptionResponse> correlationScheme,
+            ImmutableArray<Outputs.ServiceCorrelationDescriptionInvokeResponseResult> correlationScheme,
 
             string? defaultMoveCost,
 
@@ -124,9 +124,9 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
 
             string serviceKind,
 
-            ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponse> serviceLoadMetrics,
+            ImmutableArray<Outputs.ServiceLoadMetricDescriptionInvokeResponseResult> serviceLoadMetrics,
 
-            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponse> servicePlacementPolicies,
+            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionInvokeResponseResult> servicePlacementPolicies,
 
             string? serviceTypeName,
 

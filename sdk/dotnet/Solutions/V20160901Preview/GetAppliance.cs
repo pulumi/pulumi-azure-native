@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The plan information.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// The appliance provisioning state.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? kind,
 
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 
             object? parameters,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

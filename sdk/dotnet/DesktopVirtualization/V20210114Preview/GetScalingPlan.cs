@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
         /// <summary>
         /// List of ScalingHostPoolReference definitions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScalingHostPoolReferenceResponse> HostPoolReferences;
+        public readonly ImmutableArray<Outputs.ScalingHostPoolReferenceInvokeResponseResult> HostPoolReferences;
         /// <summary>
         /// HostPool type for scaling plan.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
         /// <summary>
         /// List of ScalingSchedule definitions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScalingScheduleResponse> Schedules;
+        public readonly ImmutableArray<Outputs.ScalingScheduleInvokeResponseResult> Schedules;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
 
             string? friendlyName,
 
-            ImmutableArray<Outputs.ScalingHostPoolReferenceResponse> hostPoolReferences,
+            ImmutableArray<Outputs.ScalingHostPoolReferenceInvokeResponseResult> hostPoolReferences,
 
             string? hostPoolType,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
 
             string name,
 
-            ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
+            ImmutableArray<Outputs.ScalingScheduleInvokeResponseResult> schedules,
 
             ImmutableDictionary<string, string>? tags,
 

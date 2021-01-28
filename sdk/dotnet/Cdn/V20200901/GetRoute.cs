@@ -54,11 +54,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// compression settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CompressionSettingsResponse> CompressionSettings;
+        public readonly ImmutableArray<Outputs.CompressionSettingsInvokeResponseResult> CompressionSettings;
         /// <summary>
         /// Domains referenced by this endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> CustomDomains;
+        public readonly ImmutableArray<Outputs.ResourceReferenceInvokeResponseResult> CustomDomains;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// A reference to the origin group.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse OriginGroup;
+        public readonly Outputs.ResourceReferenceInvokeResponseResult OriginGroup;
         /// <summary>
         /// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// rule sets referenced by this endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> RuleSets;
+        public readonly ImmutableArray<Outputs.ResourceReferenceInvokeResponseResult> RuleSets;
         /// <summary>
         /// List of supported protocols for this route.
         /// </summary>
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -123,9 +123,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
         [OutputConstructor]
         private GetRouteResult(
-            ImmutableArray<Outputs.CompressionSettingsResponse> compressionSettings,
+            ImmutableArray<Outputs.CompressionSettingsInvokeResponseResult> compressionSettings,
 
-            ImmutableArray<Outputs.ResourceReferenceResponse> customDomains,
+            ImmutableArray<Outputs.ResourceReferenceInvokeResponseResult> customDomains,
 
             string deploymentStatus,
 
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string name,
 
-            Outputs.ResourceReferenceResponse originGroup,
+            Outputs.ResourceReferenceInvokeResponseResult originGroup,
 
             string? originPath,
 
@@ -151,11 +151,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string? queryStringCachingBehavior,
 
-            ImmutableArray<Outputs.ResourceReferenceResponse> ruleSets,
+            ImmutableArray<Outputs.ResourceReferenceInvokeResponseResult> ruleSets,
 
             ImmutableArray<string> supportedProtocols,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

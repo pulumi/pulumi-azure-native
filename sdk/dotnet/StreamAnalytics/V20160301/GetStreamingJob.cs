@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <summary>
         /// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
+        public readonly ImmutableArray<Outputs.FunctionInvokeResponseResult> Functions;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InputResponse> Inputs;
+        public readonly ImmutableArray<Outputs.InputInvokeResponseResult> Inputs;
         /// <summary>
         /// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <summary>
         /// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutputResponse> Outputs;
+        public readonly ImmutableArray<Outputs.OutputInvokeResponseResult> Outputs;
         /// <summary>
         /// Describes the provisioning status of the streaming job.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <summary>
         /// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <summary>
         /// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
-        public readonly Outputs.TransformationResponse? Transformation;
+        public readonly Outputs.TransformationInvokeResponseResult? Transformation;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -158,11 +158,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 
             string? eventsOutOfOrderPolicy,
 
-            ImmutableArray<Outputs.FunctionResponse> functions,
+            ImmutableArray<Outputs.FunctionInvokeResponseResult> functions,
 
             string id,
 
-            ImmutableArray<Outputs.InputResponse> inputs,
+            ImmutableArray<Outputs.InputInvokeResponseResult> inputs,
 
             string jobId,
 
@@ -180,15 +180,15 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 
             string? outputStartTime,
 
-            ImmutableArray<Outputs.OutputResponse> outputs,
+            ImmutableArray<Outputs.OutputInvokeResponseResult> outputs,
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.TransformationResponse? transformation,
+            Outputs.TransformationInvokeResponseResult? transformation,
 
             string type)
         {

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The default security rules of network security group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecurityRuleResponse> DefaultSecurityRules;
+        public readonly ImmutableArray<Outputs.SecurityRuleInvokeResponseResult> DefaultSecurityRules;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// A collection of references to flow log resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FlowLogResponse> FlowLogs;
+        public readonly ImmutableArray<Outputs.FlowLogInvokeResponseResult> FlowLogs;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// A collection of references to network interfaces.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> NetworkInterfaces;
         /// <summary>
         /// The provisioning state of the network security group resource.
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// A collection of security rules of the network security group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SecurityRuleResponse> SecurityRules;
+        public readonly ImmutableArray<Outputs.SecurityRuleInvokeResponseResult> SecurityRules;
         /// <summary>
         /// A collection of references to subnets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetInvokeResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 
         [OutputConstructor]
         private GetNetworkSecurityGroupResult(
-            ImmutableArray<Outputs.SecurityRuleResponse> defaultSecurityRules,
+            ImmutableArray<Outputs.SecurityRuleInvokeResponseResult> defaultSecurityRules,
 
             string etag,
 
-            ImmutableArray<Outputs.FlowLogResponse> flowLogs,
+            ImmutableArray<Outputs.FlowLogInvokeResponseResult> flowLogs,
 
             string? id,
 
@@ -112,15 +112,15 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> networkInterfaces,
 
             string provisioningState,
 
             string resourceGuid,
 
-            ImmutableArray<Outputs.SecurityRuleResponse> securityRules,
+            ImmutableArray<Outputs.SecurityRuleInvokeResponseResult> securityRules,
 
-            ImmutableArray<Outputs.SubnetResponse> subnets,
+            ImmutableArray<Outputs.SubnetInvokeResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

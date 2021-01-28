@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Live event cross site access policies.
         /// </summary>
-        public readonly Outputs.CrossSiteAccessPoliciesResponse? CrossSiteAccessPolicies;
+        public readonly Outputs.CrossSiteAccessPoliciesInvokeResponseResult? CrossSiteAccessPolicies;
         /// <summary>
         /// A description for the live event.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
         /// </summary>
-        public readonly Outputs.LiveEventEncodingResponse? Encoding;
+        public readonly Outputs.LiveEventEncodingInvokeResponseResult? Encoding;
         /// <summary>
         /// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Live event input settings. It defines how the live event receives input from a contribution encoder.
         /// </summary>
-        public readonly Outputs.LiveEventInputResponse Input;
+        public readonly Outputs.LiveEventInputInvokeResponseResult Input;
         /// <summary>
         /// The last modified time of the live event.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         /// </summary>
-        public readonly Outputs.LiveEventPreviewResponse? Preview;
+        public readonly Outputs.LiveEventPreviewInvokeResponseResult? Preview;
         /// <summary>
         /// The provisioning state of the live event.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LiveEventTranscriptionResponse> Transcriptions;
+        public readonly ImmutableArray<Outputs.LiveEventTranscriptionInvokeResponseResult> Transcriptions;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -122,17 +122,17 @@ namespace Pulumi.AzureNextGen.Media.Latest
         private GetLiveEventResult(
             string created,
 
-            Outputs.CrossSiteAccessPoliciesResponse? crossSiteAccessPolicies,
+            Outputs.CrossSiteAccessPoliciesInvokeResponseResult? crossSiteAccessPolicies,
 
             string? description,
 
-            Outputs.LiveEventEncodingResponse? encoding,
+            Outputs.LiveEventEncodingInvokeResponseResult? encoding,
 
             string? hostnamePrefix,
 
             string id,
 
-            Outputs.LiveEventInputResponse input,
+            Outputs.LiveEventInputInvokeResponseResult input,
 
             string lastModified,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             string name,
 
-            Outputs.LiveEventPreviewResponse? preview,
+            Outputs.LiveEventPreviewInvokeResponseResult? preview,
 
             string provisioningState,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.LiveEventTranscriptionResponse> transcriptions,
+            ImmutableArray<Outputs.LiveEventTranscriptionInvokeResponseResult> transcriptions,
 
             string type,
 

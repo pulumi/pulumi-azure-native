@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// <summary>
         /// Storage profile of a server.
         /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.StorageProfileInvokeResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -130,11 +130,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
 
             string? replicationRole,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? sslEnforcement,
 
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.StorageProfileInvokeResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

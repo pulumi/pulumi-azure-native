@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// <summary>
         /// A list of actions that the custom resource provider implements.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> Actions;
+        public readonly ImmutableArray<Outputs.CustomRPActionRouteDefinitionInvokeResponseResult> Actions;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// <summary>
         /// A list of resource types that the custom resource provider implements.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponse> ResourceTypes;
+        public readonly ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionInvokeResponseResult> ResourceTypes;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// <summary>
         /// A list of validations to run on the custom resource provider's requests.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomRPValidationsResponse> Validations;
+        public readonly ImmutableArray<Outputs.CustomRPValidationsInvokeResponseResult> Validations;
 
         [OutputConstructor]
         private GetCustomResourceProviderResult(
-            ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> actions,
+            ImmutableArray<Outputs.CustomRPActionRouteDefinitionInvokeResponseResult> actions,
 
             string id,
 
@@ -88,13 +88,13 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 
             string provisioningState,
 
-            ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponse> resourceTypes,
+            ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionInvokeResponseResult> resourceTypes,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.CustomRPValidationsResponse> validations)
+            ImmutableArray<Outputs.CustomRPValidationsInvokeResponseResult> validations)
         {
             Actions = actions;
             Id = id;

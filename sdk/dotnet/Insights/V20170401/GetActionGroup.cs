@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// <summary>
         /// The list of AutomationRunbook receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationRunbookReceiverResponse> AutomationRunbookReceivers;
+        public readonly ImmutableArray<Outputs.AutomationRunbookReceiverInvokeResponseResult> AutomationRunbookReceivers;
         /// <summary>
         /// The list of AzureAppPush receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureAppPushReceiverResponse> AzureAppPushReceivers;
+        public readonly ImmutableArray<Outputs.AzureAppPushReceiverInvokeResponseResult> AzureAppPushReceivers;
         /// <summary>
         /// The list of email receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EmailReceiverResponse> EmailReceivers;
+        public readonly ImmutableArray<Outputs.EmailReceiverInvokeResponseResult> EmailReceivers;
         /// <summary>
         /// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
+        public readonly ImmutableArray<Outputs.ItsmReceiverInvokeResponseResult> ItsmReceivers;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// <summary>
         /// The list of SMS receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SmsReceiverResponse> SmsReceivers;
+        public readonly ImmutableArray<Outputs.SmsReceiverInvokeResponseResult> SmsReceivers;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -90,15 +90,15 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// <summary>
         /// The list of webhook receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebhookReceiverResponse> WebhookReceivers;
+        public readonly ImmutableArray<Outputs.WebhookReceiverInvokeResponseResult> WebhookReceivers;
 
         [OutputConstructor]
         private GetActionGroupResult(
-            ImmutableArray<Outputs.AutomationRunbookReceiverResponse> automationRunbookReceivers,
+            ImmutableArray<Outputs.AutomationRunbookReceiverInvokeResponseResult> automationRunbookReceivers,
 
-            ImmutableArray<Outputs.AzureAppPushReceiverResponse> azureAppPushReceivers,
+            ImmutableArray<Outputs.AzureAppPushReceiverInvokeResponseResult> azureAppPushReceivers,
 
-            ImmutableArray<Outputs.EmailReceiverResponse> emailReceivers,
+            ImmutableArray<Outputs.EmailReceiverInvokeResponseResult> emailReceivers,
 
             bool enabled,
 
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
 
             string id,
 
-            ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
+            ImmutableArray<Outputs.ItsmReceiverInvokeResponseResult> itsmReceivers,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.SmsReceiverResponse> smsReceivers,
+            ImmutableArray<Outputs.SmsReceiverInvokeResponseResult> smsReceivers,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.WebhookReceiverResponse> webhookReceivers)
+            ImmutableArray<Outputs.WebhookReceiverInvokeResponseResult> webhookReceivers)
         {
             AutomationRunbookReceivers = automationRunbookReceivers;
             AzureAppPushReceivers = azureAppPushReceivers;

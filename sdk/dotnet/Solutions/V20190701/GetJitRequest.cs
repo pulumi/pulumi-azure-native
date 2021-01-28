@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// <summary>
         /// The client entity that created the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponse CreatedBy;
+        public readonly Outputs.ApplicationClientDetailsInvokeResponseResult CreatedBy;
         /// <summary>
         /// Resource ID
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// <summary>
         /// The JIT authorization policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JitAuthorizationPoliciesResponse> JitAuthorizationPolicies;
+        public readonly ImmutableArray<Outputs.JitAuthorizationPoliciesInvokeResponseResult> JitAuthorizationPolicies;
         /// <summary>
         /// The JIT request state.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// <summary>
         /// The JIT request properties.
         /// </summary>
-        public readonly Outputs.JitSchedulingPolicyResponse JitSchedulingPolicy;
+        public readonly Outputs.JitSchedulingPolicyInvokeResponseResult JitSchedulingPolicy;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -90,21 +90,21 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// <summary>
         /// The client entity that last updated the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponse UpdatedBy;
+        public readonly Outputs.ApplicationClientDetailsInvokeResponseResult UpdatedBy;
 
         [OutputConstructor]
         private GetJitRequestResult(
             string applicationResourceId,
 
-            Outputs.ApplicationClientDetailsResponse createdBy,
+            Outputs.ApplicationClientDetailsInvokeResponseResult createdBy,
 
             string id,
 
-            ImmutableArray<Outputs.JitAuthorizationPoliciesResponse> jitAuthorizationPolicies,
+            ImmutableArray<Outputs.JitAuthorizationPoliciesInvokeResponseResult> jitAuthorizationPolicies,
 
             string jitRequestState,
 
-            Outputs.JitSchedulingPolicyResponse jitSchedulingPolicy,
+            Outputs.JitSchedulingPolicyInvokeResponseResult jitSchedulingPolicy,
 
             string? location,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
 
             string type,
 
-            Outputs.ApplicationClientDetailsResponse updatedBy)
+            Outputs.ApplicationClientDetailsInvokeResponseResult updatedBy)
         {
             ApplicationResourceId = applicationResourceId;
             CreatedBy = createdBy;

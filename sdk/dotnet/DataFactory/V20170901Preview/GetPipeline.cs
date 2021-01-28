@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// <summary>
         /// List of parameters for pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationInvokeResponseResult>? Parameters;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationInvokeResponseResult>? parameters,
 
             string type)
         {

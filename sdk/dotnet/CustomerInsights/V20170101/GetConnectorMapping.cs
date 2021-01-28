@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <summary>
         /// The properties of the mapping.
         /// </summary>
-        public readonly Outputs.ConnectorMappingPropertiesResponse MappingProperties;
+        public readonly Outputs.ConnectorMappingPropertiesInvokeResponseResult MappingProperties;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             string lastModified,
 
-            Outputs.ConnectorMappingPropertiesResponse mappingProperties,
+            Outputs.ConnectorMappingPropertiesInvokeResponseResult mappingProperties,
 
             string name,
 

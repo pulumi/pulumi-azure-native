@@ -48,10 +48,10 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// <summary>
         /// ContentKeys used by current Streaming Locator
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamingLocatorContentKeyResponseResult> ContentKeys;
+        public readonly ImmutableArray<Outputs.StreamingLocatorContentKeyInvokeResponseResult> ContentKeys;
 
         [OutputConstructor]
-        private ListStreamingLocatorContentKeysResult(ImmutableArray<Outputs.StreamingLocatorContentKeyResponseResult> contentKeys)
+        private ListStreamingLocatorContentKeysResult(ImmutableArray<Outputs.StreamingLocatorContentKeyInvokeResponseResult> contentKeys)
         {
             ContentKeys = contentKeys;
         }

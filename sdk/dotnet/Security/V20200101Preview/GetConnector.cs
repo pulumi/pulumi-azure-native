@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// <summary>
         /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         /// </summary>
-        public readonly Outputs.HybridComputeSettingsPropertiesResponse? HybridComputeSettings;
+        public readonly Outputs.HybridComputeSettingsPropertiesInvokeResponseResult? HybridComputeSettings;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         private GetConnectorResult(
             object? authenticationDetails,
 
-            Outputs.HybridComputeSettingsPropertiesResponse? hybridComputeSettings,
+            Outputs.HybridComputeSettingsPropertiesInvokeResponseResult? hybridComputeSettings,
 
             string id,
 

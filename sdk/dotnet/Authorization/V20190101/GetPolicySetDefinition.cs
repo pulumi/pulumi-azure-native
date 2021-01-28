@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
         /// <summary>
         /// An array of policy definition references.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> PolicyDefinitions;
+        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceInvokeResponseResult> PolicyDefinitions;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
 
             object? parameters,
 
-            ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> policyDefinitions,
+            ImmutableArray<Outputs.PolicyDefinitionReferenceInvokeResponseResult> policyDefinitions,
 
             string? policyType,
 

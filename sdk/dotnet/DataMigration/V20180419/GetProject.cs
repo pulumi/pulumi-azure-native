@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         /// <summary>
         /// List of DatabaseInfo
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseInfoResponse> DatabasesInfo;
+        public readonly ImmutableArray<Outputs.DatabaseInfoInvokeResponseResult> DatabasesInfo;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         private GetProjectResult(
             string creationTime,
 
-            ImmutableArray<Outputs.DatabaseInfoResponse> databasesInfo,
+            ImmutableArray<Outputs.DatabaseInfoInvokeResponseResult> databasesInfo,
 
             string id,
 

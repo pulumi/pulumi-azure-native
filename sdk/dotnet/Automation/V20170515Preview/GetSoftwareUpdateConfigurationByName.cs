@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// <summary>
         /// Details of provisioning error
         /// </summary>
-        public readonly Outputs.ErrorResponseResponse? Error;
+        public readonly Outputs.ErrorResponseInvokeResponseResult? Error;
         /// <summary>
         /// Resource Id.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// <summary>
         /// Schedule information for the Software update configuration
         /// </summary>
-        public readonly Outputs.SchedulePropertiesResponse ScheduleInfo;
+        public readonly Outputs.SchedulePropertiesInvokeResponseResult ScheduleInfo;
         /// <summary>
         /// Tasks information for the Software update configuration.
         /// </summary>
-        public readonly Outputs.SoftwareUpdateConfigurationTasksResponse? Tasks;
+        public readonly Outputs.SoftwareUpdateConfigurationTasksInvokeResponseResult? Tasks;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// <summary>
         /// update specific properties for the Software update configuration
         /// </summary>
-        public readonly Outputs.UpdateConfigurationResponse UpdateConfiguration;
+        public readonly Outputs.UpdateConfigurationInvokeResponseResult UpdateConfiguration;
 
         [OutputConstructor]
         private GetSoftwareUpdateConfigurationByNameResult(
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
 
             string creationTime,
 
-            Outputs.ErrorResponseResponse? error,
+            Outputs.ErrorResponseInvokeResponseResult? error,
 
             string id,
 
@@ -112,13 +112,13 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
 
             string provisioningState,
 
-            Outputs.SchedulePropertiesResponse scheduleInfo,
+            Outputs.SchedulePropertiesInvokeResponseResult scheduleInfo,
 
-            Outputs.SoftwareUpdateConfigurationTasksResponse? tasks,
+            Outputs.SoftwareUpdateConfigurationTasksInvokeResponseResult? tasks,
 
             string type,
 
-            Outputs.UpdateConfigurationResponse updateConfiguration)
+            Outputs.UpdateConfigurationInvokeResponseResult updateConfiguration)
         {
             CreatedBy = createdBy;
             CreationTime = creationTime;

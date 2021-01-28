@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
         /// <summary>
         /// The sku type.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
         /// (across resource groups).
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
 
             string name,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

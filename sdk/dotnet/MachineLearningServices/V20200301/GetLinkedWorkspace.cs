@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
         /// <summary>
         /// LinkedWorkspace specific properties.
         /// </summary>
-        public readonly Outputs.LinkedWorkspacePropsResponse Properties;
+        public readonly Outputs.LinkedWorkspacePropsInvokeResponseResult Properties;
         /// <summary>
         /// Resource type of linked workspace.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
 
             string name,
 
-            Outputs.LinkedWorkspacePropsResponse properties,
+            Outputs.LinkedWorkspacePropsInvokeResponseResult properties,
 
             string type)
         {

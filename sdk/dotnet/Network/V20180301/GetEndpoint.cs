@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> CustomHeaders;
+        public readonly ImmutableArray<Outputs.EndpointPropertiesInvokeResponseCustomHeadersResult> CustomHeaders;
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301
 
         [OutputConstructor]
         private GetEndpointResult(
-            ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> customHeaders,
+            ImmutableArray<Outputs.EndpointPropertiesInvokeResponseCustomHeadersResult> customHeaders,
 
             string? endpointLocation,
 

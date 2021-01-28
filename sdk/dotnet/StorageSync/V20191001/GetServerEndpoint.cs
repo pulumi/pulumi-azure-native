@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         /// <summary>
         /// Cloud tiering status. Only populated if cloud tiering is enabled.
         /// </summary>
-        public readonly Outputs.ServerEndpointCloudTieringStatusResponse CloudTieringStatus;
+        public readonly Outputs.ServerEndpointCloudTieringStatusInvokeResponseResult CloudTieringStatus;
         /// <summary>
         /// Friendly Name
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         /// <summary>
         /// Recall status. Only populated if cloud tiering is enabled.
         /// </summary>
-        public readonly Outputs.ServerEndpointRecallStatusResponse RecallStatus;
+        public readonly Outputs.ServerEndpointRecallStatusInvokeResponseResult RecallStatus;
         /// <summary>
         /// Server Local path.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         /// <summary>
         /// Server Endpoint sync status
         /// </summary>
-        public readonly Outputs.ServerEndpointSyncStatusResponse SyncStatus;
+        public readonly Outputs.ServerEndpointSyncStatusInvokeResponseResult SyncStatus;
         /// <summary>
         /// Tier files older than days.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         private GetServerEndpointResult(
             string? cloudTiering,
 
-            Outputs.ServerEndpointCloudTieringStatusResponse cloudTieringStatus,
+            Outputs.ServerEndpointCloudTieringStatusInvokeResponseResult cloudTieringStatus,
 
             string? friendlyName,
 
@@ -154,13 +154,13 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
 
             string provisioningState,
 
-            Outputs.ServerEndpointRecallStatusResponse recallStatus,
+            Outputs.ServerEndpointRecallStatusInvokeResponseResult recallStatus,
 
             string? serverLocalPath,
 
             string? serverResourceId,
 
-            Outputs.ServerEndpointSyncStatusResponse syncStatus,
+            Outputs.ServerEndpointSyncStatusInvokeResponseResult syncStatus,
 
             int? tierFilesOlderThanDays,
 

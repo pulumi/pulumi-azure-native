@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <summary>
         /// DomainSecurity Settings
         /// </summary>
-        public readonly Outputs.DomainSecuritySettingsResponse? DomainSecuritySettings;
+        public readonly Outputs.DomainSecuritySettingsInvokeResponseResult? DomainSecuritySettings;
         /// <summary>
         /// Resource etag
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <summary>
         /// Secure LDAP Settings
         /// </summary>
-        public readonly Outputs.LdapsSettingsResponse? LdapsSettings;
+        public readonly Outputs.LdapsSettingsInvokeResponseResult? LdapsSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <summary>
         /// Migration Properties
         /// </summary>
-        public readonly Outputs.MigrationPropertiesResponse MigrationProperties;
+        public readonly Outputs.MigrationPropertiesInvokeResponseResult MigrationProperties;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <summary>
         /// Notification Settings
         /// </summary>
-        public readonly Outputs.NotificationSettingsResponse? NotificationSettings;
+        public readonly Outputs.NotificationSettingsInvokeResponseResult? NotificationSettings;
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// <summary>
         /// List of ReplicaSets
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicaSetResponse> ReplicaSets;
+        public readonly ImmutableArray<Outputs.ReplicaSetInvokeResponseResult> ReplicaSets;
         /// <summary>
         /// Resource Forest Settings
         /// </summary>
-        public readonly Outputs.ResourceForestSettingsResponse? ResourceForestSettings;
+        public readonly Outputs.ResourceForestSettingsInvokeResponseResult? ResourceForestSettings;
         /// <summary>
         /// Sku Type
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 
             string? domainName,
 
-            Outputs.DomainSecuritySettingsResponse? domainSecuritySettings,
+            Outputs.DomainSecuritySettingsInvokeResponseResult? domainSecuritySettings,
 
             string? etag,
 
@@ -140,21 +140,21 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 
             string id,
 
-            Outputs.LdapsSettingsResponse? ldapsSettings,
+            Outputs.LdapsSettingsInvokeResponseResult? ldapsSettings,
 
             string? location,
 
-            Outputs.MigrationPropertiesResponse migrationProperties,
+            Outputs.MigrationPropertiesInvokeResponseResult migrationProperties,
 
             string name,
 
-            Outputs.NotificationSettingsResponse? notificationSettings,
+            Outputs.NotificationSettingsInvokeResponseResult? notificationSettings,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.ReplicaSetResponse> replicaSets,
+            ImmutableArray<Outputs.ReplicaSetInvokeResponseResult> replicaSets,
 
-            Outputs.ResourceForestSettingsResponse? resourceForestSettings,
+            Outputs.ResourceForestSettingsInvokeResponseResult? resourceForestSettings,
 
             string? sku,
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponse CreationData;
+        public readonly Outputs.CreationDataInvokeResponseResult CreationData;
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// <summary>
         /// Encryption settings for disk or snapshot
         /// </summary>
-        public readonly Outputs.EncryptionSettingsResponse? EncryptionSettings;
+        public readonly Outputs.EncryptionSettingsInvokeResponseResult? EncryptionSettings;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
         /// </summary>
-        public readonly Outputs.DiskSkuResponse? Sku;
+        public readonly Outputs.DiskSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 
         [OutputConstructor]
         private GetDiskResult(
-            Outputs.CreationDataResponse creationData,
+            Outputs.CreationDataInvokeResponseResult creationData,
 
             int? diskSizeGB,
 
-            Outputs.EncryptionSettingsResponse? encryptionSettings,
+            Outputs.EncryptionSettingsInvokeResponseResult? encryptionSettings,
 
             string id,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 
             string provisioningState,
 
-            Outputs.DiskSkuResponse? sku,
+            Outputs.DiskSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
         /// <summary>
         /// The managed identity for the DigitalTwinsInstance.
         /// </summary>
-        public readonly Outputs.DigitalTwinsIdentityResponse? Identity;
+        public readonly Outputs.DigitalTwinsIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Time when DigitalTwinsInstance was updated.
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
 
             string id,
 
-            Outputs.DigitalTwinsIdentityResponse? identity,
+            Outputs.DigitalTwinsIdentityInvokeResponseResult? identity,
 
             string lastUpdatedTime,
 
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 

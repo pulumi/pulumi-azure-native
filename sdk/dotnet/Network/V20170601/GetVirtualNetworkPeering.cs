@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.V20170601
         /// <summary>
         /// The reference of the remote virtual network.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? RemoteVirtualNetwork;
+        public readonly Outputs.SubResourceInvokeResponseResult? RemoteVirtualNetwork;
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20170601
 
             string? provisioningState,
 
-            Outputs.SubResourceResponse? remoteVirtualNetwork,
+            Outputs.SubResourceInvokeResponseResult? remoteVirtualNetwork,
 
             bool? useRemoteGateways)
         {

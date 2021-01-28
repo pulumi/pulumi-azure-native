@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         /// <summary>
         /// the array of data source object which are configured to collect and send data
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataSourceResponse> DataSources;
+        public readonly ImmutableArray<Outputs.DataSourceInvokeResponseResult> DataSources;
         /// <summary>
         /// Azure resource Id
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
 
         [OutputConstructor]
         private GetguestDiagnosticsSettingResult(
-            ImmutableArray<Outputs.DataSourceResponse> dataSources,
+            ImmutableArray<Outputs.DataSourceInvokeResponseResult> dataSources,
 
             string id,
 

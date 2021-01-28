@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170501
         /// <summary>
         /// Contains information about the auto-storage account associated with a Batch account.
         /// </summary>
-        public readonly Outputs.AutoStoragePropertiesResponse AutoStorage;
+        public readonly Outputs.AutoStoragePropertiesInvokeResponseResult AutoStorage;
         public readonly int DedicatedCoreQuota;
         /// <summary>
         /// The ID of the resource.
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170501
         /// <summary>
         /// Identifies the Azure key vault associated with a Batch account.
         /// </summary>
-        public readonly Outputs.KeyVaultReferenceResponse KeyVaultReference;
+        public readonly Outputs.KeyVaultReferenceInvokeResponseResult KeyVaultReference;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -90,13 +90,13 @@ namespace Pulumi.AzureNextGen.Batch.V20170501
 
             int activeJobAndJobScheduleQuota,
 
-            Outputs.AutoStoragePropertiesResponse autoStorage,
+            Outputs.AutoStoragePropertiesInvokeResponseResult autoStorage,
 
             int dedicatedCoreQuota,
 
             string id,
 
-            Outputs.KeyVaultReferenceResponse keyVaultReference,
+            Outputs.KeyVaultReferenceInvokeResponseResult keyVaultReference,
 
             string location,
 

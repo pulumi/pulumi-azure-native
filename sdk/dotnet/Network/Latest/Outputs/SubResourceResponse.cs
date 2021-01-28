@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Outputs
     public sealed class SubResourceResponse
     {
         /// <summary>
-        /// Resource ID.
+        /// Resource Id.
         /// </summary>
         public readonly string? Id;
 

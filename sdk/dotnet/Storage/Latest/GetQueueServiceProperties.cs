@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <summary>
         /// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
         /// </summary>
-        public readonly Outputs.CorsRulesResponse? Cors;
+        public readonly Outputs.CorsRulesInvokeResponseResult? Cors;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 
         [OutputConstructor]
         private GetQueueServicePropertiesResult(
-            Outputs.CorsRulesResponse? cors,
+            Outputs.CorsRulesInvokeResponseResult? cors,
 
             string id,
 

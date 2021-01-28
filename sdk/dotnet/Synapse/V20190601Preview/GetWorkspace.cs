@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Workspace default data lake storage account details
         /// </summary>
-        public readonly Outputs.DataLakeStorageAccountDetailsResponse? DefaultDataLakeStorage;
+        public readonly Outputs.DataLakeStorageAccountDetailsInvokeResponseResult? DefaultDataLakeStorage;
         /// <summary>
         /// The encryption details of the workspace
         /// </summary>
-        public readonly Outputs.EncryptionDetailsResponse? Encryption;
+        public readonly Outputs.EncryptionDetailsInvokeResponseResult? Encryption;
         /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Identity of the workspace
         /// </summary>
-        public readonly Outputs.ManagedIdentityResponse? Identity;
+        public readonly Outputs.ManagedIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Managed Virtual Network Settings
         /// </summary>
-        public readonly Outputs.ManagedVirtualNetworkSettingsResponse? ManagedVirtualNetworkSettings;
+        public readonly Outputs.ManagedVirtualNetworkSettingsInvokeResponseResult? ManagedVirtualNetworkSettings;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Private endpoint connections to the workspace
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Resource provisioning state
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Purview Configuration
         /// </summary>
-        public readonly Outputs.PurviewConfigurationResponse? PurviewConfiguration;
+        public readonly Outputs.PurviewConfigurationInvokeResponseResult? PurviewConfiguration;
         /// <summary>
         /// Login for workspace SQL active directory administrator
         /// </summary>
@@ -118,11 +118,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// Virtual Network profile
         /// </summary>
-        public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetworkProfile;
+        public readonly Outputs.VirtualNetworkProfileInvokeResponseResult? VirtualNetworkProfile;
         /// <summary>
         /// Git integration settings
         /// </summary>
-        public readonly Outputs.WorkspaceRepositoryConfigurationResponse? WorkspaceRepositoryConfiguration;
+        public readonly Outputs.WorkspaceRepositoryConfigurationInvokeResponseResult? WorkspaceRepositoryConfiguration;
         /// <summary>
         /// The workspace unique identifier
         /// </summary>
@@ -134,15 +134,15 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
-            Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
+            Outputs.DataLakeStorageAccountDetailsInvokeResponseResult? defaultDataLakeStorage,
 
-            Outputs.EncryptionDetailsResponse? encryption,
+            Outputs.EncryptionDetailsInvokeResponseResult? encryption,
 
             ImmutableDictionary<string, object> extraProperties,
 
             string id,
 
-            Outputs.ManagedIdentityResponse? identity,
+            Outputs.ManagedIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -150,15 +150,15 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? managedVirtualNetwork,
 
-            Outputs.ManagedVirtualNetworkSettingsResponse? managedVirtualNetworkSettings,
+            Outputs.ManagedVirtualNetworkSettingsInvokeResponseResult? managedVirtualNetworkSettings,
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
-            Outputs.PurviewConfigurationResponse? purviewConfiguration,
+            Outputs.PurviewConfigurationInvokeResponseResult? purviewConfiguration,
 
             string? sqlAdministratorLogin,
 
@@ -168,9 +168,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string type,
 
-            Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile,
+            Outputs.VirtualNetworkProfileInvokeResponseResult? virtualNetworkProfile,
 
-            Outputs.WorkspaceRepositoryConfigurationResponse? workspaceRepositoryConfiguration,
+            Outputs.WorkspaceRepositoryConfigurationInvokeResponseResult? workspaceRepositoryConfiguration,
 
             string workspaceUID)
         {

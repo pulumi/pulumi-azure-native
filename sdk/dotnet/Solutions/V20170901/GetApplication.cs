@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// <summary>
         /// The plan information.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// The managed application provisioning state.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string kind,
 
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
 
             object? parameters,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

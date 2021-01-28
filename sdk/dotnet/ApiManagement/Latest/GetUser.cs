@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Collection of groups user is part of.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GroupContractPropertiesResponse> Groups;
+        public readonly ImmutableArray<Outputs.GroupContractPropertiesInvokeResponseResult> Groups;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Collection of user identities.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserIdentityContractResponse> Identities;
+        public readonly ImmutableArray<Outputs.UserIdentityContractInvokeResponseResult> Identities;
         /// <summary>
         /// Last name.
         /// </summary>
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
             string? firstName,
 
-            ImmutableArray<Outputs.GroupContractPropertiesResponse> groups,
+            ImmutableArray<Outputs.GroupContractPropertiesInvokeResponseResult> groups,
 
             string id,
 
-            ImmutableArray<Outputs.UserIdentityContractResponse> identities,
+            ImmutableArray<Outputs.UserIdentityContractInvokeResponseResult> identities,
 
             string? lastName,
 

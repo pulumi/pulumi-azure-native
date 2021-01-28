@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// <summary>
         /// A collection of AS server administrators
         /// </summary>
-        public readonly Outputs.ServerAdministratorsResponse? AsAdministrators;
+        public readonly Outputs.ServerAdministratorsInvokeResponseResult? AsAdministrators;
         /// <summary>
         /// The SAS container URI to the backup container.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// <summary>
         /// The gateway details configured for the AS server.
         /// </summary>
-        public readonly Outputs.GatewayDetailsResponse? GatewayDetails;
+        public readonly Outputs.GatewayDetailsInvokeResponseResult? GatewayDetails;
         /// <summary>
         /// An identifier that represents the Analysis Services resource.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// <summary>
         /// The firewall settings for the AS server.
         /// </summary>
-        public readonly Outputs.IPv4FirewallSettingsResponse? IpV4FirewallSettings;
+        public readonly Outputs.IPv4FirewallSettingsInvokeResponseResult? IpV4FirewallSettings;
         /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponse Sku;
+        public readonly Outputs.ResourceSkuInvokeResponseResult Sku;
         /// <summary>
         /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
@@ -106,15 +106,15 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
 
         [OutputConstructor]
         private GetServerDetailsResult(
-            Outputs.ServerAdministratorsResponse? asAdministrators,
+            Outputs.ServerAdministratorsInvokeResponseResult? asAdministrators,
 
             string? backupBlobContainerUri,
 
-            Outputs.GatewayDetailsResponse? gatewayDetails,
+            Outputs.GatewayDetailsInvokeResponseResult? gatewayDetails,
 
             string id,
 
-            Outputs.IPv4FirewallSettingsResponse? ipV4FirewallSettings,
+            Outputs.IPv4FirewallSettingsInvokeResponseResult? ipV4FirewallSettings,
 
             string location,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
 
             int? serverMonitorMode,
 
-            Outputs.ResourceSkuResponse sku,
+            Outputs.ResourceSkuInvokeResponseResult sku,
 
             string state,
 

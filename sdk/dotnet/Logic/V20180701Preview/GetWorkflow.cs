@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The integration account.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? IntegrationAccount;
+        public readonly Outputs.ResourceReferenceInvokeResponseResult? IntegrationAccount;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterInvokeResponseResult>? Parameters;
         /// <summary>
         /// Gets the provisioning state.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The state.
         /// </summary>
@@ -112,17 +112,17 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string id,
 
-            Outputs.ResourceReferenceResponse? integrationAccount,
+            Outputs.ResourceReferenceInvokeResponseResult? integrationAccount,
 
             string? location,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? parameters,
+            ImmutableDictionary<string, Outputs.WorkflowParameterInvokeResponseResult>? parameters,
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? state,
 

@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.BotService.Latest
         /// <summary>
         /// The set of properties specific to bot resource
         /// </summary>
-        public readonly Outputs.BotPropertiesResponse Properties;
+        public readonly Outputs.BotPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNextGen.BotService.Latest
 
             string name,
 
-            Outputs.BotPropertiesResponse properties,
+            Outputs.BotPropertiesInvokeResponseResult properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

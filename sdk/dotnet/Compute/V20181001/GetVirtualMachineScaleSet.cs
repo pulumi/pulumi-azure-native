@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// Policy for automatic repairs.
         /// </summary>
-        public readonly Outputs.AutomaticRepairsPolicyResponse? AutomaticRepairsPolicy;
+        public readonly Outputs.AutomaticRepairsPolicyInvokeResponseResult? AutomaticRepairsPolicy;
         /// <summary>
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
+        public readonly Outputs.VirtualMachineScaleSetIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// Fault Domain count for each placement group.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
+        public readonly Outputs.SubResourceInvokeResponseResult? ProximityPlacementGroup;
         /// <summary>
         /// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyInvokeResponseResult? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult? VirtualMachineProfile;
         /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
         /// </summary>
@@ -122,13 +122,13 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
-            Outputs.AutomaticRepairsPolicyResponse? automaticRepairsPolicy,
+            Outputs.AutomaticRepairsPolicyInvokeResponseResult? automaticRepairsPolicy,
 
             bool? doNotRunExtensionsOnOverprovisionedVMs,
 
             string id,
 
-            Outputs.VirtualMachineScaleSetIdentityResponse? identity,
+            Outputs.VirtualMachineScaleSetIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -136,17 +136,17 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
 
             bool? overprovision,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             int? platformFaultDomainCount,
 
             string provisioningState,
 
-            Outputs.SubResourceResponse? proximityPlacementGroup,
+            Outputs.SubResourceInvokeResponseResult? proximityPlacementGroup,
 
             bool? singlePlacementGroup,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -154,9 +154,9 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
 
             string uniqueId,
 
-            Outputs.UpgradePolicyResponse? upgradePolicy,
+            Outputs.UpgradePolicyInvokeResponseResult? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile,
+            Outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult? virtualMachineProfile,
 
             bool? zoneBalance,
 

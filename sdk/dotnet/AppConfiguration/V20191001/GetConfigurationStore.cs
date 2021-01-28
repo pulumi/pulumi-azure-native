@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191001
         /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191001
         /// <summary>
         /// The sku of the configuration store.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191001
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191001
 
             string provisioningState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

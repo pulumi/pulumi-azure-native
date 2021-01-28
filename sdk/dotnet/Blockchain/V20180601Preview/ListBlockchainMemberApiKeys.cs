@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
         /// <summary>
         /// Gets or sets the collection of API key.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApiKeyResponseResult> Keys;
+        public readonly ImmutableArray<Outputs.ApiKeyInvokeResponseResult> Keys;
 
         [OutputConstructor]
-        private ListBlockchainMemberApiKeysResult(ImmutableArray<Outputs.ApiKeyResponseResult> keys)
+        private ListBlockchainMemberApiKeysResult(ImmutableArray<Outputs.ApiKeyInvokeResponseResult> keys)
         {
             Keys = keys;
         }

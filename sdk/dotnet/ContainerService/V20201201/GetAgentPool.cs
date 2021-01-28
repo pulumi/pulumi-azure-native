@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// KubeletConfig specifies the configuration of kubelet on agent nodes.
         /// </summary>
-        public readonly Outputs.KubeletConfigResponse? KubeletConfig;
+        public readonly Outputs.KubeletConfigInvokeResponseResult? KubeletConfig;
         /// <summary>
         /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
         /// </summary>
-        public readonly Outputs.LinuxOSConfigResponse? LinuxOSConfig;
+        public readonly Outputs.LinuxOSConfigInvokeResponseResult? LinuxOSConfig;
         /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// Describes whether the Agent Pool is Running or Stopped
         /// </summary>
-        public readonly Outputs.PowerStateResponse PowerState;
+        public readonly Outputs.PowerStateInvokeResponseResult PowerState;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// Settings for upgrading the agentpool
         /// </summary>
-        public readonly Outputs.AgentPoolUpgradeSettingsResponse? UpgradeSettings;
+        public readonly Outputs.AgentPoolUpgradeSettingsInvokeResponseResult? UpgradeSettings;
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
@@ -192,11 +192,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
 
             string id,
 
-            Outputs.KubeletConfigResponse? kubeletConfig,
+            Outputs.KubeletConfigInvokeResponseResult? kubeletConfig,
 
             string? kubeletDiskType,
 
-            Outputs.LinuxOSConfigResponse? linuxOSConfig,
+            Outputs.LinuxOSConfigInvokeResponseResult? linuxOSConfig,
 
             int? maxCount,
 
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
 
             string? podSubnetID,
 
-            Outputs.PowerStateResponse powerState,
+            Outputs.PowerStateInvokeResponseResult powerState,
 
             string provisioningState,
 
@@ -240,7 +240,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
 
             string type,
 
-            Outputs.AgentPoolUpgradeSettingsResponse? upgradeSettings,
+            Outputs.AgentPoolUpgradeSettingsInvokeResponseResult? upgradeSettings,
 
             string? vmSize,
 

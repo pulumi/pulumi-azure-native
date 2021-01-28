@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// Local network gateway's BGP speaker settings.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpSettings;
+        public readonly Outputs.BgpSettingsInvokeResponseResult? BgpSettings;
         /// <summary>
         /// List of all vpn connections to the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnConnectionResponse> Connections;
+        public readonly ImmutableArray<Outputs.VpnConnectionInvokeResponseResult> Connections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
         /// <summary>
         /// The scale unit for this vpn gateway.
         /// </summary>
@@ -86,9 +86,9 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
         [OutputConstructor]
         private GetVpnGatewayResult(
-            Outputs.BgpSettingsResponse? bgpSettings,
+            Outputs.BgpSettingsInvokeResponseResult? bgpSettings,
 
-            ImmutableArray<Outputs.VpnConnectionResponse> connections,
+            ImmutableArray<Outputs.VpnConnectionInvokeResponseResult> connections,
 
             string etag,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub,
+            Outputs.SubResourceInvokeResponseResult? virtualHub,
 
             int? vpnGatewayScaleUnit)
         {

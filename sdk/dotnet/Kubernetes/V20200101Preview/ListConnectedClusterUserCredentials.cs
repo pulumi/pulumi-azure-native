@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// Authentication token value.
         /// </summary>
         [Input("value", required: true)]
-        public Inputs.AuthenticationDetailsValueArgs Value { get; set; } = null!;
+        public Inputs.AuthenticationDetailsInvokeValueArgs Value { get; set; } = null!;
 
         public ListConnectedClusterUserCredentialsArgs()
         {
@@ -60,17 +60,17 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// <summary>
         /// Contains the REP (rendezvous endpoint) and “Sender” access token.
         /// </summary>
-        public readonly Outputs.HybridConnectionConfigResponseResult HybridConnectionConfig;
+        public readonly Outputs.HybridConnectionConfigInvokeResponseResult HybridConnectionConfig;
         /// <summary>
         /// Base64-encoded Kubernetes configuration file.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CredentialResultResponseResult> Kubeconfigs;
+        public readonly ImmutableArray<Outputs.CredentialResultInvokeResponseResult> Kubeconfigs;
 
         [OutputConstructor]
         private ListConnectedClusterUserCredentialsResult(
-            Outputs.HybridConnectionConfigResponseResult hybridConnectionConfig,
+            Outputs.HybridConnectionConfigInvokeResponseResult hybridConnectionConfig,
 
-            ImmutableArray<Outputs.CredentialResultResponseResult> kubeconfigs)
+            ImmutableArray<Outputs.CredentialResultInvokeResponseResult> kubeconfigs)
         {
             HybridConnectionConfig = hybridConnectionConfig;
             Kubeconfigs = kubeconfigs;

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
+        public readonly Outputs.NetworkInterfaceDnsSettingsInvokeResponseResult? DnsSettings;
         /// <summary>
         /// If the network interface is accelerated networking enabled.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// <summary>
         /// A reference to the interface endpoint to which the network interface is linked.
         /// </summary>
-        public readonly Outputs.InterfaceEndpointResponse InterfaceEndpoint;
+        public readonly Outputs.InterfaceEndpointInvokeResponseResult InterfaceEndpoint;
         /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupInvokeResponseResult? NetworkSecurityGroup;
         /// <summary>
         /// Gets whether this is a primary network interface on a virtual machine.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// <summary>
         /// A list of TapConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> TapConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationInvokeResponseResult> TapConfigurations;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -120,11 +120,11 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// <summary>
         /// The reference of a virtual machine.
         /// </summary>
-        public readonly Outputs.SubResourceResponse VirtualMachine;
+        public readonly Outputs.SubResourceInvokeResponseResult VirtualMachine;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
-            Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
+            Outputs.NetworkInterfaceDnsSettingsInvokeResponseResult? dnsSettings,
 
             bool? enableAcceleratedNetworking,
 
@@ -136,9 +136,9 @@ namespace Pulumi.AzureNextGen.Network.V20181001
 
             string? id,
 
-            Outputs.InterfaceEndpointResponse interfaceEndpoint,
+            Outputs.InterfaceEndpointInvokeResponseResult interfaceEndpoint,
 
-            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
 
             string name,
 
-            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupInvokeResponseResult? networkSecurityGroup,
 
             bool? primary,
 
@@ -156,11 +156,11 @@ namespace Pulumi.AzureNextGen.Network.V20181001
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> tapConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationInvokeResponseResult> tapConfigurations,
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine)
+            Outputs.SubResourceInvokeResponseResult virtualMachine)
         {
             DnsSettings = dnsSettings;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;

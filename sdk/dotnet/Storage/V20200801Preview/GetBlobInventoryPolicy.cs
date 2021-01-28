@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// <summary>
         /// The storage account blob inventory policy object. It is composed of policy rules.
         /// </summary>
-        public readonly Outputs.BlobInventoryPolicySchemaResponse Policy;
+        public readonly Outputs.BlobInventoryPolicySchemaInvokeResponseResult Policy;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             string name,
 
-            Outputs.BlobInventoryPolicySchemaResponse policy,
+            Outputs.BlobInventoryPolicySchemaInvokeResponseResult policy,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

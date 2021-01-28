@@ -48,10 +48,10 @@ namespace Pulumi.AzureNextGen.Network.V20170801
         /// <summary>
         /// List of gateway routes
         /// </summary>
-        public readonly ImmutableArray<Outputs.GatewayRouteResponseResult> Value;
+        public readonly ImmutableArray<Outputs.GatewayRouteInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private GetVirtualNetworkGatewayAdvertisedRoutesResult(ImmutableArray<Outputs.GatewayRouteResponseResult> value)
+        private GetVirtualNetworkGatewayAdvertisedRoutesResult(ImmutableArray<Outputs.GatewayRouteInvokeResponseResult> value)
         {
             Value = value;
         }

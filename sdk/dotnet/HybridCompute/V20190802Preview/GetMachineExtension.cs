@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// <summary>
         /// The machine extension instance view.
         /// </summary>
-        public readonly Outputs.MachineExtensionInstanceViewResponse? InstanceView;
+        public readonly Outputs.MachineExtensionInstanceViewInvokeResponseResult? InstanceView;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
 
             string id,
 
-            Outputs.MachineExtensionInstanceViewResponse? instanceView,
+            Outputs.MachineExtensionInstanceViewInvokeResponseResult? instanceView,
 
             string location,
 

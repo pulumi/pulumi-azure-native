@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// <summary>
         /// The schedule recurrence.
         /// </summary>
-        public readonly Outputs.ScheduleRecurrenceResponse ScheduleRecurrence;
+        public readonly Outputs.ScheduleRecurrenceInvokeResponseResult ScheduleRecurrence;
         /// <summary>
         /// The schedule status.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
             double retentionCount,
 
-            Outputs.ScheduleRecurrenceResponse scheduleRecurrence,
+            Outputs.ScheduleRecurrenceInvokeResponseResult scheduleRecurrence,
 
             string scheduleStatus,
 

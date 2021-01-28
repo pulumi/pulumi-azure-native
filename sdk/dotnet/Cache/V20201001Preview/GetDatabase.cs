@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// <summary>
         /// Optional set of redis modules to enable in this database - modules can only be added at creation time.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ModuleResponse> Modules;
+        public readonly ImmutableArray<Outputs.ModuleInvokeResponseResult> Modules;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
 
             string id,
 
-            ImmutableArray<Outputs.ModuleResponse> modules,
+            ImmutableArray<Outputs.ModuleInvokeResponseResult> modules,
 
             string name,
 

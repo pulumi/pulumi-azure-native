@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <summary>
         /// The Private Endpoint resource for this Connection.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// Details about the state of the connection.
         /// </summary>
-        public readonly Outputs.ConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.ConnectionStateInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.ConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.ConnectionStateInvokeResponseResult? privateLinkServiceConnectionState,
 
             string? provisioningState,
 

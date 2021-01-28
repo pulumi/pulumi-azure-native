@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
         /// <summary>
         /// Describes whether the Agent Pool is Running or Stopped
         /// </summary>
-        public readonly Outputs.PowerStateResponse PowerState;
+        public readonly Outputs.PowerStateInvokeResponseResult PowerState;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
         /// <summary>
         /// Settings for upgrading the agentpool
         /// </summary>
-        public readonly Outputs.AgentPoolUpgradeSettingsResponse? UpgradeSettings;
+        public readonly Outputs.AgentPoolUpgradeSettingsInvokeResponseResult? UpgradeSettings;
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
 
             string? osType,
 
-            Outputs.PowerStateResponse powerState,
+            Outputs.PowerStateInvokeResponseResult powerState,
 
             string provisioningState,
 
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
 
             string type,
 
-            Outputs.AgentPoolUpgradeSettingsResponse? upgradeSettings,
+            Outputs.AgentPoolUpgradeSettingsInvokeResponseResult? upgradeSettings,
 
             string? vmSize,
 

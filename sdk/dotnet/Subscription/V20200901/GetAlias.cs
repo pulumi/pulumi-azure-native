@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
         /// <summary>
         /// Put Alias response properties.
         /// </summary>
-        public readonly Outputs.PutAliasResponsePropertiesResponse Properties;
+        public readonly Outputs.PutAliasResponsePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource type, Microsoft.Subscription/aliases.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
 
             string name,
 
-            Outputs.PutAliasResponsePropertiesResponse properties,
+            Outputs.PutAliasResponsePropertiesInvokeResponseResult properties,
 
             string type)
         {

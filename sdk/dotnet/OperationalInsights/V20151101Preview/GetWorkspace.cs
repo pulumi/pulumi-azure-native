@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// <summary>
         /// The SKU of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
 
             int? retentionInDays,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string source,
 

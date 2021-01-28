@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The access control configuration.
         /// </summary>
-        public readonly Outputs.FlowAccessControlConfigurationResponse? AccessControl;
+        public readonly Outputs.FlowAccessControlConfigurationInvokeResponseResult? AccessControl;
         /// <summary>
         /// Gets the access endpoint.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The endpoints configuration.
         /// </summary>
-        public readonly Outputs.FlowEndpointsConfigurationResponse? EndpointsConfiguration;
+        public readonly Outputs.FlowEndpointsConfigurationInvokeResponseResult? EndpointsConfiguration;
         /// <summary>
         /// The resource id.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The integration account.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? IntegrationAccount;
+        public readonly Outputs.ResourceReferenceInvokeResponseResult? IntegrationAccount;
         /// <summary>
         /// The integration service environment.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? IntegrationServiceEnvironment;
+        public readonly Outputs.ResourceReferenceInvokeResponseResult? IntegrationServiceEnvironment;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterInvokeResponseResult>? Parameters;
         /// <summary>
         /// Gets the provisioning state.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The state.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
         [OutputConstructor]
         private GetWorkflowResult(
-            Outputs.FlowAccessControlConfigurationResponse? accessControl,
+            Outputs.FlowAccessControlConfigurationInvokeResponseResult? accessControl,
 
             string accessEndpoint,
 
@@ -124,23 +124,23 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
             object? definition,
 
-            Outputs.FlowEndpointsConfigurationResponse? endpointsConfiguration,
+            Outputs.FlowEndpointsConfigurationInvokeResponseResult? endpointsConfiguration,
 
             string id,
 
-            Outputs.ResourceReferenceResponse? integrationAccount,
+            Outputs.ResourceReferenceInvokeResponseResult? integrationAccount,
 
-            Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
+            Outputs.ResourceReferenceInvokeResponseResult? integrationServiceEnvironment,
 
             string? location,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? parameters,
+            ImmutableDictionary<string, Outputs.WorkflowParameterInvokeResponseResult>? parameters,
 
             string provisioningState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             string? state,
 

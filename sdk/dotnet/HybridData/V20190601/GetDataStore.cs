@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
         /// <summary>
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomerSecretResponse> CustomerSecrets;
+        public readonly ImmutableArray<Outputs.CustomerSecretInvokeResponseResult> CustomerSecrets;
         /// <summary>
         /// The arm id of the data store type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
 
         [OutputConstructor]
         private GetDataStoreResult(
-            ImmutableArray<Outputs.CustomerSecretResponse> customerSecrets,
+            ImmutableArray<Outputs.CustomerSecretInvokeResponseResult> customerSecrets,
 
             string dataStoreTypeId,
 

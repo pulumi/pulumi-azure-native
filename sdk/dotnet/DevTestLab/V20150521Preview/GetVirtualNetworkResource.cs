@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <summary>
         /// The allowed subnets of the virtual network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponse> AllowedSubnets;
+        public readonly ImmutableArray<Outputs.SubnetInvokeResponseResult> AllowedSubnets;
         /// <summary>
         /// The description of the virtual network.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <summary>
         /// The subnet overrides of the virtual network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetOverrideResponse> SubnetOverrides;
+        public readonly ImmutableArray<Outputs.SubnetOverrideInvokeResponseResult> SubnetOverrides;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
         [OutputConstructor]
         private GetVirtualNetworkResourceResult(
-            ImmutableArray<Outputs.SubnetResponse> allowedSubnets,
+            ImmutableArray<Outputs.SubnetInvokeResponseResult> allowedSubnets,
 
             string? description,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.SubnetOverrideResponse> subnetOverrides,
+            ImmutableArray<Outputs.SubnetOverrideInvokeResponseResult> subnetOverrides,
 
             ImmutableDictionary<string, string>? tags,
 

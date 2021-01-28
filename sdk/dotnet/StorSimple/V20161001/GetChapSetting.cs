@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The chap password.
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse Password;
+        public readonly Outputs.AsymmetricEncryptedSecretInvokeResponseResult Password;
         /// <summary>
         /// The type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
             string name,
 
-            Outputs.AsymmetricEncryptedSecretResponse password,
+            Outputs.AsymmetricEncryptedSecretInvokeResponseResult password,
 
             string type)
         {

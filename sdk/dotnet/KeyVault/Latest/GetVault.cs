@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// <summary>
         /// Properties of the vault
         /// </summary>
-        public readonly Outputs.VaultPropertiesResponse Properties;
+        public readonly Outputs.VaultPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
             string name,
 
-            Outputs.VaultPropertiesResponse properties,
+            Outputs.VaultPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

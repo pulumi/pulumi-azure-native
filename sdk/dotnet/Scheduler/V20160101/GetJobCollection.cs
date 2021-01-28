@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101
         /// <summary>
         /// Gets or sets the job collection properties.
         /// </summary>
-        public readonly Outputs.JobCollectionPropertiesResponse Properties;
+        public readonly Outputs.JobCollectionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Gets or sets the tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101
 
             string? name,
 
-            Outputs.JobCollectionPropertiesResponse properties,
+            Outputs.JobCollectionPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

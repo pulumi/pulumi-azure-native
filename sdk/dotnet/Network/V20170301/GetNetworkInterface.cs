@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
+        public readonly Outputs.NetworkInterfaceDnsSettingsInvokeResponseResult? DnsSettings;
         /// <summary>
         /// If the network interface is accelerated networking enabled.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupInvokeResponseResult? NetworkSecurityGroup;
         /// <summary>
         /// Gets whether this is a primary network interface on a virtual machine.
         /// </summary>
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// <summary>
         /// The reference of a virtual machine.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualMachine;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualMachine;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
-            Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
+            Outputs.NetworkInterfaceDnsSettingsInvokeResponseResult? dnsSettings,
 
             bool? enableAcceleratedNetworking,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
 
             string? id,
 
-            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
 
             string name,
 
-            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupInvokeResponseResult? networkSecurityGroup,
 
             bool? primary,
 
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
 
             string type,
 
-            Outputs.SubResourceResponse? virtualMachine)
+            Outputs.SubResourceInvokeResponseResult? virtualMachine)
         {
             DnsSettings = dnsSettings;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;

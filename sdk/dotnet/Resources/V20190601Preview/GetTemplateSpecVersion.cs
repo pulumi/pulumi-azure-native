@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// An array of Template Spec artifacts.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.TemplateSpecTemplateArtifactInvokeResponseResult> Artifacts;
         /// <summary>
         /// Template Spec version description.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
         [OutputConstructor]
         private GetTemplateSpecVersionResult(
-            ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse> artifacts,
+            ImmutableArray<Outputs.TemplateSpecTemplateArtifactInvokeResponseResult> artifacts,
 
             string? description,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

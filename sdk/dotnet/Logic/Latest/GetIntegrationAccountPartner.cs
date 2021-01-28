@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The partner content.
         /// </summary>
-        public readonly Outputs.PartnerContentResponse Content;
+        public readonly Outputs.PartnerContentInvokeResponseResult Content;
         /// <summary>
         /// The created time.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         private GetIntegrationAccountPartnerResult(
             string changedTime,
 
-            Outputs.PartnerContentResponse content,
+            Outputs.PartnerContentInvokeResponseResult content,
 
             string createdTime,
 

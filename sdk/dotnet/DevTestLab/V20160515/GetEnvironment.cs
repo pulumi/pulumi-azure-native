@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The deployment properties of the environment.
         /// </summary>
-        public readonly Outputs.EnvironmentDeploymentPropertiesResponse? DeploymentProperties;
+        public readonly Outputs.EnvironmentDeploymentPropertiesInvokeResponseResult? DeploymentProperties;
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string createdByUser,
 
-            Outputs.EnvironmentDeploymentPropertiesResponse? deploymentProperties,
+            Outputs.EnvironmentDeploymentPropertiesInvokeResponseResult? deploymentProperties,
 
             string id,
 

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The properties that are associated with a function.
         /// </summary>
-        public readonly Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse> Properties;
+        public readonly Union<Outputs.AggregateFunctionPropertiesInvokeResponseResult, Outputs.ScalarFunctionPropertiesInvokeResponseResult> Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
             string? name,
 
-            Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse> properties,
+            Union<Outputs.AggregateFunctionPropertiesInvokeResponseResult, Outputs.ScalarFunctionPropertiesInvokeResponseResult> properties,
 
             string type)
         {

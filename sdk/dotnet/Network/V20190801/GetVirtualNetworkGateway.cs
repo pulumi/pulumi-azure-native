@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpSettings;
+        public readonly Outputs.BgpSettingsInvokeResponseResult? BgpSettings;
         /// <summary>
         /// The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? CustomRoutes;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? CustomRoutes;
         /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? GatewayDefaultSite;
+        public readonly Outputs.SubResourceInvokeResponseResult? GatewayDefaultSite;
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// IP configurations for virtual network gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewaySkuResponse? Sku;
+        public readonly Outputs.VirtualNetworkGatewaySkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
-        public readonly Outputs.VpnClientConfigurationResponse? VpnClientConfiguration;
+        public readonly Outputs.VpnClientConfigurationInvokeResponseResult? VpnClientConfiguration;
         /// <summary>
         /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         /// </summary>
@@ -128,9 +128,9 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         private GetVirtualNetworkGatewayResult(
             bool? activeActive,
 
-            Outputs.BgpSettingsResponse? bgpSettings,
+            Outputs.BgpSettingsInvokeResponseResult? bgpSettings,
 
-            Outputs.AddressSpaceResponse? customRoutes,
+            Outputs.AddressSpaceInvokeResponseResult? customRoutes,
 
             bool? enableBgp,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string? etag,
 
-            Outputs.SubResourceResponse? gatewayDefaultSite,
+            Outputs.SubResourceInvokeResponseResult? gatewayDefaultSite,
 
             string? gatewayType,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string inboundDnsForwardingEndpoint,
 
-            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 
@@ -156,13 +156,13 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string? resourceGuid,
 
-            Outputs.VirtualNetworkGatewaySkuResponse? sku,
+            Outputs.VirtualNetworkGatewaySkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
+            Outputs.VpnClientConfigurationInvokeResponseResult? vpnClientConfiguration,
 
             string? vpnGatewayGeneration,
 

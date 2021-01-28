@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview
         /// <summary>
         /// Action rule properties defining scope, conditions, suppression logic for action rule
         /// </summary>
-        public readonly Outputs.ActionRulePropertiesResponse Properties;
+        public readonly Outputs.ActionRulePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview
 
             string name,
 
-            Outputs.ActionRulePropertiesResponse properties,
+            Outputs.ActionRulePropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

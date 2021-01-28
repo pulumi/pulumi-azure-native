@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackupItemResponseResult> Value;
+        public readonly ImmutableArray<Outputs.BackupItemInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListWebAppSiteBackupsResult(
             string nextLink,
 
-            ImmutableArray<Outputs.BackupItemResponseResult> value)
+            ImmutableArray<Outputs.BackupItemInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

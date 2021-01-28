@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// <summary>
         /// Offer plans
         /// </summary>
-        public readonly ImmutableArray<Outputs.PlanResponse> Plans;
+        public readonly ImmutableArray<Outputs.PlanInvokeResponseResult> Plans;
         /// <summary>
         /// Private store unique id
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
 
             string offerDisplayName,
 
-            ImmutableArray<Outputs.PlanResponse> plans,
+            ImmutableArray<Outputs.PlanInvokeResponseResult> plans,
 
             string privateStoreId,
 

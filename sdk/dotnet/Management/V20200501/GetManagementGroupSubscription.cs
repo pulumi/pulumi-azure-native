@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Management.V20200501
         /// <summary>
         /// The ID of the parent management group.
         /// </summary>
-        public readonly Outputs.DescendantParentGroupInfoResponse? Parent;
+        public readonly Outputs.DescendantParentGroupInfoInvokeResponseResult? Parent;
         /// <summary>
         /// The state of the subscription.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Management.V20200501
 
             string name,
 
-            Outputs.DescendantParentGroupInfoResponse? parent,
+            Outputs.DescendantParentGroupInfoInvokeResponseResult? parent,
 
             string? state,
 

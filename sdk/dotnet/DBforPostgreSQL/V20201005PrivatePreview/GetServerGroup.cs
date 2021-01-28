@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// <summary>
         /// The delegated subnet arguments for a server group.
         /// </summary>
-        public readonly Outputs.ServerGroupPropertiesResponseDelegatedSubnetArguments? DelegatedSubnetArguments;
+        public readonly Outputs.ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsResult? DelegatedSubnetArguments;
         /// <summary>
         /// The earliest restore point time (ISO8601 format) for server group.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// <summary>
         /// Maintenance window of a server group.
         /// </summary>
-        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
+        public readonly Outputs.MaintenanceWindowInvokeResponseResult? MaintenanceWindow;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// <summary>
         /// The list of server role groups.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerRoleGroupResponse> ServerRoleGroups;
+        public readonly ImmutableArray<Outputs.ServerRoleGroupInvokeResponseResult> ServerRoleGroups;
         /// <summary>
         /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// <summary>
         /// The system metadata relating to this resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 
             string? createMode,
 
-            Outputs.ServerGroupPropertiesResponseDelegatedSubnetArguments? delegatedSubnetArguments,
+            Outputs.ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsResult? delegatedSubnetArguments,
 
             string earliestRestoreTime,
 
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 
             string location,
 
-            Outputs.MaintenanceWindowResponse? maintenanceWindow,
+            Outputs.MaintenanceWindowInvokeResponseResult? maintenanceWindow,
 
             string name,
 
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 
             string resourceProviderType,
 
-            ImmutableArray<Outputs.ServerRoleGroupResponse> serverRoleGroups,
+            ImmutableArray<Outputs.ServerRoleGroupInvokeResponseResult> serverRoleGroups,
 
             string? sourceLocation,
 
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 
             string state,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

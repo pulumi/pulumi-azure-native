@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
         /// </summary>
-        public readonly Outputs.HealthProbeParametersResponse? HealthProbeSettings;
+        public readonly Outputs.HealthProbeParametersInvokeResponseResult? HealthProbeSettings;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// Load balancing settings for a backend pool
         /// </summary>
-        public readonly Outputs.LoadBalancingSettingsParametersResponse? LoadBalancingSettings;
+        public readonly Outputs.LoadBalancingSettingsParametersInvokeResponseResult? LoadBalancingSettings;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         /// </summary>
-        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponse? ResponseBasedAfdOriginErrorDetectionSettings;
+        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult? ResponseBasedAfdOriginErrorDetectionSettings;
         /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         /// </summary>
@@ -91,21 +91,21 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         private GetAFDOriginGroupResult(
             string deploymentStatus,
 
-            Outputs.HealthProbeParametersResponse? healthProbeSettings,
+            Outputs.HealthProbeParametersInvokeResponseResult? healthProbeSettings,
 
             string id,
 
-            Outputs.LoadBalancingSettingsParametersResponse? loadBalancingSettings,
+            Outputs.LoadBalancingSettingsParametersInvokeResponseResult? loadBalancingSettings,
 
             string name,
 
             string provisioningState,
 
-            Outputs.ResponseBasedOriginErrorDetectionParametersResponse? responseBasedAfdOriginErrorDetectionSettings,
+            Outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult? responseBasedAfdOriginErrorDetectionSettings,
 
             string? sessionAffinityState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             int? trafficRestorationTimeToHealedOrNewEndpointsInMinutes,
 

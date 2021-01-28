@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
         /// <summary>
         /// Properties of the private endpoint object.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// Approval state of the private link connection.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// Provisioning state of the private endpoint connection.
         /// </summary>
@@ -86,9 +86,9 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 

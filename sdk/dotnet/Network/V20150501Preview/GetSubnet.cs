@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets array of references to the network interface IP configurations using subnet
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets the reference of the NetworkSecurityGroup resource
         /// </summary>
-        public readonly Outputs.SubResourceResponse? NetworkSecurityGroup;
+        public readonly Outputs.SubResourceInvokeResponseResult? NetworkSecurityGroup;
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets the reference of the RouteTable resource
         /// </summary>
-        public readonly Outputs.SubResourceResponse? RouteTable;
+        public readonly Outputs.SubResourceInvokeResponseResult? RouteTable;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -86,15 +86,15 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
             string? id,
 
-            ImmutableArray<Outputs.SubResourceResponse> ipConfigurations,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.SubResourceResponse? networkSecurityGroup,
+            Outputs.SubResourceInvokeResponseResult? networkSecurityGroup,
 
             string? provisioningState,
 
-            Outputs.SubResourceResponse? routeTable)
+            Outputs.SubResourceInvokeResponseResult? routeTable)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

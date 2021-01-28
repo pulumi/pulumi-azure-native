@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Custom API properties
         /// </summary>
-        public readonly Outputs.CustomApiPropertiesDefinitionResponse Properties;
+        public readonly Outputs.CustomApiPropertiesDefinitionInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string name,
 
-            Outputs.CustomApiPropertiesDefinitionResponse properties,
+            Outputs.CustomApiPropertiesDefinitionInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

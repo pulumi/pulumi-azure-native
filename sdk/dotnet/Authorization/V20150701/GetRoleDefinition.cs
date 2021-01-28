@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150701
         /// <summary>
         /// Role definition permissions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PermissionResponse> Permissions;
+        public readonly ImmutableArray<Outputs.PermissionInvokeResponseResult> Permissions;
         /// <summary>
         /// The role name.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150701
 
             string name,
 
-            ImmutableArray<Outputs.PermissionResponse> permissions,
+            ImmutableArray<Outputs.PermissionInvokeResponseResult> permissions,
 
             string? roleName,
 

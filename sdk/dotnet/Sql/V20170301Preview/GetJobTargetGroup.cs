@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <summary>
         /// Members of the target group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JobTargetResponse> Members;
+        public readonly ImmutableArray<Outputs.JobTargetInvokeResponseResult> Members;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         private GetJobTargetGroupResult(
             string id,
 
-            ImmutableArray<Outputs.JobTargetResponse> members,
+            ImmutableArray<Outputs.JobTargetInvokeResponseResult> members,
 
             string name,
 

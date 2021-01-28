@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// <summary>
         /// Active Directories
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActiveDirectoryResponse> ActiveDirectories;
+        public readonly ImmutableArray<Outputs.ActiveDirectoryInvokeResponseResult> ActiveDirectories;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
         [OutputConstructor]
         private GetAccountResult(
-            ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
+            ImmutableArray<Outputs.ActiveDirectoryInvokeResponseResult> activeDirectories,
 
             string id,
 

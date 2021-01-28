@@ -42,23 +42,23 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
         /// <summary>
         /// The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ArmRoleReceiverResponse> ArmRoleReceivers;
+        public readonly ImmutableArray<Outputs.ArmRoleReceiverInvokeResponseResult> ArmRoleReceivers;
         /// <summary>
         /// The list of AutomationRunbook receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationRunbookReceiverResponse> AutomationRunbookReceivers;
+        public readonly ImmutableArray<Outputs.AutomationRunbookReceiverInvokeResponseResult> AutomationRunbookReceivers;
         /// <summary>
         /// The list of AzureAppPush receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureAppPushReceiverResponse> AzureAppPushReceivers;
+        public readonly ImmutableArray<Outputs.AzureAppPushReceiverInvokeResponseResult> AzureAppPushReceivers;
         /// <summary>
         /// The list of azure function receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFunctionReceiverResponse> AzureFunctionReceivers;
+        public readonly ImmutableArray<Outputs.AzureFunctionReceiverInvokeResponseResult> AzureFunctionReceivers;
         /// <summary>
         /// The list of email receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EmailReceiverResponse> EmailReceivers;
+        public readonly ImmutableArray<Outputs.EmailReceiverInvokeResponseResult> EmailReceivers;
         /// <summary>
         /// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
         /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
+        public readonly ImmutableArray<Outputs.ItsmReceiverInvokeResponseResult> ItsmReceivers;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
         /// <summary>
         /// The list of logic app receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogicAppReceiverResponse> LogicAppReceivers;
+        public readonly ImmutableArray<Outputs.LogicAppReceiverInvokeResponseResult> LogicAppReceivers;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
         /// <summary>
         /// The list of SMS receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SmsReceiverResponse> SmsReceivers;
+        public readonly ImmutableArray<Outputs.SmsReceiverInvokeResponseResult> SmsReceivers;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -102,23 +102,23 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
         /// <summary>
         /// The list of voice receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VoiceReceiverResponse> VoiceReceivers;
+        public readonly ImmutableArray<Outputs.VoiceReceiverInvokeResponseResult> VoiceReceivers;
         /// <summary>
         /// The list of webhook receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebhookReceiverResponse> WebhookReceivers;
+        public readonly ImmutableArray<Outputs.WebhookReceiverInvokeResponseResult> WebhookReceivers;
 
         [OutputConstructor]
         private GetActionGroupResult(
-            ImmutableArray<Outputs.ArmRoleReceiverResponse> armRoleReceivers,
+            ImmutableArray<Outputs.ArmRoleReceiverInvokeResponseResult> armRoleReceivers,
 
-            ImmutableArray<Outputs.AutomationRunbookReceiverResponse> automationRunbookReceivers,
+            ImmutableArray<Outputs.AutomationRunbookReceiverInvokeResponseResult> automationRunbookReceivers,
 
-            ImmutableArray<Outputs.AzureAppPushReceiverResponse> azureAppPushReceivers,
+            ImmutableArray<Outputs.AzureAppPushReceiverInvokeResponseResult> azureAppPushReceivers,
 
-            ImmutableArray<Outputs.AzureFunctionReceiverResponse> azureFunctionReceivers,
+            ImmutableArray<Outputs.AzureFunctionReceiverInvokeResponseResult> azureFunctionReceivers,
 
-            ImmutableArray<Outputs.EmailReceiverResponse> emailReceivers,
+            ImmutableArray<Outputs.EmailReceiverInvokeResponseResult> emailReceivers,
 
             bool enabled,
 
@@ -126,23 +126,23 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
 
             string id,
 
-            ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
+            ImmutableArray<Outputs.ItsmReceiverInvokeResponseResult> itsmReceivers,
 
             string location,
 
-            ImmutableArray<Outputs.LogicAppReceiverResponse> logicAppReceivers,
+            ImmutableArray<Outputs.LogicAppReceiverInvokeResponseResult> logicAppReceivers,
 
             string name,
 
-            ImmutableArray<Outputs.SmsReceiverResponse> smsReceivers,
+            ImmutableArray<Outputs.SmsReceiverInvokeResponseResult> smsReceivers,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VoiceReceiverResponse> voiceReceivers,
+            ImmutableArray<Outputs.VoiceReceiverInvokeResponseResult> voiceReceivers,
 
-            ImmutableArray<Outputs.WebhookReceiverResponse> webhookReceivers)
+            ImmutableArray<Outputs.WebhookReceiverInvokeResponseResult> webhookReceivers)
         {
             ArmRoleReceivers = armRoleReceivers;
             AutomationRunbookReceivers = automationRunbookReceivers;

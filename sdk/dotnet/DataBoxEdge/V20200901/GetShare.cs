@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// Azure container mapping for the share.
         /// </summary>
-        public readonly Outputs.AzureContainerInfoResponse? AzureContainerInfo;
+        public readonly Outputs.AzureContainerInfoInvokeResponseResult? AzureContainerInfo;
         /// <summary>
         /// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientAccessRightResponse> ClientAccessRights;
+        public readonly ImmutableArray<Outputs.ClientAccessRightInvokeResponseResult> ClientAccessRights;
         /// <summary>
         /// Data policy of the share.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// Details of the refresh job on this share.
         /// </summary>
-        public readonly Outputs.RefreshDetailsResponse? RefreshDetails;
+        public readonly Outputs.RefreshDetailsInvokeResponseResult? RefreshDetails;
         /// <summary>
         /// Share mount point to the role.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MountPointMapResponse> ShareMappings;
+        public readonly ImmutableArray<Outputs.MountPointMapInvokeResponseResult> ShareMappings;
         /// <summary>
         /// Current status of the share.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// Share on ASE device
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -100,15 +100,15 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// Mapping of users and corresponding access rights on the share (required for SMB protocol).
         /// </summary>
-        public readonly ImmutableArray<Outputs.UserAccessRightResponse> UserAccessRights;
+        public readonly ImmutableArray<Outputs.UserAccessRightInvokeResponseResult> UserAccessRights;
 
         [OutputConstructor]
         private GetShareResult(
             string accessProtocol,
 
-            Outputs.AzureContainerInfoResponse? azureContainerInfo,
+            Outputs.AzureContainerInfoInvokeResponseResult? azureContainerInfo,
 
-            ImmutableArray<Outputs.ClientAccessRightResponse> clientAccessRights,
+            ImmutableArray<Outputs.ClientAccessRightInvokeResponseResult> clientAccessRights,
 
             string? dataPolicy,
 
@@ -120,17 +120,17 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 
             string name,
 
-            Outputs.RefreshDetailsResponse? refreshDetails,
+            Outputs.RefreshDetailsInvokeResponseResult? refreshDetails,
 
-            ImmutableArray<Outputs.MountPointMapResponse> shareMappings,
+            ImmutableArray<Outputs.MountPointMapInvokeResponseResult> shareMappings,
 
             string shareStatus,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type,
 
-            ImmutableArray<Outputs.UserAccessRightResponse> userAccessRights)
+            ImmutableArray<Outputs.UserAccessRightInvokeResponseResult> userAccessRights)
         {
             AccessProtocol = accessProtocol;
             AzureContainerInfo = azureContainerInfo;

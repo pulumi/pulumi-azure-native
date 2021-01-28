@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// <summary>
         /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? storageLimitExceededBehavior,
 

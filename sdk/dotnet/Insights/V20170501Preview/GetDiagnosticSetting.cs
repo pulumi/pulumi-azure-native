@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogSettingsResponse> Logs;
+        public readonly ImmutableArray<Outputs.LogSettingsInvokeResponseResult> Logs;
         /// <summary>
         /// The list of metric settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetricSettingsResponse> Metrics;
+        public readonly ImmutableArray<Outputs.MetricSettingsInvokeResponseResult> Metrics;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
 
             string? logAnalyticsDestinationType,
 
-            ImmutableArray<Outputs.LogSettingsResponse> logs,
+            ImmutableArray<Outputs.LogSettingsInvokeResponseResult> logs,
 
-            ImmutableArray<Outputs.MetricSettingsResponse> metrics,
+            ImmutableArray<Outputs.MetricSettingsInvokeResponseResult> metrics,
 
             string name,
 

@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801
         /// <summary>
         /// Network specific rules that determine how the Azure Cognitive Search service may be reached.
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetInvokeResponseResult? NetworkRuleSet;
         /// <summary>
         /// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801
         /// <summary>
         /// The list of private endpoint connections to the Azure Cognitive Search service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.Search.V20200801
         /// <summary>
         /// The list of shared private link resources managed by the Azure Cognitive Search service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
+        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceInvokeResponseResult> SharedPrivateLinkResources;
         /// <summary>
         /// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         /// </summary>
@@ -114,17 +114,17 @@ namespace Pulumi.AzureNextGen.Search.V20200801
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.NetworkRuleSetResponse? networkRuleSet,
+            Outputs.NetworkRuleSetInvokeResponseResult? networkRuleSet,
 
             int? partitionCount,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
@@ -132,9 +132,9 @@ namespace Pulumi.AzureNextGen.Search.V20200801
 
             int? replicaCount,
 
-            ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> sharedPrivateLinkResources,
+            ImmutableArray<Outputs.SharedPrivateLinkResourceInvokeResponseResult> sharedPrivateLinkResources,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string status,
 

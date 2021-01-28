@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// <summary>
         /// The system metadata relating to this resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
 
             string startIpAddress,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

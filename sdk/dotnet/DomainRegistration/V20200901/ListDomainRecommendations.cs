@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NameIdentifierResponseResult> Value;
+        public readonly ImmutableArray<Outputs.NameIdentifierInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListDomainRecommendationsResult(
             string nextLink,
 
-            ImmutableArray<Outputs.NameIdentifierResponseResult> value)
+            ImmutableArray<Outputs.NameIdentifierInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

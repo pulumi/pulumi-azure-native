@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest
         /// <summary>
         /// Specifies the job identity details
         /// </summary>
-        public readonly Outputs.IdentityDetailsResponse? Identity;
+        public readonly Outputs.IdentityDetailsInvokeResponseResult? Identity;
         /// <summary>
         /// Specifies the Azure location where the job is created.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest
         /// <summary>
         /// Specifies the job properties
         /// </summary>
-        public readonly Outputs.JobDetailsResponse Properties;
+        public readonly Outputs.JobDetailsInvokeResponseResult Properties;
         /// <summary>
         /// SystemData of ImportExport Jobs.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Specifies the tags that are assigned to the job.
         /// </summary>
@@ -76,15 +76,15 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest
         private GetJobResult(
             string id,
 
-            Outputs.IdentityDetailsResponse? identity,
+            Outputs.IdentityDetailsInvokeResponseResult? identity,
 
             string? location,
 
             string name,
 
-            Outputs.JobDetailsResponse properties,
+            Outputs.JobDetailsInvokeResponseResult properties,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             object? tags,
 

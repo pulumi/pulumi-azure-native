@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of compute policies associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ComputePolicyResponse> ComputePolicies;
+        public readonly ImmutableArray<Outputs.ComputePolicyInvokeResponseResult> ComputePolicies;
         /// <summary>
         /// The account creation time.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of Data Lake Store accounts associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> DataLakeStoreAccounts;
+        public readonly ImmutableArray<Outputs.DataLakeStoreAccountInformationInvokeResponseResult> DataLakeStoreAccounts;
         /// <summary>
         /// The current state of the DebugDataAccessLevel for this account.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of firewall rules associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallRuleResponse> FirewallRules;
+        public readonly ImmutableArray<Outputs.FirewallRuleInvokeResponseResult> FirewallRules;
         /// <summary>
         /// The current state of the IP address firewall for this account.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HiveMetastoreResponse> HiveMetastores;
+        public readonly ImmutableArray<Outputs.HiveMetastoreInvokeResponseResult> HiveMetastores;
         /// <summary>
         /// The resource identifer.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of Azure Blob Storage accounts associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountInformationResponse> StorageAccounts;
+        public readonly ImmutableArray<Outputs.StorageAccountInformationInvokeResponseResult> StorageAccounts;
         /// <summary>
         /// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
         /// </summary>
@@ -158,19 +158,19 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The list of virtualNetwork rules associated with this account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
+        public readonly ImmutableArray<Outputs.VirtualNetworkRuleInvokeResponseResult> VirtualNetworkRules;
 
         [OutputConstructor]
         private GetAccountResult(
             string accountId,
 
-            ImmutableArray<Outputs.ComputePolicyResponse> computePolicies,
+            ImmutableArray<Outputs.ComputePolicyInvokeResponseResult> computePolicies,
 
             string creationTime,
 
             string currentTier,
 
-            ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> dataLakeStoreAccounts,
+            ImmutableArray<Outputs.DataLakeStoreAccountInformationInvokeResponseResult> dataLakeStoreAccounts,
 
             string debugDataAccessLevel,
 
@@ -180,11 +180,11 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             string firewallAllowAzureIps,
 
-            ImmutableArray<Outputs.FirewallRuleResponse> firewallRules,
+            ImmutableArray<Outputs.FirewallRuleInvokeResponseResult> firewallRules,
 
             string firewallState,
 
-            ImmutableArray<Outputs.HiveMetastoreResponse> hiveMetastores,
+            ImmutableArray<Outputs.HiveMetastoreInvokeResponseResult> hiveMetastores,
 
             string id,
 
@@ -210,7 +210,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             string state,
 
-            ImmutableArray<Outputs.StorageAccountInformationResponse> storageAccounts,
+            ImmutableArray<Outputs.StorageAccountInformationInvokeResponseResult> storageAccounts,
 
             int systemMaxDegreeOfParallelism,
 
@@ -220,7 +220,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
+            ImmutableArray<Outputs.VirtualNetworkRuleInvokeResponseResult> virtualNetworkRules)
         {
             AccountId = accountId;
             ComputePolicies = computePolicies;

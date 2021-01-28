@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubscriptionLogSettingsResponse> Logs;
+        public readonly ImmutableArray<Outputs.SubscriptionLogSettingsInvokeResponseResult> Logs;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
 
             string? location,
 
-            ImmutableArray<Outputs.SubscriptionLogSettingsResponse> logs,
+            ImmutableArray<Outputs.SubscriptionLogSettingsInvokeResponseResult> logs,
 
             string name,
 

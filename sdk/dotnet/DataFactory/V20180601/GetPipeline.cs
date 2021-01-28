@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
-        public readonly Outputs.PipelineResponseFolder? Folder;
+        public readonly Outputs.PipelineInvokeResponseFolderResult? Folder;
         /// <summary>
         /// The resource identifier.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// List of parameters for pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationInvokeResponseResult>? Parameters;
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// List of variables for pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.VariableSpecificationResponse>? Variables;
+        public readonly ImmutableDictionary<string, Outputs.VariableSpecificationInvokeResponseResult>? Variables;
 
         [OutputConstructor]
         private GetPipelineResult(
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 
             string etag,
 
-            Outputs.PipelineResponseFolder? folder,
+            Outputs.PipelineInvokeResponseFolderResult? folder,
 
             string id,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationInvokeResponseResult>? parameters,
 
             ImmutableDictionary<string, object>? runDimensions,
 
             string type,
 
-            ImmutableDictionary<string, Outputs.VariableSpecificationResponse>? variables)
+            ImmutableDictionary<string, Outputs.VariableSpecificationInvokeResponseResult>? variables)
         {
             Activities = activities;
             Annotations = annotations;

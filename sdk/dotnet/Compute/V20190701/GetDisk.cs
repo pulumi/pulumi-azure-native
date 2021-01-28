@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponse CreationData;
+        public readonly Outputs.CreationDataInvokeResponseResult CreationData;
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         /// </summary>
-        public readonly Outputs.EncryptionResponse? Encryption;
+        public readonly Outputs.EncryptionInvokeResponseResult? Encryption;
         /// <summary>
         /// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         /// </summary>
-        public readonly Outputs.EncryptionSettingsCollectionResponse? EncryptionSettingsCollection;
+        public readonly Outputs.EncryptionSettingsCollectionInvokeResponseResult? EncryptionSettingsCollection;
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         /// </summary>
-        public readonly Outputs.DiskSkuResponse? Sku;
+        public readonly Outputs.DiskSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
         [OutputConstructor]
         private GetDiskResult(
-            Outputs.CreationDataResponse creationData,
+            Outputs.CreationDataInvokeResponseResult creationData,
 
             double? diskIOPSReadWrite,
 
@@ -138,9 +138,9 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
             string diskState,
 
-            Outputs.EncryptionResponse? encryption,
+            Outputs.EncryptionInvokeResponseResult? encryption,
 
-            Outputs.EncryptionSettingsCollectionResponse? encryptionSettingsCollection,
+            Outputs.EncryptionSettingsCollectionInvokeResponseResult? encryptionSettingsCollection,
 
             string? hyperVGeneration,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
             string provisioningState,
 
-            Outputs.DiskSkuResponse? sku,
+            Outputs.DiskSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

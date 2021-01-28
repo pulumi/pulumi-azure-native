@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// <summary>
         /// The properties of the storage account for the machine learning team account.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesInvokeResponseResult StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 
             string? seats,
 
-            Outputs.StorageAccountPropertiesResponse storageAccount,
+            Outputs.StorageAccountPropertiesInvokeResponseResult storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

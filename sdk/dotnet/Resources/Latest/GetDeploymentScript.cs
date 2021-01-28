@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <summary>
         /// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Type of the script.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         private GetDeploymentScriptResult(
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityInvokeResponseResult? identity,
 
             string kind,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Resources.Latest
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

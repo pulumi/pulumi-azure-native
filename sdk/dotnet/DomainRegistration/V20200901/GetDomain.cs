@@ -47,23 +47,23 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
         /// <summary>
         /// Legal agreement consent.
         /// </summary>
-        public readonly Outputs.DomainPurchaseConsentResponse Consent;
+        public readonly Outputs.DomainPurchaseConsentInvokeResponseResult Consent;
         /// <summary>
         /// Administrative contact.
         /// </summary>
-        public readonly Outputs.ContactResponse ContactAdmin;
+        public readonly Outputs.ContactInvokeResponseResult ContactAdmin;
         /// <summary>
         /// Billing contact.
         /// </summary>
-        public readonly Outputs.ContactResponse ContactBilling;
+        public readonly Outputs.ContactInvokeResponseResult ContactBilling;
         /// <summary>
         /// Registrant contact.
         /// </summary>
-        public readonly Outputs.ContactResponse ContactRegistrant;
+        public readonly Outputs.ContactInvokeResponseResult ContactRegistrant;
         /// <summary>
         /// Technical contact.
         /// </summary>
-        public readonly Outputs.ContactResponse ContactTech;
+        public readonly Outputs.ContactInvokeResponseResult ContactTech;
         /// <summary>
         /// Domain creation timestamp.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
         /// <summary>
         /// All hostnames derived from the domain and assigned to Azure resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostNameResponse> ManagedHostNames;
+        public readonly ImmutableArray<Outputs.HostNameInvokeResponseResult> ManagedHostNames;
         /// <summary>
         /// Resource Name.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -152,15 +152,15 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
 
             bool? autoRenew,
 
-            Outputs.DomainPurchaseConsentResponse consent,
+            Outputs.DomainPurchaseConsentInvokeResponseResult consent,
 
-            Outputs.ContactResponse contactAdmin,
+            Outputs.ContactInvokeResponseResult contactAdmin,
 
-            Outputs.ContactResponse contactBilling,
+            Outputs.ContactInvokeResponseResult contactBilling,
 
-            Outputs.ContactResponse contactRegistrant,
+            Outputs.ContactInvokeResponseResult contactRegistrant,
 
-            Outputs.ContactResponse contactTech,
+            Outputs.ContactInvokeResponseResult contactTech,
 
             string createdTime,
 
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
 
             string location,
 
-            ImmutableArray<Outputs.HostNameResponse> managedHostNames,
+            ImmutableArray<Outputs.HostNameInvokeResponseResult> managedHostNames,
 
             string name,
 
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
 
             string registrationStatus,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

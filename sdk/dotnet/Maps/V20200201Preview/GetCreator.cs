@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
         /// <summary>
         /// The Creator resource properties.
         /// </summary>
-        public readonly Outputs.CreatorPropertiesResponse Properties;
+        public readonly Outputs.CreatorPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
 
             string name,
 
-            Outputs.CreatorPropertiesResponse properties,
+            Outputs.CreatorPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

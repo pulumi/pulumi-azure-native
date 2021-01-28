@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// <summary>
         /// The collection of returned AmlCompute nodes details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AmlComputeNodeInformationResponseResult> Nodes;
+        public readonly ImmutableArray<Outputs.AmlComputeNodeInformationInvokeResponseResult> Nodes;
 
         [OutputConstructor]
         private ListMachineLearningComputeNodesResult(
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 
             string nextLink,
 
-            ImmutableArray<Outputs.AmlComputeNodeInformationResponseResult> nodes)
+            ImmutableArray<Outputs.AmlComputeNodeInformationInvokeResponseResult> nodes)
         {
             ComputeType = computeType;
             NextLink = nextLink;

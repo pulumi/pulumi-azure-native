@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// <summary>
         /// controller details
         /// </summary>
-        public readonly Outputs.ControllerDetailsResponse ControllerDetails;
+        public readonly Outputs.ControllerDetailsInvokeResponseResult ControllerDetails;
         /// <summary>
         /// An identifier that represents the resource.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// <summary>
         /// The identity of the orchestrator
         /// </summary>
-        public readonly Outputs.OrchestratorIdentityResponse? Identity;
+        public readonly Outputs.OrchestratorIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 
             string? clusterRootCA,
 
-            Outputs.ControllerDetailsResponse controllerDetails,
+            Outputs.ControllerDetailsInvokeResponseResult controllerDetails,
 
             string id,
 
-            Outputs.OrchestratorIdentityResponse? identity,
+            Outputs.OrchestratorIdentityInvokeResponseResult? identity,
 
             string kind,
 

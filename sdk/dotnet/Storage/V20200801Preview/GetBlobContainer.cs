@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// <summary>
         /// The ImmutabilityPolicy property of the container.
         /// </summary>
-        public readonly Outputs.ImmutabilityPolicyPropertiesResponse ImmutabilityPolicy;
+        public readonly Outputs.ImmutabilityPolicyPropertiesInvokeResponseResult ImmutabilityPolicy;
         /// <summary>
         /// Returns the date and time the container was last modified.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// <summary>
         /// The LegalHold property of the container.
         /// </summary>
-        public readonly Outputs.LegalHoldPropertiesResponse LegalHold;
+        public readonly Outputs.LegalHoldPropertiesInvokeResponseResult LegalHold;
         /// <summary>
         /// A name-value pair to associate with the container as metadata.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             string id,
 
-            Outputs.ImmutabilityPolicyPropertiesResponse immutabilityPolicy,
+            Outputs.ImmutabilityPolicyPropertiesInvokeResponseResult immutabilityPolicy,
 
             string lastModifiedTime,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             string leaseStatus,
 
-            Outputs.LegalHoldPropertiesResponse legalHold,
+            Outputs.LegalHoldPropertiesInvokeResponseResult legalHold,
 
             ImmutableDictionary<string, string>? metadata,
 

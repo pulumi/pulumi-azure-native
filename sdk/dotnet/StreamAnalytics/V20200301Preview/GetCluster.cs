@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// <summary>
         /// The properties associated with a Stream Analytics cluster.
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponse Properties;
+        public readonly Outputs.ClusterPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
         /// </summary>
-        public readonly Outputs.ClusterSkuResponse? Sku;
+        public readonly Outputs.ClusterSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
 
             string name,
 
-            Outputs.ClusterPropertiesResponse properties,
+            Outputs.ClusterPropertiesInvokeResponseResult properties,
 
-            Outputs.ClusterSkuResponse? sku,
+            Outputs.ClusterSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

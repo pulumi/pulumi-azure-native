@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// List of all p2s connection configurations of the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationResponse> P2SConnectionConfigurations;
+        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationInvokeResponseResult> P2SConnectionConfigurations;
         /// <summary>
         /// The provisioning state of the P2S VPN gateway resource.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualHub;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualHub;
         /// <summary>
         /// All P2S VPN clients' connection health status.
         /// </summary>
-        public readonly Outputs.VpnClientConnectionHealthResponse VpnClientConnectionHealth;
+        public readonly Outputs.VpnClientConnectionHealthInvokeResponseResult VpnClientConnectionHealth;
         /// <summary>
         /// The scale unit for this p2s vpn gateway.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// <summary>
         /// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VpnServerConfiguration;
+        public readonly Outputs.SubResourceInvokeResponseResult? VpnServerConfiguration;
 
         [OutputConstructor]
         private GetP2sVpnGatewayP2sVpnConnectionHealthResult(
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 
             string name,
 
-            ImmutableArray<Outputs.P2SConnectionConfigurationResponse> p2SConnectionConfigurations,
+            ImmutableArray<Outputs.P2SConnectionConfigurationInvokeResponseResult> p2SConnectionConfigurations,
 
             string provisioningState,
 
@@ -106,13 +106,13 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 
             string type,
 
-            Outputs.SubResourceResponse? virtualHub,
+            Outputs.SubResourceInvokeResponseResult? virtualHub,
 
-            Outputs.VpnClientConnectionHealthResponse vpnClientConnectionHealth,
+            Outputs.VpnClientConnectionHealthInvokeResponseResult vpnClientConnectionHealth,
 
             int? vpnGatewayScaleUnit,
 
-            Outputs.SubResourceResponse? vpnServerConfiguration)
+            Outputs.SubResourceInvokeResponseResult? vpnServerConfiguration)
         {
             Etag = etag;
             Id = id;

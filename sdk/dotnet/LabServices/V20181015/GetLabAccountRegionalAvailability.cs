@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// Availability information for different size categories per region
         /// </summary>
-        public readonly ImmutableArray<Outputs.RegionalAvailabilityResponseResult> RegionalAvailability;
+        public readonly ImmutableArray<Outputs.RegionalAvailabilityInvokeResponseResult> RegionalAvailability;
 
         [OutputConstructor]
-        private GetLabAccountRegionalAvailabilityResult(ImmutableArray<Outputs.RegionalAvailabilityResponseResult> regionalAvailability)
+        private GetLabAccountRegionalAvailabilityResult(ImmutableArray<Outputs.RegionalAvailabilityInvokeResponseResult> regionalAvailability)
         {
             RegionalAvailability = regionalAvailability;
         }

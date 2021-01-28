@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The cluster which streaming jobs will run on.
         /// </summary>
-        public readonly Outputs.ClusterInfoResponse? Cluster;
+        public readonly Outputs.ClusterInfoInvokeResponseResult? Cluster;
         /// <summary>
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The storage account where the custom code artifacts are located.
         /// </summary>
-        public readonly Outputs.ExternalResponse? Externals;
+        public readonly Outputs.ExternalInvokeResponseResult? Externals;
         /// <summary>
         /// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
+        public readonly ImmutableArray<Outputs.FunctionInvokeResponseResult> Functions;
         /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InputResponse> Inputs;
+        public readonly ImmutableArray<Outputs.InputInvokeResponseResult> Inputs;
         /// <summary>
         /// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The properties that are associated with an Azure Storage account with MSI
         /// </summary>
-        public readonly Outputs.JobStorageAccountResponse? JobStorageAccount;
+        public readonly Outputs.JobStorageAccountInvokeResponseResult? JobStorageAccount;
         /// <summary>
         /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutputResponse> Outputs;
+        public readonly ImmutableArray<Outputs.OutputInvokeResponseResult> Outputs;
         /// <summary>
         /// Describes the provisioning status of the streaming job.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.StreamingJobSkuResponse? Sku;
+        public readonly Outputs.StreamingJobSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
-        public readonly Outputs.TransformationResponse? Transformation;
+        public readonly Outputs.TransformationInvokeResponseResult? Transformation;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
         [OutputConstructor]
         private GetStreamingJobResult(
-            Outputs.ClusterInfoResponse? cluster,
+            Outputs.ClusterInfoInvokeResponseResult? cluster,
 
             string? compatibilityLevel,
 
@@ -186,21 +186,21 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
             string? eventsOutOfOrderPolicy,
 
-            Outputs.ExternalResponse? externals,
+            Outputs.ExternalInvokeResponseResult? externals,
 
-            ImmutableArray<Outputs.FunctionResponse> functions,
+            ImmutableArray<Outputs.FunctionInvokeResponseResult> functions,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
-            ImmutableArray<Outputs.InputResponse> inputs,
+            ImmutableArray<Outputs.InputInvokeResponseResult> inputs,
 
             string jobId,
 
             string jobState,
 
-            Outputs.JobStorageAccountResponse? jobStorageAccount,
+            Outputs.JobStorageAccountInvokeResponseResult? jobStorageAccount,
 
             string? jobType,
 
@@ -216,15 +216,15 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
             string? outputStartTime,
 
-            ImmutableArray<Outputs.OutputResponse> outputs,
+            ImmutableArray<Outputs.OutputInvokeResponseResult> outputs,
 
             string provisioningState,
 
-            Outputs.StreamingJobSkuResponse? sku,
+            Outputs.StreamingJobSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.TransformationResponse? transformation,
+            Outputs.TransformationInvokeResponseResult? transformation,
 
             string type)
         {

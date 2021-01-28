@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// List of linked private link scope resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> PrivateLinkScopedResources;
+        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceInvokeResponseResult> PrivateLinkScopedResources;
         /// <summary>
         /// The provisioning state of the workspace.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// The SKU of the workspace.
         /// </summary>
-        public readonly Outputs.WorkspaceSkuResponse? Sku;
+        public readonly Outputs.WorkspaceSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
         /// <summary>
         /// The daily volume cap for ingestion.
         /// </summary>
-        public readonly Outputs.WorkspaceCappingResponse? WorkspaceCapping;
+        public readonly Outputs.WorkspaceCappingInvokeResponseResult? WorkspaceCapping;
 
         [OutputConstructor]
         private GetWorkspaceResult(
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
 
             string name,
 
-            ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> privateLinkScopedResources,
+            ImmutableArray<Outputs.PrivateLinkScopedResourceInvokeResponseResult> privateLinkScopedResources,
 
             string? provisioningState,
 
@@ -124,13 +124,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001
 
             int? retentionInDays,
 
-            Outputs.WorkspaceSkuResponse? sku,
+            Outputs.WorkspaceSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.WorkspaceCappingResponse? workspaceCapping)
+            Outputs.WorkspaceCappingInvokeResponseResult? workspaceCapping)
         {
             CustomerId = customerId;
             ETag = eTag;

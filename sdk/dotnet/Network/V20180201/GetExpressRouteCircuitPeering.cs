@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// The list of circuit connections associated with Azure Private Peering for this circuit.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponse> Connections;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitConnectionInvokeResponseResult> Connections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// The IPv6 peering configuration.
         /// </summary>
-        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? Ipv6PeeringConfig;
+        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult? Ipv6PeeringConfig;
         /// <summary>
         /// Gets whether the provider or the customer last modified the peering.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// The Microsoft peering configuration.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringConfigResponse? MicrosoftPeeringConfig;
+        public readonly Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? MicrosoftPeeringConfig;
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// The reference of the RouteFilter resource.
         /// </summary>
-        public readonly Outputs.RouteFilterResponse? RouteFilter;
+        public readonly Outputs.RouteFilterInvokeResponseResult? RouteFilter;
         /// <summary>
         /// The secondary port.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// Gets peering stats.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitStatsResponse? Stats;
+        public readonly Outputs.ExpressRouteCircuitStatsInvokeResponseResult? Stats;
         /// <summary>
         /// The VLAN ID.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         private GetExpressRouteCircuitPeeringResult(
             int? azureASN,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponse> connections,
+            ImmutableArray<Outputs.ExpressRouteCircuitConnectionInvokeResponseResult> connections,
 
             string etag,
 
@@ -142,11 +142,11 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             string? id,
 
-            Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? ipv6PeeringConfig,
+            Outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult? ipv6PeeringConfig,
 
             string? lastModifiedBy,
 
-            Outputs.ExpressRouteCircuitPeeringConfigResponse? microsoftPeeringConfig,
+            Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? microsoftPeeringConfig,
 
             string? name,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             string? provisioningState,
 
-            Outputs.RouteFilterResponse? routeFilter,
+            Outputs.RouteFilterInvokeResponseResult? routeFilter,
 
             string? secondaryAzurePort,
 
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             string? state,
 
-            Outputs.ExpressRouteCircuitStatsResponse? stats,
+            Outputs.ExpressRouteCircuitStatsInvokeResponseResult? stats,
 
             int? vlanId)
         {

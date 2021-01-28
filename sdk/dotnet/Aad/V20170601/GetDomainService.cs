@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// DomainSecurity Settings
         /// </summary>
-        public readonly Outputs.DomainSecuritySettingsResponse? DomainSecuritySettings;
+        public readonly Outputs.DomainSecuritySettingsInvokeResponseResult? DomainSecuritySettings;
         /// <summary>
         /// Resource etag
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// List of Domain Health Alerts
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthAlertResponse> HealthAlerts;
+        public readonly ImmutableArray<Outputs.HealthAlertInvokeResponseResult> HealthAlerts;
         /// <summary>
         /// Last domain evaluation run DateTime
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// List of Domain Health Monitors
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthMonitorResponse> HealthMonitors;
+        public readonly ImmutableArray<Outputs.HealthMonitorInvokeResponseResult> HealthMonitors;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// Secure LDAP Settings
         /// </summary>
-        public readonly Outputs.LdapsSettingsResponse? LdapsSettings;
+        public readonly Outputs.LdapsSettingsInvokeResponseResult? LdapsSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// Migration Properties
         /// </summary>
-        public readonly Outputs.MigrationPropertiesResponse MigrationProperties;
+        public readonly Outputs.MigrationPropertiesInvokeResponseResult MigrationProperties;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// Notification Settings
         /// </summary>
-        public readonly Outputs.NotificationSettingsResponse? NotificationSettings;
+        public readonly Outputs.NotificationSettingsInvokeResponseResult? NotificationSettings;
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// Resource Forest Settings
         /// </summary>
-        public readonly Outputs.ResourceForestSettingsResponse? ResourceForestSettings;
+        public readonly Outputs.ResourceForestSettingsInvokeResponseResult? ResourceForestSettings;
         /// <summary>
         /// Status of Domain Service instance
         /// </summary>
@@ -154,33 +154,33 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
 
             string? domainName,
 
-            Outputs.DomainSecuritySettingsResponse? domainSecuritySettings,
+            Outputs.DomainSecuritySettingsInvokeResponseResult? domainSecuritySettings,
 
             string? etag,
 
             string? filteredSync,
 
-            ImmutableArray<Outputs.HealthAlertResponse> healthAlerts,
+            ImmutableArray<Outputs.HealthAlertInvokeResponseResult> healthAlerts,
 
             string healthLastEvaluated,
 
-            ImmutableArray<Outputs.HealthMonitorResponse> healthMonitors,
+            ImmutableArray<Outputs.HealthMonitorInvokeResponseResult> healthMonitors,
 
             string id,
 
-            Outputs.LdapsSettingsResponse? ldapsSettings,
+            Outputs.LdapsSettingsInvokeResponseResult? ldapsSettings,
 
             string? location,
 
-            Outputs.MigrationPropertiesResponse migrationProperties,
+            Outputs.MigrationPropertiesInvokeResponseResult migrationProperties,
 
             string name,
 
-            Outputs.NotificationSettingsResponse? notificationSettings,
+            Outputs.NotificationSettingsInvokeResponseResult? notificationSettings,
 
             string provisioningState,
 
-            Outputs.ResourceForestSettingsResponse? resourceForestSettings,
+            Outputs.ResourceForestSettingsInvokeResponseResult? resourceForestSettings,
 
             string serviceStatus,
 

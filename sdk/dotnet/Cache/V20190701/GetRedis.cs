@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
         /// <summary>
         /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         /// </summary>
-        public readonly Outputs.RedisAccessKeysResponse AccessKeys;
+        public readonly Outputs.RedisAccessKeysInvokeResponseResult AccessKeys;
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
         /// <summary>
         /// List of the Redis instances associated with the cache
         /// </summary>
-        public readonly ImmutableArray<Outputs.RedisInstanceDetailsResponse> Instances;
+        public readonly ImmutableArray<Outputs.RedisInstanceDetailsInvokeResponseResult> Instances;
         /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
-        public readonly ImmutableArray<Outputs.RedisLinkedServerResponse> LinkedServers;
+        public readonly ImmutableArray<Outputs.RedisLinkedServerInvokeResponseResult> LinkedServers;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
         /// <summary>
         /// The SKU of the Redis cache to deploy.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Redis SSL port.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
 
         [OutputConstructor]
         private GetRedisResult(
-            Outputs.RedisAccessKeysResponse accessKeys,
+            Outputs.RedisAccessKeysInvokeResponseResult accessKeys,
 
             bool? enableNonSslPort,
 
@@ -142,9 +142,9 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
 
             string id,
 
-            ImmutableArray<Outputs.RedisInstanceDetailsResponse> instances,
+            ImmutableArray<Outputs.RedisInstanceDetailsInvokeResponseResult> instances,
 
-            ImmutableArray<Outputs.RedisLinkedServerResponse> linkedServers,
+            ImmutableArray<Outputs.RedisLinkedServerInvokeResponseResult> linkedServers,
 
             string location,
 
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
 
             int? shardCount,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             int sslPort,
 

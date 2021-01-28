@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
-        public readonly Outputs.PublicIPAddressDnsSettingsResponse? DnsSettings;
+        public readonly Outputs.PublicIPAddressDnsSettingsInvokeResponseResult? DnsSettings;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The IP configuration associated with the public IP address.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponse IpConfiguration;
+        public readonly Outputs.IPConfigurationInvokeResponseResult IpConfiguration;
         /// <summary>
         /// The list of tags associated with the public IP address.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
+        public readonly ImmutableArray<Outputs.IpTagInvokeResponseResult> IpTags;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The Public IP Prefix this Public IP Address should be allocated from.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? PublicIPPrefix;
+        public readonly Outputs.SubResourceInvokeResponseResult? PublicIPPrefix;
         /// <summary>
         /// The resource GUID property of the public IP resource.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
-        public readonly Outputs.PublicIPAddressSkuResponse? Sku;
+        public readonly Outputs.PublicIPAddressSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
         [OutputConstructor]
         private GetPublicIPAddressResult(
-            Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
+            Outputs.PublicIPAddressDnsSettingsInvokeResponseResult? dnsSettings,
 
             string? etag,
 
@@ -130,9 +130,9 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             string? ipAddress,
 
-            Outputs.IPConfigurationResponse ipConfiguration,
+            Outputs.IPConfigurationInvokeResponseResult ipConfiguration,
 
-            ImmutableArray<Outputs.IpTagResponse> ipTags,
+            ImmutableArray<Outputs.IpTagInvokeResponseResult> ipTags,
 
             string? location,
 
@@ -144,11 +144,11 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             string? publicIPAllocationMethod,
 
-            Outputs.SubResourceResponse? publicIPPrefix,
+            Outputs.SubResourceInvokeResponseResult? publicIPPrefix,
 
             string? resourceGuid,
 
-            Outputs.PublicIPAddressSkuResponse? sku,
+            Outputs.PublicIPAddressSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

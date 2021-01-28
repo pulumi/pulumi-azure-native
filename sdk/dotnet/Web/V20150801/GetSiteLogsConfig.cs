@@ -42,19 +42,19 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Application logs configuration
         /// </summary>
-        public readonly Outputs.ApplicationLogsConfigResponse? ApplicationLogs;
+        public readonly Outputs.ApplicationLogsConfigInvokeResponseResult? ApplicationLogs;
         /// <summary>
         /// Detailed error messages configuration
         /// </summary>
-        public readonly Outputs.EnabledConfigResponse? DetailedErrorMessages;
+        public readonly Outputs.EnabledConfigInvokeResponseResult? DetailedErrorMessages;
         /// <summary>
         /// Failed requests tracing configuration
         /// </summary>
-        public readonly Outputs.EnabledConfigResponse? FailedRequestsTracing;
+        public readonly Outputs.EnabledConfigInvokeResponseResult? FailedRequestsTracing;
         /// <summary>
         /// Http logs configuration
         /// </summary>
-        public readonly Outputs.HttpLogsConfigResponse? HttpLogs;
+        public readonly Outputs.HttpLogsConfigInvokeResponseResult? HttpLogs;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -82,13 +82,13 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
         [OutputConstructor]
         private GetSiteLogsConfigResult(
-            Outputs.ApplicationLogsConfigResponse? applicationLogs,
+            Outputs.ApplicationLogsConfigInvokeResponseResult? applicationLogs,
 
-            Outputs.EnabledConfigResponse? detailedErrorMessages,
+            Outputs.EnabledConfigInvokeResponseResult? detailedErrorMessages,
 
-            Outputs.EnabledConfigResponse? failedRequestsTracing,
+            Outputs.EnabledConfigInvokeResponseResult? failedRequestsTracing,
 
-            Outputs.HttpLogsConfigResponse? httpLogs,
+            Outputs.HttpLogsConfigInvokeResponseResult? httpLogs,
 
             string? id,
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// <summary>
         /// The key vault key which is currently used by this disk encryption set.
         /// </summary>
-        public readonly Outputs.KeyVaultAndKeyReferenceResponse? ActiveKey;
+        public readonly Outputs.KeyVaultAndKeyReferenceInvokeResponseResult? ActiveKey;
         /// <summary>
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
-        public readonly Outputs.EncryptionSetIdentityResponse? Identity;
+        public readonly Outputs.EncryptionSetIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// <summary>
         /// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponse> PreviousKeys;
+        public readonly ImmutableArray<Outputs.KeyVaultAndKeyReferenceInvokeResponseResult> PreviousKeys;
         /// <summary>
         /// The disk encryption set provisioning state.
         /// </summary>
@@ -82,19 +82,19 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
 
         [OutputConstructor]
         private GetDiskEncryptionSetResult(
-            Outputs.KeyVaultAndKeyReferenceResponse? activeKey,
+            Outputs.KeyVaultAndKeyReferenceInvokeResponseResult? activeKey,
 
             string? encryptionType,
 
             string id,
 
-            Outputs.EncryptionSetIdentityResponse? identity,
+            Outputs.EncryptionSetIdentityInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponse> previousKeys,
+            ImmutableArray<Outputs.KeyVaultAndKeyReferenceInvokeResponseResult> previousKeys,
 
             string provisioningState,
 

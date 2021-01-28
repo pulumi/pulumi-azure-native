@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// <summary>
         /// The artifacts for the service unit.
         /// </summary>
-        public readonly Outputs.ServiceUnitArtifactsResponse? Artifacts;
+        public readonly Outputs.ServiceUnitArtifactsInvokeResponseResult? Artifacts;
         /// <summary>
         /// Describes the type of ARM deployment to be performed on the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
 
         [OutputConstructor]
         private GetServiceUnitResult(
-            Outputs.ServiceUnitArtifactsResponse? artifacts,
+            Outputs.ServiceUnitArtifactsInvokeResponseResult? artifacts,
 
             string deploymentMode,
 

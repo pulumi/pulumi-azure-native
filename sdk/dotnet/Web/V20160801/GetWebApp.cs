@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
         /// </summary>
-        public readonly Outputs.CloningInfoResponse? CloningInfo;
+        public readonly Outputs.CloningInfoInvokeResponseResult? CloningInfo;
         /// <summary>
         /// Size of the function container.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostNameSslStateResponse> HostNameSslStates;
+        public readonly ImmutableArray<Outputs.HostNameSslStateInvokeResponseResult> HostNameSslStates;
         /// <summary>
         /// Hostnames associated with the app.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// App Service Environment to use for the app.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult? HostingEnvironmentProfile;
         /// <summary>
         /// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
         /// http requests
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Managed service identity.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the app is a default container; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
@@ -162,15 +162,15 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Configuration of the app.
         /// </summary>
-        public readonly Outputs.SiteConfigResponse? SiteConfig;
+        public readonly Outputs.SiteConfigInvokeResponseResult? SiteConfig;
         /// <summary>
         /// Status of the last deployment slot swap operation.
         /// </summary>
-        public readonly Outputs.SlotSwapStatusResponse SlotSwapStatus;
+        public readonly Outputs.SlotSwapStatusInvokeResponseResult SlotSwapStatus;
         /// <summary>
         /// If specified during app creation, the app is created from a previous snapshot.
         /// </summary>
-        public readonly Outputs.SnapshotRecoveryRequestResponse? SnapshotInfo;
+        public readonly Outputs.SnapshotRecoveryRequestInvokeResponseResult? SnapshotInfo;
         /// <summary>
         /// Current state of the app.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             bool? clientCertEnabled,
 
-            Outputs.CloningInfoResponse? cloningInfo,
+            Outputs.CloningInfoInvokeResponseResult? cloningInfo,
 
             int? containerSize,
 
@@ -220,19 +220,19 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             ImmutableArray<string> enabledHostNames,
 
-            ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
+            ImmutableArray<Outputs.HostNameSslStateInvokeResponseResult> hostNameSslStates,
 
             ImmutableArray<string> hostNames,
 
             bool? hostNamesDisabled,
 
-            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult? hostingEnvironmentProfile,
 
             bool? httpsOnly,
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityInvokeResponseResult? identity,
 
             bool isDefaultContainer,
 
@@ -260,11 +260,11 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string? serverFarmId,
 
-            Outputs.SiteConfigResponse? siteConfig,
+            Outputs.SiteConfigInvokeResponseResult? siteConfig,
 
-            Outputs.SlotSwapStatusResponse slotSwapStatus,
+            Outputs.SlotSwapStatusInvokeResponseResult slotSwapStatus,
 
-            Outputs.SnapshotRecoveryRequestResponse? snapshotInfo,
+            Outputs.SnapshotRecoveryRequestInvokeResponseResult? snapshotInfo,
 
             string state,
 

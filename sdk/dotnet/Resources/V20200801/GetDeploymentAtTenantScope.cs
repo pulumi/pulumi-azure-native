@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
         /// <summary>
         /// Deployment properties.
         /// </summary>
-        public readonly Outputs.DeploymentPropertiesExtendedResponse Properties;
+        public readonly Outputs.DeploymentPropertiesExtendedInvokeResponseResult Properties;
         /// <summary>
         /// Deployment tags
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
 
             string name,
 
-            Outputs.DeploymentPropertiesExtendedResponse properties,
+            Outputs.DeploymentPropertiesExtendedInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

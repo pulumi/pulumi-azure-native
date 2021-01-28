@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// A common class for general resource information
         /// </summary>
-        public readonly Outputs.LocalNetworkGatewayResponse? LocalNetworkGateway2;
+        public readonly Outputs.LocalNetworkGatewayInvokeResponseResult? LocalNetworkGateway2;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// The reference to peerings resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Peer;
+        public readonly Outputs.SubResourceInvokeResponseResult? Peer;
         /// <summary>
         /// Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// A common class for general resource information
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponse? VirtualNetworkGateway1;
+        public readonly Outputs.VirtualNetworkGatewayInvokeResponseResult? VirtualNetworkGateway1;
         /// <summary>
         /// A common class for general resource information
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponse? VirtualNetworkGateway2;
+        public readonly Outputs.VirtualNetworkGatewayInvokeResponseResult? VirtualNetworkGateway2;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayConnectionResult(
@@ -138,13 +138,13 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
             double? ingressBytesTransferred,
 
-            Outputs.LocalNetworkGatewayResponse? localNetworkGateway2,
+            Outputs.LocalNetworkGatewayInvokeResponseResult? localNetworkGateway2,
 
             string? location,
 
             string name,
 
-            Outputs.SubResourceResponse? peer,
+            Outputs.SubResourceInvokeResponseResult? peer,
 
             string? provisioningState,
 
@@ -158,9 +158,9 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
             string type,
 
-            Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway1,
+            Outputs.VirtualNetworkGatewayInvokeResponseResult? virtualNetworkGateway1,
 
-            Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway2)
+            Outputs.VirtualNetworkGatewayInvokeResponseResult? virtualNetworkGateway2)
         {
             AuthorizationKey = authorizationKey;
             ConnectionStatus = connectionStatus;

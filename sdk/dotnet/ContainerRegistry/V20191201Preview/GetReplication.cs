@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The status of the replication at the time the operation was called.
         /// </summary>
-        public readonly Outputs.StatusResponse Status;
+        public readonly Outputs.StatusInvokeResponseResult Status;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             bool? regionEndpointEnabled,
 
-            Outputs.StatusResponse status,
+            Outputs.StatusInvokeResponseResult status,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

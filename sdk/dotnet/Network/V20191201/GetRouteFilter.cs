@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// A collection of references to express route circuit ipv6 peerings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> Ipv6Peerings;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringInvokeResponseResult> Ipv6Peerings;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// A collection of references to express route circuit peerings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> Peerings;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringInvokeResponseResult> Peerings;
         /// <summary>
         /// The provisioning state of the route filter resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// Collection of RouteFilterRules contained within a route filter.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RouteFilterRuleResponse> Rules;
+        public readonly ImmutableArray<Outputs.RouteFilterRuleInvokeResponseResult> Rules;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,17 +92,17 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string? id,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> ipv6Peerings,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringInvokeResponseResult> ipv6Peerings,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> peerings,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringInvokeResponseResult> peerings,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.RouteFilterRuleResponse> rules,
+            ImmutableArray<Outputs.RouteFilterRuleInvokeResponseResult> rules,
 
             ImmutableDictionary<string, string>? tags,
 

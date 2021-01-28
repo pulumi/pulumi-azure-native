@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// List of private endpoint connections on a managed instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.ManagedInstancePecPropertyInvokeResponseResult> PrivateEndpointConnections;
         public readonly string ProvisioningState;
         /// <summary>
         /// Connection type used for connecting to the instance.
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The resource identifier of the source managed instance associated with create operation of this instance.
         /// </summary>
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             string? instancePoolId,
 
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string name,
 
-            ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.ManagedInstancePecPropertyInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
@@ -212,7 +212,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string? restorePointInTime,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? sourceManagedInstanceId,
 

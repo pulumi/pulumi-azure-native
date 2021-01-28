@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The auto-approval list of the private link service.
         /// </summary>
-        public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApproval? AutoApproval;
+        public readonly Outputs.PrivateLinkServicePropertiesInvokeResponseAutoApprovalResult? AutoApproval;
         /// <summary>
         /// Whether the private link service is enabled for proxy protocol or not.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The extended location of the load balancer.
         /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.ExtendedLocationInvokeResponseResult? ExtendedLocation;
         /// <summary>
         /// The list of Fqdn.
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// An array of private link service IP configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// An array of references to the load balancer IP configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponse> LoadBalancerFrontendIpConfigurations;
+        public readonly ImmutableArray<Outputs.FrontendIPConfigurationInvokeResponseResult> LoadBalancerFrontendIpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// An array of references to the network interfaces created for this private link service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> NetworkInterfaces;
         /// <summary>
         /// An array of list about connections to the private endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the private link service resource.
         /// </summary>
@@ -112,35 +112,35 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The visibility list of the private link service.
         /// </summary>
-        public readonly Outputs.PrivateLinkServicePropertiesResponseVisibility? Visibility;
+        public readonly Outputs.PrivateLinkServicePropertiesInvokeResponseVisibilityResult? Visibility;
 
         [OutputConstructor]
         private GetPrivateLinkServiceResult(
             string alias,
 
-            Outputs.PrivateLinkServicePropertiesResponseAutoApproval? autoApproval,
+            Outputs.PrivateLinkServicePropertiesInvokeResponseAutoApprovalResult? autoApproval,
 
             bool? enableProxyProtocol,
 
             string etag,
 
-            Outputs.ExtendedLocationResponse? extendedLocation,
+            Outputs.ExtendedLocationInvokeResponseResult? extendedLocation,
 
             ImmutableArray<string> fqdns,
 
             string? id,
 
-            ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationInvokeResponseResult> ipConfigurations,
 
-            ImmutableArray<Outputs.FrontendIPConfigurationResponse> loadBalancerFrontendIpConfigurations,
+            ImmutableArray<Outputs.FrontendIPConfigurationInvokeResponseResult> loadBalancerFrontendIpConfigurations,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> networkInterfaces,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string type,
 
-            Outputs.PrivateLinkServicePropertiesResponseVisibility? visibility)
+            Outputs.PrivateLinkServicePropertiesInvokeResponseVisibilityResult? visibility)
         {
             Alias = alias;
             AutoApproval = autoApproval;

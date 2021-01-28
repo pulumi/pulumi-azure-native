@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageTemplateShellCustomizerResponse> Customize;
+        public readonly ImmutableArray<Outputs.ImageTemplateShellCustomizerInvokeResponseResult> Customize;
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Outputs.ImageTemplateSharedImageDistributorResponse>> Distribute;
+        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorInvokeResponseResult, Outputs.ImageTemplateSharedImageDistributorInvokeResponseResult>> Distribute;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
-        public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
+        public readonly Outputs.ImageTemplateLastRunStatusInvokeResponseResult LastRunStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// Provisioning error, if any
         /// </summary>
-        public readonly Outputs.ProvisioningErrorResponse ProvisioningError;
+        public readonly Outputs.ProvisioningErrorInvokeResponseResult ProvisioningError;
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// Specifies the properties used to describe the source image.
         /// </summary>
-        public readonly Union<Outputs.ImageTemplateIsoSourceResponse, Outputs.ImageTemplatePlatformImageSourceResponse> Source;
+        public readonly Union<Outputs.ImageTemplateIsoSourceInvokeResponseResult, Outputs.ImageTemplatePlatformImageSourceInvokeResponseResult> Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -86,23 +86,23 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20180201Preview
 
         [OutputConstructor]
         private GetVirtualMachineImageTemplateResult(
-            ImmutableArray<Outputs.ImageTemplateShellCustomizerResponse> customize,
+            ImmutableArray<Outputs.ImageTemplateShellCustomizerInvokeResponseResult> customize,
 
-            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Outputs.ImageTemplateSharedImageDistributorResponse>> distribute,
+            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorInvokeResponseResult, Outputs.ImageTemplateSharedImageDistributorInvokeResponseResult>> distribute,
 
             string id,
 
-            Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
+            Outputs.ImageTemplateLastRunStatusInvokeResponseResult lastRunStatus,
 
             string location,
 
             string name,
 
-            Outputs.ProvisioningErrorResponse provisioningError,
+            Outputs.ProvisioningErrorInvokeResponseResult provisioningError,
 
             string provisioningState,
 
-            Union<Outputs.ImageTemplateIsoSourceResponse, Outputs.ImageTemplatePlatformImageSourceResponse> source,
+            Union<Outputs.ImageTemplateIsoSourceInvokeResponseResult, Outputs.ImageTemplatePlatformImageSourceInvokeResponseResult> source,
 
             ImmutableDictionary<string, string>? tags,
 

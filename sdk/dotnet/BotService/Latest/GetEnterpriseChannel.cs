@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.BotService.Latest
         /// <summary>
         /// The set of properties specific to an Enterprise Channel resource.
         /// </summary>
-        public readonly Outputs.EnterpriseChannelPropertiesResponse Properties;
+        public readonly Outputs.EnterpriseChannelPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -88,9 +88,9 @@ namespace Pulumi.AzureNextGen.BotService.Latest
 
             string name,
 
-            Outputs.EnterpriseChannelPropertiesResponse properties,
+            Outputs.EnterpriseChannelPropertiesInvokeResponseResult properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

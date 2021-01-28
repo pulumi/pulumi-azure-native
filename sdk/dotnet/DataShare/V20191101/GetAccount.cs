@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         /// <summary>
         /// Identity Info on the Account
         /// </summary>
-        public readonly Outputs.IdentityResponse Identity;
+        public readonly Outputs.IdentityInvokeResponseResult Identity;
         /// <summary>
         /// Location of the azure resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
 
             string id,
 
-            Outputs.IdentityResponse identity,
+            Outputs.IdentityInvokeResponseResult identity,
 
             string? location,
 

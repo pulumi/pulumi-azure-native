@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
         /// <summary>
         /// The current amount of cost which is being tracked for a budget.
         /// </summary>
-        public readonly Outputs.CurrentSpendResponse CurrentSpend;
+        public readonly Outputs.CurrentSpendInvokeResponseResult CurrentSpend;
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
         /// <summary>
         /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.NotificationResponse>? Notifications;
+        public readonly ImmutableDictionary<string, Outputs.NotificationInvokeResponseResult>? Notifications;
         /// <summary>
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
         /// <summary>
         /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         /// </summary>
-        public readonly Outputs.BudgetTimePeriodResponse TimePeriod;
+        public readonly Outputs.BudgetTimePeriodInvokeResponseResult TimePeriod;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
 
             string category,
 
-            Outputs.CurrentSpendResponse currentSpend,
+            Outputs.CurrentSpendInvokeResponseResult currentSpend,
 
             string? eTag,
 
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
 
             string name,
 
-            ImmutableDictionary<string, Outputs.NotificationResponse>? notifications,
+            ImmutableDictionary<string, Outputs.NotificationInvokeResponseResult>? notifications,
 
             string timeGrain,
 
-            Outputs.BudgetTimePeriodResponse timePeriod,
+            Outputs.BudgetTimePeriodInvokeResponseResult timePeriod,
 
             string type)
         {

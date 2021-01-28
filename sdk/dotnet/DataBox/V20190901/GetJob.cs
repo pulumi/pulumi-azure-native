@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// <summary>
         /// Delivery Info of Job.
         /// </summary>
-        public readonly Outputs.JobDeliveryInfoResponse? DeliveryInfo;
+        public readonly Outputs.JobDeliveryInfoInvokeResponseResult? DeliveryInfo;
         /// <summary>
         /// Delivery type of Job.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// <summary>
         /// Top level error for the job.
         /// </summary>
-        public readonly Outputs.ErrorResponse Error;
+        public readonly Outputs.ErrorInvokeResponseResult Error;
         /// <summary>
         /// Id of the object.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// <summary>
         /// The sku type.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Time at which the job was started in UTC ISO 8601 format.
         /// </summary>
@@ -118,13 +118,13 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         private GetJobResult(
             string cancellationReason,
 
-            Outputs.JobDeliveryInfoResponse? deliveryInfo,
+            Outputs.JobDeliveryInfoInvokeResponseResult? deliveryInfo,
 
             string? deliveryType,
 
             object? details,
 
-            Outputs.ErrorResponse error,
+            Outputs.ErrorInvokeResponseResult error,
 
             string id,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
 
             string name,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             string startTime,
 

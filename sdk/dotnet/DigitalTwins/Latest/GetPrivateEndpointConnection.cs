@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.PrivateEndpointConnectionResponseProperties Properties;
+        public readonly Outputs.PrivateEndpointConnectionInvokeResponsePropertiesResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
 
             string name,
 
-            Outputs.PrivateEndpointConnectionResponseProperties properties,
+            Outputs.PrivateEndpointConnectionInvokeResponsePropertiesResult properties,
 
             string type)
         {

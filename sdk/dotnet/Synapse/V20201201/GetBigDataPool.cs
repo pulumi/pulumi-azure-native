@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// Auto-pausing properties
         /// </summary>
-        public readonly Outputs.AutoPausePropertiesResponse? AutoPause;
+        public readonly Outputs.AutoPausePropertiesInvokeResponseResult? AutoPause;
         /// <summary>
         /// Auto-scaling properties
         /// </summary>
-        public readonly Outputs.AutoScalePropertiesResponse? AutoScale;
+        public readonly Outputs.AutoScalePropertiesInvokeResponseResult? AutoScale;
         /// <summary>
         /// The cache size
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LibraryInfoResponse> CustomLibraries;
+        public readonly ImmutableArray<Outputs.LibraryInfoInvokeResponseResult> CustomLibraries;
         /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// Dynamic Executor Allocation
         /// </summary>
-        public readonly Outputs.DynamicExecutorAllocationResponse? DynamicExecutorAllocation;
+        public readonly Outputs.DynamicExecutorAllocationInvokeResponseResult? DynamicExecutorAllocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// Library version requirements
         /// </summary>
-        public readonly Outputs.LibraryRequirementsResponse? LibraryRequirements;
+        public readonly Outputs.LibraryRequirementsInvokeResponseResult? LibraryRequirements;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// Spark configuration file to specify additional properties
         /// </summary>
-        public readonly Outputs.LibraryRequirementsResponse? SparkConfigProperties;
+        public readonly Outputs.LibraryRequirementsInvokeResponseResult? SparkConfigProperties;
         /// <summary>
         /// The Spark events folder
         /// </summary>
@@ -140,19 +140,19 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 
         [OutputConstructor]
         private GetBigDataPoolResult(
-            Outputs.AutoPausePropertiesResponse? autoPause,
+            Outputs.AutoPausePropertiesInvokeResponseResult? autoPause,
 
-            Outputs.AutoScalePropertiesResponse? autoScale,
+            Outputs.AutoScalePropertiesInvokeResponseResult? autoScale,
 
             int? cacheSize,
 
             string? creationDate,
 
-            ImmutableArray<Outputs.LibraryInfoResponse> customLibraries,
+            ImmutableArray<Outputs.LibraryInfoInvokeResponseResult> customLibraries,
 
             string? defaultSparkLogFolder,
 
-            Outputs.DynamicExecutorAllocationResponse? dynamicExecutorAllocation,
+            Outputs.DynamicExecutorAllocationInvokeResponseResult? dynamicExecutorAllocation,
 
             string id,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 
             string lastSucceededTimestamp,
 
-            Outputs.LibraryRequirementsResponse? libraryRequirements,
+            Outputs.LibraryRequirementsInvokeResponseResult? libraryRequirements,
 
             string location,
 
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 
             bool? sessionLevelPackagesEnabled,
 
-            Outputs.LibraryRequirementsResponse? sparkConfigProperties,
+            Outputs.LibraryRequirementsInvokeResponseResult? sparkConfigProperties,
 
             string? sparkEventsFolder,
 

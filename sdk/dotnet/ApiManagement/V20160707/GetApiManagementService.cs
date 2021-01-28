@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
         /// <summary>
         /// Additional datacenter locations of the API Management service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalRegionResponse> AdditionalLocations;
+        public readonly ImmutableArray<Outputs.AdditionalRegionInvokeResponseResult> AdditionalLocations;
         /// <summary>
         /// Addresser email.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
         /// <summary>
         /// Custom hostname configuration of the API Management service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostnameConfigurationResponse> HostnameConfigurations;
+        public readonly ImmutableArray<Outputs.HostnameConfigurationInvokeResponseResult> HostnameConfigurations;
         /// <summary>
         /// The ID of the created API Management service.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
         /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
-        public readonly Outputs.ApiManagementServiceSkuPropertiesResponse Sku;
+        public readonly Outputs.ApiManagementServiceSkuPropertiesInvokeResponseResult Sku;
         /// <summary>
         /// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
         /// </summary>
@@ -130,11 +130,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
         /// <summary>
         /// Virtual network configuration of the API Management service.
         /// </summary>
-        public readonly Outputs.VirtualNetworkConfigurationResponse? Vpnconfiguration;
+        public readonly Outputs.VirtualNetworkConfigurationInvokeResponseResult? Vpnconfiguration;
 
         [OutputConstructor]
         private GetApiManagementServiceResult(
-            ImmutableArray<Outputs.AdditionalRegionResponse> additionalLocations,
+            ImmutableArray<Outputs.AdditionalRegionInvokeResponseResult> additionalLocations,
 
             string? addresserEmail,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
 
             string? etag,
 
-            ImmutableArray<Outputs.HostnameConfigurationResponse> hostnameConfigurations,
+            ImmutableArray<Outputs.HostnameConfigurationInvokeResponseResult> hostnameConfigurations,
 
             string id,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
 
             string scmUrl,
 
-            Outputs.ApiManagementServiceSkuPropertiesResponse sku,
+            Outputs.ApiManagementServiceSkuPropertiesInvokeResponseResult sku,
 
             ImmutableArray<string> staticIPs,
 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
 
             string? vpnType,
 
-            Outputs.VirtualNetworkConfigurationResponse? vpnconfiguration)
+            Outputs.VirtualNetworkConfigurationInvokeResponseResult? vpnconfiguration)
         {
             AdditionalLocations = additionalLocations;
             AddresserEmail = addresserEmail;

@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
         /// <summary>
         /// The resource of private endpoint.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning status of the private endpoint connection.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult privateLinkServiceConnectionState,
 
             string provisioningState,
 

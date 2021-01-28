@@ -45,10 +45,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     [OutputType]
     public sealed class ListMediaServiceEdgePoliciesResult
     {
-        public readonly Outputs.EdgeUsageDataCollectionPolicyResponseResult? UsageDataCollectionPolicy;
+        public readonly Outputs.EdgeUsageDataCollectionPolicyInvokeResponseResult? UsageDataCollectionPolicy;
 
         [OutputConstructor]
-        private ListMediaServiceEdgePoliciesResult(Outputs.EdgeUsageDataCollectionPolicyResponseResult? usageDataCollectionPolicy)
+        private ListMediaServiceEdgePoliciesResult(Outputs.EdgeUsageDataCollectionPolicyInvokeResponseResult? usageDataCollectionPolicy)
         {
             UsageDataCollectionPolicy = usageDataCollectionPolicy;
         }

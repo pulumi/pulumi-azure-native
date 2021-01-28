@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         /// <summary>
         /// Settings for the data disk which would be created for the File Server.
         /// </summary>
-        public readonly Outputs.DataDisksResponse? DataDisks;
+        public readonly Outputs.DataDisksInvokeResponseResult? DataDisks;
         /// <summary>
         /// The ID of the resource
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         /// <summary>
         /// Details of the File Server.
         /// </summary>
-        public readonly Outputs.MountSettingsResponse MountSettings;
+        public readonly Outputs.MountSettingsInvokeResponseResult MountSettings;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         /// <summary>
         /// SSH configuration settings for the VM
         /// </summary>
-        public readonly Outputs.SshConfigurationResponse? SshConfiguration;
+        public readonly Outputs.SshConfigurationInvokeResponseResult? SshConfiguration;
         /// <summary>
         /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         /// </summary>
-        public readonly Outputs.ResourceIdResponse? Subnet;
+        public readonly Outputs.ResourceIdInvokeResponseResult? Subnet;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -90,13 +90,13 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         private GetFileServerResult(
             string creationTime,
 
-            Outputs.DataDisksResponse? dataDisks,
+            Outputs.DataDisksInvokeResponseResult? dataDisks,
 
             string id,
 
             string location,
 
-            Outputs.MountSettingsResponse mountSettings,
+            Outputs.MountSettingsInvokeResponseResult mountSettings,
 
             string name,
 
@@ -104,9 +104,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
 
             string provisioningStateTransitionTime,
 
-            Outputs.SshConfigurationResponse? sshConfiguration,
+            Outputs.SshConfigurationInvokeResponseResult? sshConfiguration,
 
-            Outputs.ResourceIdResponse? subnet,
+            Outputs.ResourceIdInvokeResponseResult? subnet,
 
             ImmutableDictionary<string, string> tags,
 

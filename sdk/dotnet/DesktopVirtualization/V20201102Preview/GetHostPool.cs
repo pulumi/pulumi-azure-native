@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
         /// <summary>
         /// The registration info of HostPool.
         /// </summary>
-        public readonly Outputs.RegistrationInfoResponse? RegistrationInfo;
+        public readonly Outputs.RegistrationInfoInvokeResponseResult? RegistrationInfo;
         /// <summary>
         /// The ring number of HostPool.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
 
             string preferredAppGroupType,
 
-            Outputs.RegistrationInfoResponse? registrationInfo,
+            Outputs.RegistrationInfoInvokeResponseResult? registrationInfo,
 
             int? ring,
 

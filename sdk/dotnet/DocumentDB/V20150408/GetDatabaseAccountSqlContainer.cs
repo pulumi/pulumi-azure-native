@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
-        public readonly Outputs.ConflictResolutionPolicyResponse? ConflictResolutionPolicy;
+        public readonly Outputs.ConflictResolutionPolicyInvokeResponseResult? ConflictResolutionPolicy;
         /// <summary>
         /// Default time to live
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         /// </summary>
-        public readonly Outputs.IndexingPolicyResponse? IndexingPolicy;
+        public readonly Outputs.IndexingPolicyInvokeResponseResult? IndexingPolicy;
         /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// The configuration of the partition key to be used for partitioning data into multiple partitions
         /// </summary>
-        public readonly Outputs.ContainerPartitionKeyResponse? PartitionKey;
+        public readonly Outputs.ContainerPartitionKeyInvokeResponseResult? PartitionKey;
         /// <summary>
         /// A system generated property. A unique identifier.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
-        public readonly Outputs.UniqueKeyPolicyResponse? UniqueKeyPolicy;
+        public readonly Outputs.UniqueKeyPolicyInvokeResponseResult? UniqueKeyPolicy;
 
         [OutputConstructor]
         private GetDatabaseAccountSqlContainerResult(
-            Outputs.ConflictResolutionPolicyResponse? conflictResolutionPolicy,
+            Outputs.ConflictResolutionPolicyInvokeResponseResult? conflictResolutionPolicy,
 
             int? defaultTtl,
 
@@ -114,13 +114,13 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
 
             string id,
 
-            Outputs.IndexingPolicyResponse? indexingPolicy,
+            Outputs.IndexingPolicyInvokeResponseResult? indexingPolicy,
 
             string? location,
 
             string name,
 
-            Outputs.ContainerPartitionKeyResponse? partitionKey,
+            Outputs.ContainerPartitionKeyInvokeResponseResult? partitionKey,
 
             string? rid,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
 
             string type,
 
-            Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
+            Outputs.UniqueKeyPolicyInvokeResponseResult? uniqueKeyPolicy)
         {
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;

@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// <summary>
         /// A collection of references to application gateways.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayResponse> ApplicationGateways;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayInvokeResponseResult> ApplicationGateways;
         /// <summary>
         /// Describes custom rules inside the policy
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> CustomRules;
+        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleInvokeResponseResult> CustomRules;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// <summary>
         /// Describes  policySettings for policy
         /// </summary>
-        public readonly Outputs.PolicySettingsResponse? PolicySettings;
+        public readonly Outputs.PolicySettingsInvokeResponseResult? PolicySettings;
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.
         /// </summary>
@@ -83,9 +83,9 @@ namespace Pulumi.AzureNextGen.Network.V20181201
 
         [OutputConstructor]
         private GetWebApplicationFirewallPolicyResult(
-            ImmutableArray<Outputs.ApplicationGatewayResponse> applicationGateways,
+            ImmutableArray<Outputs.ApplicationGatewayInvokeResponseResult> applicationGateways,
 
-            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> customRules,
+            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleInvokeResponseResult> customRules,
 
             string? etag,
 
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
 
             string name,
 
-            Outputs.PolicySettingsResponse? policySettings,
+            Outputs.PolicySettingsInvokeResponseResult? policySettings,
 
             string provisioningState,
 

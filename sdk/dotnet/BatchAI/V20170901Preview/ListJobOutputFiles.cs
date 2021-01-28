@@ -64,13 +64,13 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// <summary>
         /// The collection of returned job files.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FileResponseResult> Value;
+        public readonly ImmutableArray<Outputs.FileInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListJobOutputFilesResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.FileResponseResult> value)
+            ImmutableArray<Outputs.FileInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

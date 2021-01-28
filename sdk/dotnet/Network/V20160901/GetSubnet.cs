@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// <summary>
         /// Gets an array of references to the network interface IP configurations using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.IPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupInvokeResponseResult? NetworkSecurityGroup;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// <summary>
         /// Gets an array of references to the external resources using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponse> ResourceNavigationLinks;
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkInvokeResponseResult> ResourceNavigationLinks;
         /// <summary>
         /// The reference of the RouteTable resource.
         /// </summary>
-        public readonly Outputs.RouteTableResponse? RouteTable;
+        public readonly Outputs.RouteTableInvokeResponseResult? RouteTable;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -96,17 +96,17 @@ namespace Pulumi.AzureNextGen.Network.V20160901
 
             string? id,
 
-            ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.IPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupInvokeResponseResult? networkSecurityGroup,
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.ResourceNavigationLinkResponse> resourceNavigationLinks,
+            ImmutableArray<Outputs.ResourceNavigationLinkInvokeResponseResult> resourceNavigationLinks,
 
-            Outputs.RouteTableResponse? routeTable)
+            Outputs.RouteTableInvokeResponseResult? routeTable)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

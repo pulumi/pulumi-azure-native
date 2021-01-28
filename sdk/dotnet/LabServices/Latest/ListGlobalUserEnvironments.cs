@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// <summary>
         /// List of all the environments
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentDetailsResponseResult> Environments;
+        public readonly ImmutableArray<Outputs.EnvironmentDetailsInvokeResponseResult> Environments;
 
         [OutputConstructor]
-        private ListGlobalUserEnvironmentsResult(ImmutableArray<Outputs.EnvironmentDetailsResponseResult> environments)
+        private ListGlobalUserEnvironmentsResult(ImmutableArray<Outputs.EnvironmentDetailsInvokeResponseResult> environments)
         {
             Environments = environments;
         }

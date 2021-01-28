@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
         /// <summary>
         /// Gets or sets properties of the Namespace.
         /// </summary>
-        public readonly Outputs.NamespacePropertiesResponse Properties;
+        public readonly Outputs.NamespacePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Gets or sets tags of the Namespace.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 
             string? name,
 
-            Outputs.NamespacePropertiesResponse properties,
+            Outputs.NamespacePropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

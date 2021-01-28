@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         /// <summary>
         /// Properties of the configuration profile assignment.
         /// </summary>
-        public readonly Outputs.ConfigurationProfileAssignmentPropertiesResponse Properties;
+        public readonly Outputs.ConfigurationProfileAssignmentPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 
             string name,
 
-            Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
+            Outputs.ConfigurationProfileAssignmentPropertiesInvokeResponseResult properties,
 
             string type)
         {

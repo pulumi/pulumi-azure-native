@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
         /// <summary>
         /// Private endpoint which the connection belongs to.
         /// </summary>
-        public readonly Outputs.PrivateEndpointPropertyResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointPropertyInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// Connection State of the Private Endpoint Connection.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -72,9 +72,9 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
 
             string name,
 
-            Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
+            Outputs.PrivateEndpointPropertyInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStatePropertyInvokeResponseResult? privateLinkServiceConnectionState,
 
             string type)
         {

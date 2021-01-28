@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
         /// <summary>
         /// The custom data.
         /// </summary>
-        public readonly Outputs.ProtectionContainerMappingPropertiesResponse Properties;
+        public readonly Outputs.ProtectionContainerMappingPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
 
             string name,
 
-            Outputs.ProtectionContainerMappingPropertiesResponse properties,
+            Outputs.ProtectionContainerMappingPropertiesInvokeResponseResult properties,
 
             string type)
         {

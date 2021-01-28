@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// Describes the gallery unique name.
         /// </summary>
-        public readonly Outputs.GalleryIdentifierResponse? Identifier;
+        public readonly Outputs.GalleryIdentifierInvokeResponseResult? Identifier;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// Profile for gallery sharing to subscription or tenant
         /// </summary>
-        public readonly Outputs.SharingProfileResponse? SharingProfile;
+        public readonly Outputs.SharingProfileInvokeResponseResult? SharingProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string id,
 
-            Outputs.GalleryIdentifierResponse? identifier,
+            Outputs.GalleryIdentifierInvokeResponseResult? identifier,
 
             string location,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string provisioningState,
 
-            Outputs.SharingProfileResponse? sharingProfile,
+            Outputs.SharingProfileInvokeResponseResult? sharingProfile,
 
             ImmutableDictionary<string, string>? tags,
 

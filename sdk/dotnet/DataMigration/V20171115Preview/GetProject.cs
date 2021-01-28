@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
         /// <summary>
         /// List of DatabaseInfo
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseInfoResponse> DatabasesInfo;
+        public readonly ImmutableArray<Outputs.DatabaseInfoInvokeResponseResult> DatabasesInfo;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
         /// <summary>
         /// Information for connecting to source
         /// </summary>
-        public readonly Outputs.SqlConnectionInfoResponse? SourceConnectionInfo;
+        public readonly Outputs.SqlConnectionInfoInvokeResponseResult? SourceConnectionInfo;
         /// <summary>
         /// Source platform for the project
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
         /// <summary>
         /// Information for connecting to target
         /// </summary>
-        public readonly Outputs.SqlConnectionInfoResponse? TargetConnectionInfo;
+        public readonly Outputs.SqlConnectionInfoInvokeResponseResult? TargetConnectionInfo;
         /// <summary>
         /// Target platform for the project
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
         private GetProjectResult(
             string creationTime,
 
-            ImmutableArray<Outputs.DatabaseInfoResponse> databasesInfo,
+            ImmutableArray<Outputs.DatabaseInfoInvokeResponseResult> databasesInfo,
 
             string id,
 
@@ -108,13 +108,13 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
 
             string provisioningState,
 
-            Outputs.SqlConnectionInfoResponse? sourceConnectionInfo,
+            Outputs.SqlConnectionInfoInvokeResponseResult? sourceConnectionInfo,
 
             string sourcePlatform,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.SqlConnectionInfoResponse? targetConnectionInfo,
+            Outputs.SqlConnectionInfoInvokeResponseResult? targetConnectionInfo,
 
             string targetPlatform,
 

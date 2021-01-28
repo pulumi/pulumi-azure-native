@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview
         /// <summary>
         /// The properties of a private endpoint connection
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+            Outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult properties,
 
             string type)
         {

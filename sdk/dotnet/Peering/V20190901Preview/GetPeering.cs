@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
         /// <summary>
         /// The properties that define a direct peering.
         /// </summary>
-        public readonly Outputs.PeeringPropertiesDirectResponse? Direct;
+        public readonly Outputs.PeeringPropertiesDirectInvokeResponseResult? Direct;
         /// <summary>
         /// The properties that define an exchange peering.
         /// </summary>
-        public readonly Outputs.PeeringPropertiesExchangeResponse? Exchange;
+        public readonly Outputs.PeeringPropertiesExchangeInvokeResponseResult? Exchange;
         /// <summary>
         /// The ID of the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
         /// <summary>
         /// The SKU that defines the tier and kind of the peering.
         /// </summary>
-        public readonly Outputs.PeeringSkuResponse Sku;
+        public readonly Outputs.PeeringSkuInvokeResponseResult Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -86,9 +86,9 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 
         [OutputConstructor]
         private GetPeeringResult(
-            Outputs.PeeringPropertiesDirectResponse? direct,
+            Outputs.PeeringPropertiesDirectInvokeResponseResult? direct,
 
-            Outputs.PeeringPropertiesExchangeResponse? exchange,
+            Outputs.PeeringPropertiesExchangeInvokeResponseResult? exchange,
 
             string id,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 
             string provisioningState,
 
-            Outputs.PeeringSkuResponse sku,
+            Outputs.PeeringSkuInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

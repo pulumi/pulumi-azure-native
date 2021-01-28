@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The encryption settings of container registry.
         /// </summary>
-        public readonly Outputs.EncryptionPropertyResponse? Encryption;
+        public readonly Outputs.EncryptionPropertyInvokeResponseResult? Encryption;
         /// <summary>
         /// The resource ID.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The identity of the container registry.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
@@ -86,15 +86,15 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
-        public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
+        public readonly Outputs.NetworkRuleSetInvokeResponseResult? NetworkRuleSet;
         /// <summary>
         /// The policies for a container registry.
         /// </summary>
-        public readonly Outputs.PoliciesResponse? Policies;
+        public readonly Outputs.PoliciesInvokeResponseResult? Policies;
         /// <summary>
         /// List of private endpoint connections for a container registry.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The status of the container registry at the time the operation was called.
         /// </summary>
-        public readonly Outputs.StatusResponse Status;
+        public readonly Outputs.StatusInvokeResponseResult Status;
         /// <summary>
         /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesInvokeResponseResult? StorageAccount;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -142,11 +142,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             ImmutableArray<string> dataEndpointHostNames,
 
-            Outputs.EncryptionPropertyResponse? encryption,
+            Outputs.EncryptionPropertyInvokeResponseResult? encryption,
 
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             string location,
 
@@ -156,23 +156,23 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string? networkRuleBypassOptions,
 
-            Outputs.NetworkRuleSetResponse? networkRuleSet,
+            Outputs.NetworkRuleSetInvokeResponseResult? networkRuleSet,
 
-            Outputs.PoliciesResponse? policies,
+            Outputs.PoliciesInvokeResponseResult? policies,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.StatusResponse status,
+            Outputs.StatusInvokeResponseResult status,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
+            Outputs.StorageAccountPropertiesInvokeResponseResult? storageAccount,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

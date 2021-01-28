@@ -46,15 +46,15 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Specifies Directory Services settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheDirectorySettingsResponse? DirectoryServicesSettings;
+        public readonly Outputs.CacheDirectorySettingsInvokeResponseResult? DirectoryServicesSettings;
         /// <summary>
         /// Specifies encryption settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheEncryptionSettingsResponse? EncryptionSettings;
+        public readonly Outputs.CacheEncryptionSettingsInvokeResponseResult? EncryptionSettings;
         /// <summary>
         /// Health of the Cache.
         /// </summary>
-        public readonly Outputs.CacheHealthResponse Health;
+        public readonly Outputs.CacheHealthInvokeResponseResult Health;
         /// <summary>
         /// Resource ID of the Cache.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// The identity of the cache, if configured.
         /// </summary>
-        public readonly Outputs.CacheIdentityResponse? Identity;
+        public readonly Outputs.CacheIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Region name string.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Specifies network settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheNetworkSettingsResponse? NetworkSettings;
+        public readonly Outputs.CacheNetworkSettingsInvokeResponseResult? NetworkSettings;
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Specifies security settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheSecuritySettingsResponse? SecuritySettings;
+        public readonly Outputs.CacheSecuritySettingsInvokeResponseResult? SecuritySettings;
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
-        public readonly Outputs.CacheResponseSku? Sku;
+        public readonly Outputs.CacheInvokeResponseSkuResult? Sku;
         /// <summary>
         /// Subnet used for the Cache.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
@@ -110,21 +110,21 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
         /// <summary>
         /// Upgrade status of the Cache.
         /// </summary>
-        public readonly Outputs.CacheUpgradeStatusResponse? UpgradeStatus;
+        public readonly Outputs.CacheUpgradeStatusInvokeResponseResult? UpgradeStatus;
 
         [OutputConstructor]
         private GetCacheResult(
             int? cacheSizeGB,
 
-            Outputs.CacheDirectorySettingsResponse? directoryServicesSettings,
+            Outputs.CacheDirectorySettingsInvokeResponseResult? directoryServicesSettings,
 
-            Outputs.CacheEncryptionSettingsResponse? encryptionSettings,
+            Outputs.CacheEncryptionSettingsInvokeResponseResult? encryptionSettings,
 
-            Outputs.CacheHealthResponse health,
+            Outputs.CacheHealthInvokeResponseResult health,
 
             string id,
 
-            Outputs.CacheIdentityResponse? identity,
+            Outputs.CacheIdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -132,23 +132,23 @@ namespace Pulumi.AzureNextGen.StorageCache.V20201001
 
             string name,
 
-            Outputs.CacheNetworkSettingsResponse? networkSettings,
+            Outputs.CacheNetworkSettingsInvokeResponseResult? networkSettings,
 
             string? provisioningState,
 
-            Outputs.CacheSecuritySettingsResponse? securitySettings,
+            Outputs.CacheSecuritySettingsInvokeResponseResult? securitySettings,
 
-            Outputs.CacheResponseSku? sku,
+            Outputs.CacheInvokeResponseSkuResult? sku,
 
             string? subnet,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             object? tags,
 
             string type,
 
-            Outputs.CacheUpgradeStatusResponse? upgradeStatus)
+            Outputs.CacheUpgradeStatusInvokeResponseResult? upgradeStatus)
         {
             CacheSizeGB = cacheSizeGB;
             DirectoryServicesSettings = directoryServicesSettings;

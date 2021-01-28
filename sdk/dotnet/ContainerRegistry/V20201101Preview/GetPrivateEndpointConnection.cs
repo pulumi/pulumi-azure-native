@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The resource of private endpoint.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of private endpoint connection resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
-        public readonly Outputs.DiagnosticsResponse Diagnostics;
+        public readonly Outputs.DiagnosticsInvokeResponseResult Diagnostics;
         /// <summary>
         /// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         private GetOutputResult(
             object? datasource,
 
-            Outputs.DiagnosticsResponse diagnostics,
+            Outputs.DiagnosticsInvokeResponseResult diagnostics,
 
             string etag,
 

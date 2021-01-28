@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <summary>
         /// The account encryption properties.
         /// </summary>
-        public readonly Outputs.AccountEncryptionResponse? Encryption;
+        public readonly Outputs.AccountEncryptionInvokeResponseResult? Encryption;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
-        public readonly Outputs.MediaServiceIdentityResponse? Identity;
+        public readonly Outputs.MediaServiceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountResponse> StorageAccounts;
+        public readonly ImmutableArray<Outputs.StorageAccountInvokeResponseResult> StorageAccounts;
         public readonly string? StorageAuthentication;
         /// <summary>
         /// Resource tags.
@@ -79,11 +79,11 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
         [OutputConstructor]
         private GetMediaServiceResult(
-            Outputs.AccountEncryptionResponse? encryption,
+            Outputs.AccountEncryptionInvokeResponseResult? encryption,
 
             string id,
 
-            Outputs.MediaServiceIdentityResponse? identity,
+            Outputs.MediaServiceIdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string name,
 
-            ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
+            ImmutableArray<Outputs.StorageAccountInvokeResponseResult> storageAccounts,
 
             string? storageAuthentication,
 

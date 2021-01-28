@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <summary>
         /// The mappings between Interaction and Relationship fields.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RelationshipLinkFieldMappingResponse> Mappings;
+        public readonly ImmutableArray<Outputs.RelationshipLinkFieldMappingInvokeResponseResult> Mappings;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <summary>
         /// The property references for the Profile of the Relationship.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceResponse> ProfilePropertyReferences;
+        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceInvokeResponseResult> ProfilePropertyReferences;
         /// <summary>
         /// Provisioning state.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <summary>
         /// The property references for the Related Profile of the Relationship.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceResponse> RelatedProfilePropertyReferences;
+        public readonly ImmutableArray<Outputs.ParticipantPropertyReferenceInvokeResponseResult> RelatedProfilePropertyReferences;
         /// <summary>
         /// The relationship guid id.
         /// </summary>
@@ -114,15 +114,15 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             string linkName,
 
-            ImmutableArray<Outputs.RelationshipLinkFieldMappingResponse> mappings,
+            ImmutableArray<Outputs.RelationshipLinkFieldMappingInvokeResponseResult> mappings,
 
             string name,
 
-            ImmutableArray<Outputs.ParticipantPropertyReferenceResponse> profilePropertyReferences,
+            ImmutableArray<Outputs.ParticipantPropertyReferenceInvokeResponseResult> profilePropertyReferences,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.ParticipantPropertyReferenceResponse> relatedProfilePropertyReferences,
+            ImmutableArray<Outputs.ParticipantPropertyReferenceInvokeResponseResult> relatedProfilePropertyReferences,
 
             string relationshipGuidId,
 

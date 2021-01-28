@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Media.V20151001
         /// <summary>
         /// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApiEndpointResponse> ApiEndpoints;
+        public readonly ImmutableArray<Outputs.ApiEndpointInvokeResponseResult> ApiEndpoints;
         /// <summary>
         /// The id of the resource.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Media.V20151001
         /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountResponse> StorageAccounts;
+        public readonly ImmutableArray<Outputs.StorageAccountInvokeResponseResult> StorageAccounts;
         /// <summary>
         /// Tags to help categorize the resource in the Azure portal.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Media.V20151001
 
         [OutputConstructor]
         private GetMediaServiceResult(
-            ImmutableArray<Outputs.ApiEndpointResponse> apiEndpoints,
+            ImmutableArray<Outputs.ApiEndpointInvokeResponseResult> apiEndpoints,
 
             string id,
 
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Media.V20151001
 
             string name,
 
-            ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
+            ImmutableArray<Outputs.StorageAccountInvokeResponseResult> storageAccounts,
 
             ImmutableDictionary<string, string>? tags,
 

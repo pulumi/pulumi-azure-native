@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// <summary>
         /// The list of authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> Authorizations;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationInvokeResponseResult> Authorizations;
         /// <summary>
         /// The CircuitProvisioningState state of the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// <summary>
         /// The list of peerings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> Peerings;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringInvokeResponseResult> Peerings;
         /// <summary>
         /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// <summary>
         /// The ServiceProviderProperties.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitServiceProviderPropertiesResponse? ServiceProviderProperties;
+        public readonly Outputs.ExpressRouteCircuitServiceProviderPropertiesInvokeResponseResult? ServiceProviderProperties;
         /// <summary>
         /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         /// <summary>
         /// The SKU.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitSkuResponse? Sku;
+        public readonly Outputs.ExpressRouteCircuitSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
         private GetExpressRouteCircuitResult(
             bool? allowClassicOperations,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse> authorizations,
+            ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationInvokeResponseResult> authorizations,
 
             string? circuitProvisioningState,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901
 
             string name,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> peerings,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringInvokeResponseResult> peerings,
 
             string? provisioningState,
 
@@ -134,11 +134,11 @@ namespace Pulumi.AzureNextGen.Network.V20170901
 
             string? serviceProviderNotes,
 
-            Outputs.ExpressRouteCircuitServiceProviderPropertiesResponse? serviceProviderProperties,
+            Outputs.ExpressRouteCircuitServiceProviderPropertiesInvokeResponseResult? serviceProviderProperties,
 
             string? serviceProviderProvisioningState,
 
-            Outputs.ExpressRouteCircuitSkuResponse? sku,
+            Outputs.ExpressRouteCircuitSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

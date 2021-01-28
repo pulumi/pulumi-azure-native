@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// location of the linked service.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <summary>
         /// LinkedService specific properties.
         /// </summary>
-        public readonly Outputs.LinkedServicePropsResponse Properties;
+        public readonly Outputs.LinkedServicePropsInvokeResponseResult Properties;
         /// <summary>
         /// Resource type of linked service.
         /// </summary>
@@ -74,13 +74,13 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         private GetLinkedServiceResult(
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
             string name,
 
-            Outputs.LinkedServicePropsResponse properties,
+            Outputs.LinkedServicePropsInvokeResponseResult properties,
 
             string type)
         {

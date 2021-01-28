@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// IP configuration of the Bastion Host resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BastionHostIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.BastionHostIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string? id,
 
-            ImmutableArray<Outputs.BastionHostIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.BastionHostIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 

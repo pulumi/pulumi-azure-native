@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// SQL pool SKU
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Source database to create from
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 
             string? restorePointInTime,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? sourceDatabaseId,
 

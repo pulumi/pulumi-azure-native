@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
         /// <summary>
         /// The encryption settings of the configuration store.
         /// </summary>
-        public readonly Outputs.EncryptionPropertiesResponse? Encryption;
+        public readonly Outputs.EncryptionPropertiesInvokeResponseResult? Encryption;
         /// <summary>
         /// The DNS endpoint where the configuration store API will be available.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
         /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
         /// <summary>
         /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionReferenceInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the configuration store.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
         /// <summary>
         /// The sku of the configuration store.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -96,25 +96,25 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
         private GetConfigurationStoreResult(
             string creationDate,
 
-            Outputs.EncryptionPropertiesResponse? encryption,
+            Outputs.EncryptionPropertiesInvokeResponseResult? encryption,
 
             string endpoint,
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionReferenceInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

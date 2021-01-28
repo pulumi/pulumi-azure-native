@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Search.V20200313
         /// <summary>
         /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Search.V20200313
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+            Outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult properties,
 
             string type)
         {

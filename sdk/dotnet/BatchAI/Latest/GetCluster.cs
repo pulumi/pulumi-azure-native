@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// Collection of errors encountered by various compute nodes during node setup.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BatchAIErrorResponse> Errors;
+        public readonly ImmutableArray<Outputs.BatchAIErrorInvokeResponseResult> Errors;
         /// <summary>
         /// The ID of the resource.
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
         /// </summary>
-        public readonly Outputs.NodeSetupResponse? NodeSetup;
+        public readonly Outputs.NodeSetupInvokeResponseResult? NodeSetup;
         /// <summary>
         /// Counts of various node states on the cluster.
         /// </summary>
-        public readonly Outputs.NodeStateCountsResponse NodeStateCounts;
+        public readonly Outputs.NodeStateCountsInvokeResponseResult NodeStateCounts;
         /// <summary>
         /// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
         /// </summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// Scale settings of the cluster.
         /// </summary>
-        public readonly Outputs.ScaleSettingsResponse? ScaleSettings;
+        public readonly Outputs.ScaleSettingsInvokeResponseResult? ScaleSettings;
         /// <summary>
         /// Virtual network subnet resource ID the cluster nodes belong to.
         /// </summary>
-        public readonly Outputs.ResourceIdResponse? Subnet;
+        public readonly Outputs.ResourceIdInvokeResponseResult? Subnet;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// Administrator user account settings which can be used to SSH to compute nodes.
         /// </summary>
-        public readonly Outputs.UserAccountSettingsResponse? UserAccountSettings;
+        public readonly Outputs.UserAccountSettingsInvokeResponseResult? UserAccountSettings;
         /// <summary>
         /// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
         /// </summary>
-        public readonly Outputs.VirtualMachineConfigurationResponse? VirtualMachineConfiguration;
+        public readonly Outputs.VirtualMachineConfigurationInvokeResponseResult? VirtualMachineConfiguration;
         /// <summary>
         /// VM priority of cluster nodes.
         /// </summary>
@@ -128,29 +128,29 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
 
             int currentNodeCount,
 
-            ImmutableArray<Outputs.BatchAIErrorResponse> errors,
+            ImmutableArray<Outputs.BatchAIErrorInvokeResponseResult> errors,
 
             string id,
 
             string name,
 
-            Outputs.NodeSetupResponse? nodeSetup,
+            Outputs.NodeSetupInvokeResponseResult? nodeSetup,
 
-            Outputs.NodeStateCountsResponse nodeStateCounts,
+            Outputs.NodeStateCountsInvokeResponseResult nodeStateCounts,
 
             string provisioningState,
 
             string provisioningStateTransitionTime,
 
-            Outputs.ScaleSettingsResponse? scaleSettings,
+            Outputs.ScaleSettingsInvokeResponseResult? scaleSettings,
 
-            Outputs.ResourceIdResponse? subnet,
+            Outputs.ResourceIdInvokeResponseResult? subnet,
 
             string type,
 
-            Outputs.UserAccountSettingsResponse? userAccountSettings,
+            Outputs.UserAccountSettingsInvokeResponseResult? userAccountSettings,
 
-            Outputs.VirtualMachineConfigurationResponse? virtualMachineConfiguration,
+            Outputs.VirtualMachineConfigurationInvokeResponseResult? virtualMachineConfiguration,
 
             string? vmPriority,
 

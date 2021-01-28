@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
         /// <summary>
         /// A collection of Dedicated capacity administrators
         /// </summary>
-        public readonly Outputs.DedicatedCapacityAdministratorsResponse? Administration;
+        public readonly Outputs.DedicatedCapacityAdministratorsInvokeResponseResult? Administration;
         /// <summary>
         /// An identifier that represents the PowerBI Dedicated resource.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
         /// <summary>
         /// The SKU of the PowerBI Dedicated resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponse Sku;
+        public readonly Outputs.ResourceSkuInvokeResponseResult Sku;
         /// <summary>
         /// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
 
         [OutputConstructor]
         private GetCapacityDetailsResult(
-            Outputs.DedicatedCapacityAdministratorsResponse? administration,
+            Outputs.DedicatedCapacityAdministratorsInvokeResponseResult? administration,
 
             string id,
 
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
 
             string provisioningState,
 
-            Outputs.ResourceSkuResponse sku,
+            Outputs.ResourceSkuInvokeResponseResult sku,
 
             string state,
 

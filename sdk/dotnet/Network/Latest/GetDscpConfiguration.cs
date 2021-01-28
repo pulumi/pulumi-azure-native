@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Associated Network Interfaces to the DSCP Configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> AssociatedNetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> AssociatedNetworkInterfaces;
         /// <summary>
         /// Destination IP ranges.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QosIpRangeResponse> DestinationIpRanges;
+        public readonly ImmutableArray<Outputs.QosIpRangeInvokeResponseResult> DestinationIpRanges;
         /// <summary>
         /// Destination port ranges.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QosPortRangeResponse> DestinationPortRanges;
+        public readonly ImmutableArray<Outputs.QosPortRangeInvokeResponseResult> DestinationPortRanges;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -90,11 +90,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Source IP ranges.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QosIpRangeResponse> SourceIpRanges;
+        public readonly ImmutableArray<Outputs.QosIpRangeInvokeResponseResult> SourceIpRanges;
         /// <summary>
         /// Sources port ranges.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QosPortRangeResponse> SourcePortRanges;
+        public readonly ImmutableArray<Outputs.QosPortRangeInvokeResponseResult> SourcePortRanges;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
         [OutputConstructor]
         private GetDscpConfigurationResult(
-            ImmutableArray<Outputs.NetworkInterfaceResponse> associatedNetworkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> associatedNetworkInterfaces,
 
-            ImmutableArray<Outputs.QosIpRangeResponse> destinationIpRanges,
+            ImmutableArray<Outputs.QosIpRangeInvokeResponseResult> destinationIpRanges,
 
-            ImmutableArray<Outputs.QosPortRangeResponse> destinationPortRanges,
+            ImmutableArray<Outputs.QosPortRangeInvokeResponseResult> destinationPortRanges,
 
             string etag,
 
@@ -130,9 +130,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string resourceGuid,
 
-            ImmutableArray<Outputs.QosIpRangeResponse> sourceIpRanges,
+            ImmutableArray<Outputs.QosIpRangeInvokeResponseResult> sourceIpRanges,
 
-            ImmutableArray<Outputs.QosPortRangeResponse> sourcePortRanges,
+            ImmutableArray<Outputs.QosPortRangeInvokeResponseResult> sourcePortRanges,
 
             ImmutableDictionary<string, string>? tags,
 

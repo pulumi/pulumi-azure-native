@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// Represents the destination of an event channel.
         /// </summary>
-        public readonly Outputs.EventChannelDestinationResponse? Destination;
+        public readonly Outputs.EventChannelDestinationInvokeResponseResult? Destination;
         /// <summary>
         /// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
         /// the event channel and corresponding partner topic are deleted.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// Information about the filter for the event channel.
         /// </summary>
-        public readonly Outputs.EventChannelFilterResponse? Filter;
+        public readonly Outputs.EventChannelFilterInvokeResponseResult? Filter;
         /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// Source of the event channel. This represents a unique resource in the partner's resource model.
         /// </summary>
-        public readonly Outputs.EventChannelSourceResponse? Source;
+        public readonly Outputs.EventChannelSourceInvokeResponseResult? Source;
         /// <summary>
         /// Type of the resource
         /// </summary>
@@ -90,11 +90,11 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
         [OutputConstructor]
         private GetEventChannelResult(
-            Outputs.EventChannelDestinationResponse? destination,
+            Outputs.EventChannelDestinationInvokeResponseResult? destination,
 
             string? expirationTimeIfNotActivatedUtc,
 
-            Outputs.EventChannelFilterResponse? filter,
+            Outputs.EventChannelFilterInvokeResponseResult? filter,
 
             string id,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string provisioningState,
 
-            Outputs.EventChannelSourceResponse? source,
+            Outputs.EventChannelSourceInvokeResponseResult? source,
 
             string type)
         {

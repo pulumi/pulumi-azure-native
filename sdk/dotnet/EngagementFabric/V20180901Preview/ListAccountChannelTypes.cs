@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
         /// <summary>
         /// Channel descriptions
         /// </summary>
-        public readonly ImmutableArray<Outputs.ChannelTypeDescriptionResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ChannelTypeDescriptionInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListAccountChannelTypesResult(ImmutableArray<Outputs.ChannelTypeDescriptionResponseResult> value)
+        private ListAccountChannelTypesResult(ImmutableArray<Outputs.ChannelTypeDescriptionInvokeResponseResult> value)
         {
             Value = value;
         }

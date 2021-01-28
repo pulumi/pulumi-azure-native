@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// <summary>
         /// Integration runtime properties.
         /// </summary>
-        public readonly Union<Outputs.ManagedIntegrationRuntimeResponse, Outputs.SelfHostedIntegrationRuntimeResponse> Properties;
+        public readonly Union<Outputs.ManagedIntegrationRuntimeInvokeResponseResult, Outputs.SelfHostedIntegrationRuntimeInvokeResponseResult> Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 
             string name,
 
-            Union<Outputs.ManagedIntegrationRuntimeResponse, Outputs.SelfHostedIntegrationRuntimeResponse> properties,
+            Union<Outputs.ManagedIntegrationRuntimeInvokeResponseResult, Outputs.SelfHostedIntegrationRuntimeInvokeResponseResult> properties,
 
             string type)
         {

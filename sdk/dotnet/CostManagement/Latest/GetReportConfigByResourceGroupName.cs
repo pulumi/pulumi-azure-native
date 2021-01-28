@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// <summary>
         /// Has definition for the report config.
         /// </summary>
-        public readonly Outputs.ReportConfigDefinitionResponse Definition;
+        public readonly Outputs.ReportConfigDefinitionInvokeResponseResult Definition;
         /// <summary>
         /// Has delivery information for the report config.
         /// </summary>
-        public readonly Outputs.ReportConfigDeliveryInfoResponse DeliveryInfo;
+        public readonly Outputs.ReportConfigDeliveryInfoInvokeResponseResult DeliveryInfo;
         /// <summary>
         /// The format of the report being delivered.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// <summary>
         /// Has schedule information for the report config.
         /// </summary>
-        public readonly Outputs.ReportConfigScheduleResponse? Schedule;
+        public readonly Outputs.ReportConfigScheduleInvokeResponseResult? Schedule;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -74,9 +74,9 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
 
         [OutputConstructor]
         private GetReportConfigByResourceGroupNameResult(
-            Outputs.ReportConfigDefinitionResponse definition,
+            Outputs.ReportConfigDefinitionInvokeResponseResult definition,
 
-            Outputs.ReportConfigDeliveryInfoResponse deliveryInfo,
+            Outputs.ReportConfigDeliveryInfoInvokeResponseResult deliveryInfo,
 
             string? format,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
 
             string name,
 
-            Outputs.ReportConfigScheduleResponse? schedule,
+            Outputs.ReportConfigScheduleInvokeResponseResult? schedule,
 
             ImmutableDictionary<string, string> tags,
 

@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// the collection of notifications.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutoscaleNotificationResponse> Notifications;
+        public readonly ImmutableArray<Outputs.AutoscaleNotificationInvokeResponseResult> Notifications;
         /// <summary>
         /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutoscaleProfileResponse> Profiles;
+        public readonly ImmutableArray<Outputs.AutoscaleProfileInvokeResponseResult> Profiles;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -86,9 +86,9 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string name,
 
-            ImmutableArray<Outputs.AutoscaleNotificationResponse> notifications,
+            ImmutableArray<Outputs.AutoscaleNotificationInvokeResponseResult> notifications,
 
-            ImmutableArray<Outputs.AutoscaleProfileResponse> profiles,
+            ImmutableArray<Outputs.AutoscaleProfileInvokeResponseResult> profiles,
 
             ImmutableDictionary<string, string>? tags,
 

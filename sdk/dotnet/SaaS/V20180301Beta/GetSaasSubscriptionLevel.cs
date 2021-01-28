@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
         /// <summary>
         /// saas properties
         /// </summary>
-        public readonly Outputs.SaasResourceResponseProperties Properties;
+        public readonly Outputs.SaasResourceInvokeResponsePropertiesResult Properties;
         /// <summary>
         /// the resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
 
             string name,
 
-            Outputs.SaasResourceResponseProperties properties,
+            Outputs.SaasResourceInvokeResponsePropertiesResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.Portal.Latest
         /// <summary>
         /// The cloud shell user settings properties.
         /// </summary>
-        public readonly Outputs.UserPropertiesResponse Properties;
+        public readonly Outputs.UserPropertiesInvokeResponseResult Properties;
 
         [OutputConstructor]
-        private GetUserSettingsWithLocationResult(Outputs.UserPropertiesResponse properties)
+        private GetUserSettingsWithLocationResult(Outputs.UserPropertiesInvokeResponseResult properties)
         {
             Properties = properties;
         }

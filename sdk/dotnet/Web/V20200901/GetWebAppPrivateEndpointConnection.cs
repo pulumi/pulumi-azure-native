@@ -57,16 +57,16 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// PrivateEndpoint of a remote private endpoint connection
         /// </summary>
-        public readonly Outputs.ArmIdWrapperResponse? PrivateEndpoint;
+        public readonly Outputs.ArmIdWrapperInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// The state of a private link connection
         /// </summary>
-        public readonly Outputs.PrivateLinkConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkConnectionStateInvokeResponseResult? PrivateLinkServiceConnectionState;
         public readonly string ProvisioningState;
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             string name,
 
-            Outputs.ArmIdWrapperResponse? privateEndpoint,
+            Outputs.ArmIdWrapperInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkConnectionStateInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

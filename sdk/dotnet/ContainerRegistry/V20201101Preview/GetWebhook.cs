@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

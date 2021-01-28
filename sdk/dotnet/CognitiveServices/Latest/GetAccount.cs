@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// <summary>
         /// The identity of Cognitive Services account.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The Kind of the resource.
         /// </summary>
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// <summary>
         /// Properties of Cognitive Services account.
         /// </summary>
-        public readonly Outputs.CognitiveServicesAccountPropertiesResponse Properties;
+        public readonly Outputs.CognitiveServicesAccountPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The SKU of Cognitive Services account.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? kind,
 
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
 
             string name,
 
-            Outputs.CognitiveServicesAccountPropertiesResponse properties,
+            Outputs.CognitiveServicesAccountPropertiesInvokeResponseResult properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

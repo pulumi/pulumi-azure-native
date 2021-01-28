@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
-        public readonly Outputs.ManagedIdentityResponse? Identity;
+        public readonly Outputs.ManagedIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
 
             string? id,
 
-            Outputs.ManagedIdentityResponse? identity,
+            Outputs.ManagedIdentityInvokeResponseResult? identity,
 
             string? kind,
 

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the resource
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The result of this task run
         /// </summary>
-        public readonly Outputs.RunResponse RunResult;
+        public readonly Outputs.RunInvokeResponseResult RunResult;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             string? location,
 
@@ -102,9 +102,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             object? runRequest,
 
-            Outputs.RunResponse runResult,
+            Outputs.RunInvokeResponseResult runResult,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <summary>
         /// The properties that are associated with a function.
         /// </summary>
-        public readonly Outputs.ScalarFunctionPropertiesResponse Properties;
+        public readonly Outputs.ScalarFunctionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 
             string? name,
 
-            Outputs.ScalarFunctionPropertiesResponse properties,
+            Outputs.ScalarFunctionPropertiesInvokeResponseResult properties,
 
             string type)
         {

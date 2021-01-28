@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Certificate Thumbprint
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? publicCertificateLocation,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string thumbprint,
 

@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The per database settings for the elastic pool.
         /// </summary>
-        public readonly Outputs.ElasticPoolPerDatabaseSettingsResponse? PerDatabaseSettings;
+        public readonly Outputs.ElasticPoolPerDatabaseSettingsInvokeResponseResult? PerDatabaseSettings;
         /// <summary>
         /// The elastic pool SKU.
         /// 
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
         /// ````
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The state of the elastic pool.
         /// </summary>
@@ -126,9 +126,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string name,
 
-            Outputs.ElasticPoolPerDatabaseSettingsResponse? perDatabaseSettings,
+            Outputs.ElasticPoolPerDatabaseSettingsInvokeResponseResult? perDatabaseSettings,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string state,
 

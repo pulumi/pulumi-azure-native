@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
         /// <summary>
         /// Confluent offer detail
         /// </summary>
-        public readonly Outputs.OrganizationResourcePropertiesResponseOfferDetail? OfferDetail;
+        public readonly Outputs.OrganizationResourcePropertiesInvokeResponseOfferDetailResult? OfferDetail;
         /// <summary>
         /// Id of the Confluent organization.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
         /// <summary>
         /// Subscriber detail
         /// </summary>
-        public readonly Outputs.OrganizationResourcePropertiesResponseUserDetail? UserDetail;
+        public readonly Outputs.OrganizationResourcePropertiesInvokeResponseUserDetailResult? UserDetail;
 
         [OutputConstructor]
         private GetOrganizationResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
 
             string name,
 
-            Outputs.OrganizationResourcePropertiesResponseOfferDetail? offerDetail,
+            Outputs.OrganizationResourcePropertiesInvokeResponseOfferDetailResult? offerDetail,
 
             string organizationId,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
 
             string type,
 
-            Outputs.OrganizationResourcePropertiesResponseUserDetail? userDetail)
+            Outputs.OrganizationResourcePropertiesInvokeResponseUserDetailResult? userDetail)
         {
             CreatedTime = createdTime;
             Id = id;

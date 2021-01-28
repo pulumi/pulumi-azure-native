@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The properties of the Relationship.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PropertyDefinitionResponse> Fields;
+        public readonly ImmutableArray<Outputs.PropertyDefinitionInvokeResponseResult> Fields;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// Optional property to be used to map fields in profile to their strong ids in related profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RelationshipTypeMappingResponse> LookupMappings;
+        public readonly ImmutableArray<Outputs.RelationshipTypeMappingInvokeResponseResult> LookupMappings;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -116,11 +116,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             string? expiryDateTimeUtc,
 
-            ImmutableArray<Outputs.PropertyDefinitionResponse> fields,
+            ImmutableArray<Outputs.PropertyDefinitionInvokeResponseResult> fields,
 
             string id,
 
-            ImmutableArray<Outputs.RelationshipTypeMappingResponse> lookupMappings,
+            ImmutableArray<Outputs.RelationshipTypeMappingInvokeResponseResult> lookupMappings,
 
             string name,
 

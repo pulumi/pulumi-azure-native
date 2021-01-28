@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
         /// <summary>
         /// The resource group properties.
         /// </summary>
-        public readonly Outputs.ResourceGroupPropertiesResponse Properties;
+        public readonly Outputs.ResourceGroupPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The tags attached to the resource group.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
 
             string? name,
 
-            Outputs.ResourceGroupPropertiesResponse properties,
+            Outputs.ResourceGroupPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags)
         {

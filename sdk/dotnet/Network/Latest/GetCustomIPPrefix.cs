@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The extended location of the custom IP prefix.
         /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.ExtendedLocationInvokeResponseResult? ExtendedLocation;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The list of all referenced PublicIpPrefixes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpPrefixes;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> PublicIpPrefixes;
         /// <summary>
         /// The resource GUID property of the custom IP prefix resource.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
-            Outputs.ExtendedLocationResponse? extendedLocation,
+            Outputs.ExtendedLocationInvokeResponseResult? extendedLocation,
 
             string? id,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponse> publicIpPrefixes,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> publicIpPrefixes,
 
             string resourceGuid,
 

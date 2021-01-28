@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// Group members information for the server trust group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerInfoResponse> GroupMembers;
+        public readonly ImmutableArray<Outputs.ServerInfoInvokeResponseResult> GroupMembers;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
         [OutputConstructor]
         private GetServerTrustGroupResult(
-            ImmutableArray<Outputs.ServerInfoResponse> groupMembers,
+            ImmutableArray<Outputs.ServerInfoInvokeResponseResult> groupMembers,
 
             string id,
 

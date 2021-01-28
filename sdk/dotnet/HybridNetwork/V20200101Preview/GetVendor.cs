@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// A list of IDs of the vendor skus offered by the vendor.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> Skus;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> Skus;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponse> skus,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> skus,
 
             string type)
         {

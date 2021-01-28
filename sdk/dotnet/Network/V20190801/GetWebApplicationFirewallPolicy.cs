@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// A collection of references to application gateways.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayResponse> ApplicationGateways;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayInvokeResponseResult> ApplicationGateways;
         /// <summary>
         /// Describes custom rules inside the policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> CustomRules;
+        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleInvokeResponseResult> CustomRules;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// Describes the managedRules structure
         /// </summary>
-        public readonly Outputs.ManagedRulesDefinitionResponse ManagedRules;
+        public readonly Outputs.ManagedRulesDefinitionInvokeResponseResult ManagedRules;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// Describes policySettings for policy.
         /// </summary>
-        public readonly Outputs.PolicySettingsResponse? PolicySettings;
+        public readonly Outputs.PolicySettingsInvokeResponseResult? PolicySettings;
         /// <summary>
         /// The provisioning state of the web application firewall policy resource.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
         [OutputConstructor]
         private GetWebApplicationFirewallPolicyResult(
-            ImmutableArray<Outputs.ApplicationGatewayResponse> applicationGateways,
+            ImmutableArray<Outputs.ApplicationGatewayInvokeResponseResult> applicationGateways,
 
-            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> customRules,
+            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleInvokeResponseResult> customRules,
 
             string? etag,
 
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string? location,
 
-            Outputs.ManagedRulesDefinitionResponse managedRules,
+            Outputs.ManagedRulesDefinitionInvokeResponseResult managedRules,
 
             string name,
 
-            Outputs.PolicySettingsResponse? policySettings,
+            Outputs.PolicySettingsInvokeResponseResult? policySettings,
 
             string provisioningState,
 

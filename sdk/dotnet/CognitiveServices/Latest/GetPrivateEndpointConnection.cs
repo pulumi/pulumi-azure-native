@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// <summary>
         /// Resource properties.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+            Outputs.PrivateEndpointConnectionPropertiesInvokeResponseResult properties,
 
             string type)
         {

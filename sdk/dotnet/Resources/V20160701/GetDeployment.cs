@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
         /// <summary>
         /// Deployment properties.
         /// </summary>
-        public readonly Outputs.DeploymentPropertiesExtendedResponse Properties;
+        public readonly Outputs.DeploymentPropertiesExtendedInvokeResponseResult Properties;
 
         [OutputConstructor]
         private GetDeploymentResult(
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
 
             string name,
 
-            Outputs.DeploymentPropertiesExtendedResponse properties)
+            Outputs.DeploymentPropertiesExtendedInvokeResponseResult properties)
         {
             Id = id;
             Name = name;

@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// Role configured on ASE resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

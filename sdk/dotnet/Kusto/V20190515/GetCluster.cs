@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// Optimized auto scale definition.
         /// </summary>
-        public readonly Outputs.OptimizedAutoscaleResponse? OptimizedAutoscale;
+        public readonly Outputs.OptimizedAutoscaleInvokeResponseResult? OptimizedAutoscale;
         /// <summary>
         /// The provisioned state of the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// The SKU of the cluster.
         /// </summary>
-        public readonly Outputs.AzureSkuResponse Sku;
+        public readonly Outputs.AzureSkuInvokeResponseResult Sku;
         /// <summary>
         /// The state of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// The cluster's external tenants.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrustedExternalTenantResponse> TrustedExternalTenants;
+        public readonly ImmutableArray<Outputs.TrustedExternalTenantInvokeResponseResult> TrustedExternalTenants;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// Virtual network definition.
         /// </summary>
-        public readonly Outputs.VirtualNetworkConfigurationResponse? VirtualNetworkConfiguration;
+        public readonly Outputs.VirtualNetworkConfigurationInvokeResponseResult? VirtualNetworkConfiguration;
         /// <summary>
         /// The availability zones of the cluster.
         /// </summary>
@@ -118,23 +118,23 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
 
             string name,
 
-            Outputs.OptimizedAutoscaleResponse? optimizedAutoscale,
+            Outputs.OptimizedAutoscaleInvokeResponseResult? optimizedAutoscale,
 
             string provisioningState,
 
-            Outputs.AzureSkuResponse sku,
+            Outputs.AzureSkuInvokeResponseResult sku,
 
             string state,
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TrustedExternalTenantResponse> trustedExternalTenants,
+            ImmutableArray<Outputs.TrustedExternalTenantInvokeResponseResult> trustedExternalTenants,
 
             string type,
 
             string uri,
 
-            Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration,
+            Outputs.VirtualNetworkConfigurationInvokeResponseResult? virtualNetworkConfiguration,
 
             ImmutableArray<string> zones)
         {

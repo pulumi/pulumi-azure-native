@@ -34,13 +34,13 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         /// <summary>
         /// The array of violations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ViolationResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ViolationInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListListTenantConfigurationViolationResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ViolationResponseResult> value)
+            ImmutableArray<Outputs.ViolationInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

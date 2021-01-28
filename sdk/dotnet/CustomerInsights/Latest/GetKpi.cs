@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The aliases.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KpiAliasResponse> Aliases;
+        public readonly ImmutableArray<Outputs.KpiAliasInvokeResponseResult> Aliases;
         /// <summary>
         /// The calculation window.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The KPI extracts.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KpiExtractResponse> Extracts;
+        public readonly ImmutableArray<Outputs.KpiExtractInvokeResponseResult> Extracts;
         /// <summary>
         /// The filter expression for the KPI.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The KPI GroupByMetadata.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KpiGroupByMetadataResponse> GroupByMetadata;
+        public readonly ImmutableArray<Outputs.KpiGroupByMetadataInvokeResponseResult> GroupByMetadata;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The participant profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KpiParticipantProfilesMetadataResponse> ParticipantProfilesMetadata;
+        public readonly ImmutableArray<Outputs.KpiParticipantProfilesMetadataInvokeResponseResult> ParticipantProfilesMetadata;
         /// <summary>
         /// Provisioning state.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// <summary>
         /// The KPI thresholds.
         /// </summary>
-        public readonly Outputs.KpiThresholdsResponse? ThresHolds;
+        public readonly Outputs.KpiThresholdsInvokeResponseResult? ThresHolds;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
         [OutputConstructor]
         private GetKpiResult(
-            ImmutableArray<Outputs.KpiAliasResponse> aliases,
+            ImmutableArray<Outputs.KpiAliasInvokeResponseResult> aliases,
 
             string calculationWindow,
 
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             string expression,
 
-            ImmutableArray<Outputs.KpiExtractResponse> extracts,
+            ImmutableArray<Outputs.KpiExtractInvokeResponseResult> extracts,
 
             string? filter,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             ImmutableArray<string> groupBy,
 
-            ImmutableArray<Outputs.KpiGroupByMetadataResponse> groupByMetadata,
+            ImmutableArray<Outputs.KpiGroupByMetadataInvokeResponseResult> groupByMetadata,
 
             string id,
 
@@ -168,13 +168,13 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             string name,
 
-            ImmutableArray<Outputs.KpiParticipantProfilesMetadataResponse> participantProfilesMetadata,
+            ImmutableArray<Outputs.KpiParticipantProfilesMetadataInvokeResponseResult> participantProfilesMetadata,
 
             string provisioningState,
 
             string tenantId,
 
-            Outputs.KpiThresholdsResponse? thresHolds,
+            Outputs.KpiThresholdsInvokeResponseResult? thresHolds,
 
             string type,
 

@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// The Subnet that using the prefix of this IpAllocation resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse Subnet;
+        public readonly Outputs.SubResourceInvokeResponseResult Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// The VirtualNetwork that using the prefix of this IpAllocation resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse VirtualNetwork;
+        public readonly Outputs.SubResourceInvokeResponseResult VirtualNetwork;
 
         [OutputConstructor]
         private GetIpAllocationResult(
@@ -118,13 +118,13 @@ namespace Pulumi.AzureNextGen.Network.V20200301
 
             string? prefixType,
 
-            Outputs.SubResourceResponse subnet,
+            Outputs.SubResourceInvokeResponseResult subnet,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.SubResourceResponse virtualNetwork)
+            Outputs.SubResourceInvokeResponseResult virtualNetwork)
         {
             AllocationTags = allocationTags;
             Etag = etag;

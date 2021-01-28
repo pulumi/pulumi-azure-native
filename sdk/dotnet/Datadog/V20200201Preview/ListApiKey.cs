@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
         /// <summary>
         /// Results of a list operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatadogApiKeyResponseResult> Value;
+        public readonly ImmutableArray<Outputs.DatadogApiKeyInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListApiKeyResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.DatadogApiKeyResponseResult> value)
+            ImmutableArray<Outputs.DatadogApiKeyInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

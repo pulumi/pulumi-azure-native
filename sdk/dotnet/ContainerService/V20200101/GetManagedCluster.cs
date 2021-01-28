@@ -42,19 +42,19 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
         /// <summary>
         /// Profile of Azure Active Directory configuration.
         /// </summary>
-        public readonly Outputs.ManagedClusterAADProfileResponse? AadProfile;
+        public readonly Outputs.ManagedClusterAADProfileInvokeResponseResult? AadProfile;
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? AddonProfiles;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileInvokeResponseResult>? AddonProfiles;
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileInvokeResponseResult> AgentPoolProfiles;
         /// <summary>
         /// Access profile for managed cluster API server.
         /// </summary>
-        public readonly Outputs.ManagedClusterAPIServerAccessProfileResponse? ApiServerAccessProfile;
+        public readonly Outputs.ManagedClusterAPIServerAccessProfileInvokeResponseResult? ApiServerAccessProfile;
         /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
         /// <summary>
         /// The identity of the managed cluster, if configured.
         /// </summary>
-        public readonly Outputs.ManagedClusterIdentityResponse? Identity;
+        public readonly Outputs.ManagedClusterIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfile>? IdentityProfile;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesInvokeResponseIdentityProfileResult>? IdentityProfile;
         /// <summary>
         /// Version of Kubernetes specified when creating the managed cluster.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
         /// <summary>
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponse? LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileInvokeResponseResult? LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
         /// <summary>
         /// Profile of network configuration.
         /// </summary>
-        public readonly Outputs.ContainerServiceNetworkProfileResponse? NetworkProfile;
+        public readonly Outputs.ContainerServiceNetworkProfileInvokeResponseResult? NetworkProfile;
         /// <summary>
         /// Name of the resource group containing agent pool nodes.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         /// </summary>
-        public readonly Outputs.ManagedClusterServicePrincipalProfileResponse? ServicePrincipalProfile;
+        public readonly Outputs.ManagedClusterServicePrincipalProfileInvokeResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -138,17 +138,17 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
         /// <summary>
         /// Profile for Windows VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ManagedClusterWindowsProfileResponse? WindowsProfile;
+        public readonly Outputs.ManagedClusterWindowsProfileInvokeResponseResult? WindowsProfile;
 
         [OutputConstructor]
         private GetManagedClusterResult(
-            Outputs.ManagedClusterAADProfileResponse? aadProfile,
+            Outputs.ManagedClusterAADProfileInvokeResponseResult? aadProfile,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? addonProfiles,
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileInvokeResponseResult>? addonProfiles,
 
-            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> agentPoolProfiles,
+            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileInvokeResponseResult> agentPoolProfiles,
 
-            Outputs.ManagedClusterAPIServerAccessProfileResponse? apiServerAccessProfile,
+            Outputs.ManagedClusterAPIServerAccessProfileInvokeResponseResult? apiServerAccessProfile,
 
             string? diskEncryptionSetID,
 
@@ -162,13 +162,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
 
             string id,
 
-            Outputs.ManagedClusterIdentityResponse? identity,
+            Outputs.ManagedClusterIdentityInvokeResponseResult? identity,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfile>? identityProfile,
+            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesInvokeResponseIdentityProfileResult>? identityProfile,
 
             string? kubernetesVersion,
 
-            Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
+            Outputs.ContainerServiceLinuxProfileInvokeResponseResult? linuxProfile,
 
             string location,
 
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
 
             string name,
 
-            Outputs.ContainerServiceNetworkProfileResponse? networkProfile,
+            Outputs.ContainerServiceNetworkProfileInvokeResponseResult? networkProfile,
 
             string? nodeResourceGroup,
 
@@ -184,13 +184,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200101
 
             string provisioningState,
 
-            Outputs.ManagedClusterServicePrincipalProfileResponse? servicePrincipalProfile,
+            Outputs.ManagedClusterServicePrincipalProfileInvokeResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ManagedClusterWindowsProfileResponse? windowsProfile)
+            Outputs.ManagedClusterWindowsProfileInvokeResponseResult? windowsProfile)
         {
             AadProfile = aadProfile;
             AddonProfiles = addonProfiles;

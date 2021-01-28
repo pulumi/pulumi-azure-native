@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// Links relevant to the assessment
         /// </summary>
-        public readonly Outputs.AssessmentLinksResponse Links;
+        public readonly Outputs.AssessmentLinksInvokeResponseResult Links;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// The result of the assessment
         /// </summary>
-        public readonly Outputs.AssessmentStatusResponse Status;
+        public readonly Outputs.AssessmentStatusInvokeResponseResult Status;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -86,13 +86,13 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string id,
 
-            Outputs.AssessmentLinksResponse links,
+            Outputs.AssessmentLinksInvokeResponseResult links,
 
             string name,
 
             object resourceDetails,
 
-            Outputs.AssessmentStatusResponse status,
+            Outputs.AssessmentStatusInvokeResponseResult status,
 
             string type)
         {

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// <summary>
         /// Encrypted storage key.
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? AccountKey;
+        public readonly Outputs.AsymmetricEncryptedSecretInvokeResponseResult? AccountKey;
         /// <summary>
         /// Type of storage accessed on the storage account.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            Outputs.AsymmetricEncryptedSecretResponse? accountKey,
+            Outputs.AsymmetricEncryptedSecretInvokeResponseResult? accountKey,
 
             string accountType,
 

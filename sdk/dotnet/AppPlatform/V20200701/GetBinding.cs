@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
         /// <summary>
         /// Properties of the Binding resource
         /// </summary>
-        public readonly Outputs.BindingResourcePropertiesResponse Properties;
+        public readonly Outputs.BindingResourcePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 
             string name,
 
-            Outputs.BindingResourcePropertiesResponse properties,
+            Outputs.BindingResourcePropertiesInvokeResponseResult properties,
 
             string type)
         {

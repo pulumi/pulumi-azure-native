@@ -72,16 +72,16 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200730Preview
         /// <summary>
         /// Details about the error state.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
+        public readonly ImmutableArray<Outputs.ErrorDetailInvokeResponseResult> ErrorDetails;
         /// <summary>
         /// Machine Extensions information
         /// </summary>
-        public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> Extensions;
+        public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewInvokeResponseResult> Extensions;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.MachineResponseIdentity? Identity;
+        public readonly Outputs.MachineInvokeResponseIdentityResult? Identity;
         /// <summary>
         /// The time of the last status change.
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200730Preview
         /// <summary>
         /// Metadata pertaining to the geographic location of the resource.
         /// </summary>
-        public readonly Outputs.LocationDataResponse? LocationData;
+        public readonly Outputs.LocationDataInvokeResponseResult? LocationData;
         /// <summary>
         /// Specifies the hybrid machine FQDN.
         /// </summary>
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200730Preview
         /// <summary>
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
-        public readonly Outputs.MachinePropertiesResponseOsProfile? OsProfile;
+        public readonly Outputs.MachinePropertiesInvokeResponseOsProfileResult? OsProfile;
         /// <summary>
         /// Specifies the Operating System product SKU.
         /// </summary>
@@ -157,19 +157,19 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200730Preview
 
             string domainName,
 
-            ImmutableArray<Outputs.ErrorDetailResponse> errorDetails,
+            ImmutableArray<Outputs.ErrorDetailInvokeResponseResult> errorDetails,
 
-            ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> extensions,
+            ImmutableArray<Outputs.MachineExtensionInstanceViewInvokeResponseResult> extensions,
 
             string id,
 
-            Outputs.MachineResponseIdentity? identity,
+            Outputs.MachineInvokeResponseIdentityResult? identity,
 
             string lastStatusChange,
 
             string location,
 
-            Outputs.LocationDataResponse? locationData,
+            Outputs.LocationDataInvokeResponseResult? locationData,
 
             string machineFqdn,
 
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200730Preview
 
             string osName,
 
-            Outputs.MachinePropertiesResponseOsProfile? osProfile,
+            Outputs.MachinePropertiesInvokeResponseOsProfileResult? osProfile,
 
             string osSku,
 

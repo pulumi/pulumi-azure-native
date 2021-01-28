@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// The mode to create a new PostgreSQL server.
         /// </summary>
         public readonly string? CreateMode;
-        public readonly Outputs.ServerPropertiesResponseDelegatedSubnetArguments? DelegatedSubnetArguments;
+        public readonly Outputs.ServerPropertiesInvokeResponseDelegatedSubnetArgumentsResult? DelegatedSubnetArguments;
         /// <summary>
         /// The display name of a server.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <summary>
         /// Maintenance window of a server.
         /// </summary>
-        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
+        public readonly Outputs.MaintenanceWindowInvokeResponseResult? MaintenanceWindow;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The source PostgreSQL server name to restore from.
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <summary>
         /// Storage profile of a server.
         /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.StorageProfileInvokeResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
 
             string? createMode,
 
-            Outputs.ServerPropertiesResponseDelegatedSubnetArguments? delegatedSubnetArguments,
+            Outputs.ServerPropertiesInvokeResponseDelegatedSubnetArgumentsResult? delegatedSubnetArguments,
 
             string? displayName,
 
@@ -161,11 +161,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string location,
 
-            Outputs.MaintenanceWindowResponse? maintenanceWindow,
+            Outputs.MaintenanceWindowInvokeResponseResult? maintenanceWindow,
 
             string name,
 
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
 
             string publicNetworkAccess,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? sourceServerName,
 
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
 
             string state,
 
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.StorageProfileInvokeResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// Asset File encryption metadata.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssetFileEncryptionMetadataResponseResult> AssetFileEncryptionMetadata;
+        public readonly ImmutableArray<Outputs.AssetFileEncryptionMetadataInvokeResponseResult> AssetFileEncryptionMetadata;
         /// <summary>
         /// The Asset File storage encryption key.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
         [OutputConstructor]
         private GetAssetEncryptionKeyResult(
-            ImmutableArray<Outputs.AssetFileEncryptionMetadataResponseResult> assetFileEncryptionMetadata,
+            ImmutableArray<Outputs.AssetFileEncryptionMetadataInvokeResponseResult> assetFileEncryptionMetadata,
 
             string? key)
         {

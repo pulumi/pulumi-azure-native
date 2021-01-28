@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The kind of the resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
         /// <summary>
         /// The plan of the resource.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// The resource properties.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
         private GetResourceResult(
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? kind,
 
@@ -116,11 +116,11 @@ namespace Pulumi.AzureNextGen.Resources.V20180201
 
             string name,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             object properties,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

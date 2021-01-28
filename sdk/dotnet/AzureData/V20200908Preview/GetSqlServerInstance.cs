@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
 
             string status,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

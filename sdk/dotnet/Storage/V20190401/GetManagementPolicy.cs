@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// <summary>
         /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
-        public readonly Outputs.ManagementPolicySchemaResponse Policy;
+        public readonly Outputs.ManagementPolicySchemaInvokeResponseResult Policy;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
 
             string name,
 
-            Outputs.ManagementPolicySchemaResponse policy,
+            Outputs.ManagementPolicySchemaInvokeResponseResult policy,
 
             string type)
         {

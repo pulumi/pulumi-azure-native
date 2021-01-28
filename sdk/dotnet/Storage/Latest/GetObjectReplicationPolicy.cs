@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <summary>
         /// The storage account object replication rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse> Rules;
+        public readonly ImmutableArray<Outputs.ObjectReplicationPolicyRuleInvokeResponseResult> Rules;
         /// <summary>
         /// Required. Source account name.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 
             string policyId,
 
-            ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse> rules,
+            ImmutableArray<Outputs.ObjectReplicationPolicyRuleInvokeResponseResult> rules,
 
             string sourceAccount,
 

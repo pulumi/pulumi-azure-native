@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// The action payload of the job step.
         /// </summary>
-        public readonly Outputs.JobStepActionResponse Action;
+        public readonly Outputs.JobStepActionInvokeResponseResult Action;
         /// <summary>
         /// The resource ID of the job credential that will be used to connect to the targets.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// Execution options for the job step.
         /// </summary>
-        public readonly Outputs.JobStepExecutionOptionsResponse? ExecutionOptions;
+        public readonly Outputs.JobStepExecutionOptionsInvokeResponseResult? ExecutionOptions;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// Output destination properties of the job step.
         /// </summary>
-        public readonly Outputs.JobStepOutputResponse? Output;
+        public readonly Outputs.JobStepOutputInvokeResponseResult? Output;
         /// <summary>
         /// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         /// </summary>
@@ -96,17 +96,17 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
         [OutputConstructor]
         private GetJobStepResult(
-            Outputs.JobStepActionResponse action,
+            Outputs.JobStepActionInvokeResponseResult action,
 
             string credential,
 
-            Outputs.JobStepExecutionOptionsResponse? executionOptions,
+            Outputs.JobStepExecutionOptionsInvokeResponseResult? executionOptions,
 
             string id,
 
             string name,
 
-            Outputs.JobStepOutputResponse? output,
+            Outputs.JobStepOutputInvokeResponseResult? output,
 
             int? stepId,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The list of circuit connections associated with Azure Private Peering for this circuit.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponse> Connections;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitConnectionInvokeResponseResult> Connections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The ExpressRoute connection.
         /// </summary>
-        public readonly Outputs.ExpressRouteConnectionIdResponse? ExpressRouteConnection;
+        public readonly Outputs.ExpressRouteConnectionIdInvokeResponseResult? ExpressRouteConnection;
         /// <summary>
         /// The GatewayManager Etag.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The IPv6 peering configuration.
         /// </summary>
-        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? Ipv6PeeringConfig;
+        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult? Ipv6PeeringConfig;
         /// <summary>
         /// Who was the last to modify the peering.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The Microsoft peering configuration.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringConfigResponse? MicrosoftPeeringConfig;
+        public readonly Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? MicrosoftPeeringConfig;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The list of peered circuit connections associated with Azure Private Peering for this circuit.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionResponse> PeeredConnections;
+        public readonly ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionInvokeResponseResult> PeeredConnections;
         /// <summary>
         /// The peering type.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The reference to the RouteFilter resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? RouteFilter;
+        public readonly Outputs.SubResourceInvokeResponseResult? RouteFilter;
         /// <summary>
         /// The secondary port.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The peering stats of express route circuit.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitStatsResponse? Stats;
+        public readonly Outputs.ExpressRouteCircuitStatsInvokeResponseResult? Stats;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -146,27 +146,27 @@ namespace Pulumi.AzureNextGen.Network.Latest
         private GetExpressRouteCircuitPeeringResult(
             int? azureASN,
 
-            ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponse> connections,
+            ImmutableArray<Outputs.ExpressRouteCircuitConnectionInvokeResponseResult> connections,
 
             string etag,
 
-            Outputs.ExpressRouteConnectionIdResponse? expressRouteConnection,
+            Outputs.ExpressRouteConnectionIdInvokeResponseResult? expressRouteConnection,
 
             string? gatewayManagerEtag,
 
             string? id,
 
-            Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? ipv6PeeringConfig,
+            Outputs.Ipv6ExpressRouteCircuitPeeringConfigInvokeResponseResult? ipv6PeeringConfig,
 
             string lastModifiedBy,
 
-            Outputs.ExpressRouteCircuitPeeringConfigResponse? microsoftPeeringConfig,
+            Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? microsoftPeeringConfig,
 
             string? name,
 
             double? peerASN,
 
-            ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionResponse> peeredConnections,
+            ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionInvokeResponseResult> peeredConnections,
 
             string? peeringType,
 
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string provisioningState,
 
-            Outputs.SubResourceResponse? routeFilter,
+            Outputs.SubResourceInvokeResponseResult? routeFilter,
 
             string? secondaryAzurePort,
 
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string? state,
 
-            Outputs.ExpressRouteCircuitStatsResponse? stats,
+            Outputs.ExpressRouteCircuitStatsInvokeResponseResult? stats,
 
             string type,
 

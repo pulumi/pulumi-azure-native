@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20191001
         /// <summary>
         /// Describes custom rules inside the policy.
         /// </summary>
-        public readonly Outputs.CustomRuleListResponse? CustomRules;
+        public readonly Outputs.CustomRuleListInvokeResponseResult? CustomRules;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Network.V20191001
         /// <summary>
         /// Describes Frontend Endpoints associated with this Web Application Firewall policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendEndpointLinkResponse> FrontendEndpointLinks;
+        public readonly ImmutableArray<Outputs.FrontendEndpointLinkInvokeResponseResult> FrontendEndpointLinks;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.V20191001
         /// <summary>
         /// Describes managed rules inside the policy.
         /// </summary>
-        public readonly Outputs.ManagedRuleSetListResponse? ManagedRules;
+        public readonly Outputs.ManagedRuleSetListInvokeResponseResult? ManagedRules;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20191001
         /// <summary>
         /// Describes settings for the policy.
         /// </summary>
-        public readonly Outputs.PolicySettingsResponse? PolicySettings;
+        public readonly Outputs.PolicySettingsInvokeResponseResult? PolicySettings;
         /// <summary>
         /// Provisioning state of the policy.
         /// </summary>
@@ -87,21 +87,21 @@ namespace Pulumi.AzureNextGen.Network.V20191001
 
         [OutputConstructor]
         private GetPolicyResult(
-            Outputs.CustomRuleListResponse? customRules,
+            Outputs.CustomRuleListInvokeResponseResult? customRules,
 
             string? etag,
 
-            ImmutableArray<Outputs.FrontendEndpointLinkResponse> frontendEndpointLinks,
+            ImmutableArray<Outputs.FrontendEndpointLinkInvokeResponseResult> frontendEndpointLinks,
 
             string id,
 
             string? location,
 
-            Outputs.ManagedRuleSetListResponse? managedRules,
+            Outputs.ManagedRuleSetListInvokeResponseResult? managedRules,
 
             string name,
 
-            Outputs.PolicySettingsResponse? policySettings,
+            Outputs.PolicySettingsInvokeResponseResult? policySettings,
 
             string provisioningState,
 

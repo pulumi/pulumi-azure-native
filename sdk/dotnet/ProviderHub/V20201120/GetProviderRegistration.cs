@@ -41,7 +41,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ProviderRegistrationResponseProperties Properties;
+        public readonly Outputs.ProviderRegistrationInvokeResponsePropertiesResult Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 
             string name,
 
-            Outputs.ProviderRegistrationResponseProperties properties,
+            Outputs.ProviderRegistrationInvokeResponsePropertiesResult properties,
 
             string type)
         {

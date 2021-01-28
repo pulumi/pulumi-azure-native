@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Fabric related data.
         /// </summary>
-        public readonly Outputs.FabricPropertiesResponse Properties;
+        public readonly Outputs.FabricPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string name,
 
-            Outputs.FabricPropertiesResponse properties,
+            Outputs.FabricPropertiesInvokeResponseResult properties,
 
             string type)
         {

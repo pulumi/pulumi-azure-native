@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         /// </summary>
-        public readonly Outputs.PipelineDiagnosticSettingsResponse? Backend;
+        public readonly Outputs.PipelineDiagnosticSettingsInvokeResponseResult? Backend;
         /// <summary>
         /// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         /// </summary>
-        public readonly Outputs.PipelineDiagnosticSettingsResponse? Frontend;
+        public readonly Outputs.PipelineDiagnosticSettingsInvokeResponseResult? Frontend;
         /// <summary>
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <summary>
         /// Sampling settings for Diagnostic.
         /// </summary>
-        public readonly Outputs.SamplingSettingsResponse? Sampling;
+        public readonly Outputs.SamplingSettingsInvokeResponseResult? Sampling;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         private GetDiagnosticResult(
             string? alwaysLog,
 
-            Outputs.PipelineDiagnosticSettingsResponse? backend,
+            Outputs.PipelineDiagnosticSettingsInvokeResponseResult? backend,
 
             bool? enableHttpCorrelationHeaders,
 
-            Outputs.PipelineDiagnosticSettingsResponse? frontend,
+            Outputs.PipelineDiagnosticSettingsInvokeResponseResult? frontend,
 
             string? httpCorrelationProtocol,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 
             string name,
 
-            Outputs.SamplingSettingsResponse? sampling,
+            Outputs.SamplingSettingsInvokeResponseResult? sampling,
 
             string type,
 

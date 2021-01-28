@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// The contact details.
         /// </summary>
-        public readonly Outputs.ContactDetailsResponse ContactInformation;
+        public readonly Outputs.ContactDetailsInvokeResponseResult ContactInformation;
         /// <summary>
         /// Current status of the order.
         /// </summary>
-        public readonly Outputs.OrderStatusResponse? CurrentStatus;
+        public readonly Outputs.OrderStatusInvokeResponseResult? CurrentStatus;
         /// <summary>
         /// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrackingInfoResponse> DeliveryTrackingInfo;
+        public readonly ImmutableArray<Outputs.TrackingInfoInvokeResponseResult> DeliveryTrackingInfo;
         /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// List of status changes in the order.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OrderStatusResponse> OrderHistory;
+        public readonly ImmutableArray<Outputs.OrderStatusInvokeResponseResult> OrderHistory;
         /// <summary>
         /// Tracking information for the package returned from the customer whether it has an original or a replacement device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrackingInfoResponse> ReturnTrackingInfo;
+        public readonly ImmutableArray<Outputs.TrackingInfoInvokeResponseResult> ReturnTrackingInfo;
         /// <summary>
         /// Serial number of the device.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// The shipping address.
         /// </summary>
-        public readonly Outputs.AddressResponse? ShippingAddress;
+        public readonly Outputs.AddressInvokeResponseResult? ShippingAddress;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -86,25 +86,25 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 
         [OutputConstructor]
         private GetOrderResult(
-            Outputs.ContactDetailsResponse contactInformation,
+            Outputs.ContactDetailsInvokeResponseResult contactInformation,
 
-            Outputs.OrderStatusResponse? currentStatus,
+            Outputs.OrderStatusInvokeResponseResult? currentStatus,
 
-            ImmutableArray<Outputs.TrackingInfoResponse> deliveryTrackingInfo,
+            ImmutableArray<Outputs.TrackingInfoInvokeResponseResult> deliveryTrackingInfo,
 
             string id,
 
             string name,
 
-            ImmutableArray<Outputs.OrderStatusResponse> orderHistory,
+            ImmutableArray<Outputs.OrderStatusInvokeResponseResult> orderHistory,
 
-            ImmutableArray<Outputs.TrackingInfoResponse> returnTrackingInfo,
+            ImmutableArray<Outputs.TrackingInfoInvokeResponseResult> returnTrackingInfo,
 
             string serialNumber,
 
             string? shipmentType,
 
-            Outputs.AddressResponse? shippingAddress,
+            Outputs.AddressInvokeResponseResult? shippingAddress,
 
             string type)
         {

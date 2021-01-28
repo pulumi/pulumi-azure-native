@@ -42,15 +42,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? AddressSpace;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? AddressSpace;
         /// <summary>
         /// The set of bgp properties.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponse? BgpProperties;
+        public readonly Outputs.BgpSettingsInvokeResponseResult? BgpProperties;
         /// <summary>
         /// The device properties.
         /// </summary>
-        public readonly Outputs.DevicePropertiesResponse? DeviceProperties;
+        public readonly Outputs.DevicePropertiesInvokeResponseResult? DeviceProperties;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Office365 Policy.
         /// </summary>
-        public readonly Outputs.O365PolicyPropertiesResponse? O365Policy;
+        public readonly Outputs.O365PolicyPropertiesInvokeResponseResult? O365Policy;
         /// <summary>
         /// The provisioning state of the VPN site resource.
         /// </summary>
@@ -98,19 +98,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The VirtualWAN to which the vpnSite belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualWan;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualWan;
         /// <summary>
         /// List of all vpn site links.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnSiteLinkResponse> VpnSiteLinks;
+        public readonly ImmutableArray<Outputs.VpnSiteLinkInvokeResponseResult> VpnSiteLinks;
 
         [OutputConstructor]
         private GetVpnSiteResult(
-            Outputs.AddressSpaceResponse? addressSpace,
+            Outputs.AddressSpaceInvokeResponseResult? addressSpace,
 
-            Outputs.BgpSettingsResponse? bgpProperties,
+            Outputs.BgpSettingsInvokeResponseResult? bgpProperties,
 
-            Outputs.DevicePropertiesResponse? deviceProperties,
+            Outputs.DevicePropertiesInvokeResponseResult? deviceProperties,
 
             string etag,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string name,
 
-            Outputs.O365PolicyPropertiesResponse? o365Policy,
+            Outputs.O365PolicyPropertiesInvokeResponseResult? o365Policy,
 
             string provisioningState,
 
@@ -134,9 +134,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string type,
 
-            Outputs.SubResourceResponse? virtualWan,
+            Outputs.SubResourceInvokeResponseResult? virtualWan,
 
-            ImmutableArray<Outputs.VpnSiteLinkResponse> vpnSiteLinks)
+            ImmutableArray<Outputs.VpnSiteLinkInvokeResponseResult> vpnSiteLinks)
         {
             AddressSpace = addressSpace;
             BgpProperties = bgpProperties;

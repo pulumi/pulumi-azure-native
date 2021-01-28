@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
         /// <summary>
         /// The related metadata items for the function.
         /// </summary>
-        public readonly Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated? Related;
+        public readonly Outputs.LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedResult? Related;
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Tags associated with the query.
         /// </summary>
@@ -114,9 +114,9 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
 
             object properties,
 
-            Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated? related,
+            Outputs.LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedResult? related,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, ImmutableArray<string>>? tags,
 

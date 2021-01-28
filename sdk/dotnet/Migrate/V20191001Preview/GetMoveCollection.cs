@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
         /// <summary>
         /// Defines the MSI properties of the Move Collection.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
         /// <summary>
         /// Defines the move collection properties.
         /// </summary>
-        public readonly Outputs.MoveCollectionPropertiesResponse Properties;
+        public readonly Outputs.MoveCollectionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,13 +78,13 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
             string name,
 
-            Outputs.MoveCollectionPropertiesResponse properties,
+            Outputs.MoveCollectionPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

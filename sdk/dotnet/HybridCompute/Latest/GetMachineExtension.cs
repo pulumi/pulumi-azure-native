@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
         /// <summary>
         /// The machine extension instance view.
         /// </summary>
-        public readonly Outputs.MachineExtensionPropertiesResponseInstanceView? InstanceView;
+        public readonly Outputs.MachineExtensionPropertiesInvokeResponseInstanceViewResult? InstanceView;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
 
             string id,
 
-            Outputs.MachineExtensionPropertiesResponseInstanceView? instanceView,
+            Outputs.MachineExtensionPropertiesInvokeResponseInstanceViewResult? instanceView,
 
             string location,
 

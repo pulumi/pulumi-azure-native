@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// <summary>
         /// An Application Insights component daily data volume cap
         /// </summary>
-        public readonly Outputs.ApplicationInsightsComponentDataVolumeCapResponse? DataVolumeCap;
+        public readonly Outputs.ApplicationInsightsComponentDataVolumeCapInvokeResponseResult? DataVolumeCap;
 
         [OutputConstructor]
         private GetComponentCurrentBillingFeatureResult(
             ImmutableArray<string> currentBillingFeatures,
 
-            Outputs.ApplicationInsightsComponentDataVolumeCapResponse? dataVolumeCap)
+            Outputs.ApplicationInsightsComponentDataVolumeCapInvokeResponseResult? dataVolumeCap)
         {
             CurrentBillingFeatures = currentBillingFeatures;
             DataVolumeCap = dataVolumeCap;

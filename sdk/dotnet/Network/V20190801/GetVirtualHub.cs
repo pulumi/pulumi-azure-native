@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The azureFirewall associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? AzureFirewall;
+        public readonly Outputs.SubResourceInvokeResponseResult? AzureFirewall;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The expressRouteGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
+        public readonly Outputs.SubResourceInvokeResponseResult? ExpressRouteGateway;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? P2SVpnGateway;
+        public readonly Outputs.SubResourceInvokeResponseResult? P2SVpnGateway;
         /// <summary>
         /// The provisioning state of the virtual hub resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// The routeTable associated with this virtual hub.
         /// </summary>
-        public readonly Outputs.VirtualHubRouteTableResponse? RouteTable;
+        public readonly Outputs.VirtualHubRouteTableInvokeResponseResult? RouteTable;
         /// <summary>
         /// The Security Provider name.
         /// </summary>
@@ -94,25 +94,25 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// <summary>
         /// List of all vnet connections with this VirtualHub.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> VirtualNetworkConnections;
+        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionInvokeResponseResult> VirtualNetworkConnections;
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualWan;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualWan;
         /// <summary>
         /// The VpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VpnGateway;
+        public readonly Outputs.SubResourceInvokeResponseResult? VpnGateway;
 
         [OutputConstructor]
         private GetVirtualHubResult(
             string? addressPrefix,
 
-            Outputs.SubResourceResponse? azureFirewall,
+            Outputs.SubResourceInvokeResponseResult? azureFirewall,
 
             string etag,
 
-            Outputs.SubResourceResponse? expressRouteGateway,
+            Outputs.SubResourceInvokeResponseResult? expressRouteGateway,
 
             string? id,
 
@@ -120,11 +120,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string name,
 
-            Outputs.SubResourceResponse? p2SVpnGateway,
+            Outputs.SubResourceInvokeResponseResult? p2SVpnGateway,
 
             string provisioningState,
 
-            Outputs.VirtualHubRouteTableResponse? routeTable,
+            Outputs.VirtualHubRouteTableInvokeResponseResult? routeTable,
 
             string? securityProviderName,
 
@@ -132,11 +132,11 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string type,
 
-            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> virtualNetworkConnections,
+            ImmutableArray<Outputs.HubVirtualNetworkConnectionInvokeResponseResult> virtualNetworkConnections,
 
-            Outputs.SubResourceResponse? virtualWan,
+            Outputs.SubResourceInvokeResponseResult? virtualWan,
 
-            Outputs.SubResourceResponse? vpnGateway)
+            Outputs.SubResourceInvokeResponseResult? vpnGateway)
         {
             AddressPrefix = addressPrefix;
             AzureFirewall = azureFirewall;

@@ -48,15 +48,15 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// <summary>
         /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? AvailabilitySet;
+        public readonly Outputs.SubResourceInvokeResponseResult? AvailabilitySet;
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
-        public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
+        public readonly Outputs.DiagnosticsProfileInvokeResponseResult? DiagnosticsProfile;
         /// <summary>
         /// Specifies the hardware settings for the virtual machine.
         /// </summary>
-        public readonly Outputs.HardwareProfileResponse? HardwareProfile;
+        public readonly Outputs.HardwareProfileInvokeResponseResult? HardwareProfile;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// <summary>
         /// The virtual machine instance view.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMInstanceViewResponse InstanceView;
+        public readonly Outputs.VirtualMachineScaleSetVMInstanceViewInvokeResponseResult InstanceView;
         /// <summary>
         /// Specifies whether the latest model has been applied to the virtual machine.
         /// </summary>
@@ -88,15 +88,15 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// <summary>
         /// Specifies the network interfaces of the virtual machine.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
+        public readonly Outputs.NetworkProfileInvokeResponseResult? NetworkProfile;
         /// <summary>
         /// Specifies the operating system settings for the virtual machine.
         /// </summary>
-        public readonly Outputs.OSProfileResponse? OsProfile;
+        public readonly Outputs.OSProfileInvokeResponseResult? OsProfile;
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -104,15 +104,15 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// <summary>
         /// The virtual machine child extension resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineExtensionResponse> Resources;
+        public readonly ImmutableArray<Outputs.VirtualMachineExtensionInvokeResponseResult> Resources;
         /// <summary>
         /// The virtual machine SKU.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
-        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        public readonly Outputs.StorageProfileInvokeResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -128,17 +128,17 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetVMResult(
-            Outputs.SubResourceResponse? availabilitySet,
+            Outputs.SubResourceInvokeResponseResult? availabilitySet,
 
-            Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
+            Outputs.DiagnosticsProfileInvokeResponseResult? diagnosticsProfile,
 
-            Outputs.HardwareProfileResponse? hardwareProfile,
+            Outputs.HardwareProfileInvokeResponseResult? hardwareProfile,
 
             string id,
 
             string instanceId,
 
-            Outputs.VirtualMachineScaleSetVMInstanceViewResponse instanceView,
+            Outputs.VirtualMachineScaleSetVMInstanceViewInvokeResponseResult instanceView,
 
             bool latestModelApplied,
 
@@ -148,19 +148,19 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
 
             string name,
 
-            Outputs.NetworkProfileResponse? networkProfile,
+            Outputs.NetworkProfileInvokeResponseResult? networkProfile,
 
-            Outputs.OSProfileResponse? osProfile,
+            Outputs.OSProfileInvokeResponseResult? osProfile,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.VirtualMachineExtensionResponse> resources,
+            ImmutableArray<Outputs.VirtualMachineExtensionInvokeResponseResult> resources,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.StorageProfileResponse? storageProfile,
+            Outputs.StorageProfileInvokeResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

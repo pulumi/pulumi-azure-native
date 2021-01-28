@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
+        public readonly Outputs.LatestOperationResultInvokeResponseResult LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
 
             string invitationCode,
 
-            Outputs.LatestOperationResultResponse latestOperationResult,
+            Outputs.LatestOperationResultInvokeResponseResult latestOperationResult,
 
             string? location,
 

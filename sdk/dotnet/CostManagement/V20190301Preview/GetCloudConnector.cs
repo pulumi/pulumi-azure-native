@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
         /// <summary>
         /// Collection information
         /// </summary>
-        public readonly Outputs.ConnectorCollectionInfoResponse CollectionInfo;
+        public readonly Outputs.ConnectorCollectionInfoInvokeResponseResult CollectionInfo;
         /// <summary>
         /// Connector definition creation datetime
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
         private GetCloudConnectorResult(
             string? billingModel,
 
-            Outputs.ConnectorCollectionInfoResponse collectionInfo,
+            Outputs.ConnectorCollectionInfoInvokeResponseResult collectionInfo,
 
             string createdOn,
 

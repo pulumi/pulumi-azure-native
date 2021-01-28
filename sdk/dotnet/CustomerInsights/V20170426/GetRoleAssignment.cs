@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// Widget types set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? ConflationPolicies;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? ConflationPolicies;
         /// <summary>
         /// Connectors set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Connectors;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Connectors;
         /// <summary>
         /// Localized description for the metadata.
         /// </summary>
@@ -72,15 +72,15 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// Interactions set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Interactions;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Interactions;
         /// <summary>
         /// Kpis set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Kpis;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Kpis;
         /// <summary>
         /// Links set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Links;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Links;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// The principals being assigned to.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssignmentPrincipalResponse> Principals;
+        public readonly ImmutableArray<Outputs.AssignmentPrincipalInvokeResponseResult> Principals;
         /// <summary>
         /// Profiles set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Profiles;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Profiles;
         /// <summary>
         /// Provisioning state.
         /// </summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// The Role assignments set for the relationship links.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? RelationshipLinks;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? RelationshipLinks;
         /// <summary>
         /// The Role assignments set for the relationships.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Relationships;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Relationships;
         /// <summary>
         /// Type of roles.
         /// </summary>
@@ -112,15 +112,15 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// The Role assignments set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? RoleAssignments;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? RoleAssignments;
         /// <summary>
         /// Sas Policies set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? SasPolicies;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? SasPolicies;
         /// <summary>
         /// The Role assignments set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Segments;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Segments;
         /// <summary>
         /// The hub name.
         /// </summary>
@@ -132,19 +132,19 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// <summary>
         /// Views set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? Views;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? Views;
         /// <summary>
         /// Widget types set for the assignment.
         /// </summary>
-        public readonly Outputs.ResourceSetDescriptionResponse? WidgetTypes;
+        public readonly Outputs.ResourceSetDescriptionInvokeResponseResult? WidgetTypes;
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
             string assignmentName,
 
-            Outputs.ResourceSetDescriptionResponse? conflationPolicies,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? conflationPolicies,
 
-            Outputs.ResourceSetDescriptionResponse? connectors,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? connectors,
 
             ImmutableDictionary<string, string>? description,
 
@@ -152,39 +152,39 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 
             string id,
 
-            Outputs.ResourceSetDescriptionResponse? interactions,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? interactions,
 
-            Outputs.ResourceSetDescriptionResponse? kpis,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? kpis,
 
-            Outputs.ResourceSetDescriptionResponse? links,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? links,
 
             string name,
 
-            ImmutableArray<Outputs.AssignmentPrincipalResponse> principals,
+            ImmutableArray<Outputs.AssignmentPrincipalInvokeResponseResult> principals,
 
-            Outputs.ResourceSetDescriptionResponse? profiles,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? profiles,
 
             string provisioningState,
 
-            Outputs.ResourceSetDescriptionResponse? relationshipLinks,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? relationshipLinks,
 
-            Outputs.ResourceSetDescriptionResponse? relationships,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? relationships,
 
             string role,
 
-            Outputs.ResourceSetDescriptionResponse? roleAssignments,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? roleAssignments,
 
-            Outputs.ResourceSetDescriptionResponse? sasPolicies,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? sasPolicies,
 
-            Outputs.ResourceSetDescriptionResponse? segments,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? segments,
 
             string tenantId,
 
             string type,
 
-            Outputs.ResourceSetDescriptionResponse? views,
+            Outputs.ResourceSetDescriptionInvokeResponseResult? views,
 
-            Outputs.ResourceSetDescriptionResponse? widgetTypes)
+            Outputs.ResourceSetDescriptionInvokeResponseResult? widgetTypes)
         {
             AssignmentName = assignmentName;
             ConflationPolicies = conflationPolicies;

@@ -60,10 +60,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <summary>
         /// The list of all the failover targets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FailoverTargetResponseResult> Value;
+        public readonly ImmutableArray<Outputs.FailoverTargetInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListDeviceFailoverTarsResult(ImmutableArray<Outputs.FailoverTargetResponseResult> value)
+        private ListDeviceFailoverTarsResult(ImmutableArray<Outputs.FailoverTargetInvokeResponseResult> value)
         {
             Value = value;
         }

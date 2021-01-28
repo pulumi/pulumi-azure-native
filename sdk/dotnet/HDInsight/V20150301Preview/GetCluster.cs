@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
-        public readonly Outputs.ClusterIdentityResponse? Identity;
+        public readonly Outputs.ClusterIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         /// <summary>
         /// The properties of the cluster.
         /// </summary>
-        public readonly Outputs.ClusterGetPropertiesResponse Properties;
+        public readonly Outputs.ClusterGetPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,13 +78,13 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
 
             string id,
 
-            Outputs.ClusterIdentityResponse? identity,
+            Outputs.ClusterIdentityInvokeResponseResult? identity,
 
             string? location,
 
             string name,
 
-            Outputs.ClusterGetPropertiesResponse properties,
+            Outputs.ClusterGetPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
         /// <summary>
         /// List of unencrypted credentials.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UnencryptedCredentialsResponseResult> Value;
+        public readonly ImmutableArray<Outputs.UnencryptedCredentialsInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListJobCredentialsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.UnencryptedCredentialsResponseResult> value)
+            ImmutableArray<Outputs.UnencryptedCredentialsInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

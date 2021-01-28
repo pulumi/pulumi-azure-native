@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The encryption key used to encrypt the data. This is a user secret.
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptionKey;
+        public readonly Outputs.AsymmetricEncryptedSecretInvokeResponseResult? EncryptionKey;
         /// <summary>
         /// The encryption status "Enabled | Disabled".
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
         [OutputConstructor]
         private GetStorageDomainResult(
-            Outputs.AsymmetricEncryptedSecretResponse? encryptionKey,
+            Outputs.AsymmetricEncryptedSecretInvokeResponseResult? encryptionKey,
 
             string encryptionStatus,
 

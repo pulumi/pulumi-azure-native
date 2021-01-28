@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// KeyVault location details of the namedValue.
         /// </summary>
-        public readonly Outputs.KeyVaultContractPropertiesResponse? KeyVault;
+        public readonly Outputs.KeyVaultContractPropertiesInvokeResponseResult? KeyVault;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string id,
 
-            Outputs.KeyVaultContractPropertiesResponse? keyVault,
+            Outputs.KeyVaultContractPropertiesInvokeResponseResult? keyVault,
 
             string name,
 

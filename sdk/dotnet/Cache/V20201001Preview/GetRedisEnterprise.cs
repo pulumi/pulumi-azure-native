@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// <summary>
         /// List of private endpoint connections associated with the specified RedisEnterprise cluster
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Current provisioning status of the cluster
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// <summary>
         /// The SKU to create, which affects price, performance, and features.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
 
             string resourceState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

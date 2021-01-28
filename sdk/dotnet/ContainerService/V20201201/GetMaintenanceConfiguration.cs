@@ -56,15 +56,15 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
         /// <summary>
         /// Time slots on which upgrade is not allowed.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TimeSpanResponse> NotAllowedTime;
+        public readonly ImmutableArray<Outputs.TimeSpanInvokeResponseResult> NotAllowedTime;
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Weekday time slots allowed to upgrade.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TimeInWeekResponse> TimeInWeek;
+        public readonly ImmutableArray<Outputs.TimeInWeekInvokeResponseResult> TimeInWeek;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.ContainerService.V20201201
 
             string name,
 
-            ImmutableArray<Outputs.TimeSpanResponse> notAllowedTime,
+            ImmutableArray<Outputs.TimeSpanInvokeResponseResult> notAllowedTime,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
-            ImmutableArray<Outputs.TimeInWeekResponse> timeInWeek,
+            ImmutableArray<Outputs.TimeInWeekInvokeResponseResult> timeInWeek,
 
             string type)
         {

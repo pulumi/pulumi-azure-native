@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <summary>
         /// Gets or sets the runbook the webhook is associated with.
         /// </summary>
-        public readonly Outputs.RunbookAssociationPropertyResponse? Runbook;
+        public readonly Outputs.RunbookAssociationPropertyInvokeResponseResult? Runbook;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             string? runOn,
 
-            Outputs.RunbookAssociationPropertyResponse? runbook,
+            Outputs.RunbookAssociationPropertyInvokeResponseResult? runbook,
 
             string type,
 

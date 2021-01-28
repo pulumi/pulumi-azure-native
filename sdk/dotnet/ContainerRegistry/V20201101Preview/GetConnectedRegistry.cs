@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The activation properties of the connected registry.
         /// </summary>
-        public readonly Outputs.ActivationPropertiesResponse Activation;
+        public readonly Outputs.ActivationPropertiesInvokeResponseResult Activation;
         /// <summary>
         /// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The logging properties of the connected registry.
         /// </summary>
-        public readonly Outputs.LoggingPropertiesResponse? Logging;
+        public readonly Outputs.LoggingPropertiesInvokeResponseResult? Logging;
         /// <summary>
         /// The login server properties of the connected registry.
         /// </summary>
-        public readonly Outputs.LoginServerPropertiesResponse? LoginServer;
+        public readonly Outputs.LoginServerPropertiesInvokeResponseResult? LoginServer;
         /// <summary>
         /// The mode of the connected registry resource that indicates the permissions of the registry.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The parent of the connected registry.
         /// </summary>
-        public readonly Outputs.ParentPropertiesResponse Parent;
+        public readonly Outputs.ParentPropertiesInvokeResponseResult Parent;
         /// <summary>
         /// Provisioning state of the resource.
         /// </summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The list of current statuses of the connected registry.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StatusDetailPropertiesResponse> StatusDetails;
+        public readonly ImmutableArray<Outputs.StatusDetailPropertiesInvokeResponseResult> StatusDetails;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
         [OutputConstructor]
         private GetConnectedRegistryResult(
-            Outputs.ActivationPropertiesResponse activation,
+            Outputs.ActivationPropertiesInvokeResponseResult activation,
 
             ImmutableArray<string> clientTokenIds,
 
@@ -118,21 +118,21 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string lastActivityTime,
 
-            Outputs.LoggingPropertiesResponse? logging,
+            Outputs.LoggingPropertiesInvokeResponseResult? logging,
 
-            Outputs.LoginServerPropertiesResponse? loginServer,
+            Outputs.LoginServerPropertiesInvokeResponseResult? loginServer,
 
             string mode,
 
             string name,
 
-            Outputs.ParentPropertiesResponse parent,
+            Outputs.ParentPropertiesInvokeResponseResult parent,
 
             string provisioningState,
 
-            ImmutableArray<Outputs.StatusDetailPropertiesResponse> statusDetails,
+            ImmutableArray<Outputs.StatusDetailPropertiesInvokeResponseResult> statusDetails,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type,
 

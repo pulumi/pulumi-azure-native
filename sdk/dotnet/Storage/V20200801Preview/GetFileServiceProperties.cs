@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// <summary>
         /// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
         /// </summary>
-        public readonly Outputs.CorsRulesResponse? Cors;
+        public readonly Outputs.CorsRulesInvokeResponseResult? Cors;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -60,15 +60,15 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// <summary>
         /// Protocol settings for file service
         /// </summary>
-        public readonly Outputs.ProtocolSettingsResponse? ProtocolSettings;
+        public readonly Outputs.ProtocolSettingsInvokeResponseResult? ProtocolSettings;
         /// <summary>
         /// The file service properties for share soft delete.
         /// </summary>
-        public readonly Outputs.DeleteRetentionPolicyResponse? ShareDeleteRetentionPolicy;
+        public readonly Outputs.DeleteRetentionPolicyInvokeResponseResult? ShareDeleteRetentionPolicy;
         /// <summary>
         /// Sku name and tier.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -76,17 +76,17 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
         [OutputConstructor]
         private GetFileServicePropertiesResult(
-            Outputs.CorsRulesResponse? cors,
+            Outputs.CorsRulesInvokeResponseResult? cors,
 
             string id,
 
             string name,
 
-            Outputs.ProtocolSettingsResponse? protocolSettings,
+            Outputs.ProtocolSettingsInvokeResponseResult? protocolSettings,
 
-            Outputs.DeleteRetentionPolicyResponse? shareDeleteRetentionPolicy,
+            Outputs.DeleteRetentionPolicyInvokeResponseResult? shareDeleteRetentionPolicy,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             string type)
         {

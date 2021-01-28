@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// <summary>
         /// Array of deployments for the remediation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RemediationDeploymentResponseResult> Value;
+        public readonly ImmutableArray<Outputs.RemediationDeploymentInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListRemediationDeploymentsAtResourceGroupResult(
             string nextLink,
 
-            ImmutableArray<Outputs.RemediationDeploymentResponseResult> value)
+            ImmutableArray<Outputs.RemediationDeploymentInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

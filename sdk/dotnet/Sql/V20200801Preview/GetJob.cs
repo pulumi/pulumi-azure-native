@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// Schedule properties of the job.
         /// </summary>
-        public readonly Outputs.JobScheduleResponse? Schedule;
+        public readonly Outputs.JobScheduleInvokeResponseResult? Schedule;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string name,
 
-            Outputs.JobScheduleResponse? schedule,
+            Outputs.JobScheduleInvokeResponseResult? schedule,
 
             string type,
 

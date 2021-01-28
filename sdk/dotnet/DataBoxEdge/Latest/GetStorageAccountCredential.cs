@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <summary>
         /// Encrypted storage key.
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponse? AccountKey;
+        public readonly Outputs.AsymmetricEncryptedSecretInvokeResponseResult? AccountKey;
         /// <summary>
         /// Type of storage accessed on the storage account.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <summary>
         /// StorageAccountCredential object
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
-            Outputs.AsymmetricEncryptedSecretResponse? accountKey,
+            Outputs.AsymmetricEncryptedSecretInvokeResponseResult? accountKey,
 
             string accountType,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string? storageAccountId,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type,
 

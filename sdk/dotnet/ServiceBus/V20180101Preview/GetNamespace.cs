@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <summary>
         /// Properties of BYOK Encryption description
         /// </summary>
-        public readonly Outputs.EncryptionResponse? Encryption;
+        public readonly Outputs.EncryptionInvokeResponseResult? Encryption;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <summary>
         /// Properties of BYOK Identity description
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <summary>
         /// Properties of SKU
         /// </summary>
-        public readonly Outputs.SBSkuResponse? Sku;
+        public readonly Outputs.SBSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         private GetNamespaceResult(
             string createdAt,
 
-            Outputs.EncryptionResponse? encryption,
+            Outputs.EncryptionInvokeResponseResult? encryption,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string location,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
             string serviceBusEndpoint,
 
-            Outputs.SBSkuResponse? sku,
+            Outputs.SBSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

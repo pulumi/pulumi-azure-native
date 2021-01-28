@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// Parameters that define the configuration of traffic analytics.
         /// </summary>
-        public readonly Outputs.TrafficAnalyticsPropertiesResponse? FlowAnalyticsConfiguration;
+        public readonly Outputs.TrafficAnalyticsPropertiesInvokeResponseResult? FlowAnalyticsConfiguration;
         /// <summary>
         /// Parameters that define the flow log format.
         /// </summary>
-        public readonly Outputs.FlowLogFormatParametersResponse? Format;
+        public readonly Outputs.FlowLogFormatParametersInvokeResponseResult? Format;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// Parameters that define the retention policy for flow log.
         /// </summary>
-        public readonly Outputs.RetentionPolicyParametersResponse? RetentionPolicy;
+        public readonly Outputs.RetentionPolicyParametersInvokeResponseResult? RetentionPolicy;
         /// <summary>
         /// ID of the storage account which is used to store the flow log.
         /// </summary>
@@ -108,9 +108,9 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string etag,
 
-            Outputs.TrafficAnalyticsPropertiesResponse? flowAnalyticsConfiguration,
+            Outputs.TrafficAnalyticsPropertiesInvokeResponseResult? flowAnalyticsConfiguration,
 
-            Outputs.FlowLogFormatParametersResponse? format,
+            Outputs.FlowLogFormatParametersInvokeResponseResult? format,
 
             string? id,
 
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string provisioningState,
 
-            Outputs.RetentionPolicyParametersResponse? retentionPolicy,
+            Outputs.RetentionPolicyParametersInvokeResponseResult? retentionPolicy,
 
             string storageId,
 

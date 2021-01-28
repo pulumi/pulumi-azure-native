@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 
             string secondaryKey,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

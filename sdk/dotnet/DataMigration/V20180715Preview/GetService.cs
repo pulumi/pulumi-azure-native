@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// <summary>
         /// Service SKU
         /// </summary>
-        public readonly Outputs.ServiceSkuResponse? Sku;
+        public readonly Outputs.ServiceSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
 
             string? publicKey,
 
-            Outputs.ServiceSkuResponse? sku,
+            Outputs.ServiceSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// <summary>
         /// Properties of Sku
         /// </summary>
-        public readonly Outputs.SBSkuResponse? Sku;
+        public readonly Outputs.SBSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 
             string serviceBusEndpoint,
 
-            Outputs.SBSkuResponse? sku,
+            Outputs.SBSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

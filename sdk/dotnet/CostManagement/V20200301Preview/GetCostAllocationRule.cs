@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200301Preview
         /// <summary>
         /// Cost allocation rule properties
         /// </summary>
-        public readonly Outputs.CostAllocationRulePropertiesResponse Properties;
+        public readonly Outputs.CostAllocationRulePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200301Preview
 
             string name,
 
-            Outputs.CostAllocationRulePropertiesResponse properties,
+            Outputs.CostAllocationRulePropertiesInvokeResponseResult properties,
 
             string type)
         {

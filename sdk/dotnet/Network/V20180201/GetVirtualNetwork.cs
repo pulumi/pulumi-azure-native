@@ -48,15 +48,15 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? AddressSpace;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? AddressSpace;
         /// <summary>
         /// The DDoS protection plan associated with the virtual network.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? DdosProtectionPlan;
+        public readonly Outputs.SubResourceInvokeResponseResult? DdosProtectionPlan;
         /// <summary>
         /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         /// </summary>
-        public readonly Outputs.DhcpOptionsResponse? DhcpOptions;
+        public readonly Outputs.DhcpOptionsInvokeResponseResult? DhcpOptions;
         /// <summary>
         /// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// A list of subnets in a Virtual Network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetInvokeResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -104,15 +104,15 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// <summary>
         /// A list of peerings in a Virtual Network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponse> VirtualNetworkPeerings;
+        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringInvokeResponseResult> VirtualNetworkPeerings;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
-            Outputs.AddressSpaceResponse? addressSpace,
+            Outputs.AddressSpaceInvokeResponseResult? addressSpace,
 
-            Outputs.SubResourceResponse? ddosProtectionPlan,
+            Outputs.SubResourceInvokeResponseResult? ddosProtectionPlan,
 
-            Outputs.DhcpOptionsResponse? dhcpOptions,
+            Outputs.DhcpOptionsInvokeResponseResult? dhcpOptions,
 
             bool? enableDdosProtection,
 
@@ -130,13 +130,13 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             string? resourceGuid,
 
-            ImmutableArray<Outputs.SubnetResponse> subnets,
+            ImmutableArray<Outputs.SubnetInvokeResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkPeeringResponse> virtualNetworkPeerings)
+            ImmutableArray<Outputs.VirtualNetworkPeeringInvokeResponseResult> virtualNetworkPeerings)
         {
             AddressSpace = addressSpace;
             DdosProtectionPlan = ddosProtectionPlan;

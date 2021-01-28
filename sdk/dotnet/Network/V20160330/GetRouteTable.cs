@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// <summary>
         /// Gets or sets Routes in a Route Table
         /// </summary>
-        public readonly ImmutableArray<Outputs.RouteResponse> Routes;
+        public readonly ImmutableArray<Outputs.RouteInvokeResponseResult> Routes;
         /// <summary>
         /// Gets collection of references to subnets
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponse> Subnets;
+        public readonly ImmutableArray<Outputs.SubnetInvokeResponseResult> Subnets;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.RouteResponse> routes,
+            ImmutableArray<Outputs.RouteInvokeResponseResult> routes,
 
-            ImmutableArray<Outputs.SubnetResponse> subnets,
+            ImmutableArray<Outputs.SubnetInvokeResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

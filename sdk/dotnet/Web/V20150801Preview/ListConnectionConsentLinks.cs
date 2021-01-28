@@ -49,14 +49,14 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         public string? Name { get; set; }
 
         [Input("parameters")]
-        private List<Inputs.ConsentLinkInputParameterArgs>? _parameters;
+        private List<Inputs.ConsentLinkInputParameterInvokeArgs>? _parameters;
 
         /// <summary>
         /// Array of links
         /// </summary>
-        public List<Inputs.ConsentLinkInputParameterArgs> Parameters
+        public List<Inputs.ConsentLinkInputParameterInvokeArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new List<Inputs.ConsentLinkInputParameterArgs>());
+            get => _parameters ?? (_parameters = new List<Inputs.ConsentLinkInputParameterInvokeArgs>());
             set => _parameters = value;
         }
 
@@ -96,10 +96,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <summary>
         /// Collection of resources
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConsentLinkResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ConsentLinkInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListConnectionConsentLinksResult(ImmutableArray<Outputs.ConsentLinkResponseResult> value)
+        private ListConnectionConsentLinksResult(ImmutableArray<Outputs.ConsentLinkInvokeResponseResult> value)
         {
             Value = value;
         }

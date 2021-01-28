@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// <summary>
         /// The Key Policy options.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContentKeyPolicyOptionResponse> Options;
+        public readonly ImmutableArray<Outputs.ContentKeyPolicyOptionInvokeResponseResult> Options;
         /// <summary>
         /// The legacy Policy ID.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
             string lastModified,
 
-            ImmutableArray<Outputs.ContentKeyPolicyOptionResponse> options,
+            ImmutableArray<Outputs.ContentKeyPolicyOptionInvokeResponseResult> options,
 
             string policyId)
         {

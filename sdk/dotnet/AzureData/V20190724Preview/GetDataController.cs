@@ -51,11 +51,11 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// <summary>
         /// Properties from the on premise data controller
         /// </summary>
-        public readonly Outputs.OnPremisePropertyResponse OnPremiseProperty;
+        public readonly Outputs.OnPremisePropertyInvokeResponseResult OnPremiseProperty;
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -73,9 +73,9 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 
             string name,
 
-            Outputs.OnPremisePropertyResponse onPremiseProperty,
+            Outputs.OnPremisePropertyInvokeResponseResult onPremiseProperty,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// <summary>
         /// Email Template Parameter values.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponse> Parameters;
+        public readonly ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesInvokeResponseResult> Parameters;
         /// <summary>
         /// Subject of the Template.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 
             string name,
 
-            ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponse> parameters,
+            ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesInvokeResponseResult> parameters,
 
             string subject,
 

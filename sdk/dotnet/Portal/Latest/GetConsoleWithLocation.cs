@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.Portal.Latest
         /// <summary>
         /// Cloud shell console properties.
         /// </summary>
-        public readonly Outputs.ConsolePropertiesResponse Properties;
+        public readonly Outputs.ConsolePropertiesInvokeResponseResult Properties;
 
         [OutputConstructor]
-        private GetConsoleWithLocationResult(Outputs.ConsolePropertiesResponse properties)
+        private GetConsoleWithLocationResult(Outputs.ConsolePropertiesInvokeResponseResult properties)
         {
             Properties = properties;
         }

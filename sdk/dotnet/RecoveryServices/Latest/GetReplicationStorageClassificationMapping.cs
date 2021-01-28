@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <summary>
         /// Properties of the storage mapping object.
         /// </summary>
-        public readonly Outputs.StorageClassificationMappingPropertiesResponse Properties;
+        public readonly Outputs.StorageClassificationMappingPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string name,
 
-            Outputs.StorageClassificationMappingPropertiesResponse properties,
+            Outputs.StorageClassificationMappingPropertiesInvokeResponseResult properties,
 
             string type)
         {

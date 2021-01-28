@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The assembly properties.
         /// </summary>
-        public readonly Outputs.AssemblyPropertiesResponse Properties;
+        public readonly Outputs.AssemblyPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string name,
 
-            Outputs.AssemblyPropertiesResponse properties,
+            Outputs.AssemblyPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

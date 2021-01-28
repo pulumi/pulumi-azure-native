@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
         /// <summary>
         /// Properties of the secret
         /// </summary>
-        public readonly Outputs.SecretPropertiesResponse Properties;
+        public readonly Outputs.SecretPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
 
             string name,
 
-            Outputs.SecretPropertiesResponse properties,
+            Outputs.SecretPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string> tags,
 

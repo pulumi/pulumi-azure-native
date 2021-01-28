@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// <summary>
         /// The authentication method to use to access the artifact source.
         /// </summary>
-        public readonly Outputs.SasAuthenticationResponse Authentication;
+        public readonly Outputs.SasAuthenticationInvokeResponseResult Authentication;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         private GetArtifactSourceResult(
             string? artifactRoot,
 
-            Outputs.SasAuthenticationResponse authentication,
+            Outputs.SasAuthenticationInvokeResponseResult authentication,
 
             string id,
 

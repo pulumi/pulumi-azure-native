@@ -54,15 +54,15 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
         /// <summary>
         /// The set of properties specific to Healthbot resource.
         /// </summary>
-        public readonly Outputs.HealthBotPropertiesResponse Properties;
+        public readonly Outputs.HealthBotPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// SKU of the HealthBot.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureNextGen.HealthBot.Latest
 
             string name,
 
-            Outputs.HealthBotPropertiesResponse properties,
+            Outputs.HealthBotPropertiesInvokeResponseResult properties,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

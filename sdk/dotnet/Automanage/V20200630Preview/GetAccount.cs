@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         /// <summary>
         /// The identity of the Automanage account.
         /// </summary>
-        public readonly Outputs.AccountIdentityResponse? Identity;
+        public readonly Outputs.AccountIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
         private GetAccountResult(
             string id,
 
-            Outputs.AccountIdentityResponse? identity,
+            Outputs.AccountIdentityInvokeResponseResult? identity,
 
             string location,
 

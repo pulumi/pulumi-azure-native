@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The RosettaNet process configuration activity settings.
         /// </summary>
-        public readonly Outputs.RosettaNetPipActivitySettingsResponse ActivitySettings;
+        public readonly Outputs.RosettaNetPipActivitySettingsInvokeResponseResult ActivitySettings;
         /// <summary>
         /// The changed time.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The RosettaNet initiator role settings.
         /// </summary>
-        public readonly Outputs.RosettaNetPipRoleSettingsResponse InitiatorRoleSettings;
+        public readonly Outputs.RosettaNetPipRoleSettingsInvokeResponseResult InitiatorRoleSettings;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The RosettaNet responder role settings.
         /// </summary>
-        public readonly Outputs.RosettaNetPipRoleSettingsResponse ResponderRoleSettings;
+        public readonly Outputs.RosettaNetPipRoleSettingsInvokeResponseResult ResponderRoleSettings;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
         [OutputConstructor]
         private GetRosettaNetProcessConfigurationResult(
-            Outputs.RosettaNetPipActivitySettingsResponse activitySettings,
+            Outputs.RosettaNetPipActivitySettingsInvokeResponseResult activitySettings,
 
             string changedTime,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string id,
 
-            Outputs.RosettaNetPipRoleSettingsResponse initiatorRoleSettings,
+            Outputs.RosettaNetPipRoleSettingsInvokeResponseResult initiatorRoleSettings,
 
             string? location,
 
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string processVersion,
 
-            Outputs.RosettaNetPipRoleSettingsResponse responderRoleSettings,
+            Outputs.RosettaNetPipRoleSettingsInvokeResponseResult responderRoleSettings,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200701
         /// <summary>
         /// Settings for upgrading the agentpool
         /// </summary>
-        public readonly Outputs.AgentPoolUpgradeSettingsResponse? UpgradeSettings;
+        public readonly Outputs.AgentPoolUpgradeSettingsInvokeResponseResult? UpgradeSettings;
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200701
 
             string type,
 
-            Outputs.AgentPoolUpgradeSettingsResponse? upgradeSettings,
+            Outputs.AgentPoolUpgradeSettingsInvokeResponseResult? upgradeSettings,
 
             string? vmSize,
 

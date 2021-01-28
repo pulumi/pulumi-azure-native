@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The content link.
         /// </summary>
-        public readonly Outputs.ContentLinkResponse ContentLink;
+        public readonly Outputs.ContentLinkInvokeResponseResult ContentLink;
         /// <summary>
         /// The content type.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string? content,
 
-            Outputs.ContentLinkResponse contentLink,
+            Outputs.ContentLinkInvokeResponseResult contentLink,
 
             string? contentType,
 

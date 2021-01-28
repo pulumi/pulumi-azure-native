@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// <summary>
         /// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationScopeResponse> Scopes;
+        public readonly ImmutableArray<Outputs.AutomationScopeInvokeResponseResult> Scopes;
         /// <summary>
         /// A collection of the source event types which evaluate the security automation set of rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationSourceResponse> Sources;
+        public readonly ImmutableArray<Outputs.AutomationSourceInvokeResponseResult> Sources;
         /// <summary>
         /// A list of key value pairs that describe the resource.
         /// </summary>
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string name,
 
-            ImmutableArray<Outputs.AutomationScopeResponse> scopes,
+            ImmutableArray<Outputs.AutomationScopeInvokeResponseResult> scopes,
 
-            ImmutableArray<Outputs.AutomationSourceResponse> sources,
+            ImmutableArray<Outputs.AutomationSourceInvokeResponseResult> sources,
 
             ImmutableDictionary<string, string>? tags,
 

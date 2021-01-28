@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// Port Vif which segment is associated with.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkloadNetworkSegmentPortVifResponse> PortVif;
+        public readonly ImmutableArray<Outputs.WorkloadNetworkSegmentPortVifInvokeResponseResult> PortVif;
         /// <summary>
         /// The provisioning state
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// Subnet which to connect segment to.
         /// </summary>
-        public readonly Outputs.WorkloadNetworkSegmentSubnetResponse? Subnet;
+        public readonly Outputs.WorkloadNetworkSegmentSubnetInvokeResponseResult? Subnet;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string name,
 
-            ImmutableArray<Outputs.WorkloadNetworkSegmentPortVifResponse> portVif,
+            ImmutableArray<Outputs.WorkloadNetworkSegmentPortVifInvokeResponseResult> portVif,
 
             string provisioningState,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string status,
 
-            Outputs.WorkloadNetworkSegmentSubnetResponse? subnet,
+            Outputs.WorkloadNetworkSegmentSubnetInvokeResponseResult? subnet,
 
             string type)
         {

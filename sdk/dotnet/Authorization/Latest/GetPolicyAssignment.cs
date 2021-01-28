@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <summary>
         /// The messages that describe why a resource is non-compliant with the policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NonComplianceMessageResponse> NonComplianceMessages;
+        public readonly ImmutableArray<Outputs.NonComplianceMessageInvokeResponseResult> NonComplianceMessages;
         /// <summary>
         /// The policy's excluded scopes.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <summary>
         /// The parameter values for the assigned policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueInvokeResponseResult>? Parameters;
         /// <summary>
         /// The ID of the policy definition or policy set definition being assigned.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
             string name,
 
-            ImmutableArray<Outputs.NonComplianceMessageResponse> nonComplianceMessages,
+            ImmutableArray<Outputs.NonComplianceMessageInvokeResponseResult> nonComplianceMessages,
 
             ImmutableArray<string> notScopes,
 
-            ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterValuesValueInvokeResponseResult>? parameters,
 
             string? policyDefinitionId,
 

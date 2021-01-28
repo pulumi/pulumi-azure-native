@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
         /// <summary>
         /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         /// </summary>
-        public readonly Outputs.RedisAccessKeysResponse AccessKeys;
+        public readonly Outputs.RedisAccessKeysInvokeResponseResult AccessKeys;
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
         /// <summary>
         /// The SKU of the Redis cache to deploy.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Redis SSL port.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
 
         [OutputConstructor]
         private GetRedisResult(
-            Outputs.RedisAccessKeysResponse accessKeys,
+            Outputs.RedisAccessKeysInvokeResponseResult accessKeys,
 
             bool? enableNonSslPort,
 
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
 
             int? shardCount,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             int sslPort,
 

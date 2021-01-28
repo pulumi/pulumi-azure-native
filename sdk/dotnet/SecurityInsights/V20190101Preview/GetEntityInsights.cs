@@ -84,17 +84,17 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <summary>
         /// The metadata from the get insights operation results.
         /// </summary>
-        public readonly Outputs.GetInsightsResultsMetadataResponseResult? MetaData;
+        public readonly Outputs.GetInsightsResultsMetadataInvokeResponseResult? MetaData;
         /// <summary>
         /// The insights result values.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EntityInsightItemResponseResult> Value;
+        public readonly ImmutableArray<Outputs.EntityInsightItemInvokeResponseResult> Value;
 
         [OutputConstructor]
         private GetEntityInsightsResult(
-            Outputs.GetInsightsResultsMetadataResponseResult? metaData,
+            Outputs.GetInsightsResultsMetadataInvokeResponseResult? metaData,
 
-            ImmutableArray<Outputs.EntityInsightItemResponseResult> value)
+            ImmutableArray<Outputs.EntityInsightItemInvokeResponseResult> value)
         {
             MetaData = metaData;
             Value = value;

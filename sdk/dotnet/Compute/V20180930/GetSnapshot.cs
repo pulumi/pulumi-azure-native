@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180930
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponse CreationData;
+        public readonly Outputs.CreationDataInvokeResponseResult CreationData;
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180930
         /// <summary>
         /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         /// </summary>
-        public readonly Outputs.EncryptionSettingsCollectionResponse? EncryptionSettingsCollection;
+        public readonly Outputs.EncryptionSettingsCollectionInvokeResponseResult? EncryptionSettingsCollection;
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180930
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
-        public readonly Outputs.SnapshotSkuResponse? Sku;
+        public readonly Outputs.SnapshotSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureNextGen.Compute.V20180930
 
         [OutputConstructor]
         private GetSnapshotResult(
-            Outputs.CreationDataResponse creationData,
+            Outputs.CreationDataInvokeResponseResult creationData,
 
             int? diskSizeGB,
 
-            Outputs.EncryptionSettingsCollectionResponse? encryptionSettingsCollection,
+            Outputs.EncryptionSettingsCollectionInvokeResponseResult? encryptionSettingsCollection,
 
             string? hyperVGeneration,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180930
 
             string provisioningState,
 
-            Outputs.SnapshotSkuResponse? sku,
+            Outputs.SnapshotSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

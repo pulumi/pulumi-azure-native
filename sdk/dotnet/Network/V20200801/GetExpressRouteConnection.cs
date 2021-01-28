@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The ExpressRoute circuit peering.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
+        public readonly Outputs.ExpressRouteCircuitPeeringIdInvokeResponseResult ExpressRouteCircuitPeering;
         /// <summary>
         /// Enable FastPath to vWan Firewall hub.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationInvokeResponseResult? RoutingConfiguration;
         /// <summary>
         /// The routing weight associated to the connection.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 
             bool? enableInternetSecurity,
 
-            Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
+            Outputs.ExpressRouteCircuitPeeringIdInvokeResponseResult expressRouteCircuitPeering,
 
             bool? expressRouteGatewayBypass,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
 
             string provisioningState,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
+            Outputs.RoutingConfigurationInvokeResponseResult? routingConfiguration,
 
             int? routingWeight)
         {

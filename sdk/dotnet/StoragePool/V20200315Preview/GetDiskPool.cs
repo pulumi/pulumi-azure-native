@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// <summary>
         /// List of Azure managed disks to attach to a DiskPool
         /// </summary>
-        public readonly ImmutableArray<Outputs.DiskResponse> Disks;
+        public readonly ImmutableArray<Outputs.DiskInvokeResponseResult> Disks;
         /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// <summary>
         /// Sku description.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Operational status of the Disk pool
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// <summary>
         /// Resource metadata required by ARM RPC
         /// </summary>
-        public readonly Outputs.SystemMetadataResponse SystemData;
+        public readonly Outputs.SystemMetadataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         private GetDiskPoolResult(
             ImmutableArray<string> availabilityZones,
 
-            ImmutableArray<Outputs.DiskResponse> disks,
+            ImmutableArray<Outputs.DiskInvokeResponseResult> disks,
 
             string id,
 
@@ -102,13 +102,13 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string status,
 
             string subnetId,
 
-            Outputs.SystemMetadataResponse systemData,
+            Outputs.SystemMetadataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

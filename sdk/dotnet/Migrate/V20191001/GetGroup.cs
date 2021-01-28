@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// <summary>
         /// Properties of the group.
         /// </summary>
-        public readonly Outputs.GroupPropertiesResponse Properties;
+        public readonly Outputs.GroupPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
 
             string name,
 
-            Outputs.GroupPropertiesResponse properties,
+            Outputs.GroupPropertiesInvokeResponseResult properties,
 
             string type)
         {

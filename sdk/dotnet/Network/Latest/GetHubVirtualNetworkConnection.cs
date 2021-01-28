@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// Reference to the remote virtual network.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? RemoteVirtualNetwork;
+        public readonly Outputs.SubResourceInvokeResponseResult? RemoteVirtualNetwork;
         /// <summary>
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
+        public readonly Outputs.RoutingConfigurationInvokeResponseResult? RoutingConfiguration;
 
         [OutputConstructor]
         private GetHubVirtualNetworkConnectionResult(
@@ -98,9 +98,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string provisioningState,
 
-            Outputs.SubResourceResponse? remoteVirtualNetwork,
+            Outputs.SubResourceInvokeResponseResult? remoteVirtualNetwork,
 
-            Outputs.RoutingConfigurationResponse? routingConfiguration)
+            Outputs.RoutingConfigurationInvokeResponseResult? routingConfiguration)
         {
             AllowHubToRemoteVnetTransit = allowHubToRemoteVnetTransit;
             AllowRemoteVnetToUseHubVnetGateways = allowRemoteVnetToUseHubVnetGateways;

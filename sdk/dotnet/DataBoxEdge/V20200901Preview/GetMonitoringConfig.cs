@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The metrics configuration details
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetricConfigurationResponse> MetricConfigurations;
+        public readonly ImmutableArray<Outputs.MetricConfigurationInvokeResponseResult> MetricConfigurations;
         /// <summary>
         /// The object name.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         private GetMonitoringConfigResult(
             string id,
 
-            ImmutableArray<Outputs.MetricConfigurationResponse> metricConfigurations,
+            ImmutableArray<Outputs.MetricConfigurationInvokeResponseResult> metricConfigurations,
 
             string name,
 

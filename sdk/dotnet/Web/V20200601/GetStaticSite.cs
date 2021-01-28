@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// <summary>
         /// Build properties to configure on the repository.
         /// </summary>
-        public readonly Outputs.StaticSiteBuildPropertiesResponse? BuildProperties;
+        public readonly Outputs.StaticSiteBuildPropertiesInvokeResponseResult? BuildProperties;
         /// <summary>
         /// The custom domains associated with this static site.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// <summary>
         /// Description of a SKU for a scalable resource.
         /// </summary>
-        public readonly Outputs.SkuDescriptionResponse? Sku;
+        public readonly Outputs.SkuDescriptionInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         private GetStaticSiteResult(
             string? branch,
 
-            Outputs.StaticSiteBuildPropertiesResponse? buildProperties,
+            Outputs.StaticSiteBuildPropertiesInvokeResponseResult? buildProperties,
 
             ImmutableArray<string> customDomains,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string? repositoryUrl,
 
-            Outputs.SkuDescriptionResponse? sku,
+            Outputs.SkuDescriptionInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

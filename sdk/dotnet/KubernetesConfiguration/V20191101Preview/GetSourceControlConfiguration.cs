@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
         /// <summary>
         /// Compliance Status of the Configuration
         /// </summary>
-        public readonly Outputs.ComplianceStatusResponse ComplianceStatus;
+        public readonly Outputs.ComplianceStatusInvokeResponseResult ComplianceStatus;
         /// <summary>
         /// Option to enable Helm Operator for this git configuration.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
         /// <summary>
         /// Properties for Helm operator.
         /// </summary>
-        public readonly Outputs.HelmOperatorPropertiesResponse? HelmOperatorProperties;
+        public readonly Outputs.HelmOperatorPropertiesInvokeResponseResult? HelmOperatorProperties;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -116,11 +116,11 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
 
         [OutputConstructor]
         private GetSourceControlConfigurationResult(
-            Outputs.ComplianceStatusResponse complianceStatus,
+            Outputs.ComplianceStatusInvokeResponseResult complianceStatus,
 
             string? enableHelmOperator,
 
-            Outputs.HelmOperatorPropertiesResponse? helmOperatorProperties,
+            Outputs.HelmOperatorPropertiesInvokeResponseResult? helmOperatorProperties,
 
             string id,
 

@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// <summary>
         /// list of iSCSI target portal groups
         /// </summary>
-        public readonly ImmutableArray<Outputs.TargetPortalGroupResponse> Tpgs;
+        public readonly ImmutableArray<Outputs.TargetPortalGroupInvokeResponseResult> Tpgs;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
             string targetIqn,
 
-            ImmutableArray<Outputs.TargetPortalGroupResponse> tpgs,
+            ImmutableArray<Outputs.TargetPortalGroupInvokeResponseResult> tpgs,
 
             string type)
         {

@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// <summary>
         /// The template definition of the network function.
         /// </summary>
-        public readonly Outputs.NetworkFunctionTemplateResponse? NetworkFunctionTemplate;
+        public readonly Outputs.NetworkFunctionTemplateInvokeResponseResult? NetworkFunctionTemplate;
         /// <summary>
         /// Indicates if the vendor sku is in preview mode.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string name,
 
-            Outputs.NetworkFunctionTemplateResponse? networkFunctionTemplate,
+            Outputs.NetworkFunctionTemplateInvokeResponseResult? networkFunctionTemplate,
 
             bool? preview,
 

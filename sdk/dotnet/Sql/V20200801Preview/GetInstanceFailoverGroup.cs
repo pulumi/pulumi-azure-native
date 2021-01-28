@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// List of managed instance pairs in the failover group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedInstancePairInfoResponse> ManagedInstancePairs;
+        public readonly ImmutableArray<Outputs.ManagedInstancePairInfoInvokeResponseResult> ManagedInstancePairs;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -60,15 +60,15 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// Partner region information for the failover group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PartnerRegionInfoResponse> PartnerRegions;
+        public readonly ImmutableArray<Outputs.PartnerRegionInfoInvokeResponseResult> PartnerRegions;
         /// <summary>
         /// Read-only endpoint of the failover group instance.
         /// </summary>
-        public readonly Outputs.InstanceFailoverGroupReadOnlyEndpointResponse? ReadOnlyEndpoint;
+        public readonly Outputs.InstanceFailoverGroupReadOnlyEndpointInvokeResponseResult? ReadOnlyEndpoint;
         /// <summary>
         /// Read-write endpoint of the failover group instance.
         /// </summary>
-        public readonly Outputs.InstanceFailoverGroupReadWriteEndpointResponse ReadWriteEndpoint;
+        public readonly Outputs.InstanceFailoverGroupReadWriteEndpointInvokeResponseResult ReadWriteEndpoint;
         /// <summary>
         /// Local replication role of the failover group instance.
         /// </summary>
@@ -86,15 +86,15 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetInstanceFailoverGroupResult(
             string id,
 
-            ImmutableArray<Outputs.ManagedInstancePairInfoResponse> managedInstancePairs,
+            ImmutableArray<Outputs.ManagedInstancePairInfoInvokeResponseResult> managedInstancePairs,
 
             string name,
 
-            ImmutableArray<Outputs.PartnerRegionInfoResponse> partnerRegions,
+            ImmutableArray<Outputs.PartnerRegionInfoInvokeResponseResult> partnerRegions,
 
-            Outputs.InstanceFailoverGroupReadOnlyEndpointResponse? readOnlyEndpoint,
+            Outputs.InstanceFailoverGroupReadOnlyEndpointInvokeResponseResult? readOnlyEndpoint,
 
-            Outputs.InstanceFailoverGroupReadWriteEndpointResponse readWriteEndpoint,
+            Outputs.InstanceFailoverGroupReadWriteEndpointInvokeResponseResult readWriteEndpoint,
 
             string replicationRole,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// List of attached data disks.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataDiskImageResponseResult> DataDiskImages;
+        public readonly ImmutableArray<Outputs.DataDiskImageInvokeResponseResult> DataDiskImages;
         /// <summary>
         /// The URI to the .azpkg file that provides information required for showing product in the gallery.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// OS disk image used by product.
         /// </summary>
-        public readonly Outputs.OsDiskImageResponseResult OsDiskImage;
+        public readonly Outputs.OsDiskImageInvokeResponseResult OsDiskImage;
         /// <summary>
         /// Specifies the kind of the product (virtualMachine or virtualMachineExtension).
         /// </summary>
@@ -94,13 +94,13 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         private ListProductDetailsResult(
             string computeRole,
 
-            ImmutableArray<Outputs.DataDiskImageResponseResult> dataDiskImages,
+            ImmutableArray<Outputs.DataDiskImageInvokeResponseResult> dataDiskImages,
 
             string galleryPackageBlobSasUri,
 
             bool isSystemExtension,
 
-            Outputs.OsDiskImageResponseResult osDiskImage,
+            Outputs.OsDiskImageInvokeResponseResult osDiskImage,
 
             string productKind,
 

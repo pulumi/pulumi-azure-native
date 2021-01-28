@@ -70,11 +70,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170301
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The properties of the storage account for the container registry.
         /// </summary>
-        public readonly Outputs.StorageAccountPropertiesResponse? StorageAccount;
+        public readonly Outputs.StorageAccountPropertiesInvokeResponseResult? StorageAccount;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170301
 
             string provisioningState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.StorageAccountPropertiesResponse? storageAccount,
+            Outputs.StorageAccountPropertiesInvokeResponseResult? storageAccount,
 
             ImmutableDictionary<string, string>? tags,
 

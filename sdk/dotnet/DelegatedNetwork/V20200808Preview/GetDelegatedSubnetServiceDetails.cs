@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// <summary>
         /// controller details
         /// </summary>
-        public readonly Outputs.ControllerDetailsResponse? ControllerDetails;
+        public readonly Outputs.ControllerDetailsInvokeResponseResult? ControllerDetails;
         /// <summary>
         /// An identifier that represents the resource.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// <summary>
         /// orchestrator details
         /// </summary>
-        public readonly Outputs.SubnetDetailsResponse? SubnetDetails;
+        public readonly Outputs.SubnetDetailsInvokeResponseResult? SubnetDetails;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 
         [OutputConstructor]
         private GetDelegatedSubnetServiceDetailsResult(
-            Outputs.ControllerDetailsResponse? controllerDetails,
+            Outputs.ControllerDetailsInvokeResponseResult? controllerDetails,
 
             string id,
 
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 
             string resourceGuid,
 
-            Outputs.SubnetDetailsResponse? subnetDetails,
+            Outputs.SubnetDetailsInvokeResponseResult? subnetDetails,
 
             ImmutableDictionary<string, string>? tags,
 

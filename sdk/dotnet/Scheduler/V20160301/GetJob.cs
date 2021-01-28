@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301
         /// <summary>
         /// Gets or sets the job properties.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponse Properties;
+        public readonly Outputs.JobPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Gets the job resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301
 
             string name,
 
-            Outputs.JobPropertiesResponse properties,
+            Outputs.JobPropertiesInvokeResponseResult properties,
 
             string type)
         {

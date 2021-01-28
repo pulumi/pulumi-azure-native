@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// <summary>
         /// Custom file properties
         /// </summary>
-        public readonly Outputs.ProjectFilePropertiesResponse Properties;
+        public readonly Outputs.ProjectFilePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
 
             string name,
 
-            Outputs.ProjectFilePropertiesResponse properties,
+            Outputs.ProjectFilePropertiesInvokeResponseResult properties,
 
             string type)
         {

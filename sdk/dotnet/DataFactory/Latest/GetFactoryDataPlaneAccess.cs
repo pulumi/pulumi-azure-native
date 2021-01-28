@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <summary>
         /// The user access policy.
         /// </summary>
-        public readonly Outputs.UserAccessPolicyResponseResult? Policy;
+        public readonly Outputs.UserAccessPolicyInvokeResponseResult? Policy;
 
         [OutputConstructor]
         private GetFactoryDataPlaneAccessResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             string? dataPlaneUrl,
 
-            Outputs.UserAccessPolicyResponseResult? policy)
+            Outputs.UserAccessPolicyInvokeResponseResult? policy)
         {
             AccessToken = accessToken;
             DataPlaneUrl = dataPlaneUrl;

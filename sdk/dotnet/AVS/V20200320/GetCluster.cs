@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// <summary>
         /// The cluster SKU
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
 
             string provisioningState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             string type)
         {

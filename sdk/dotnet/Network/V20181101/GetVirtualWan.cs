@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101
         /// <summary>
         /// list of all P2SVpnServerConfigurations associated with the virtual wan.
         /// </summary>
-        public readonly ImmutableArray<Outputs.P2SVpnServerConfigurationResponse> P2SVpnServerConfigurations;
+        public readonly ImmutableArray<Outputs.P2SVpnServerConfigurationInvokeResponseResult> P2SVpnServerConfigurations;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNextGen.Network.V20181101
         /// <summary>
         /// List of VirtualHubs in the VirtualWAN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualHubs;
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VpnSites;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VirtualHubs;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VpnSites;
 
         [OutputConstructor]
         private GetVirtualWanResult(
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 
             string office365LocalBreakoutCategory,
 
-            ImmutableArray<Outputs.P2SVpnServerConfigurationResponse> p2SVpnServerConfigurations,
+            ImmutableArray<Outputs.P2SVpnServerConfigurationInvokeResponseResult> p2SVpnServerConfigurations,
 
             string provisioningState,
 
@@ -125,9 +125,9 @@ namespace Pulumi.AzureNextGen.Network.V20181101
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualHubs,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> virtualHubs,
 
-            ImmutableArray<Outputs.SubResourceResponse> vpnSites)
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> vpnSites)
         {
             AllowBranchToBranchTraffic = allowBranchToBranchTraffic;
             AllowVnetToVnetTraffic = allowVnetToVnetTraffic;

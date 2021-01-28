@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// A list of rules that define a particular Rules Engine Configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RulesEngineRuleResponse> Rules;
+        public readonly ImmutableArray<Outputs.RulesEngineRuleInvokeResponseResult> Rules;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string resourceState,
 
-            ImmutableArray<Outputs.RulesEngineRuleResponse> rules,
+            ImmutableArray<Outputs.RulesEngineRuleInvokeResponseResult> rules,
 
             string type)
         {

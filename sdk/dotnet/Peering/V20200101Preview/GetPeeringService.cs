@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         /// <summary>
         /// The SKU that defines the type of the peering service.
         /// </summary>
-        public readonly Outputs.PeeringServiceSkuResponse? Sku;
+        public readonly Outputs.PeeringServiceSkuInvokeResponseResult? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
 
             string provisioningState,
 
-            Outputs.PeeringServiceSkuResponse? sku,
+            Outputs.PeeringServiceSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

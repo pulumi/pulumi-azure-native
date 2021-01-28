@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
         /// </summary>
-        public readonly Outputs.BootstrapConfigurationResponse BootstrapConfiguration;
+        public readonly Outputs.BootstrapConfigurationInvokeResponseResult BootstrapConfiguration;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         /// <summary>
         /// Reference to the Azure DevOps Organization containing the Pipeline.
         /// </summary>
-        public readonly Outputs.OrganizationReferenceResponse Organization;
+        public readonly Outputs.OrganizationReferenceInvokeResponseResult Organization;
         /// <summary>
         /// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         /// <summary>
         /// Reference to the Azure DevOps Project containing the Pipeline.
         /// </summary>
-        public readonly Outputs.ProjectReferenceResponse Project;
+        public readonly Outputs.ProjectReferenceInvokeResponseResult Project;
         /// <summary>
         /// Resource Tags
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
 
         [OutputConstructor]
         private GetPipelineResult(
-            Outputs.BootstrapConfigurationResponse bootstrapConfiguration,
+            Outputs.BootstrapConfigurationInvokeResponseResult bootstrapConfiguration,
 
             string id,
 
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
 
             string name,
 
-            Outputs.OrganizationReferenceResponse organization,
+            Outputs.OrganizationReferenceInvokeResponseResult organization,
 
             int pipelineId,
 
-            Outputs.ProjectReferenceResponse project,
+            Outputs.ProjectReferenceInvokeResponseResult project,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The identity of the export pipeline.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the export pipeline.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The target properties of the export pipeline.
         /// </summary>
-        public readonly Outputs.ExportPipelineTargetPropertiesResponse Target;
+        public readonly Outputs.ExportPipelineTargetPropertiesInvokeResponseResult Target;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         private GetExportPipelineResult(
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             string? location,
 
@@ -96,9 +96,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
-            Outputs.ExportPipelineTargetPropertiesResponse target,
+            Outputs.ExportPipelineTargetPropertiesInvokeResponseResult target,
 
             string type)
         {

@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
         /// <summary>
         /// System metadata for this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20210111
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult privateLinkServiceConnectionState,
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

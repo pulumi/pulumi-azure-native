@@ -218,7 +218,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The number of hours after session token expiration that a session token can be used to
         /// call the token refresh API. The default is 72 hours.
@@ -327,7 +327,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? runtimeVersion,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             double? tokenRefreshExtensionHours,
 

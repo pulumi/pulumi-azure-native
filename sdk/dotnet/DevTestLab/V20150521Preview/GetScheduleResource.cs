@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <summary>
         /// The daily recurrence of the schedule.
         /// </summary>
-        public readonly Outputs.DayDetailsResponse? DailyRecurrence;
+        public readonly Outputs.DayDetailsInvokeResponseResult? DailyRecurrence;
         /// <summary>
         /// The hourly recurrence of the schedule.
         /// </summary>
-        public readonly Outputs.HourDetailsResponse? HourlyRecurrence;
+        public readonly Outputs.HourDetailsInvokeResponseResult? HourlyRecurrence;
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
@@ -92,13 +92,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <summary>
         /// The weekly recurrence of the schedule.
         /// </summary>
-        public readonly Outputs.WeekDetailsResponse? WeeklyRecurrence;
+        public readonly Outputs.WeekDetailsInvokeResponseResult? WeeklyRecurrence;
 
         [OutputConstructor]
         private GetScheduleResourceResult(
-            Outputs.DayDetailsResponse? dailyRecurrence,
+            Outputs.DayDetailsInvokeResponseResult? dailyRecurrence,
 
-            Outputs.HourDetailsResponse? hourlyRecurrence,
+            Outputs.HourDetailsInvokeResponseResult? hourlyRecurrence,
 
             string? id,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? type,
 
-            Outputs.WeekDetailsResponse? weeklyRecurrence)
+            Outputs.WeekDetailsInvokeResponseResult? weeklyRecurrence)
         {
             DailyRecurrence = dailyRecurrence;
             HourlyRecurrence = hourlyRecurrence;

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogSettingsResponse> Logs;
+        public readonly ImmutableArray<Outputs.LogSettingsInvokeResponseResult> Logs;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
 
             string id,
 
-            ImmutableArray<Outputs.LogSettingsResponse> logs,
+            ImmutableArray<Outputs.LogSettingsInvokeResponseResult> logs,
 
             string name,
 

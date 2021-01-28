@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// Azure storage accounts.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult> Properties;
+        public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueInvokeResponseResult> Properties;
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             string name,
 
-            ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult> properties,
+            ImmutableDictionary<string, Outputs.AzureStorageInfoValueInvokeResponseResult> properties,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

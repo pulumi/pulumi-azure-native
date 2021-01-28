@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <summary>
         /// Gateway location.
         /// </summary>
-        public readonly Outputs.ResourceLocationDataContractResponse? LocationData;
+        public readonly Outputs.ResourceLocationDataContractInvokeResponseResult? LocationData;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
             string id,
 
-            Outputs.ResourceLocationDataContractResponse? locationData,
+            Outputs.ResourceLocationDataContractInvokeResponseResult? locationData,
 
             string name,
 

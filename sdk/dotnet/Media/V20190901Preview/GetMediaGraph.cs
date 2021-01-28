@@ -68,11 +68,11 @@ namespace Pulumi.AzureNextGen.Media.V20190901Preview
         /// <summary>
         /// Media Graph sinks
         /// </summary>
-        public readonly ImmutableArray<Outputs.MediaGraphAssetSinkResponse> Sinks;
+        public readonly ImmutableArray<Outputs.MediaGraphAssetSinkInvokeResponseResult> Sinks;
         /// <summary>
         /// Media Graph sources
         /// </summary>
-        public readonly ImmutableArray<Outputs.MediaGraphRtspSourceResponse> Sources;
+        public readonly ImmutableArray<Outputs.MediaGraphRtspSourceInvokeResponseResult> Sources;
         /// <summary>
         /// Media Graph state
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.Media.V20190901Preview
 
             string name,
 
-            ImmutableArray<Outputs.MediaGraphAssetSinkResponse> sinks,
+            ImmutableArray<Outputs.MediaGraphAssetSinkInvokeResponseResult> sinks,
 
-            ImmutableArray<Outputs.MediaGraphRtspSourceResponse> sources,
+            ImmutableArray<Outputs.MediaGraphRtspSourceInvokeResponseResult> sources,
 
             string state,
 

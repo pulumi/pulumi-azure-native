@@ -62,15 +62,15 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// Specifies information about the proximity placement group that the availability set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
+        public readonly Outputs.SubResourceInvokeResponseResult? ProximityPlacementGroup;
         /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The resource status information.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InstanceViewStatusResponse> Statuses;
+        public readonly ImmutableArray<Outputs.InstanceViewStatusInvokeResponseResult> Statuses;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// <summary>
         /// A list of references to all virtual machines in the availability set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualMachines;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
@@ -96,17 +96,17 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
 
             int? platformUpdateDomainCount,
 
-            Outputs.SubResourceResponse? proximityPlacementGroup,
+            Outputs.SubResourceInvokeResponseResult? proximityPlacementGroup,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
-            ImmutableArray<Outputs.InstanceViewStatusResponse> statuses,
+            ImmutableArray<Outputs.InstanceViewStatusInvokeResponseResult> statuses,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> virtualMachines)
         {
             Id = id;
             Location = location;

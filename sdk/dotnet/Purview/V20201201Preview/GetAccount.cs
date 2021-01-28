@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// Cloud connectors.
         /// External cloud identifier used as part of scanning configuration.
         /// </summary>
-        public readonly Outputs.CloudConnectorsResponse? CloudConnectors;
+        public readonly Outputs.CloudConnectorsInvokeResponseResult? CloudConnectors;
         /// <summary>
         /// Gets the time at which the entity was created.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// The URIs that are the public endpoints of the account.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseEndpoints Endpoints;
+        public readonly Outputs.AccountPropertiesInvokeResponseEndpointsResult Endpoints;
         /// <summary>
         /// Gets or sets the friendly name.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// Identity Info on the tracked resource
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// Gets the resource identifiers of the managed resources.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseManagedResources ManagedResources;
+        public readonly Outputs.AccountPropertiesInvokeResponseManagedResourcesResult ManagedResources;
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// Gets the private endpoint connections information.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Gets or sets the state of the provisioning.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// <summary>
         /// Gets or sets the Sku.
         /// </summary>
-        public readonly Outputs.AccountSkuResponse? Sku;
+        public readonly Outputs.AccountSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Tags on the azure resource.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
 
         [OutputConstructor]
         private GetAccountResult(
-            Outputs.CloudConnectorsResponse? cloudConnectors,
+            Outputs.CloudConnectorsInvokeResponseResult? cloudConnectors,
 
             string createdAt,
 
@@ -119,27 +119,27 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
 
             string createdByObjectId,
 
-            Outputs.AccountPropertiesResponseEndpoints endpoints,
+            Outputs.AccountPropertiesInvokeResponseEndpointsResult endpoints,
 
             string friendlyName,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? location,
 
-            Outputs.AccountPropertiesResponseManagedResources managedResources,
+            Outputs.AccountPropertiesInvokeResponseManagedResourcesResult managedResources,
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string provisioningState,
 
             string? publicNetworkAccess,
 
-            Outputs.AccountSkuResponse? sku,
+            Outputs.AccountSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

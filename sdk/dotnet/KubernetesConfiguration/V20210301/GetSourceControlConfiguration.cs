@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20210301
         /// <summary>
         /// Compliance Status of the Configuration
         /// </summary>
-        public readonly Outputs.ComplianceStatusResponse ComplianceStatus;
+        public readonly Outputs.ComplianceStatusInvokeResponseResult ComplianceStatus;
         /// <summary>
         /// Name-value pairs of protected configuration settings for the configuration
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20210301
         /// <summary>
         /// Properties for Helm operator.
         /// </summary>
-        public readonly Outputs.HelmOperatorPropertiesResponse? HelmOperatorProperties;
+        public readonly Outputs.HelmOperatorPropertiesInvokeResponseResult? HelmOperatorProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20210301
         /// <summary>
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -128,13 +128,13 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20210301
 
         [OutputConstructor]
         private GetSourceControlConfigurationResult(
-            Outputs.ComplianceStatusResponse complianceStatus,
+            Outputs.ComplianceStatusInvokeResponseResult complianceStatus,
 
             ImmutableDictionary<string, string>? configurationProtectedSettings,
 
             bool? enableHelmOperator,
 
-            Outputs.HelmOperatorPropertiesResponse? helmOperatorProperties,
+            Outputs.HelmOperatorPropertiesInvokeResponseResult? helmOperatorProperties,
 
             string id,
 
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20210301
 
             string? sshKnownHostsContents,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

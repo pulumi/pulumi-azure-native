@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponse CreationData;
+        public readonly Outputs.CreationDataInvokeResponseResult CreationData;
         /// <summary>
         /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// <summary>
         /// Encryption settings for disk or snapshot
         /// </summary>
-        public readonly Outputs.EncryptionSettingsResponse? EncryptionSettings;
+        public readonly Outputs.EncryptionSettingsInvokeResponseResult? EncryptionSettings;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
-        public readonly Outputs.SnapshotSkuResponse? Sku;
+        public readonly Outputs.SnapshotSkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
 
         [OutputConstructor]
         private GetSnapshotResult(
-            Outputs.CreationDataResponse creationData,
+            Outputs.CreationDataInvokeResponseResult creationData,
 
             int? diskSizeGB,
 
-            Outputs.EncryptionSettingsResponse? encryptionSettings,
+            Outputs.EncryptionSettingsInvokeResponseResult? encryptionSettings,
 
             string id,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
 
             string provisioningState,
 
-            Outputs.SnapshotSkuResponse? sku,
+            Outputs.SnapshotSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

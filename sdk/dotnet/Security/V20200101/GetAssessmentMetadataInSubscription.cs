@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
         /// <summary>
         /// Describes the partner that created the assessment
         /// </summary>
-        public readonly Outputs.SecurityAssessmentMetadataPartnerDataResponse? PartnerData;
+        public readonly Outputs.SecurityAssessmentMetadataPartnerDataInvokeResponseResult? PartnerData;
         /// <summary>
         /// Azure resource ID of the policy definition that turns this assessment calculation on
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
 
             string name,
 
-            Outputs.SecurityAssessmentMetadataPartnerDataResponse? partnerData,
+            Outputs.SecurityAssessmentMetadataPartnerDataInvokeResponseResult? partnerData,
 
             string policyDefinitionId,
 

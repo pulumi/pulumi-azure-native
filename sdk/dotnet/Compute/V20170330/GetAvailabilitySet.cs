@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.Compute.V20170330
         /// <summary>
         /// Sku of the availability set
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The resource status information.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InstanceViewStatusResponse> Statuses;
+        public readonly ImmutableArray<Outputs.InstanceViewStatusInvokeResponseResult> Statuses;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330
         /// <summary>
         /// A list of references to all virtual machines in the availability set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualMachines;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
@@ -92,15 +92,15 @@ namespace Pulumi.AzureNextGen.Compute.V20170330
 
             int? platformUpdateDomainCount,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
-            ImmutableArray<Outputs.InstanceViewStatusResponse> statuses,
+            ImmutableArray<Outputs.InstanceViewStatusInvokeResponseResult> statuses,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> virtualMachines)
         {
             Id = id;
             Location = location;

@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The reference of the virtual network.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? VirtualNetwork;
+        public readonly Outputs.SubResourceInvokeResponseResult? VirtualNetwork;
         /// <summary>
         /// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string type,
 
-            Outputs.SubResourceResponse? virtualNetwork,
+            Outputs.SubResourceInvokeResponseResult? virtualNetwork,
 
             string virtualNetworkLinkState)
         {

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
         /// <summary>
         /// Azure data catalog admin list.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrincipalsResponse> Admins;
+        public readonly ImmutableArray<Outputs.PrincipalsInvokeResponseResult> Admins;
         /// <summary>
         /// Automatic unit adjustment enabled or not.
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
         /// <summary>
         /// Azure data catalog user list.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrincipalsResponse> Users;
+        public readonly ImmutableArray<Outputs.PrincipalsInvokeResponseResult> Users;
 
         [OutputConstructor]
         private GetADCCatalogResult(
-            ImmutableArray<Outputs.PrincipalsResponse> admins,
+            ImmutableArray<Outputs.PrincipalsInvokeResponseResult> admins,
 
             bool? enableAutomaticUnitAdjustment,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.V20160330
 
             int? units,
 
-            ImmutableArray<Outputs.PrincipalsResponse> users)
+            ImmutableArray<Outputs.PrincipalsInvokeResponseResult> users)
         {
             Admins = admins;
             EnableAutomaticUnitAdjustment = enableAutomaticUnitAdjustment;

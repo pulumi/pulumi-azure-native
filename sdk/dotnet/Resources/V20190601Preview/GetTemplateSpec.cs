@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse> Versions;
+        public readonly ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoInvokeResponseResult> Versions;
 
         [OutputConstructor]
         private GetTemplateSpecResult(
@@ -94,13 +94,13 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse> versions)
+            ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoInvokeResponseResult> versions)
         {
             Description = description;
             DisplayName = displayName;

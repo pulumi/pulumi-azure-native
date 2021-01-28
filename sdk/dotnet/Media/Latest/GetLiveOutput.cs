@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// HTTP Live Streaming (HLS) packing setting for the live output.
         /// </summary>
-        public readonly Outputs.HlsResponse? Hls;
+        public readonly Outputs.HlsInvokeResponseResult? Hls;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             string? description,
 
-            Outputs.HlsResponse? hls,
+            Outputs.HlsInvokeResponseResult? hls,
 
             string id,
 

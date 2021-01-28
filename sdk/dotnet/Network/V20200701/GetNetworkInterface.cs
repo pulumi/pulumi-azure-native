@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
+        public readonly Outputs.NetworkInterfaceDnsSettingsInvokeResponseResult? DnsSettings;
         /// <summary>
         /// A reference to the dscp configuration to which the network interface is linked.
         /// </summary>
-        public readonly Outputs.SubResourceResponse DscpConfiguration;
+        public readonly Outputs.SubResourceInvokeResponseResult DscpConfiguration;
         /// <summary>
         /// If the network interface is accelerated networking enabled.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The extended location of the network interface.
         /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.ExtendedLocationInvokeResponseResult? ExtendedLocation;
         /// <summary>
         /// A list of references to linked BareMetal resources.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The reference to the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupInvokeResponseResult? NetworkSecurityGroup;
         /// <summary>
         /// Whether this is a primary network interface on a virtual machine.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// A reference to the private endpoint to which the network interface is linked.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult PrivateEndpoint;
         /// <summary>
         /// The provisioning state of the network interface resource.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// A list of TapConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> TapConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationInvokeResponseResult> TapConfigurations;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -128,13 +128,13 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The reference to a virtual machine.
         /// </summary>
-        public readonly Outputs.SubResourceResponse VirtualMachine;
+        public readonly Outputs.SubResourceInvokeResponseResult VirtualMachine;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
-            Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
+            Outputs.NetworkInterfaceDnsSettingsInvokeResponseResult? dnsSettings,
 
-            Outputs.SubResourceResponse dscpConfiguration,
+            Outputs.SubResourceInvokeResponseResult dscpConfiguration,
 
             bool? enableAcceleratedNetworking,
 
@@ -142,13 +142,13 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string etag,
 
-            Outputs.ExtendedLocationResponse? extendedLocation,
+            Outputs.ExtendedLocationInvokeResponseResult? extendedLocation,
 
             ImmutableArray<string> hostedWorkloads,
 
             string? id,
 
-            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? location,
 
@@ -156,11 +156,11 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string name,
 
-            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupInvokeResponseResult? networkSecurityGroup,
 
             bool primary,
 
-            Outputs.PrivateEndpointResponse privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult privateEndpoint,
 
             string provisioningState,
 
@@ -168,11 +168,11 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> tapConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationInvokeResponseResult> tapConfigurations,
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine)
+            Outputs.SubResourceInvokeResponseResult virtualMachine)
         {
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;

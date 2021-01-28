@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// Gets the workflow trigger callback URL query parameters.
         /// </summary>
-        public readonly Outputs.WorkflowTriggerListCallbackUrlQueriesResponseResult? Queries;
+        public readonly Outputs.WorkflowTriggerListCallbackUrlQueriesInvokeResponseResult? Queries;
         /// <summary>
         /// Gets the workflow trigger callback URL relative path.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string method,
 
-            Outputs.WorkflowTriggerListCallbackUrlQueriesResponseResult? queries,
+            Outputs.WorkflowTriggerListCallbackUrlQueriesInvokeResponseResult? queries,
 
             string relativePath,
 

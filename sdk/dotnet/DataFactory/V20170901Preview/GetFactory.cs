@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
-        public readonly Outputs.FactoryIdentityResponse? Identity;
+        public readonly Outputs.FactoryIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// <summary>
         /// VSTS repo information of the factory.
         /// </summary>
-        public readonly Outputs.FactoryVSTSConfigurationResponse? VstsConfiguration;
+        public readonly Outputs.FactoryVSTSConfigurationInvokeResponseResult? VstsConfiguration;
 
         [OutputConstructor]
         private GetFactoryResult(
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 
             string id,
 
-            Outputs.FactoryIdentityResponse? identity,
+            Outputs.FactoryIdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 
             string version,
 
-            Outputs.FactoryVSTSConfigurationResponse? vstsConfiguration)
+            Outputs.FactoryVSTSConfigurationInvokeResponseResult? vstsConfiguration)
         {
             CreateTime = createTime;
             Id = id;

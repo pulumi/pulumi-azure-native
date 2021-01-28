@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets backend address pool of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse> BackendAddressPools;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult> BackendAddressPools;
         /// <summary>
         /// Gets or sets backend http settings of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> BackendHttpSettingsCollection;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsInvokeResponseResult> BackendHttpSettingsCollection;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -54,19 +54,19 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets frontend IP addresses of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse> FrontendIPConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationInvokeResponseResult> FrontendIPConfigurations;
         /// <summary>
         /// Gets or sets frontend ports of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse> FrontendPorts;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortInvokeResponseResult> FrontendPorts;
         /// <summary>
         /// Gets or sets subnets of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> GatewayIPConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationInvokeResponseResult> GatewayIPConfigurations;
         /// <summary>
         /// Gets or sets HTTP listeners of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> HttpListeners;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerInvokeResponseResult> HttpListeners;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets request routing rules of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse> RequestRoutingRules;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleInvokeResponseResult> RequestRoutingRules;
         /// <summary>
         /// Gets or sets resource guid property of the ApplicationGateway resource
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets sku of application gateway resource
         /// </summary>
-        public readonly Outputs.ApplicationGatewaySkuResponse? Sku;
+        public readonly Outputs.ApplicationGatewaySkuInvokeResponseResult? Sku;
         /// <summary>
         /// Gets or sets ssl certificates of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse> SslCertificates;
+        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateInvokeResponseResult> SslCertificates;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -114,19 +114,19 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
-            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse> backendAddressPools,
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolInvokeResponseResult> backendAddressPools,
 
-            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> backendHttpSettingsCollection,
+            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsInvokeResponseResult> backendHttpSettingsCollection,
 
             string? etag,
 
-            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse> frontendIPConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationInvokeResponseResult> frontendIPConfigurations,
 
-            ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse> frontendPorts,
+            ImmutableArray<Outputs.ApplicationGatewayFrontendPortInvokeResponseResult> frontendPorts,
 
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> gatewayIPConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationInvokeResponseResult> gatewayIPConfigurations,
 
-            ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> httpListeners,
+            ImmutableArray<Outputs.ApplicationGatewayHttpListenerInvokeResponseResult> httpListeners,
 
             string id,
 
@@ -138,13 +138,13 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse> requestRoutingRules,
+            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleInvokeResponseResult> requestRoutingRules,
 
             string? resourceGuid,
 
-            Outputs.ApplicationGatewaySkuResponse? sku,
+            Outputs.ApplicationGatewaySkuInvokeResponseResult? sku,
 
-            ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse> sslCertificates,
+            ImmutableArray<Outputs.ApplicationGatewaySslCertificateInvokeResponseResult> sslCertificates,
 
             ImmutableDictionary<string, string>? tags,
 

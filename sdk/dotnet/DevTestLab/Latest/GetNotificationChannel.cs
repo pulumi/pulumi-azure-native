@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <summary>
         /// The list of event for which this notification is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventResponse> Events;
+        public readonly ImmutableArray<Outputs.EventInvokeResponseResult> Events;
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             string? emailRecipient,
 
-            ImmutableArray<Outputs.EventResponse> events,
+            ImmutableArray<Outputs.EventInvokeResponseResult> events,
 
             string id,
 

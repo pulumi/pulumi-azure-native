@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// <summary>
         /// An XML configuration specification for a WebTest.
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseConfiguration? Configuration;
+        public readonly Outputs.WebTestPropertiesInvokeResponseConfigurationResult? Configuration;
         /// <summary>
         /// The collection of content validation properties
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseContentValidation? ContentValidation;
+        public readonly Outputs.WebTestPropertiesInvokeResponseContentValidationResult? ContentValidation;
         /// <summary>
         /// User defined description for this WebTest.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// <summary>
         /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebTestGeolocationResponse> Locations;
+        public readonly ImmutableArray<Outputs.WebTestGeolocationInvokeResponseResult> Locations;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// <summary>
         /// The collection of request properties
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseRequest? Request;
+        public readonly Outputs.WebTestPropertiesInvokeResponseRequestResult? Request;
         /// <summary>
         /// Allow for retries should this WebTest fail.
         /// </summary>
@@ -134,9 +134,9 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
 
         [OutputConstructor]
         private GetWebTestResult(
-            Outputs.WebTestPropertiesResponseConfiguration? configuration,
+            Outputs.WebTestPropertiesInvokeResponseConfigurationResult? configuration,
 
-            Outputs.WebTestPropertiesResponseContentValidation? contentValidation,
+            Outputs.WebTestPropertiesInvokeResponseContentValidationResult? contentValidation,
 
             string? description,
 
@@ -154,13 +154,13 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
 
             string location,
 
-            ImmutableArray<Outputs.WebTestGeolocationResponse> locations,
+            ImmutableArray<Outputs.WebTestGeolocationInvokeResponseResult> locations,
 
             string name,
 
             string provisioningState,
 
-            Outputs.WebTestPropertiesResponseRequest? request,
+            Outputs.WebTestPropertiesInvokeResponseRequestResult? request,
 
             bool? retryEnabled,
 

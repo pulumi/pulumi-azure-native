@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         /// <summary>
         /// The common properties of a service.
         /// </summary>
-        public readonly Outputs.ServicesPropertiesResponse Properties;
+        public readonly Outputs.ServicesPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
 
             string name,
 
-            Outputs.ServicesPropertiesResponse properties,
+            Outputs.ServicesPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

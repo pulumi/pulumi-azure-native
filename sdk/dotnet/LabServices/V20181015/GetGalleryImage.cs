@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// The image reference of the gallery image.
         /// </summary>
-        public readonly Outputs.GalleryImageReferenceResponse ImageReference;
+        public readonly Outputs.GalleryImageReferenceInvokeResponseResult ImageReference;
         /// <summary>
         /// Indicates whether this gallery image is enabled.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
+        public readonly Outputs.LatestOperationResultInvokeResponseResult LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string id,
 
-            Outputs.GalleryImageReferenceResponse imageReference,
+            Outputs.GalleryImageReferenceInvokeResponseResult imageReference,
 
             bool? isEnabled,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             bool? isPlanAuthorized,
 
-            Outputs.LatestOperationResultResponse latestOperationResult,
+            Outputs.LatestOperationResultInvokeResponseResult latestOperationResult,
 
             string? location,
 

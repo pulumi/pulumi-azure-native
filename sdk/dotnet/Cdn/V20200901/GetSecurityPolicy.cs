@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// object which contains security policy parameters
         /// </summary>
-        public readonly Outputs.SecurityPolicyWebApplicationFirewallParametersResponse? Parameters;
+        public readonly Outputs.SecurityPolicyWebApplicationFirewallParametersInvokeResponseResult? Parameters;
         /// <summary>
         /// Provisioning status
         /// </summary>
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -79,11 +79,11 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string name,
 
-            Outputs.SecurityPolicyWebApplicationFirewallParametersResponse? parameters,
+            Outputs.SecurityPolicyWebApplicationFirewallParametersInvokeResponseResult? parameters,
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

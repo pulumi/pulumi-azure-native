@@ -43,17 +43,17 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationInvokeResponseResult? DeadLetterDestination;
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.DeadLetterWithResourceIdentityResponse? DeadLetterWithResourceIdentity;
+        public readonly Outputs.DeadLetterWithResourceIdentityInvokeResponseResult? DeadLetterWithResourceIdentity;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.DeliveryWithResourceIdentityResponse? DeliveryWithResourceIdentity;
+        public readonly Outputs.DeliveryWithResourceIdentityInvokeResponseResult? DeliveryWithResourceIdentity;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionFilterResponse? Filter;
+        public readonly Outputs.EventSubscriptionFilterInvokeResponseResult? Filter;
         /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <summary>
         /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         /// </summary>
-        public readonly Outputs.RetryPolicyResponse? RetryPolicy;
+        public readonly Outputs.RetryPolicyInvokeResponseResult? RetryPolicy;
         /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationInvokeResponseResult? deadLetterDestination,
 
-            Outputs.DeadLetterWithResourceIdentityResponse? deadLetterWithResourceIdentity,
+            Outputs.DeadLetterWithResourceIdentityInvokeResponseResult? deadLetterWithResourceIdentity,
 
-            Outputs.DeliveryWithResourceIdentityResponse? deliveryWithResourceIdentity,
+            Outputs.DeliveryWithResourceIdentityInvokeResponseResult? deliveryWithResourceIdentity,
 
             object? destination,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string? expirationTimeUtc,
 
-            Outputs.EventSubscriptionFilterResponse? filter,
+            Outputs.EventSubscriptionFilterInvokeResponseResult? filter,
 
             string id,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string provisioningState,
 
-            Outputs.RetryPolicyResponse? retryPolicy,
+            Outputs.RetryPolicyInvokeResponseResult? retryPolicy,
 
             string topic,
 

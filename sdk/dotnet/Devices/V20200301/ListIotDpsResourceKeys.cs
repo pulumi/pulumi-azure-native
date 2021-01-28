@@ -46,13 +46,13 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
         /// <summary>
         /// The list of shared access policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse> Value;
+        public readonly ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListIotDpsResourceKeysResult(
             string nextLink,
 
-            ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse> value)
+            ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

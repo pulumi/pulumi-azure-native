@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// An array of custom dns configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse> CustomDnsConfigs;
+        public readonly ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatInvokeResponseResult> CustomDnsConfigs;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> ManualPrivateLinkServiceConnections;
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionInvokeResponseResult> ManualPrivateLinkServiceConnections;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// An array of references to the network interfaces created for this private endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> NetworkInterfaces;
         /// <summary>
         /// A grouping of information about the connection to the remote resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> PrivateLinkServiceConnections;
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionInvokeResponseResult> PrivateLinkServiceConnections;
         /// <summary>
         /// The provisioning state of the private endpoint resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
-        public readonly Outputs.SubnetResponse? Subnet;
+        public readonly Outputs.SubnetInvokeResponseResult? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
         [OutputConstructor]
         private GetPrivateEndpointResult(
-            ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse> customDnsConfigs,
+            ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatInvokeResponseResult> customDnsConfigs,
 
             string etag,
 
@@ -104,17 +104,17 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string? location,
 
-            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> manualPrivateLinkServiceConnections,
+            ImmutableArray<Outputs.PrivateLinkServiceConnectionInvokeResponseResult> manualPrivateLinkServiceConnections,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceInvokeResponseResult> networkInterfaces,
 
-            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> privateLinkServiceConnections,
+            ImmutableArray<Outputs.PrivateLinkServiceConnectionInvokeResponseResult> privateLinkServiceConnections,
 
             string provisioningState,
 
-            Outputs.SubnetResponse? subnet,
+            Outputs.SubnetInvokeResponseResult? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

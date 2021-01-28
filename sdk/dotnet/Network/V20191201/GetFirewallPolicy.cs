@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// The parent firewall policy from which rules are inherited.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? BasePolicy;
+        public readonly Outputs.SubResourceInvokeResponseResult? BasePolicy;
         /// <summary>
         /// List of references to Child Firewall Policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> ChildPolicies;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> ChildPolicies;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> Firewalls;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// List of references to FirewallPolicyRuleGroups.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> RuleGroups;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> RuleGroups;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,13 +96,13 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
-            Outputs.SubResourceResponse? basePolicy,
+            Outputs.SubResourceInvokeResponseResult? basePolicy,
 
-            ImmutableArray<Outputs.SubResourceResponse> childPolicies,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> childPolicies,
 
             string etag,
 
-            ImmutableArray<Outputs.SubResourceResponse> firewalls,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> firewalls,
 
             string? id,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponse> ruleGroups,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> ruleGroups,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// <summary>
         /// The blob service properties for change feed events.
         /// </summary>
-        public readonly Outputs.ChangeFeedResponse? ChangeFeed;
+        public readonly Outputs.ChangeFeedInvokeResponseResult? ChangeFeed;
         /// <summary>
         /// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
         /// </summary>
-        public readonly Outputs.CorsRulesResponse? Cors;
+        public readonly Outputs.CorsRulesInvokeResponseResult? Cors;
         /// <summary>
         /// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// <summary>
         /// The blob service properties for soft delete.
         /// </summary>
-        public readonly Outputs.DeleteRetentionPolicyResponse? DeleteRetentionPolicy;
+        public readonly Outputs.DeleteRetentionPolicyInvokeResponseResult? DeleteRetentionPolicy;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -82,13 +82,13 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         private GetBlobServicePropertiesResult(
             bool? automaticSnapshotPolicyEnabled,
 
-            Outputs.ChangeFeedResponse? changeFeed,
+            Outputs.ChangeFeedInvokeResponseResult? changeFeed,
 
-            Outputs.CorsRulesResponse? cors,
+            Outputs.CorsRulesInvokeResponseResult? cors,
 
             string? defaultServiceVersion,
 
-            Outputs.DeleteRetentionPolicyResponse? deleteRetentionPolicy,
+            Outputs.DeleteRetentionPolicyInvokeResponseResult? deleteRetentionPolicy,
 
             string id,
 

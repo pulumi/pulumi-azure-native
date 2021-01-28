@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Describes properties of a network resource.
         /// </summary>
-        public readonly Outputs.NetworkResourcePropertiesResponse Properties;
+        public readonly Outputs.NetworkResourcePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 
             string name,
 
-            Outputs.NetworkResourcePropertiesResponse properties,
+            Outputs.NetworkResourcePropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

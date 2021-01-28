@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
         /// <summary>
         /// The encryption settings of Azure ML workspace.
         /// </summary>
-        public readonly Outputs.EncryptionPropertyResponse? Encryption;
+        public readonly Outputs.EncryptionPropertyInvokeResponseResult? Encryption;
         /// <summary>
         /// The friendly name for this workspace. This name in mutable
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The compute name for image build
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
         /// <summary>
         /// The notebook info of Azure ML workspace.
         /// </summary>
-        public readonly Outputs.NotebookResourceInfoResponse NotebookInfo;
+        public readonly Outputs.NotebookResourceInfoInvokeResponseResult NotebookInfo;
         /// <summary>
         /// The list of private endpoint connections in the workspace.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Count of private connections in the workspace
         /// </summary>
@@ -122,11 +122,11 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
         /// <summary>
         /// The list of shared private link resources in this workspace.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
+        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceInvokeResponseResult> SharedPrivateLinkResources;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 
             string? discoveryUrl,
 
-            Outputs.EncryptionPropertyResponse? encryption,
+            Outputs.EncryptionPropertyInvokeResponseResult? encryption,
 
             string? friendlyName,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string? imageBuildCompute,
 
@@ -176,9 +176,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 
             string name,
 
-            Outputs.NotebookResourceInfoResponse notebookInfo,
+            Outputs.NotebookResourceInfoInvokeResponseResult notebookInfo,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             int privateLinkCount,
 
@@ -186,9 +186,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 
             string serviceProvisionedResourceGroup,
 
-            ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> sharedPrivateLinkResources,
+            ImmutableArray<Outputs.SharedPrivateLinkResourceInvokeResponseResult> sharedPrivateLinkResources,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? storageAccount,
 

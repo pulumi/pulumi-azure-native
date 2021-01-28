@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// The private endpoint which the connection belongs to.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointInvokeResponseResult? PrivateEndpoint;
         /// <summary>
         /// Connection state of the private endpoint connection.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? PrivateLinkServiceConnectionState;
         /// <summary>
         /// Provisioning state of the private endpoint connection.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointInvokeResponseResult? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateInvokeResponseResult? privateLinkServiceConnectionState,
 
             string provisioningState,
 

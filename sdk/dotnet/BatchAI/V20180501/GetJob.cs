@@ -54,31 +54,31 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// Caffe2 job settings.
         /// </summary>
-        public readonly Outputs.Caffe2SettingsResponse? Caffe2Settings;
+        public readonly Outputs.Caffe2SettingsInvokeResponseResult? Caffe2Settings;
         /// <summary>
         /// Caffe job settings.
         /// </summary>
-        public readonly Outputs.CaffeSettingsResponse? CaffeSettings;
+        public readonly Outputs.CaffeSettingsInvokeResponseResult? CaffeSettings;
         /// <summary>
         /// Chainer job settings.
         /// </summary>
-        public readonly Outputs.ChainerSettingsResponse? ChainerSettings;
+        public readonly Outputs.ChainerSettingsInvokeResponseResult? ChainerSettings;
         /// <summary>
         /// Resource ID of the cluster associated with the job.
         /// </summary>
-        public readonly Outputs.ResourceIdResponse? Cluster;
+        public readonly Outputs.ResourceIdInvokeResponseResult? Cluster;
         /// <summary>
         /// CNTK (aka Microsoft Cognitive Toolkit) job settings.
         /// </summary>
-        public readonly Outputs.CNTKsettingsResponse? CntkSettings;
+        public readonly Outputs.CNTKsettingsInvokeResponseResult? CntkSettings;
         /// <summary>
         /// Constraints associated with the Job.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponseConstraints? Constraints;
+        public readonly Outputs.JobPropertiesInvokeResponseConstraintsResult? Constraints;
         /// <summary>
         /// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
         /// </summary>
-        public readonly Outputs.ContainerSettingsResponse? ContainerSettings;
+        public readonly Outputs.ContainerSettingsInvokeResponseResult? ContainerSettings;
         /// <summary>
         /// The creation time of the job.
         /// </summary>
@@ -86,19 +86,19 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// Custom MPI job settings.
         /// </summary>
-        public readonly Outputs.CustomMpiSettingsResponse? CustomMpiSettings;
+        public readonly Outputs.CustomMpiSettingsInvokeResponseResult? CustomMpiSettings;
         /// <summary>
         /// Custom tool kit job settings.
         /// </summary>
-        public readonly Outputs.CustomToolkitSettingsResponse? CustomToolkitSettings;
+        public readonly Outputs.CustomToolkitSettingsInvokeResponseResult? CustomToolkitSettings;
         /// <summary>
         /// A collection of user defined environment variables to be setup for the job.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> EnvironmentVariables;
+        public readonly ImmutableArray<Outputs.EnvironmentVariableInvokeResponseResult> EnvironmentVariables;
         /// <summary>
         /// Information about the execution of a job.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponseExecutionInfo? ExecutionInfo;
+        public readonly Outputs.JobPropertiesInvokeResponseExecutionInfoResult? ExecutionInfo;
         /// <summary>
         /// The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// Specifies the settings for Horovod job.
         /// </summary>
-        public readonly Outputs.HorovodSettingsResponse? HorovodSettings;
+        public readonly Outputs.HorovodSettingsInvokeResponseResult? HorovodSettings;
         /// <summary>
         /// The ID of the resource.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// A list of input directories for the job.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InputDirectoryResponse> InputDirectories;
+        public readonly ImmutableArray<Outputs.InputDirectoryInvokeResponseResult> InputDirectories;
         /// <summary>
         /// A segment of job's output directories path created by Batch AI. Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
         /// </summary>
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// The specified actions will run on all the nodes that are part of the job
         /// </summary>
-        public readonly Outputs.JobPreparationResponse? JobPreparation;
+        public readonly Outputs.JobPreparationInvokeResponseResult? JobPreparation;
         /// <summary>
         /// Collection of mount volumes available to the job during execution. These volumes are mounted before the job execution and unmounted after the job completion. The volumes are mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
         /// </summary>
-        public readonly Outputs.MountVolumesResponse? MountVolumes;
+        public readonly Outputs.MountVolumesInvokeResponseResult? MountVolumes;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// A list of output directories for the job.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutputDirectoryResponse> OutputDirectories;
+        public readonly ImmutableArray<Outputs.OutputDirectoryInvokeResponseResult> OutputDirectories;
         /// <summary>
         /// The provisioned state of the Batch AI job
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// pyTorch job settings.
         /// </summary>
-        public readonly Outputs.PyTorchSettingsResponse? PyTorchSettings;
+        public readonly Outputs.PyTorchSettingsInvokeResponseResult? PyTorchSettings;
         /// <summary>
         /// Scheduling priority associated with the job.
         /// </summary>
@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentVariableWithSecretValueResponse> Secrets;
+        public readonly ImmutableArray<Outputs.EnvironmentVariableWithSecretValueInvokeResponseResult> Secrets;
         /// <summary>
         /// The path where the Batch AI service stores stdout, stderror and execution log of the job.
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <summary>
         /// TensorFlow job settings.
         /// </summary>
-        public readonly Outputs.TensorFlowSettingsResponse? TensorFlowSettings;
+        public readonly Outputs.TensorFlowSettingsInvokeResponseResult? TensorFlowSettings;
         /// <summary>
         /// Possible values are: cntk, tensorflow, caffe, caffe2, chainer, pytorch, custom, custommpi, horovod.
         /// </summary>
@@ -182,65 +182,65 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
 
         [OutputConstructor]
         private GetJobResult(
-            Outputs.Caffe2SettingsResponse? caffe2Settings,
+            Outputs.Caffe2SettingsInvokeResponseResult? caffe2Settings,
 
-            Outputs.CaffeSettingsResponse? caffeSettings,
+            Outputs.CaffeSettingsInvokeResponseResult? caffeSettings,
 
-            Outputs.ChainerSettingsResponse? chainerSettings,
+            Outputs.ChainerSettingsInvokeResponseResult? chainerSettings,
 
-            Outputs.ResourceIdResponse? cluster,
+            Outputs.ResourceIdInvokeResponseResult? cluster,
 
-            Outputs.CNTKsettingsResponse? cntkSettings,
+            Outputs.CNTKsettingsInvokeResponseResult? cntkSettings,
 
-            Outputs.JobPropertiesResponseConstraints? constraints,
+            Outputs.JobPropertiesInvokeResponseConstraintsResult? constraints,
 
-            Outputs.ContainerSettingsResponse? containerSettings,
+            Outputs.ContainerSettingsInvokeResponseResult? containerSettings,
 
             string creationTime,
 
-            Outputs.CustomMpiSettingsResponse? customMpiSettings,
+            Outputs.CustomMpiSettingsInvokeResponseResult? customMpiSettings,
 
-            Outputs.CustomToolkitSettingsResponse? customToolkitSettings,
+            Outputs.CustomToolkitSettingsInvokeResponseResult? customToolkitSettings,
 
-            ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
+            ImmutableArray<Outputs.EnvironmentVariableInvokeResponseResult> environmentVariables,
 
-            Outputs.JobPropertiesResponseExecutionInfo? executionInfo,
+            Outputs.JobPropertiesInvokeResponseExecutionInfoResult? executionInfo,
 
             string executionState,
 
             string executionStateTransitionTime,
 
-            Outputs.HorovodSettingsResponse? horovodSettings,
+            Outputs.HorovodSettingsInvokeResponseResult? horovodSettings,
 
             string id,
 
-            ImmutableArray<Outputs.InputDirectoryResponse> inputDirectories,
+            ImmutableArray<Outputs.InputDirectoryInvokeResponseResult> inputDirectories,
 
             string jobOutputDirectoryPathSegment,
 
-            Outputs.JobPreparationResponse? jobPreparation,
+            Outputs.JobPreparationInvokeResponseResult? jobPreparation,
 
-            Outputs.MountVolumesResponse? mountVolumes,
+            Outputs.MountVolumesInvokeResponseResult? mountVolumes,
 
             string name,
 
             int? nodeCount,
 
-            ImmutableArray<Outputs.OutputDirectoryResponse> outputDirectories,
+            ImmutableArray<Outputs.OutputDirectoryInvokeResponseResult> outputDirectories,
 
             string provisioningState,
 
             string provisioningStateTransitionTime,
 
-            Outputs.PyTorchSettingsResponse? pyTorchSettings,
+            Outputs.PyTorchSettingsInvokeResponseResult? pyTorchSettings,
 
             string? schedulingPriority,
 
-            ImmutableArray<Outputs.EnvironmentVariableWithSecretValueResponse> secrets,
+            ImmutableArray<Outputs.EnvironmentVariableWithSecretValueInvokeResponseResult> secrets,
 
             string? stdOutErrPathPrefix,
 
-            Outputs.TensorFlowSettingsResponse? tensorFlowSettings,
+            Outputs.TensorFlowSettingsInvokeResponseResult? tensorFlowSettings,
 
             string? toolType,
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// <summary>
         /// A list of references to all availability sets in the proximity placement group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> AvailabilitySets;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> AvailabilitySets;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -70,15 +70,15 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// <summary>
         /// A list of references to all virtual machine scale sets in the proximity placement group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualMachineScaleSets;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VirtualMachineScaleSets;
         /// <summary>
         /// A list of references to all virtual machines in the proximity placement group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualMachines;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetProximityPlacementGroupResult(
-            ImmutableArray<Outputs.SubResourceResponse> availabilitySets,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> availabilitySets,
 
             string id,
 
@@ -92,9 +92,9 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualMachineScaleSets,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> virtualMachineScaleSets,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> virtualMachines)
         {
             AvailabilitySets = availabilitySets;
             Id = id;

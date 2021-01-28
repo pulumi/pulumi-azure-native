@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         /// <summary>
         /// The identity associated with this account
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.IdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.IdentityInvokeResponseResult? identity,
 
             string location,
 

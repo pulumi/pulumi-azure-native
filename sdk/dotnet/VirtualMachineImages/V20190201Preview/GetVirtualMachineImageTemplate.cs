@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
-        public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
+        public readonly Outputs.ImageTemplateLastRunStatusInvokeResponseResult LastRunStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         /// <summary>
         /// Provisioning error, if any
         /// </summary>
-        public readonly Outputs.ProvisioningErrorResponse ProvisioningError;
+        public readonly Outputs.ProvisioningErrorInvokeResponseResult ProvisioningError;
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
@@ -92,13 +92,13 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
 
             string id,
 
-            Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
+            Outputs.ImageTemplateLastRunStatusInvokeResponseResult lastRunStatus,
 
             string location,
 
             string name,
 
-            Outputs.ProvisioningErrorResponse provisioningError,
+            Outputs.ProvisioningErrorInvokeResponseResult provisioningError,
 
             string provisioningState,
 

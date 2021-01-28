@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// The service with name and endpoint names
         /// </summary>
         [Input("service")]
-        public Inputs.WsdlServiceArgs? Service { get; set; }
+        public Inputs.WsdlServiceInvokeArgs? Service { get; set; }
 
         /// <summary>
         /// Subscription Id
@@ -66,10 +66,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Collection of WSDL interfaces
         /// </summary>
-        public readonly ImmutableArray<Outputs.WsdlServiceResponse> Value;
+        public readonly ImmutableArray<Outputs.WsdlServiceInvokeResponseResult> Value;
 
         [OutputConstructor]
-        private ListCustomApiWsdlInterfacesResult(ImmutableArray<Outputs.WsdlServiceResponse> value)
+        private ListCustomApiWsdlInterfacesResult(ImmutableArray<Outputs.WsdlServiceInvokeResponseResult> value)
         {
             Value = value;
         }

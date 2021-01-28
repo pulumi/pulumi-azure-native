@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
         /// <summary>
         /// List of package applications. 
         /// </summary>
-        public readonly ImmutableArray<Outputs.MsixPackageApplicationsResponse> PackageApplications;
+        public readonly ImmutableArray<Outputs.MsixPackageApplicationsInvokeResponseResult> PackageApplications;
         /// <summary>
         /// List of package dependencies. 
         /// </summary>
-        public readonly ImmutableArray<Outputs.MsixPackageDependenciesResponse> PackageDependencies;
+        public readonly ImmutableArray<Outputs.MsixPackageDependenciesInvokeResponseResult> PackageDependencies;
         /// <summary>
         /// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
         /// </summary>
@@ -118,9 +118,9 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
 
             string name,
 
-            ImmutableArray<Outputs.MsixPackageApplicationsResponse> packageApplications,
+            ImmutableArray<Outputs.MsixPackageApplicationsInvokeResponseResult> packageApplications,
 
-            ImmutableArray<Outputs.MsixPackageDependenciesResponse> packageDependencies,
+            ImmutableArray<Outputs.MsixPackageDependenciesInvokeResponseResult> packageDependencies,
 
             string? packageFamilyName,
 

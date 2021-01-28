@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <summary>
         /// Api Version Set Contract details.
         /// </summary>
-        public readonly Outputs.ApiVersionSetContractResponse? ApiVersionSet;
+        public readonly Outputs.ApiVersionSetContractInvokeResponseResult? ApiVersionSet;
         /// <summary>
         /// A resource identifier for the related ApiVersionSet.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <summary>
         /// Collection of authentication settings included into this API.
         /// </summary>
-        public readonly Outputs.AuthenticationSettingsContractResponse? AuthenticationSettings;
+        public readonly Outputs.AuthenticationSettingsContractInvokeResponseResult? AuthenticationSettings;
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <summary>
         /// Protocols over which API is made available.
         /// </summary>
-        public readonly Outputs.SubscriptionKeyParameterNamesContractResponse? SubscriptionKeyParameterNames;
+        public readonly Outputs.SubscriptionKeyParameterNamesContractInvokeResponseResult? SubscriptionKeyParameterNames;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -122,11 +122,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 
             string? apiVersion,
 
-            Outputs.ApiVersionSetContractResponse? apiVersionSet,
+            Outputs.ApiVersionSetContractInvokeResponseResult? apiVersionSet,
 
             string? apiVersionSetId,
 
-            Outputs.AuthenticationSettingsContractResponse? authenticationSettings,
+            Outputs.AuthenticationSettingsContractInvokeResponseResult? authenticationSettings,
 
             string? description,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 
             string? serviceUrl,
 
-            Outputs.SubscriptionKeyParameterNamesContractResponse? subscriptionKeyParameterNames,
+            Outputs.SubscriptionKeyParameterNamesContractInvokeResponseResult? subscriptionKeyParameterNames,
 
             string type)
         {

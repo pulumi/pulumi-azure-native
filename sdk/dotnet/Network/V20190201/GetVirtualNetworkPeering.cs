@@ -80,11 +80,11 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// <summary>
         /// The reference of the remote virtual network address space.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponse? RemoteAddressSpace;
+        public readonly Outputs.AddressSpaceInvokeResponseResult? RemoteAddressSpace;
         /// <summary>
         /// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         /// </summary>
-        public readonly Outputs.SubResourceResponse? RemoteVirtualNetwork;
+        public readonly Outputs.SubResourceInvokeResponseResult? RemoteVirtualNetwork;
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         /// </summary>
@@ -108,9 +108,9 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 
             string? provisioningState,
 
-            Outputs.AddressSpaceResponse? remoteAddressSpace,
+            Outputs.AddressSpaceInvokeResponseResult? remoteAddressSpace,
 
-            Outputs.SubResourceResponse? remoteVirtualNetwork,
+            Outputs.SubResourceInvokeResponseResult? remoteVirtualNetwork,
 
             bool? useRemoteGateways)
         {

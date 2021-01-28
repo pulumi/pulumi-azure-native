@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// <summary>
         /// Details of the refresh job on this container.
         /// </summary>
-        public readonly Outputs.RefreshDetailsResponse RefreshDetails;
+        public readonly Outputs.RefreshDetailsInvokeResponseResult RefreshDetails;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 
             string name,
 
-            Outputs.RefreshDetailsResponse refreshDetails,
+            Outputs.RefreshDetailsInvokeResponseResult refreshDetails,
 
             string type)
         {

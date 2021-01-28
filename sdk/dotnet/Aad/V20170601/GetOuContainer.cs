@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
         /// <summary>
         /// The list of container accounts
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerAccountResponse> Accounts;
+        public readonly ImmutableArray<Outputs.ContainerAccountInvokeResponseResult> Accounts;
         /// <summary>
         /// The OuContainer name
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170601
 
         [OutputConstructor]
         private GetOuContainerResult(
-            ImmutableArray<Outputs.ContainerAccountResponse> accounts,
+            ImmutableArray<Outputs.ContainerAccountInvokeResponseResult> accounts,
 
             string containerId,
 

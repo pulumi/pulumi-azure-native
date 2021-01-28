@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// List of egress VpnSiteLinkConnections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> EgressVpnSiteLinkConnections;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> EgressVpnSiteLinkConnections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// The private IP address external mapping for NAT.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnNatRuleMappingResponse> ExternalMappings;
+        public readonly ImmutableArray<Outputs.VpnNatRuleMappingInvokeResponseResult> ExternalMappings;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <summary>
         /// List of ingress VpnSiteLinkConnections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> IngressVpnSiteLinkConnections;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> IngressVpnSiteLinkConnections;
         /// <summary>
         /// The private IP address internal mapping for NAT.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnNatRuleMappingResponse> InternalMappings;
+        public readonly ImmutableArray<Outputs.VpnNatRuleMappingInvokeResponseResult> InternalMappings;
         /// <summary>
         /// The IP Configuration ID this NAT rule applies to.
         /// </summary>
@@ -92,17 +92,17 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
         [OutputConstructor]
         private GetNatRuleResult(
-            ImmutableArray<Outputs.SubResourceResponse> egressVpnSiteLinkConnections,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> egressVpnSiteLinkConnections,
 
             string etag,
 
-            ImmutableArray<Outputs.VpnNatRuleMappingResponse> externalMappings,
+            ImmutableArray<Outputs.VpnNatRuleMappingInvokeResponseResult> externalMappings,
 
             string? id,
 
-            ImmutableArray<Outputs.SubResourceResponse> ingressVpnSiteLinkConnections,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> ingressVpnSiteLinkConnections,
 
-            ImmutableArray<Outputs.VpnNatRuleMappingResponse> internalMappings,
+            ImmutableArray<Outputs.VpnNatRuleMappingInvokeResponseResult> internalMappings,
 
             string? ipConfigurationId,
 

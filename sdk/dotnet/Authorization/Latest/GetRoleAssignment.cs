@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <summary>
         /// Role assignment properties.
         /// </summary>
-        public readonly Outputs.RoleAssignmentPropertiesWithScopeResponse Properties;
+        public readonly Outputs.RoleAssignmentPropertiesWithScopeInvokeResponseResult Properties;
         /// <summary>
         /// The role assignment type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
             string name,
 
-            Outputs.RoleAssignmentPropertiesWithScopeResponse properties,
+            Outputs.RoleAssignmentPropertiesWithScopeInvokeResponseResult properties,
 
             string type)
         {

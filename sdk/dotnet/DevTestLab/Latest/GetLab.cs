@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <summary>
         /// The properties of any lab announcement associated with this lab
         /// </summary>
-        public readonly Outputs.LabAnnouncementPropertiesResponse? Announcement;
+        public readonly Outputs.LabAnnouncementPropertiesInvokeResponseResult? Announcement;
         /// <summary>
         /// The lab's artifact storage account.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <summary>
         /// The properties of any lab support message associated with this lab
         /// </summary>
-        public readonly Outputs.LabSupportPropertiesResponse? Support;
+        public readonly Outputs.LabSupportPropertiesInvokeResponseResult? Support;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
         [OutputConstructor]
         private GetLabResult(
-            Outputs.LabAnnouncementPropertiesResponse? announcement,
+            Outputs.LabAnnouncementPropertiesInvokeResponseResult? announcement,
 
             string artifactsStorageAccount,
 
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             string publicIpId,
 
-            Outputs.LabSupportPropertiesResponse? support,
+            Outputs.LabSupportPropertiesInvokeResponseResult? support,
 
             ImmutableDictionary<string, string>? tags,
 

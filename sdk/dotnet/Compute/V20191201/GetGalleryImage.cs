@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// Describes the disallowed disk types.
         /// </summary>
-        public readonly Outputs.DisallowedResponse? Disallowed;
+        public readonly Outputs.DisallowedInvokeResponseResult? Disallowed;
         /// <summary>
         /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// This is the gallery Image Definition identifier.
         /// </summary>
-        public readonly Outputs.GalleryImageIdentifierResponse Identifier;
+        public readonly Outputs.GalleryImageIdentifierInvokeResponseResult Identifier;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <summary>
         /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
         /// </summary>
-        public readonly Outputs.ImagePurchasePlanResponse? PurchasePlan;
+        public readonly Outputs.ImagePurchasePlanInvokeResponseResult? PurchasePlan;
         /// <summary>
         /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         /// </summary>
-        public readonly Outputs.RecommendedMachineConfigurationResponse? Recommended;
+        public readonly Outputs.RecommendedMachineConfigurationInvokeResponseResult? Recommended;
         /// <summary>
         /// The release note uri.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         private GetGalleryImageResult(
             string? description,
 
-            Outputs.DisallowedResponse? disallowed,
+            Outputs.DisallowedInvokeResponseResult? disallowed,
 
             string? endOfLifeDate,
 
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             string id,
 
-            Outputs.GalleryImageIdentifierResponse identifier,
+            Outputs.GalleryImageIdentifierInvokeResponseResult identifier,
 
             string location,
 
@@ -146,9 +146,9 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             string provisioningState,
 
-            Outputs.ImagePurchasePlanResponse? purchasePlan,
+            Outputs.ImagePurchasePlanInvokeResponseResult? purchasePlan,
 
-            Outputs.RecommendedMachineConfigurationResponse? recommended,
+            Outputs.RecommendedMachineConfigurationInvokeResponseResult? recommended,
 
             string? releaseNoteUri,
 

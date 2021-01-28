@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
         /// <summary>
         /// List of patch schedules for a Redis cache.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleEntryResponse> ScheduleEntries;
+        public readonly ImmutableArray<Outputs.ScheduleEntryInvokeResponseResult> ScheduleEntries;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
 
             string name,
 
-            ImmutableArray<Outputs.ScheduleEntryResponse> scheduleEntries,
+            ImmutableArray<Outputs.ScheduleEntryInvokeResponseResult> scheduleEntries,
 
             string type)
         {

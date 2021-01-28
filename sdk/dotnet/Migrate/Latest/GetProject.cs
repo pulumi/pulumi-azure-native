@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// <summary>
         /// Properties of the project.
         /// </summary>
-        public readonly Outputs.ProjectPropertiesResponse Properties;
+        public readonly Outputs.ProjectPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Tags provided by Azure Tagging service.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
 
             string name,
 
-            Outputs.ProjectPropertiesResponse properties,
+            Outputs.ProjectPropertiesInvokeResponseResult properties,
 
             object? tags,
 

@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? ExpressRouteCircuitPeering;
+        public readonly Outputs.SubResourceInvokeResponseResult? ExpressRouteCircuitPeering;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// IPv6 Address PrefixProperties of the express route circuit connection.
         /// </summary>
-        public readonly Outputs.Ipv6CircuitConnectionConfigResponse? Ipv6CircuitConnectionConfig;
+        public readonly Outputs.Ipv6CircuitConnectionConfigInvokeResponseResult? Ipv6CircuitConnectionConfig;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? PeerExpressRouteCircuitPeering;
+        public readonly Outputs.SubResourceInvokeResponseResult? PeerExpressRouteCircuitPeering;
         /// <summary>
         /// The provisioning state of the express route circuit connection resource.
         /// </summary>
@@ -106,15 +106,15 @@ namespace Pulumi.AzureNextGen.Network.V20200301
 
             string etag,
 
-            Outputs.SubResourceResponse? expressRouteCircuitPeering,
+            Outputs.SubResourceInvokeResponseResult? expressRouteCircuitPeering,
 
             string? id,
 
-            Outputs.Ipv6CircuitConnectionConfigResponse? ipv6CircuitConnectionConfig,
+            Outputs.Ipv6CircuitConnectionConfigInvokeResponseResult? ipv6CircuitConnectionConfig,
 
             string? name,
 
-            Outputs.SubResourceResponse? peerExpressRouteCircuitPeering,
+            Outputs.SubResourceInvokeResponseResult? peerExpressRouteCircuitPeering,
 
             string provisioningState,
 

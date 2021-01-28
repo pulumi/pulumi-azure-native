@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20200901
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TldLegalAgreementResponseResult> Value;
+        public readonly ImmutableArray<Outputs.TldLegalAgreementInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListTopLevelDomainAgreementsResult(
             string nextLink,
 
-            ImmutableArray<Outputs.TldLegalAgreementResponseResult> value)
+            ImmutableArray<Outputs.TldLegalAgreementInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

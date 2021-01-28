@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// <summary>
         /// Properties of the assessment.
         /// </summary>
-        public readonly Outputs.AssessmentPropertiesResponse Properties;
+        public readonly Outputs.AssessmentPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
 
             string name,
 
-            Outputs.AssessmentPropertiesResponse properties,
+            Outputs.AssessmentPropertiesInvokeResponseResult properties,
 
             string type)
         {

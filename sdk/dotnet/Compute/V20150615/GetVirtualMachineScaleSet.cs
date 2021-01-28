@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyInvokeResponseResult? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult? VirtualMachineProfile;
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
@@ -92,15 +92,15 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
 
             string? provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.UpgradePolicyResponse? upgradePolicy,
+            Outputs.UpgradePolicyInvokeResponseResult? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile)
+            Outputs.VirtualMachineScaleSetVMProfileInvokeResponseResult? virtualMachineProfile)
         {
             Id = id;
             Location = location;

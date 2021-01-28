@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// An array of public ip addresses associated with the nat gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpAddresses;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> PublicIpAddresses;
         /// <summary>
         /// An array of public ip prefixes associated with the nat gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpPrefixes;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> PublicIpPrefixes;
         /// <summary>
         /// The resource GUID property of the NAT gateway resource.
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <summary>
         /// The nat gateway SKU.
         /// </summary>
-        public readonly Outputs.NatGatewaySkuResponse? Sku;
+        public readonly Outputs.NatGatewaySkuInvokeResponseResult? Sku;
         /// <summary>
         /// An array of references to the subnets using this nat gateway resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> Subnets;
+        public readonly ImmutableArray<Outputs.SubResourceInvokeResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -116,15 +116,15 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponse> publicIpAddresses,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> publicIpAddresses,
 
-            ImmutableArray<Outputs.SubResourceResponse> publicIpPrefixes,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> publicIpPrefixes,
 
             string resourceGuid,
 
-            Outputs.NatGatewaySkuResponse? sku,
+            Outputs.NatGatewaySkuInvokeResponseResult? sku,
 
-            ImmutableArray<Outputs.SubResourceResponse> subnets,
+            ImmutableArray<Outputs.SubResourceInvokeResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 

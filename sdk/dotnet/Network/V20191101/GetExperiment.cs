@@ -56,11 +56,11 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// <summary>
         /// The endpoint A of an experiment
         /// </summary>
-        public readonly Outputs.EndpointResponse? EndpointA;
+        public readonly Outputs.EndpointInvokeResponseResult? EndpointA;
         /// <summary>
         /// The endpoint B of an experiment
         /// </summary>
-        public readonly Outputs.EndpointResponse? EndpointB;
+        public readonly Outputs.EndpointInvokeResponseResult? EndpointB;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 
             string? enabledState,
 
-            Outputs.EndpointResponse? endpointA,
+            Outputs.EndpointInvokeResponseResult? endpointA,
 
-            Outputs.EndpointResponse? endpointB,
+            Outputs.EndpointInvokeResponseResult? endpointB,
 
             string id,
 

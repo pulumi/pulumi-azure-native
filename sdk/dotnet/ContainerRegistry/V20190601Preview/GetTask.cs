@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The machine configuration of the run agent.
         /// </summary>
-        public readonly Outputs.AgentPropertiesResponse? AgentConfiguration;
+        public readonly Outputs.AgentPropertiesInvokeResponseResult? AgentConfiguration;
         /// <summary>
         /// The dedicated agent pool for the task.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The properties that describes a set of credentials that will be used when this run is invoked.
         /// </summary>
-        public readonly Outputs.CredentialsResponse? Credentials;
+        public readonly Outputs.CredentialsInvokeResponseResult? Credentials;
         /// <summary>
         /// The resource ID.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The value of this property indicates whether the task resource is system task or not.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        public readonly Outputs.PlatformPropertiesResponse? Platform;
+        public readonly Outputs.PlatformPropertiesInvokeResponseResult? Platform;
         /// <summary>
         /// The provisioning state of the task.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The properties that describe all triggers for the task.
         /// </summary>
-        public readonly Outputs.TriggerPropertiesResponse? Trigger;
+        public readonly Outputs.TriggerPropertiesInvokeResponseResult? Trigger;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -124,17 +124,17 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
         [OutputConstructor]
         private GetTaskResult(
-            Outputs.AgentPropertiesResponse? agentConfiguration,
+            Outputs.AgentPropertiesInvokeResponseResult? agentConfiguration,
 
             string? agentPoolName,
 
             string creationDate,
 
-            Outputs.CredentialsResponse? credentials,
+            Outputs.CredentialsInvokeResponseResult? credentials,
 
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             bool? isSystemTask,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             string name,
 
-            Outputs.PlatformPropertiesResponse? platform,
+            Outputs.PlatformPropertiesInvokeResponseResult? platform,
 
             string provisioningState,
 
@@ -152,13 +152,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             object? step,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             int? timeout,
 
-            Outputs.TriggerPropertiesResponse? trigger,
+            Outputs.TriggerPropertiesInvokeResponseResult? trigger,
 
             string type)
         {

@@ -54,15 +54,15 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
         /// <summary>
         /// The map account properties.
         /// </summary>
-        public readonly Outputs.MapsAccountPropertiesResponse Properties;
+        public readonly Outputs.MapsAccountPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The SKU of this account.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
 
             string name,
 
-            Outputs.MapsAccountPropertiesResponse properties,
+            Outputs.MapsAccountPropertiesInvokeResponseResult properties,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

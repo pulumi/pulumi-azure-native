@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ApiConnectionDefinitionResponseProperties Properties;
+        public readonly Outputs.ApiConnectionDefinitionInvokeResponsePropertiesResult Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
 
             string name,
 
-            Outputs.ApiConnectionDefinitionResponseProperties properties,
+            Outputs.ApiConnectionDefinitionInvokeResponsePropertiesResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

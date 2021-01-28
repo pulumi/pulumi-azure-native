@@ -42,41 +42,41 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// Credentials for Azure AppInsights.
         /// </summary>
-        public readonly Outputs.AppInsightsCredentialsResponseResult? AppInsights;
+        public readonly Outputs.AppInsightsCredentialsInvokeResponseResult? AppInsights;
         /// <summary>
         /// Credentials for Azure Container Registry.
         /// </summary>
-        public readonly Outputs.ContainerRegistryCredentialsResponseResult? ContainerRegistry;
+        public readonly Outputs.ContainerRegistryCredentialsInvokeResponseResult? ContainerRegistry;
         /// <summary>
         /// Credentials for Azure Container Service.
         /// </summary>
-        public readonly Outputs.ContainerServiceCredentialsResponseResult? ContainerService;
+        public readonly Outputs.ContainerServiceCredentialsInvokeResponseResult? ContainerService;
         /// <summary>
         /// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         /// </summary>
-        public readonly Outputs.ServiceAuthConfigurationResponse? ServiceAuthConfiguration;
+        public readonly Outputs.ServiceAuthConfigurationInvokeResponseResult? ServiceAuthConfiguration;
         /// <summary>
         /// The SSL configuration for the services.
         /// </summary>
-        public readonly Outputs.SslConfigurationResponse? SslConfiguration;
+        public readonly Outputs.SslConfigurationInvokeResponseResult? SslConfiguration;
         /// <summary>
         /// Credentials for the Storage Account.
         /// </summary>
-        public readonly Outputs.StorageAccountCredentialsResponseResult? StorageAccount;
+        public readonly Outputs.StorageAccountCredentialsInvokeResponseResult? StorageAccount;
 
         [OutputConstructor]
         private ListOperationalizationClusterKeysResult(
-            Outputs.AppInsightsCredentialsResponseResult? appInsights,
+            Outputs.AppInsightsCredentialsInvokeResponseResult? appInsights,
 
-            Outputs.ContainerRegistryCredentialsResponseResult? containerRegistry,
+            Outputs.ContainerRegistryCredentialsInvokeResponseResult? containerRegistry,
 
-            Outputs.ContainerServiceCredentialsResponseResult? containerService,
+            Outputs.ContainerServiceCredentialsInvokeResponseResult? containerService,
 
-            Outputs.ServiceAuthConfigurationResponse? serviceAuthConfiguration,
+            Outputs.ServiceAuthConfigurationInvokeResponseResult? serviceAuthConfiguration,
 
-            Outputs.SslConfigurationResponse? sslConfiguration,
+            Outputs.SslConfigurationInvokeResponseResult? sslConfiguration,
 
-            Outputs.StorageAccountCredentialsResponseResult? storageAccount)
+            Outputs.StorageAccountCredentialsInvokeResponseResult? storageAccount)
         {
             AppInsights = appInsights;
             ContainerRegistry = containerRegistry;

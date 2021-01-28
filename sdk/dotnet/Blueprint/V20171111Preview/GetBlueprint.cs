@@ -62,15 +62,15 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <summary>
         /// Parameters required by this Blueprint definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionInvokeResponseResult>? Parameters;
         /// <summary>
         /// Resource group placeholders defined by this Blueprint definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? ResourceGroups;
+        public readonly ImmutableDictionary<string, Outputs.ResourceGroupDefinitionInvokeResponseResult>? ResourceGroups;
         /// <summary>
         /// Status of the Blueprint. This field is readonly.
         /// </summary>
-        public readonly Outputs.BlueprintStatusResponse Status;
+        public readonly Outputs.BlueprintStatusInvokeResponseResult Status;
         /// <summary>
         /// The scope where this Blueprint can be applied.
         /// </summary>
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionInvokeResponseResult>? parameters,
 
-            ImmutableDictionary<string, Outputs.ResourceGroupDefinitionResponse>? resourceGroups,
+            ImmutableDictionary<string, Outputs.ResourceGroupDefinitionInvokeResponseResult>? resourceGroups,
 
-            Outputs.BlueprintStatusResponse status,
+            Outputs.BlueprintStatusInvokeResponseResult status,
 
             string targetScope,
 

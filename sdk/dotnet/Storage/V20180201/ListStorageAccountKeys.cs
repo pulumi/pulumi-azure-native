@@ -42,10 +42,10 @@ namespace Pulumi.AzureNextGen.Storage.V20180201
         /// <summary>
         /// Gets the list of storage account keys and their properties for the specified storage account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StorageAccountKeyResponseResult> Keys;
+        public readonly ImmutableArray<Outputs.StorageAccountKeyInvokeResponseResult> Keys;
 
         [OutputConstructor]
-        private ListStorageAccountKeysResult(ImmutableArray<Outputs.StorageAccountKeyResponseResult> keys)
+        private ListStorageAccountKeysResult(ImmutableArray<Outputs.StorageAccountKeyInvokeResponseResult> keys)
         {
             Keys = keys;
         }

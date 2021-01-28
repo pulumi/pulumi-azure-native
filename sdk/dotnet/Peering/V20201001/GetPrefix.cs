@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
         /// <summary>
         /// The list of events for peering service prefix
         /// </summary>
-        public readonly ImmutableArray<Outputs.PeeringServicePrefixEventResponse> Events;
+        public readonly ImmutableArray<Outputs.PeeringServicePrefixEventInvokeResponseResult> Events;
         /// <summary>
         /// The ID of the resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
         private GetPrefixResult(
             string errorMessage,
 
-            ImmutableArray<Outputs.PeeringServicePrefixEventResponse> events,
+            ImmutableArray<Outputs.PeeringServicePrefixEventInvokeResponseResult> events,
 
             string id,
 

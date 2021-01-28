@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// <summary>
         /// The list of key properties for the reference data set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse> KeyProperties;
+        public readonly ImmutableArray<Outputs.ReferenceDataSetKeyPropertyInvokeResponseResult> KeyProperties;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
 
             string id,
 
-            ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse> keyProperties,
+            ImmutableArray<Outputs.ReferenceDataSetKeyPropertyInvokeResponseResult> keyProperties,
 
             string location,
 

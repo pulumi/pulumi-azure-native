@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20190401Preview
         /// <summary>
         /// Plan details for the managed services.
         /// </summary>
-        public readonly Outputs.PlanResponse? Plan;
+        public readonly Outputs.PlanInvokeResponseResult? Plan;
         /// <summary>
         /// Properties of a registration definition.
         /// </summary>
-        public readonly Outputs.RegistrationDefinitionPropertiesResponse Properties;
+        public readonly Outputs.RegistrationDefinitionPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -66,9 +66,9 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20190401Preview
 
             string name,
 
-            Outputs.PlanResponse? plan,
+            Outputs.PlanInvokeResponseResult? plan,
 
-            Outputs.RegistrationDefinitionPropertiesResponse properties,
+            Outputs.RegistrationDefinitionPropertiesInvokeResponseResult properties,
 
             string type)
         {

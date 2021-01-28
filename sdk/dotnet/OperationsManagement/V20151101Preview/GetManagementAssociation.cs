@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
         /// <summary>
         /// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         /// </summary>
-        public readonly Outputs.ManagementAssociationPropertiesResponse Properties;
+        public readonly Outputs.ManagementAssociationPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 
             string name,
 
-            Outputs.ManagementAssociationPropertiesResponse properties,
+            Outputs.ManagementAssociationPropertiesInvokeResponseResult properties,
 
             string type)
         {

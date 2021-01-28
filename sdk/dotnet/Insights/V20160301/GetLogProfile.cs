@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// <summary>
         /// the retention policy for the events in the log.
         /// </summary>
-        public readonly Outputs.RetentionPolicyResponse RetentionPolicy;
+        public readonly Outputs.RetentionPolicyInvokeResponseResult RetentionPolicy;
         /// <summary>
         /// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
 
             string name,
 
-            Outputs.RetentionPolicyResponse retentionPolicy,
+            Outputs.RetentionPolicyInvokeResponseResult retentionPolicy,
 
             string? serviceBusRuleId,
 

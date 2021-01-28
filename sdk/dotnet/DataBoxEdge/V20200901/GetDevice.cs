@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// The details of Edge Profile for this resource
         /// </summary>
-        public readonly Outputs.EdgeProfileResponse? EdgeProfile;
+        public readonly Outputs.EdgeProfileInvokeResponseResult? EdgeProfile;
         /// <summary>
         /// The etag for the devices.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// Msi identity of the resource
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The etag for the devices.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// The details of the move operation on this resource.
         /// </summary>
-        public readonly Outputs.ResourceMoveDetailsResponse? ResourceMoveDetails;
+        public readonly Outputs.ResourceMoveDetailsInvokeResponseResult? ResourceMoveDetails;
         /// <summary>
         /// The Serial Number of Data Box Edge/Gateway device.
         /// </summary>
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <summary>
         /// The SKU type.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// DataBoxEdge Resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 
             string deviceType,
 
-            Outputs.EdgeProfileResponse? edgeProfile,
+            Outputs.EdgeProfileInvokeResponseResult? edgeProfile,
 
             string? etag,
 
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             string? kind,
 
@@ -184,13 +184,13 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
 
             int nodeCount,
 
-            Outputs.ResourceMoveDetailsResponse? resourceMoveDetails,
+            Outputs.ResourceMoveDetailsInvokeResponseResult? resourceMoveDetails,
 
             string serialNumber,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

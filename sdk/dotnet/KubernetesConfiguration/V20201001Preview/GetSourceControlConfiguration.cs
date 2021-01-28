@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
         /// <summary>
         /// Compliance Status of the Configuration
         /// </summary>
-        public readonly Outputs.ComplianceStatusResponse ComplianceStatus;
+        public readonly Outputs.ComplianceStatusInvokeResponseResult ComplianceStatus;
         /// <summary>
         /// Name-value pairs of protected configuration settings for the configuration
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
         /// <summary>
         /// Properties for Helm operator.
         /// </summary>
-        public readonly Outputs.HelmOperatorPropertiesResponse? HelmOperatorProperties;
+        public readonly Outputs.HelmOperatorPropertiesInvokeResponseResult? HelmOperatorProperties;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
         /// <summary>
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult? SystemData;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -128,13 +128,13 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
 
         [OutputConstructor]
         private GetSourceControlConfigurationResult(
-            Outputs.ComplianceStatusResponse complianceStatus,
+            Outputs.ComplianceStatusInvokeResponseResult complianceStatus,
 
             ImmutableDictionary<string, string>? configurationProtectedSettings,
 
             bool? enableHelmOperator,
 
-            Outputs.HelmOperatorPropertiesResponse? helmOperatorProperties,
+            Outputs.HelmOperatorPropertiesInvokeResponseResult? helmOperatorProperties,
 
             string id,
 
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20201001Preview
 
             string? sshKnownHostsContents,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataInvokeResponseResult? systemData,
 
             string type)
         {

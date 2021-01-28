@@ -94,11 +94,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// Sync schema of the sync group.
         /// </summary>
-        public readonly Outputs.SyncGroupSchemaResponse? Schema;
+        public readonly Outputs.SyncGroupSchemaInvokeResponseResult? Schema;
         /// <summary>
         /// The name and capacity of the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// ARM resource id of the sync database in the sync group.
         /// </summary>
@@ -138,9 +138,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string privateEndpointName,
 
-            Outputs.SyncGroupSchemaResponse? schema,
+            Outputs.SyncGroupSchemaInvokeResponseResult? schema,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string? syncDatabaseId,
 

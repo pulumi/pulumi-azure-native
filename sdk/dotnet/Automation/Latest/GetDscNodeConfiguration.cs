@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <summary>
         /// Gets or sets the configuration of the node.
         /// </summary>
-        public readonly Outputs.DscConfigurationAssociationPropertyResponse? Configuration;
+        public readonly Outputs.DscConfigurationAssociationPropertyInvokeResponseResult? Configuration;
         /// <summary>
         /// Gets or sets creation time.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
         [OutputConstructor]
         private GetDscNodeConfigurationResult(
-            Outputs.DscConfigurationAssociationPropertyResponse? configuration,
+            Outputs.DscConfigurationAssociationPropertyInvokeResponseResult? configuration,
 
             string? creationTime,
 

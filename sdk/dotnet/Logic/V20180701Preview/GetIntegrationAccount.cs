@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.IntegrationAccountSkuResponse? Sku;
+        public readonly Outputs.IntegrationAccountSkuInvokeResponseResult? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string name,
 
-            Outputs.IntegrationAccountSkuResponse? sku,
+            Outputs.IntegrationAccountSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

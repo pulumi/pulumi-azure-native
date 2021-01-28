@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// <summary>
         /// The list of partition keys according to which the data in the environment will be ordered.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PartitionKeyPropertyResponse> PartitionKeyProperties;
+        public readonly ImmutableArray<Outputs.PartitionKeyPropertyInvokeResponseResult> PartitionKeyProperties;
         /// <summary>
         /// Provisioning state of the resource.
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// <summary>
         /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         /// </summary>
-        public readonly Outputs.EnvironmentStatusResponse Status;
+        public readonly Outputs.EnvironmentStatusInvokeResponseResult Status;
         /// <summary>
         /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         /// </summary>
@@ -118,13 +118,13 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
 
             string name,
 
-            ImmutableArray<Outputs.PartitionKeyPropertyResponse> partitionKeyProperties,
+            ImmutableArray<Outputs.PartitionKeyPropertyInvokeResponseResult> partitionKeyProperties,
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
-            Outputs.EnvironmentStatusResponse status,
+            Outputs.EnvironmentStatusInvokeResponseResult status,
 
             string? storageLimitExceededBehavior,
 

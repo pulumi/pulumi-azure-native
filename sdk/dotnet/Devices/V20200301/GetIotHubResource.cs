@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
         /// <summary>
         /// IotHub properties
         /// </summary>
-        public readonly Outputs.IotHubPropertiesResponse Properties;
+        public readonly Outputs.IotHubPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// IotHub SKU info
         /// </summary>
-        public readonly Outputs.IotHubSkuInfoResponse Sku;
+        public readonly Outputs.IotHubSkuInfoInvokeResponseResult Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
 
             string name,
 
-            Outputs.IotHubPropertiesResponse properties,
+            Outputs.IotHubPropertiesInvokeResponseResult properties,
 
-            Outputs.IotHubSkuInfoResponse sku,
+            Outputs.IotHubSkuInfoInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

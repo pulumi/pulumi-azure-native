@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         public readonly string? ETag;
         public readonly string Id;
         public readonly string Name;
-        public readonly Outputs.CollectorPropertiesResponse Properties;
+        public readonly Outputs.CollectorPropertiesInvokeResponseResult Properties;
         public readonly string Type;
 
         [OutputConstructor]
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
 
             string name,
 
-            Outputs.CollectorPropertiesResponse properties,
+            Outputs.CollectorPropertiesInvokeResponseResult properties,
 
             string type)
         {

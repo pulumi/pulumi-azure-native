@@ -76,11 +76,11 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// The publishing profile of a gallery image version.
         /// </summary>
-        public readonly Outputs.GalleryApplicationVersionPublishingProfileResponse PublishingProfile;
+        public readonly Outputs.GalleryApplicationVersionPublishingProfileInvokeResponseResult PublishingProfile;
         /// <summary>
         /// This is the replication status of the gallery Image Version.
         /// </summary>
-        public readonly Outputs.ReplicationStatusResponse ReplicationStatus;
+        public readonly Outputs.ReplicationStatusInvokeResponseResult ReplicationStatus;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,9 +100,9 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
             string provisioningState,
 
-            Outputs.GalleryApplicationVersionPublishingProfileResponse publishingProfile,
+            Outputs.GalleryApplicationVersionPublishingProfileInvokeResponseResult publishingProfile,
 
-            Outputs.ReplicationStatusResponse replicationStatus,
+            Outputs.ReplicationStatusInvokeResponseResult replicationStatus,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
         /// <summary>
         /// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponse> Origins;
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginInvokeResponseResult> Origins;
         /// <summary>
         /// Provisioning status of the endpoint.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
 
             string? originPath,
 
-            ImmutableArray<Outputs.DeepCreatedOriginResponse> origins,
+            ImmutableArray<Outputs.DeepCreatedOriginInvokeResponseResult> origins,
 
             string provisioningState,
 

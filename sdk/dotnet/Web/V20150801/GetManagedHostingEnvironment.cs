@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// Description of the managed hosting environment's virtual network
         /// </summary>
-        public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetwork;
+        public readonly Outputs.VirtualNetworkProfileInvokeResponseResult? VirtualNetwork;
 
         [OutputConstructor]
         private GetManagedHostingEnvironmentResult(
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? type,
 
-            Outputs.VirtualNetworkProfileResponse? virtualNetwork)
+            Outputs.VirtualNetworkProfileInvokeResponseResult? virtualNetwork)
         {
             ApiManagementAccount = apiManagementAccount;
             DnsSuffix = dnsSuffix;

@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// <summary>
         /// Delivery Info of Job.
         /// </summary>
-        public readonly Outputs.JobDeliveryInfoResponse? DeliveryInfo;
+        public readonly Outputs.JobDeliveryInfoInvokeResponseResult? DeliveryInfo;
         /// <summary>
         /// Delivery type of Job.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// <summary>
         /// Top level error for the job.
         /// </summary>
-        public readonly Outputs.CloudErrorResponse Error;
+        public readonly Outputs.CloudErrorInvokeResponseResult Error;
         /// <summary>
         /// Id of the object.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// <summary>
         /// Msi identity of the resource
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// Describes whether the job is cancellable or not.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         /// <summary>
         /// The sku type.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Time at which the job was started in UTC ISO 8601 format.
         /// </summary>
@@ -130,17 +130,17 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
         private GetJobResult(
             string cancellationReason,
 
-            Outputs.JobDeliveryInfoResponse? deliveryInfo,
+            Outputs.JobDeliveryInfoInvokeResponseResult? deliveryInfo,
 
             string? deliveryType,
 
             object? details,
 
-            Outputs.CloudErrorResponse error,
+            Outputs.CloudErrorInvokeResponseResult error,
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityInvokeResponseResult? identity,
 
             bool isCancellable,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101
 
             string name,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             string startTime,
 

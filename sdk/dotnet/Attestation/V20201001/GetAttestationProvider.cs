@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
         /// <summary>
         /// List of private endpoint connections associated with the attestation provider.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// Status of attestation service.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
         /// <summary>
         /// The system metadata relating to this resource
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -90,11 +90,11 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionInvokeResponseResult> privateEndpointConnections,
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

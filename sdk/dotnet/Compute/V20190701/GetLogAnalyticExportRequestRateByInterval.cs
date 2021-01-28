@@ -78,10 +78,10 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// LogAnalyticsOutput
         /// </summary>
-        public readonly Outputs.LogAnalyticsOutputResponseResult Properties;
+        public readonly Outputs.LogAnalyticsOutputInvokeResponseResult Properties;
 
         [OutputConstructor]
-        private GetLogAnalyticExportRequestRateByIntervalResult(Outputs.LogAnalyticsOutputResponseResult properties)
+        private GetLogAnalyticExportRequestRateByIntervalResult(Outputs.LogAnalyticsOutputInvokeResponseResult properties)
         {
             Properties = properties;
         }

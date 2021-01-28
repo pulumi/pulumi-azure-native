@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or sets the Microsoft peering config
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringConfigResponse? MicrosoftPeeringConfig;
+        public readonly Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? MicrosoftPeeringConfig;
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Gets or peering stats
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitStatsResponse? Stats;
+        public readonly Outputs.ExpressRouteCircuitStatsInvokeResponseResult? Stats;
         /// <summary>
         /// Gets or sets the vlan id
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
             string? id,
 
-            Outputs.ExpressRouteCircuitPeeringConfigResponse? microsoftPeeringConfig,
+            Outputs.ExpressRouteCircuitPeeringConfigInvokeResponseResult? microsoftPeeringConfig,
 
             string? name,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
             string? state,
 
-            Outputs.ExpressRouteCircuitStatsResponse? stats,
+            Outputs.ExpressRouteCircuitStatsInvokeResponseResult? stats,
 
             int? vlanId)
         {

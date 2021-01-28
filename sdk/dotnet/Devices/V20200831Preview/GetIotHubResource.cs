@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview
         /// <summary>
         /// The managed identities for the IotHub.
         /// </summary>
-        public readonly Outputs.ArmIdentityResponse? Identity;
+        public readonly Outputs.ArmIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -62,11 +62,11 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview
         /// <summary>
         /// IotHub properties
         /// </summary>
-        public readonly Outputs.IotHubPropertiesResponse Properties;
+        public readonly Outputs.IotHubPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// IotHub SKU info
         /// </summary>
-        public readonly Outputs.IotHubSkuInfoResponse Sku;
+        public readonly Outputs.IotHubSkuInfoInvokeResponseResult Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview
 
             string id,
 
-            Outputs.ArmIdentityResponse? identity,
+            Outputs.ArmIdentityInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.IotHubPropertiesResponse properties,
+            Outputs.IotHubPropertiesInvokeResponseResult properties,
 
-            Outputs.IotHubSkuInfoResponse sku,
+            Outputs.IotHubSkuInfoInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

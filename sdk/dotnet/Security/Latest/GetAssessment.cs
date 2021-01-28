@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// Links relevant to the assessment
         /// </summary>
-        public readonly Outputs.AssessmentLinksResponse Links;
+        public readonly Outputs.AssessmentLinksInvokeResponseResult Links;
         /// <summary>
         /// Describes properties of an assessment metadata.
         /// </summary>
-        public readonly Outputs.SecurityAssessmentMetadataPropertiesResponse? Metadata;
+        public readonly Outputs.SecurityAssessmentMetadataPropertiesInvokeResponseResult? Metadata;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// Data regarding 3rd party partner integration
         /// </summary>
-        public readonly Outputs.SecurityAssessmentPartnerDataResponse? PartnersData;
+        public readonly Outputs.SecurityAssessmentPartnerDataInvokeResponseResult? PartnersData;
         /// <summary>
         /// Details of the resource that was assessed
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <summary>
         /// The result of the assessment
         /// </summary>
-        public readonly Outputs.AssessmentStatusResponse Status;
+        public readonly Outputs.AssessmentStatusInvokeResponseResult Status;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -94,17 +94,17 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
             string id,
 
-            Outputs.AssessmentLinksResponse links,
+            Outputs.AssessmentLinksInvokeResponseResult links,
 
-            Outputs.SecurityAssessmentMetadataPropertiesResponse? metadata,
+            Outputs.SecurityAssessmentMetadataPropertiesInvokeResponseResult? metadata,
 
             string name,
 
-            Outputs.SecurityAssessmentPartnerDataResponse? partnersData,
+            Outputs.SecurityAssessmentPartnerDataInvokeResponseResult? partnersData,
 
             object resourceDetails,
 
-            Outputs.AssessmentStatusResponse status,
+            Outputs.AssessmentStatusInvokeResponseResult status,
 
             string type)
         {

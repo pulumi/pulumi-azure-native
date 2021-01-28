@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         /// </summary>
-        public readonly Outputs.PipelineDiagnosticSettingsResponse? Backend;
+        public readonly Outputs.PipelineDiagnosticSettingsInvokeResponseResult? Backend;
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         /// </summary>
-        public readonly Outputs.PipelineDiagnosticSettingsResponse? Frontend;
+        public readonly Outputs.PipelineDiagnosticSettingsInvokeResponseResult? Frontend;
         /// <summary>
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// <summary>
         /// Sampling settings for Diagnostic.
         /// </summary>
-        public readonly Outputs.SamplingSettingsResponse? Sampling;
+        public readonly Outputs.SamplingSettingsInvokeResponseResult? Sampling;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -98,9 +98,9 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         private GetDiagnosticResult(
             string? alwaysLog,
 
-            Outputs.PipelineDiagnosticSettingsResponse? backend,
+            Outputs.PipelineDiagnosticSettingsInvokeResponseResult? backend,
 
-            Outputs.PipelineDiagnosticSettingsResponse? frontend,
+            Outputs.PipelineDiagnosticSettingsInvokeResponseResult? frontend,
 
             string? httpCorrelationProtocol,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string? operationNameFormat,
 
-            Outputs.SamplingSettingsResponse? sampling,
+            Outputs.SamplingSettingsInvokeResponseResult? sampling,
 
             string type,
 

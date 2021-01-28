@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// StorageAccount object on ASE device
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
 
             string? storageAccountStatus,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         /// <summary>
         /// Gets or sets the collection of locations where Data Pool resources should be created.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataPoolLocationResponse> Locations;
+        public readonly ImmutableArray<Outputs.DataPoolLocationInvokeResponseResult> Locations;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
 
             string id,
 
-            ImmutableArray<Outputs.DataPoolLocationResponse> locations,
+            ImmutableArray<Outputs.DataPoolLocationInvokeResponseResult> locations,
 
             string name,
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

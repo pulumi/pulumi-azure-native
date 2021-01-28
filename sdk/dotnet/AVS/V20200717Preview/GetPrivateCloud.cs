@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// An ExpressRoute Circuit
         /// </summary>
-        public readonly Outputs.CircuitResponse? Circuit;
+        public readonly Outputs.CircuitInvokeResponseResult? Circuit;
         /// <summary>
         /// The endpoints
         /// </summary>
-        public readonly Outputs.EndpointsResponse Endpoints;
+        public readonly Outputs.EndpointsInvokeResponseResult Endpoints;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
-        public readonly ImmutableArray<Outputs.IdentitySourceResponse> IdentitySources;
+        public readonly ImmutableArray<Outputs.IdentitySourceInvokeResponseResult> IdentitySources;
         /// <summary>
         /// Connectivity to internet is enabled or disabled
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// The default cluster used for management
         /// </summary>
-        public readonly Outputs.ManagementClusterResponse ManagementCluster;
+        public readonly Outputs.ManagementClusterInvokeResponseResult ManagementCluster;
         /// <summary>
         /// Network used to access vCenter Server and NSX-T Manager
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// <summary>
         /// The private cloud SKU
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.SkuInvokeResponseResult Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -122,19 +122,19 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
         [OutputConstructor]
         private GetPrivateCloudResult(
-            Outputs.CircuitResponse? circuit,
+            Outputs.CircuitInvokeResponseResult? circuit,
 
-            Outputs.EndpointsResponse endpoints,
+            Outputs.EndpointsInvokeResponseResult endpoints,
 
             string id,
 
-            ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
+            ImmutableArray<Outputs.IdentitySourceInvokeResponseResult> identitySources,
 
             string? internet,
 
             string location,
 
-            Outputs.ManagementClusterResponse managementCluster,
+            Outputs.ManagementClusterInvokeResponseResult managementCluster,
 
             string managementNetwork,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse sku,
+            Outputs.SkuInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

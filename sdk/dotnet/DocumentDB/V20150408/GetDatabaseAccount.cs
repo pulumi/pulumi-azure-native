@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
-        public readonly ImmutableArray<Outputs.CapabilityResponse> Capabilities;
+        public readonly ImmutableArray<Outputs.CapabilityInvokeResponseResult> Capabilities;
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// The consistency policy for the Cosmos DB database account.
         /// </summary>
-        public readonly Outputs.ConsistencyPolicyResponse? ConsistencyPolicy;
+        public readonly Outputs.ConsistencyPolicyInvokeResponseResult? ConsistencyPolicy;
         /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FailoverPolicyResponse> FailoverPolicies;
+        public readonly ImmutableArray<Outputs.FailoverPolicyInvokeResponseResult> FailoverPolicies;
         /// <summary>
         /// The unique resource identifier of the database account.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// An array that contains of the read locations enabled for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationResponse> ReadLocations;
+        public readonly ImmutableArray<Outputs.LocationInvokeResponseResult> ReadLocations;
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
@@ -118,19 +118,19 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
         /// <summary>
         /// List of Virtual Network ACL rules configured for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
+        public readonly ImmutableArray<Outputs.VirtualNetworkRuleInvokeResponseResult> VirtualNetworkRules;
         /// <summary>
         /// An array that contains the write location for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationResponse> WriteLocations;
+        public readonly ImmutableArray<Outputs.LocationInvokeResponseResult> WriteLocations;
 
         [OutputConstructor]
         private GetDatabaseAccountResult(
-            ImmutableArray<Outputs.CapabilityResponse> capabilities,
+            ImmutableArray<Outputs.CapabilityInvokeResponseResult> capabilities,
 
             string? connectorOffer,
 
-            Outputs.ConsistencyPolicyResponse? consistencyPolicy,
+            Outputs.ConsistencyPolicyInvokeResponseResult? consistencyPolicy,
 
             string databaseAccountOfferType,
 
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
 
             bool? enableMultipleWriteLocations,
 
-            ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
+            ImmutableArray<Outputs.FailoverPolicyInvokeResponseResult> failoverPolicies,
 
             string id,
 
@@ -158,15 +158,15 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
 
             string provisioningState,
 
-            ImmutableArray<Outputs.LocationResponse> readLocations,
+            ImmutableArray<Outputs.LocationInvokeResponseResult> readLocations,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules,
+            ImmutableArray<Outputs.VirtualNetworkRuleInvokeResponseResult> virtualNetworkRules,
 
-            ImmutableArray<Outputs.LocationResponse> writeLocations)
+            ImmutableArray<Outputs.LocationInvokeResponseResult> writeLocations)
         {
             Capabilities = capabilities;
             ConnectorOffer = connectorOffer;

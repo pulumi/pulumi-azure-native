@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Gets an array of references to the delegations on the subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DelegationResponse> Delegations;
+        public readonly ImmutableArray<Outputs.DelegationInvokeResponseResult> Delegations;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// An array of references to interface endpoints 
         /// </summary>
-        public readonly ImmutableArray<Outputs.InterfaceEndpointResponse> InterfaceEndpoints;
+        public readonly ImmutableArray<Outputs.InterfaceEndpointInvokeResponseResult> InterfaceEndpoints;
         /// <summary>
         /// Array of IP configuration profiles which reference this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationProfileResponse> IpConfigurationProfiles;
+        public readonly ImmutableArray<Outputs.IPConfigurationProfileInvokeResponseResult> IpConfigurationProfiles;
         /// <summary>
         /// Gets an array of references to the network interface IP configurations using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
+        public readonly ImmutableArray<Outputs.IPConfigurationInvokeResponseResult> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupInvokeResponseResult? NetworkSecurityGroup;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -102,23 +102,23 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Gets an array of references to the external resources using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponse> ResourceNavigationLinks;
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkInvokeResponseResult> ResourceNavigationLinks;
         /// <summary>
         /// The reference of the RouteTable resource.
         /// </summary>
-        public readonly Outputs.RouteTableResponse? RouteTable;
+        public readonly Outputs.RouteTableInvokeResponseResult? RouteTable;
         /// <summary>
         /// Gets an array of references to services injecting into this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponse> ServiceAssociationLinks;
+        public readonly ImmutableArray<Outputs.ServiceAssociationLinkInvokeResponseResult> ServiceAssociationLinks;
         /// <summary>
         /// An array of service endpoint policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyResponse> ServiceEndpointPolicies;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyInvokeResponseResult> ServiceEndpointPolicies;
         /// <summary>
         /// An array of service endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatInvokeResponseResult> ServiceEndpoints;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -126,35 +126,35 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             ImmutableArray<string> addressPrefixes,
 
-            ImmutableArray<Outputs.DelegationResponse> delegations,
+            ImmutableArray<Outputs.DelegationInvokeResponseResult> delegations,
 
             string? etag,
 
             string? id,
 
-            ImmutableArray<Outputs.InterfaceEndpointResponse> interfaceEndpoints,
+            ImmutableArray<Outputs.InterfaceEndpointInvokeResponseResult> interfaceEndpoints,
 
-            ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
+            ImmutableArray<Outputs.IPConfigurationProfileInvokeResponseResult> ipConfigurationProfiles,
 
-            ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
+            ImmutableArray<Outputs.IPConfigurationInvokeResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupInvokeResponseResult? networkSecurityGroup,
 
             string? provisioningState,
 
             string purpose,
 
-            ImmutableArray<Outputs.ResourceNavigationLinkResponse> resourceNavigationLinks,
+            ImmutableArray<Outputs.ResourceNavigationLinkInvokeResponseResult> resourceNavigationLinks,
 
-            Outputs.RouteTableResponse? routeTable,
+            Outputs.RouteTableInvokeResponseResult? routeTable,
 
-            ImmutableArray<Outputs.ServiceAssociationLinkResponse> serviceAssociationLinks,
+            ImmutableArray<Outputs.ServiceAssociationLinkInvokeResponseResult> serviceAssociationLinks,
 
-            ImmutableArray<Outputs.ServiceEndpointPolicyResponse> serviceEndpointPolicies,
+            ImmutableArray<Outputs.ServiceEndpointPolicyInvokeResponseResult> serviceEndpointPolicies,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatInvokeResponseResult> serviceEndpoints)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;

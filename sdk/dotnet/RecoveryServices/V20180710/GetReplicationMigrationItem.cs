@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
         /// <summary>
         /// The migration item properties.
         /// </summary>
-        public readonly Outputs.MigrationItemPropertiesResponse Properties;
+        public readonly Outputs.MigrationItemPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 
             string name,
 
-            Outputs.MigrationItemPropertiesResponse properties,
+            Outputs.MigrationItemPropertiesInvokeResponseResult properties,
 
             string type)
         {

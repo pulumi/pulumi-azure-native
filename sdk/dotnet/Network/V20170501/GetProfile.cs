@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>
-        public readonly Outputs.DnsConfigResponse? DnsConfig;
+        public readonly Outputs.DnsConfigInvokeResponseResult? DnsConfig;
         /// <summary>
         /// The list of endpoints in the Traffic Manager profile.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EndpointResponse> Endpoints;
+        public readonly ImmutableArray<Outputs.EndpointInvokeResponseResult> Endpoints;
         /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// <summary>
         /// The endpoint monitoring settings of the Traffic Manager profile.
         /// </summary>
-        public readonly Outputs.MonitorConfigResponse? MonitorConfig;
+        public readonly Outputs.MonitorConfigInvokeResponseResult? MonitorConfig;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNextGen.Network.V20170501
 
         [OutputConstructor]
         private GetProfileResult(
-            Outputs.DnsConfigResponse? dnsConfig,
+            Outputs.DnsConfigInvokeResponseResult? dnsConfig,
 
-            ImmutableArray<Outputs.EndpointResponse> endpoints,
+            ImmutableArray<Outputs.EndpointInvokeResponseResult> endpoints,
 
             string id,
 
             string? location,
 
-            Outputs.MonitorConfigResponse? monitorConfig,
+            Outputs.MonitorConfigInvokeResponseResult? monitorConfig,
 
             string name,
 

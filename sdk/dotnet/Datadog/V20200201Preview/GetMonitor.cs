@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
         /// ARM id of the monitor resource.
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         public readonly string Location;
         /// <summary>
         /// Name of the monitor resource.
@@ -52,8 +52,8 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
         /// <summary>
         /// Properties specific to the monitor resource.
         /// </summary>
-        public readonly Outputs.MonitorPropertiesResponse Properties;
-        public readonly Outputs.ResourceSkuResponse? Sku;
+        public readonly Outputs.MonitorPropertiesInvokeResponseResult Properties;
+        public readonly Outputs.ResourceSkuInvokeResponseResult? Sku;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the monitor resource.
@@ -64,15 +64,15 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
         private GetMonitorResult(
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.MonitorPropertiesResponse properties,
+            Outputs.MonitorPropertiesInvokeResponseResult properties,
 
-            Outputs.ResourceSkuResponse? sku,
+            Outputs.ResourceSkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

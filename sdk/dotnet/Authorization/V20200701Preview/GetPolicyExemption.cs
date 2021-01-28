@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
 
             ImmutableArray<string> policyDefinitionReferenceIds,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             string type)
         {

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// Backend Credentials Contract Properties
         /// </summary>
-        public readonly Outputs.BackendCredentialsContractResponse? Credentials;
+        public readonly Outputs.BackendCredentialsContractInvokeResponseResult? Credentials;
         /// <summary>
         /// Backend Description.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// Backend Properties contract
         /// </summary>
-        public readonly Outputs.BackendPropertiesResponse Properties;
+        public readonly Outputs.BackendPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Backend communication protocol.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// Backend Proxy Contract Properties
         /// </summary>
-        public readonly Outputs.BackendProxyContractResponse? Proxy;
+        public readonly Outputs.BackendProxyContractInvokeResponseResult? Proxy;
         /// <summary>
         /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// <summary>
         /// Backend TLS Properties
         /// </summary>
-        public readonly Outputs.BackendTlsPropertiesResponse? Tls;
+        public readonly Outputs.BackendTlsPropertiesInvokeResponseResult? Tls;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 
         [OutputConstructor]
         private GetBackendResult(
-            Outputs.BackendCredentialsContractResponse? credentials,
+            Outputs.BackendCredentialsContractInvokeResponseResult? credentials,
 
             string? description,
 
@@ -104,17 +104,17 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 
             string name,
 
-            Outputs.BackendPropertiesResponse properties,
+            Outputs.BackendPropertiesInvokeResponseResult properties,
 
             string protocol,
 
-            Outputs.BackendProxyContractResponse? proxy,
+            Outputs.BackendProxyContractInvokeResponseResult? proxy,
 
             string? resourceId,
 
             string? title,
 
-            Outputs.BackendTlsPropertiesResponse? tls,
+            Outputs.BackendTlsPropertiesInvokeResponseResult? tls,
 
             string type,
 

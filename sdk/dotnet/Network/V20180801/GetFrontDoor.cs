@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Backend pools available to routing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackendPoolResponse> BackendPools;
+        public readonly ImmutableArray<Outputs.BackendPoolInvokeResponseResult> BackendPools;
         /// <summary>
         /// The host that each frontendEndpoint must CNAME to.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Frontend endpoints available to routing rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendEndpointResponse> FrontendEndpoints;
+        public readonly ImmutableArray<Outputs.FrontendEndpointInvokeResponseResult> FrontendEndpoints;
         /// <summary>
         /// Health probe settings associated with this Front Door instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthProbeSettingsModelResponse> HealthProbeSettings;
+        public readonly ImmutableArray<Outputs.HealthProbeSettingsModelInvokeResponseResult> HealthProbeSettings;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Load balancing settings associated with this Front Door instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancingSettingsModelResponse> LoadBalancingSettings;
+        public readonly ImmutableArray<Outputs.LoadBalancingSettingsModelInvokeResponseResult> LoadBalancingSettings;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <summary>
         /// Routing rules associated with this Front Door.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RoutingRuleResponse> RoutingRules;
+        public readonly ImmutableArray<Outputs.RoutingRuleInvokeResponseResult> RoutingRules;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
         [OutputConstructor]
         private GetFrontDoorResult(
-            ImmutableArray<Outputs.BackendPoolResponse> backendPools,
+            ImmutableArray<Outputs.BackendPoolInvokeResponseResult> backendPools,
 
             string cname,
 
@@ -110,13 +110,13 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? friendlyName,
 
-            ImmutableArray<Outputs.FrontendEndpointResponse> frontendEndpoints,
+            ImmutableArray<Outputs.FrontendEndpointInvokeResponseResult> frontendEndpoints,
 
-            ImmutableArray<Outputs.HealthProbeSettingsModelResponse> healthProbeSettings,
+            ImmutableArray<Outputs.HealthProbeSettingsModelInvokeResponseResult> healthProbeSettings,
 
             string id,
 
-            ImmutableArray<Outputs.LoadBalancingSettingsModelResponse> loadBalancingSettings,
+            ImmutableArray<Outputs.LoadBalancingSettingsModelInvokeResponseResult> loadBalancingSettings,
 
             string? location,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string resourceState,
 
-            ImmutableArray<Outputs.RoutingRuleResponse> routingRules,
+            ImmutableArray<Outputs.RoutingRuleInvokeResponseResult> routingRules,
 
             ImmutableDictionary<string, string>? tags,
 

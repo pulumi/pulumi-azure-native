@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview
         /// <summary>
         /// The containers within the container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
+        public readonly ImmutableArray<Outputs.ContainerInvokeResponseResult> Containers;
         /// <summary>
         /// The resource id.
         /// </summary>
@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview
         /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialInvokeResponseResult> ImageRegistryCredentials;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
-        public readonly Outputs.IpAddressResponse? IpAddress;
+        public readonly Outputs.IpAddressInvokeResponseResult? IpAddress;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -90,17 +90,17 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview
         /// <summary>
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
+        public readonly ImmutableArray<Outputs.VolumeInvokeResponseResult> Volumes;
 
         [OutputConstructor]
         private GetContainerGroupResult(
-            ImmutableArray<Outputs.ContainerResponse> containers,
+            ImmutableArray<Outputs.ContainerInvokeResponseResult> containers,
 
             string id,
 
-            ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
+            ImmutableArray<Outputs.ImageRegistryCredentialInvokeResponseResult> imageRegistryCredentials,
 
-            Outputs.IpAddressResponse? ipAddress,
+            Outputs.IpAddressInvokeResponseResult? ipAddress,
 
             string location,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponse> volumes)
+            ImmutableArray<Outputs.VolumeInvokeResponseResult> volumes)
         {
             Containers = containers;
             Id = id;

@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// List of private endpoint connections
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicInvokeResponseResult> PrivateEndpointConnections;
         /// <summary>
         /// PrivateLinkHub provisioning state
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicResponse> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionForPrivateLinkHubBasicInvokeResponseResult> privateEndpointConnections,
 
             string? provisioningState,
 

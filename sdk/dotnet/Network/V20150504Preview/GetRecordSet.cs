@@ -54,15 +54,15 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
         /// <summary>
         /// Gets or sets the list of AAAA records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AaaaRecordResponse> AAAARecords;
+        public readonly ImmutableArray<Outputs.AaaaRecordInvokeResponseResult> AAAARecords;
         /// <summary>
         /// Gets or sets the list of A records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ARecordResponse> ARecords;
+        public readonly ImmutableArray<Outputs.ARecordInvokeResponseResult> ARecords;
         /// <summary>
         /// Gets or sets the CNAME record in the RecordSet.
         /// </summary>
-        public readonly Outputs.CnameRecordResponse? CNAMERecord;
+        public readonly Outputs.CnameRecordInvokeResponseResult? CNAMERecord;
         /// <summary>
         /// The etag of the record set.
         /// </summary>
@@ -78,11 +78,11 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
         /// <summary>
         /// Gets or sets the list of MX records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MxRecordResponse> MXRecords;
+        public readonly ImmutableArray<Outputs.MxRecordInvokeResponseResult> MXRecords;
         /// <summary>
         /// Gets or sets the list of NS records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NsRecordResponse> NSRecords;
+        public readonly ImmutableArray<Outputs.NsRecordInvokeResponseResult> NSRecords;
         /// <summary>
         /// The name of the record set.
         /// </summary>
@@ -90,19 +90,19 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
         /// <summary>
         /// Gets or sets the list of PTR records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PtrRecordResponse> PTRRecords;
+        public readonly ImmutableArray<Outputs.PtrRecordInvokeResponseResult> PTRRecords;
         /// <summary>
         /// Gets or sets the SOA record in the RecordSet.
         /// </summary>
-        public readonly Outputs.SoaRecordResponse? SOARecord;
+        public readonly Outputs.SoaRecordInvokeResponseResult? SOARecord;
         /// <summary>
         /// Gets or sets the list of SRV records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SrvRecordResponse> SRVRecords;
+        public readonly ImmutableArray<Outputs.SrvRecordInvokeResponseResult> SRVRecords;
         /// <summary>
         /// Gets or sets the list of TXT records in the RecordSet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TxtRecordResponse> TXTRecords;
+        public readonly ImmutableArray<Outputs.TxtRecordInvokeResponseResult> TXTRecords;
         /// <summary>
         /// Gets or sets the TTL of the records in the RecordSet.
         /// </summary>
@@ -114,11 +114,11 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
 
         [OutputConstructor]
         private GetRecordSetResult(
-            ImmutableArray<Outputs.AaaaRecordResponse> aAAARecords,
+            ImmutableArray<Outputs.AaaaRecordInvokeResponseResult> aAAARecords,
 
-            ImmutableArray<Outputs.ARecordResponse> aRecords,
+            ImmutableArray<Outputs.ARecordInvokeResponseResult> aRecords,
 
-            Outputs.CnameRecordResponse? cNAMERecord,
+            Outputs.CnameRecordInvokeResponseResult? cNAMERecord,
 
             string? etag,
 
@@ -126,19 +126,19 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
 
             string id,
 
-            ImmutableArray<Outputs.MxRecordResponse> mXRecords,
+            ImmutableArray<Outputs.MxRecordInvokeResponseResult> mXRecords,
 
-            ImmutableArray<Outputs.NsRecordResponse> nSRecords,
+            ImmutableArray<Outputs.NsRecordInvokeResponseResult> nSRecords,
 
             string name,
 
-            ImmutableArray<Outputs.PtrRecordResponse> pTRRecords,
+            ImmutableArray<Outputs.PtrRecordInvokeResponseResult> pTRRecords,
 
-            Outputs.SoaRecordResponse? sOARecord,
+            Outputs.SoaRecordInvokeResponseResult? sOARecord,
 
-            ImmutableArray<Outputs.SrvRecordResponse> sRVRecords,
+            ImmutableArray<Outputs.SrvRecordInvokeResponseResult> sRVRecords,
 
-            ImmutableArray<Outputs.TxtRecordResponse> tXTRecords,
+            ImmutableArray<Outputs.TxtRecordInvokeResponseResult> tXTRecords,
 
             double? ttl,
 

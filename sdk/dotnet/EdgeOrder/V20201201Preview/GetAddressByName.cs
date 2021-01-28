@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// Contact details for the address
         /// </summary>
-        public readonly Outputs.ContactDetailsResponse ContactDetails;
+        public readonly Outputs.ContactDetailsInvokeResponseResult ContactDetails;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// Shipping details for the address
         /// </summary>
-        public readonly Outputs.ShippingAddressResponse? ShippingAddress;
+        public readonly Outputs.ShippingAddressInvokeResponseResult? ShippingAddress;
         /// <summary>
         /// Represents resource creation and update time
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
 
         [OutputConstructor]
         private GetAddressByNameResult(
-            Outputs.ContactDetailsResponse contactDetails,
+            Outputs.ContactDetailsInvokeResponseResult contactDetails,
 
             string id,
 
@@ -82,9 +82,9 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
 
             string name,
 
-            Outputs.ShippingAddressResponse? shippingAddress,
+            Outputs.ShippingAddressInvokeResponseResult? shippingAddress,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

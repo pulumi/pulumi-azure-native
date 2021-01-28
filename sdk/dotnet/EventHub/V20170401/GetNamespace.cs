@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <summary>
         /// Properties of sku resource
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 

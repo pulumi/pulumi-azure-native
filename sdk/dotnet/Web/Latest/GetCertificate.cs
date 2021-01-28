@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Specification for the App Service Environment to use for the certificate.
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponse HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileInvokeResponseResult HostingEnvironmentProfile;
         /// <summary>
         /// Resource Id.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// The system metadata relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             ImmutableArray<string> hostNames,
 
-            Outputs.HostingEnvironmentProfileResponse hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileInvokeResponseResult hostingEnvironmentProfile,
 
             string id,
 
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string subjectName,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

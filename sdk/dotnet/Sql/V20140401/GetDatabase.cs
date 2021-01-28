@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <summary>
         /// The recommended indices for this database.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecommendedIndexResponse> RecommendedIndex;
+        public readonly ImmutableArray<Outputs.RecommendedIndexInvokeResponseResult> RecommendedIndex;
         /// <summary>
         /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
         /// </summary>
@@ -188,7 +188,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <summary>
         /// The list of service tier advisors for this database. Expanded property
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceTierAdvisorResponse> ServiceTierAdvisors;
+        public readonly ImmutableArray<Outputs.ServiceTierAdvisorInvokeResponseResult> ServiceTierAdvisors;
         /// <summary>
         /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <summary>
         /// The transparent data encryption info for this database.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransparentDataEncryptionResponse> TransparentDataEncryption;
+        public readonly ImmutableArray<Outputs.TransparentDataEncryptionInvokeResponseResult> TransparentDataEncryption;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -254,7 +254,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 
             string? readScale,
 
-            ImmutableArray<Outputs.RecommendedIndexResponse> recommendedIndex,
+            ImmutableArray<Outputs.RecommendedIndexInvokeResponseResult> recommendedIndex,
 
             string? recoveryServicesRecoveryPointResourceId,
 
@@ -268,7 +268,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 
             string serviceLevelObjective,
 
-            ImmutableArray<Outputs.ServiceTierAdvisorResponse> serviceTierAdvisors,
+            ImmutableArray<Outputs.ServiceTierAdvisorInvokeResponseResult> serviceTierAdvisors,
 
             string? sourceDatabaseDeletionDate,
 
@@ -278,7 +278,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TransparentDataEncryptionResponse> transparentDataEncryption,
+            ImmutableArray<Outputs.TransparentDataEncryptionInvokeResponseResult> transparentDataEncryption,
 
             string type,
 

@@ -58,11 +58,11 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
         /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
-        public readonly Outputs.ImageTemplateIdentityResponse Identity;
+        public readonly Outputs.ImageTemplateIdentityInvokeResponseResult Identity;
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
-        public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
+        public readonly Outputs.ImageTemplateLastRunStatusInvokeResponseResult LastRunStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
         /// <summary>
         /// Provisioning error, if any
         /// </summary>
-        public readonly Outputs.ProvisioningErrorResponse ProvisioningError;
+        public readonly Outputs.ProvisioningErrorInvokeResponseResult ProvisioningError;
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
         /// <summary>
         /// Describes how virtual machine is set up to build images
         /// </summary>
-        public readonly Outputs.ImageTemplateVmProfileResponse? VmProfile;
+        public readonly Outputs.ImageTemplateVmProfileInvokeResponseResult? VmProfile;
 
         [OutputConstructor]
         private GetVirtualMachineImageTemplateResult(
@@ -106,15 +106,15 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
 
             string id,
 
-            Outputs.ImageTemplateIdentityResponse identity,
+            Outputs.ImageTemplateIdentityInvokeResponseResult identity,
 
-            Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
+            Outputs.ImageTemplateLastRunStatusInvokeResponseResult lastRunStatus,
 
             string location,
 
             string name,
 
-            Outputs.ProvisioningErrorResponse provisioningError,
+            Outputs.ProvisioningErrorInvokeResponseResult provisioningError,
 
             string provisioningState,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
 
             string type,
 
-            Outputs.ImageTemplateVmProfileResponse? vmProfile)
+            Outputs.ImageTemplateVmProfileInvokeResponseResult? vmProfile)
         {
             BuildTimeoutInMinutes = buildTimeoutInMinutes;
             Customize = customize;

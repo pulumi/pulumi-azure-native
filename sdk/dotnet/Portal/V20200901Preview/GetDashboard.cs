@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         /// <summary>
         /// The dashboard lenses.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DashboardLensResponse> Lenses;
+        public readonly ImmutableArray<Outputs.DashboardLensInvokeResponseResult> Lenses;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         private GetDashboardResult(
             string id,
 
-            ImmutableArray<Outputs.DashboardLensResponse> lenses,
+            ImmutableArray<Outputs.DashboardLensInvokeResponseResult> lenses,
 
             string location,
 

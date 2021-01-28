@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The identity of the user.
         /// </summary>
-        public readonly Outputs.UserIdentityResponse? Identity;
+        public readonly Outputs.UserIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <summary>
         /// The secret store of the user.
         /// </summary>
-        public readonly Outputs.UserSecretStoreResponse? SecretStore;
+        public readonly Outputs.UserSecretStoreInvokeResponseResult? SecretStore;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string id,
 
-            Outputs.UserIdentityResponse? identity,
+            Outputs.UserIdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string? provisioningState,
 
-            Outputs.UserSecretStoreResponse? secretStore,
+            Outputs.UserSecretStoreInvokeResponseResult? secretStore,
 
             ImmutableDictionary<string, string>? tags,
 

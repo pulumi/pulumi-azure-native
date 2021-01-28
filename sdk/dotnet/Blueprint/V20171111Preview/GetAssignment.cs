@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <summary>
         /// Managed Service Identity for this Blueprint assignment
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse Identity;
+        public readonly Outputs.ManagedServiceIdentityInvokeResponseResult Identity;
         /// <summary>
         /// The location of this Blueprint assignment.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <summary>
         /// Defines how Blueprint-managed resources will be locked.
         /// </summary>
-        public readonly Outputs.AssignmentLockSettingsResponse? Locks;
+        public readonly Outputs.AssignmentLockSettingsInvokeResponseResult? Locks;
         /// <summary>
         /// Name of this resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <summary>
         /// Blueprint parameter values.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValueBaseResponse> Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterValueBaseInvokeResponseResult> Parameters;
         /// <summary>
         /// State of the assignment.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <summary>
         /// Names and locations of resource group placeholders.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupValueResponse> ResourceGroups;
+        public readonly ImmutableDictionary<string, Outputs.ResourceGroupValueInvokeResponseResult> ResourceGroups;
         /// <summary>
         /// Status of Blueprint assignment. This field is readonly.
         /// </summary>
-        public readonly Outputs.AssignmentStatusResponse Status;
+        public readonly Outputs.AssignmentStatusInvokeResponseResult Status;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -102,21 +102,21 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse identity,
+            Outputs.ManagedServiceIdentityInvokeResponseResult identity,
 
             string location,
 
-            Outputs.AssignmentLockSettingsResponse? locks,
+            Outputs.AssignmentLockSettingsInvokeResponseResult? locks,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterValueBaseResponse> parameters,
+            ImmutableDictionary<string, Outputs.ParameterValueBaseInvokeResponseResult> parameters,
 
             string provisioningState,
 
-            ImmutableDictionary<string, Outputs.ResourceGroupValueResponse> resourceGroups,
+            ImmutableDictionary<string, Outputs.ResourceGroupValueInvokeResponseResult> resourceGroups,
 
-            Outputs.AssignmentStatusResponse status,
+            Outputs.AssignmentStatusInvokeResponseResult status,
 
             string type)
         {

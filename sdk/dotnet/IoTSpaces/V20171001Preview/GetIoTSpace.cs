@@ -54,11 +54,11 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
         /// <summary>
         /// The common properties of a IoTSpaces service.
         /// </summary>
-        public readonly Outputs.IoTSpacesPropertiesResponse Properties;
+        public readonly Outputs.IoTSpacesPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// A valid instance SKU.
         /// </summary>
-        public readonly Outputs.IoTSpacesSkuInfoResponse Sku;
+        public readonly Outputs.IoTSpacesSkuInfoInvokeResponseResult Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
 
             string name,
 
-            Outputs.IoTSpacesPropertiesResponse properties,
+            Outputs.IoTSpacesPropertiesInvokeResponseResult properties,
 
-            Outputs.IoTSpacesSkuInfoResponse sku,
+            Outputs.IoTSpacesSkuInfoInvokeResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 

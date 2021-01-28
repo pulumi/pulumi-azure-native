@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The identity of the import pipeline.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponse? Identity;
+        public readonly Outputs.IdentityPropertiesInvokeResponseResult? Identity;
         /// <summary>
         /// The location of the import pipeline.
         /// </summary>
@@ -72,15 +72,15 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <summary>
         /// The source properties of the import pipeline.
         /// </summary>
-        public readonly Outputs.ImportPipelineSourcePropertiesResponse Source;
+        public readonly Outputs.ImportPipelineSourcePropertiesInvokeResponseResult Source;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// The properties that describe the trigger of the import pipeline.
         /// </summary>
-        public readonly Outputs.PipelineTriggerPropertiesResponse? Trigger;
+        public readonly Outputs.PipelineTriggerPropertiesInvokeResponseResult? Trigger;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         private GetImportPipelineResult(
             string id,
 
-            Outputs.IdentityPropertiesResponse? identity,
+            Outputs.IdentityPropertiesInvokeResponseResult? identity,
 
             string? location,
 
@@ -100,11 +100,11 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string provisioningState,
 
-            Outputs.ImportPipelineSourcePropertiesResponse source,
+            Outputs.ImportPipelineSourcePropertiesInvokeResponseResult source,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
-            Outputs.PipelineTriggerPropertiesResponse? trigger,
+            Outputs.PipelineTriggerPropertiesInvokeResponseResult? trigger,
 
             string type)
         {

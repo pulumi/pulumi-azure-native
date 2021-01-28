@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
+        public readonly Outputs.LatestOperationResultInvokeResponseResult LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// Network details of the environment
         /// </summary>
-        public readonly Outputs.NetworkInterfaceResponse NetworkInterface;
+        public readonly Outputs.NetworkInterfaceInvokeResponseResult NetworkInterface;
         /// <summary>
         /// When the password was last reset on the environment.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// The set of a VM and the setting id it was created for
         /// </summary>
-        public readonly Outputs.ResourceSetResponse? ResourceSets;
+        public readonly Outputs.ResourceSetInvokeResponseResult? ResourceSets;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -146,19 +146,19 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string lastKnownPowerState,
 
-            Outputs.LatestOperationResultResponse latestOperationResult,
+            Outputs.LatestOperationResultInvokeResponseResult latestOperationResult,
 
             string? location,
 
             string name,
 
-            Outputs.NetworkInterfaceResponse networkInterface,
+            Outputs.NetworkInterfaceInvokeResponseResult networkInterface,
 
             string passwordLastReset,
 
             string? provisioningState,
 
-            Outputs.ResourceSetResponse? resourceSets,
+            Outputs.ResourceSetInvokeResponseResult? resourceSets,
 
             ImmutableDictionary<string, string>? tags,
 

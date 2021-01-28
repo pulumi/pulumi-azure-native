@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <summary>
         /// Message Count Details.
         /// </summary>
-        public readonly Outputs.MessageCountDetailsResponse CountDetails;
+        public readonly Outputs.MessageCountDetailsInvokeResponseResult CountDetails;
         /// <summary>
         /// The exact time the message was created.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 
             string? autoDeleteOnIdle,
 
-            Outputs.MessageCountDetailsResponse countDetails,
+            Outputs.MessageCountDetailsInvokeResponseResult countDetails,
 
             string createdAt,
 

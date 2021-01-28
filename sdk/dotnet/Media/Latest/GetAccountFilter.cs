@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The first quality.
         /// </summary>
-        public readonly Outputs.FirstQualityResponse? FirstQuality;
+        public readonly Outputs.FirstQualityInvokeResponseResult? FirstQuality;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The presentation time range.
         /// </summary>
-        public readonly Outputs.PresentationTimeRangeResponse? PresentationTimeRange;
+        public readonly Outputs.PresentationTimeRangeInvokeResponseResult? PresentationTimeRange;
         /// <summary>
         /// The tracks selection conditions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FilterTrackSelectionResponse> Tracks;
+        public readonly ImmutableArray<Outputs.FilterTrackSelectionInvokeResponseResult> Tracks;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -72,15 +72,15 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
         [OutputConstructor]
         private GetAccountFilterResult(
-            Outputs.FirstQualityResponse? firstQuality,
+            Outputs.FirstQualityInvokeResponseResult? firstQuality,
 
             string id,
 
             string name,
 
-            Outputs.PresentationTimeRangeResponse? presentationTimeRange,
+            Outputs.PresentationTimeRangeInvokeResponseResult? presentationTimeRange,
 
-            ImmutableArray<Outputs.FilterTrackSelectionResponse> tracks,
+            ImmutableArray<Outputs.FilterTrackSelectionInvokeResponseResult> tracks,
 
             string type)
         {

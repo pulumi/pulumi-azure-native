@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <summary>
         /// A collection of private dns zone configurations of the private dns zone group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateDnsZoneConfigResponse> PrivateDnsZoneConfigs;
+        public readonly ImmutableArray<Outputs.PrivateDnsZoneConfigInvokeResponseResult> PrivateDnsZoneConfigs;
         /// <summary>
         /// The provisioning state of the private dns zone group resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string? name,
 
-            ImmutableArray<Outputs.PrivateDnsZoneConfigResponse> privateDnsZoneConfigs,
+            ImmutableArray<Outputs.PrivateDnsZoneConfigInvokeResponseResult> privateDnsZoneConfigs,
 
             string provisioningState)
         {

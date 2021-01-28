@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// <summary>
         /// Describes the disallowed disk types.
         /// </summary>
-        public readonly Outputs.DisallowedResponse? Disallowed;
+        public readonly Outputs.DisallowedInvokeResponseResult? Disallowed;
         /// <summary>
         /// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// <summary>
         /// A list of gallery image features.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GalleryImageFeatureResponse> Features;
+        public readonly ImmutableArray<Outputs.GalleryImageFeatureInvokeResponseResult> Features;
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// <summary>
         /// This is the gallery image definition identifier.
         /// </summary>
-        public readonly Outputs.GalleryImageIdentifierResponse Identifier;
+        public readonly Outputs.GalleryImageIdentifierInvokeResponseResult Identifier;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -104,11 +104,11 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// <summary>
         /// Describes the gallery image definition purchase plan. This is used by marketplace images.
         /// </summary>
-        public readonly Outputs.ImagePurchasePlanResponse? PurchasePlan;
+        public readonly Outputs.ImagePurchasePlanInvokeResponseResult? PurchasePlan;
         /// <summary>
         /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         /// </summary>
-        public readonly Outputs.RecommendedMachineConfigurationResponse? Recommended;
+        public readonly Outputs.RecommendedMachineConfigurationInvokeResponseResult? Recommended;
         /// <summary>
         /// The release note uri.
         /// </summary>
@@ -126,19 +126,19 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         private GetGalleryImageResult(
             string? description,
 
-            Outputs.DisallowedResponse? disallowed,
+            Outputs.DisallowedInvokeResponseResult? disallowed,
 
             string? endOfLifeDate,
 
             string? eula,
 
-            ImmutableArray<Outputs.GalleryImageFeatureResponse> features,
+            ImmutableArray<Outputs.GalleryImageFeatureInvokeResponseResult> features,
 
             string? hyperVGeneration,
 
             string id,
 
-            Outputs.GalleryImageIdentifierResponse identifier,
+            Outputs.GalleryImageIdentifierInvokeResponseResult identifier,
 
             string location,
 
@@ -152,9 +152,9 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
 
             string provisioningState,
 
-            Outputs.ImagePurchasePlanResponse? purchasePlan,
+            Outputs.ImagePurchasePlanInvokeResponseResult? purchasePlan,
 
-            Outputs.RecommendedMachineConfigurationResponse? recommended,
+            Outputs.RecommendedMachineConfigurationInvokeResponseResult? recommended,
 
             string? releaseNoteUri,
 

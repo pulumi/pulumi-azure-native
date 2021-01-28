@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <summary>
         /// An array of one or more TransformOutputs that the Transform should generate.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransformOutputResponse> Outputs;
+        public readonly ImmutableArray<Outputs.TransformOutputInvokeResponseResult> Outputs;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string name,
 
-            ImmutableArray<Outputs.TransformOutputResponse> outputs,
+            ImmutableArray<Outputs.TransformOutputInvokeResponseResult> outputs,
 
             string type)
         {

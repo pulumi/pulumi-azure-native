@@ -52,11 +52,11 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// <summary>
         /// The deployment status summary for all deployments created by the remediation.
         /// </summary>
-        public readonly Outputs.RemediationDeploymentSummaryResponse DeploymentStatus;
+        public readonly Outputs.RemediationDeploymentSummaryInvokeResponseResult DeploymentStatus;
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
         /// </summary>
-        public readonly Outputs.RemediationFiltersResponse? Filters;
+        public readonly Outputs.RemediationFiltersInvokeResponseResult? Filters;
         /// <summary>
         /// The ID of the remediation.
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         private GetRemediationAtManagementGroupResult(
             string createdOn,
 
-            Outputs.RemediationDeploymentSummaryResponse deploymentStatus,
+            Outputs.RemediationDeploymentSummaryInvokeResponseResult deploymentStatus,
 
-            Outputs.RemediationFiltersResponse? filters,
+            Outputs.RemediationFiltersInvokeResponseResult? filters,
 
             string id,
 

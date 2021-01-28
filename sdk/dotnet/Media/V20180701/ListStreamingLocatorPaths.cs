@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// <summary>
         /// Streaming Paths supported by current Streaming Locator
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamingPathResponseResult> StreamingPaths;
+        public readonly ImmutableArray<Outputs.StreamingPathInvokeResponseResult> StreamingPaths;
 
         [OutputConstructor]
         private ListStreamingLocatorPathsResult(
             ImmutableArray<string> downloadPaths,
 
-            ImmutableArray<Outputs.StreamingPathResponseResult> streamingPaths)
+            ImmutableArray<Outputs.StreamingPathInvokeResponseResult> streamingPaths)
         {
             DownloadPaths = downloadPaths;
             StreamingPaths = streamingPaths;

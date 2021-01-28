@@ -48,11 +48,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <summary>
         /// The artifact deployment status for the virtual machine.
         /// </summary>
-        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse? ArtifactDeploymentStatus;
+        public readonly Outputs.ArtifactDeploymentStatusPropertiesInvokeResponseResult? ArtifactDeploymentStatus;
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> Artifacts;
+        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesInvokeResponseResult> Artifacts;
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
-        public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
+        public readonly Outputs.GalleryImageReferenceInvokeResponseResult? GalleryImageReference;
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
@@ -148,9 +148,9 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
         [OutputConstructor]
         private GetVirtualMachineResourceResult(
-            Outputs.ArtifactDeploymentStatusPropertiesResponse? artifactDeploymentStatus,
+            Outputs.ArtifactDeploymentStatusPropertiesInvokeResponseResult? artifactDeploymentStatus,
 
-            ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
+            ImmutableArray<Outputs.ArtifactInstallPropertiesInvokeResponseResult> artifacts,
 
             string? computeId,
 
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? fqdn,
 
-            Outputs.GalleryImageReferenceResponse? galleryImageReference,
+            Outputs.GalleryImageReferenceInvokeResponseResult? galleryImageReference,
 
             string? id,
 

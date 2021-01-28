@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <summary>
         /// The batch configuration properties.
         /// </summary>
-        public readonly Outputs.BatchConfigurationPropertiesResponse Properties;
+        public readonly Outputs.BatchConfigurationPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string name,
 
-            Outputs.BatchConfigurationPropertiesResponse properties,
+            Outputs.BatchConfigurationPropertiesInvokeResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

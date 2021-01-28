@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
         /// <summary>
         /// State of the Key Vault secret.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.AppServiceCertificateResponse>? Certificates;
+        public readonly ImmutableDictionary<string, Outputs.AppServiceCertificateInvokeResponseResult>? Certificates;
         /// <summary>
         /// Last CSR that was created for this order.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
         /// <summary>
         /// Intermediate certificate.
         /// </summary>
-        public readonly Outputs.CertificateDetailsResponse Intermediate;
+        public readonly Outputs.CertificateDetailsInvokeResponseResult Intermediate;
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if private key is external; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
         /// <summary>
         /// Root certificate.
         /// </summary>
-        public readonly Outputs.CertificateDetailsResponse Root;
+        public readonly Outputs.CertificateDetailsInvokeResponseResult Root;
         /// <summary>
         /// Current serial number of the certificate.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
         /// <summary>
         /// Signed certificate.
         /// </summary>
-        public readonly Outputs.CertificateDetailsResponse SignedCertificate;
+        public readonly Outputs.CertificateDetailsInvokeResponseResult SignedCertificate;
         /// <summary>
         /// Current order status.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
 
             bool? autoRenew,
 
-            ImmutableDictionary<string, Outputs.AppServiceCertificateResponse>? certificates,
+            ImmutableDictionary<string, Outputs.AppServiceCertificateInvokeResponseResult>? certificates,
 
             string? csr,
 
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
 
             string id,
 
-            Outputs.CertificateDetailsResponse intermediate,
+            Outputs.CertificateDetailsInvokeResponseResult intermediate,
 
             bool isPrivateKeyExternal,
 
@@ -178,11 +178,11 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20190801
 
             string provisioningState,
 
-            Outputs.CertificateDetailsResponse root,
+            Outputs.CertificateDetailsInvokeResponseResult root,
 
             string serialNumber,
 
-            Outputs.CertificateDetailsResponse signedCertificate,
+            Outputs.CertificateDetailsInvokeResponseResult signedCertificate,
 
             string status,
 

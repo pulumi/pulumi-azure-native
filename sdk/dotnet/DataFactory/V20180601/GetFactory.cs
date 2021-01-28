@@ -50,11 +50,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// Properties to enable Customer Managed Key for the factory.
         /// </summary>
-        public readonly Outputs.EncryptionConfigurationResponse? Encryption;
+        public readonly Outputs.EncryptionConfigurationInvokeResponseResult? Encryption;
         /// <summary>
         /// List of parameters for factory.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? GlobalParameters;
+        public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationInvokeResponseResult>? GlobalParameters;
         /// <summary>
         /// The resource identifier.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
-        public readonly Outputs.FactoryIdentityResponse? Identity;
+        public readonly Outputs.FactoryIdentityInvokeResponseResult? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <summary>
         /// Git repo information of the factory.
         /// </summary>
-        public readonly Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? RepoConfiguration;
+        public readonly Union<Outputs.FactoryGitHubConfigurationInvokeResponseResult, Outputs.FactoryVSTSConfigurationInvokeResponseResult>? RepoConfiguration;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -102,13 +102,13 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 
             string eTag,
 
-            Outputs.EncryptionConfigurationResponse? encryption,
+            Outputs.EncryptionConfigurationInvokeResponseResult? encryption,
 
-            ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? globalParameters,
+            ImmutableDictionary<string, Outputs.GlobalParameterSpecificationInvokeResponseResult>? globalParameters,
 
             string id,
 
-            Outputs.FactoryIdentityResponse? identity,
+            Outputs.FactoryIdentityInvokeResponseResult? identity,
 
             string? location,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
 
             string? publicNetworkAccess,
 
-            Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? repoConfiguration,
+            Union<Outputs.FactoryGitHubConfigurationInvokeResponseResult, Outputs.FactoryVSTSConfigurationInvokeResponseResult>? repoConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 

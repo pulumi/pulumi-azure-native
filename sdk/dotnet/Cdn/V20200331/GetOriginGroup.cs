@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
         /// </summary>
-        public readonly Outputs.HealthProbeParametersResponse? HealthProbeSettings;
+        public readonly Outputs.HealthProbeParametersInvokeResponseResult? HealthProbeSettings;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
         /// <summary>
         /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceReferenceResponse> Origins;
+        public readonly ImmutableArray<Outputs.ResourceReferenceInvokeResponseResult> Origins;
         /// <summary>
         /// Provisioning status of the origin group.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
         /// <summary>
         /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         /// </summary>
-        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponse? ResponseBasedOriginErrorDetectionSettings;
+        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult? ResponseBasedOriginErrorDetectionSettings;
         /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         /// </summary>
@@ -90,19 +90,19 @@ namespace Pulumi.AzureNextGen.Cdn.V20200331
 
         [OutputConstructor]
         private GetOriginGroupResult(
-            Outputs.HealthProbeParametersResponse? healthProbeSettings,
+            Outputs.HealthProbeParametersInvokeResponseResult? healthProbeSettings,
 
             string id,
 
             string name,
 
-            ImmutableArray<Outputs.ResourceReferenceResponse> origins,
+            ImmutableArray<Outputs.ResourceReferenceInvokeResponseResult> origins,
 
             string provisioningState,
 
             string resourceState,
 
-            Outputs.ResponseBasedOriginErrorDetectionParametersResponse? responseBasedOriginErrorDetectionSettings,
+            Outputs.ResponseBasedOriginErrorDetectionParametersInvokeResponseResult? responseBasedOriginErrorDetectionSettings,
 
             int? trafficRestorationTimeToHealedOrNewEndpointsInMinutes,
 

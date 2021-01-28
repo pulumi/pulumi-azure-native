@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <summary>
         /// The Key Vault encryption configuration.
         /// </summary>
-        public readonly Outputs.EncryptionConfigResponse EncryptionConfig;
+        public readonly Outputs.EncryptionConfigInvokeResponseResult EncryptionConfig;
         /// <summary>
         /// The current state of encryption provisioning for this Data Lake Store account.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <summary>
         /// The list of firewall rules associated with this Data Lake Store account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallRuleResponse> FirewallRules;
+        public readonly ImmutableArray<Outputs.FirewallRuleInvokeResponseResult> FirewallRules;
         /// <summary>
         /// The current state of the IP address firewall for this Data Lake Store account.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <summary>
         /// The Key Vault encryption identity, if any.
         /// </summary>
-        public readonly Outputs.EncryptionIdentityResponse Identity;
+        public readonly Outputs.EncryptionIdentityInvokeResponseResult Identity;
         /// <summary>
         /// The account last modified time.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <summary>
         /// The list of trusted identity providers associated with this Data Lake Store account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrustedIdProviderResponse> TrustedIdProviders;
+        public readonly ImmutableArray<Outputs.TrustedIdProviderInvokeResponseResult> TrustedIdProviders;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// <summary>
         /// The list of virtual network rules associated with this Data Lake Store account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
+        public readonly ImmutableArray<Outputs.VirtualNetworkRuleInvokeResponseResult> VirtualNetworkRules;
 
         [OutputConstructor]
         private GetAccountResult(
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 
             string defaultGroup,
 
-            Outputs.EncryptionConfigResponse encryptionConfig,
+            Outputs.EncryptionConfigInvokeResponseResult encryptionConfig,
 
             string encryptionProvisioningState,
 
@@ -156,13 +156,13 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 
             string firewallAllowAzureIps,
 
-            ImmutableArray<Outputs.FirewallRuleResponse> firewallRules,
+            ImmutableArray<Outputs.FirewallRuleInvokeResponseResult> firewallRules,
 
             string firewallState,
 
             string id,
 
-            Outputs.EncryptionIdentityResponse identity,
+            Outputs.EncryptionIdentityInvokeResponseResult identity,
 
             string lastModifiedTime,
 
@@ -180,11 +180,11 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 
             string trustedIdProviderState,
 
-            ImmutableArray<Outputs.TrustedIdProviderResponse> trustedIdProviders,
+            ImmutableArray<Outputs.TrustedIdProviderInvokeResponseResult> trustedIdProviders,
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
+            ImmutableArray<Outputs.VirtualNetworkRuleInvokeResponseResult> virtualNetworkRules)
         {
             AccountId = accountId;
             CreationTime = creationTime;

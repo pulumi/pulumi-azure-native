@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
+        public readonly Outputs.LatestOperationResultInvokeResponseResult LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// Represents the size configuration under the lab account
         /// </summary>
-        public readonly Outputs.SizeConfigurationPropertiesResponse SizeConfiguration;
+        public readonly Outputs.SizeConfigurationPropertiesInvokeResponseResult SizeConfiguration;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string id,
 
-            Outputs.LatestOperationResultResponse latestOperationResult,
+            Outputs.LatestOperationResultInvokeResponseResult latestOperationResult,
 
             string? location,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string? provisioningState,
 
-            Outputs.SizeConfigurationPropertiesResponse sizeConfiguration,
+            Outputs.SizeConfigurationPropertiesInvokeResponseResult sizeConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 

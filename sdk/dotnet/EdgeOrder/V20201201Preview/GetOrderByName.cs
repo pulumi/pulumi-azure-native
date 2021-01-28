@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// Represents shipping and return address for order
         /// </summary>
-        public readonly Outputs.AddressDetailsResponse AddressDetails;
+        public readonly Outputs.AddressDetailsInvokeResponseResult AddressDetails;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// Represents order details.
         /// </summary>
-        public readonly Outputs.OrderDetailsResponse OrderDetails;
+        public readonly Outputs.OrderDetailsInvokeResponseResult OrderDetails;
         /// <summary>
         /// Start time of order
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// <summary>
         /// Represents resource creation and update time
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataInvokeResponseResult SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
 
         [OutputConstructor]
         private GetOrderByNameResult(
-            Outputs.AddressDetailsResponse addressDetails,
+            Outputs.AddressDetailsInvokeResponseResult addressDetails,
 
             string id,
 
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
 
             string orderCollectionId,
 
-            Outputs.OrderDetailsResponse orderDetails,
+            Outputs.OrderDetailsInvokeResponseResult orderDetails,
 
             string startTime,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataInvokeResponseResult systemData,
 
             ImmutableDictionary<string, string>? tags,
 

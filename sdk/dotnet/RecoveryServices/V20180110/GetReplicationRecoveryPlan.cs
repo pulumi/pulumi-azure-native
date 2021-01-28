@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
         /// <summary>
         /// The custom details.
         /// </summary>
-        public readonly Outputs.RecoveryPlanPropertiesResponse Properties;
+        public readonly Outputs.RecoveryPlanPropertiesInvokeResponseResult Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 
             string name,
 
-            Outputs.RecoveryPlanPropertiesResponse properties,
+            Outputs.RecoveryPlanPropertiesInvokeResponseResult properties,
 
             string type)
         {

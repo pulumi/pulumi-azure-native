@@ -52,13 +52,13 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.StaticSiteUserARMResourceResponseResult> Value;
+        public readonly ImmutableArray<Outputs.StaticSiteUserARMResourceInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListStaticSiteUsersResult(
             string nextLink,
 
-            ImmutableArray<Outputs.StaticSiteUserARMResourceResponseResult> value)
+            ImmutableArray<Outputs.StaticSiteUserARMResourceInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

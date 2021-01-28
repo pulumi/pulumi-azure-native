@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
         /// <summary>
         /// Defines the move resource properties.
         /// </summary>
-        public readonly Outputs.MoveResourcePropertiesResponse Properties;
+        public readonly Outputs.MoveResourcePropertiesInvokeResponseResult Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 
             string name,
 
-            Outputs.MoveResourcePropertiesResponse properties,
+            Outputs.MoveResourcePropertiesInvokeResponseResult properties,
 
             string type)
         {

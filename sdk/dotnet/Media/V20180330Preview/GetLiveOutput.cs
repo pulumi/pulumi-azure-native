@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// <summary>
         /// The HLS configuration.
         /// </summary>
-        public readonly Outputs.HlsResponse? Hls;
+        public readonly Outputs.HlsInvokeResponseResult? Hls;
         /// <summary>
         /// Fully qualified resource ID for the resource.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
             string? description,
 
-            Outputs.HlsResponse? hls,
+            Outputs.HlsInvokeResponseResult? hls,
 
             string id,
 

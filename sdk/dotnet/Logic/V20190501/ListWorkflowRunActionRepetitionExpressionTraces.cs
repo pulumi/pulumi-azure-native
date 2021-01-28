@@ -57,10 +57,10 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     [OutputType]
     public sealed class ListWorkflowRunActionRepetitionExpressionTracesResult
     {
-        public readonly ImmutableArray<Outputs.ExpressionRootResponseResult> Inputs;
+        public readonly ImmutableArray<Outputs.ExpressionRootInvokeResponseResult> Inputs;
 
         [OutputConstructor]
-        private ListWorkflowRunActionRepetitionExpressionTracesResult(ImmutableArray<Outputs.ExpressionRootResponseResult> inputs)
+        private ListWorkflowRunActionRepetitionExpressionTracesResult(ImmutableArray<Outputs.ExpressionRootInvokeResponseResult> inputs)
         {
             Inputs = inputs;
         }

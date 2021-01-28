@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// <summary>
         /// The virtual machine run command instance view.
         /// </summary>
-        public readonly Outputs.VirtualMachineRunCommandInstanceViewResponse InstanceView;
+        public readonly Outputs.VirtualMachineRunCommandInstanceViewInvokeResponseResult InstanceView;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// <summary>
         /// The parameters used by the script.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RunCommandInputParameterResponse> Parameters;
+        public readonly ImmutableArray<Outputs.RunCommandInputParameterInvokeResponseResult> Parameters;
         /// <summary>
         /// The parameters used by the script.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RunCommandInputParameterResponse> ProtectedParameters;
+        public readonly ImmutableArray<Outputs.RunCommandInputParameterInvokeResponseResult> ProtectedParameters;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// <summary>
         /// The source of the run command script.
         /// </summary>
-        public readonly Outputs.VirtualMachineRunCommandScriptSourceResponse? Source;
+        public readonly Outputs.VirtualMachineRunCommandScriptSourceInvokeResponseResult? Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
             string id,
 
-            Outputs.VirtualMachineRunCommandInstanceViewResponse instanceView,
+            Outputs.VirtualMachineRunCommandInstanceViewInvokeResponseResult instanceView,
 
             string location,
 
@@ -138,9 +138,9 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
             string? outputBlobUri,
 
-            ImmutableArray<Outputs.RunCommandInputParameterResponse> parameters,
+            ImmutableArray<Outputs.RunCommandInputParameterInvokeResponseResult> parameters,
 
-            ImmutableArray<Outputs.RunCommandInputParameterResponse> protectedParameters,
+            ImmutableArray<Outputs.RunCommandInputParameterInvokeResponseResult> protectedParameters,
 
             string provisioningState,
 
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
             string? runAsUser,
 
-            Outputs.VirtualMachineRunCommandScriptSourceResponse? source,
+            Outputs.VirtualMachineRunCommandScriptSourceInvokeResponseResult? source,
 
             ImmutableDictionary<string, string>? tags,
 

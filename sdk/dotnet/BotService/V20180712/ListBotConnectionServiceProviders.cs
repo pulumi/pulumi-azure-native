@@ -34,13 +34,13 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
         /// <summary>
         /// Gets the list of bot service providers and their properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceProviderResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ServiceProviderInvokeResponseResult> Value;
 
         [OutputConstructor]
         private ListBotConnectionServiceProvidersResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ServiceProviderResponseResult> value)
+            ImmutableArray<Outputs.ServiceProviderInvokeResponseResult> value)
         {
             NextLink = nextLink;
             Value = value;

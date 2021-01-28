@@ -42,11 +42,11 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170615Preview
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionDestinationResponse? Destination;
+        public readonly Outputs.EventSubscriptionDestinationInvokeResponseResult? Destination;
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionFilterResponse? Filter;
+        public readonly Outputs.EventSubscriptionFilterInvokeResponseResult? Filter;
         /// <summary>
         /// Fully qualified identifier of the resource
         /// </summary>
@@ -74,9 +74,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170615Preview
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Outputs.EventSubscriptionDestinationResponse? destination,
+            Outputs.EventSubscriptionDestinationInvokeResponseResult? destination,
 
-            Outputs.EventSubscriptionFilterResponse? filter,
+            Outputs.EventSubscriptionFilterInvokeResponseResult? filter,
 
             string id,
 

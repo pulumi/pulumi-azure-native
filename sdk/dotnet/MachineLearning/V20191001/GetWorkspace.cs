@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20191001
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuInvokeResponseResult? Sku;
         /// <summary>
         /// The regional endpoint for the machine learning studio service which hosts this workspace.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20191001
 
             string ownerEmail,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuInvokeResponseResult? sku,
 
             string studioEndpoint,
 

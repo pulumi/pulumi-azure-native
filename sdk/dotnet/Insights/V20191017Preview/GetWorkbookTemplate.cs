@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <summary>
         /// Workbook galleries supported by the template.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> Galleries;
+        public readonly ImmutableArray<Outputs.WorkbookTemplateGalleryInvokeResponseResult> Galleries;
         /// <summary>
         /// Azure resource Id
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <summary>
         /// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? Localized;
+        public readonly ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryInvokeResponseResult>>? Localized;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         private GetWorkbookTemplateResult(
             string? author,
 
-            ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> galleries,
+            ImmutableArray<Outputs.WorkbookTemplateGalleryInvokeResponseResult> galleries,
 
             string id,
 
-            ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? localized,
+            ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryInvokeResponseResult>>? localized,
 
             string location,
 

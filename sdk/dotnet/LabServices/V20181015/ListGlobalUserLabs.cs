@@ -36,10 +36,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <summary>
         /// List of all the labs
         /// </summary>
-        public readonly ImmutableArray<Outputs.LabDetailsResponseResult> Labs;
+        public readonly ImmutableArray<Outputs.LabDetailsInvokeResponseResult> Labs;
 
         [OutputConstructor]
-        private ListGlobalUserLabsResult(ImmutableArray<Outputs.LabDetailsResponseResult> labs)
+        private ListGlobalUserLabsResult(ImmutableArray<Outputs.LabDetailsInvokeResponseResult> labs)
         {
             Labs = labs;
         }
