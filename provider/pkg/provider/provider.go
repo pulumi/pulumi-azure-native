@@ -32,7 +32,6 @@ import (
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
@@ -41,6 +40,14 @@ import (
 const (
 	// Microsoft's Pulumi Partner ID.
 	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
+	requestFormat   = `HTTP Request Begin %[1]s %[2]s ===================================================
+%[3]s
+===================================================== HTTP Request End %[1]s %[2]s
+`
+	responseFormat = `HTTP Response Begin %[1]s [%[2]s ===================================================
+%[3]s
+===================================================== HTTP Response End %[1]s %[2]s
+`
 )
 
 type azureNextGenProvider struct {
@@ -61,6 +68,10 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.
 	client := autorest.NewClientWithUserAgent(buildUserAgent(PulumiPartnerID))
+	// Log requests
+	client.RequestInspector = withInspection()
+	// Log responses
+	client.ResponseInspector = byInspecting()
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
@@ -986,8 +997,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	if bodyProps != nil {
 		decorators = append(decorators, autorest.WithJSON(bodyProps))
 	}
-	preparer := autorest.CreatePreparer(decorators...)
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	prepReq, err := autorest.Prepare((&http.Request{}).WithContext(ctx), decorators...)
 	if err != nil {
 		return nil, err
 	}
@@ -1348,15 +1358,7 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 }
 
 func (k *azureNextGenProvider) setLoggingContext(ctx context.Context) {
-	log.SetOutput(&LogRedirector{
-		writers: map[string]func(string) error{
-			tfTracePrefix: func(msg string) error { return k.host.Log(ctx, diag.Debug, "", msg) },
-			tfDebugPrefix: func(msg string) error { return k.host.Log(ctx, diag.Debug, "", msg) },
-			tfInfoPrefix:  func(msg string) error { return k.host.Log(ctx, diag.Info, "", msg) },
-			tfWarnPrefix:  func(msg string) error { return k.host.Log(ctx, diag.Warning, "", msg) },
-			tfErrorPrefix: func(msg string) error { return k.host.Log(ctx, diag.Error, "", msg) },
-		},
-	})
+	log.SetOutput(NewTerraformLogRedirector(ctx, k.host))
 }
 
 func (k *azureNextGenProvider) getConfig(configName, envName string) string {
@@ -1499,6 +1501,52 @@ func withSenderLogging() autorest.SendDecorator {
 				glog.V(9).Infof("%s %s received %s", r.Method, r.URL, resp.Status)
 			}
 			return resp, err
+		})
+	}
+}
+
+// withInspection is a copy of autorest's LoggingInspector.WithInspector. It uses glog instead
+// of a logger which gets complicated in the presence of log redirection via the host.
+func withInspection() autorest.PrepareDecorator {
+	return func(p autorest.Preparer) autorest.Preparer {
+		return autorest.PreparerFunc(func(r *http.Request) (*http.Request, error) {
+			var body, b bytes.Buffer
+
+			if r.Body != nil {
+				defer r.Body.Close()
+
+				r.Body = ioutil.NopCloser(io.TeeReader(r.Body, &body))
+				if err := r.Write(&b); err != nil {
+					return nil, fmt.Errorf("Failed to write response: %v", err)
+				}
+
+				glog.V(9).Infof(requestFormat, r.Method, r.URL, b.String())
+
+				r.Body = ioutil.NopCloser(&body)
+			} else {
+				glog.V(9).Infof(requestFormat, r.Method, r.URL, "Empty body")
+			}
+			return p.Prepare(r)
+		})
+	}
+}
+
+// byInspecting is acopy of autorest's LoggingInspector.ByInspecting(). It uses glog instead
+// of a logger which gets complicated in the presence of log redirection via the host.
+func byInspecting() autorest.RespondDecorator {
+	return func(r autorest.Responder) autorest.Responder {
+		return autorest.ResponderFunc(func(resp *http.Response) error {
+			var body, b bytes.Buffer
+			defer resp.Body.Close()
+			resp.Body = ioutil.NopCloser(io.TeeReader(resp.Body, &body))
+			if err := resp.Write(&b); err != nil {
+				return fmt.Errorf("Failed to write response: %v", err)
+			}
+
+			glog.V(9).Infof(responseFormat, resp.Request.Method, resp.Request.URL, b.String())
+
+			resp.Body = ioutil.NopCloser(&body)
+			return r.Respond(resp)
 		})
 	}
 }
