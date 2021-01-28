@@ -11,6 +11,8 @@ export * from "./getBlobContainer";
 export * from "./getBlobContainerImmutabilityPolicy";
 export * from "./getStorageAccount";
 export * from "./listStorageAccountKeys";
+export * from "./listStorageAccountSAS";
+export * from "./listStorageAccountServiceSAS";
 export * from "./storageAccount";
 
 // Export enums:

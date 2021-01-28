@@ -13,6 +13,7 @@ export * from "./getEventHub";
 export * from "./getEventHubAuthorizationRule";
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
+export * from "./listEventHubKeys";
 export * from "./listNamespaceKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";

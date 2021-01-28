@@ -22,6 +22,8 @@ export * from "./getTopic";
 export * from "./getTopicAuthorizationRule";
 export * from "./listDisasterRecoveryConfigKeys";
 export * from "./listNamespaceKeys";
+export * from "./listQueueKeys";
+export * from "./listTopicKeys";
 export * from "./migrationConfig";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";

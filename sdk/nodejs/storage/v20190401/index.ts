@@ -18,6 +18,8 @@ export * from "./getFileShare";
 export * from "./getManagementPolicy";
 export * from "./getStorageAccount";
 export * from "./listStorageAccountKeys";
+export * from "./listStorageAccountSAS";
+export * from "./listStorageAccountServiceSAS";
 export * from "./managementPolicy";
 export * from "./storageAccount";
 

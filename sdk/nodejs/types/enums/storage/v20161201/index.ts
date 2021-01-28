@@ -12,6 +12,16 @@ export const AccessTier = {
  */
 export type AccessTier = (typeof AccessTier)[keyof typeof AccessTier];
 
+export const HttpProtocol = {
+    Https_http: "https,http",
+    Https: "https",
+} as const;
+
+/**
+ * The protocol permitted for a request made with the account SAS.
+ */
+export type HttpProtocol = (typeof HttpProtocol)[keyof typeof HttpProtocol];
+
 export const Kind = {
     Storage: "Storage",
     BlobStorage: "BlobStorage",
@@ -21,6 +31,34 @@ export const Kind = {
  * Required. Indicates the type of storage account.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const Permissions = {
+    R: "r",
+    D: "d",
+    W: "w",
+    L: "l",
+    A: "a",
+    C: "c",
+    U: "u",
+    P: "p",
+} as const;
+
+/**
+ * The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+ */
+export type Permissions = (typeof Permissions)[keyof typeof Permissions];
+
+export const SignedResource = {
+    B: "b",
+    C: "c",
+    F: "f",
+    S: "s",
+} as const;
+
+/**
+ * The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+ */
+export type SignedResource = (typeof SignedResource)[keyof typeof SignedResource];
 
 export const SkuName = {
     Standard_LRS: "Standard_LRS",

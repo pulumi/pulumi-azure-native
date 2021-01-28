@@ -13,6 +13,8 @@ export * from "./getSubscription";
 export * from "./getTopic";
 export * from "./getTopicAuthorizationRule";
 export * from "./listNamespaceKeys";
+export * from "./listQueueKeys";
+export * from "./listTopicKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./queue";

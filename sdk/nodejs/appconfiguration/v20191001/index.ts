@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
 export * from "./configurationStore";
 export * from "./getConfigurationStore";
 export * from "./listConfigurationStoreKeyValue";
+export * from "./listConfigurationStoreKeys";
 
 // Export enums:
 export * from "../../types/enums/appconfiguration/v20191001";

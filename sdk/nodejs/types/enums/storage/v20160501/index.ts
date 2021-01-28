@@ -12,6 +12,16 @@ export const AccessTier = {
  */
 export type AccessTier = (typeof AccessTier)[keyof typeof AccessTier];
 
+export const HttpProtocol = {
+    Https_http: "https,http",
+    Https: "https",
+} as const;
+
+/**
+ * The protocol permitted for a request made with the account SAS.
+ */
+export type HttpProtocol = (typeof HttpProtocol)[keyof typeof HttpProtocol];
+
 export const Kind = {
     Storage: "Storage",
     BlobStorage: "BlobStorage",
