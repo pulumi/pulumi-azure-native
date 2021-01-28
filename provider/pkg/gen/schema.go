@@ -441,13 +441,13 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	parameters := resource.Swagger.MergeParameters(path.Put.Parameters, path.Parameters)
-	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
+	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, false)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
 		return
 	}
 
-	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
+	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext, false)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
 		return
@@ -498,12 +498,12 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	parameters = swagger.MergeParameters(op.Parameters, path.Parameters)
-	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
+	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, true)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	responseFunction, err := gen.genResponse(op.Responses.StatusCodeResponses, swagger.ReferenceContext)
+	responseFunction, err := gen.genResponse(op.Responses.StatusCodeResponses, swagger.ReferenceContext, true)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
@@ -621,12 +621,12 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
 
 	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
-	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
+	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, true)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	response, err := gen.genResponse(pathItem.Post.Responses.StatusCodeResponses, swagger.ReferenceContext)
+	response, err := gen.genResponse(pathItem.Post.Responses.StatusCodeResponses, swagger.ReferenceContext, true)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
@@ -710,7 +710,7 @@ func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *p
 	}
 }
 
-func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext) (*parameterBag, error) {
+func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext, isInvoke bool) (*parameterBag, error) {
 	result := newParameterBag()
 
 	for _, param := range parameters {
@@ -753,7 +753,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
 			}
 
-			props, err := m.genProperties(resolvedSchema, false /* isOutput */, false /* isType */)
+			props, err := m.genProperties(resolvedSchema, isInvoke, false /* isOutput */, false /* isType */)
 			if err != nil {
 				return nil, err
 			}
@@ -803,7 +803,7 @@ func isMethodParameter(param *openapi.Parameter) bool {
 	return false
 }
 
-func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext) (*propertyBag, error) {
+func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext, isInvoke bool) (*propertyBag, error) {
 	var responseSchema *openapi.Schema
 
 	// Find all 2xx codes and sort them to make codegen deterministic.
@@ -842,7 +842,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 			return nil, errors.New("array responses are not implemented yet (see issue #120)")
 		}
 
-		result, err := m.genProperties(responseSchema, true /* isOutput */, false /* isType */)
+		result, err := m.genProperties(responseSchema, isInvoke, true /* isOutput */, false /* isType */)
 		if err != nil {
 			return nil, err
 		}
@@ -867,7 +867,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	return &propertyBag{}, nil
 }
 
-func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
+func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isInvoke, isOutput, isType bool) (*propertyBag, error) {
 	result := newPropertyBag()
 
 	// Sort properties to make codegen deterministic.
@@ -901,7 +901,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		// We can't flatten dictionaries in a type-safe manner.
 		isDict := resolvedProperty.AdditionalProperties != nil
 		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); ok && flatten && !isDict {
-			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
+			bag, err := m.genProperties(resolvedProperty, isInvoke, isOutput, isType)
 			if err != nil {
 				return nil, err
 			}
@@ -924,7 +924,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, isOutput)
+		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, isInvoke, isOutput)
 		if err != nil {
 			return nil, err
 		}
@@ -998,7 +998,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
-		allOfProperties, err := m.genProperties(allOfSchema, isOutput, isType)
+		allOfProperties, err := m.genProperties(allOfSchema, isInvoke, isOutput, isType)
 		if err != nil {
 			return nil, err
 		}
@@ -1151,13 +1151,13 @@ func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceConte
 	return description, nil
 }
 
-func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isInvoke, isOutput bool) (*pschema.PropertySpec, error) {
 	description, err := getPropertyDescription(schema, context)
 	if err != nil {
 		return nil, err
 	}
 
-	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
+	typeSpec, err := m.genTypeSpec(name, schema, context, isInvoke, isOutput)
 	if err != nil {
 		return nil, err
 	}
@@ -1176,7 +1176,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	return &propertySpec, nil
 }
 
-func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
+func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isInvoke, isOutput bool) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
 		return nil, err
@@ -1207,14 +1207,14 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		ptr := schema.Ref.GetPointer()
 		var tok string
 		if ptr != nil && !ptr.IsEmpty() {
-			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
+			tok = m.typeName(resolvedSchema.ReferenceContext, isInvoke, isOutput)
 		} else {
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
-			tok = m.typeName(context, isOutput) + strings.Title(propertyName)
+			tok = m.typeName(context, isInvoke, isOutput) + strings.Title(propertyName)
 		}
 
 		// If an object type is referenced, add its definition to the type map.
-		discriminatedType, ok, err := m.genDiscriminatedType(resolvedSchema, isOutput)
+		discriminatedType, ok, err := m.genDiscriminatedType(resolvedSchema, isInvoke, isOutput)
 		if err != nil {
 			return nil, err
 		}
@@ -1227,7 +1227,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 
-			props, err := m.genProperties(resolvedSchema, isOutput, true /* isType */)
+			props, err := m.genProperties(resolvedSchema, isInvoke, isOutput, true /* isType */)
 			if err != nil {
 				return nil, err
 			}
@@ -1266,7 +1266,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	case resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil:
 		// Resolve the element type for array types.
-		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isOutput)
+		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isInvoke, isOutput)
 		if err != nil {
 			return nil, err
 		}
@@ -1283,7 +1283,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	case resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil:
 		// Define the type of maps (untyped objects).
-		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
+		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isInvoke, isOutput)
 		if err != nil {
 			return nil, err
 		}
@@ -1386,7 +1386,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 // genDiscriminatedType generates polymorphic types (base type and subtypes) if the schema specifies a discriminator property.
 // If no error occurs, the bool result indicates whether a discriminated (union) type is detected. If true, the TypeSpec
 // result points to the specification of the union type.
-func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, isOutput bool) (*pschema.TypeSpec, bool, error) {
+func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, isInvoke, isOutput bool) (*pschema.TypeSpec, bool, error) {
 	if resolvedSchema.Discriminator == "" {
 		return nil, false, nil
 	}
@@ -1407,7 +1407,7 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 		return nil, false, err
 	}
 	for _, subtype := range subtypes {
-		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput)
+		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isInvoke, isOutput)
 		if err != nil {
 			return nil, false, err
 		}
@@ -1427,10 +1427,13 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 	}
 }
 
-func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool) string {
+func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isInvoke, isOutput bool) string {
 	suffix := ""
+	if isInvoke {
+		suffix = "Invoke"
+	}
 	if isOutput {
-		suffix = "Response"
+		suffix = suffix + "Response"
 	}
 	referenceName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
 	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, referenceName, suffix)
