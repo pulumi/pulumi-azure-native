@@ -12,6 +12,7 @@ from .get_event_hub import *
 from .get_event_hub_authorization_rule import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .list_event_hub_keys import *
 from .list_namespace_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *

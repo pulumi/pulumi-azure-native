@@ -10,6 +10,8 @@ from .get_blob_container import *
 from .get_blob_container_immutability_policy import *
 from .get_storage_account import *
 from .list_storage_account_keys import *
+from .list_storage_account_sas import *
+from .list_storage_account_service_sas import *
 from .storage_account import *
 from ._inputs import *
 from . import outputs

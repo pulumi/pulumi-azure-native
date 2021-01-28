@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AccessTier',
+    'HttpProtocol',
     'Kind',
     'SkuName',
 ]
@@ -17,6 +18,14 @@ class AccessTier(str, Enum):
     """
     HOT = "Hot"
     COOL = "Cool"
+
+
+class HttpProtocol(str, Enum):
+    """
+    The protocol permitted for a request made with the account SAS.
+    """
+    HTTPS_HTTP = "https,http"
+    HTTPS = "https"
 
 
 class Kind(str, Enum):

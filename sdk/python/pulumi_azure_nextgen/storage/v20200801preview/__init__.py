@@ -25,6 +25,8 @@ from .get_storage_account import *
 from .get_table import *
 from .get_table_service_properties import *
 from .list_storage_account_keys import *
+from .list_storage_account_sas import *
+from .list_storage_account_service_sas import *
 from .management_policy import *
 from .object_replication_policy import *
 from .private_endpoint_connection import *

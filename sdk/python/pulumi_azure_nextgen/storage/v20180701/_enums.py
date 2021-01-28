@@ -9,11 +9,16 @@ __all__ = [
     'Action',
     'Bypass',
     'DefaultAction',
+    'HttpProtocol',
     'IdentityType',
     'KeySource',
     'Kind',
+    'Permissions',
     'PublicAccess',
     'ReasonCode',
+    'Services',
+    'SignedResource',
+    'SignedResourceTypes',
     'SkuName',
     'State',
 ]
@@ -52,6 +57,14 @@ class DefaultAction(str, Enum):
     DENY = "Deny"
 
 
+class HttpProtocol(str, Enum):
+    """
+    The protocol permitted for a request made with the account SAS.
+    """
+    HTTPS_HTTP = "https,http"
+    HTTPS = "https"
+
+
 class IdentityType(str, Enum):
     """
     The identity type.
@@ -78,6 +91,20 @@ class Kind(str, Enum):
     BLOCK_BLOB_STORAGE = "BlockBlobStorage"
 
 
+class Permissions(str, Enum):
+    """
+    The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
+    """
+    R = "r"
+    D = "d"
+    W = "w"
+    L = "l"
+    A = "a"
+    C = "c"
+    U = "u"
+    P = "p"
+
+
 class PublicAccess(str, Enum):
     """
     Specifies whether data in the container may be accessed publicly and the level of access.
@@ -93,6 +120,35 @@ class ReasonCode(str, Enum):
     """
     QUOTA_ID = "QuotaId"
     NOT_AVAILABLE_FOR_SUBSCRIPTION = "NotAvailableForSubscription"
+
+
+class Services(str, Enum):
+    """
+    The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
+    """
+    B = "b"
+    Q = "q"
+    T = "t"
+    F = "f"
+
+
+class SignedResource(str, Enum):
+    """
+    The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
+    """
+    B = "b"
+    C = "c"
+    F = "f"
+    S = "s"
+
+
+class SignedResourceTypes(str, Enum):
+    """
+    The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
+    """
+    S = "s"
+    C = "c"
+    O = "o"
 
 
 class SkuName(str, Enum):

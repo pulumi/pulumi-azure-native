@@ -12,6 +12,8 @@ from .get_management_policy import *
 from .get_storage_account import *
 from .get_storage_account_management_policies import *
 from .list_storage_account_keys import *
+from .list_storage_account_sas import *
+from .list_storage_account_service_sas import *
 from .management_policy import *
 from .storage_account import *
 from .storage_account_management_policies import *
