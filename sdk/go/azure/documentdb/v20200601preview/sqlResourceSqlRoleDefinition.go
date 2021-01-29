@@ -126,7 +126,7 @@ type SqlResourceSqlRoleDefinitionArgs struct {
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName pulumi.StringPtrInput
 	// Indicates whether the Role Definition was built-in or user created.
-	Type RoleDefinitionType
+	Type *RoleDefinitionType
 }
 
 func (SqlResourceSqlRoleDefinitionArgs) ElementType() reflect.Type {

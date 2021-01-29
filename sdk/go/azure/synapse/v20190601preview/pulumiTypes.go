@@ -6003,7 +6003,7 @@ type ManagedIdentityInput interface {
 // The workspace managed identity
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the workspace
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {

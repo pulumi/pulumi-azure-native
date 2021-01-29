@@ -274,7 +274,7 @@ type connectionMonitorArgs struct {
 	// Optional notes to be associated with the connection monitor.
 	Notes *string `pulumi:"notes"`
 	// List of connection monitor outputs.
-	Outputs []ConnectionMonitorOutput `pulumi:"outputs"`
+	Outputs []ConnectionMonitorOutputType `pulumi:"outputs"`
 	// The name of the resource group containing Network Watcher.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes the source of connection monitor.
@@ -306,7 +306,7 @@ type ConnectionMonitorArgs struct {
 	// Optional notes to be associated with the connection monitor.
 	Notes pulumi.StringPtrInput
 	// List of connection monitor outputs.
-	Outputs ConnectionMonitorOutputArrayInput
+	Outputs ConnectionMonitorOutputTypeArrayInput
 	// The name of the resource group containing Network Watcher.
 	ResourceGroupName pulumi.StringInput
 	// Describes the source of connection monitor.

@@ -362,7 +362,7 @@ func (o ArgumentResponseOutput) ToArgumentResponseOutputWithContext(ctx context.
 }
 
 // Flag to indicate whether the argument represents a secret and want to be removed from build logs.
-func (o ArgumentResponseOutput) IsSecret() pulumi.BoolPtrOutput {
+func (o ArgumentResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ArgumentResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
@@ -2280,7 +2280,7 @@ type IdentityPropertiesArgs struct {
 	// The tenant ID of resource.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The identity type.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
@@ -3413,7 +3413,7 @@ func (o SetValueResponseOutput) ToSetValueResponseOutputWithContext(ctx context.
 }
 
 // Flag to indicate whether the value represents a secret or not.
-func (o SetValueResponseOutput) IsSecret() pulumi.BoolPtrOutput {
+func (o SetValueResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SetValueResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 

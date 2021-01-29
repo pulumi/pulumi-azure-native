@@ -2101,7 +2101,7 @@ type AzureBlobStorageApplicationLogsConfigInput interface {
 // Application logs azure blob storage configuration
 type AzureBlobStorageApplicationLogsConfigArgs struct {
 	// Log level
-	Level LogLevel `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// Retention in days.
 	//             Remove blobs older than X days.
 	//             0 or lower means no retention.
@@ -2819,7 +2819,7 @@ type AzureTableStorageApplicationLogsConfigInput interface {
 // Application logs to azure table storage configuration
 type AzureTableStorageApplicationLogsConfigArgs struct {
 	// Log level
-	Level LogLevel `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// SAS url to an azure table with add/query/delete permissions
 	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
 }
@@ -5398,7 +5398,7 @@ type FileSystemApplicationLogsConfigInput interface {
 // Application logs to file system configuration
 type FileSystemApplicationLogsConfigArgs struct {
 	// Log level
-	Level LogLevel `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 }
 
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -7641,10 +7641,10 @@ type NetworkAccessControlEntryInput interface {
 }
 
 type NetworkAccessControlEntryArgs struct {
-	Action       AccessControlEntryAction `pulumi:"action"`
-	Description  pulumi.StringPtrInput    `pulumi:"description"`
-	Order        pulumi.IntPtrInput       `pulumi:"order"`
-	RemoteSubnet pulumi.StringPtrInput    `pulumi:"remoteSubnet"`
+	Action       *AccessControlEntryAction `pulumi:"action"`
+	Description  pulumi.StringPtrInput     `pulumi:"description"`
+	Order        pulumi.IntPtrInput        `pulumi:"order"`
+	RemoteSubnet pulumi.StringPtrInput     `pulumi:"remoteSubnet"`
 }
 
 func (NetworkAccessControlEntryArgs) ElementType() reflect.Type {
@@ -8654,7 +8654,7 @@ type SiteConfigArgs struct {
 	// Site limits
 	Limits SiteLimitsPtrInput `pulumi:"limits"`
 	// Site load balancing
-	LoadBalancing SiteLoadBalancing `pulumi:"loadBalancing"`
+	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
 	// Local mysql enabled
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// Resource Location
@@ -8662,7 +8662,7 @@ type SiteConfigArgs struct {
 	// HTTP Logs Directory size limit
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode
-	ManagedPipelineMode ManagedPipelineMode `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// Site Metadata
 	Metadata NameValuePairArrayInput `pulumi:"metadata"`
 	// Resource Name
@@ -11702,7 +11702,7 @@ type StampCapacityArgs struct {
 	// Available capacity (# of machines, bytes of storage etc...)
 	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
 	// Shared/Dedicated workers
-	ComputeMode ComputeModeOptions `pulumi:"computeMode"`
+	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
 	// If true it includes basic sites
 	//             Basic sites are not used for capacity allocation.
 	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
@@ -11717,7 +11717,7 @@ type StampCapacityArgs struct {
 	// Name of the unit
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// Size of the machines
-	WorkerSize WorkerSizeOptions `pulumi:"workerSize"`
+	WorkerSize *WorkerSizeOptions `pulumi:"workerSize"`
 	// Size Id of machines:
 	//             0 - Small
 	//             1 - Medium
@@ -13798,7 +13798,7 @@ type WorkerPoolInput interface {
 // Worker pool of a hostingEnvironment (App Service Environment)
 type WorkerPoolArgs struct {
 	// Shared or dedicated web app hosting
-	ComputeMode ComputeModeOptions `pulumi:"computeMode"`
+	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Names of all instances in the worker pool (read only)

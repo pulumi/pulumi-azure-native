@@ -1367,7 +1367,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1677,7 +1677,7 @@ type OnErrorDeploymentArgs struct {
 	// The deployment to be used on error case.
 	DeploymentName pulumi.StringPtrInput `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type OnErrorDeploymentType `pulumi:"type"`
+	Type *OnErrorDeploymentType `pulumi:"type"`
 }
 
 func (OnErrorDeploymentArgs) ElementType() reflect.Type {

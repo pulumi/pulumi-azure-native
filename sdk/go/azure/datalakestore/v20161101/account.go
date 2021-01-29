@@ -250,25 +250,25 @@ type AccountArgs struct {
 	// The Key Vault encryption configuration.
 	EncryptionConfig EncryptionConfigPtrInput
 	// The current state of encryption for this Data Lake Store account.
-	EncryptionState EncryptionState
+	EncryptionState *EncryptionState
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps FirewallAllowAzureIpsState
+	FirewallAllowAzureIps *FirewallAllowAzureIpsState
 	// The list of firewall rules associated with this Data Lake Store account.
 	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
 	// The current state of the IP address firewall for this Data Lake Store account.
-	FirewallState FirewallState
+	FirewallState *FirewallState
 	// The Key Vault encryption identity, if any.
 	Identity EncryptionIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// The commitment tier to use for next month.
-	NewTier TierType
+	NewTier *TierType
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState TrustedIdProviderState
+	TrustedIdProviderState *TrustedIdProviderStateEnum
 	// The list of trusted identity providers associated with this Data Lake Store account.
 	TrustedIdProviders CreateTrustedIdProviderWithAccountParametersArrayInput
 	// The list of virtual network rules associated with this Data Lake Store account.

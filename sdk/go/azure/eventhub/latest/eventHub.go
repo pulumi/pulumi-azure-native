@@ -166,7 +166,7 @@ type EventHubArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of the Event Hub.
-	Status EntityStatus
+	Status *EntityStatus
 }
 
 func (EventHubArgs) ElementType() reflect.Type {

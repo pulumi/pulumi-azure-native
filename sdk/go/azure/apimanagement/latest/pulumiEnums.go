@@ -579,30 +579,30 @@ func (e PolicyContentFormat) ToStringPtrOutputWithContext(ctx context.Context) p
 }
 
 // whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-type ProductState pulumi.String
+type ProductStateEnum pulumi.String
 
 const (
-	ProductStateNotPublished = ProductState("notPublished")
-	ProductStatePublished    = ProductState("published")
+	ProductStateEnumNotPublished = ProductStateEnum("notPublished")
+	ProductStateEnumPublished    = ProductStateEnum("published")
 )
 
-func (ProductState) ElementType() reflect.Type {
+func (ProductStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ProductState) ToStringOutput() pulumi.StringOutput {
+func (e ProductStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ProductState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ProductStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ProductState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ProductStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ProductState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ProductStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -793,68 +793,68 @@ func (e State) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPt
 }
 
 // Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-type SubscriptionState pulumi.String
+type SubscriptionStateEnum pulumi.String
 
 const (
-	SubscriptionStateSuspended = SubscriptionState("suspended")
-	SubscriptionStateActive    = SubscriptionState("active")
-	SubscriptionStateExpired   = SubscriptionState("expired")
-	SubscriptionStateSubmitted = SubscriptionState("submitted")
-	SubscriptionStateRejected  = SubscriptionState("rejected")
-	SubscriptionStateCancelled = SubscriptionState("cancelled")
+	SubscriptionStateEnumSuspended = SubscriptionStateEnum("suspended")
+	SubscriptionStateEnumActive    = SubscriptionStateEnum("active")
+	SubscriptionStateEnumExpired   = SubscriptionStateEnum("expired")
+	SubscriptionStateEnumSubmitted = SubscriptionStateEnum("submitted")
+	SubscriptionStateEnumRejected  = SubscriptionStateEnum("rejected")
+	SubscriptionStateEnumCancelled = SubscriptionStateEnum("cancelled")
 )
 
-func (SubscriptionState) ElementType() reflect.Type {
+func (SubscriptionStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SubscriptionState) ToStringOutput() pulumi.StringOutput {
+func (e SubscriptionStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SubscriptionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e SubscriptionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SubscriptionState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e SubscriptionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SubscriptionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e SubscriptionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
 // Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-type UserState pulumi.String
+type UserStateEnum pulumi.String
 
 const (
 	// User state is active.
-	UserStateActive = UserState("active")
+	UserStateEnumActive = UserStateEnum("active")
 	// User is blocked. Blocked users cannot authenticate at developer portal or call API.
-	UserStateBlocked = UserState("blocked")
+	UserStateEnumBlocked = UserStateEnum("blocked")
 	// User account is pending. Requires identity confirmation before it can be made active.
-	UserStatePending = UserState("pending")
+	UserStateEnumPending = UserStateEnum("pending")
 	// User account is closed. All identities and related entities are removed.
-	UserStateDeleted = UserState("deleted")
+	UserStateEnumDeleted = UserStateEnum("deleted")
 )
 
-func (UserState) ElementType() reflect.Type {
+func (UserStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e UserState) ToStringOutput() pulumi.StringOutput {
+func (e UserStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e UserState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e UserStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e UserState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e UserStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e UserState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e UserStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

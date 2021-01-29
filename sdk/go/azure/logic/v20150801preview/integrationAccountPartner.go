@@ -174,7 +174,7 @@ type IntegrationAccountPartnerArgs struct {
 	// The integration account partner name.
 	PartnerName pulumi.StringInput
 	// The partner type.
-	PartnerType PartnerType
+	PartnerType *PartnerType
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

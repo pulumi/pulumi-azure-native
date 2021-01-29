@@ -75,7 +75,8 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	if args.VmPriority == nil {
-		args.VmPriority = VmPriority("dedicated")
+		e := VmPriority("dedicated")
+		args.VmPriority = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -222,7 +223,7 @@ type ClusterArgs struct {
 	// OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
 	VirtualMachineConfiguration VirtualMachineConfigurationPtrInput
 	// VM priority. Allowed values are: dedicated (default) and lowpriority.
-	VmPriority VmPriority
+	VmPriority *VmPriority
 	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 	VmSize pulumi.StringInput
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

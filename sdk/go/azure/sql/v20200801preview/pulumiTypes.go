@@ -1706,7 +1706,7 @@ type JobScheduleArgs struct {
 	// Schedule start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Schedule interval type
-	Type JobScheduleType `pulumi:"type"`
+	Type *JobScheduleType `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -2855,7 +2855,7 @@ func (o JobStepExecutionOptionsResponsePtrOutput) TimeoutSeconds() pulumi.IntPtr
 }
 
 // The output configuration of a job step.
-type JobStepOutput struct {
+type JobStepOutputType struct {
 	// The resource ID of the credential to use to connect to the output destination.
 	Credential string `pulumi:"credential"`
 	// The output destination database.
@@ -2874,19 +2874,19 @@ type JobStepOutput struct {
 	Type *string `pulumi:"type"`
 }
 
-// JobStepOutputInput is an input type that accepts JobStepOutputArgs and JobStepOutputOutput values.
-// You can construct a concrete instance of `JobStepOutputInput` via:
+// JobStepOutputTypeInput is an input type that accepts JobStepOutputTypeArgs and JobStepOutputTypeOutput values.
+// You can construct a concrete instance of `JobStepOutputTypeInput` via:
 //
-//          JobStepOutputArgs{...}
-type JobStepOutputInput interface {
+//          JobStepOutputTypeArgs{...}
+type JobStepOutputTypeInput interface {
 	pulumi.Input
 
-	ToJobStepOutputOutput() JobStepOutputOutput
-	ToJobStepOutputOutputWithContext(context.Context) JobStepOutputOutput
+	ToJobStepOutputTypeOutput() JobStepOutputTypeOutput
+	ToJobStepOutputTypeOutputWithContext(context.Context) JobStepOutputTypeOutput
 }
 
 // The output configuration of a job step.
-type JobStepOutputArgs struct {
+type JobStepOutputTypeArgs struct {
 	// The resource ID of the credential to use to connect to the output destination.
 	Credential pulumi.StringInput `pulumi:"credential"`
 	// The output destination database.
@@ -2905,145 +2905,145 @@ type JobStepOutputArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (JobStepOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStepOutput)(nil)).Elem()
+func (JobStepOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputType)(nil)).Elem()
 }
 
-func (i JobStepOutputArgs) ToJobStepOutputOutput() JobStepOutputOutput {
-	return i.ToJobStepOutputOutputWithContext(context.Background())
+func (i JobStepOutputTypeArgs) ToJobStepOutputTypeOutput() JobStepOutputTypeOutput {
+	return i.ToJobStepOutputTypeOutputWithContext(context.Background())
 }
 
-func (i JobStepOutputArgs) ToJobStepOutputOutputWithContext(ctx context.Context) JobStepOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputOutput)
+func (i JobStepOutputTypeArgs) ToJobStepOutputTypeOutputWithContext(ctx context.Context) JobStepOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTypeOutput)
 }
 
-func (i JobStepOutputArgs) ToJobStepOutputPtrOutput() JobStepOutputPtrOutput {
-	return i.ToJobStepOutputPtrOutputWithContext(context.Background())
+func (i JobStepOutputTypeArgs) ToJobStepOutputTypePtrOutput() JobStepOutputTypePtrOutput {
+	return i.ToJobStepOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i JobStepOutputArgs) ToJobStepOutputPtrOutputWithContext(ctx context.Context) JobStepOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputOutput).ToJobStepOutputPtrOutputWithContext(ctx)
+func (i JobStepOutputTypeArgs) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTypeOutput).ToJobStepOutputTypePtrOutputWithContext(ctx)
 }
 
-// JobStepOutputPtrInput is an input type that accepts JobStepOutputArgs, JobStepOutputPtr and JobStepOutputPtrOutput values.
-// You can construct a concrete instance of `JobStepOutputPtrInput` via:
+// JobStepOutputTypePtrInput is an input type that accepts JobStepOutputTypeArgs, JobStepOutputTypePtr and JobStepOutputTypePtrOutput values.
+// You can construct a concrete instance of `JobStepOutputTypePtrInput` via:
 //
-//          JobStepOutputArgs{...}
+//          JobStepOutputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type JobStepOutputPtrInput interface {
+type JobStepOutputTypePtrInput interface {
 	pulumi.Input
 
-	ToJobStepOutputPtrOutput() JobStepOutputPtrOutput
-	ToJobStepOutputPtrOutputWithContext(context.Context) JobStepOutputPtrOutput
+	ToJobStepOutputTypePtrOutput() JobStepOutputTypePtrOutput
+	ToJobStepOutputTypePtrOutputWithContext(context.Context) JobStepOutputTypePtrOutput
 }
 
-type jobStepOutputPtrType JobStepOutputArgs
+type jobStepOutputTypePtrType JobStepOutputTypeArgs
 
-func JobStepOutputPtr(v *JobStepOutputArgs) JobStepOutputPtrInput {
-	return (*jobStepOutputPtrType)(v)
+func JobStepOutputTypePtr(v *JobStepOutputTypeArgs) JobStepOutputTypePtrInput {
+	return (*jobStepOutputTypePtrType)(v)
 }
 
-func (*jobStepOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepOutput)(nil)).Elem()
+func (*jobStepOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobStepOutputType)(nil)).Elem()
 }
 
-func (i *jobStepOutputPtrType) ToJobStepOutputPtrOutput() JobStepOutputPtrOutput {
-	return i.ToJobStepOutputPtrOutputWithContext(context.Background())
+func (i *jobStepOutputTypePtrType) ToJobStepOutputTypePtrOutput() JobStepOutputTypePtrOutput {
+	return i.ToJobStepOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *jobStepOutputPtrType) ToJobStepOutputPtrOutputWithContext(ctx context.Context) JobStepOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputPtrOutput)
+func (i *jobStepOutputTypePtrType) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTypePtrOutput)
 }
 
 // The output configuration of a job step.
-type JobStepOutputOutput struct{ *pulumi.OutputState }
+type JobStepOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (JobStepOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStepOutput)(nil)).Elem()
+func (JobStepOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputType)(nil)).Elem()
 }
 
-func (o JobStepOutputOutput) ToJobStepOutputOutput() JobStepOutputOutput {
+func (o JobStepOutputTypeOutput) ToJobStepOutputTypeOutput() JobStepOutputTypeOutput {
 	return o
 }
 
-func (o JobStepOutputOutput) ToJobStepOutputOutputWithContext(ctx context.Context) JobStepOutputOutput {
+func (o JobStepOutputTypeOutput) ToJobStepOutputTypeOutputWithContext(ctx context.Context) JobStepOutputTypeOutput {
 	return o
 }
 
-func (o JobStepOutputOutput) ToJobStepOutputPtrOutput() JobStepOutputPtrOutput {
-	return o.ToJobStepOutputPtrOutputWithContext(context.Background())
+func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutput() JobStepOutputTypePtrOutput {
+	return o.ToJobStepOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (o JobStepOutputOutput) ToJobStepOutputPtrOutputWithContext(ctx context.Context) JobStepOutputPtrOutput {
-	return o.ApplyT(func(v JobStepOutput) *JobStepOutput {
+func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
+	return o.ApplyT(func(v JobStepOutputType) *JobStepOutputType {
 		return &v
-	}).(JobStepOutputPtrOutput)
+	}).(JobStepOutputTypePtrOutput)
 }
 
 // The resource ID of the credential to use to connect to the output destination.
-func (o JobStepOutputOutput) Credential() pulumi.StringOutput {
-	return o.ApplyT(func(v JobStepOutput) string { return v.Credential }).(pulumi.StringOutput)
+func (o JobStepOutputTypeOutput) Credential() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputType) string { return v.Credential }).(pulumi.StringOutput)
 }
 
 // The output destination database.
-func (o JobStepOutputOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v JobStepOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
+func (o JobStepOutputTypeOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputType) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
 // The output destination resource group.
-func (o JobStepOutputOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobStepOutput) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+func (o JobStepOutputTypeOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputType) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The output destination schema.
-func (o JobStepOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobStepOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+func (o JobStepOutputTypeOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputType) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
 // The output destination server name.
-func (o JobStepOutputOutput) ServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v JobStepOutput) string { return v.ServerName }).(pulumi.StringOutput)
+func (o JobStepOutputTypeOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputType) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
 // The output destination subscription id.
-func (o JobStepOutputOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobStepOutput) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+func (o JobStepOutputTypeOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputType) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 // The output destination table.
-func (o JobStepOutputOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v JobStepOutput) string { return v.TableName }).(pulumi.StringOutput)
+func (o JobStepOutputTypeOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputType) string { return v.TableName }).(pulumi.StringOutput)
 }
 
 // The output destination type.
-func (o JobStepOutputOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobStepOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JobStepOutputTypeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type JobStepOutputPtrOutput struct{ *pulumi.OutputState }
+type JobStepOutputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (JobStepOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobStepOutput)(nil)).Elem()
+func (JobStepOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobStepOutputType)(nil)).Elem()
 }
 
-func (o JobStepOutputPtrOutput) ToJobStepOutputPtrOutput() JobStepOutputPtrOutput {
+func (o JobStepOutputTypePtrOutput) ToJobStepOutputTypePtrOutput() JobStepOutputTypePtrOutput {
 	return o
 }
 
-func (o JobStepOutputPtrOutput) ToJobStepOutputPtrOutputWithContext(ctx context.Context) JobStepOutputPtrOutput {
+func (o JobStepOutputTypePtrOutput) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
 	return o
 }
 
-func (o JobStepOutputPtrOutput) Elem() JobStepOutputOutput {
-	return o.ApplyT(func(v *JobStepOutput) JobStepOutput { return *v }).(JobStepOutputOutput)
+func (o JobStepOutputTypePtrOutput) Elem() JobStepOutputTypeOutput {
+	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType { return *v }).(JobStepOutputTypeOutput)
 }
 
 // The resource ID of the credential to use to connect to the output destination.
-func (o JobStepOutputPtrOutput) Credential() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) Credential() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3052,8 +3052,8 @@ func (o JobStepOutputPtrOutput) Credential() pulumi.StringPtrOutput {
 }
 
 // The output destination database.
-func (o JobStepOutputPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3062,8 +3062,8 @@ func (o JobStepOutputPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 }
 
 // The output destination resource group.
-func (o JobStepOutputPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3072,8 +3072,8 @@ func (o JobStepOutputPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 }
 
 // The output destination schema.
-func (o JobStepOutputPtrOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3082,8 +3082,8 @@ func (o JobStepOutputPtrOutput) SchemaName() pulumi.StringPtrOutput {
 }
 
 // The output destination server name.
-func (o JobStepOutputPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3092,8 +3092,8 @@ func (o JobStepOutputPtrOutput) ServerName() pulumi.StringPtrOutput {
 }
 
 // The output destination subscription id.
-func (o JobStepOutputPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3102,8 +3102,8 @@ func (o JobStepOutputPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 }
 
 // The output destination table.
-func (o JobStepOutputPtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3112,8 +3112,8 @@ func (o JobStepOutputPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 // The output destination type.
-func (o JobStepOutputPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobStepOutput) *string {
+func (o JobStepOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3424,7 +3424,7 @@ type JobTargetArgs struct {
 	// The target elastic pool name.
 	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType JobTargetGroupMembershipType `pulumi:"membershipType"`
+	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
 	// The target server name.
@@ -7964,8 +7964,8 @@ func init() {
 	pulumi.RegisterOutputType(JobStepExecutionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponseOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobStepOutputOutput{})
-	pulumi.RegisterOutputType(JobStepOutputPtrOutput{})
+	pulumi.RegisterOutputType(JobStepOutputTypeOutput{})
+	pulumi.RegisterOutputType(JobStepOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(JobStepOutputResponseOutput{})
 	pulumi.RegisterOutputType(JobStepOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobTargetOutput{})

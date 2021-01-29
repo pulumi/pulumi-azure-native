@@ -127,7 +127,7 @@ type AccessControlRecordArgs struct {
 	// The iSCSI initiator name (IQN).
 	InitiatorName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind Kind
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

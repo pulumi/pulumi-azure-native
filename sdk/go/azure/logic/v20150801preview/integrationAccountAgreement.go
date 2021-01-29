@@ -194,7 +194,7 @@ type IntegrationAccountAgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName pulumi.StringInput
 	// The agreement type.
-	AgreementType AgreementType
+	AgreementType *AgreementType
 	// The agreement content.
 	Content AgreementContentPtrInput
 	// The guest identity.

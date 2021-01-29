@@ -17364,7 +17364,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day DayOfWeek `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -20295,7 +20295,7 @@ type WorkflowParameterArgs struct {
 	// The metadata.
 	Metadata pulumi.Input `pulumi:"metadata"`
 	// The type.
-	Type ParameterType `pulumi:"type"`
+	Type *ParameterType `pulumi:"type"`
 	// The value.
 	Value pulumi.Input `pulumi:"value"`
 }
@@ -20642,7 +20642,7 @@ type WorkflowTriggerRecurrenceArgs struct {
 	// The end time.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency.
-	Frequency RecurrenceFrequency `pulumi:"frequency"`
+	Frequency *RecurrenceFrequency `pulumi:"frequency"`
 	// The interval.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// The recurrence schedule.

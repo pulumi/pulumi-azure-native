@@ -217,7 +217,7 @@ type StorageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// Gets or sets the account type.
-	AccountType AccountType
+	AccountType *AccountType
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the resource group within the user's subscription.

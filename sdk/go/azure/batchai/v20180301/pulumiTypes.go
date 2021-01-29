@@ -3366,7 +3366,7 @@ type DataDisksInput interface {
 
 // Settings for the data disk which would be created for the File Server.
 type DataDisksArgs struct {
-	CachingType        CachingType        `pulumi:"cachingType"`
+	CachingType        *CachingType       `pulumi:"cachingType"`
 	DiskCount          pulumi.IntInput    `pulumi:"diskCount"`
 	DiskSizeInGB       pulumi.IntInput    `pulumi:"diskSizeInGB"`
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
@@ -6473,7 +6473,7 @@ type ManualScaleSettingsInput interface {
 // Manual scale settings for the cluster.
 type ManualScaleSettingsArgs struct {
 	// The default value is requeue.
-	NodeDeallocationOption DeallocationOption `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption *DeallocationOption `pulumi:"nodeDeallocationOption"`
 	// Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
 	TargetNodeCount pulumi.IntInput `pulumi:"targetNodeCount"`
 }

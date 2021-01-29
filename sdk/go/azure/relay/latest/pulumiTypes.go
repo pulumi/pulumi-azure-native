@@ -34,7 +34,7 @@ type SkuArgs struct {
 	// Name of this SKU.
 	Name SkuName `pulumi:"name"`
 	// The tier of this SKU.
-	Tier SkuTier `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

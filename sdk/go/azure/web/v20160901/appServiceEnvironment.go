@@ -394,7 +394,7 @@ type AppServiceEnvironmentArgs struct {
 	// Scale factor for front-ends.
 	FrontEndScaleFactor pulumi.IntPtrInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode InternalLoadBalancingMode
+	InternalLoadBalancingMode *InternalLoadBalancingMode
 	// Number of IP SSL addresses reserved for the App Service Environment.
 	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource.

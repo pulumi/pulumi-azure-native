@@ -74,41 +74,41 @@ func (e EntityStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 }
 
 // State of the Namespace.
-type NamespaceState pulumi.String
+type NamespaceStateEnum pulumi.String
 
 const (
-	NamespaceStateUnknown      = NamespaceState("Unknown")
-	NamespaceStateCreating     = NamespaceState("Creating")
-	NamespaceStateCreated      = NamespaceState("Created")
-	NamespaceStateActivating   = NamespaceState("Activating")
-	NamespaceStateEnabling     = NamespaceState("Enabling")
-	NamespaceStateActive       = NamespaceState("Active")
-	NamespaceStateDisabling    = NamespaceState("Disabling")
-	NamespaceStateDisabled     = NamespaceState("Disabled")
-	NamespaceStateSoftDeleting = NamespaceState("SoftDeleting")
-	NamespaceStateSoftDeleted  = NamespaceState("SoftDeleted")
-	NamespaceStateRemoving     = NamespaceState("Removing")
-	NamespaceStateRemoved      = NamespaceState("Removed")
-	NamespaceStateFailed       = NamespaceState("Failed")
+	NamespaceStateEnumUnknown      = NamespaceStateEnum("Unknown")
+	NamespaceStateEnumCreating     = NamespaceStateEnum("Creating")
+	NamespaceStateEnumCreated      = NamespaceStateEnum("Created")
+	NamespaceStateEnumActivating   = NamespaceStateEnum("Activating")
+	NamespaceStateEnumEnabling     = NamespaceStateEnum("Enabling")
+	NamespaceStateEnumActive       = NamespaceStateEnum("Active")
+	NamespaceStateEnumDisabling    = NamespaceStateEnum("Disabling")
+	NamespaceStateEnumDisabled     = NamespaceStateEnum("Disabled")
+	NamespaceStateEnumSoftDeleting = NamespaceStateEnum("SoftDeleting")
+	NamespaceStateEnumSoftDeleted  = NamespaceStateEnum("SoftDeleted")
+	NamespaceStateEnumRemoving     = NamespaceStateEnum("Removing")
+	NamespaceStateEnumRemoved      = NamespaceStateEnum("Removed")
+	NamespaceStateEnumFailed       = NamespaceStateEnum("Failed")
 )
 
-func (NamespaceState) ElementType() reflect.Type {
+func (NamespaceStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e NamespaceState) ToStringOutput() pulumi.StringOutput {
+func (e NamespaceStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e NamespaceState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e NamespaceStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e NamespaceState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e NamespaceStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e NamespaceState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e NamespaceStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

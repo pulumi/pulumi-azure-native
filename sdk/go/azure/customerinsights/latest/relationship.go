@@ -192,7 +192,7 @@ type relationshipArgs struct {
 // The set of arguments for constructing a Relationship resource.
 type RelationshipArgs struct {
 	// The Relationship Cardinality.
-	Cardinality CardinalityTypes
+	Cardinality *CardinalityTypes
 	// Localized descriptions for the Relationship.
 	Description pulumi.StringMapInput
 	// Localized display name for the Relationship.

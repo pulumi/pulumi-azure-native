@@ -36,7 +36,7 @@ type ApplicationArtifactArgs struct {
 	// The managed application artifact name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The managed application artifact type.
-	Type ApplicationArtifactType `pulumi:"type"`
+	Type *ApplicationArtifactType `pulumi:"type"`
 	// The managed application artifact blob uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -484,7 +484,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {

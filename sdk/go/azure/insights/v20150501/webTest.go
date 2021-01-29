@@ -75,12 +75,13 @@ func NewWebTest(ctx *pulumi.Context,
 		args.Frequency = pulumi.IntPtr(300)
 	}
 	if args.Kind == nil {
-		args.Kind = WebTestKind("ping")
+		e := WebTestKind("ping")
+		args.Kind = &e
 	}
 	if args.Timeout == nil {
 		args.Timeout = pulumi.IntPtr(30)
 	}
-	if args.WebTestKind == nil {
+	if args.WebTestKind == "" {
 		args.WebTestKind = WebTestKind("ping")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -229,7 +230,7 @@ type WebTestArgs struct {
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput
 	// The kind of web test that this web test watches. Choices are ping and multistep.
-	Kind WebTestKind
+	Kind *WebTestKind
 	// Resource location
 	Location pulumi.StringInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.

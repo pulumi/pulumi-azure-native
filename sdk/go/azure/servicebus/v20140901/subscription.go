@@ -249,7 +249,7 @@ type SubscriptionArgs struct {
 	// Value that indicates whether server-side batched operations are enabled.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus EntityAvailabilityStatus
+	EntityAvailabilityStatus *EntityAvailabilityStatus
 	// Value that indicates whether the entity description is read-only.
 	IsReadOnly pulumi.BoolPtrInput
 	// Subscription data center location.
@@ -265,7 +265,7 @@ type SubscriptionArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatus
+	Status *EntityStatus
 	// The subscription name.
 	SubscriptionName pulumi.StringInput
 	// The topic name.

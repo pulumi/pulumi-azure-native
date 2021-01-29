@@ -247,9 +247,9 @@ type BatchAccountArgs struct {
 	// The region in which to create the account.
 	Location pulumi.StringInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode PoolAllocationMode
+	PoolAllocationMode *PoolAllocationMode
 	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess PublicNetworkAccessType
+	PublicNetworkAccess *PublicNetworkAccessType
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The user-specified tags associated with the account.

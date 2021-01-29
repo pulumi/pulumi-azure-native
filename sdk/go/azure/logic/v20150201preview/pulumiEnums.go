@@ -78,32 +78,32 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 }
 
 // Gets or sets the state.
-type WorkflowState pulumi.String
+type WorkflowStateEnum pulumi.String
 
 const (
-	WorkflowStateNotSpecified = WorkflowState("NotSpecified")
-	WorkflowStateEnabled      = WorkflowState("Enabled")
-	WorkflowStateDisabled     = WorkflowState("Disabled")
-	WorkflowStateDeleted      = WorkflowState("Deleted")
-	WorkflowStateSuspended    = WorkflowState("Suspended")
+	WorkflowStateEnumNotSpecified = WorkflowStateEnum("NotSpecified")
+	WorkflowStateEnumEnabled      = WorkflowStateEnum("Enabled")
+	WorkflowStateEnumDisabled     = WorkflowStateEnum("Disabled")
+	WorkflowStateEnumDeleted      = WorkflowStateEnum("Deleted")
+	WorkflowStateEnumSuspended    = WorkflowStateEnum("Suspended")
 )
 
-func (WorkflowState) ElementType() reflect.Type {
+func (WorkflowStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e WorkflowState) ToStringOutput() pulumi.StringOutput {
+func (e WorkflowStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WorkflowState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e WorkflowStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e WorkflowState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e WorkflowStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e WorkflowState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e WorkflowStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

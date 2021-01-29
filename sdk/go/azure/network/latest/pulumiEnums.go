@@ -1110,34 +1110,34 @@ func (e EndpointStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 }
 
 // The endpoint type.
-type EndpointType pulumi.String
+type EndpointTypeEnum pulumi.String
 
 const (
-	EndpointTypeAzureVM             = EndpointType("AzureVM")
-	EndpointTypeAzureVNet           = EndpointType("AzureVNet")
-	EndpointTypeAzureSubnet         = EndpointType("AzureSubnet")
-	EndpointTypeExternalAddress     = EndpointType("ExternalAddress")
-	EndpointTypeMMAWorkspaceMachine = EndpointType("MMAWorkspaceMachine")
-	EndpointTypeMMAWorkspaceNetwork = EndpointType("MMAWorkspaceNetwork")
+	EndpointTypeEnumAzureVM             = EndpointTypeEnum("AzureVM")
+	EndpointTypeEnumAzureVNet           = EndpointTypeEnum("AzureVNet")
+	EndpointTypeEnumAzureSubnet         = EndpointTypeEnum("AzureSubnet")
+	EndpointTypeEnumExternalAddress     = EndpointTypeEnum("ExternalAddress")
+	EndpointTypeEnumMMAWorkspaceMachine = EndpointTypeEnum("MMAWorkspaceMachine")
+	EndpointTypeEnumMMAWorkspaceNetwork = EndpointTypeEnum("MMAWorkspaceNetwork")
 )
 
-func (EndpointType) ElementType() reflect.Type {
+func (EndpointTypeEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e EndpointType) ToStringOutput() pulumi.StringOutput {
+func (e EndpointTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e EndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e EndpointTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e EndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e EndpointTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e EndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e EndpointTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1170,30 +1170,30 @@ func (e EnforceCertificateNameCheckEnabledState) ToStringPtrOutputWithContext(ct
 }
 
 // The state of peering.
-type ExpressRouteCircuitPeeringState pulumi.String
+type ExpressRouteCircuitPeeringStateEnum pulumi.String
 
 const (
-	ExpressRouteCircuitPeeringStateDisabled = ExpressRouteCircuitPeeringState("Disabled")
-	ExpressRouteCircuitPeeringStateEnabled  = ExpressRouteCircuitPeeringState("Enabled")
+	ExpressRouteCircuitPeeringStateEnumDisabled = ExpressRouteCircuitPeeringStateEnum("Disabled")
+	ExpressRouteCircuitPeeringStateEnumEnabled  = ExpressRouteCircuitPeeringStateEnum("Enabled")
 )
 
-func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
+func (ExpressRouteCircuitPeeringStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringOutput() pulumi.StringOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -3263,29 +3263,29 @@ func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) 
 }
 
 // The rule type of the rule.
-type RouteFilterRuleType pulumi.String
+type RouteFilterRuleTypeEnum pulumi.String
 
 const (
-	RouteFilterRuleTypeCommunity = RouteFilterRuleType("Community")
+	RouteFilterRuleTypeEnumCommunity = RouteFilterRuleTypeEnum("Community")
 )
 
-func (RouteFilterRuleType) ElementType() reflect.Type {
+func (RouteFilterRuleTypeEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e RouteFilterRuleType) ToStringOutput() pulumi.StringOutput {
+func (e RouteFilterRuleTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RouteFilterRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e RouteFilterRuleTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RouteFilterRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e RouteFilterRuleTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e RouteFilterRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e RouteFilterRuleTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -4010,60 +4010,60 @@ func (e VirtualNetworkGatewaySkuTier) ToStringPtrOutputWithContext(ctx context.C
 }
 
 // The type of this virtual network gateway.
-type VirtualNetworkGatewayType pulumi.String
+type VirtualNetworkGatewayTypeEnum pulumi.String
 
 const (
-	VirtualNetworkGatewayTypeVpn          = VirtualNetworkGatewayType("Vpn")
-	VirtualNetworkGatewayTypeExpressRoute = VirtualNetworkGatewayType("ExpressRoute")
-	VirtualNetworkGatewayTypeLocalGateway = VirtualNetworkGatewayType("LocalGateway")
+	VirtualNetworkGatewayTypeEnumVpn          = VirtualNetworkGatewayTypeEnum("Vpn")
+	VirtualNetworkGatewayTypeEnumExpressRoute = VirtualNetworkGatewayTypeEnum("ExpressRoute")
+	VirtualNetworkGatewayTypeEnumLocalGateway = VirtualNetworkGatewayTypeEnum("LocalGateway")
 )
 
-func (VirtualNetworkGatewayType) ElementType() reflect.Type {
+func (VirtualNetworkGatewayTypeEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e VirtualNetworkGatewayType) ToStringOutput() pulumi.StringOutput {
+func (e VirtualNetworkGatewayTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VirtualNetworkGatewayType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e VirtualNetworkGatewayTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VirtualNetworkGatewayType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e VirtualNetworkGatewayTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e VirtualNetworkGatewayType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e VirtualNetworkGatewayTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
 // The status of the virtual network peering.
-type VirtualNetworkPeeringState pulumi.String
+type VirtualNetworkPeeringStateEnum pulumi.String
 
 const (
-	VirtualNetworkPeeringStateInitiated    = VirtualNetworkPeeringState("Initiated")
-	VirtualNetworkPeeringStateConnected    = VirtualNetworkPeeringState("Connected")
-	VirtualNetworkPeeringStateDisconnected = VirtualNetworkPeeringState("Disconnected")
+	VirtualNetworkPeeringStateEnumInitiated    = VirtualNetworkPeeringStateEnum("Initiated")
+	VirtualNetworkPeeringStateEnumConnected    = VirtualNetworkPeeringStateEnum("Connected")
+	VirtualNetworkPeeringStateEnumDisconnected = VirtualNetworkPeeringStateEnum("Disconnected")
 )
 
-func (VirtualNetworkPeeringState) ElementType() reflect.Type {
+func (VirtualNetworkPeeringStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e VirtualNetworkPeeringState) ToStringOutput() pulumi.StringOutput {
+func (e VirtualNetworkPeeringStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VirtualNetworkPeeringState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e VirtualNetworkPeeringStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VirtualNetworkPeeringState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e VirtualNetworkPeeringStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e VirtualNetworkPeeringState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e VirtualNetworkPeeringStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

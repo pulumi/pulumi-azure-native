@@ -5975,7 +5975,7 @@ type IPRuleInput interface {
 // IP rule with specific IP or IP range in CIDR format.
 type IPRuleArgs struct {
 	// The action of IP ACL rule.
-	Action Action `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
@@ -14280,9 +14280,9 @@ type VirtualNetworkRuleInput interface {
 // Virtual Network rule.
 type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
-	Action Action `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State State `pulumi:"state"`
+	State *State `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }

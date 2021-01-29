@@ -2974,13 +2974,13 @@ type ClusterCreatePropertiesArgs struct {
 	// The network properties.
 	NetworkProperties NetworkPropertiesPtrInput `pulumi:"networkProperties"`
 	// The type of operating system.
-	OsType OSType `pulumi:"osType"`
+	OsType *OSType `pulumi:"osType"`
 	// The security profile.
 	SecurityProfile SecurityProfilePtrInput `pulumi:"securityProfile"`
 	// The storage profile.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// The cluster tier.
-	Tier Tier `pulumi:"tier"`
+	Tier *Tier `pulumi:"tier"`
 }
 
 func (ClusterCreatePropertiesArgs) ElementType() reflect.Type {
@@ -4217,7 +4217,7 @@ type ClusterIdentityInput interface {
 // Identity for the cluster.
 type ClusterIdentityArgs struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities ClusterIdentityUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
@@ -9269,7 +9269,7 @@ type SecurityProfileArgs struct {
 	// Optional. The Distinguished Names for cluster user groups
 	ClusterUsersGroupDNs pulumi.StringArrayInput `pulumi:"clusterUsersGroupDNs"`
 	// The directory type.
-	DirectoryType DirectoryType `pulumi:"directoryType"`
+	DirectoryType *DirectoryType `pulumi:"directoryType"`
 	// The organization's active directory domain.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// The domain admin password.

@@ -2561,7 +2561,7 @@ type CreateRecoveryPlanInputPropertiesInput interface {
 // Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesArgs struct {
 	// The failover deployment model.
-	FailoverDeploymentModel FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
+	FailoverDeploymentModel *FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
 	// The recovery plan groups.
 	Groups RecoveryPlanGroupArrayInput `pulumi:"groups"`
 	// The primary fabric Id.

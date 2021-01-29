@@ -32,9 +32,9 @@ type B2CResourceSKUInput interface {
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUArgs struct {
 	// The name of the SKU for the tenant.
-	Name B2CResourceSKUName `pulumi:"name"`
+	Name *B2CResourceSKUName `pulumi:"name"`
 	// The tier of the tenant.
-	Tier B2CResourceSKUTier `pulumi:"tier"`
+	Tier *B2CResourceSKUTier `pulumi:"tier"`
 }
 
 func (B2CResourceSKUArgs) ElementType() reflect.Type {

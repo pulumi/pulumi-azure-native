@@ -6875,7 +6875,7 @@ type TagSettingsPropertiesInput interface {
 // Tag filter information for the VM.
 type TagSettingsPropertiesArgs struct {
 	// Filter VMs by Any or All specified tags.
-	FilterOperator TagOperators `pulumi:"filterOperator"`
+	FilterOperator *TagOperators `pulumi:"filterOperator"`
 	// Dictionary of tags with its list of values.
 	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
 }

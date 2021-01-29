@@ -515,7 +515,7 @@ type ConnectorMappingAvailabilityInput interface {
 // Connector mapping property availability.
 type ConnectorMappingAvailabilityArgs struct {
 	// The frequency to update.
-	Frequency FrequencyTypes `pulumi:"frequency"`
+	Frequency *FrequencyTypes `pulumi:"frequency"`
 	// The interval of the given frequency to use.
 	Interval pulumi.IntInput `pulumi:"interval"`
 }
@@ -821,7 +821,7 @@ type ConnectorMappingCompleteOperationInput interface {
 // The complete operation.
 type ConnectorMappingCompleteOperationArgs struct {
 	// The type of completion operation.
-	CompletionOperationType CompletionOperationTypes `pulumi:"completionOperationType"`
+	CompletionOperationType *CompletionOperationTypes `pulumi:"completionOperationType"`
 	// The destination folder where files will be moved to once the import is done.
 	DestinationFolder pulumi.StringPtrInput `pulumi:"destinationFolder"`
 }
@@ -6260,7 +6260,7 @@ type RelationshipLinkFieldMappingArgs struct {
 	// The field name on the Interaction Type.
 	InteractionFieldName pulumi.StringInput `pulumi:"interactionFieldName"`
 	// Link type.
-	LinkType LinkTypes `pulumi:"linkType"`
+	LinkType *LinkTypes `pulumi:"linkType"`
 	// The field name on the Relationship metadata.
 	RelationshipFieldName pulumi.StringInput `pulumi:"relationshipFieldName"`
 }
@@ -7472,7 +7472,7 @@ type TypePropertiesMappingInput interface {
 // Metadata for a Link's property mapping.
 type TypePropertiesMappingArgs struct {
 	// Link type.
-	LinkType LinkTypes `pulumi:"linkType"`
+	LinkType *LinkTypes `pulumi:"linkType"`
 	//  Property name on the source Entity Type.
 	SourcePropertyName pulumi.StringInput `pulumi:"sourcePropertyName"`
 	// Property name on the target Entity Type.

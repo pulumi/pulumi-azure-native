@@ -192,15 +192,15 @@ type WebAppHostNameBindingArgs struct {
 	// Azure resource name.
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type.
-	AzureResourceType AzureResourceType
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordType
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
 	// Hostname in the hostname binding.
 	HostName pulumi.StringInput
 	// Hostname type.
-	HostNameType HostNameType
+	HostNameType *HostNameType
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.
@@ -210,7 +210,7 @@ type WebAppHostNameBindingArgs struct {
 	// App Service app name.
 	SiteName pulumi.StringPtrInput
 	// SSL type
-	SslState SslState
+	SslState *SslState
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 }

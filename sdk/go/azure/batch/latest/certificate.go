@@ -186,7 +186,7 @@ type CertificateArgs struct {
 	// The maximum size is 10KB.
 	Data pulumi.StringInput
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format CertificateFormat
+	Format *CertificateFormat
 	// This must not be specified if the certificate format is Cer.
 	Password pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.

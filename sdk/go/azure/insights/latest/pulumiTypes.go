@@ -6748,7 +6748,7 @@ type ManagementEventAggregationConditionInput interface {
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionArgs struct {
 	// the condition operator.
-	Operator ConditionOperator `pulumi:"operator"`
+	Operator *ConditionOperator `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -12434,7 +12434,7 @@ type ThresholdRuleConditionArgs struct {
 	// the threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation TimeAggregationOperator `pulumi:"timeAggregation"`
+	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
 }

@@ -5456,9 +5456,9 @@ type HealthProbeParametersArgs struct {
 	// The path relative to the origin that is used to determine the health of the origin.
 	ProbePath pulumi.StringPtrInput `pulumi:"probePath"`
 	// Protocol to use for health probe.
-	ProbeProtocol ProbeProtocol `pulumi:"probeProtocol"`
+	ProbeProtocol *ProbeProtocol `pulumi:"probeProtocol"`
 	// The type of health probe request that is made.
-	ProbeRequestType HealthProbeRequestType `pulumi:"probeRequestType"`
+	ProbeRequestType *HealthProbeRequestType `pulumi:"probeRequestType"`
 }
 
 func (HealthProbeParametersArgs) ElementType() reflect.Type {
@@ -10608,7 +10608,7 @@ type ResponseBasedOriginErrorDetectionParametersArgs struct {
 	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
 	HttpErrorRanges HttpErrorRangeParametersArrayInput `pulumi:"httpErrorRanges"`
 	// Type of response errors for real user requests for which origin will be deemed unhealthy
-	ResponseBasedDetectedErrorTypes ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
+	ResponseBasedDetectedErrorTypes *ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
 	// The percentage of failed requests in the sample where failover should trigger.
 	ResponseBasedFailoverThresholdPercentage pulumi.IntPtrInput `pulumi:"responseBasedFailoverThresholdPercentage"`
 }

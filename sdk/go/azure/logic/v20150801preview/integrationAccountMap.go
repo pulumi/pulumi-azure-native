@@ -186,7 +186,7 @@ type IntegrationAccountMapArgs struct {
 	// The integration account map name.
 	MapName pulumi.StringInput
 	// The map type.
-	MapType MapType
+	MapType *MapType
 	// The metadata.
 	Metadata pulumi.Input
 	// The resource name.

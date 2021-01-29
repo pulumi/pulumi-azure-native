@@ -34,7 +34,7 @@ type ReferenceDataSetKeyPropertyArgs struct {
 	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of the key property.
-	Type ReferenceDataKeyPropertyType `pulumi:"type"`
+	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
 }
 
 func (ReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {

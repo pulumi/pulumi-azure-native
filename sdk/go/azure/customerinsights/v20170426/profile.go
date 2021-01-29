@@ -243,7 +243,7 @@ type ProfileArgs struct {
 	// Localized display names for the property.
 	DisplayName pulumi.StringMapInput
 	// Type of entity.
-	EntityType EntityTypes
+	EntityType *EntityTypes
 	// The properties of the Profile.
 	Fields PropertyDefinitionArrayInput
 	// The name of the hub.

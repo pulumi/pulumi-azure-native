@@ -148,7 +148,7 @@ type jobStepArgs struct {
 	// The name of the job.
 	JobName string `pulumi:"jobName"`
 	// Output destination properties of the job step.
-	Output *JobStepOutput `pulumi:"output"`
+	Output *JobStepOutputType `pulumi:"output"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -174,7 +174,7 @@ type JobStepArgs struct {
 	// The name of the job.
 	JobName pulumi.StringInput
 	// Output destination properties of the job step.
-	Output JobStepOutputPtrInput
+	Output JobStepOutputTypePtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

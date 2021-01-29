@@ -157,7 +157,7 @@ type WCFRelayArgs struct {
 	// The relay name.
 	RelayName pulumi.StringInput
 	// WCF relay type.
-	RelayType Relaytype
+	RelayType *Relaytype
 	// Returns true if client authorization is needed for this relay; otherwise, false.
 	RequiresClientAuthorization pulumi.BoolPtrInput
 	// Returns true if transport security is needed for this relay; otherwise, false.

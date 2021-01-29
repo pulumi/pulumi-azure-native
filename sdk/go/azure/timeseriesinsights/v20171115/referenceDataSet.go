@@ -153,7 +153,7 @@ type referenceDataSetArgs struct {
 // The set of arguments for constructing a ReferenceDataSet resource.
 type ReferenceDataSetArgs struct {
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior DataStringComparisonBehavior
+	DataStringComparisonBehavior *DataStringComparisonBehavior
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// The list of key properties for the reference data set.

@@ -170,7 +170,7 @@ type FavoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
 	FavoriteId pulumi.StringInput
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType FavoriteType
+	FavoriteType *FavoriteType
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate pulumi.BoolPtrInput
 	// The user-defined name of the favorite.

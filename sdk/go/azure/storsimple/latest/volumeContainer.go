@@ -175,7 +175,7 @@ type VolumeContainerArgs struct {
 	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
 	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind Kind
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

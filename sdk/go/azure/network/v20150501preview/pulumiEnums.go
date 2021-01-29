@@ -208,59 +208,59 @@ func (e ExpressRouteCircuitPeeringAdvertisedPublicPrefixState) ToStringPtrOutput
 }
 
 // Gets or sets state of Peering
-type ExpressRouteCircuitPeeringState pulumi.String
+type ExpressRouteCircuitPeeringStateEnum pulumi.String
 
 const (
-	ExpressRouteCircuitPeeringStateDisabled = ExpressRouteCircuitPeeringState("Disabled")
-	ExpressRouteCircuitPeeringStateEnabled  = ExpressRouteCircuitPeeringState("Enabled")
+	ExpressRouteCircuitPeeringStateEnumDisabled = ExpressRouteCircuitPeeringStateEnum("Disabled")
+	ExpressRouteCircuitPeeringStateEnumEnabled  = ExpressRouteCircuitPeeringStateEnum("Enabled")
 )
 
-func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
+func (ExpressRouteCircuitPeeringStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringOutput() pulumi.StringOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ExpressRouteCircuitPeeringState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ExpressRouteCircuitPeeringStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
 // Gets or sets PeeringType
-type ExpressRouteCircuitPeeringType pulumi.String
+type ExpressRouteCircuitPeeringTypeEnum pulumi.String
 
 const (
-	ExpressRouteCircuitPeeringTypeAzurePublicPeering  = ExpressRouteCircuitPeeringType("AzurePublicPeering")
-	ExpressRouteCircuitPeeringTypeAzurePrivatePeering = ExpressRouteCircuitPeeringType("AzurePrivatePeering")
-	ExpressRouteCircuitPeeringTypeMicrosoftPeering    = ExpressRouteCircuitPeeringType("MicrosoftPeering")
+	ExpressRouteCircuitPeeringTypeEnumAzurePublicPeering  = ExpressRouteCircuitPeeringTypeEnum("AzurePublicPeering")
+	ExpressRouteCircuitPeeringTypeEnumAzurePrivatePeering = ExpressRouteCircuitPeeringTypeEnum("AzurePrivatePeering")
+	ExpressRouteCircuitPeeringTypeEnumMicrosoftPeering    = ExpressRouteCircuitPeeringTypeEnum("MicrosoftPeering")
 )
 
-func (ExpressRouteCircuitPeeringType) ElementType() reflect.Type {
+func (ExpressRouteCircuitPeeringTypeEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ExpressRouteCircuitPeeringType) ToStringOutput() pulumi.StringOutput {
+func (e ExpressRouteCircuitPeeringTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ExpressRouteCircuitPeeringType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ExpressRouteCircuitPeeringTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ExpressRouteCircuitPeeringType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ExpressRouteCircuitPeeringTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ExpressRouteCircuitPeeringType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ExpressRouteCircuitPeeringTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

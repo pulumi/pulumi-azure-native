@@ -122,7 +122,7 @@ type SerialPortArgs struct {
 	// The name of the serial port to create.
 	SerialPort pulumi.StringInput
 	// Specifies whether the port is enabled for a serial console connection.
-	State SerialPortState
+	State *SerialPortStateEnum
 }
 
 func (SerialPortArgs) ElementType() reflect.Type {

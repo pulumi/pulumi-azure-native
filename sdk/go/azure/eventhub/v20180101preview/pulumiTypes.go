@@ -44,7 +44,7 @@ type CaptureDescriptionArgs struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding EncodingCaptureDescription `pulumi:"encoding"`
+	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -1484,7 +1484,7 @@ type EncryptionInput interface {
 // Properties to configure Encryption
 type EncryptionArgs struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySource `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
 }
@@ -1796,7 +1796,7 @@ type IdentityArgs struct {
 	// TenantId from the KeyVault
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type IdentityType `pulumi:"type"`
+	Type *IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {

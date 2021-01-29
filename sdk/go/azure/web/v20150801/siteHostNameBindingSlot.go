@@ -198,15 +198,15 @@ type SiteHostNameBindingSlotArgs struct {
 	// Azure resource name
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type
-	AzureResourceType AzureResourceType
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordType
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
 	// Name of host
 	HostName pulumi.StringInput
 	// Host name type
-	HostNameType HostNameType
+	HostNameType *HostNameType
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource

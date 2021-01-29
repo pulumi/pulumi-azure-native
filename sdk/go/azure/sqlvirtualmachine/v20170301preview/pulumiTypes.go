@@ -992,7 +992,7 @@ type AutoPatchingSettingsInput interface {
 // Set a patching window during which Windows and SQL patches will be applied.
 type AutoPatchingSettingsArgs struct {
 	// Day of week to apply the patch on.
-	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
 	// Enable or disable autopatching on SQL virtual machine.
 	Enable pulumi.BoolPtrInput `pulumi:"enable"`
 	// Duration of patching.

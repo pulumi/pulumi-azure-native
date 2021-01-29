@@ -263,7 +263,7 @@ type ServerArgs struct {
 	// The display name of a server.
 	DisplayName pulumi.StringPtrInput
 	// stand by count value can be either enabled or disabled
-	HaEnabled HAEnabledEnum
+	HaEnabled *HAEnabledEnum
 	// The Azure Active Directory identity of the server.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives

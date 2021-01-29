@@ -2055,7 +2055,7 @@ type RestResponseRegexInput interface {
 // The regular expressions to match the response content with.
 type RestResponseRegexArgs struct {
 	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier RestMatchQuantifier `pulumi:"matchQuantifier"`
+	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
 	// The list of regular expressions.
 	Matches pulumi.StringArrayInput `pulumi:"matches"`
 }

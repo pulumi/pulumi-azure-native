@@ -651,7 +651,7 @@ type AutoHealActionsInput interface {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// Predefined action to be taken.
-	ActionType AutoHealActionType `pulumi:"actionType"`
+	ActionType *AutoHealActionType `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -2004,7 +2004,7 @@ type AzureBlobStorageApplicationLogsConfigInput interface {
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevel `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -2722,7 +2722,7 @@ type AzureTableStorageApplicationLogsConfigInput interface {
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevel `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
@@ -3915,7 +3915,7 @@ type ConnStringInfoArgs struct {
 	// Name of connection string.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of database.
-	Type ConnectionStringType `pulumi:"type"`
+	Type *ConnectionStringType `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -5318,7 +5318,7 @@ type FileSystemApplicationLogsConfigInput interface {
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevel `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 }
 
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -6214,11 +6214,11 @@ type HostNameSslStateInput interface {
 // SSL-enabled hostname.
 type HostNameSslStateArgs struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType HostType `pulumi:"hostType"`
+	HostType *HostType `pulumi:"hostType"`
 	// Hostname.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// SSL type.
-	SslState SslState `pulumi:"sslState"`
+	SslState *SslState `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -9129,13 +9129,13 @@ type SiteConfigArgs struct {
 	// Linux App Framework and version
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing SiteLoadBalancing `pulumi:"loadBalancing"`
+	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode ManagedPipelineMode `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// .NET Framework version.

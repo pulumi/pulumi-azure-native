@@ -161,30 +161,30 @@ func (e ElasticPoolEdition) ToStringPtrOutputWithContext(ctx context.Context) pu
 }
 
 // The state of the geo backup policy.
-type GeoBackupPolicyState pulumi.String
+type GeoBackupPolicyStateEnum pulumi.String
 
 const (
-	GeoBackupPolicyStateDisabled = GeoBackupPolicyState("Disabled")
-	GeoBackupPolicyStateEnabled  = GeoBackupPolicyState("Enabled")
+	GeoBackupPolicyStateEnumDisabled = GeoBackupPolicyStateEnum("Disabled")
+	GeoBackupPolicyStateEnumEnabled  = GeoBackupPolicyStateEnum("Enabled")
 )
 
-func (GeoBackupPolicyState) ElementType() reflect.Type {
+func (GeoBackupPolicyStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e GeoBackupPolicyState) ToStringOutput() pulumi.StringOutput {
+func (e GeoBackupPolicyStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GeoBackupPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e GeoBackupPolicyStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GeoBackupPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e GeoBackupPolicyStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e GeoBackupPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e GeoBackupPolicyStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

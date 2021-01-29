@@ -294,7 +294,7 @@ type QueueArgs struct {
 	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Entity availability status for the queue.
-	EntityAvailabilityStatus EntityAvailabilityStatus
+	EntityAvailabilityStatus *EntityAvailabilityStatus
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible pulumi.BoolPtrInput
 	// location of the resource.
@@ -318,7 +318,7 @@ type QueueArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatus
+	Status *EntityStatus
 	// A value that indicates whether the queue supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 }

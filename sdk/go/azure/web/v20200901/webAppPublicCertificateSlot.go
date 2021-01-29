@@ -156,7 +156,7 @@ type WebAppPublicCertificateSlotArgs struct {
 	// Name of the app.
 	Name pulumi.StringInput
 	// Public Certificate Location
-	PublicCertificateLocation PublicCertificateLocation
+	PublicCertificateLocation *PublicCertificateLocation
 	// Public certificate name.
 	PublicCertificateName pulumi.StringInput
 	// Name of the resource group to which the resource belongs.

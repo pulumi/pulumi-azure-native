@@ -343,7 +343,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier AccessTier
+	AccessTier *AccessTier
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.

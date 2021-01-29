@@ -196,7 +196,7 @@ type ManagedDatabaseSensitivityLabelArgs struct {
 	LabelName pulumi.StringPtrInput
 	// The name of the managed instance.
 	ManagedInstanceName pulumi.StringInput
-	Rank                SensitivityLabelRank
+	Rank                *SensitivityLabelRank
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.

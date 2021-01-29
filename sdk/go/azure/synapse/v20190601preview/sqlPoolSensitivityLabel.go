@@ -189,7 +189,7 @@ type SqlPoolSensitivityLabelArgs struct {
 	LabelId pulumi.StringPtrInput
 	// The label name.
 	LabelName pulumi.StringPtrInput
-	Rank      SensitivityLabelRank
+	Rank      *SensitivityLabelRank
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.

@@ -306,7 +306,7 @@ type DomainArgs struct {
 	// Technical contact.
 	ContactTech ContactInput
 	// Current DNS type
-	DnsType DnsType
+	DnsType *DnsType
 	// Azure DNS Zone to use
 	DnsZoneId pulumi.StringPtrInput
 	// Name of the domain.
@@ -322,7 +322,7 @@ type DomainArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Target DNS type (would be used for migration)
-	TargetDnsType DnsType
+	TargetDnsType *DnsType
 }
 
 func (DomainArgs) ElementType() reflect.Type {

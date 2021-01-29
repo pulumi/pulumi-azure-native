@@ -200,7 +200,7 @@ type IntegrationAccountSchemaArgs struct {
 	// The integration account schema name.
 	SchemaName pulumi.StringInput
 	// The schema type.
-	SchemaType SchemaType
+	SchemaType *SchemaType
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The target namespace.

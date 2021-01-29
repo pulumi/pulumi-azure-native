@@ -341,29 +341,29 @@ func (e JobStepActionType) ToStringPtrOutputWithContext(ctx context.Context) pul
 }
 
 // The output destination type.
-type JobStepOutputType pulumi.String
+type JobStepOutputTypeEnum pulumi.String
 
 const (
-	JobStepOutputTypeSqlDatabase = JobStepOutputType("SqlDatabase")
+	JobStepOutputTypeEnumSqlDatabase = JobStepOutputTypeEnum("SqlDatabase")
 )
 
-func (JobStepOutputType) ElementType() reflect.Type {
+func (JobStepOutputTypeEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e JobStepOutputType) ToStringOutput() pulumi.StringOutput {
+func (e JobStepOutputTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e JobStepOutputType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e JobStepOutputTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e JobStepOutputType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e JobStepOutputTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e JobStepOutputType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e JobStepOutputTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -889,29 +889,29 @@ func (e SyncMemberDbType) ToStringPtrOutputWithContext(ctx context.Context) pulu
 }
 
 // Specifies the state of the transparent data encryption.
-type TransparentDataEncryptionState pulumi.String
+type TransparentDataEncryptionStateEnum pulumi.String
 
 const (
-	TransparentDataEncryptionStateEnabled  = TransparentDataEncryptionState("Enabled")
-	TransparentDataEncryptionStateDisabled = TransparentDataEncryptionState("Disabled")
+	TransparentDataEncryptionStateEnumEnabled  = TransparentDataEncryptionStateEnum("Enabled")
+	TransparentDataEncryptionStateEnumDisabled = TransparentDataEncryptionStateEnum("Disabled")
 )
 
-func (TransparentDataEncryptionState) ElementType() reflect.Type {
+func (TransparentDataEncryptionStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e TransparentDataEncryptionState) ToStringOutput() pulumi.StringOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TransparentDataEncryptionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TransparentDataEncryptionState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TransparentDataEncryptionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TransparentDataEncryptionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

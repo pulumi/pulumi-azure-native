@@ -2121,7 +2121,7 @@ func (o LiveEventEndpointResponseArrayOutput) Index(i pulumi.IntInput) LiveEvent
 }
 
 // The Live Event input.
-type LiveEventInput struct {
+type LiveEventInputType struct {
 	// The access control for LiveEvent Input.
 	AccessControl *LiveEventInputAccessControl `pulumi:"accessControl"`
 	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
@@ -2134,19 +2134,19 @@ type LiveEventInput struct {
 	StreamingProtocol string `pulumi:"streamingProtocol"`
 }
 
-// LiveEventInputInput is an input type that accepts LiveEventInputArgs and LiveEventInputOutput values.
-// You can construct a concrete instance of `LiveEventInputInput` via:
+// LiveEventInputTypeInput is an input type that accepts LiveEventInputTypeArgs and LiveEventInputTypeOutput values.
+// You can construct a concrete instance of `LiveEventInputTypeInput` via:
 //
-//          LiveEventInputArgs{...}
-type LiveEventInputInput interface {
+//          LiveEventInputTypeArgs{...}
+type LiveEventInputTypeInput interface {
 	pulumi.Input
 
-	ToLiveEventInputOutput() LiveEventInputOutput
-	ToLiveEventInputOutputWithContext(context.Context) LiveEventInputOutput
+	ToLiveEventInputTypeOutput() LiveEventInputTypeOutput
+	ToLiveEventInputTypeOutputWithContext(context.Context) LiveEventInputTypeOutput
 }
 
 // The Live Event input.
-type LiveEventInputArgs struct {
+type LiveEventInputTypeArgs struct {
 	// The access control for LiveEvent Input.
 	AccessControl LiveEventInputAccessControlPtrInput `pulumi:"accessControl"`
 	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
@@ -2159,130 +2159,130 @@ type LiveEventInputArgs struct {
 	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
 }
 
-func (LiveEventInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInput)(nil)).Elem()
+func (LiveEventInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputType)(nil)).Elem()
 }
 
-func (i LiveEventInputArgs) ToLiveEventInputOutput() LiveEventInputOutput {
-	return i.ToLiveEventInputOutputWithContext(context.Background())
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutput() LiveEventInputTypeOutput {
+	return i.ToLiveEventInputTypeOutputWithContext(context.Background())
 }
 
-func (i LiveEventInputArgs) ToLiveEventInputOutputWithContext(ctx context.Context) LiveEventInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputOutput)
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutputWithContext(ctx context.Context) LiveEventInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput)
 }
 
-func (i LiveEventInputArgs) ToLiveEventInputPtrOutput() LiveEventInputPtrOutput {
-	return i.ToLiveEventInputPtrOutputWithContext(context.Background())
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i LiveEventInputArgs) ToLiveEventInputPtrOutputWithContext(ctx context.Context) LiveEventInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputOutput).ToLiveEventInputPtrOutputWithContext(ctx)
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput).ToLiveEventInputTypePtrOutputWithContext(ctx)
 }
 
-// LiveEventInputPtrInput is an input type that accepts LiveEventInputArgs, LiveEventInputPtr and LiveEventInputPtrOutput values.
-// You can construct a concrete instance of `LiveEventInputPtrInput` via:
+// LiveEventInputTypePtrInput is an input type that accepts LiveEventInputTypeArgs, LiveEventInputTypePtr and LiveEventInputTypePtrOutput values.
+// You can construct a concrete instance of `LiveEventInputTypePtrInput` via:
 //
-//          LiveEventInputArgs{...}
+//          LiveEventInputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type LiveEventInputPtrInput interface {
+type LiveEventInputTypePtrInput interface {
 	pulumi.Input
 
-	ToLiveEventInputPtrOutput() LiveEventInputPtrOutput
-	ToLiveEventInputPtrOutputWithContext(context.Context) LiveEventInputPtrOutput
+	ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput
+	ToLiveEventInputTypePtrOutputWithContext(context.Context) LiveEventInputTypePtrOutput
 }
 
-type liveEventInputPtrType LiveEventInputArgs
+type liveEventInputTypePtrType LiveEventInputTypeArgs
 
-func LiveEventInputPtr(v *LiveEventInputArgs) LiveEventInputPtrInput {
-	return (*liveEventInputPtrType)(v)
+func LiveEventInputTypePtr(v *LiveEventInputTypeArgs) LiveEventInputTypePtrInput {
+	return (*liveEventInputTypePtrType)(v)
 }
 
-func (*liveEventInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInput)(nil)).Elem()
+func (*liveEventInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
 }
 
-func (i *liveEventInputPtrType) ToLiveEventInputPtrOutput() LiveEventInputPtrOutput {
-	return i.ToLiveEventInputPtrOutputWithContext(context.Background())
+func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *liveEventInputPtrType) ToLiveEventInputPtrOutputWithContext(ctx context.Context) LiveEventInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputPtrOutput)
+func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
 }
 
 // The Live Event input.
-type LiveEventInputOutput struct{ *pulumi.OutputState }
+type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
 
-func (LiveEventInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInput)(nil)).Elem()
+func (LiveEventInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputType)(nil)).Elem()
 }
 
-func (o LiveEventInputOutput) ToLiveEventInputOutput() LiveEventInputOutput {
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutput() LiveEventInputTypeOutput {
 	return o
 }
 
-func (o LiveEventInputOutput) ToLiveEventInputOutputWithContext(ctx context.Context) LiveEventInputOutput {
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutputWithContext(ctx context.Context) LiveEventInputTypeOutput {
 	return o
 }
 
-func (o LiveEventInputOutput) ToLiveEventInputPtrOutput() LiveEventInputPtrOutput {
-	return o.ToLiveEventInputPtrOutputWithContext(context.Background())
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return o.ToLiveEventInputTypePtrOutputWithContext(context.Background())
 }
 
-func (o LiveEventInputOutput) ToLiveEventInputPtrOutputWithContext(ctx context.Context) LiveEventInputPtrOutput {
-	return o.ApplyT(func(v LiveEventInput) *LiveEventInput {
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
 		return &v
-	}).(LiveEventInputPtrOutput)
+	}).(LiveEventInputTypePtrOutput)
 }
 
 // The access control for LiveEvent Input.
-func (o LiveEventInputOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
-	return o.ApplyT(func(v LiveEventInput) *LiveEventInputAccessControl { return v.AccessControl }).(LiveEventInputAccessControlPtrOutput)
+func (o LiveEventInputTypeOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputAccessControl { return v.AccessControl }).(LiveEventInputAccessControlPtrOutput)
 }
 
 // A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-func (o LiveEventInputOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LiveEventInput) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+func (o LiveEventInputTypeOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
 // The input endpoints for the Live Event.
-func (o LiveEventInputOutput) Endpoints() LiveEventEndpointArrayOutput {
-	return o.ApplyT(func(v LiveEventInput) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
+func (o LiveEventInputTypeOutput) Endpoints() LiveEventEndpointArrayOutput {
+	return o.ApplyT(func(v LiveEventInputType) []LiveEventEndpoint { return v.Endpoints }).(LiveEventEndpointArrayOutput)
 }
 
 // ISO 8601 timespan duration of the key frame interval duration.
-func (o LiveEventInputOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LiveEventInput) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
+func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
 }
 
 // The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-func (o LiveEventInputOutput) StreamingProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveEventInput) string { return v.StreamingProtocol }).(pulumi.StringOutput)
+func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventInputType) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
 
-type LiveEventInputPtrOutput struct{ *pulumi.OutputState }
+type LiveEventInputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (LiveEventInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInput)(nil)).Elem()
+func (LiveEventInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
 }
 
-func (o LiveEventInputPtrOutput) ToLiveEventInputPtrOutput() LiveEventInputPtrOutput {
+func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
 	return o
 }
 
-func (o LiveEventInputPtrOutput) ToLiveEventInputPtrOutputWithContext(ctx context.Context) LiveEventInputPtrOutput {
+func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
 	return o
 }
 
-func (o LiveEventInputPtrOutput) Elem() LiveEventInputOutput {
-	return o.ApplyT(func(v *LiveEventInput) LiveEventInput { return *v }).(LiveEventInputOutput)
+func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
 }
 
 // The access control for LiveEvent Input.
-func (o LiveEventInputPtrOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
-	return o.ApplyT(func(v *LiveEventInput) *LiveEventInputAccessControl {
+func (o LiveEventInputTypePtrOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *LiveEventInputAccessControl {
 		if v == nil {
 			return nil
 		}
@@ -2291,8 +2291,8 @@ func (o LiveEventInputPtrOutput) AccessControl() LiveEventInputAccessControlPtrO
 }
 
 // A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-func (o LiveEventInputPtrOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInput) *string {
+func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2301,8 +2301,8 @@ func (o LiveEventInputPtrOutput) AccessToken() pulumi.StringPtrOutput {
 }
 
 // The input endpoints for the Live Event.
-func (o LiveEventInputPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
-	return o.ApplyT(func(v *LiveEventInput) []LiveEventEndpoint {
+func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventEndpointArrayOutput {
+	return o.ApplyT(func(v *LiveEventInputType) []LiveEventEndpoint {
 		if v == nil {
 			return nil
 		}
@@ -2311,8 +2311,8 @@ func (o LiveEventInputPtrOutput) Endpoints() LiveEventEndpointArrayOutput {
 }
 
 // ISO 8601 timespan duration of the key frame interval duration.
-func (o LiveEventInputPtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInput) *string {
+func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2321,8 +2321,8 @@ func (o LiveEventInputPtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutp
 }
 
 // The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-func (o LiveEventInputPtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInput) *string {
+func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -4581,8 +4581,8 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventEndpointArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseArrayOutput{})
-	pulumi.RegisterOutputType(LiveEventInputOutput{})
-	pulumi.RegisterOutputType(LiveEventInputPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTypeOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTypePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponseOutput{})

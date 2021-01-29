@@ -193,7 +193,7 @@ type DedicatedHostArgs struct {
 	// The name of the dedicated host .
 	HostName pulumi.StringInput
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-	LicenseType DedicatedHostLicenseTypes
+	LicenseType *DedicatedHostLicenseTypes
 	// Resource location
 	Location pulumi.StringInput
 	// Fault domain of the dedicated host within a dedicated host group.

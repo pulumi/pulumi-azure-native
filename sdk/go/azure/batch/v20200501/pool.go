@@ -288,7 +288,7 @@ type PoolArgs struct {
 	// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
 	DisplayName pulumi.StringPtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-	InterNodeCommunication InterNodeCommunicationState
+	InterNodeCommunication *InterNodeCommunicationState
 	// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
 	MaxTasksPerNode pulumi.IntPtrInput
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.

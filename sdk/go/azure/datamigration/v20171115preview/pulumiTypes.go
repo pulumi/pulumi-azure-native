@@ -32,7 +32,7 @@ type ConnectToSourceSqlServerTaskInputInput interface {
 // Input for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskInputArgs struct {
 	// Permission group for validations
-	CheckPermissionsGroup ServerLevelPermissionsGroup `pulumi:"checkPermissionsGroup"`
+	CheckPermissionsGroup *ServerLevelPermissionsGroup `pulumi:"checkPermissionsGroup"`
 	// Connection information for Source SQL Server
 	SourceConnectionInfo SqlConnectionInfoInput `pulumi:"sourceConnectionInfo"`
 }
@@ -5460,7 +5460,7 @@ type SqlConnectionInfoArgs struct {
 	// Additional connection settings
 	AdditionalSettings pulumi.StringPtrInput `pulumi:"additionalSettings"`
 	// Authentication type to use for connection
-	Authentication AuthenticationType `pulumi:"authentication"`
+	Authentication *AuthenticationType `pulumi:"authentication"`
 	// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Whether to encrypt the connection
