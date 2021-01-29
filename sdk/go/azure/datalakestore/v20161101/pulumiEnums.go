@@ -183,29 +183,29 @@ func (e TierType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 }
 
 // The current state of the trusted identity provider feature for this Data Lake Store account.
-type TrustedIdProviderState pulumi.String
+type TrustedIdProviderStateEnum pulumi.String
 
 const (
-	TrustedIdProviderStateEnabled  = TrustedIdProviderState("Enabled")
-	TrustedIdProviderStateDisabled = TrustedIdProviderState("Disabled")
+	TrustedIdProviderStateEnumEnabled  = TrustedIdProviderStateEnum("Enabled")
+	TrustedIdProviderStateEnumDisabled = TrustedIdProviderStateEnum("Disabled")
 )
 
-func (TrustedIdProviderState) ElementType() reflect.Type {
+func (TrustedIdProviderStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e TrustedIdProviderState) ToStringOutput() pulumi.StringOutput {
+func (e TrustedIdProviderStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TrustedIdProviderState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TrustedIdProviderStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TrustedIdProviderState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TrustedIdProviderStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TrustedIdProviderState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TrustedIdProviderStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

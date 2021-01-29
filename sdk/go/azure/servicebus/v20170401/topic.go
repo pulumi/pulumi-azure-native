@@ -239,7 +239,7 @@ type TopicArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatus
+	Status *EntityStatus
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 	// The topic name.

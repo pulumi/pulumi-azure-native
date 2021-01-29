@@ -241,7 +241,7 @@ type NamespaceArgs struct {
 	// The namespace name.
 	NamespaceName pulumi.StringInput
 	// The namespace type.
-	NamespaceType NamespaceType
+	NamespaceType *NamespaceType
 	// Provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe

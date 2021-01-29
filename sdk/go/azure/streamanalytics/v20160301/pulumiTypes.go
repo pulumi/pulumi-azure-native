@@ -3860,112 +3860,112 @@ func (o FunctionTypeArrayOutput) Index(i pulumi.IntInput) FunctionTypeOutput {
 }
 
 // Describes one input parameter of a function.
-type FunctionInput struct {
+type FunctionInputType struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
 	// A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
 	IsConfigurationParameter *bool `pulumi:"isConfigurationParameter"`
 }
 
-// FunctionInputInput is an input type that accepts FunctionInputArgs and FunctionInputOutput values.
-// You can construct a concrete instance of `FunctionInputInput` via:
+// FunctionInputTypeInput is an input type that accepts FunctionInputTypeArgs and FunctionInputTypeOutput values.
+// You can construct a concrete instance of `FunctionInputTypeInput` via:
 //
-//          FunctionInputArgs{...}
-type FunctionInputInput interface {
+//          FunctionInputTypeArgs{...}
+type FunctionInputTypeInput interface {
 	pulumi.Input
 
-	ToFunctionInputOutput() FunctionInputOutput
-	ToFunctionInputOutputWithContext(context.Context) FunctionInputOutput
+	ToFunctionInputTypeOutput() FunctionInputTypeOutput
+	ToFunctionInputTypeOutputWithContext(context.Context) FunctionInputTypeOutput
 }
 
 // Describes one input parameter of a function.
-type FunctionInputArgs struct {
+type FunctionInputTypeArgs struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
 	// A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
 	IsConfigurationParameter pulumi.BoolPtrInput `pulumi:"isConfigurationParameter"`
 }
 
-func (FunctionInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionInput)(nil)).Elem()
+func (FunctionInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionInputType)(nil)).Elem()
 }
 
-func (i FunctionInputArgs) ToFunctionInputOutput() FunctionInputOutput {
-	return i.ToFunctionInputOutputWithContext(context.Background())
+func (i FunctionInputTypeArgs) ToFunctionInputTypeOutput() FunctionInputTypeOutput {
+	return i.ToFunctionInputTypeOutputWithContext(context.Background())
 }
 
-func (i FunctionInputArgs) ToFunctionInputOutputWithContext(ctx context.Context) FunctionInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputOutput)
+func (i FunctionInputTypeArgs) ToFunctionInputTypeOutputWithContext(ctx context.Context) FunctionInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputTypeOutput)
 }
 
-// FunctionInputArrayInput is an input type that accepts FunctionInputArray and FunctionInputArrayOutput values.
-// You can construct a concrete instance of `FunctionInputArrayInput` via:
+// FunctionInputTypeArrayInput is an input type that accepts FunctionInputTypeArray and FunctionInputTypeArrayOutput values.
+// You can construct a concrete instance of `FunctionInputTypeArrayInput` via:
 //
-//          FunctionInputArray{ FunctionInputArgs{...} }
-type FunctionInputArrayInput interface {
+//          FunctionInputTypeArray{ FunctionInputTypeArgs{...} }
+type FunctionInputTypeArrayInput interface {
 	pulumi.Input
 
-	ToFunctionInputArrayOutput() FunctionInputArrayOutput
-	ToFunctionInputArrayOutputWithContext(context.Context) FunctionInputArrayOutput
+	ToFunctionInputTypeArrayOutput() FunctionInputTypeArrayOutput
+	ToFunctionInputTypeArrayOutputWithContext(context.Context) FunctionInputTypeArrayOutput
 }
 
-type FunctionInputArray []FunctionInputInput
+type FunctionInputTypeArray []FunctionInputTypeInput
 
-func (FunctionInputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionInput)(nil)).Elem()
+func (FunctionInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionInputType)(nil)).Elem()
 }
 
-func (i FunctionInputArray) ToFunctionInputArrayOutput() FunctionInputArrayOutput {
-	return i.ToFunctionInputArrayOutputWithContext(context.Background())
+func (i FunctionInputTypeArray) ToFunctionInputTypeArrayOutput() FunctionInputTypeArrayOutput {
+	return i.ToFunctionInputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i FunctionInputArray) ToFunctionInputArrayOutputWithContext(ctx context.Context) FunctionInputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputArrayOutput)
+func (i FunctionInputTypeArray) ToFunctionInputTypeArrayOutputWithContext(ctx context.Context) FunctionInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputTypeArrayOutput)
 }
 
 // Describes one input parameter of a function.
-type FunctionInputOutput struct{ *pulumi.OutputState }
+type FunctionInputTypeOutput struct{ *pulumi.OutputState }
 
-func (FunctionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionInput)(nil)).Elem()
+func (FunctionInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionInputType)(nil)).Elem()
 }
 
-func (o FunctionInputOutput) ToFunctionInputOutput() FunctionInputOutput {
+func (o FunctionInputTypeOutput) ToFunctionInputTypeOutput() FunctionInputTypeOutput {
 	return o
 }
 
-func (o FunctionInputOutput) ToFunctionInputOutputWithContext(ctx context.Context) FunctionInputOutput {
+func (o FunctionInputTypeOutput) ToFunctionInputTypeOutputWithContext(ctx context.Context) FunctionInputTypeOutput {
 	return o
 }
 
 // The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
-func (o FunctionInputOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionInput) *string { return v.DataType }).(pulumi.StringPtrOutput)
+func (o FunctionInputTypeOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionInputType) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
 // A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
-func (o FunctionInputOutput) IsConfigurationParameter() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FunctionInput) *bool { return v.IsConfigurationParameter }).(pulumi.BoolPtrOutput)
+func (o FunctionInputTypeOutput) IsConfigurationParameter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionInputType) *bool { return v.IsConfigurationParameter }).(pulumi.BoolPtrOutput)
 }
 
-type FunctionInputArrayOutput struct{ *pulumi.OutputState }
+type FunctionInputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (FunctionInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionInput)(nil)).Elem()
+func (FunctionInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionInputType)(nil)).Elem()
 }
 
-func (o FunctionInputArrayOutput) ToFunctionInputArrayOutput() FunctionInputArrayOutput {
+func (o FunctionInputTypeArrayOutput) ToFunctionInputTypeArrayOutput() FunctionInputTypeArrayOutput {
 	return o
 }
 
-func (o FunctionInputArrayOutput) ToFunctionInputArrayOutputWithContext(ctx context.Context) FunctionInputArrayOutput {
+func (o FunctionInputTypeArrayOutput) ToFunctionInputTypeArrayOutputWithContext(ctx context.Context) FunctionInputTypeArrayOutput {
 	return o
 }
 
-func (o FunctionInputArrayOutput) Index(i pulumi.IntInput) FunctionInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionInput {
-		return vs[0].([]FunctionInput)[vs[1].(int)]
-	}).(FunctionInputOutput)
+func (o FunctionInputTypeArrayOutput) Index(i pulumi.IntInput) FunctionInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionInputType {
+		return vs[0].([]FunctionInputType)[vs[1].(int)]
+	}).(FunctionInputTypeOutput)
 }
 
 // Describes one input parameter of a function.
@@ -4078,132 +4078,132 @@ func (o FunctionInputResponseArrayOutput) Index(i pulumi.IntInput) FunctionInput
 }
 
 // Describes the output of a function.
-type FunctionOutput struct {
+type FunctionOutputType struct {
 	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
 }
 
-// FunctionOutputInput is an input type that accepts FunctionOutputArgs and FunctionOutputOutput values.
-// You can construct a concrete instance of `FunctionOutputInput` via:
+// FunctionOutputTypeInput is an input type that accepts FunctionOutputTypeArgs and FunctionOutputTypeOutput values.
+// You can construct a concrete instance of `FunctionOutputTypeInput` via:
 //
-//          FunctionOutputArgs{...}
-type FunctionOutputInput interface {
+//          FunctionOutputTypeArgs{...}
+type FunctionOutputTypeInput interface {
 	pulumi.Input
 
-	ToFunctionOutputOutput() FunctionOutputOutput
-	ToFunctionOutputOutputWithContext(context.Context) FunctionOutputOutput
+	ToFunctionOutputTypeOutput() FunctionOutputTypeOutput
+	ToFunctionOutputTypeOutputWithContext(context.Context) FunctionOutputTypeOutput
 }
 
 // Describes the output of a function.
-type FunctionOutputArgs struct {
+type FunctionOutputTypeArgs struct {
 	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
 }
 
-func (FunctionOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionOutput)(nil)).Elem()
+func (FunctionOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionOutputType)(nil)).Elem()
 }
 
-func (i FunctionOutputArgs) ToFunctionOutputOutput() FunctionOutputOutput {
-	return i.ToFunctionOutputOutputWithContext(context.Background())
+func (i FunctionOutputTypeArgs) ToFunctionOutputTypeOutput() FunctionOutputTypeOutput {
+	return i.ToFunctionOutputTypeOutputWithContext(context.Background())
 }
 
-func (i FunctionOutputArgs) ToFunctionOutputOutputWithContext(ctx context.Context) FunctionOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputOutput)
+func (i FunctionOutputTypeArgs) ToFunctionOutputTypeOutputWithContext(ctx context.Context) FunctionOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputTypeOutput)
 }
 
-func (i FunctionOutputArgs) ToFunctionOutputPtrOutput() FunctionOutputPtrOutput {
-	return i.ToFunctionOutputPtrOutputWithContext(context.Background())
+func (i FunctionOutputTypeArgs) ToFunctionOutputTypePtrOutput() FunctionOutputTypePtrOutput {
+	return i.ToFunctionOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i FunctionOutputArgs) ToFunctionOutputPtrOutputWithContext(ctx context.Context) FunctionOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputOutput).ToFunctionOutputPtrOutputWithContext(ctx)
+func (i FunctionOutputTypeArgs) ToFunctionOutputTypePtrOutputWithContext(ctx context.Context) FunctionOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputTypeOutput).ToFunctionOutputTypePtrOutputWithContext(ctx)
 }
 
-// FunctionOutputPtrInput is an input type that accepts FunctionOutputArgs, FunctionOutputPtr and FunctionOutputPtrOutput values.
-// You can construct a concrete instance of `FunctionOutputPtrInput` via:
+// FunctionOutputTypePtrInput is an input type that accepts FunctionOutputTypeArgs, FunctionOutputTypePtr and FunctionOutputTypePtrOutput values.
+// You can construct a concrete instance of `FunctionOutputTypePtrInput` via:
 //
-//          FunctionOutputArgs{...}
+//          FunctionOutputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type FunctionOutputPtrInput interface {
+type FunctionOutputTypePtrInput interface {
 	pulumi.Input
 
-	ToFunctionOutputPtrOutput() FunctionOutputPtrOutput
-	ToFunctionOutputPtrOutputWithContext(context.Context) FunctionOutputPtrOutput
+	ToFunctionOutputTypePtrOutput() FunctionOutputTypePtrOutput
+	ToFunctionOutputTypePtrOutputWithContext(context.Context) FunctionOutputTypePtrOutput
 }
 
-type functionOutputPtrType FunctionOutputArgs
+type functionOutputTypePtrType FunctionOutputTypeArgs
 
-func FunctionOutputPtr(v *FunctionOutputArgs) FunctionOutputPtrInput {
-	return (*functionOutputPtrType)(v)
+func FunctionOutputTypePtr(v *FunctionOutputTypeArgs) FunctionOutputTypePtrInput {
+	return (*functionOutputTypePtrType)(v)
 }
 
-func (*functionOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionOutput)(nil)).Elem()
+func (*functionOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionOutputType)(nil)).Elem()
 }
 
-func (i *functionOutputPtrType) ToFunctionOutputPtrOutput() FunctionOutputPtrOutput {
-	return i.ToFunctionOutputPtrOutputWithContext(context.Background())
+func (i *functionOutputTypePtrType) ToFunctionOutputTypePtrOutput() FunctionOutputTypePtrOutput {
+	return i.ToFunctionOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *functionOutputPtrType) ToFunctionOutputPtrOutputWithContext(ctx context.Context) FunctionOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputPtrOutput)
+func (i *functionOutputTypePtrType) ToFunctionOutputTypePtrOutputWithContext(ctx context.Context) FunctionOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputTypePtrOutput)
 }
 
 // Describes the output of a function.
-type FunctionOutputOutput struct{ *pulumi.OutputState }
+type FunctionOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (FunctionOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionOutput)(nil)).Elem()
+func (FunctionOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionOutputType)(nil)).Elem()
 }
 
-func (o FunctionOutputOutput) ToFunctionOutputOutput() FunctionOutputOutput {
+func (o FunctionOutputTypeOutput) ToFunctionOutputTypeOutput() FunctionOutputTypeOutput {
 	return o
 }
 
-func (o FunctionOutputOutput) ToFunctionOutputOutputWithContext(ctx context.Context) FunctionOutputOutput {
+func (o FunctionOutputTypeOutput) ToFunctionOutputTypeOutputWithContext(ctx context.Context) FunctionOutputTypeOutput {
 	return o
 }
 
-func (o FunctionOutputOutput) ToFunctionOutputPtrOutput() FunctionOutputPtrOutput {
-	return o.ToFunctionOutputPtrOutputWithContext(context.Background())
+func (o FunctionOutputTypeOutput) ToFunctionOutputTypePtrOutput() FunctionOutputTypePtrOutput {
+	return o.ToFunctionOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (o FunctionOutputOutput) ToFunctionOutputPtrOutputWithContext(ctx context.Context) FunctionOutputPtrOutput {
-	return o.ApplyT(func(v FunctionOutput) *FunctionOutput {
+func (o FunctionOutputTypeOutput) ToFunctionOutputTypePtrOutputWithContext(ctx context.Context) FunctionOutputTypePtrOutput {
+	return o.ApplyT(func(v FunctionOutputType) *FunctionOutputType {
 		return &v
-	}).(FunctionOutputPtrOutput)
+	}).(FunctionOutputTypePtrOutput)
 }
 
 // The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
-func (o FunctionOutputOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionOutput) *string { return v.DataType }).(pulumi.StringPtrOutput)
+func (o FunctionOutputTypeOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionOutputType) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-type FunctionOutputPtrOutput struct{ *pulumi.OutputState }
+type FunctionOutputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (FunctionOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionOutput)(nil)).Elem()
+func (FunctionOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionOutputType)(nil)).Elem()
 }
 
-func (o FunctionOutputPtrOutput) ToFunctionOutputPtrOutput() FunctionOutputPtrOutput {
+func (o FunctionOutputTypePtrOutput) ToFunctionOutputTypePtrOutput() FunctionOutputTypePtrOutput {
 	return o
 }
 
-func (o FunctionOutputPtrOutput) ToFunctionOutputPtrOutputWithContext(ctx context.Context) FunctionOutputPtrOutput {
+func (o FunctionOutputTypePtrOutput) ToFunctionOutputTypePtrOutputWithContext(ctx context.Context) FunctionOutputTypePtrOutput {
 	return o
 }
 
-func (o FunctionOutputPtrOutput) Elem() FunctionOutputOutput {
-	return o.ApplyT(func(v *FunctionOutput) FunctionOutput { return *v }).(FunctionOutputOutput)
+func (o FunctionOutputTypePtrOutput) Elem() FunctionOutputTypeOutput {
+	return o.ApplyT(func(v *FunctionOutputType) FunctionOutputType { return *v }).(FunctionOutputTypeOutput)
 }
 
 // The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
-func (o FunctionOutputPtrOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionOutput) *string {
+func (o FunctionOutputTypePtrOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -5889,9 +5889,9 @@ type ScalarFunctionProperties struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding interface{} `pulumi:"binding"`
 	// A list of inputs describing the parameters of the function.
-	Inputs []FunctionInput `pulumi:"inputs"`
+	Inputs []FunctionInputType `pulumi:"inputs"`
 	// The output of the function.
-	Output *FunctionOutput `pulumi:"output"`
+	Output *FunctionOutputType `pulumi:"output"`
 	// Indicates the type of function.
 	// Expected value is 'Scalar'.
 	Type *string `pulumi:"type"`
@@ -5913,9 +5913,9 @@ type ScalarFunctionPropertiesArgs struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding pulumi.Input `pulumi:"binding"`
 	// A list of inputs describing the parameters of the function.
-	Inputs FunctionInputArrayInput `pulumi:"inputs"`
+	Inputs FunctionInputTypeArrayInput `pulumi:"inputs"`
 	// The output of the function.
-	Output FunctionOutputPtrInput `pulumi:"output"`
+	Output FunctionOutputTypePtrInput `pulumi:"output"`
 	// Indicates the type of function.
 	// Expected value is 'Scalar'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -6005,13 +6005,13 @@ func (o ScalarFunctionPropertiesOutput) Binding() pulumi.AnyOutput {
 }
 
 // A list of inputs describing the parameters of the function.
-func (o ScalarFunctionPropertiesOutput) Inputs() FunctionInputArrayOutput {
-	return o.ApplyT(func(v ScalarFunctionProperties) []FunctionInput { return v.Inputs }).(FunctionInputArrayOutput)
+func (o ScalarFunctionPropertiesOutput) Inputs() FunctionInputTypeArrayOutput {
+	return o.ApplyT(func(v ScalarFunctionProperties) []FunctionInputType { return v.Inputs }).(FunctionInputTypeArrayOutput)
 }
 
 // The output of the function.
-func (o ScalarFunctionPropertiesOutput) Output() FunctionOutputPtrOutput {
-	return o.ApplyT(func(v ScalarFunctionProperties) *FunctionOutput { return v.Output }).(FunctionOutputPtrOutput)
+func (o ScalarFunctionPropertiesOutput) Output() FunctionOutputTypePtrOutput {
+	return o.ApplyT(func(v ScalarFunctionProperties) *FunctionOutputType { return v.Output }).(FunctionOutputTypePtrOutput)
 }
 
 // Indicates the type of function.
@@ -6049,23 +6049,23 @@ func (o ScalarFunctionPropertiesPtrOutput) Binding() pulumi.AnyOutput {
 }
 
 // A list of inputs describing the parameters of the function.
-func (o ScalarFunctionPropertiesPtrOutput) Inputs() FunctionInputArrayOutput {
-	return o.ApplyT(func(v *ScalarFunctionProperties) []FunctionInput {
+func (o ScalarFunctionPropertiesPtrOutput) Inputs() FunctionInputTypeArrayOutput {
+	return o.ApplyT(func(v *ScalarFunctionProperties) []FunctionInputType {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(FunctionInputArrayOutput)
+	}).(FunctionInputTypeArrayOutput)
 }
 
 // The output of the function.
-func (o ScalarFunctionPropertiesPtrOutput) Output() FunctionOutputPtrOutput {
-	return o.ApplyT(func(v *ScalarFunctionProperties) *FunctionOutput {
+func (o ScalarFunctionPropertiesPtrOutput) Output() FunctionOutputTypePtrOutput {
+	return o.ApplyT(func(v *ScalarFunctionProperties) *FunctionOutputType {
 		if v == nil {
 			return nil
 		}
 		return v.Output
-	}).(FunctionOutputPtrOutput)
+	}).(FunctionOutputTypePtrOutput)
 }
 
 // Indicates the type of function.
@@ -7807,12 +7807,12 @@ func init() {
 	pulumi.RegisterOutputType(EventHubStreamInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(FunctionTypeOutput{})
 	pulumi.RegisterOutputType(FunctionTypeArrayOutput{})
-	pulumi.RegisterOutputType(FunctionInputOutput{})
-	pulumi.RegisterOutputType(FunctionInputArrayOutput{})
+	pulumi.RegisterOutputType(FunctionInputTypeOutput{})
+	pulumi.RegisterOutputType(FunctionInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FunctionInputResponseOutput{})
 	pulumi.RegisterOutputType(FunctionInputResponseArrayOutput{})
-	pulumi.RegisterOutputType(FunctionOutputOutput{})
-	pulumi.RegisterOutputType(FunctionOutputPtrOutput{})
+	pulumi.RegisterOutputType(FunctionOutputTypeOutput{})
+	pulumi.RegisterOutputType(FunctionOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionOutputResponseOutput{})
 	pulumi.RegisterOutputType(FunctionOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionResponseOutput{})

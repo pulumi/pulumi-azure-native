@@ -36,7 +36,7 @@ type AFDDomainHttpsParametersArgs struct {
 	// Defines the source of the SSL certificate.
 	CertificateType pulumi.StringInput `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https
-	MinimumTlsVersion AfdMinimumTlsVersion `pulumi:"minimumTlsVersion"`
+	MinimumTlsVersion *AfdMinimumTlsVersion `pulumi:"minimumTlsVersion"`
 	// Resource reference to the secret. ie. subs/rg/profile/secret
 	Secret ResourceReferencePtrInput `pulumi:"secret"`
 }
@@ -6449,9 +6449,9 @@ type HealthProbeParametersArgs struct {
 	// The path relative to the origin that is used to determine the health of the origin.
 	ProbePath pulumi.StringPtrInput `pulumi:"probePath"`
 	// Protocol to use for health probe.
-	ProbeProtocol ProbeProtocol `pulumi:"probeProtocol"`
+	ProbeProtocol *ProbeProtocol `pulumi:"probeProtocol"`
 	// The type of health probe request that is made.
-	ProbeRequestType HealthProbeRequestType `pulumi:"probeRequestType"`
+	ProbeRequestType *HealthProbeRequestType `pulumi:"probeRequestType"`
 }
 
 func (HealthProbeParametersArgs) ElementType() reflect.Type {
@@ -12319,7 +12319,7 @@ type ResponseBasedOriginErrorDetectionParametersArgs struct {
 	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
 	HttpErrorRanges HttpErrorRangeParametersArrayInput `pulumi:"httpErrorRanges"`
 	// Type of response errors for real user requests for which origin will be deemed unhealthy
-	ResponseBasedDetectedErrorTypes ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
+	ResponseBasedDetectedErrorTypes *ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
 	// The percentage of failed requests in the sample where failover should trigger.
 	ResponseBasedFailoverThresholdPercentage pulumi.IntPtrInput `pulumi:"responseBasedFailoverThresholdPercentage"`
 }
@@ -13269,7 +13269,7 @@ type SharedPrivateLinkResourcePropertiesArgs struct {
 	// The request message for requesting approval of the shared private link resource.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-	Status SharedPrivateLinkResourceStatus `pulumi:"status"`
+	Status *SharedPrivateLinkResourceStatus `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourcePropertiesArgs) ElementType() reflect.Type {

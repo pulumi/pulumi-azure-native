@@ -236,7 +236,7 @@ type RouteArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior AfdQueryStringCachingBehavior
+	QueryStringCachingBehavior *AfdQueryStringCachingBehavior
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the routing rule.

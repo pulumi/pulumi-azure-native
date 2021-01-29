@@ -125,7 +125,7 @@ type transformArgs struct {
 	// An optional verbose description of the Transform.
 	Description *string `pulumi:"description"`
 	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs []TransformOutput `pulumi:"outputs"`
+	Outputs []TransformOutputType `pulumi:"outputs"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Transform name.
@@ -139,7 +139,7 @@ type TransformArgs struct {
 	// An optional verbose description of the Transform.
 	Description pulumi.StringPtrInput
 	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs TransformOutputArrayInput
+	Outputs TransformOutputTypeArrayInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The Transform name.

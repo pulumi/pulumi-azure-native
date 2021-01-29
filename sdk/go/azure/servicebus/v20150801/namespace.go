@@ -185,7 +185,7 @@ type NamespaceArgs struct {
 	// SKU of the namespace.
 	Sku SkuPtrInput
 	// State of the namespace.
-	Status NamespaceState
+	Status *NamespaceStateEnum
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 }

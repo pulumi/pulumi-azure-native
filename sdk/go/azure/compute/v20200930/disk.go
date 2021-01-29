@@ -373,7 +373,7 @@ type DiskArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypes
+	OsType *OperatingSystemTypes
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.

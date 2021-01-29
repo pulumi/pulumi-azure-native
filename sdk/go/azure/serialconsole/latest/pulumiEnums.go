@@ -11,29 +11,29 @@ import (
 )
 
 // Specifies whether the port is enabled for a serial console connection.
-type SerialPortState pulumi.String
+type SerialPortStateEnum pulumi.String
 
 const (
-	SerialPortStateEnabled  = SerialPortState("enabled")
-	SerialPortStateDisabled = SerialPortState("disabled")
+	SerialPortStateEnumEnabled  = SerialPortStateEnum("enabled")
+	SerialPortStateEnumDisabled = SerialPortStateEnum("disabled")
 )
 
-func (SerialPortState) ElementType() reflect.Type {
+func (SerialPortStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SerialPortState) ToStringOutput() pulumi.StringOutput {
+func (e SerialPortStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SerialPortState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e SerialPortStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SerialPortState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e SerialPortStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SerialPortState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e SerialPortStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

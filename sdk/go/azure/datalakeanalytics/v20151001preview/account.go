@@ -304,11 +304,11 @@ type AccountArgs struct {
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount pulumi.StringInput
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps FirewallAllowAzureIpsState
+	FirewallAllowAzureIps *FirewallAllowAzureIpsState
 	// The list of firewall rules associated with this account.
 	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
 	// The current state of the IP address firewall for this account.
-	FirewallState FirewallState
+	FirewallState *FirewallState
 	// The resource location.
 	Location pulumi.StringInput
 	// The maximum supported degree of parallelism for this account.
@@ -320,7 +320,7 @@ type AccountArgs struct {
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob pulumi.IntPtrInput
 	// The commitment tier for the next month.
-	NewTier TierType
+	NewTier *TierType
 	// The number of days that job metadata is retained.
 	QueryStoreRetention pulumi.IntPtrInput
 	// The name of the Azure resource group.

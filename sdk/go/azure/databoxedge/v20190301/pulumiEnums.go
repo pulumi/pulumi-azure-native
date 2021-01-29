@@ -246,42 +246,42 @@ func (e MonitoringStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 }
 
 // Status of the order as per the allowed status types.
-type OrderState pulumi.String
+type OrderStateEnum pulumi.String
 
 const (
-	OrderStateUntracked              = OrderState("Untracked")
-	OrderStateAwaitingFulfilment     = OrderState("AwaitingFulfilment")
-	OrderStateAwaitingPreparation    = OrderState("AwaitingPreparation")
-	OrderStateAwaitingShipment       = OrderState("AwaitingShipment")
-	OrderStateShipped                = OrderState("Shipped")
-	OrderStateArriving               = OrderState("Arriving")
-	OrderStateDelivered              = OrderState("Delivered")
-	OrderStateReplacementRequested   = OrderState("ReplacementRequested")
-	OrderStateLostDevice             = OrderState("LostDevice")
-	OrderStateDeclined               = OrderState("Declined")
-	OrderStateReturnInitiated        = OrderState("ReturnInitiated")
-	OrderStateAwaitingReturnShipment = OrderState("AwaitingReturnShipment")
-	OrderStateShippedBack            = OrderState("ShippedBack")
-	OrderStateCollectedAtMicrosoft   = OrderState("CollectedAtMicrosoft")
+	OrderStateEnumUntracked              = OrderStateEnum("Untracked")
+	OrderStateEnumAwaitingFulfilment     = OrderStateEnum("AwaitingFulfilment")
+	OrderStateEnumAwaitingPreparation    = OrderStateEnum("AwaitingPreparation")
+	OrderStateEnumAwaitingShipment       = OrderStateEnum("AwaitingShipment")
+	OrderStateEnumShipped                = OrderStateEnum("Shipped")
+	OrderStateEnumArriving               = OrderStateEnum("Arriving")
+	OrderStateEnumDelivered              = OrderStateEnum("Delivered")
+	OrderStateEnumReplacementRequested   = OrderStateEnum("ReplacementRequested")
+	OrderStateEnumLostDevice             = OrderStateEnum("LostDevice")
+	OrderStateEnumDeclined               = OrderStateEnum("Declined")
+	OrderStateEnumReturnInitiated        = OrderStateEnum("ReturnInitiated")
+	OrderStateEnumAwaitingReturnShipment = OrderStateEnum("AwaitingReturnShipment")
+	OrderStateEnumShippedBack            = OrderStateEnum("ShippedBack")
+	OrderStateEnumCollectedAtMicrosoft   = OrderStateEnum("CollectedAtMicrosoft")
 )
 
-func (OrderState) ElementType() reflect.Type {
+func (OrderStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e OrderState) ToStringOutput() pulumi.StringOutput {
+func (e OrderStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e OrderState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e OrderStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e OrderState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e OrderStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e OrderState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e OrderStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

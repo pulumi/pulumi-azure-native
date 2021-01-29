@@ -3676,7 +3676,7 @@ type ConnectionParameterArgs struct {
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type ConnectionParameterType `pulumi:"type"`
+	Type *ConnectionParameterType `pulumi:"type"`
 	// UI definitions
 	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 }
@@ -4276,7 +4276,7 @@ type ConsentLinkInputParameterArgs struct {
 	// Name of the parameter in the connection provider's oauthSettings
 	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
 	// Principal type
-	PrincipalType PrincipalType `pulumi:"principalType"`
+	PrincipalType *PrincipalType `pulumi:"principalType"`
 	// Name of the parameter in the connection provider's oauthSettings
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// Tenant Id

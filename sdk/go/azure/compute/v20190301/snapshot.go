@@ -239,7 +239,7 @@ type SnapshotArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The Operating System type.
-	OsType OperatingSystemTypes
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.

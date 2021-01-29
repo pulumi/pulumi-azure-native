@@ -28,7 +28,7 @@ type RemoteRenderingAccountIdentityInput interface {
 
 type RemoteRenderingAccountIdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (RemoteRenderingAccountIdentityArgs) ElementType() reflect.Type {

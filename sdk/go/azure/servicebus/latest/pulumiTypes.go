@@ -1638,7 +1638,7 @@ type SBSkuArgs struct {
 	// Name of this SKU.
 	Name SkuName `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier SkuTier `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (SBSkuArgs) ElementType() reflect.Type {

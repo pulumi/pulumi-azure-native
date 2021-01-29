@@ -5850,7 +5850,7 @@ type ManualScaleSettingsInput interface {
 // Manual scale settings for the cluster.
 type ManualScaleSettingsArgs struct {
 	// The default value is requeue.
-	NodeDeallocationOption DeallocationOption `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption *DeallocationOption `pulumi:"nodeDeallocationOption"`
 	// Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
 	TargetNodeCount pulumi.IntInput `pulumi:"targetNodeCount"`
 }

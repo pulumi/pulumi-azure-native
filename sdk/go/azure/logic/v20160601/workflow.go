@@ -192,7 +192,7 @@ type WorkflowArgs struct {
 	// The sku.
 	Sku SkuPtrInput
 	// The state.
-	State WorkflowState
+	State *WorkflowStateEnum
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The workflow name.

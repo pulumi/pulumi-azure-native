@@ -204,7 +204,7 @@ type liveEventArgs struct {
 	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
 	HostnamePrefix *string `pulumi:"hostnamePrefix"`
 	// Live event input settings. It defines how the live event receives input from a contribution encoder.
-	Input LiveEventInput `pulumi:"input"`
+	Input LiveEventInputType `pulumi:"input"`
 	// The name of the live event, maximum length is 32.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The geo-location where the resource lives
@@ -238,7 +238,7 @@ type LiveEventArgs struct {
 	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
 	HostnamePrefix pulumi.StringPtrInput
 	// Live event input settings. It defines how the live event receives input from a contribution encoder.
-	Input LiveEventInputInput
+	Input LiveEventInputTypeInput
 	// The name of the live event, maximum length is 32.
 	LiveEventName pulumi.StringInput
 	// The geo-location where the resource lives

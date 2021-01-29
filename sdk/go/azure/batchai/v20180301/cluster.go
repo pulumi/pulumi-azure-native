@@ -74,7 +74,8 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VmSize'")
 	}
 	if args.VmPriority == nil {
-		args.VmPriority = VmPriority("dedicated")
+		e := VmPriority("dedicated")
+		args.VmPriority = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -227,7 +228,7 @@ type ClusterArgs struct {
 	// Settings for OS image.
 	VirtualMachineConfiguration VirtualMachineConfigurationPtrInput
 	// Default is dedicated.
-	VmPriority VmPriority
+	VmPriority *VmPriority
 	// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 	VmSize pulumi.StringInput
 }

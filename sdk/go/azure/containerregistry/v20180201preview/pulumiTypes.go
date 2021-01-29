@@ -234,7 +234,7 @@ func (o BuildArgumentResponseOutput) ToBuildArgumentResponseOutputWithContext(ct
 }
 
 // Flag to indicate whether the argument represents a secret and want to be removed from build logs.
-func (o BuildArgumentResponseOutput) IsSecret() pulumi.BoolPtrOutput {
+func (o BuildArgumentResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildArgumentResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 

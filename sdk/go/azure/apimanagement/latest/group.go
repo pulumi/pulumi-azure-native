@@ -166,7 +166,7 @@ type GroupArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Group type.
-	Type GroupType
+	Type *GroupType
 }
 
 func (GroupArgs) ElementType() reflect.Type {

@@ -1292,7 +1292,7 @@ type EncryptionInput interface {
 // Properties to configure Encryption
 type EncryptionArgs struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySource `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
@@ -1604,7 +1604,7 @@ type IdentityArgs struct {
 	// TenantId from the KeyVault
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type IdentityType `pulumi:"type"`
+	Type *IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -3168,7 +3168,7 @@ type SBSkuArgs struct {
 	// Name of this SKU.
 	Name SkuName `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier SkuTier `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (SBSkuArgs) ElementType() reflect.Type {

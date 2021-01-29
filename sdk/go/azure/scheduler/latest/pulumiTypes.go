@@ -812,7 +812,7 @@ type JobActionArgs struct {
 	// Gets or sets the service bus topic message.
 	ServiceBusTopicMessage ServiceBusTopicMessagePtrInput `pulumi:"serviceBusTopicMessage"`
 	// Gets or sets the job action type.
-	Type JobActionType `pulumi:"type"`
+	Type *JobActionType `pulumi:"type"`
 }
 
 func (JobActionArgs) ElementType() reflect.Type {
@@ -1286,7 +1286,7 @@ type JobCollectionPropertiesArgs struct {
 	// Gets or sets the SKU.
 	Sku SkuPtrInput `pulumi:"sku"`
 	// Gets or sets the state.
-	State JobCollectionState `pulumi:"state"`
+	State *JobCollectionStateEnum `pulumi:"state"`
 }
 
 func (JobCollectionPropertiesArgs) ElementType() reflect.Type {
@@ -1974,7 +1974,7 @@ type JobErrorActionArgs struct {
 	// Gets or sets the service bus topic message.
 	ServiceBusTopicMessage ServiceBusTopicMessagePtrInput `pulumi:"serviceBusTopicMessage"`
 	// Gets or sets the job error action type.
-	Type JobActionType `pulumi:"type"`
+	Type *JobActionType `pulumi:"type"`
 }
 
 func (JobErrorActionArgs) ElementType() reflect.Type {
@@ -2408,7 +2408,7 @@ type JobMaxRecurrenceInput interface {
 
 type JobMaxRecurrenceArgs struct {
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-	Frequency RecurrenceFrequency `pulumi:"frequency"`
+	Frequency *RecurrenceFrequency `pulumi:"frequency"`
 	// Gets or sets the interval between retries.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
@@ -2718,7 +2718,7 @@ type JobPropertiesArgs struct {
 	// Gets or sets the job start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Gets or set the job state.
-	State JobState `pulumi:"state"`
+	State *JobStateEnum `pulumi:"state"`
 }
 
 func (JobPropertiesArgs) ElementType() reflect.Type {
@@ -3112,7 +3112,7 @@ type JobRecurrenceArgs struct {
 	// Gets or sets the time at which the job will complete.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-	Frequency RecurrenceFrequency `pulumi:"frequency"`
+	Frequency *RecurrenceFrequency `pulumi:"frequency"`
 	// Gets or sets the interval between retries.
 	Interval pulumi.IntPtrInput            `pulumi:"interval"`
 	Schedule JobRecurrenceSchedulePtrInput `pulumi:"schedule"`
@@ -3716,7 +3716,7 @@ type JobRecurrenceScheduleMonthlyOccurrenceInput interface {
 
 type JobRecurrenceScheduleMonthlyOccurrenceArgs struct {
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day JobScheduleDay `pulumi:"day"`
+	Day *JobScheduleDay `pulumi:"day"`
 	// Gets or sets the occurrence. Must be between -5 and 5.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -4532,7 +4532,7 @@ type RetryPolicyArgs struct {
 	// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
 	RetryInterval pulumi.StringPtrInput `pulumi:"retryInterval"`
 	// Gets or sets the retry strategy to be used.
-	RetryType RetryType `pulumi:"retryType"`
+	RetryType *RetryType `pulumi:"retryType"`
 }
 
 func (RetryPolicyArgs) ElementType() reflect.Type {
@@ -4870,7 +4870,7 @@ type ServiceBusAuthenticationArgs struct {
 	// Gets or sets the SAS key name.
 	SasKeyName pulumi.StringPtrInput `pulumi:"sasKeyName"`
 	// Gets or sets the authentication type.
-	Type ServiceBusAuthenticationType `pulumi:"type"`
+	Type *ServiceBusAuthenticationType `pulumi:"type"`
 }
 
 func (ServiceBusAuthenticationArgs) ElementType() reflect.Type {
@@ -5944,7 +5944,7 @@ type ServiceBusQueueMessageArgs struct {
 	// Gets or sets the queue name.
 	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
 	// Gets or sets the transport type.
-	TransportType ServiceBusTransportType `pulumi:"transportType"`
+	TransportType *ServiceBusTransportType `pulumi:"transportType"`
 }
 
 func (ServiceBusQueueMessageArgs) ElementType() reflect.Type {
@@ -6438,7 +6438,7 @@ type ServiceBusTopicMessageArgs struct {
 	// Gets or sets the topic path.
 	TopicPath pulumi.StringPtrInput `pulumi:"topicPath"`
 	// Gets or sets the transport type.
-	TransportType ServiceBusTransportType `pulumi:"transportType"`
+	TransportType *ServiceBusTransportType `pulumi:"transportType"`
 }
 
 func (ServiceBusTopicMessageArgs) ElementType() reflect.Type {
@@ -6908,7 +6908,7 @@ type SkuInput interface {
 
 type SkuArgs struct {
 	// Gets or set the SKU.
-	Name SkuDefinition `pulumi:"name"`
+	Name *SkuDefinition `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

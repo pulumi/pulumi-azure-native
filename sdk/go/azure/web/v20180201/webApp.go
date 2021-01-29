@@ -466,7 +466,7 @@ type WebAppArgs struct {
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringInput
 	// Site redundancy mode
-	RedundancyMode RedundancyMode
+	RedundancyMode *RedundancyMode
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -173,7 +173,7 @@ type ManagerExtendedInfoArgs struct {
 	// Represents the CIK of the resource.
 	IntegrityKey pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind Kind
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.

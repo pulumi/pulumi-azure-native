@@ -195,7 +195,7 @@ type NamespaceArgs struct {
 	// SKU parameters supplied to the create Namespace operation
 	Sku SkuPtrInput
 	// State of the Namespace.
-	Status NamespaceState
+	Status *NamespaceStateEnum
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 	// The time the Namespace was updated.

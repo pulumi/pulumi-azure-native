@@ -317,7 +317,7 @@ type DiskArgs struct {
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares pulumi.IntPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypes
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.

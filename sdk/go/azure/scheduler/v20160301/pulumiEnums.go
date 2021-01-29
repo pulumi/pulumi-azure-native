@@ -104,32 +104,32 @@ func (e JobActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 }
 
 // Gets or sets the state.
-type JobCollectionState pulumi.String
+type JobCollectionStateEnum pulumi.String
 
 const (
-	JobCollectionStateEnabled   = JobCollectionState("Enabled")
-	JobCollectionStateDisabled  = JobCollectionState("Disabled")
-	JobCollectionStateSuspended = JobCollectionState("Suspended")
-	JobCollectionStateDeleted   = JobCollectionState("Deleted")
+	JobCollectionStateEnumEnabled   = JobCollectionStateEnum("Enabled")
+	JobCollectionStateEnumDisabled  = JobCollectionStateEnum("Disabled")
+	JobCollectionStateEnumSuspended = JobCollectionStateEnum("Suspended")
+	JobCollectionStateEnumDeleted   = JobCollectionStateEnum("Deleted")
 )
 
-func (JobCollectionState) ElementType() reflect.Type {
+func (JobCollectionStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e JobCollectionState) ToStringOutput() pulumi.StringOutput {
+func (e JobCollectionStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e JobCollectionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e JobCollectionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e JobCollectionState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e JobCollectionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e JobCollectionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e JobCollectionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -167,32 +167,32 @@ func (e JobScheduleDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 }
 
 // Gets or set the job state.
-type JobState pulumi.String
+type JobStateEnum pulumi.String
 
 const (
-	JobStateEnabled   = JobState("Enabled")
-	JobStateDisabled  = JobState("Disabled")
-	JobStateFaulted   = JobState("Faulted")
-	JobStateCompleted = JobState("Completed")
+	JobStateEnumEnabled   = JobStateEnum("Enabled")
+	JobStateEnumDisabled  = JobStateEnum("Disabled")
+	JobStateEnumFaulted   = JobStateEnum("Faulted")
+	JobStateEnumCompleted = JobStateEnum("Completed")
 )
 
-func (JobState) ElementType() reflect.Type {
+func (JobStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e JobState) ToStringOutput() pulumi.StringOutput {
+func (e JobStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e JobState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e JobStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e JobState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e JobStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e JobState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e JobStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

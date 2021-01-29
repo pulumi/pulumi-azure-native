@@ -1185,9 +1185,9 @@ type AutoUserSpecificationInput interface {
 
 type AutoUserSpecificationArgs struct {
 	// The default value is nonAdmin.
-	ElevationLevel ElevationLevel `pulumi:"elevationLevel"`
+	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
 	// The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
-	Scope AutoUserScope `pulumi:"scope"`
+	Scope *AutoUserScope `pulumi:"scope"`
 }
 
 func (AutoUserSpecificationArgs) ElementType() reflect.Type {
@@ -3576,7 +3576,7 @@ type CertificateReferenceInput interface {
 type CertificateReferenceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	StoreLocation CertificateStoreLocation `pulumi:"storeLocation"`
+	StoreLocation *CertificateStoreLocation `pulumi:"storeLocation"`
 	// This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
 	StoreName  pulumi.StringPtrInput           `pulumi:"storeName"`
 	Visibility CertificateVisibilityArrayInput `pulumi:"visibility"`
@@ -4869,7 +4869,7 @@ type DataDiskArgs struct {
 	//  readWrite - The caching mode for the disk is read and write.
 	//
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-	Caching    CachingType     `pulumi:"caching"`
+	Caching    *CachingType    `pulumi:"caching"`
 	DiskSizeGB pulumi.IntInput `pulumi:"diskSizeGB"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun pulumi.IntInput `pulumi:"lun"`
@@ -4877,7 +4877,7 @@ type DataDiskArgs struct {
 	//
 	//  Standard_LRS - The data disk should use standard locally redundant storage.
 	//  Premium_LRS - The data disk should use premium locally redundant storage.
-	StorageAccountType StorageAccountType `pulumi:"storageAccountType"`
+	StorageAccountType *StorageAccountType `pulumi:"storageAccountType"`
 }
 
 func (DataDiskArgs) ElementType() reflect.Type {
@@ -5961,7 +5961,7 @@ type EncryptionPropertiesInput interface {
 // Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 type EncryptionPropertiesArgs struct {
 	// Type of the key source.
-	KeySource KeySource `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Additional details when using Microsoft.KeyVault
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
@@ -6469,7 +6469,7 @@ type FixedScaleSettingsInput interface {
 
 type FixedScaleSettingsArgs struct {
 	// If omitted, the default value is Requeue.
-	NodeDeallocationOption ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption *ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
 	// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
 	// At least one of targetDedicatedNodes, targetLowPriorityNodes must be set.
@@ -9857,7 +9857,7 @@ type NodePlacementConfigurationInput interface {
 // Allocation configuration used by Batch Service to provision the nodes.
 type NodePlacementConfigurationArgs struct {
 	// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
-	Policy NodePlacementPolicyType `pulumi:"policy"`
+	Policy *NodePlacementPolicyType `pulumi:"policy"`
 }
 
 func (NodePlacementConfigurationArgs) ElementType() reflect.Type {
@@ -10834,7 +10834,7 @@ type PublicIPAddressConfigurationArgs struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
-	Provision IPAddressProvisioningType `pulumi:"provision"`
+	Provision *IPAddressProvisioningType `pulumi:"provision"`
 }
 
 func (PublicIPAddressConfigurationArgs) ElementType() reflect.Type {
@@ -12542,8 +12542,8 @@ type TaskContainerSettingsArgs struct {
 	// This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
 	// This setting can be omitted if was already provided at pool creation.
-	Registry         ContainerRegistryPtrInput `pulumi:"registry"`
-	WorkingDirectory ContainerWorkingDirectory `pulumi:"workingDirectory"`
+	Registry         ContainerRegistryPtrInput  `pulumi:"registry"`
+	WorkingDirectory *ContainerWorkingDirectory `pulumi:"workingDirectory"`
 }
 
 func (TaskContainerSettingsArgs) ElementType() reflect.Type {
@@ -13159,7 +13159,7 @@ type UserAccountInput interface {
 
 type UserAccountArgs struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel ElevationLevel `pulumi:"elevationLevel"`
+	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
 	// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfiguration LinuxUserConfigurationPtrInput `pulumi:"linuxUserConfiguration"`
 	Name                   pulumi.StringInput             `pulumi:"name"`
@@ -14964,7 +14964,7 @@ type WindowsUserConfigurationInput interface {
 
 type WindowsUserConfigurationArgs struct {
 	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-	LoginMode LoginMode `pulumi:"loginMode"`
+	LoginMode *LoginMode `pulumi:"loginMode"`
 }
 
 func (WindowsUserConfigurationArgs) ElementType() reflect.Type {

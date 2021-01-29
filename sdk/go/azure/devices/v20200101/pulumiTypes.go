@@ -1378,7 +1378,7 @@ type IpFilterRuleArgs struct {
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target IpFilterTargetType `pulumi:"target"`
+	Target *IpFilterTargetType `pulumi:"target"`
 }
 
 func (IpFilterRuleArgs) ElementType() reflect.Type {

@@ -1105,7 +1105,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs st
 	// The description for the private link service connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status PrivateLinkServiceConnectionStatus `pulumi:"status"`
+	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
 }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -2002,13 +2002,13 @@ type SharedPrivateLinkResourcePropertiesArgs struct {
 	// The resource id of the resource the shared private link resource is for.
 	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
 	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
-	ProvisioningState SharedPrivateLinkResourceProvisioningState `pulumi:"provisioningState"`
+	ProvisioningState *SharedPrivateLinkResourceProvisioningState `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 	ResourceRegion pulumi.StringPtrInput `pulumi:"resourceRegion"`
 	// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
-	Status SharedPrivateLinkResourceStatus `pulumi:"status"`
+	Status *SharedPrivateLinkResourceStatus `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourcePropertiesArgs) ElementType() reflect.Type {
@@ -2577,7 +2577,7 @@ type SkuInput interface {
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuArgs struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name SkuName `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

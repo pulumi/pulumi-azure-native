@@ -251,7 +251,7 @@ type EndpointArgs struct {
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines the query string caching behavior.
-	QueryStringCachingBehavior QueryStringCachingBehavior
+	QueryStringCachingBehavior *QueryStringCachingBehavior
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Endpoint tags

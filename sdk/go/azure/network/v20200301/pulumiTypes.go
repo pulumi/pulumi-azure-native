@@ -18803,112 +18803,112 @@ func (o ConnectionMonitorIcmpConfigurationResponsePtrOutput) DisableTraceRoute()
 }
 
 // Describes a connection monitor output destination.
-type ConnectionMonitorOutput struct {
+type ConnectionMonitorOutputType struct {
 	// Connection monitor output destination type. Currently, only "Workspace" is supported.
 	Type *string `pulumi:"type"`
 	// Describes the settings for producing output into a log analytics workspace.
 	WorkspaceSettings *ConnectionMonitorWorkspaceSettings `pulumi:"workspaceSettings"`
 }
 
-// ConnectionMonitorOutputInput is an input type that accepts ConnectionMonitorOutputArgs and ConnectionMonitorOutputOutput values.
-// You can construct a concrete instance of `ConnectionMonitorOutputInput` via:
+// ConnectionMonitorOutputTypeInput is an input type that accepts ConnectionMonitorOutputTypeArgs and ConnectionMonitorOutputTypeOutput values.
+// You can construct a concrete instance of `ConnectionMonitorOutputTypeInput` via:
 //
-//          ConnectionMonitorOutputArgs{...}
-type ConnectionMonitorOutputInput interface {
+//          ConnectionMonitorOutputTypeArgs{...}
+type ConnectionMonitorOutputTypeInput interface {
 	pulumi.Input
 
-	ToConnectionMonitorOutputOutput() ConnectionMonitorOutputOutput
-	ToConnectionMonitorOutputOutputWithContext(context.Context) ConnectionMonitorOutputOutput
+	ToConnectionMonitorOutputTypeOutput() ConnectionMonitorOutputTypeOutput
+	ToConnectionMonitorOutputTypeOutputWithContext(context.Context) ConnectionMonitorOutputTypeOutput
 }
 
 // Describes a connection monitor output destination.
-type ConnectionMonitorOutputArgs struct {
+type ConnectionMonitorOutputTypeArgs struct {
 	// Connection monitor output destination type. Currently, only "Workspace" is supported.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Describes the settings for producing output into a log analytics workspace.
 	WorkspaceSettings ConnectionMonitorWorkspaceSettingsPtrInput `pulumi:"workspaceSettings"`
 }
 
-func (ConnectionMonitorOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitorOutput)(nil)).Elem()
+func (ConnectionMonitorOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorOutputType)(nil)).Elem()
 }
 
-func (i ConnectionMonitorOutputArgs) ToConnectionMonitorOutputOutput() ConnectionMonitorOutputOutput {
-	return i.ToConnectionMonitorOutputOutputWithContext(context.Background())
+func (i ConnectionMonitorOutputTypeArgs) ToConnectionMonitorOutputTypeOutput() ConnectionMonitorOutputTypeOutput {
+	return i.ToConnectionMonitorOutputTypeOutputWithContext(context.Background())
 }
 
-func (i ConnectionMonitorOutputArgs) ToConnectionMonitorOutputOutputWithContext(ctx context.Context) ConnectionMonitorOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutputOutput)
+func (i ConnectionMonitorOutputTypeArgs) ToConnectionMonitorOutputTypeOutputWithContext(ctx context.Context) ConnectionMonitorOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutputTypeOutput)
 }
 
-// ConnectionMonitorOutputArrayInput is an input type that accepts ConnectionMonitorOutputArray and ConnectionMonitorOutputArrayOutput values.
-// You can construct a concrete instance of `ConnectionMonitorOutputArrayInput` via:
+// ConnectionMonitorOutputTypeArrayInput is an input type that accepts ConnectionMonitorOutputTypeArray and ConnectionMonitorOutputTypeArrayOutput values.
+// You can construct a concrete instance of `ConnectionMonitorOutputTypeArrayInput` via:
 //
-//          ConnectionMonitorOutputArray{ ConnectionMonitorOutputArgs{...} }
-type ConnectionMonitorOutputArrayInput interface {
+//          ConnectionMonitorOutputTypeArray{ ConnectionMonitorOutputTypeArgs{...} }
+type ConnectionMonitorOutputTypeArrayInput interface {
 	pulumi.Input
 
-	ToConnectionMonitorOutputArrayOutput() ConnectionMonitorOutputArrayOutput
-	ToConnectionMonitorOutputArrayOutputWithContext(context.Context) ConnectionMonitorOutputArrayOutput
+	ToConnectionMonitorOutputTypeArrayOutput() ConnectionMonitorOutputTypeArrayOutput
+	ToConnectionMonitorOutputTypeArrayOutputWithContext(context.Context) ConnectionMonitorOutputTypeArrayOutput
 }
 
-type ConnectionMonitorOutputArray []ConnectionMonitorOutputInput
+type ConnectionMonitorOutputTypeArray []ConnectionMonitorOutputTypeInput
 
-func (ConnectionMonitorOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionMonitorOutput)(nil)).Elem()
+func (ConnectionMonitorOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionMonitorOutputType)(nil)).Elem()
 }
 
-func (i ConnectionMonitorOutputArray) ToConnectionMonitorOutputArrayOutput() ConnectionMonitorOutputArrayOutput {
-	return i.ToConnectionMonitorOutputArrayOutputWithContext(context.Background())
+func (i ConnectionMonitorOutputTypeArray) ToConnectionMonitorOutputTypeArrayOutput() ConnectionMonitorOutputTypeArrayOutput {
+	return i.ToConnectionMonitorOutputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i ConnectionMonitorOutputArray) ToConnectionMonitorOutputArrayOutputWithContext(ctx context.Context) ConnectionMonitorOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutputArrayOutput)
+func (i ConnectionMonitorOutputTypeArray) ToConnectionMonitorOutputTypeArrayOutputWithContext(ctx context.Context) ConnectionMonitorOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutputTypeArrayOutput)
 }
 
 // Describes a connection monitor output destination.
-type ConnectionMonitorOutputOutput struct{ *pulumi.OutputState }
+type ConnectionMonitorOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (ConnectionMonitorOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitorOutput)(nil)).Elem()
+func (ConnectionMonitorOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorOutputType)(nil)).Elem()
 }
 
-func (o ConnectionMonitorOutputOutput) ToConnectionMonitorOutputOutput() ConnectionMonitorOutputOutput {
+func (o ConnectionMonitorOutputTypeOutput) ToConnectionMonitorOutputTypeOutput() ConnectionMonitorOutputTypeOutput {
 	return o
 }
 
-func (o ConnectionMonitorOutputOutput) ToConnectionMonitorOutputOutputWithContext(ctx context.Context) ConnectionMonitorOutputOutput {
+func (o ConnectionMonitorOutputTypeOutput) ToConnectionMonitorOutputTypeOutputWithContext(ctx context.Context) ConnectionMonitorOutputTypeOutput {
 	return o
 }
 
 // Connection monitor output destination type. Currently, only "Workspace" is supported.
-func (o ConnectionMonitorOutputOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionMonitorOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnectionMonitorOutputTypeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionMonitorOutputType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Describes the settings for producing output into a log analytics workspace.
-func (o ConnectionMonitorOutputOutput) WorkspaceSettings() ConnectionMonitorWorkspaceSettingsPtrOutput {
-	return o.ApplyT(func(v ConnectionMonitorOutput) *ConnectionMonitorWorkspaceSettings { return v.WorkspaceSettings }).(ConnectionMonitorWorkspaceSettingsPtrOutput)
+func (o ConnectionMonitorOutputTypeOutput) WorkspaceSettings() ConnectionMonitorWorkspaceSettingsPtrOutput {
+	return o.ApplyT(func(v ConnectionMonitorOutputType) *ConnectionMonitorWorkspaceSettings { return v.WorkspaceSettings }).(ConnectionMonitorWorkspaceSettingsPtrOutput)
 }
 
-type ConnectionMonitorOutputArrayOutput struct{ *pulumi.OutputState }
+type ConnectionMonitorOutputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ConnectionMonitorOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionMonitorOutput)(nil)).Elem()
+func (ConnectionMonitorOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionMonitorOutputType)(nil)).Elem()
 }
 
-func (o ConnectionMonitorOutputArrayOutput) ToConnectionMonitorOutputArrayOutput() ConnectionMonitorOutputArrayOutput {
+func (o ConnectionMonitorOutputTypeArrayOutput) ToConnectionMonitorOutputTypeArrayOutput() ConnectionMonitorOutputTypeArrayOutput {
 	return o
 }
 
-func (o ConnectionMonitorOutputArrayOutput) ToConnectionMonitorOutputArrayOutputWithContext(ctx context.Context) ConnectionMonitorOutputArrayOutput {
+func (o ConnectionMonitorOutputTypeArrayOutput) ToConnectionMonitorOutputTypeArrayOutputWithContext(ctx context.Context) ConnectionMonitorOutputTypeArrayOutput {
 	return o
 }
 
-func (o ConnectionMonitorOutputArrayOutput) Index(i pulumi.IntInput) ConnectionMonitorOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionMonitorOutput {
-		return vs[0].([]ConnectionMonitorOutput)[vs[1].(int)]
-	}).(ConnectionMonitorOutputOutput)
+func (o ConnectionMonitorOutputTypeArrayOutput) Index(i pulumi.IntInput) ConnectionMonitorOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionMonitorOutputType {
+		return vs[0].([]ConnectionMonitorOutputType)[vs[1].(int)]
+	}).(ConnectionMonitorOutputTypeOutput)
 }
 
 // Describes a connection monitor output destination.
@@ -35959,7 +35959,7 @@ type ManagedServiceIdentityInput interface {
 // Identity for the resource.
 type ManagedServiceIdentityArgs struct {
 	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -62517,8 +62517,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionMonitorIcmpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionMonitorIcmpConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionMonitorIcmpConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConnectionMonitorOutputOutput{})
-	pulumi.RegisterOutputType(ConnectionMonitorOutputArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionMonitorOutputTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionMonitorOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionMonitorOutputResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionMonitorOutputResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionMonitorSourceOutput{})

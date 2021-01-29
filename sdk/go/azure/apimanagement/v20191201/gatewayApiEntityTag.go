@@ -219,7 +219,7 @@ type GatewayApiEntityTagArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
 	// Provisioning state.
-	ProvisioningState ProvisioningState
+	ProvisioningState *ProvisioningState
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

@@ -294,7 +294,7 @@ type SnapshotArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypes
+	OsType *OperatingSystemTypes
 	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
 	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.

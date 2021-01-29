@@ -796,7 +796,7 @@ type NetworkAccessControlEntryInput interface {
 // Network access control entry.
 type NetworkAccessControlEntryArgs struct {
 	// Action object.
-	Action AccessControlEntryAction `pulumi:"action"`
+	Action *AccessControlEntryAction `pulumi:"action"`
 	// Description of network access control entry.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Order of precedence.
@@ -2630,7 +2630,7 @@ type WorkerPoolInput interface {
 // Worker pool of an App Service Environment.
 type WorkerPoolArgs struct {
 	// Shared or dedicated app hosting.
-	ComputeMode ComputeModeOptions `pulumi:"computeMode"`
+	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
 	// VM size of the worker pool instances.

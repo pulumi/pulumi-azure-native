@@ -207,34 +207,34 @@ func (e ProtectedItemHealthStatus) ToStringPtrOutputWithContext(ctx context.Cont
 }
 
 // Protection state of the backup engine
-type ProtectedItemState pulumi.String
+type ProtectedItemStateEnum pulumi.String
 
 const (
-	ProtectedItemStateInvalid           = ProtectedItemState("Invalid")
-	ProtectedItemStateIRPending         = ProtectedItemState("IRPending")
-	ProtectedItemStateProtected         = ProtectedItemState("Protected")
-	ProtectedItemStateProtectionError   = ProtectedItemState("ProtectionError")
-	ProtectedItemStateProtectionStopped = ProtectedItemState("ProtectionStopped")
-	ProtectedItemStateProtectionPaused  = ProtectedItemState("ProtectionPaused")
+	ProtectedItemStateEnumInvalid           = ProtectedItemStateEnum("Invalid")
+	ProtectedItemStateEnumIRPending         = ProtectedItemStateEnum("IRPending")
+	ProtectedItemStateEnumProtected         = ProtectedItemStateEnum("Protected")
+	ProtectedItemStateEnumProtectionError   = ProtectedItemStateEnum("ProtectionError")
+	ProtectedItemStateEnumProtectionStopped = ProtectedItemStateEnum("ProtectionStopped")
+	ProtectedItemStateEnumProtectionPaused  = ProtectedItemStateEnum("ProtectionPaused")
 )
 
-func (ProtectedItemState) ElementType() reflect.Type {
+func (ProtectedItemStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ProtectedItemState) ToStringOutput() pulumi.StringOutput {
+func (e ProtectedItemStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ProtectedItemState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ProtectedItemStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ProtectedItemState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ProtectedItemStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ProtectedItemState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ProtectedItemStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

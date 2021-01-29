@@ -65,7 +65,8 @@ func NewJobDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.UserConfirmation == nil {
-		args.UserConfirmation = UserConfirmation("NotRequired")
+		e := UserConfirmation("NotRequired")
+		args.UserConfirmation = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -201,13 +202,13 @@ type JobDefinitionArgs struct {
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// This is the preferred geo location for the job to run.
-	RunLocation RunLocation
+	RunLocation *RunLocation
 	// Schedule for running the job definition
 	Schedules ScheduleArrayInput
 	// State of the job definition.
 	State State
 	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation UserConfirmation
+	UserConfirmation *UserConfirmation
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {

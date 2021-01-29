@@ -6481,7 +6481,7 @@ type ManagedIdentityInput interface {
 // Describes the managed identities for an Azure resource.
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the resource.
-	Type ManagedIdentityType `pulumi:"type"`
+	Type *ManagedIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`

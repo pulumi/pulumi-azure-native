@@ -232,7 +232,7 @@ type BlobContainerArgs struct {
 	// A name-value pair to associate with the container as metadata.
 	Metadata pulumi.StringMapInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess PublicAccess
+	PublicAccess *PublicAccess
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

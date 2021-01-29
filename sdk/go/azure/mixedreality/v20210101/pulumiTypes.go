@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -352,7 +352,7 @@ type SkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier SkuTier `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

@@ -47,38 +47,38 @@ func (e EnterpriseChannelNodeState) ToStringPtrOutputWithContext(ctx context.Con
 }
 
 // The current state of the Enterprise Channel.
-type EnterpriseChannelState pulumi.String
+type EnterpriseChannelStateEnum pulumi.String
 
 const (
-	EnterpriseChannelStateCreating     = EnterpriseChannelState("Creating")
-	EnterpriseChannelStateCreateFailed = EnterpriseChannelState("CreateFailed")
-	EnterpriseChannelStateStarted      = EnterpriseChannelState("Started")
-	EnterpriseChannelStateStarting     = EnterpriseChannelState("Starting")
-	EnterpriseChannelStateStartFailed  = EnterpriseChannelState("StartFailed")
-	EnterpriseChannelStateStopped      = EnterpriseChannelState("Stopped")
-	EnterpriseChannelStateStopping     = EnterpriseChannelState("Stopping")
-	EnterpriseChannelStateStopFailed   = EnterpriseChannelState("StopFailed")
-	EnterpriseChannelStateDeleting     = EnterpriseChannelState("Deleting")
-	EnterpriseChannelStateDeleteFailed = EnterpriseChannelState("DeleteFailed")
+	EnterpriseChannelStateEnumCreating     = EnterpriseChannelStateEnum("Creating")
+	EnterpriseChannelStateEnumCreateFailed = EnterpriseChannelStateEnum("CreateFailed")
+	EnterpriseChannelStateEnumStarted      = EnterpriseChannelStateEnum("Started")
+	EnterpriseChannelStateEnumStarting     = EnterpriseChannelStateEnum("Starting")
+	EnterpriseChannelStateEnumStartFailed  = EnterpriseChannelStateEnum("StartFailed")
+	EnterpriseChannelStateEnumStopped      = EnterpriseChannelStateEnum("Stopped")
+	EnterpriseChannelStateEnumStopping     = EnterpriseChannelStateEnum("Stopping")
+	EnterpriseChannelStateEnumStopFailed   = EnterpriseChannelStateEnum("StopFailed")
+	EnterpriseChannelStateEnumDeleting     = EnterpriseChannelStateEnum("Deleting")
+	EnterpriseChannelStateEnumDeleteFailed = EnterpriseChannelStateEnum("DeleteFailed")
 )
 
-func (EnterpriseChannelState) ElementType() reflect.Type {
+func (EnterpriseChannelStateEnum) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e EnterpriseChannelState) ToStringOutput() pulumi.StringOutput {
+func (e EnterpriseChannelStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e EnterpriseChannelState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e EnterpriseChannelStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e EnterpriseChannelState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e EnterpriseChannelStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e EnterpriseChannelState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e EnterpriseChannelStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

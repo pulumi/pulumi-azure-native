@@ -48199,7 +48199,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day DayOfWeek `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }

@@ -187,7 +187,7 @@ type liveEventArgs struct {
 	// The Live Event encoding.
 	Encoding *LiveEventEncoding `pulumi:"encoding"`
 	// The Live Event input.
-	Input LiveEventInput `pulumi:"input"`
+	Input LiveEventInputType `pulumi:"input"`
 	// The name of the Live Event.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The Azure Region of the resource.
@@ -217,7 +217,7 @@ type LiveEventArgs struct {
 	// The Live Event encoding.
 	Encoding LiveEventEncodingPtrInput
 	// The Live Event input.
-	Input LiveEventInputInput
+	Input LiveEventInputTypeInput
 	// The name of the Live Event.
 	LiveEventName pulumi.StringInput
 	// The Azure Region of the resource.

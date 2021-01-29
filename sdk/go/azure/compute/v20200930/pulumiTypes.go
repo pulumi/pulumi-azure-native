@@ -4009,7 +4009,7 @@ type GalleryDataDiskImageInput interface {
 // This is the data disk image.
 type GalleryDataDiskImageArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching HostCaching `pulumi:"hostCaching"`
+	HostCaching *HostCaching `pulumi:"hostCaching"`
 	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The gallery artifact version source.
@@ -5739,7 +5739,7 @@ type GalleryOSDiskImageInput interface {
 // This is the OS disk image.
 type GalleryOSDiskImageArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching HostCaching `pulumi:"hostCaching"`
+	HostCaching *HostCaching `pulumi:"hostCaching"`
 	// The gallery artifact version source.
 	Source GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
 }

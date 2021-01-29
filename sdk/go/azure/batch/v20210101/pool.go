@@ -298,7 +298,7 @@ type PoolArgs struct {
 	// The type of identity used for the Batch Pool.
 	Identity BatchPoolIdentityPtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-	InterNodeCommunication InterNodeCommunicationState
+	InterNodeCommunication *InterNodeCommunicationState
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata MetadataItemArrayInput
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.

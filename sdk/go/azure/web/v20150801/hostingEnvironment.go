@@ -401,7 +401,7 @@ type HostingEnvironmentArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode InternalLoadBalancingMode
+	InternalLoadBalancingMode *InternalLoadBalancingMode
 	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
 	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource
@@ -423,7 +423,7 @@ type HostingEnvironmentArgs struct {
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
 	NetworkAccessControlList NetworkAccessControlEntryArrayInput
 	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState ProvisioningState
+	ProvisioningState *ProvisioningState
 	// Resource group of the hostingEnvironment (App Service Environment)
 	ResourceGroup pulumi.StringPtrInput
 	// Name of resource group

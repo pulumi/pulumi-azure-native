@@ -59,7 +59,8 @@ func NewZone(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	if args.ZoneType == nil {
-		args.ZoneType = ZoneType("Public")
+		e := ZoneType("Public")
+		args.ZoneType = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -197,7 +198,7 @@ type ZoneArgs struct {
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName pulumi.StringInput
 	// The type of this DNS zone (Public or Private).
-	ZoneType ZoneType
+	ZoneType *ZoneType
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

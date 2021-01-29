@@ -272,7 +272,7 @@ type TopicArgs struct {
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus EntityAvailabilityStatus
+	EntityAvailabilityStatus *EntityAvailabilityStatus
 	// Whether messages should be filtered before publishing.
 	FilteringMessagesBeforePublishing pulumi.BoolPtrInput
 	// Value that indicates whether the message is accessible anonymously.
@@ -291,7 +291,7 @@ type TopicArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatus
+	Status *EntityStatus
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 	// The topic name.

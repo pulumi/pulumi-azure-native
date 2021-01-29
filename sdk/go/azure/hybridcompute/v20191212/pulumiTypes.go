@@ -1598,7 +1598,7 @@ type MachineIdentityInput interface {
 
 type MachineIdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (MachineIdentityArgs) ElementType() reflect.Type {
