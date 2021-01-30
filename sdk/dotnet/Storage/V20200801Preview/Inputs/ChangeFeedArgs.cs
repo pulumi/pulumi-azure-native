@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
         public ChangeFeedArgs()
         {
         }

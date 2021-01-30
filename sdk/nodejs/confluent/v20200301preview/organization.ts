@@ -58,7 +58,7 @@ export class Organization extends pulumi.CustomResource {
     /**
      * Provision states for confluent RP
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * SSO url for the Confluent organization.
      */
@@ -95,13 +95,13 @@ export class Organization extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["offerDetail"] = args ? args.offerDetail : undefined;
             inputs["organizationName"] = args ? args.organizationName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userDetail"] = args ? args.userDetail : undefined;
             inputs["createdTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["organizationId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["ssoUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -145,10 +145,6 @@ export interface OrganizationArgs {
      * Organization resource name
      */
     readonly organizationName: pulumi.Input<string>;
-    /**
-     * Provision states for confluent RP
-     */
-    readonly provisioningState?: pulumi.Input<string | enums.confluent.v20200301preview.ProvisionState>;
     /**
      * Resource group name
      */

@@ -58,6 +58,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         public Output<bool?> IsVersioningEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The blob service property to configure last access time based tracking policy.
+        /// </summary>
+        [Output("lastAccessTimeTrackingPolicy")]
+        public Output<Outputs.LastAccessTimeTrackingPolicyResponse?> LastAccessTimeTrackingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -187,6 +193,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// </summary>
         [Input("isVersioningEnabled")]
         public Input<bool>? IsVersioningEnabled { get; set; }
+
+        /// <summary>
+        /// The blob service property to configure last access time based tracking policy.
+        /// </summary>
+        [Input("lastAccessTimeTrackingPolicy")]
+        public Input<Inputs.LastAccessTimeTrackingPolicyArgs>? LastAccessTimeTrackingPolicy { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

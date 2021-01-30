@@ -43,6 +43,8 @@ type LookupSpatialAnchorsAccountResult struct {
 	Plan *IdentityResponse `pulumi:"plan"`
 	// The sku associated with this account
 	Sku *SkuResponse `pulumi:"sku"`
+	// The name of the storage account associated with this accountId
+	StorageAccountName *string `pulumi:"storageAccountName"`
 	// System metadata for this account
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.

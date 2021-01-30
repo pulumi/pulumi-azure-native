@@ -337,7 +337,7 @@ class CacheUsernameDownloadSettingsArgs:
                  ca_certificate_uri: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input['CacheUsernameDownloadSettingsCredentialsArgs']] = None,
                  encrypt_ldap_connection: Optional[pulumi.Input[bool]] = None,
-                 extended_groups_enabled: Optional[pulumi.Input[bool]] = None,
+                 extended_groups: Optional[pulumi.Input[bool]] = None,
                  group_file_uri: Optional[pulumi.Input[str]] = None,
                  ldap_base_dn: Optional[pulumi.Input[str]] = None,
                  ldap_server: Optional[pulumi.Input[str]] = None,
@@ -350,7 +350,7 @@ class CacheUsernameDownloadSettingsArgs:
         :param pulumi.Input[str] ca_certificate_uri: The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
         :param pulumi.Input['CacheUsernameDownloadSettingsCredentialsArgs'] credentials: When present, these are the credentials for the secure LDAP connection.
         :param pulumi.Input[bool] encrypt_ldap_connection: Whether or not the LDAP connection should be encrypted.
-        :param pulumi.Input[bool] extended_groups_enabled: Whether or not Extended Groups is enabled.
+        :param pulumi.Input[bool] extended_groups: Whether or not Extended Groups is enabled.
         :param pulumi.Input[str] group_file_uri: The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
         :param pulumi.Input[str] ldap_base_dn: The base distinguished name for the LDAP domain.
         :param pulumi.Input[str] ldap_server: The fully qualified domain name or IP address of the LDAP server to use.
@@ -366,8 +366,8 @@ class CacheUsernameDownloadSettingsArgs:
             pulumi.set(__self__, "credentials", credentials)
         if encrypt_ldap_connection is not None:
             pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
-        if extended_groups_enabled is not None:
-            pulumi.set(__self__, "extended_groups_enabled", extended_groups_enabled)
+        if extended_groups is not None:
+            pulumi.set(__self__, "extended_groups", extended_groups)
         if group_file_uri is not None:
             pulumi.set(__self__, "group_file_uri", group_file_uri)
         if ldap_base_dn is not None:
@@ -432,16 +432,16 @@ class CacheUsernameDownloadSettingsArgs:
         pulumi.set(self, "encrypt_ldap_connection", value)
 
     @property
-    @pulumi.getter(name="extendedGroupsEnabled")
-    def extended_groups_enabled(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="extendedGroups")
+    def extended_groups(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether or not Extended Groups is enabled.
         """
-        return pulumi.get(self, "extended_groups_enabled")
+        return pulumi.get(self, "extended_groups")
 
-    @extended_groups_enabled.setter
-    def extended_groups_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "extended_groups_enabled", value)
+    @extended_groups.setter
+    def extended_groups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "extended_groups", value)
 
     @property
     @pulumi.getter(name="groupFileURI")
@@ -456,7 +456,7 @@ class CacheUsernameDownloadSettingsArgs:
         pulumi.set(self, "group_file_uri", value)
 
     @property
-    @pulumi.getter(name="ldapBaseDn")
+    @pulumi.getter(name="ldapBaseDN")
     def ldap_base_dn(self) -> Optional[pulumi.Input[str]]:
         """
         The base distinguished name for the LDAP domain.

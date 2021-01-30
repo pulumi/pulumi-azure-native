@@ -21,15 +21,22 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Outputs
         /// The management policy action for snapshot
         /// </summary>
         public readonly Outputs.ManagementPolicySnapShotResponse? Snapshot;
+        /// <summary>
+        /// The management policy action for version
+        /// </summary>
+        public readonly Outputs.ManagementPolicyVersionResponse? Version;
 
         [OutputConstructor]
         private ManagementPolicyActionResponse(
             Outputs.ManagementPolicyBaseBlobResponse? baseBlob,
 
-            Outputs.ManagementPolicySnapShotResponse? snapshot)
+            Outputs.ManagementPolicySnapShotResponse? snapshot,
+
+            Outputs.ManagementPolicyVersionResponse? version)
         {
             BaseBlob = baseBlob;
             Snapshot = snapshot;
+            Version = version;
         }
     }
 }

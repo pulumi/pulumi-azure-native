@@ -2,23 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ProvisionState = {
-    Accepted: "Accepted",
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Deleted: "Deleted",
-    NotSpecified: "NotSpecified",
-} as const;
-
-/**
- * Provision states for confluent RP
- */
-export type ProvisionState = (typeof ProvisionState)[keyof typeof ProvisionState];
-
 export const SaaSOfferStatus = {
     Started: "Started",
     PendingFulfillmentStart: "PendingFulfillmentStart",

@@ -69,6 +69,10 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.mixedreality.latest.SkuResponse | undefined>;
     /**
+     * The name of the storage account associated with this accountId
+     */
+    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    /**
      * System metadata for this account
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.mixedreality.latest.SystemDataResponse>;
@@ -107,6 +111,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
             inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["plan"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["storageAccountName"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -171,6 +177,10 @@ export interface RemoteRenderingAccountArgs {
      * The sku associated with this account
      */
     readonly sku?: pulumi.Input<inputs.mixedreality.latest.Sku>;
+    /**
+     * The name of the storage account associated with this accountId
+     */
+    readonly storageAccountName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

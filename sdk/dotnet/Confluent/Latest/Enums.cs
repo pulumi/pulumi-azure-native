@@ -8,44 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Confluent.Latest
 {
     /// <summary>
-    /// Provision states for confluent RP
-    /// </summary>
-    [EnumType]
-    public readonly struct ProvisionState : IEquatable<ProvisionState>
-    {
-        private readonly string _value;
-
-        private ProvisionState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProvisionState Accepted { get; } = new ProvisionState("Accepted");
-        public static ProvisionState Creating { get; } = new ProvisionState("Creating");
-        public static ProvisionState Updating { get; } = new ProvisionState("Updating");
-        public static ProvisionState Deleting { get; } = new ProvisionState("Deleting");
-        public static ProvisionState Succeeded { get; } = new ProvisionState("Succeeded");
-        public static ProvisionState Failed { get; } = new ProvisionState("Failed");
-        public static ProvisionState Canceled { get; } = new ProvisionState("Canceled");
-        public static ProvisionState Deleted { get; } = new ProvisionState("Deleted");
-        public static ProvisionState NotSpecified { get; } = new ProvisionState("NotSpecified");
-
-        public static bool operator ==(ProvisionState left, ProvisionState right) => left.Equals(right);
-        public static bool operator !=(ProvisionState left, ProvisionState right) => !left.Equals(right);
-
-        public static explicit operator string(ProvisionState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisionState other && Equals(other);
-        public bool Equals(ProvisionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// SaaS Offer Status
     /// </summary>
     [EnumType]

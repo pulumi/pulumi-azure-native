@@ -94,6 +94,9 @@ func NewTopic(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:Topic"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:Topic"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Topic

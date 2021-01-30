@@ -29,6 +29,8 @@ type BlobServiceProperties struct {
 	DeleteRetentionPolicy DeleteRetentionPolicyResponsePtrOutput `pulumi:"deleteRetentionPolicy"`
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled pulumi.BoolPtrOutput `pulumi:"isVersioningEnabled"`
+	// The blob service property to configure last access time based tracking policy.
+	LastAccessTimeTrackingPolicy LastAccessTimeTrackingPolicyResponsePtrOutput `pulumi:"lastAccessTimeTrackingPolicy"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The blob service properties for blob restore policy.
@@ -109,6 +111,8 @@ type blobServicePropertiesState struct {
 	DeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"deleteRetentionPolicy"`
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled *bool `pulumi:"isVersioningEnabled"`
+	// The blob service property to configure last access time based tracking policy.
+	LastAccessTimeTrackingPolicy *LastAccessTimeTrackingPolicyResponse `pulumi:"lastAccessTimeTrackingPolicy"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The blob service properties for blob restore policy.
@@ -134,6 +138,8 @@ type BlobServicePropertiesState struct {
 	DeleteRetentionPolicy DeleteRetentionPolicyResponsePtrInput
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled pulumi.BoolPtrInput
+	// The blob service property to configure last access time based tracking policy.
+	LastAccessTimeTrackingPolicy LastAccessTimeTrackingPolicyResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The blob service properties for blob restore policy.
@@ -167,6 +173,8 @@ type blobServicePropertiesArgs struct {
 	DeleteRetentionPolicy *DeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled *bool `pulumi:"isVersioningEnabled"`
+	// The blob service property to configure last access time based tracking policy.
+	LastAccessTimeTrackingPolicy *LastAccessTimeTrackingPolicy `pulumi:"lastAccessTimeTrackingPolicy"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The blob service properties for blob restore policy.
@@ -193,6 +201,8 @@ type BlobServicePropertiesArgs struct {
 	DeleteRetentionPolicy DeleteRetentionPolicyPtrInput
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled pulumi.BoolPtrInput
+	// The blob service property to configure last access time based tracking policy.
+	LastAccessTimeTrackingPolicy LastAccessTimeTrackingPolicyPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The blob service properties for blob restore policy.

@@ -13,11 +13,13 @@ __all__ = [
     'EnabledProtocols',
     'HttpProtocol',
     'IdentityType',
+    'InventoryRuleType',
     'KeySource',
     'KeyType',
     'Kind',
     'LargeFileSharesState',
     'MinimumTlsVersion',
+    'Name',
     'Permissions',
     'PrivateEndpointServiceConnectionStatus',
     'PublicAccess',
@@ -98,6 +100,13 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
 
 
+class InventoryRuleType(str, Enum):
+    """
+    The valid value is Inventory
+    """
+    INVENTORY = "Inventory"
+
+
 class KeySource(str, Enum):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -140,6 +149,13 @@ class MinimumTlsVersion(str, Enum):
     TLS1_0 = "TLS1_0"
     TLS1_1 = "TLS1_1"
     TLS1_2 = "TLS1_2"
+
+
+class Name(str, Enum):
+    """
+    Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+    """
+    ACCESS_TIME_TRACKING = "AccessTimeTracking"
 
 
 class Permissions(str, Enum):

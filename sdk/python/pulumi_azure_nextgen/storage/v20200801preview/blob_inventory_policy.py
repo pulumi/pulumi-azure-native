@@ -68,6 +68,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobInventoryPolicy, __self__).__init__(
             'azure-nextgen:storage/v20200801preview:BlobInventoryPolicy',
             resource_name,

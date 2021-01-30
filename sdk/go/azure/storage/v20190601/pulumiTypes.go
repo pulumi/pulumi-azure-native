@@ -780,6 +780,898 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryService
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+type BlobInventoryPolicyDefinition struct {
+	// An object that defines the filter set.
+	Filters BlobInventoryPolicyFilter `pulumi:"filters"`
+}
+
+// BlobInventoryPolicyDefinitionInput is an input type that accepts BlobInventoryPolicyDefinitionArgs and BlobInventoryPolicyDefinitionOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyDefinitionInput` via:
+//
+//          BlobInventoryPolicyDefinitionArgs{...}
+type BlobInventoryPolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyDefinitionOutput() BlobInventoryPolicyDefinitionOutput
+	ToBlobInventoryPolicyDefinitionOutputWithContext(context.Context) BlobInventoryPolicyDefinitionOutput
+}
+
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+type BlobInventoryPolicyDefinitionArgs struct {
+	// An object that defines the filter set.
+	Filters BlobInventoryPolicyFilterInput `pulumi:"filters"`
+}
+
+func (BlobInventoryPolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyDefinition)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyDefinitionArgs) ToBlobInventoryPolicyDefinitionOutput() BlobInventoryPolicyDefinitionOutput {
+	return i.ToBlobInventoryPolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyDefinitionArgs) ToBlobInventoryPolicyDefinitionOutputWithContext(ctx context.Context) BlobInventoryPolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyDefinitionOutput)
+}
+
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+type BlobInventoryPolicyDefinitionOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyDefinition)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyDefinitionOutput) ToBlobInventoryPolicyDefinitionOutput() BlobInventoryPolicyDefinitionOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyDefinitionOutput) ToBlobInventoryPolicyDefinitionOutputWithContext(ctx context.Context) BlobInventoryPolicyDefinitionOutput {
+	return o
+}
+
+// An object that defines the filter set.
+func (o BlobInventoryPolicyDefinitionOutput) Filters() BlobInventoryPolicyFilterOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) BlobInventoryPolicyFilter { return v.Filters }).(BlobInventoryPolicyFilterOutput)
+}
+
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+type BlobInventoryPolicyDefinitionResponse struct {
+	// An object that defines the filter set.
+	Filters BlobInventoryPolicyFilterResponse `pulumi:"filters"`
+}
+
+// BlobInventoryPolicyDefinitionResponseInput is an input type that accepts BlobInventoryPolicyDefinitionResponseArgs and BlobInventoryPolicyDefinitionResponseOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyDefinitionResponseInput` via:
+//
+//          BlobInventoryPolicyDefinitionResponseArgs{...}
+type BlobInventoryPolicyDefinitionResponseInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyDefinitionResponseOutput() BlobInventoryPolicyDefinitionResponseOutput
+	ToBlobInventoryPolicyDefinitionResponseOutputWithContext(context.Context) BlobInventoryPolicyDefinitionResponseOutput
+}
+
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+type BlobInventoryPolicyDefinitionResponseArgs struct {
+	// An object that defines the filter set.
+	Filters BlobInventoryPolicyFilterResponseInput `pulumi:"filters"`
+}
+
+func (BlobInventoryPolicyDefinitionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyDefinitionResponse)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyDefinitionResponseArgs) ToBlobInventoryPolicyDefinitionResponseOutput() BlobInventoryPolicyDefinitionResponseOutput {
+	return i.ToBlobInventoryPolicyDefinitionResponseOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyDefinitionResponseArgs) ToBlobInventoryPolicyDefinitionResponseOutputWithContext(ctx context.Context) BlobInventoryPolicyDefinitionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyDefinitionResponseOutput)
+}
+
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
+type BlobInventoryPolicyDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyDefinitionResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyDefinitionResponseOutput) ToBlobInventoryPolicyDefinitionResponseOutput() BlobInventoryPolicyDefinitionResponseOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyDefinitionResponseOutput) ToBlobInventoryPolicyDefinitionResponseOutputWithContext(ctx context.Context) BlobInventoryPolicyDefinitionResponseOutput {
+	return o
+}
+
+// An object that defines the filter set.
+func (o BlobInventoryPolicyDefinitionResponseOutput) Filters() BlobInventoryPolicyFilterResponseOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) BlobInventoryPolicyFilterResponse { return v.Filters }).(BlobInventoryPolicyFilterResponseOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilter struct {
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	BlobTypes []string `pulumi:"blobTypes"`
+	// Includes blob versions in blob inventory when value set to true.
+	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
+	// Includes blob snapshots in blob inventory when value set to true.
+	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
+	// An array of strings for blob prefixes to be matched.
+	PrefixMatch []string `pulumi:"prefixMatch"`
+}
+
+// BlobInventoryPolicyFilterInput is an input type that accepts BlobInventoryPolicyFilterArgs and BlobInventoryPolicyFilterOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyFilterInput` via:
+//
+//          BlobInventoryPolicyFilterArgs{...}
+type BlobInventoryPolicyFilterInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyFilterOutput() BlobInventoryPolicyFilterOutput
+	ToBlobInventoryPolicyFilterOutputWithContext(context.Context) BlobInventoryPolicyFilterOutput
+}
+
+// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilterArgs struct {
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// Includes blob versions in blob inventory when value set to true.
+	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
+	// Includes blob snapshots in blob inventory when value set to true.
+	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
+	// An array of strings for blob prefixes to be matched.
+	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+}
+
+func (BlobInventoryPolicyFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyFilter)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterOutput() BlobInventoryPolicyFilterOutput {
+	return i.ToBlobInventoryPolicyFilterOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilterOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyFilter)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterOutput() BlobInventoryPolicyFilterOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterOutput {
+	return o
+}
+
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+func (o BlobInventoryPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory when value set to true.
+func (o BlobInventoryPolicyFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory when value set to true.
+func (o BlobInventoryPolicyFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+// An array of strings for blob prefixes to be matched.
+func (o BlobInventoryPolicyFilterOutput) PrefixMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilterResponse struct {
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	BlobTypes []string `pulumi:"blobTypes"`
+	// Includes blob versions in blob inventory when value set to true.
+	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
+	// Includes blob snapshots in blob inventory when value set to true.
+	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
+	// An array of strings for blob prefixes to be matched.
+	PrefixMatch []string `pulumi:"prefixMatch"`
+}
+
+// BlobInventoryPolicyFilterResponseInput is an input type that accepts BlobInventoryPolicyFilterResponseArgs and BlobInventoryPolicyFilterResponseOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyFilterResponseInput` via:
+//
+//          BlobInventoryPolicyFilterResponseArgs{...}
+type BlobInventoryPolicyFilterResponseInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyFilterResponseOutput() BlobInventoryPolicyFilterResponseOutput
+	ToBlobInventoryPolicyFilterResponseOutputWithContext(context.Context) BlobInventoryPolicyFilterResponseOutput
+}
+
+// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilterResponseArgs struct {
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// Includes blob versions in blob inventory when value set to true.
+	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
+	// Includes blob snapshots in blob inventory when value set to true.
+	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
+	// An array of strings for blob prefixes to be matched.
+	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
+}
+
+func (BlobInventoryPolicyFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyFilterResponse)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyFilterResponseArgs) ToBlobInventoryPolicyFilterResponseOutput() BlobInventoryPolicyFilterResponseOutput {
+	return i.ToBlobInventoryPolicyFilterResponseOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyFilterResponseArgs) ToBlobInventoryPolicyFilterResponseOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterResponseOutput)
+}
+
+// An object that defines the blob inventory rule filter conditions.
+type BlobInventoryPolicyFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyFilterResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResponseOutput() BlobInventoryPolicyFilterResponseOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResponseOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponseOutput {
+	return o
+}
+
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+func (o BlobInventoryPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory when value set to true.
+func (o BlobInventoryPolicyFilterResponseOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory when value set to true.
+func (o BlobInventoryPolicyFilterResponseOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+// An array of strings for blob prefixes to be matched.
+func (o BlobInventoryPolicyFilterResponseOutput) PrefixMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
+}
+
+// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+type BlobInventoryPolicyRule struct {
+	// An object that defines the blob inventory policy rule.
+	Definition BlobInventoryPolicyDefinition `pulumi:"definition"`
+	// Rule is enabled when set to true.
+	Enabled bool `pulumi:"enabled"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name string `pulumi:"name"`
+}
+
+// BlobInventoryPolicyRuleInput is an input type that accepts BlobInventoryPolicyRuleArgs and BlobInventoryPolicyRuleOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleInput` via:
+//
+//          BlobInventoryPolicyRuleArgs{...}
+type BlobInventoryPolicyRuleInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleOutput() BlobInventoryPolicyRuleOutput
+	ToBlobInventoryPolicyRuleOutputWithContext(context.Context) BlobInventoryPolicyRuleOutput
+}
+
+// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+type BlobInventoryPolicyRuleArgs struct {
+	// An object that defines the blob inventory policy rule.
+	Definition BlobInventoryPolicyDefinitionInput `pulumi:"definition"`
+	// Rule is enabled when set to true.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (BlobInventoryPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleArgs) ToBlobInventoryPolicyRuleOutput() BlobInventoryPolicyRuleOutput {
+	return i.ToBlobInventoryPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleArgs) ToBlobInventoryPolicyRuleOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleOutput)
+}
+
+// BlobInventoryPolicyRuleArrayInput is an input type that accepts BlobInventoryPolicyRuleArray and BlobInventoryPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleArrayInput` via:
+//
+//          BlobInventoryPolicyRuleArray{ BlobInventoryPolicyRuleArgs{...} }
+type BlobInventoryPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleArrayOutput() BlobInventoryPolicyRuleArrayOutput
+	ToBlobInventoryPolicyRuleArrayOutputWithContext(context.Context) BlobInventoryPolicyRuleArrayOutput
+}
+
+type BlobInventoryPolicyRuleArray []BlobInventoryPolicyRuleInput
+
+func (BlobInventoryPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleArray) ToBlobInventoryPolicyRuleArrayOutput() BlobInventoryPolicyRuleArrayOutput {
+	return i.ToBlobInventoryPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleArray) ToBlobInventoryPolicyRuleArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleArrayOutput)
+}
+
+// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+type BlobInventoryPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutput() BlobInventoryPolicyRuleOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleOutput {
+	return o
+}
+
+// An object that defines the blob inventory policy rule.
+func (o BlobInventoryPolicyRuleOutput) Definition() BlobInventoryPolicyDefinitionOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) BlobInventoryPolicyDefinition { return v.Definition }).(BlobInventoryPolicyDefinitionOutput)
+}
+
+// Rule is enabled when set to true.
+func (o BlobInventoryPolicyRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+func (o BlobInventoryPolicyRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type BlobInventoryPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleArrayOutput) ToBlobInventoryPolicyRuleArrayOutput() BlobInventoryPolicyRuleArrayOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleArrayOutput) ToBlobInventoryPolicyRuleArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleArrayOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInventoryPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlobInventoryPolicyRule {
+		return vs[0].([]BlobInventoryPolicyRule)[vs[1].(int)]
+	}).(BlobInventoryPolicyRuleOutput)
+}
+
+// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+type BlobInventoryPolicyRuleResponse struct {
+	// An object that defines the blob inventory policy rule.
+	Definition BlobInventoryPolicyDefinitionResponse `pulumi:"definition"`
+	// Rule is enabled when set to true.
+	Enabled bool `pulumi:"enabled"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name string `pulumi:"name"`
+}
+
+// BlobInventoryPolicyRuleResponseInput is an input type that accepts BlobInventoryPolicyRuleResponseArgs and BlobInventoryPolicyRuleResponseOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleResponseInput` via:
+//
+//          BlobInventoryPolicyRuleResponseArgs{...}
+type BlobInventoryPolicyRuleResponseInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleResponseOutput() BlobInventoryPolicyRuleResponseOutput
+	ToBlobInventoryPolicyRuleResponseOutputWithContext(context.Context) BlobInventoryPolicyRuleResponseOutput
+}
+
+// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+type BlobInventoryPolicyRuleResponseArgs struct {
+	// An object that defines the blob inventory policy rule.
+	Definition BlobInventoryPolicyDefinitionResponseInput `pulumi:"definition"`
+	// Rule is enabled when set to true.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (BlobInventoryPolicyRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRuleResponse)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleResponseArgs) ToBlobInventoryPolicyRuleResponseOutput() BlobInventoryPolicyRuleResponseOutput {
+	return i.ToBlobInventoryPolicyRuleResponseOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleResponseArgs) ToBlobInventoryPolicyRuleResponseOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleResponseOutput)
+}
+
+// BlobInventoryPolicyRuleResponseArrayInput is an input type that accepts BlobInventoryPolicyRuleResponseArray and BlobInventoryPolicyRuleResponseArrayOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleResponseArrayInput` via:
+//
+//          BlobInventoryPolicyRuleResponseArray{ BlobInventoryPolicyRuleResponseArgs{...} }
+type BlobInventoryPolicyRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleResponseArrayOutput() BlobInventoryPolicyRuleResponseArrayOutput
+	ToBlobInventoryPolicyRuleResponseArrayOutputWithContext(context.Context) BlobInventoryPolicyRuleResponseArrayOutput
+}
+
+type BlobInventoryPolicyRuleResponseArray []BlobInventoryPolicyRuleResponseInput
+
+func (BlobInventoryPolicyRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobInventoryPolicyRuleResponse)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleResponseArray) ToBlobInventoryPolicyRuleResponseArrayOutput() BlobInventoryPolicyRuleResponseArrayOutput {
+	return i.ToBlobInventoryPolicyRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleResponseArray) ToBlobInventoryPolicyRuleResponseArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleResponseArrayOutput)
+}
+
+// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+type BlobInventoryPolicyRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRuleResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleResponseOutput) ToBlobInventoryPolicyRuleResponseOutput() BlobInventoryPolicyRuleResponseOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleResponseOutput) ToBlobInventoryPolicyRuleResponseOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleResponseOutput {
+	return o
+}
+
+// An object that defines the blob inventory policy rule.
+func (o BlobInventoryPolicyRuleResponseOutput) Definition() BlobInventoryPolicyDefinitionResponseOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) BlobInventoryPolicyDefinitionResponse { return v.Definition }).(BlobInventoryPolicyDefinitionResponseOutput)
+}
+
+// Rule is enabled when set to true.
+func (o BlobInventoryPolicyRuleResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+func (o BlobInventoryPolicyRuleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type BlobInventoryPolicyRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobInventoryPolicyRuleResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleResponseArrayOutput) ToBlobInventoryPolicyRuleResponseArrayOutput() BlobInventoryPolicyRuleResponseArrayOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleResponseArrayOutput) ToBlobInventoryPolicyRuleResponseArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleResponseArrayOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) BlobInventoryPolicyRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlobInventoryPolicyRuleResponse {
+		return vs[0].([]BlobInventoryPolicyRuleResponse)[vs[1].(int)]
+	}).(BlobInventoryPolicyRuleResponseOutput)
+}
+
+// The storage account blob inventory policy rules.
+type BlobInventoryPolicySchema struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination string `pulumi:"destination"`
+	// Policy is enabled if set to true.
+	Enabled bool `pulumi:"enabled"`
+	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+	Rules []BlobInventoryPolicyRule `pulumi:"rules"`
+	// The valid value is Inventory
+	Type string `pulumi:"type"`
+}
+
+// BlobInventoryPolicySchemaInput is an input type that accepts BlobInventoryPolicySchemaArgs and BlobInventoryPolicySchemaOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicySchemaInput` via:
+//
+//          BlobInventoryPolicySchemaArgs{...}
+type BlobInventoryPolicySchemaInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicySchemaOutput() BlobInventoryPolicySchemaOutput
+	ToBlobInventoryPolicySchemaOutputWithContext(context.Context) BlobInventoryPolicySchemaOutput
+}
+
+// The storage account blob inventory policy rules.
+type BlobInventoryPolicySchemaArgs struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// Policy is enabled if set to true.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+	Rules BlobInventoryPolicyRuleArrayInput `pulumi:"rules"`
+	// The valid value is Inventory
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobInventoryPolicySchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicySchema)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicySchemaArgs) ToBlobInventoryPolicySchemaOutput() BlobInventoryPolicySchemaOutput {
+	return i.ToBlobInventoryPolicySchemaOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicySchemaArgs) ToBlobInventoryPolicySchemaOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicySchemaOutput)
+}
+
+func (i BlobInventoryPolicySchemaArgs) ToBlobInventoryPolicySchemaPtrOutput() BlobInventoryPolicySchemaPtrOutput {
+	return i.ToBlobInventoryPolicySchemaPtrOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicySchemaArgs) ToBlobInventoryPolicySchemaPtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicySchemaOutput).ToBlobInventoryPolicySchemaPtrOutputWithContext(ctx)
+}
+
+// BlobInventoryPolicySchemaPtrInput is an input type that accepts BlobInventoryPolicySchemaArgs, BlobInventoryPolicySchemaPtr and BlobInventoryPolicySchemaPtrOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicySchemaPtrInput` via:
+//
+//          BlobInventoryPolicySchemaArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobInventoryPolicySchemaPtrInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicySchemaPtrOutput() BlobInventoryPolicySchemaPtrOutput
+	ToBlobInventoryPolicySchemaPtrOutputWithContext(context.Context) BlobInventoryPolicySchemaPtrOutput
+}
+
+type blobInventoryPolicySchemaPtrType BlobInventoryPolicySchemaArgs
+
+func BlobInventoryPolicySchemaPtr(v *BlobInventoryPolicySchemaArgs) BlobInventoryPolicySchemaPtrInput {
+	return (*blobInventoryPolicySchemaPtrType)(v)
+}
+
+func (*blobInventoryPolicySchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicySchema)(nil)).Elem()
+}
+
+func (i *blobInventoryPolicySchemaPtrType) ToBlobInventoryPolicySchemaPtrOutput() BlobInventoryPolicySchemaPtrOutput {
+	return i.ToBlobInventoryPolicySchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *blobInventoryPolicySchemaPtrType) ToBlobInventoryPolicySchemaPtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicySchemaPtrOutput)
+}
+
+// The storage account blob inventory policy rules.
+type BlobInventoryPolicySchemaOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicySchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicySchema)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaOutput() BlobInventoryPolicySchemaOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaPtrOutput() BlobInventoryPolicySchemaPtrOutput {
+	return o.ToBlobInventoryPolicySchemaPtrOutputWithContext(context.Background())
+}
+
+func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaPtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchema) *BlobInventoryPolicySchema {
+		return &v
+	}).(BlobInventoryPolicySchemaPtrOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchema) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Policy is enabled if set to true.
+func (o BlobInventoryPolicySchemaOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchema) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+func (o BlobInventoryPolicySchemaOutput) Rules() BlobInventoryPolicyRuleArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchema) []BlobInventoryPolicyRule { return v.Rules }).(BlobInventoryPolicyRuleArrayOutput)
+}
+
+// The valid value is Inventory
+func (o BlobInventoryPolicySchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchema) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type BlobInventoryPolicySchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicySchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicySchema)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicySchemaPtrOutput) ToBlobInventoryPolicySchemaPtrOutput() BlobInventoryPolicySchemaPtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaPtrOutput) ToBlobInventoryPolicySchemaPtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaPtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaPtrOutput) Elem() BlobInventoryPolicySchemaOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchema) BlobInventoryPolicySchema { return *v }).(BlobInventoryPolicySchemaOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Policy is enabled if set to true.
+func (o BlobInventoryPolicySchemaPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchema) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+func (o BlobInventoryPolicySchemaPtrOutput) Rules() BlobInventoryPolicyRuleArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchema) []BlobInventoryPolicyRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BlobInventoryPolicyRuleArrayOutput)
+}
+
+// The valid value is Inventory
+func (o BlobInventoryPolicySchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage account blob inventory policy rules.
+type BlobInventoryPolicySchemaResponse struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination string `pulumi:"destination"`
+	// Policy is enabled if set to true.
+	Enabled bool `pulumi:"enabled"`
+	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+	Rules []BlobInventoryPolicyRuleResponse `pulumi:"rules"`
+	// The valid value is Inventory
+	Type string `pulumi:"type"`
+}
+
+// BlobInventoryPolicySchemaResponseInput is an input type that accepts BlobInventoryPolicySchemaResponseArgs and BlobInventoryPolicySchemaResponseOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicySchemaResponseInput` via:
+//
+//          BlobInventoryPolicySchemaResponseArgs{...}
+type BlobInventoryPolicySchemaResponseInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicySchemaResponseOutput() BlobInventoryPolicySchemaResponseOutput
+	ToBlobInventoryPolicySchemaResponseOutputWithContext(context.Context) BlobInventoryPolicySchemaResponseOutput
+}
+
+// The storage account blob inventory policy rules.
+type BlobInventoryPolicySchemaResponseArgs struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// Policy is enabled if set to true.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+	Rules BlobInventoryPolicyRuleResponseArrayInput `pulumi:"rules"`
+	// The valid value is Inventory
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobInventoryPolicySchemaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicySchemaResponse)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicySchemaResponseArgs) ToBlobInventoryPolicySchemaResponseOutput() BlobInventoryPolicySchemaResponseOutput {
+	return i.ToBlobInventoryPolicySchemaResponseOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicySchemaResponseArgs) ToBlobInventoryPolicySchemaResponseOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicySchemaResponseOutput)
+}
+
+func (i BlobInventoryPolicySchemaResponseArgs) ToBlobInventoryPolicySchemaResponsePtrOutput() BlobInventoryPolicySchemaResponsePtrOutput {
+	return i.ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicySchemaResponseArgs) ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicySchemaResponseOutput).ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(ctx)
+}
+
+// BlobInventoryPolicySchemaResponsePtrInput is an input type that accepts BlobInventoryPolicySchemaResponseArgs, BlobInventoryPolicySchemaResponsePtr and BlobInventoryPolicySchemaResponsePtrOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicySchemaResponsePtrInput` via:
+//
+//          BlobInventoryPolicySchemaResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobInventoryPolicySchemaResponsePtrInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicySchemaResponsePtrOutput() BlobInventoryPolicySchemaResponsePtrOutput
+	ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(context.Context) BlobInventoryPolicySchemaResponsePtrOutput
+}
+
+type blobInventoryPolicySchemaResponsePtrType BlobInventoryPolicySchemaResponseArgs
+
+func BlobInventoryPolicySchemaResponsePtr(v *BlobInventoryPolicySchemaResponseArgs) BlobInventoryPolicySchemaResponsePtrInput {
+	return (*blobInventoryPolicySchemaResponsePtrType)(v)
+}
+
+func (*blobInventoryPolicySchemaResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicySchemaResponse)(nil)).Elem()
+}
+
+func (i *blobInventoryPolicySchemaResponsePtrType) ToBlobInventoryPolicySchemaResponsePtrOutput() BlobInventoryPolicySchemaResponsePtrOutput {
+	return i.ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *blobInventoryPolicySchemaResponsePtrType) ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicySchemaResponsePtrOutput)
+}
+
+// The storage account blob inventory policy rules.
+type BlobInventoryPolicySchemaResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicySchemaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicySchemaResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResponseOutput() BlobInventoryPolicySchemaResponseOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResponseOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaResponseOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResponsePtrOutput() BlobInventoryPolicySchemaResponsePtrOutput {
+	return o.ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaResponsePtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) *BlobInventoryPolicySchemaResponse {
+		return &v
+	}).(BlobInventoryPolicySchemaResponsePtrOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaResponseOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Policy is enabled if set to true.
+func (o BlobInventoryPolicySchemaResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+func (o BlobInventoryPolicySchemaResponseOutput) Rules() BlobInventoryPolicyRuleResponseArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) []BlobInventoryPolicyRuleResponse { return v.Rules }).(BlobInventoryPolicyRuleResponseArrayOutput)
+}
+
+// The valid value is Inventory
+func (o BlobInventoryPolicySchemaResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type BlobInventoryPolicySchemaResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicySchemaResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobInventoryPolicySchemaResponse)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicySchemaResponsePtrOutput) ToBlobInventoryPolicySchemaResponsePtrOutput() BlobInventoryPolicySchemaResponsePtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaResponsePtrOutput) ToBlobInventoryPolicySchemaResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicySchemaResponsePtrOutput {
+	return o
+}
+
+func (o BlobInventoryPolicySchemaResponsePtrOutput) Elem() BlobInventoryPolicySchemaResponseOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) BlobInventoryPolicySchemaResponse { return *v }).(BlobInventoryPolicySchemaResponseOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaResponsePtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Policy is enabled if set to true.
+func (o BlobInventoryPolicySchemaResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The storage account blob inventory policy rules. The rule is applied when it is enabled.
+func (o BlobInventoryPolicySchemaResponsePtrOutput) Rules() BlobInventoryPolicyRuleResponseArrayOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) []BlobInventoryPolicyRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BlobInventoryPolicyRuleResponseArrayOutput)
+}
+
+// The valid value is Inventory
+func (o BlobInventoryPolicySchemaResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Blob restore parameters
 type BlobRestoreParametersResponse struct {
 	// Blob ranges to restore.
@@ -1237,6 +2129,8 @@ func (o BlobRestoreStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 type ChangeFeed struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled *bool `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays *int `pulumi:"retentionInDays"`
 }
 
 // ChangeFeedInput is an input type that accepts ChangeFeedArgs and ChangeFeedOutput values.
@@ -1254,6 +2148,8 @@ type ChangeFeedInput interface {
 type ChangeFeedArgs struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 }
 
 func (ChangeFeedArgs) ElementType() reflect.Type {
@@ -1339,6 +2235,11 @@ func (o ChangeFeedOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChangeFeed) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChangeFeed) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
 type ChangeFeedPtrOutput struct{ *pulumi.OutputState }
 
 func (ChangeFeedPtrOutput) ElementType() reflect.Type {
@@ -1367,10 +2268,22 @@ func (o ChangeFeedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChangeFeed) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // The blob service properties for change feed events.
 type ChangeFeedResponse struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled *bool `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays *int `pulumi:"retentionInDays"`
 }
 
 // ChangeFeedResponseInput is an input type that accepts ChangeFeedResponseArgs and ChangeFeedResponseOutput values.
@@ -1388,6 +2301,8 @@ type ChangeFeedResponseInput interface {
 type ChangeFeedResponseArgs struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 }
 
 func (ChangeFeedResponseArgs) ElementType() reflect.Type {
@@ -1473,6 +2388,11 @@ func (o ChangeFeedResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChangeFeedResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChangeFeedResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
 type ChangeFeedResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ChangeFeedResponsePtrOutput) ElementType() reflect.Type {
@@ -1499,6 +2419,16 @@ func (o ChangeFeedResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChangeFeedResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies a CORS rule for the Blob service.
@@ -2615,10 +3545,12 @@ func (o DateAfterCreationResponsePtrOutput) DaysAfterCreationGreaterThan() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModification struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan float64 `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 // DateAfterModificationInput is an input type that accepts DateAfterModificationArgs and DateAfterModificationOutput values.
@@ -2632,10 +3564,12 @@ type DateAfterModificationInput interface {
 	ToDateAfterModificationOutputWithContext(context.Context) DateAfterModificationOutput
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationArgs struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan pulumi.Float64Input `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 func (DateAfterModificationArgs) ElementType() reflect.Type {
@@ -2691,7 +3625,7 @@ func (i *dateAfterModificationPtrType) ToDateAfterModificationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DateAfterModificationPtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationOutput struct{ *pulumi.OutputState }
 
 func (DateAfterModificationOutput) ElementType() reflect.Type {
@@ -2716,9 +3650,14 @@ func (o DateAfterModificationOutput) ToDateAfterModificationPtrOutputWithContext
 	}).(DateAfterModificationPtrOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
-func (o DateAfterModificationOutput) DaysAfterModificationGreaterThan() pulumi.Float64Output {
-	return o.ApplyT(func(v DateAfterModification) float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64Output)
+func (o DateAfterModificationOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModification) *float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 type DateAfterModificationPtrOutput struct{ *pulumi.OutputState }
@@ -2739,20 +3678,32 @@ func (o DateAfterModificationPtrOutput) Elem() DateAfterModificationOutput {
 	return o.ApplyT(func(v *DateAfterModification) DateAfterModification { return *v }).(DateAfterModificationOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationPtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModification) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastAccessTimeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
 func (o DateAfterModificationPtrOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModification) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.DaysAfterModificationGreaterThan
+		return v.DaysAfterModificationGreaterThan
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationResponse struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan float64 `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan *float64 `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 // DateAfterModificationResponseInput is an input type that accepts DateAfterModificationResponseArgs and DateAfterModificationResponseOutput values.
@@ -2766,10 +3717,12 @@ type DateAfterModificationResponseInput interface {
 	ToDateAfterModificationResponseOutputWithContext(context.Context) DateAfterModificationResponseOutput
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationResponseArgs struct {
+	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
 	// Value indicating the age in days after last modification
-	DaysAfterModificationGreaterThan pulumi.Float64Input `pulumi:"daysAfterModificationGreaterThan"`
+	DaysAfterModificationGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterModificationGreaterThan"`
 }
 
 func (DateAfterModificationResponseArgs) ElementType() reflect.Type {
@@ -2825,7 +3778,7 @@ func (i *dateAfterModificationResponsePtrType) ToDateAfterModificationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(DateAfterModificationResponsePtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationResponseOutput struct{ *pulumi.OutputState }
 
 func (DateAfterModificationResponseOutput) ElementType() reflect.Type {
@@ -2850,9 +3803,14 @@ func (o DateAfterModificationResponseOutput) ToDateAfterModificationResponsePtrO
 	}).(DateAfterModificationResponsePtrOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationResponseOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterLastAccessTimeGreaterThan }).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
-func (o DateAfterModificationResponseOutput) DaysAfterModificationGreaterThan() pulumi.Float64Output {
-	return o.ApplyT(func(v DateAfterModificationResponse) float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64Output)
+func (o DateAfterModificationResponseOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DateAfterModificationResponse) *float64 { return v.DaysAfterModificationGreaterThan }).(pulumi.Float64PtrOutput)
 }
 
 type DateAfterModificationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2873,13 +3831,23 @@ func (o DateAfterModificationResponsePtrOutput) Elem() DateAfterModificationResp
 	return o.ApplyT(func(v *DateAfterModificationResponse) DateAfterModificationResponse { return *v }).(DateAfterModificationResponseOutput)
 }
 
+// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+func (o DateAfterModificationResponsePtrOutput) DaysAfterLastAccessTimeGreaterThan() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DaysAfterLastAccessTimeGreaterThan
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Value indicating the age in days after last modification
 func (o DateAfterModificationResponsePtrOutput) DaysAfterModificationGreaterThan() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DateAfterModificationResponse) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.DaysAfterModificationGreaterThan
+		return v.DaysAfterModificationGreaterThan
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -5833,6 +6801,388 @@ func (o KeyVaultPropertiesResponsePtrOutput) LastKeyRotationTimestamp() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicy struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType []string `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable bool `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name *string `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays *int `pulumi:"trackingGranularityInDays"`
+}
+
+// LastAccessTimeTrackingPolicyInput is an input type that accepts LastAccessTimeTrackingPolicyArgs and LastAccessTimeTrackingPolicyOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyInput` via:
+//
+//          LastAccessTimeTrackingPolicyArgs{...}
+type LastAccessTimeTrackingPolicyInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyOutput() LastAccessTimeTrackingPolicyOutput
+	ToLastAccessTimeTrackingPolicyOutputWithContext(context.Context) LastAccessTimeTrackingPolicyOutput
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyArgs struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType pulumi.StringArrayInput `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays pulumi.IntPtrInput `pulumi:"trackingGranularityInDays"`
+}
+
+func (LastAccessTimeTrackingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyOutput() LastAccessTimeTrackingPolicyOutput {
+	return i.ToLastAccessTimeTrackingPolicyOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyOutput)
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyArgs) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyOutput).ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx)
+}
+
+// LastAccessTimeTrackingPolicyPtrInput is an input type that accepts LastAccessTimeTrackingPolicyArgs, LastAccessTimeTrackingPolicyPtr and LastAccessTimeTrackingPolicyPtrOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyPtrInput` via:
+//
+//          LastAccessTimeTrackingPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type LastAccessTimeTrackingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput
+	ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Context) LastAccessTimeTrackingPolicyPtrOutput
+}
+
+type lastAccessTimeTrackingPolicyPtrType LastAccessTimeTrackingPolicyArgs
+
+func LastAccessTimeTrackingPolicyPtr(v *LastAccessTimeTrackingPolicyArgs) LastAccessTimeTrackingPolicyPtrInput {
+	return (*lastAccessTimeTrackingPolicyPtrType)(v)
+}
+
+func (*lastAccessTimeTrackingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (i *lastAccessTimeTrackingPolicyPtrType) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *lastAccessTimeTrackingPolicyPtrType) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyPtrOutput)
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyOutput() LastAccessTimeTrackingPolicyOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return o.ToLastAccessTimeTrackingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LastAccessTimeTrackingPolicyOutput) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *LastAccessTimeTrackingPolicy {
+		return &v
+	}).(LastAccessTimeTrackingPolicyPtrOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) []string { return v.BlobType }).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicy) *int { return v.TrackingGranularityInDays }).(pulumi.IntPtrOutput)
+}
+
+type LastAccessTimeTrackingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicy)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyPtrOutput) ToLastAccessTimeTrackingPolicyPtrOutput() LastAccessTimeTrackingPolicyPtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyPtrOutput) ToLastAccessTimeTrackingPolicyPtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyPtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyPtrOutput) Elem() LastAccessTimeTrackingPolicyOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) LastAccessTimeTrackingPolicy { return *v }).(LastAccessTimeTrackingPolicyOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyPtrOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobType
+	}).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyPtrOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingGranularityInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyResponse struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType []string `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable bool `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name *string `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays *int `pulumi:"trackingGranularityInDays"`
+}
+
+// LastAccessTimeTrackingPolicyResponseInput is an input type that accepts LastAccessTimeTrackingPolicyResponseArgs and LastAccessTimeTrackingPolicyResponseOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyResponseInput` via:
+//
+//          LastAccessTimeTrackingPolicyResponseArgs{...}
+type LastAccessTimeTrackingPolicyResponseInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyResponseOutput() LastAccessTimeTrackingPolicyResponseOutput
+	ToLastAccessTimeTrackingPolicyResponseOutputWithContext(context.Context) LastAccessTimeTrackingPolicyResponseOutput
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyResponseArgs struct {
+	// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+	BlobType pulumi.StringArrayInput `pulumi:"blobType"`
+	// When set to true last access time based tracking is enabled.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+	TrackingGranularityInDays pulumi.IntPtrInput `pulumi:"trackingGranularityInDays"`
+}
+
+func (LastAccessTimeTrackingPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponseOutput() LastAccessTimeTrackingPolicyResponseOutput {
+	return i.ToLastAccessTimeTrackingPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponseOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyResponseOutput)
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LastAccessTimeTrackingPolicyResponseArgs) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyResponseOutput).ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// LastAccessTimeTrackingPolicyResponsePtrInput is an input type that accepts LastAccessTimeTrackingPolicyResponseArgs, LastAccessTimeTrackingPolicyResponsePtr and LastAccessTimeTrackingPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `LastAccessTimeTrackingPolicyResponsePtrInput` via:
+//
+//          LastAccessTimeTrackingPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LastAccessTimeTrackingPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput
+	ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput
+}
+
+type lastAccessTimeTrackingPolicyResponsePtrType LastAccessTimeTrackingPolicyResponseArgs
+
+func LastAccessTimeTrackingPolicyResponsePtr(v *LastAccessTimeTrackingPolicyResponseArgs) LastAccessTimeTrackingPolicyResponsePtrInput {
+	return (*lastAccessTimeTrackingPolicyResponsePtrType)(v)
+}
+
+func (*lastAccessTimeTrackingPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (i *lastAccessTimeTrackingPolicyResponsePtrType) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return i.ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *lastAccessTimeTrackingPolicyResponsePtrType) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LastAccessTimeTrackingPolicyResponsePtrOutput)
+}
+
+// The blob service properties for Last access time based tracking policy.
+type LastAccessTimeTrackingPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponseOutput() LastAccessTimeTrackingPolicyResponseOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponseOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponseOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o.ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LastAccessTimeTrackingPolicyResponseOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *LastAccessTimeTrackingPolicyResponse {
+		return &v
+	}).(LastAccessTimeTrackingPolicyResponsePtrOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponseOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) []string { return v.BlobType }).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyResponseOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyResponseOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LastAccessTimeTrackingPolicyResponse) *int { return v.TrackingGranularityInDays }).(pulumi.IntPtrOutput)
+}
+
+type LastAccessTimeTrackingPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LastAccessTimeTrackingPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastAccessTimeTrackingPolicyResponse)(nil)).Elem()
+}
+
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutput() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) ToLastAccessTimeTrackingPolicyResponsePtrOutputWithContext(ctx context.Context) LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o
+}
+
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Elem() LastAccessTimeTrackingPolicyResponseOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) LastAccessTimeTrackingPolicyResponse { return *v }).(LastAccessTimeTrackingPolicyResponseOutput)
+}
+
+// An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) BlobType() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobType
+	}).(pulumi.StringArrayOutput)
+}
+
+// When set to true last access time based tracking is enabled.
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+func (o LastAccessTimeTrackingPolicyResponsePtrOutput) TrackingGranularityInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastAccessTimeTrackingPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingGranularityInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // The LegalHold property of a blob container.
 type LegalHoldPropertiesResponse struct {
 	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
@@ -5992,6 +7342,8 @@ type ManagementPolicyAction struct {
 	BaseBlob *ManagementPolicyBaseBlob `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot *ManagementPolicySnapShot `pulumi:"snapshot"`
+	// The management policy action for version
+	Version *ManagementPolicyVersion `pulumi:"version"`
 }
 
 // ManagementPolicyActionInput is an input type that accepts ManagementPolicyActionArgs and ManagementPolicyActionOutput values.
@@ -6011,6 +7363,8 @@ type ManagementPolicyActionArgs struct {
 	BaseBlob ManagementPolicyBaseBlobPtrInput `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot ManagementPolicySnapShotPtrInput `pulumi:"snapshot"`
+	// The management policy action for version
+	Version ManagementPolicyVersionPtrInput `pulumi:"version"`
 }
 
 func (ManagementPolicyActionArgs) ElementType() reflect.Type {
@@ -6050,12 +7404,19 @@ func (o ManagementPolicyActionOutput) Snapshot() ManagementPolicySnapShotPtrOutp
 	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicySnapShot { return v.Snapshot }).(ManagementPolicySnapShotPtrOutput)
 }
 
+// The management policy action for version
+func (o ManagementPolicyActionOutput) Version() ManagementPolicyVersionPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicyVersion { return v.Version }).(ManagementPolicyVersionPtrOutput)
+}
+
 // Actions are applied to the filtered blobs when the execution condition is met.
 type ManagementPolicyActionResponse struct {
 	// The management policy action for base blob
 	BaseBlob *ManagementPolicyBaseBlobResponse `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot *ManagementPolicySnapShotResponse `pulumi:"snapshot"`
+	// The management policy action for version
+	Version *ManagementPolicyVersionResponse `pulumi:"version"`
 }
 
 // ManagementPolicyActionResponseInput is an input type that accepts ManagementPolicyActionResponseArgs and ManagementPolicyActionResponseOutput values.
@@ -6075,6 +7436,8 @@ type ManagementPolicyActionResponseArgs struct {
 	BaseBlob ManagementPolicyBaseBlobResponsePtrInput `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot ManagementPolicySnapShotResponsePtrInput `pulumi:"snapshot"`
+	// The management policy action for version
+	Version ManagementPolicyVersionResponsePtrInput `pulumi:"version"`
 }
 
 func (ManagementPolicyActionResponseArgs) ElementType() reflect.Type {
@@ -6114,10 +7477,17 @@ func (o ManagementPolicyActionResponseOutput) Snapshot() ManagementPolicySnapSho
 	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicySnapShotResponse { return v.Snapshot }).(ManagementPolicySnapShotResponsePtrOutput)
 }
 
+// The management policy action for version
+func (o ManagementPolicyActionResponseOutput) Version() ManagementPolicyVersionResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicyVersionResponse { return v.Version }).(ManagementPolicyVersionResponsePtrOutput)
+}
+
 // Management policy action for base blob.
 type ManagementPolicyBaseBlob struct {
 	// The function to delete the blob
 	Delete *DateAfterModification `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool *bool `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive *DateAfterModification `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -6139,6 +7509,8 @@ type ManagementPolicyBaseBlobInput interface {
 type ManagementPolicyBaseBlobArgs struct {
 	// The function to delete the blob
 	Delete DateAfterModificationPtrInput `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool pulumi.BoolPtrInput `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive DateAfterModificationPtrInput `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -6228,6 +7600,11 @@ func (o ManagementPolicyBaseBlobOutput) Delete() DateAfterModificationPtrOutput 
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.Delete }).(DateAfterModificationPtrOutput)
 }
 
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyBaseBlob) *bool { return v.EnableAutoTierToHotFromCool }).(pulumi.BoolPtrOutput)
+}
+
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobOutput) TierToArchive() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlob) *DateAfterModification { return v.TierToArchive }).(DateAfterModificationPtrOutput)
@@ -6266,6 +7643,16 @@ func (o ManagementPolicyBaseBlobPtrOutput) Delete() DateAfterModificationPtrOutp
 	}).(DateAfterModificationPtrOutput)
 }
 
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobPtrOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAutoTierToHotFromCool
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobPtrOutput) TierToArchive() DateAfterModificationPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyBaseBlob) *DateAfterModification {
@@ -6290,6 +7677,8 @@ func (o ManagementPolicyBaseBlobPtrOutput) TierToCool() DateAfterModificationPtr
 type ManagementPolicyBaseBlobResponse struct {
 	// The function to delete the blob
 	Delete *DateAfterModificationResponse `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool *bool `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive *DateAfterModificationResponse `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -6311,6 +7700,8 @@ type ManagementPolicyBaseBlobResponseInput interface {
 type ManagementPolicyBaseBlobResponseArgs struct {
 	// The function to delete the blob
 	Delete DateAfterModificationResponsePtrInput `pulumi:"delete"`
+	// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+	EnableAutoTierToHotFromCool pulumi.BoolPtrInput `pulumi:"enableAutoTierToHotFromCool"`
 	// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 	TierToArchive DateAfterModificationResponsePtrInput `pulumi:"tierToArchive"`
 	// The function to tier blobs to cool storage. Support blobs currently at Hot tier
@@ -6400,6 +7791,11 @@ func (o ManagementPolicyBaseBlobResponseOutput) Delete() DateAfterModificationRe
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.Delete }).(DateAfterModificationResponsePtrOutput)
 }
 
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobResponseOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *bool { return v.EnableAutoTierToHotFromCool }).(pulumi.BoolPtrOutput)
+}
+
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
 func (o ManagementPolicyBaseBlobResponseOutput) TierToArchive() DateAfterModificationResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *DateAfterModificationResponse { return v.TierToArchive }).(DateAfterModificationResponsePtrOutput)
@@ -6436,6 +7832,16 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) Delete() DateAfterModificatio
 		}
 		return v.Delete
 	}).(DateAfterModificationResponsePtrOutput)
+}
+
+// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+func (o ManagementPolicyBaseBlobResponsePtrOutput) EnableAutoTierToHotFromCool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAutoTierToHotFromCool
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
@@ -6590,7 +7996,7 @@ func (o ManagementPolicyDefinitionResponseOutput) Filters() ManagementPolicyFilt
 type ManagementPolicyFilter struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch []TagFilter `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch []string `pulumi:"prefixMatch"`
@@ -6611,7 +8017,7 @@ type ManagementPolicyFilterInput interface {
 type ManagementPolicyFilterArgs struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch TagFilterArrayInput `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
@@ -6700,7 +8106,7 @@ func (o ManagementPolicyFilterOutput) BlobIndexMatch() TagFilterArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []TagFilter { return v.BlobIndexMatch }).(TagFilterArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -6738,7 +8144,7 @@ func (o ManagementPolicyFilterPtrOutput) BlobIndexMatch() TagFilterArrayOutput {
 	}).(TagFilterArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilter) []string {
 		if v == nil {
@@ -6762,7 +8168,7 @@ func (o ManagementPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput 
 type ManagementPolicyFilterResponse struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch []TagFilterResponse `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch []string `pulumi:"prefixMatch"`
@@ -6783,7 +8189,7 @@ type ManagementPolicyFilterResponseInput interface {
 type ManagementPolicyFilterResponseArgs struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch TagFilterResponseArrayInput `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
@@ -6872,7 +8278,7 @@ func (o ManagementPolicyFilterResponseOutput) BlobIndexMatch() TagFilterResponse
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []TagFilterResponse { return v.BlobIndexMatch }).(TagFilterResponseArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -6910,7 +8316,7 @@ func (o ManagementPolicyFilterResponsePtrOutput) BlobIndexMatch() TagFilterRespo
 	}).(TagFilterResponseArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterResponsePtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilterResponse) []string {
 		if v == nil {
@@ -7456,6 +8862,10 @@ func (o ManagementPolicySchemaResponsePtrOutput) Rules() ManagementPolicyRuleRes
 type ManagementPolicySnapShot struct {
 	// The function to delete the blob snapshot
 	Delete *DateAfterCreation `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive *DateAfterCreation `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool *DateAfterCreation `pulumi:"tierToCool"`
 }
 
 // ManagementPolicySnapShotInput is an input type that accepts ManagementPolicySnapShotArgs and ManagementPolicySnapShotOutput values.
@@ -7473,6 +8883,10 @@ type ManagementPolicySnapShotInput interface {
 type ManagementPolicySnapShotArgs struct {
 	// The function to delete the blob snapshot
 	Delete DateAfterCreationPtrInput `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive DateAfterCreationPtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool DateAfterCreationPtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicySnapShotArgs) ElementType() reflect.Type {
@@ -7558,6 +8972,16 @@ func (o ManagementPolicySnapShotOutput) Delete() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.Delete }).(DateAfterCreationPtrOutput)
 }
 
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.TierToArchive }).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.TierToCool }).(DateAfterCreationPtrOutput)
+}
+
 type ManagementPolicySnapShotPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicySnapShotPtrOutput) ElementType() reflect.Type {
@@ -7586,10 +9010,34 @@ func (o ManagementPolicySnapShotPtrOutput) Delete() DateAfterCreationPtrOutput {
 	}).(DateAfterCreationPtrOutput)
 }
 
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotPtrOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotPtrOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
+	}).(DateAfterCreationPtrOutput)
+}
+
 // Management policy action for snapshot.
 type ManagementPolicySnapShotResponse struct {
 	// The function to delete the blob snapshot
 	Delete *DateAfterCreationResponse `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive *DateAfterCreationResponse `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool *DateAfterCreationResponse `pulumi:"tierToCool"`
 }
 
 // ManagementPolicySnapShotResponseInput is an input type that accepts ManagementPolicySnapShotResponseArgs and ManagementPolicySnapShotResponseOutput values.
@@ -7607,6 +9055,10 @@ type ManagementPolicySnapShotResponseInput interface {
 type ManagementPolicySnapShotResponseArgs struct {
 	// The function to delete the blob snapshot
 	Delete DateAfterCreationResponsePtrInput `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive DateAfterCreationResponsePtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicySnapShotResponseArgs) ElementType() reflect.Type {
@@ -7692,6 +9144,16 @@ func (o ManagementPolicySnapShotResponseOutput) Delete() DateAfterCreationRespon
 	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.Delete }).(DateAfterCreationResponsePtrOutput)
 }
 
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotResponseOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.TierToArchive }).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotResponseOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.TierToCool }).(DateAfterCreationResponsePtrOutput)
+}
+
 type ManagementPolicySnapShotResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicySnapShotResponsePtrOutput) ElementType() reflect.Type {
@@ -7717,6 +9179,370 @@ func (o ManagementPolicySnapShotResponsePtrOutput) Delete() DateAfterCreationRes
 			return nil
 		}
 		return v.Delete
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotResponsePtrOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotResponsePtrOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersion struct {
+	// The function to delete the blob version
+	Delete *DateAfterCreation `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive *DateAfterCreation `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool *DateAfterCreation `pulumi:"tierToCool"`
+}
+
+// ManagementPolicyVersionInput is an input type that accepts ManagementPolicyVersionArgs and ManagementPolicyVersionOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionInput` via:
+//
+//          ManagementPolicyVersionArgs{...}
+type ManagementPolicyVersionInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionOutput() ManagementPolicyVersionOutput
+	ToManagementPolicyVersionOutputWithContext(context.Context) ManagementPolicyVersionOutput
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionArgs struct {
+	// The function to delete the blob version
+	Delete DateAfterCreationPtrInput `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive DateAfterCreationPtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool DateAfterCreationPtrInput `pulumi:"tierToCool"`
+}
+
+func (ManagementPolicyVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionOutput() ManagementPolicyVersionOutput {
+	return i.ToManagementPolicyVersionOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionOutputWithContext(ctx context.Context) ManagementPolicyVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionOutput)
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return i.ToManagementPolicyVersionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionOutput).ToManagementPolicyVersionPtrOutputWithContext(ctx)
+}
+
+// ManagementPolicyVersionPtrInput is an input type that accepts ManagementPolicyVersionArgs, ManagementPolicyVersionPtr and ManagementPolicyVersionPtrOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionPtrInput` via:
+//
+//          ManagementPolicyVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementPolicyVersionPtrInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput
+	ToManagementPolicyVersionPtrOutputWithContext(context.Context) ManagementPolicyVersionPtrOutput
+}
+
+type managementPolicyVersionPtrType ManagementPolicyVersionArgs
+
+func ManagementPolicyVersionPtr(v *ManagementPolicyVersionArgs) ManagementPolicyVersionPtrInput {
+	return (*managementPolicyVersionPtrType)(v)
+}
+
+func (*managementPolicyVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (i *managementPolicyVersionPtrType) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return i.ToManagementPolicyVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *managementPolicyVersionPtrType) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionPtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionOutput() ManagementPolicyVersionOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionOutputWithContext(ctx context.Context) ManagementPolicyVersionOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return o.ToManagementPolicyVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *ManagementPolicyVersion {
+		return &v
+	}).(ManagementPolicyVersionPtrOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionOutput) Delete() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.Delete }).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.TierToArchive }).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.TierToCool }).(DateAfterCreationPtrOutput)
+}
+
+type ManagementPolicyVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionPtrOutput) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionPtrOutput) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionPtrOutput) Elem() ManagementPolicyVersionOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) ManagementPolicyVersion { return *v }).(ManagementPolicyVersionOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionPtrOutput) Delete() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionPtrOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionPtrOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
+	}).(DateAfterCreationPtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionResponse struct {
+	// The function to delete the blob version
+	Delete *DateAfterCreationResponse `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive *DateAfterCreationResponse `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool *DateAfterCreationResponse `pulumi:"tierToCool"`
+}
+
+// ManagementPolicyVersionResponseInput is an input type that accepts ManagementPolicyVersionResponseArgs and ManagementPolicyVersionResponseOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionResponseInput` via:
+//
+//          ManagementPolicyVersionResponseArgs{...}
+type ManagementPolicyVersionResponseInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionResponseOutput() ManagementPolicyVersionResponseOutput
+	ToManagementPolicyVersionResponseOutputWithContext(context.Context) ManagementPolicyVersionResponseOutput
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionResponseArgs struct {
+	// The function to delete the blob version
+	Delete DateAfterCreationResponsePtrInput `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive DateAfterCreationResponsePtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
+}
+
+func (ManagementPolicyVersionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponseOutput() ManagementPolicyVersionResponseOutput {
+	return i.ToManagementPolicyVersionResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponseOutputWithContext(ctx context.Context) ManagementPolicyVersionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionResponseOutput)
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return i.ToManagementPolicyVersionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionResponseOutput).ToManagementPolicyVersionResponsePtrOutputWithContext(ctx)
+}
+
+// ManagementPolicyVersionResponsePtrInput is an input type that accepts ManagementPolicyVersionResponseArgs, ManagementPolicyVersionResponsePtr and ManagementPolicyVersionResponsePtrOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionResponsePtrInput` via:
+//
+//          ManagementPolicyVersionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementPolicyVersionResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput
+	ToManagementPolicyVersionResponsePtrOutputWithContext(context.Context) ManagementPolicyVersionResponsePtrOutput
+}
+
+type managementPolicyVersionResponsePtrType ManagementPolicyVersionResponseArgs
+
+func ManagementPolicyVersionResponsePtr(v *ManagementPolicyVersionResponseArgs) ManagementPolicyVersionResponsePtrInput {
+	return (*managementPolicyVersionResponsePtrType)(v)
+}
+
+func (*managementPolicyVersionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (i *managementPolicyVersionResponsePtrType) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return i.ToManagementPolicyVersionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managementPolicyVersionResponsePtrType) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionResponsePtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponseOutput() ManagementPolicyVersionResponseOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponseOutputWithContext(ctx context.Context) ManagementPolicyVersionResponseOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return o.ToManagementPolicyVersionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *ManagementPolicyVersionResponse {
+		return &v
+	}).(ManagementPolicyVersionResponsePtrOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionResponseOutput) Delete() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.Delete }).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionResponseOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.TierToArchive }).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionResponseOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.TierToCool }).(DateAfterCreationResponsePtrOutput)
+}
+
+type ManagementPolicyVersionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionResponsePtrOutput) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponsePtrOutput) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponsePtrOutput) Elem() ManagementPolicyVersionResponseOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) ManagementPolicyVersionResponse { return *v }).(ManagementPolicyVersionResponseOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionResponsePtrOutput) Delete() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionResponsePtrOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionResponsePtrOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
@@ -10802,6 +12628,235 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Web() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Blob index tag based filtering for blob objects
 type TagFilter struct {
 	// This is the filter tag name, it can have 1 - 128 characters
@@ -11564,6 +13619,18 @@ func init() {
 	pulumi.RegisterOutputType(AzureFilesIdentityBasedAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(AzureFilesIdentityBasedAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(AzureFilesIdentityBasedAuthenticationResponsePtrOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyFilterOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyFilterResponseOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleResponseOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicySchemaOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicySchemaPtrOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicySchemaResponseOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicySchemaResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobRestoreParametersResponseOutput{})
 	pulumi.RegisterOutputType(BlobRestoreParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobRestoreRangeResponseOutput{})
@@ -11628,6 +13695,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyResponseOutput{})
+	pulumi.RegisterOutputType(LastAccessTimeTrackingPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(LegalHoldPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LegalHoldPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyActionOutput{})
@@ -11654,6 +13725,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicySnapShotPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicySnapShotResponseOutput{})
 	pulumi.RegisterOutputType(ManagementPolicySnapShotResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionPtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionResponseOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
@@ -11692,6 +13767,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagFilterOutput{})
 	pulumi.RegisterOutputType(TagFilterArrayOutput{})
 	pulumi.RegisterOutputType(TagFilterResponseOutput{})

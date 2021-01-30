@@ -20,7 +20,7 @@ class GetBlobServicePropertiesResult:
     """
     The properties of a storage account’s Blob service.
     """
-    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, container_delete_retention_policy=None, cors=None, default_service_version=None, delete_retention_policy=None, id=None, is_versioning_enabled=None, name=None, restore_policy=None, sku=None, type=None):
+    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, container_delete_retention_policy=None, cors=None, default_service_version=None, delete_retention_policy=None, id=None, is_versioning_enabled=None, last_access_time_tracking_policy=None, name=None, restore_policy=None, sku=None, type=None):
         if automatic_snapshot_policy_enabled and not isinstance(automatic_snapshot_policy_enabled, bool):
             raise TypeError("Expected argument 'automatic_snapshot_policy_enabled' to be a bool")
         pulumi.set(__self__, "automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
@@ -45,6 +45,9 @@ class GetBlobServicePropertiesResult:
         if is_versioning_enabled and not isinstance(is_versioning_enabled, bool):
             raise TypeError("Expected argument 'is_versioning_enabled' to be a bool")
         pulumi.set(__self__, "is_versioning_enabled", is_versioning_enabled)
+        if last_access_time_tracking_policy and not isinstance(last_access_time_tracking_policy, dict):
+            raise TypeError("Expected argument 'last_access_time_tracking_policy' to be a dict")
+        pulumi.set(__self__, "last_access_time_tracking_policy", last_access_time_tracking_policy)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -123,6 +126,14 @@ class GetBlobServicePropertiesResult:
         return pulumi.get(self, "is_versioning_enabled")
 
     @property
+    @pulumi.getter(name="lastAccessTimeTrackingPolicy")
+    def last_access_time_tracking_policy(self) -> Optional['outputs.LastAccessTimeTrackingPolicyResponse']:
+        """
+        The blob service property to configure last access time based tracking policy.
+        """
+        return pulumi.get(self, "last_access_time_tracking_policy")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -169,6 +180,7 @@ class AwaitableGetBlobServicePropertiesResult(GetBlobServicePropertiesResult):
             delete_retention_policy=self.delete_retention_policy,
             id=self.id,
             is_versioning_enabled=self.is_versioning_enabled,
+            last_access_time_tracking_policy=self.last_access_time_tracking_policy,
             name=self.name,
             restore_policy=self.restore_policy,
             sku=self.sku,
@@ -205,6 +217,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
         delete_retention_policy=__ret__.delete_retention_policy,
         id=__ret__.id,
         is_versioning_enabled=__ret__.is_versioning_enabled,
+        last_access_time_tracking_policy=__ret__.last_access_time_tracking_policy,
         name=__ret__.name,
         restore_policy=__ret__.restore_policy,
         sku=__ret__.sku,

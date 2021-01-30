@@ -85,7 +85,7 @@ class Domain(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/latest:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/latest:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:Domain"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-nextgen:eventgrid/v20200601:Domain',

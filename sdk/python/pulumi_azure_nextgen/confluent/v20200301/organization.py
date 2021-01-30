@@ -21,7 +21,6 @@ class Organization(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  offer_detail: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesOfferDetailArgs']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisionState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_detail: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']]] = None,
@@ -36,7 +35,6 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location of Organization resource
         :param pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesOfferDetailArgs']] offer_detail: Confluent offer detail
         :param pulumi.Input[str] organization_name: Organization resource name
-        :param pulumi.Input[Union[str, 'ProvisionState']] provisioning_state: Provision states for confluent RP
         :param pulumi.Input[str] resource_group_name: Resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
         :param pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']] user_detail: Subscriber detail
@@ -63,7 +61,6 @@ class Organization(pulumi.CustomResource):
             if organization_name is None and not opts.urn:
                 raise TypeError("Missing required property 'organization_name'")
             __props__['organization_name'] = organization_name
-            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -72,6 +69,7 @@ class Organization(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['organization_id'] = None
+            __props__['provisioning_state'] = None
             __props__['sso_url'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/latest:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization")])
@@ -142,7 +140,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provision states for confluent RP
         """

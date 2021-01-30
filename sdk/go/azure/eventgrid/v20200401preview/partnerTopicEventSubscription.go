@@ -63,6 +63,12 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PartnerTopicEventSubscription
 	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription", name, args, &resource, opts...)
 	if err != nil {

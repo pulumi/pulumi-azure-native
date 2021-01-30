@@ -19,6 +19,8 @@ type StorageAccount struct {
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrOutput `pulumi:"allowBlobPublicAccess"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+	AllowSharedKeyAccess pulumi.BoolPtrOutput `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
 	AzureFilesIdentityBasedAuthentication AzureFilesIdentityBasedAuthenticationResponsePtrOutput `pulumi:"azureFilesIdentityBasedAuthentication"`
 	// Blob restore status
@@ -174,6 +176,8 @@ type storageAccountState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+	AllowSharedKeyAccess *bool `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
 	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
 	// Blob restore status
@@ -241,6 +245,8 @@ type StorageAccountState struct {
 	AccessTier pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+	AllowSharedKeyAccess pulumi.BoolPtrInput
 	// Provides the identity based authentication settings for Azure Files.
 	AzureFilesIdentityBasedAuthentication AzureFilesIdentityBasedAuthenticationResponsePtrInput
 	// Blob restore status
@@ -314,6 +320,8 @@ type storageAccountArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+	AllowSharedKeyAccess *bool `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
 	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthentication `pulumi:"azureFilesIdentityBasedAuthentication"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -356,6 +364,8 @@ type StorageAccountArgs struct {
 	AccountName pulumi.StringInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+	AllowSharedKeyAccess pulumi.BoolPtrInput
 	// Provides the identity based authentication settings for Azure Files.
 	AzureFilesIdentityBasedAuthentication AzureFilesIdentityBasedAuthenticationPtrInput
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.

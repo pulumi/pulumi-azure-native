@@ -94,6 +94,8 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['topic'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerTopicEventSubscription, __self__).__init__(
             'azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription',
             resource_name,

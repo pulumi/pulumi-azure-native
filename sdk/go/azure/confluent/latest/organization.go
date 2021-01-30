@@ -27,7 +27,7 @@ type Organization struct {
 	// Id of the Confluent organization.
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Provision states for confluent RP
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// SSO url for the Confluent organization.
 	SsoUrl pulumi.StringOutput `pulumi:"ssoUrl"`
 	// Organization resource tags
@@ -138,8 +138,6 @@ type organizationArgs struct {
 	OfferDetail *OrganizationResourcePropertiesOfferDetail `pulumi:"offerDetail"`
 	// Organization resource name
 	OrganizationName string `pulumi:"organizationName"`
-	// Provision states for confluent RP
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Organization resource tags
@@ -156,8 +154,6 @@ type OrganizationArgs struct {
 	OfferDetail OrganizationResourcePropertiesOfferDetailPtrInput
 	// Organization resource name
 	OrganizationName pulumi.StringInput
-	// Provision states for confluent RP
-	ProvisioningState pulumi.StringPtrInput
 	// Resource group name
 	ResourceGroupName pulumi.StringInput
 	// Organization resource tags

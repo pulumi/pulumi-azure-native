@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
         /// <summary>
         /// Provision states for confluent RP
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// SSO url for the Confluent organization.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
 
             string organizationId,
 
-            string? provisioningState,
+            string provisioningState,
 
             string ssoUrl,
 

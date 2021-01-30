@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
         /// <summary>
         /// Whether or not Extended Groups is enabled.
         /// </summary>
-        public readonly bool? ExtendedGroupsEnabled;
+        public readonly bool? ExtendedGroups;
         /// <summary>
         /// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
         /// <summary>
         /// The base distinguished name for the LDAP domain.
         /// </summary>
-        public readonly string? LdapBaseDn;
+        public readonly string? LdapBaseDN;
         /// <summary>
         /// The fully qualified domain name or IP address of the LDAP server to use.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
 
             bool? encryptLdapConnection,
 
-            bool? extendedGroupsEnabled,
+            bool? extendedGroups,
 
             string? groupFileURI,
 
-            string? ldapBaseDn,
+            string? ldapBaseDN,
 
             string? ldapServer,
 
@@ -92,9 +92,9 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Outputs
             CaCertificateURI = caCertificateURI;
             Credentials = credentials;
             EncryptLdapConnection = encryptLdapConnection;
-            ExtendedGroupsEnabled = extendedGroupsEnabled;
+            ExtendedGroups = extendedGroups;
             GroupFileURI = groupFileURI;
-            LdapBaseDn = ldapBaseDn;
+            LdapBaseDN = ldapBaseDN;
             LdapServer = ldapServer;
             RequireValidCertificate = requireValidCertificate;
             UserFileURI = userFileURI;

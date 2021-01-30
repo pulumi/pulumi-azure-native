@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         public Input<string>? FileSystem { get; set; }
 
         /// <summary>
+        /// The file share name.
+        /// </summary>
+        [Input("fileshare")]
+        public Input<string>? Fileshare { get; set; }
+
+        /// <summary>
         /// Whether or not the storage account is the default storage account.
         /// </summary>
         [Input("isDefault")]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// The shared access signature key.
+        /// </summary>
+        [Input("saskey")]
+        public Input<string>? Saskey { get; set; }
 
         public StorageAccountArgs()
         {

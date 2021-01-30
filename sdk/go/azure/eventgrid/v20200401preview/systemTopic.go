@@ -49,6 +49,12 @@ func NewSystemTopic(ctx *pulumi.Context,
 	if args.SystemTopicName == nil {
 		return nil, errors.New("invalid value for required argument 'SystemTopicName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:SystemTopic"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SystemTopic
 	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:SystemTopic", name, args, &resource, opts...)
 	if err != nil {

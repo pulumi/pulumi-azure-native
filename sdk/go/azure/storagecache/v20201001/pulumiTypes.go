@@ -2876,11 +2876,11 @@ type CacheUsernameDownloadSettings struct {
 	// Whether or not the LDAP connection should be encrypted.
 	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
 	// Whether or not Extended Groups is enabled.
-	ExtendedGroupsEnabled *bool `pulumi:"extendedGroupsEnabled"`
+	ExtendedGroups *bool `pulumi:"extendedGroups"`
 	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 	GroupFileURI *string `pulumi:"groupFileURI"`
 	// The base distinguished name for the LDAP domain.
-	LdapBaseDn *string `pulumi:"ldapBaseDn"`
+	LdapBaseDN *string `pulumi:"ldapBaseDN"`
 	// The fully qualified domain name or IP address of the LDAP server to use.
 	LdapServer *string `pulumi:"ldapServer"`
 	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
@@ -2913,11 +2913,11 @@ type CacheUsernameDownloadSettingsArgs struct {
 	// Whether or not the LDAP connection should be encrypted.
 	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
 	// Whether or not Extended Groups is enabled.
-	ExtendedGroupsEnabled pulumi.BoolPtrInput `pulumi:"extendedGroupsEnabled"`
+	ExtendedGroups pulumi.BoolPtrInput `pulumi:"extendedGroups"`
 	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
 	// The base distinguished name for the LDAP domain.
-	LdapBaseDn pulumi.StringPtrInput `pulumi:"ldapBaseDn"`
+	LdapBaseDN pulumi.StringPtrInput `pulumi:"ldapBaseDN"`
 	// The fully qualified domain name or IP address of the LDAP server to use.
 	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
 	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
@@ -3027,8 +3027,8 @@ func (o CacheUsernameDownloadSettingsOutput) EncryptLdapConnection() pulumi.Bool
 }
 
 // Whether or not Extended Groups is enabled.
-func (o CacheUsernameDownloadSettingsOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.ExtendedGroupsEnabled }).(pulumi.BoolPtrOutput)
+func (o CacheUsernameDownloadSettingsOutput) ExtendedGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.ExtendedGroups }).(pulumi.BoolPtrOutput)
 }
 
 // The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
@@ -3037,8 +3037,8 @@ func (o CacheUsernameDownloadSettingsOutput) GroupFileURI() pulumi.StringPtrOutp
 }
 
 // The base distinguished name for the LDAP domain.
-func (o CacheUsernameDownloadSettingsOutput) LdapBaseDn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.LdapBaseDn }).(pulumi.StringPtrOutput)
+func (o CacheUsernameDownloadSettingsOutput) LdapBaseDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.LdapBaseDN }).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified domain name or IP address of the LDAP server to use.
@@ -3120,12 +3120,12 @@ func (o CacheUsernameDownloadSettingsPtrOutput) EncryptLdapConnection() pulumi.B
 }
 
 // Whether or not Extended Groups is enabled.
-func (o CacheUsernameDownloadSettingsPtrOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+func (o CacheUsernameDownloadSettingsPtrOutput) ExtendedGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.ExtendedGroupsEnabled
+		return v.ExtendedGroups
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -3140,12 +3140,12 @@ func (o CacheUsernameDownloadSettingsPtrOutput) GroupFileURI() pulumi.StringPtrO
 }
 
 // The base distinguished name for the LDAP domain.
-func (o CacheUsernameDownloadSettingsPtrOutput) LdapBaseDn() pulumi.StringPtrOutput {
+func (o CacheUsernameDownloadSettingsPtrOutput) LdapBaseDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.LdapBaseDn
+		return v.LdapBaseDN
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3353,11 +3353,11 @@ type CacheUsernameDownloadSettingsResponse struct {
 	// Whether or not the LDAP connection should be encrypted.
 	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
 	// Whether or not Extended Groups is enabled.
-	ExtendedGroupsEnabled *bool `pulumi:"extendedGroupsEnabled"`
+	ExtendedGroups *bool `pulumi:"extendedGroups"`
 	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 	GroupFileURI *string `pulumi:"groupFileURI"`
 	// The base distinguished name for the LDAP domain.
-	LdapBaseDn *string `pulumi:"ldapBaseDn"`
+	LdapBaseDN *string `pulumi:"ldapBaseDN"`
 	// The fully qualified domain name or IP address of the LDAP server to use.
 	LdapServer *string `pulumi:"ldapServer"`
 	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
@@ -3392,11 +3392,11 @@ type CacheUsernameDownloadSettingsResponseArgs struct {
 	// Whether or not the LDAP connection should be encrypted.
 	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
 	// Whether or not Extended Groups is enabled.
-	ExtendedGroupsEnabled pulumi.BoolPtrInput `pulumi:"extendedGroupsEnabled"`
+	ExtendedGroups pulumi.BoolPtrInput `pulumi:"extendedGroups"`
 	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
 	// The base distinguished name for the LDAP domain.
-	LdapBaseDn pulumi.StringPtrInput `pulumi:"ldapBaseDn"`
+	LdapBaseDN pulumi.StringPtrInput `pulumi:"ldapBaseDN"`
 	// The fully qualified domain name or IP address of the LDAP server to use.
 	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
 	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
@@ -3510,8 +3510,8 @@ func (o CacheUsernameDownloadSettingsResponseOutput) EncryptLdapConnection() pul
 }
 
 // Whether or not Extended Groups is enabled.
-func (o CacheUsernameDownloadSettingsResponseOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.ExtendedGroupsEnabled }).(pulumi.BoolPtrOutput)
+func (o CacheUsernameDownloadSettingsResponseOutput) ExtendedGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.ExtendedGroups }).(pulumi.BoolPtrOutput)
 }
 
 // The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
@@ -3520,8 +3520,8 @@ func (o CacheUsernameDownloadSettingsResponseOutput) GroupFileURI() pulumi.Strin
 }
 
 // The base distinguished name for the LDAP domain.
-func (o CacheUsernameDownloadSettingsResponseOutput) LdapBaseDn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.LdapBaseDn }).(pulumi.StringPtrOutput)
+func (o CacheUsernameDownloadSettingsResponseOutput) LdapBaseDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.LdapBaseDN }).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified domain name or IP address of the LDAP server to use.
@@ -3608,12 +3608,12 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) EncryptLdapConnection() 
 }
 
 // Whether or not Extended Groups is enabled.
-func (o CacheUsernameDownloadSettingsResponsePtrOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) ExtendedGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.ExtendedGroupsEnabled
+		return v.ExtendedGroups
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -3628,12 +3628,12 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) GroupFileURI() pulumi.St
 }
 
 // The base distinguished name for the LDAP domain.
-func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapBaseDn() pulumi.StringPtrOutput {
+func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapBaseDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.LdapBaseDn
+		return v.LdapBaseDN
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -7,11 +7,13 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./blobContainer";
 export * from "./blobContainerImmutabilityPolicy";
+export * from "./blobInventoryPolicy";
 export * from "./blobServiceProperties";
 export * from "./fileServiceProperties";
 export * from "./fileShare";
 export * from "./getBlobContainer";
 export * from "./getBlobContainerImmutabilityPolicy";
+export * from "./getBlobInventoryPolicy";
 export * from "./getBlobServiceProperties";
 export * from "./getFileServiceProperties";
 export * from "./getFileShare";
@@ -41,6 +43,7 @@ export * from "../../types/enums/storage/latest";
 // Import resources to register:
 import { BlobContainer } from "./blobContainer";
 import { BlobContainerImmutabilityPolicy } from "./blobContainerImmutabilityPolicy";
+import { BlobInventoryPolicy } from "./blobInventoryPolicy";
 import { BlobServiceProperties } from "./blobServiceProperties";
 import { FileServiceProperties } from "./fileServiceProperties";
 import { FileShare } from "./fileShare";
@@ -61,6 +64,8 @@ const _module = {
                 return new BlobContainer(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy":
                 return new BlobContainerImmutabilityPolicy(name, <any>undefined, { urn })
+            case "azure-nextgen:storage/latest:BlobInventoryPolicy":
+                return new BlobInventoryPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:BlobServiceProperties":
                 return new BlobServiceProperties(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:FileServiceProperties":

@@ -2129,6 +2129,8 @@ func (o BlobRestoreStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 type ChangeFeed struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled *bool `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays *int `pulumi:"retentionInDays"`
 }
 
 // ChangeFeedInput is an input type that accepts ChangeFeedArgs and ChangeFeedOutput values.
@@ -2146,6 +2148,8 @@ type ChangeFeedInput interface {
 type ChangeFeedArgs struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 }
 
 func (ChangeFeedArgs) ElementType() reflect.Type {
@@ -2231,6 +2235,11 @@ func (o ChangeFeedOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChangeFeed) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChangeFeed) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
 type ChangeFeedPtrOutput struct{ *pulumi.OutputState }
 
 func (ChangeFeedPtrOutput) ElementType() reflect.Type {
@@ -2259,10 +2268,22 @@ func (o ChangeFeedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChangeFeed) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // The blob service properties for change feed events.
 type ChangeFeedResponse struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled *bool `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays *int `pulumi:"retentionInDays"`
 }
 
 // ChangeFeedResponseInput is an input type that accepts ChangeFeedResponseArgs and ChangeFeedResponseOutput values.
@@ -2280,6 +2301,8 @@ type ChangeFeedResponseInput interface {
 type ChangeFeedResponseArgs struct {
 	// Indicates whether change feed event logging is enabled for the Blob service.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 }
 
 func (ChangeFeedResponseArgs) ElementType() reflect.Type {
@@ -2365,6 +2388,11 @@ func (o ChangeFeedResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChangeFeedResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChangeFeedResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
 type ChangeFeedResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ChangeFeedResponsePtrOutput) ElementType() reflect.Type {
@@ -2391,6 +2419,16 @@ func (o ChangeFeedResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+func (o ChangeFeedResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChangeFeedResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies a CORS rule for the Blob service.
@@ -3507,7 +3545,7 @@ func (o DateAfterCreationResponsePtrOutput) DaysAfterCreationGreaterThan() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModification struct {
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
@@ -3526,7 +3564,7 @@ type DateAfterModificationInput interface {
 	ToDateAfterModificationOutputWithContext(context.Context) DateAfterModificationOutput
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationArgs struct {
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
@@ -3587,7 +3625,7 @@ func (i *dateAfterModificationPtrType) ToDateAfterModificationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DateAfterModificationPtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationOutput struct{ *pulumi.OutputState }
 
 func (DateAfterModificationOutput) ElementType() reflect.Type {
@@ -3660,7 +3698,7 @@ func (o DateAfterModificationPtrOutput) DaysAfterModificationGreaterThan() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationResponse struct {
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan *float64 `pulumi:"daysAfterLastAccessTimeGreaterThan"`
@@ -3679,7 +3717,7 @@ type DateAfterModificationResponseInput interface {
 	ToDateAfterModificationResponseOutputWithContext(context.Context) DateAfterModificationResponseOutput
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationResponseArgs struct {
 	// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
 	DaysAfterLastAccessTimeGreaterThan pulumi.Float64PtrInput `pulumi:"daysAfterLastAccessTimeGreaterThan"`
@@ -3740,7 +3778,7 @@ func (i *dateAfterModificationResponsePtrType) ToDateAfterModificationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(DateAfterModificationResponsePtrOutput)
 }
 
-// Object to define the number of days after last modification.
+// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
 type DateAfterModificationResponseOutput struct{ *pulumi.OutputState }
 
 func (DateAfterModificationResponseOutput) ElementType() reflect.Type {
@@ -7610,6 +7648,8 @@ type ManagementPolicyAction struct {
 	BaseBlob *ManagementPolicyBaseBlob `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot *ManagementPolicySnapShot `pulumi:"snapshot"`
+	// The management policy action for version
+	Version *ManagementPolicyVersion `pulumi:"version"`
 }
 
 // ManagementPolicyActionInput is an input type that accepts ManagementPolicyActionArgs and ManagementPolicyActionOutput values.
@@ -7629,6 +7669,8 @@ type ManagementPolicyActionArgs struct {
 	BaseBlob ManagementPolicyBaseBlobPtrInput `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot ManagementPolicySnapShotPtrInput `pulumi:"snapshot"`
+	// The management policy action for version
+	Version ManagementPolicyVersionPtrInput `pulumi:"version"`
 }
 
 func (ManagementPolicyActionArgs) ElementType() reflect.Type {
@@ -7668,12 +7710,19 @@ func (o ManagementPolicyActionOutput) Snapshot() ManagementPolicySnapShotPtrOutp
 	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicySnapShot { return v.Snapshot }).(ManagementPolicySnapShotPtrOutput)
 }
 
+// The management policy action for version
+func (o ManagementPolicyActionOutput) Version() ManagementPolicyVersionPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyAction) *ManagementPolicyVersion { return v.Version }).(ManagementPolicyVersionPtrOutput)
+}
+
 // Actions are applied to the filtered blobs when the execution condition is met.
 type ManagementPolicyActionResponse struct {
 	// The management policy action for base blob
 	BaseBlob *ManagementPolicyBaseBlobResponse `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot *ManagementPolicySnapShotResponse `pulumi:"snapshot"`
+	// The management policy action for version
+	Version *ManagementPolicyVersionResponse `pulumi:"version"`
 }
 
 // ManagementPolicyActionResponseInput is an input type that accepts ManagementPolicyActionResponseArgs and ManagementPolicyActionResponseOutput values.
@@ -7693,6 +7742,8 @@ type ManagementPolicyActionResponseArgs struct {
 	BaseBlob ManagementPolicyBaseBlobResponsePtrInput `pulumi:"baseBlob"`
 	// The management policy action for snapshot
 	Snapshot ManagementPolicySnapShotResponsePtrInput `pulumi:"snapshot"`
+	// The management policy action for version
+	Version ManagementPolicyVersionResponsePtrInput `pulumi:"version"`
 }
 
 func (ManagementPolicyActionResponseArgs) ElementType() reflect.Type {
@@ -7730,6 +7781,11 @@ func (o ManagementPolicyActionResponseOutput) BaseBlob() ManagementPolicyBaseBlo
 // The management policy action for snapshot
 func (o ManagementPolicyActionResponseOutput) Snapshot() ManagementPolicySnapShotResponsePtrOutput {
 	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicySnapShotResponse { return v.Snapshot }).(ManagementPolicySnapShotResponsePtrOutput)
+}
+
+// The management policy action for version
+func (o ManagementPolicyActionResponseOutput) Version() ManagementPolicyVersionResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyActionResponse) *ManagementPolicyVersionResponse { return v.Version }).(ManagementPolicyVersionResponsePtrOutput)
 }
 
 // Management policy action for base blob.
@@ -8246,7 +8302,7 @@ func (o ManagementPolicyDefinitionResponseOutput) Filters() ManagementPolicyFilt
 type ManagementPolicyFilter struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch []TagFilter `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch []string `pulumi:"prefixMatch"`
@@ -8267,7 +8323,7 @@ type ManagementPolicyFilterInput interface {
 type ManagementPolicyFilterArgs struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch TagFilterArrayInput `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
@@ -8356,7 +8412,7 @@ func (o ManagementPolicyFilterOutput) BlobIndexMatch() TagFilterArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []TagFilter { return v.BlobIndexMatch }).(TagFilterArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -8394,7 +8450,7 @@ func (o ManagementPolicyFilterPtrOutput) BlobIndexMatch() TagFilterArrayOutput {
 	}).(TagFilterArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilter) []string {
 		if v == nil {
@@ -8418,7 +8474,7 @@ func (o ManagementPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput 
 type ManagementPolicyFilterResponse struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch []TagFilterResponse `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch []string `pulumi:"prefixMatch"`
@@ -8439,7 +8495,7 @@ type ManagementPolicyFilterResponseInput interface {
 type ManagementPolicyFilterResponseArgs struct {
 	// An array of blob index tag based filters, there can be at most 10 tag filters
 	BlobIndexMatch TagFilterResponseArrayInput `pulumi:"blobIndexMatch"`
-	// An array of predefined enum values. Only blockBlob is supported.
+	// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be match.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
@@ -8528,7 +8584,7 @@ func (o ManagementPolicyFilterResponseOutput) BlobIndexMatch() TagFilterResponse
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []TagFilterResponse { return v.BlobIndexMatch }).(TagFilterResponseArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -8566,7 +8622,7 @@ func (o ManagementPolicyFilterResponsePtrOutput) BlobIndexMatch() TagFilterRespo
 	}).(TagFilterResponseArrayOutput)
 }
 
-// An array of predefined enum values. Only blockBlob is supported.
+// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
 func (o ManagementPolicyFilterResponsePtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyFilterResponse) []string {
 		if v == nil {
@@ -9112,6 +9168,10 @@ func (o ManagementPolicySchemaResponsePtrOutput) Rules() ManagementPolicyRuleRes
 type ManagementPolicySnapShot struct {
 	// The function to delete the blob snapshot
 	Delete *DateAfterCreation `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive *DateAfterCreation `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool *DateAfterCreation `pulumi:"tierToCool"`
 }
 
 // ManagementPolicySnapShotInput is an input type that accepts ManagementPolicySnapShotArgs and ManagementPolicySnapShotOutput values.
@@ -9129,6 +9189,10 @@ type ManagementPolicySnapShotInput interface {
 type ManagementPolicySnapShotArgs struct {
 	// The function to delete the blob snapshot
 	Delete DateAfterCreationPtrInput `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive DateAfterCreationPtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool DateAfterCreationPtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicySnapShotArgs) ElementType() reflect.Type {
@@ -9214,6 +9278,16 @@ func (o ManagementPolicySnapShotOutput) Delete() DateAfterCreationPtrOutput {
 	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.Delete }).(DateAfterCreationPtrOutput)
 }
 
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.TierToArchive }).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShot) *DateAfterCreation { return v.TierToCool }).(DateAfterCreationPtrOutput)
+}
+
 type ManagementPolicySnapShotPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicySnapShotPtrOutput) ElementType() reflect.Type {
@@ -9242,10 +9316,34 @@ func (o ManagementPolicySnapShotPtrOutput) Delete() DateAfterCreationPtrOutput {
 	}).(DateAfterCreationPtrOutput)
 }
 
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotPtrOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotPtrOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShot) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
+	}).(DateAfterCreationPtrOutput)
+}
+
 // Management policy action for snapshot.
 type ManagementPolicySnapShotResponse struct {
 	// The function to delete the blob snapshot
 	Delete *DateAfterCreationResponse `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive *DateAfterCreationResponse `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool *DateAfterCreationResponse `pulumi:"tierToCool"`
 }
 
 // ManagementPolicySnapShotResponseInput is an input type that accepts ManagementPolicySnapShotResponseArgs and ManagementPolicySnapShotResponseOutput values.
@@ -9263,6 +9361,10 @@ type ManagementPolicySnapShotResponseInput interface {
 type ManagementPolicySnapShotResponseArgs struct {
 	// The function to delete the blob snapshot
 	Delete DateAfterCreationResponsePtrInput `pulumi:"delete"`
+	// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+	TierToArchive DateAfterCreationResponsePtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+	TierToCool DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
 }
 
 func (ManagementPolicySnapShotResponseArgs) ElementType() reflect.Type {
@@ -9348,6 +9450,16 @@ func (o ManagementPolicySnapShotResponseOutput) Delete() DateAfterCreationRespon
 	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.Delete }).(DateAfterCreationResponsePtrOutput)
 }
 
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotResponseOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.TierToArchive }).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotResponseOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *DateAfterCreationResponse { return v.TierToCool }).(DateAfterCreationResponsePtrOutput)
+}
+
 type ManagementPolicySnapShotResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicySnapShotResponsePtrOutput) ElementType() reflect.Type {
@@ -9373,6 +9485,370 @@ func (o ManagementPolicySnapShotResponsePtrOutput) Delete() DateAfterCreationRes
 			return nil
 		}
 		return v.Delete
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+func (o ManagementPolicySnapShotResponsePtrOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+func (o ManagementPolicySnapShotResponsePtrOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersion struct {
+	// The function to delete the blob version
+	Delete *DateAfterCreation `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive *DateAfterCreation `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool *DateAfterCreation `pulumi:"tierToCool"`
+}
+
+// ManagementPolicyVersionInput is an input type that accepts ManagementPolicyVersionArgs and ManagementPolicyVersionOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionInput` via:
+//
+//          ManagementPolicyVersionArgs{...}
+type ManagementPolicyVersionInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionOutput() ManagementPolicyVersionOutput
+	ToManagementPolicyVersionOutputWithContext(context.Context) ManagementPolicyVersionOutput
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionArgs struct {
+	// The function to delete the blob version
+	Delete DateAfterCreationPtrInput `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive DateAfterCreationPtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool DateAfterCreationPtrInput `pulumi:"tierToCool"`
+}
+
+func (ManagementPolicyVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionOutput() ManagementPolicyVersionOutput {
+	return i.ToManagementPolicyVersionOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionOutputWithContext(ctx context.Context) ManagementPolicyVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionOutput)
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return i.ToManagementPolicyVersionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionArgs) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionOutput).ToManagementPolicyVersionPtrOutputWithContext(ctx)
+}
+
+// ManagementPolicyVersionPtrInput is an input type that accepts ManagementPolicyVersionArgs, ManagementPolicyVersionPtr and ManagementPolicyVersionPtrOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionPtrInput` via:
+//
+//          ManagementPolicyVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementPolicyVersionPtrInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput
+	ToManagementPolicyVersionPtrOutputWithContext(context.Context) ManagementPolicyVersionPtrOutput
+}
+
+type managementPolicyVersionPtrType ManagementPolicyVersionArgs
+
+func ManagementPolicyVersionPtr(v *ManagementPolicyVersionArgs) ManagementPolicyVersionPtrInput {
+	return (*managementPolicyVersionPtrType)(v)
+}
+
+func (*managementPolicyVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (i *managementPolicyVersionPtrType) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return i.ToManagementPolicyVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *managementPolicyVersionPtrType) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionPtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionOutput() ManagementPolicyVersionOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionOutputWithContext(ctx context.Context) ManagementPolicyVersionOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return o.ToManagementPolicyVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementPolicyVersionOutput) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *ManagementPolicyVersion {
+		return &v
+	}).(ManagementPolicyVersionPtrOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionOutput) Delete() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.Delete }).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.TierToArchive }).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersion) *DateAfterCreation { return v.TierToCool }).(DateAfterCreationPtrOutput)
+}
+
+type ManagementPolicyVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersion)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionPtrOutput) ToManagementPolicyVersionPtrOutput() ManagementPolicyVersionPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionPtrOutput) ToManagementPolicyVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyVersionPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionPtrOutput) Elem() ManagementPolicyVersionOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) ManagementPolicyVersion { return *v }).(ManagementPolicyVersionOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionPtrOutput) Delete() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionPtrOutput) TierToArchive() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationPtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionPtrOutput) TierToCool() DateAfterCreationPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersion) *DateAfterCreation {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
+	}).(DateAfterCreationPtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionResponse struct {
+	// The function to delete the blob version
+	Delete *DateAfterCreationResponse `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive *DateAfterCreationResponse `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool *DateAfterCreationResponse `pulumi:"tierToCool"`
+}
+
+// ManagementPolicyVersionResponseInput is an input type that accepts ManagementPolicyVersionResponseArgs and ManagementPolicyVersionResponseOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionResponseInput` via:
+//
+//          ManagementPolicyVersionResponseArgs{...}
+type ManagementPolicyVersionResponseInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionResponseOutput() ManagementPolicyVersionResponseOutput
+	ToManagementPolicyVersionResponseOutputWithContext(context.Context) ManagementPolicyVersionResponseOutput
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionResponseArgs struct {
+	// The function to delete the blob version
+	Delete DateAfterCreationResponsePtrInput `pulumi:"delete"`
+	// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+	TierToArchive DateAfterCreationResponsePtrInput `pulumi:"tierToArchive"`
+	// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+	TierToCool DateAfterCreationResponsePtrInput `pulumi:"tierToCool"`
+}
+
+func (ManagementPolicyVersionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponseOutput() ManagementPolicyVersionResponseOutput {
+	return i.ToManagementPolicyVersionResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponseOutputWithContext(ctx context.Context) ManagementPolicyVersionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionResponseOutput)
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return i.ToManagementPolicyVersionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyVersionResponseArgs) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionResponseOutput).ToManagementPolicyVersionResponsePtrOutputWithContext(ctx)
+}
+
+// ManagementPolicyVersionResponsePtrInput is an input type that accepts ManagementPolicyVersionResponseArgs, ManagementPolicyVersionResponsePtr and ManagementPolicyVersionResponsePtrOutput values.
+// You can construct a concrete instance of `ManagementPolicyVersionResponsePtrInput` via:
+//
+//          ManagementPolicyVersionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementPolicyVersionResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput
+	ToManagementPolicyVersionResponsePtrOutputWithContext(context.Context) ManagementPolicyVersionResponsePtrOutput
+}
+
+type managementPolicyVersionResponsePtrType ManagementPolicyVersionResponseArgs
+
+func ManagementPolicyVersionResponsePtr(v *ManagementPolicyVersionResponseArgs) ManagementPolicyVersionResponsePtrInput {
+	return (*managementPolicyVersionResponsePtrType)(v)
+}
+
+func (*managementPolicyVersionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (i *managementPolicyVersionResponsePtrType) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return i.ToManagementPolicyVersionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managementPolicyVersionResponsePtrType) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyVersionResponsePtrOutput)
+}
+
+// Management policy action for blob version.
+type ManagementPolicyVersionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponseOutput() ManagementPolicyVersionResponseOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponseOutputWithContext(ctx context.Context) ManagementPolicyVersionResponseOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return o.ToManagementPolicyVersionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagementPolicyVersionResponseOutput) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *ManagementPolicyVersionResponse {
+		return &v
+	}).(ManagementPolicyVersionResponsePtrOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionResponseOutput) Delete() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.Delete }).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionResponseOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.TierToArchive }).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionResponseOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v ManagementPolicyVersionResponse) *DateAfterCreationResponse { return v.TierToCool }).(DateAfterCreationResponsePtrOutput)
+}
+
+type ManagementPolicyVersionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyVersionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyVersionResponse)(nil)).Elem()
+}
+
+func (o ManagementPolicyVersionResponsePtrOutput) ToManagementPolicyVersionResponsePtrOutput() ManagementPolicyVersionResponsePtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponsePtrOutput) ToManagementPolicyVersionResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyVersionResponsePtrOutput {
+	return o
+}
+
+func (o ManagementPolicyVersionResponsePtrOutput) Elem() ManagementPolicyVersionResponseOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) ManagementPolicyVersionResponse { return *v }).(ManagementPolicyVersionResponseOutput)
+}
+
+// The function to delete the blob version
+func (o ManagementPolicyVersionResponsePtrOutput) Delete() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+func (o ManagementPolicyVersionResponsePtrOutput) TierToArchive() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToArchive
+	}).(DateAfterCreationResponsePtrOutput)
+}
+
+// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+func (o ManagementPolicyVersionResponsePtrOutput) TierToCool() DateAfterCreationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyVersionResponse) *DateAfterCreationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TierToCool
 	}).(DateAfterCreationResponsePtrOutput)
 }
 
@@ -14611,6 +15087,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicySnapShotPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicySnapShotResponseOutput{})
 	pulumi.RegisterOutputType(ManagementPolicySnapShotResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionPtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionResponseOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyVersionResponsePtrOutput{})
 	pulumi.RegisterOutputType(MultichannelOutput{})
 	pulumi.RegisterOutputType(MultichannelPtrOutput{})
 	pulumi.RegisterOutputType(MultichannelResponseOutput{})

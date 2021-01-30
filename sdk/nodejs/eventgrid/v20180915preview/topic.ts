@@ -114,7 +114,7 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:Topic" }, { type: "azure-nextgen:eventgrid/v20170615preview:Topic" }, { type: "azure-nextgen:eventgrid/v20170915preview:Topic" }, { type: "azure-nextgen:eventgrid/v20180101:Topic" }, { type: "azure-nextgen:eventgrid/v20180501preview:Topic" }, { type: "azure-nextgen:eventgrid/v20190101:Topic" }, { type: "azure-nextgen:eventgrid/v20190201preview:Topic" }, { type: "azure-nextgen:eventgrid/v20190601:Topic" }, { type: "azure-nextgen:eventgrid/v20200101preview:Topic" }, { type: "azure-nextgen:eventgrid/v20200401preview:Topic" }, { type: "azure-nextgen:eventgrid/v20200601:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:Topic" }, { type: "azure-nextgen:eventgrid/v20170615preview:Topic" }, { type: "azure-nextgen:eventgrid/v20170915preview:Topic" }, { type: "azure-nextgen:eventgrid/v20180101:Topic" }, { type: "azure-nextgen:eventgrid/v20180501preview:Topic" }, { type: "azure-nextgen:eventgrid/v20190101:Topic" }, { type: "azure-nextgen:eventgrid/v20190201preview:Topic" }, { type: "azure-nextgen:eventgrid/v20190601:Topic" }, { type: "azure-nextgen:eventgrid/v20200101preview:Topic" }, { type: "azure-nextgen:eventgrid/v20200401preview:Topic" }, { type: "azure-nextgen:eventgrid/v20200601:Topic" }, { type: "azure-nextgen:eventgrid/v20201015preview:Topic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Topic.__pulumiType, name, inputs, opts);
     }

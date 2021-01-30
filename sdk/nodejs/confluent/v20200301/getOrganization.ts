@@ -61,7 +61,7 @@ export interface GetOrganizationResult {
     /**
      * Provision states for confluent RP
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * SSO url for the Confluent organization.
      */

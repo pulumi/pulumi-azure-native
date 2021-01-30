@@ -14,13 +14,21 @@ namespace Pulumi.AzureNextGen.Storage.V20190601.Outputs
     public sealed class DateAfterModificationResponse
     {
         /// <summary>
+        /// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+        /// </summary>
+        public readonly double? DaysAfterLastAccessTimeGreaterThan;
+        /// <summary>
         /// Value indicating the age in days after last modification
         /// </summary>
-        public readonly double DaysAfterModificationGreaterThan;
+        public readonly double? DaysAfterModificationGreaterThan;
 
         [OutputConstructor]
-        private DateAfterModificationResponse(double daysAfterModificationGreaterThan)
+        private DateAfterModificationResponse(
+            double? daysAfterLastAccessTimeGreaterThan,
+
+            double? daysAfterModificationGreaterThan)
         {
+            DaysAfterLastAccessTimeGreaterThan = daysAfterLastAccessTimeGreaterThan;
             DaysAfterModificationGreaterThan = daysAfterModificationGreaterThan;
         }
     }

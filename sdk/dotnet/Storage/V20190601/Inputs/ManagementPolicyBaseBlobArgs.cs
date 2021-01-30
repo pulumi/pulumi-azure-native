@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190601.Inputs
         public Input<Inputs.DateAfterModificationArgs>? Delete { get; set; }
 
         /// <summary>
+        /// This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+        /// </summary>
+        [Input("enableAutoTierToHotFromCool")]
+        public Input<bool>? EnableAutoTierToHotFromCool { get; set; }
+
+        /// <summary>
         /// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
         /// </summary>
         [Input("tierToArchive")]

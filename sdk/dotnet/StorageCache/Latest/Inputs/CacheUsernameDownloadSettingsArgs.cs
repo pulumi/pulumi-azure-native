@@ -42,8 +42,8 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// <summary>
         /// Whether or not Extended Groups is enabled.
         /// </summary>
-        [Input("extendedGroupsEnabled")]
-        public Input<bool>? ExtendedGroupsEnabled { get; set; }
+        [Input("extendedGroups")]
+        public Input<bool>? ExtendedGroups { get; set; }
 
         /// <summary>
         /// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
@@ -54,8 +54,8 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// <summary>
         /// The base distinguished name for the LDAP domain.
         /// </summary>
-        [Input("ldapBaseDn")]
-        public Input<string>? LdapBaseDn { get; set; }
+        [Input("ldapBaseDN")]
+        public Input<string>? LdapBaseDN { get; set; }
 
         /// <summary>
         /// The fully qualified domain name or IP address of the LDAP server to use.

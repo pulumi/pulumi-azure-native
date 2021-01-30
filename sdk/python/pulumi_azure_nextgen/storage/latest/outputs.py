@@ -13,6 +13,10 @@ from ._enums import *
 __all__ = [
     'ActiveDirectoryPropertiesResponse',
     'AzureFilesIdentityBasedAuthenticationResponse',
+    'BlobInventoryPolicyDefinitionResponse',
+    'BlobInventoryPolicyFilterResponse',
+    'BlobInventoryPolicyRuleResponse',
+    'BlobInventoryPolicySchemaResponse',
     'BlobRestoreParametersResponse',
     'BlobRestoreRangeResponse',
     'BlobRestoreStatusResponse',
@@ -32,6 +36,7 @@ __all__ = [
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
     'KeyVaultPropertiesResponse',
+    'LastAccessTimeTrackingPolicyResponse',
     'LegalHoldPropertiesResponse',
     'ManagementPolicyActionResponse',
     'ManagementPolicyBaseBlobResponse',
@@ -40,6 +45,7 @@ __all__ = [
     'ManagementPolicyRuleResponse',
     'ManagementPolicySchemaResponse',
     'ManagementPolicySnapShotResponse',
+    'ManagementPolicyVersionResponse',
     'NetworkRuleSetResponse',
     'ObjectReplicationPolicyFilterResponse',
     'ObjectReplicationPolicyRuleResponse',
@@ -52,6 +58,7 @@ __all__ = [
     'StorageAccountInternetEndpointsResponse',
     'StorageAccountKeyResponseResult',
     'StorageAccountMicrosoftEndpointsResponse',
+    'SystemDataResponse',
     'TagFilterResponse',
     'TagPropertyResponse',
     'UpdateHistoryPropertyResponse',
@@ -170,6 +177,197 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
         Required if choose AD.
         """
         return pulumi.get(self, "active_directory_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicyDefinitionResponse(dict):
+    """
+    An object that defines the blob inventory rule. Each definition consists of a set of filters.
+    """
+    def __init__(__self__, *,
+                 filters: 'outputs.BlobInventoryPolicyFilterResponse'):
+        """
+        An object that defines the blob inventory rule. Each definition consists of a set of filters.
+        :param 'BlobInventoryPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        """
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> 'outputs.BlobInventoryPolicyFilterResponse':
+        """
+        An object that defines the filter set.
+        """
+        return pulumi.get(self, "filters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicyFilterResponse(dict):
+    """
+    An object that defines the blob inventory rule filter conditions.
+    """
+    def __init__(__self__, *,
+                 blob_types: Sequence[str],
+                 include_blob_versions: Optional[bool] = None,
+                 include_snapshots: Optional[bool] = None,
+                 prefix_match: Optional[Sequence[str]] = None):
+        """
+        An object that defines the blob inventory rule filter conditions.
+        :param Sequence[str] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        :param bool include_blob_versions: Includes blob versions in blob inventory when value set to true.
+        :param bool include_snapshots: Includes blob snapshots in blob inventory when value set to true.
+        :param Sequence[str] prefix_match: An array of strings for blob prefixes to be matched.
+        """
+        pulumi.set(__self__, "blob_types", blob_types)
+        if include_blob_versions is not None:
+            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_snapshots is not None:
+            pulumi.set(__self__, "include_snapshots", include_snapshots)
+        if prefix_match is not None:
+            pulumi.set(__self__, "prefix_match", prefix_match)
+
+    @property
+    @pulumi.getter(name="blobTypes")
+    def blob_types(self) -> Sequence[str]:
+        """
+        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        """
+        return pulumi.get(self, "blob_types")
+
+    @property
+    @pulumi.getter(name="includeBlobVersions")
+    def include_blob_versions(self) -> Optional[bool]:
+        """
+        Includes blob versions in blob inventory when value set to true.
+        """
+        return pulumi.get(self, "include_blob_versions")
+
+    @property
+    @pulumi.getter(name="includeSnapshots")
+    def include_snapshots(self) -> Optional[bool]:
+        """
+        Includes blob snapshots in blob inventory when value set to true.
+        """
+        return pulumi.get(self, "include_snapshots")
+
+    @property
+    @pulumi.getter(name="prefixMatch")
+    def prefix_match(self) -> Optional[Sequence[str]]:
+        """
+        An array of strings for blob prefixes to be matched.
+        """
+        return pulumi.get(self, "prefix_match")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicyRuleResponse(dict):
+    """
+    An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+    """
+    def __init__(__self__, *,
+                 definition: 'outputs.BlobInventoryPolicyDefinitionResponse',
+                 enabled: bool,
+                 name: str):
+        """
+        An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+        :param 'BlobInventoryPolicyDefinitionResponseArgs' definition: An object that defines the blob inventory policy rule.
+        :param bool enabled: Rule is enabled when set to true.
+        :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> 'outputs.BlobInventoryPolicyDefinitionResponse':
+        """
+        An object that defines the blob inventory policy rule.
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Rule is enabled when set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BlobInventoryPolicySchemaResponse(dict):
+    """
+    The storage account blob inventory policy rules.
+    """
+    def __init__(__self__, *,
+                 destination: str,
+                 enabled: bool,
+                 rules: Sequence['outputs.BlobInventoryPolicyRuleResponse'],
+                 type: str):
+        """
+        The storage account blob inventory policy rules.
+        :param str destination: Container name where blob inventory files are stored. Must be pre-created.
+        :param bool enabled: Policy is enabled if set to true.
+        :param Sequence['BlobInventoryPolicyRuleResponseArgs'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        :param str type: The valid value is Inventory
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Container name where blob inventory files are stored. Must be pre-created.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Policy is enabled if set to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BlobInventoryPolicyRuleResponse']:
+        """
+        The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The valid value is Inventory
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -311,13 +509,17 @@ class ChangeFeedResponse(dict):
     The blob service properties for change feed events.
     """
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 retention_in_days: Optional[int] = None):
         """
         The blob service properties for change feed events.
         :param bool enabled: Indicates whether change feed event logging is enabled for the Blob service.
+        :param int retention_in_days: Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
 
     @property
     @pulumi.getter
@@ -326,6 +528,14 @@ class ChangeFeedResponse(dict):
         Indicates whether change feed event logging is enabled for the Blob service.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+        """
+        return pulumi.get(self, "retention_in_days")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -491,19 +701,32 @@ class DateAfterCreationResponse(dict):
 @pulumi.output_type
 class DateAfterModificationResponse(dict):
     """
-    Object to define the number of days after last modification.
+    Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
     """
     def __init__(__self__, *,
-                 days_after_modification_greater_than: float):
+                 days_after_last_access_time_greater_than: Optional[float] = None,
+                 days_after_modification_greater_than: Optional[float] = None):
         """
-        Object to define the number of days after last modification.
+        Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+        :param float days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         :param float days_after_modification_greater_than: Value indicating the age in days after last modification
         """
-        pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+        if days_after_last_access_time_greater_than is not None:
+            pulumi.set(__self__, "days_after_last_access_time_greater_than", days_after_last_access_time_greater_than)
+        if days_after_modification_greater_than is not None:
+            pulumi.set(__self__, "days_after_modification_greater_than", days_after_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="daysAfterLastAccessTimeGreaterThan")
+    def days_after_last_access_time_greater_than(self) -> Optional[float]:
+        """
+        Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+        """
+        return pulumi.get(self, "days_after_last_access_time_greater_than")
 
     @property
     @pulumi.getter(name="daysAfterModificationGreaterThan")
-    def days_after_modification_greater_than(self) -> float:
+    def days_after_modification_greater_than(self) -> Optional[float]:
         """
         Value indicating the age in days after last modification
         """
@@ -1106,6 +1329,67 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LastAccessTimeTrackingPolicyResponse(dict):
+    """
+    The blob service properties for Last access time based tracking policy.
+    """
+    def __init__(__self__, *,
+                 enable: bool,
+                 blob_type: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 tracking_granularity_in_days: Optional[int] = None):
+        """
+        The blob service properties for Last access time based tracking policy.
+        :param bool enable: When set to true last access time based tracking is enabled.
+        :param Sequence[str] blob_type: An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+        :param str name: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+        :param int tracking_granularity_in_days: The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+        """
+        pulumi.set(__self__, "enable", enable)
+        if blob_type is not None:
+            pulumi.set(__self__, "blob_type", blob_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tracking_granularity_in_days is not None:
+            pulumi.set(__self__, "tracking_granularity_in_days", tracking_granularity_in_days)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        When set to true last access time based tracking is enabled.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter(name="blobType")
+    def blob_type(self) -> Optional[Sequence[str]]:
+        """
+        An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+        """
+        return pulumi.get(self, "blob_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="trackingGranularityInDays")
+    def tracking_granularity_in_days(self) -> Optional[int]:
+        """
+        The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+        """
+        return pulumi.get(self, "tracking_granularity_in_days")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LegalHoldPropertiesResponse(dict):
     """
     The LegalHold property of a blob container.
@@ -1149,16 +1433,20 @@ class ManagementPolicyActionResponse(dict):
     """
     def __init__(__self__, *,
                  base_blob: Optional['outputs.ManagementPolicyBaseBlobResponse'] = None,
-                 snapshot: Optional['outputs.ManagementPolicySnapShotResponse'] = None):
+                 snapshot: Optional['outputs.ManagementPolicySnapShotResponse'] = None,
+                 version: Optional['outputs.ManagementPolicyVersionResponse'] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
         :param 'ManagementPolicyBaseBlobResponseArgs' base_blob: The management policy action for base blob
         :param 'ManagementPolicySnapShotResponseArgs' snapshot: The management policy action for snapshot
+        :param 'ManagementPolicyVersionResponseArgs' version: The management policy action for version
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
         if snapshot is not None:
             pulumi.set(__self__, "snapshot", snapshot)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="baseBlob")
@@ -1176,6 +1464,14 @@ class ManagementPolicyActionResponse(dict):
         """
         return pulumi.get(self, "snapshot")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional['outputs.ManagementPolicyVersionResponse']:
+        """
+        The management policy action for version
+        """
+        return pulumi.get(self, "version")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -1187,16 +1483,20 @@ class ManagementPolicyBaseBlobResponse(dict):
     """
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterModificationResponse'] = None,
+                 enable_auto_tier_to_hot_from_cool: Optional[bool] = None,
                  tier_to_archive: Optional['outputs.DateAfterModificationResponse'] = None,
                  tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
         :param 'DateAfterModificationResponseArgs' delete: The function to delete the blob
+        :param bool enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
         :param 'DateAfterModificationResponseArgs' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
         :param 'DateAfterModificationResponseArgs' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if enable_auto_tier_to_hot_from_cool is not None:
+            pulumi.set(__self__, "enable_auto_tier_to_hot_from_cool", enable_auto_tier_to_hot_from_cool)
         if tier_to_archive is not None:
             pulumi.set(__self__, "tier_to_archive", tier_to_archive)
         if tier_to_cool is not None:
@@ -1209,6 +1509,14 @@ class ManagementPolicyBaseBlobResponse(dict):
         The function to delete the blob
         """
         return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter(name="enableAutoTierToHotFromCool")
+    def enable_auto_tier_to_hot_from_cool(self) -> Optional[bool]:
+        """
+        This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+        """
+        return pulumi.get(self, "enable_auto_tier_to_hot_from_cool")
 
     @property
     @pulumi.getter(name="tierToArchive")
@@ -1278,7 +1586,7 @@ class ManagementPolicyFilterResponse(dict):
                  prefix_match: Optional[Sequence[str]] = None):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
-        :param Sequence[str] blob_types: An array of predefined enum values. Only blockBlob is supported.
+        :param Sequence[str] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         :param Sequence['TagFilterResponseArgs'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param Sequence[str] prefix_match: An array of strings for prefixes to be match.
         """
@@ -1292,7 +1600,7 @@ class ManagementPolicyFilterResponse(dict):
     @pulumi.getter(name="blobTypes")
     def blob_types(self) -> Sequence[str]:
         """
-        An array of predefined enum values. Only blockBlob is supported.
+        An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         """
         return pulumi.get(self, "blob_types")
 
@@ -1406,13 +1714,21 @@ class ManagementPolicySnapShotResponse(dict):
     Management policy action for snapshot.
     """
     def __init__(__self__, *,
-                 delete: Optional['outputs.DateAfterCreationResponse'] = None):
+                 delete: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
         :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob snapshot
+        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if tier_to_archive is not None:
+            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cool is not None:
+            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
 
     @property
     @pulumi.getter
@@ -1421,6 +1737,72 @@ class ManagementPolicySnapShotResponse(dict):
         The function to delete the blob snapshot
         """
         return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter(name="tierToArchive")
+    def tier_to_archive(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        """
+        return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCool")
+    def tier_to_cool(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        """
+        return pulumi.get(self, "tier_to_cool")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagementPolicyVersionResponse(dict):
+    """
+    Management policy action for blob version.
+    """
+    def __init__(__self__, *,
+                 delete: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
+        """
+        Management policy action for blob version.
+        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob version
+        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        """
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if tier_to_archive is not None:
+            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cool is not None:
+            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to delete the blob version
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter(name="tierToArchive")
+    def tier_to_archive(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        """
+        return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCool")
+    def tier_to_cool(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        """
+        return pulumi.get(self, "tier_to_cool")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2067,6 +2449,92 @@ class StorageAccountMicrosoftEndpointsResponse(dict):
         Gets the web endpoint.
         """
         return pulumi.get(self, "web")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

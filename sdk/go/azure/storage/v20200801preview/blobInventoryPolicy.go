@@ -46,6 +46,15 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:storage/latest:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobInventoryPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BlobInventoryPolicy
 	err := ctx.RegisterResource("azure-nextgen:storage/v20200801preview:BlobInventoryPolicy", name, args, &resource, opts...)
 	if err != nil {

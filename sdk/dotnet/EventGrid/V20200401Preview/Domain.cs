@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

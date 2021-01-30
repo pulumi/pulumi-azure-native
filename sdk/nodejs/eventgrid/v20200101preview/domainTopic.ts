@@ -84,7 +84,7 @@ export class DomainTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200601:DomainTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20201015preview:DomainTopic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainTopic.__pulumiType, name, inputs, opts);
     }

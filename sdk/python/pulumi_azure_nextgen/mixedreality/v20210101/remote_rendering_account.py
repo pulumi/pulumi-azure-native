@@ -25,6 +25,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  plan: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,6 +42,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] plan: The plan associated with this account
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku associated with this account
+        :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -73,6 +75,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['storage_account_name'] = storage_account_name
             __props__['tags'] = tags
             __props__['account_domain'] = None
             __props__['account_id'] = None
@@ -168,6 +171,14 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         The sku associated with this account
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the storage account associated with this accountId
+        """
+        return pulumi.get(self, "storage_account_name")
 
     @property
     @pulumi.getter(name="systemData")

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewBlobContainer(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy":
 		r, err = NewBlobContainerImmutabilityPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:storage/latest:BlobInventoryPolicy":
+		r, err = NewBlobInventoryPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage/latest:BlobServiceProperties":
 		r, err = NewBlobServiceProperties(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage/latest:FileServiceProperties":

@@ -82,6 +82,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         public Input<int>? TargetInstanceCount { get; set; }
 
         /// <summary>
+        /// The name of the virtual machine group.
+        /// </summary>
+        [Input("vMGroupName")]
+        public Input<string>? VMGroupName { get; set; }
+
+        /// <summary>
         /// The virtual network profile.
         /// </summary>
         [Input("virtualNetworkProfile")]

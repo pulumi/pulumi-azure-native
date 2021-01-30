@@ -65,6 +65,10 @@ export class BlobServiceProperties extends pulumi.CustomResource {
      */
     public readonly isVersioningEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The blob service property to configure last access time based tracking policy.
+     */
+    public readonly lastAccessTimeTrackingPolicy!: pulumi.Output<outputs.storage.latest.LastAccessTimeTrackingPolicyResponse | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
             inputs["defaultServiceVersion"] = args ? args.defaultServiceVersion : undefined;
             inputs["deleteRetentionPolicy"] = args ? args.deleteRetentionPolicy : undefined;
             inputs["isVersioningEnabled"] = args ? args.isVersioningEnabled : undefined;
+            inputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorePolicy"] = args ? args.restorePolicy : undefined;
             inputs["name"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
             inputs["defaultServiceVersion"] = undefined /*out*/;
             inputs["deleteRetentionPolicy"] = undefined /*out*/;
             inputs["isVersioningEnabled"] = undefined /*out*/;
+            inputs["lastAccessTimeTrackingPolicy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["restorePolicy"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -180,6 +186,10 @@ export interface BlobServicePropertiesArgs {
      * Versioning is enabled if set to true.
      */
     readonly isVersioningEnabled?: pulumi.Input<boolean>;
+    /**
+     * The blob service property to configure last access time based tracking policy.
+     */
+    readonly lastAccessTimeTrackingPolicy?: pulumi.Input<inputs.storage.latest.LastAccessTimeTrackingPolicy>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

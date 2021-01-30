@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// </summary>
         public readonly bool? IsVersioningEnabled;
         /// <summary>
+        /// The blob service property to configure last access time based tracking policy.
+        /// </summary>
+        public readonly Outputs.LastAccessTimeTrackingPolicyResponse? LastAccessTimeTrackingPolicy;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 
             bool? isVersioningEnabled,
 
+            Outputs.LastAccessTimeTrackingPolicyResponse? lastAccessTimeTrackingPolicy,
+
             string name,
 
             Outputs.RestorePolicyPropertiesResponse? restorePolicy,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
             DeleteRetentionPolicy = deleteRetentionPolicy;
             Id = id;
             IsVersioningEnabled = isVersioningEnabled;
+            LastAccessTimeTrackingPolicy = lastAccessTimeTrackingPolicy;
             Name = name;
             RestorePolicy = restorePolicy;
             Sku = sku;
