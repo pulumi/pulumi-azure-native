@@ -5,24 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ProvisionState',
     'SaaSOfferStatus',
 ]
-
-
-class ProvisionState(str, Enum):
-    """
-    Provision states for confluent RP
-    """
-    ACCEPTED = "Accepted"
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-    DELETED = "Deleted"
-    NOT_SPECIFIED = "NotSpecified"
 
 
 class SaaSOfferStatus(str, Enum):

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
 {
 
     /// <summary>
-    /// Object to define the number of days after last modification.
+    /// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
     /// </summary>
     public sealed class DateAfterModificationArgs : Pulumi.ResourceArgs
     {

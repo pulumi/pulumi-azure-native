@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly string? FileSystem;
         /// <summary>
+        /// The file share name.
+        /// </summary>
+        public readonly string? Fileshare;
+        /// <summary>
         /// Whether or not the storage account is the default storage account.
         /// </summary>
         public readonly bool? IsDefault;
@@ -41,12 +45,18 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
         /// </summary>
         public readonly string? ResourceId;
+        /// <summary>
+        /// The shared access signature key.
+        /// </summary>
+        public readonly string? Saskey;
 
         [OutputConstructor]
         private StorageAccountResponse(
             string? container,
 
             string? fileSystem,
+
+            string? fileshare,
 
             bool? isDefault,
 
@@ -56,15 +66,19 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             string? name,
 
-            string? resourceId)
+            string? resourceId,
+
+            string? saskey)
         {
             Container = container;
             FileSystem = fileSystem;
+            Fileshare = fileshare;
             IsDefault = isDefault;
             Key = key;
             MsiResourceId = msiResourceId;
             Name = name;
             ResourceId = resourceId;
+            Saskey = saskey;
         }
     }
 }

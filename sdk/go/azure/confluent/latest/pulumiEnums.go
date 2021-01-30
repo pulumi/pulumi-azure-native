@@ -10,41 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provision states for confluent RP
-type ProvisionState pulumi.String
-
-const (
-	ProvisionStateAccepted     = ProvisionState("Accepted")
-	ProvisionStateCreating     = ProvisionState("Creating")
-	ProvisionStateUpdating     = ProvisionState("Updating")
-	ProvisionStateDeleting     = ProvisionState("Deleting")
-	ProvisionStateSucceeded    = ProvisionState("Succeeded")
-	ProvisionStateFailed       = ProvisionState("Failed")
-	ProvisionStateCanceled     = ProvisionState("Canceled")
-	ProvisionStateDeleted      = ProvisionState("Deleted")
-	ProvisionStateNotSpecified = ProvisionState("NotSpecified")
-)
-
-func (ProvisionState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ProvisionState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProvisionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProvisionState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ProvisionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // SaaS Offer Status
 type SaaSOfferStatus pulumi.String
 

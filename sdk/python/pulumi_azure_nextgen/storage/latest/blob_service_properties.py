@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BlobServiceProperties']
@@ -26,6 +27,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                  default_service_version: Optional[pulumi.Input[str]] = None,
                  delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
                  is_versioning_enabled: Optional[pulumi.Input[bool]] = None,
+                 last_access_time_tracking_policy: Optional[pulumi.Input[pulumi.InputType['LastAccessTimeTrackingPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_policy: Optional[pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']]] = None,
                  __props__=None,
@@ -46,6 +48,7 @@ class BlobServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] default_service_version: DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
         :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] delete_retention_policy: The blob service properties for blob soft delete.
         :param pulumi.Input[bool] is_versioning_enabled: Versioning is enabled if set to true.
+        :param pulumi.Input[pulumi.InputType['LastAccessTimeTrackingPolicyArgs']] last_access_time_tracking_policy: The blob service property to configure last access time based tracking policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']] restore_policy: The blob service properties for blob restore policy.
         """
@@ -79,6 +82,7 @@ class BlobServiceProperties(pulumi.CustomResource):
             __props__['default_service_version'] = default_service_version
             __props__['delete_retention_policy'] = delete_retention_policy
             __props__['is_versioning_enabled'] = is_versioning_enabled
+            __props__['last_access_time_tracking_policy'] = last_access_time_tracking_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -167,6 +171,14 @@ class BlobServiceProperties(pulumi.CustomResource):
         Versioning is enabled if set to true.
         """
         return pulumi.get(self, "is_versioning_enabled")
+
+    @property
+    @pulumi.getter(name="lastAccessTimeTrackingPolicy")
+    def last_access_time_tracking_policy(self) -> pulumi.Output[Optional['outputs.LastAccessTimeTrackingPolicyResponse']]:
+        """
+        The blob service property to configure last access time based tracking policy.
+        """
+        return pulumi.get(self, "last_access_time_tracking_policy")
 
     @property
     @pulumi.getter

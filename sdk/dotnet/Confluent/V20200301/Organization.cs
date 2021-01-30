@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301
         /// Provision states for confluent RP
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// SSO url for the Confluent organization.
@@ -142,12 +142,6 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301
         /// </summary>
         [Input("organizationName", required: true)]
         public Input<string> OrganizationName { get; set; } = null!;
-
-        /// <summary>
-        /// Provision states for confluent RP
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Confluent.V20200301.ProvisionState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Resource group name

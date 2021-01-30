@@ -20,7 +20,7 @@ class GetRemoteRenderingAccountResult:
     """
     RemoteRenderingAccount Response.
     """
-    def __init__(__self__, account_domain=None, account_id=None, id=None, identity=None, kind=None, location=None, name=None, plan=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_domain=None, account_id=None, id=None, identity=None, kind=None, location=None, name=None, plan=None, sku=None, storage_account_name=None, system_data=None, tags=None, type=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
         pulumi.set(__self__, "account_domain", account_domain)
@@ -48,6 +48,9 @@ class GetRemoteRenderingAccountResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if storage_account_name and not isinstance(storage_account_name, str):
+            raise TypeError("Expected argument 'storage_account_name' to be a str")
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -131,6 +134,14 @@ class GetRemoteRenderingAccountResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        The name of the storage account associated with this accountId
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -170,6 +181,7 @@ class AwaitableGetRemoteRenderingAccountResult(GetRemoteRenderingAccountResult):
             name=self.name,
             plan=self.plan,
             sku=self.sku,
+            storage_account_name=self.storage_account_name,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -203,6 +215,7 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
         name=__ret__.name,
         plan=__ret__.plan,
         sku=__ret__.sku,
+        storage_account_name=__ret__.storage_account_name,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

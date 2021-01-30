@@ -20,13 +20,16 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, allow_blob_public_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
         if allow_blob_public_access and not isinstance(allow_blob_public_access, bool):
             raise TypeError("Expected argument 'allow_blob_public_access' to be a bool")
         pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if allow_shared_key_access and not isinstance(allow_shared_key_access, bool):
+            raise TypeError("Expected argument 'allow_shared_key_access' to be a bool")
+        pulumi.set(__self__, "allow_shared_key_access", allow_shared_key_access)
         if azure_files_identity_based_authentication and not isinstance(azure_files_identity_based_authentication, dict):
             raise TypeError("Expected argument 'azure_files_identity_based_authentication' to be a dict")
         pulumi.set(__self__, "azure_files_identity_based_authentication", azure_files_identity_based_authentication)
@@ -133,6 +136,14 @@ class GetStorageAccountResult:
         Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         """
         return pulumi.get(self, "allow_blob_public_access")
+
+    @property
+    @pulumi.getter(name="allowSharedKeyAccess")
+    def allow_shared_key_access(self) -> Optional[bool]:
+        """
+        Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        """
+        return pulumi.get(self, "allow_shared_key_access")
 
     @property
     @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
@@ -383,6 +394,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
         return GetStorageAccountResult(
             access_tier=self.access_tier,
             allow_blob_public_access=self.allow_blob_public_access,
+            allow_shared_key_access=self.allow_shared_key_access,
             azure_files_identity_based_authentication=self.azure_files_identity_based_authentication,
             blob_restore_status=self.blob_restore_status,
             creation_time=self.creation_time,
@@ -439,6 +451,7 @@ def get_storage_account(account_name: Optional[str] = None,
     return AwaitableGetStorageAccountResult(
         access_tier=__ret__.access_tier,
         allow_blob_public_access=__ret__.allow_blob_public_access,
+        allow_shared_key_access=__ret__.allow_shared_key_access,
         azure_files_identity_based_authentication=__ret__.azure_files_identity_based_authentication,
         blob_restore_status=__ret__.blob_restore_status,
         creation_time=__ret__.creation_time,

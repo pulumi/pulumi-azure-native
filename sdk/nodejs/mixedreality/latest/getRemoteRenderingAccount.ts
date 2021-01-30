@@ -71,6 +71,10 @@ export interface GetRemoteRenderingAccountResult {
      */
     readonly sku?: outputs.mixedreality.latest.SkuResponse;
     /**
+     * The name of the storage account associated with this accountId
+     */
+    readonly storageAccountName?: string;
+    /**
      * System metadata for this account
      */
     readonly systemData: outputs.mixedreality.latest.SystemDataResponse;

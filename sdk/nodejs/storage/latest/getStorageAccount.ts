@@ -48,6 +48,10 @@ export interface GetStorageAccountResult {
      */
     readonly allowBlobPublicAccess?: boolean;
     /**
+     * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+     */
+    readonly allowSharedKeyAccess?: boolean;
+    /**
      * Provides the identity based authentication settings for Azure Files.
      */
     readonly azureFilesIdentityBasedAuthentication?: outputs.storage.latest.AzureFilesIdentityBasedAuthenticationResponse;

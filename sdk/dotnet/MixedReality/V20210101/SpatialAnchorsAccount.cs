@@ -64,6 +64,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the storage account associated with this accountId
+        /// </summary>
+        [Output("storageAccountName")]
+        public Output<string?> StorageAccountName { get; private set; } = null!;
+
+        /// <summary>
         /// System metadata for this account
         /// </summary>
         [Output("systemData")]
@@ -174,6 +180,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The name of the storage account associated with this accountId
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

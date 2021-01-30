@@ -12408,6 +12408,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12455,6 +12456,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12504,6 +12506,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12547,6 +12550,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12610,6 +12614,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12657,6 +12662,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12698,6 +12704,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12739,6 +12746,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -12780,6 +12788,7 @@
           "UAE North",
           "Switzerland West",
           "Japan West",
+          "UAE Central",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -48607,6 +48616,10 @@
       {
         "applicationId": "359431ad-ece5-496b-8768-be4bbfd82f36",
         "roleDefinitionId": "1b5c71b7-9814-4b40-b62a-23018af874d8"
+      },
+      {
+        "applicationId": "0000dab9-8b21-4ba2-807f-1743968cef00",
+        "roleDefinitionId": "1b5c71b7-9814-4b40-b62a-23018af874d8"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Kubernetes",
@@ -48621,9 +48634,16 @@
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "locations": [
-          "East US",
           "West Europe",
-          "West Central US"
+          "East US",
+          "West Central US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2",
+          "West US 2",
+          "Australia East",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "connectedClusters"
@@ -48648,7 +48668,14 @@
           "East US 2 EUAP",
           "West Europe",
           "East US",
-          "West Central US"
+          "West Central US",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "East US 2",
+          "West US 2",
+          "Australia East",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
@@ -58889,6 +58916,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-05-01",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -58899,6 +58927,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-05-01",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -58909,6 +58938,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-05-01",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -58930,6 +58960,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-05-01",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -58940,6 +58971,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-05-01",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -58950,6 +58982,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-05-01",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -59600,6 +59633,17 @@
         "locations": [],
         "properties": null,
         "resourceType": "promotions/checkeligibility"
+      },
+      {
+        "aliases": null,
+        "apiVersions": [
+          "2020-12-15-privatepreview",
+          "2020-12-15-beta"
+        ],
+        "capabilities": "None",
+        "locations": [],
+        "properties": null,
+        "resourceType": "billingAccounts/billingSubscriptions/elevateRole"
       }
     ]
   },
@@ -60485,6 +60529,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2021-01-21-preview",
           "2020-11-30-preview",
           "2020-09-23-preview",
           "2020-09-14-preview",
@@ -62657,6 +62702,9 @@
       },
       {
         "applicationId": "6b3368c6-61d2-4a72-854c-42d1c4e71fed"
+      },
+      {
+        "applicationId": "997dc448-eeab-4c93-8811-6b2c80196a16"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CostManagement",
@@ -66224,6 +66272,7 @@
           "Japan East",
           "Japan West",
           "Korea Central",
+          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -66270,6 +66319,7 @@
           "Japan East",
           "Japan West",
           "Korea Central",
+          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -66316,6 +66366,7 @@
           "Japan East",
           "Japan West",
           "Korea Central",
+          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",
@@ -66362,6 +66413,7 @@
           "Japan East",
           "Japan West",
           "Korea Central",
+          "Korea South",
           "North Central US",
           "North Europe",
           "South Africa North",

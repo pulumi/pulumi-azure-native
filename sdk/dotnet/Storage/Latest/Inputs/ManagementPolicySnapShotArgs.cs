@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         [Input("delete")]
         public Input<Inputs.DateAfterCreationArgs>? Delete { get; set; }
 
+        /// <summary>
+        /// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        /// </summary>
+        [Input("tierToArchive")]
+        public Input<Inputs.DateAfterCreationArgs>? TierToArchive { get; set; }
+
+        /// <summary>
+        /// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        /// </summary>
+        [Input("tierToCool")]
+        public Input<Inputs.DateAfterCreationArgs>? TierToCool { get; set; }
+
         public ManagementPolicySnapShotArgs()
         {
         }

@@ -31,6 +31,8 @@ type LookupStorageAccountResult struct {
 	AccessTier string `pulumi:"accessTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+	AllowSharedKeyAccess *bool `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
 	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
 	// Gets the creation date and time of the storage account in UTC.

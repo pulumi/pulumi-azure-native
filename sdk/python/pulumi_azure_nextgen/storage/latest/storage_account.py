@@ -21,6 +21,7 @@ class StorageAccount(pulumi.CustomResource):
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
@@ -48,6 +49,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        :param pulumi.Input[bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
         :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
@@ -86,6 +88,7 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['allow_blob_public_access'] = allow_blob_public_access
+            __props__['allow_shared_key_access'] = allow_shared_key_access
             __props__['azure_files_identity_based_authentication'] = azure_files_identity_based_authentication
             __props__['custom_domain'] = custom_domain
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
@@ -165,6 +168,14 @@ class StorageAccount(pulumi.CustomResource):
         Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         """
         return pulumi.get(self, "allow_blob_public_access")
+
+    @property
+    @pulumi.getter(name="allowSharedKeyAccess")
+    def allow_shared_key_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        """
+        return pulumi.get(self, "allow_shared_key_access")
 
     @property
     @pulumi.getter(name="azureFilesIdentityBasedAuthentication")

@@ -72,6 +72,10 @@ export interface GetBlobServicePropertiesResult {
      */
     readonly isVersioningEnabled?: boolean;
     /**
+     * The blob service property to configure last access time based tracking policy.
+     */
+    readonly lastAccessTimeTrackingPolicy?: outputs.storage.v20190601.LastAccessTimeTrackingPolicyResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;

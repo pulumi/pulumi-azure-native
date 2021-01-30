@@ -32,6 +32,8 @@ type RemoteRenderingAccount struct {
 	Plan IdentityResponsePtrOutput `pulumi:"plan"`
 	// The sku associated with this account
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The name of the storage account associated with this accountId
+	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 	// System metadata for this account
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -106,6 +108,8 @@ type remoteRenderingAccountState struct {
 	Plan *IdentityResponse `pulumi:"plan"`
 	// The sku associated with this account
 	Sku *SkuResponse `pulumi:"sku"`
+	// The name of the storage account associated with this accountId
+	StorageAccountName *string `pulumi:"storageAccountName"`
 	// System metadata for this account
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -131,6 +135,8 @@ type RemoteRenderingAccountState struct {
 	Plan IdentityResponsePtrInput
 	// The sku associated with this account
 	Sku SkuResponsePtrInput
+	// The name of the storage account associated with this accountId
+	StorageAccountName pulumi.StringPtrInput
 	// System metadata for this account
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
@@ -158,6 +164,8 @@ type remoteRenderingAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku associated with this account
 	Sku *Sku `pulumi:"sku"`
+	// The name of the storage account associated with this accountId
+	StorageAccountName *string `pulumi:"storageAccountName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -178,6 +186,8 @@ type RemoteRenderingAccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The sku associated with this account
 	Sku SkuPtrInput
+	// The name of the storage account associated with this accountId
+	StorageAccountName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

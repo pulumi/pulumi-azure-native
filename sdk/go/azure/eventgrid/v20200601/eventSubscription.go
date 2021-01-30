@@ -86,6 +86,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:EventSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:EventSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EventSubscription

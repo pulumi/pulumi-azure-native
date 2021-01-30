@@ -46,6 +46,7 @@ __all__ = [
     'ManagementPolicyRuleResponse',
     'ManagementPolicySchemaResponse',
     'ManagementPolicySnapShotResponse',
+    'ManagementPolicyVersionResponse',
     'MultichannelResponse',
     'NetworkRuleSetResponse',
     'ObjectReplicationPolicyFilterResponse',
@@ -513,13 +514,17 @@ class ChangeFeedResponse(dict):
     The blob service properties for change feed events.
     """
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 retention_in_days: Optional[int] = None):
         """
         The blob service properties for change feed events.
         :param bool enabled: Indicates whether change feed event logging is enabled for the Blob service.
+        :param int retention_in_days: Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
 
     @property
     @pulumi.getter
@@ -528,6 +533,14 @@ class ChangeFeedResponse(dict):
         Indicates whether change feed event logging is enabled for the Blob service.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+        """
+        return pulumi.get(self, "retention_in_days")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -693,13 +706,13 @@ class DateAfterCreationResponse(dict):
 @pulumi.output_type
 class DateAfterModificationResponse(dict):
     """
-    Object to define the number of days after last modification.
+    Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
     """
     def __init__(__self__, *,
                  days_after_last_access_time_greater_than: Optional[float] = None,
                  days_after_modification_greater_than: Optional[float] = None):
         """
-        Object to define the number of days after last modification.
+        Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
         :param float days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         :param float days_after_modification_greater_than: Value indicating the age in days after last modification
         """
@@ -1463,16 +1476,20 @@ class ManagementPolicyActionResponse(dict):
     """
     def __init__(__self__, *,
                  base_blob: Optional['outputs.ManagementPolicyBaseBlobResponse'] = None,
-                 snapshot: Optional['outputs.ManagementPolicySnapShotResponse'] = None):
+                 snapshot: Optional['outputs.ManagementPolicySnapShotResponse'] = None,
+                 version: Optional['outputs.ManagementPolicyVersionResponse'] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
         :param 'ManagementPolicyBaseBlobResponseArgs' base_blob: The management policy action for base blob
         :param 'ManagementPolicySnapShotResponseArgs' snapshot: The management policy action for snapshot
+        :param 'ManagementPolicyVersionResponseArgs' version: The management policy action for version
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
         if snapshot is not None:
             pulumi.set(__self__, "snapshot", snapshot)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="baseBlob")
@@ -1489,6 +1506,14 @@ class ManagementPolicyActionResponse(dict):
         The management policy action for snapshot
         """
         return pulumi.get(self, "snapshot")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional['outputs.ManagementPolicyVersionResponse']:
+        """
+        The management policy action for version
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1604,7 +1629,7 @@ class ManagementPolicyFilterResponse(dict):
                  prefix_match: Optional[Sequence[str]] = None):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
-        :param Sequence[str] blob_types: An array of predefined enum values. Only blockBlob is supported.
+        :param Sequence[str] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         :param Sequence['TagFilterResponseArgs'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param Sequence[str] prefix_match: An array of strings for prefixes to be match.
         """
@@ -1618,7 +1643,7 @@ class ManagementPolicyFilterResponse(dict):
     @pulumi.getter(name="blobTypes")
     def blob_types(self) -> Sequence[str]:
         """
-        An array of predefined enum values. Only blockBlob is supported.
+        An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         """
         return pulumi.get(self, "blob_types")
 
@@ -1732,13 +1757,21 @@ class ManagementPolicySnapShotResponse(dict):
     Management policy action for snapshot.
     """
     def __init__(__self__, *,
-                 delete: Optional['outputs.DateAfterCreationResponse'] = None):
+                 delete: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
         :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob snapshot
+        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if tier_to_archive is not None:
+            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cool is not None:
+            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
 
     @property
     @pulumi.getter
@@ -1747,6 +1780,72 @@ class ManagementPolicySnapShotResponse(dict):
         The function to delete the blob snapshot
         """
         return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter(name="tierToArchive")
+    def tier_to_archive(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        """
+        return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCool")
+    def tier_to_cool(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        """
+        return pulumi.get(self, "tier_to_cool")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagementPolicyVersionResponse(dict):
+    """
+    Management policy action for blob version.
+    """
+    def __init__(__self__, *,
+                 delete: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
+                 tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
+        """
+        Management policy action for blob version.
+        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob version
+        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        """
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if tier_to_archive is not None:
+            pulumi.set(__self__, "tier_to_archive", tier_to_archive)
+        if tier_to_cool is not None:
+            pulumi.set(__self__, "tier_to_cool", tier_to_cool)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to delete the blob version
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter(name="tierToArchive")
+    def tier_to_archive(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        """
+        return pulumi.get(self, "tier_to_archive")
+
+    @property
+    @pulumi.getter(name="tierToCool")
+    def tier_to_cool(self) -> Optional['outputs.DateAfterCreationResponse']:
+        """
+        The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        """
+        return pulumi.get(self, "tier_to_cool")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

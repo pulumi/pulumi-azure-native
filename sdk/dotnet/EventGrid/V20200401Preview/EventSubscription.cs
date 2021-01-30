@@ -133,6 +133,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:EventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

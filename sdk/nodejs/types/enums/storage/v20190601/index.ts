@@ -83,6 +83,15 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
+export const InventoryRuleType = {
+    Inventory: "Inventory",
+} as const;
+
+/**
+ * The valid value is Inventory
+ */
+export type InventoryRuleType = (typeof InventoryRuleType)[keyof typeof InventoryRuleType];
+
 export const KeySource = {
     Microsoft_Storage: "Microsoft.Storage",
     Microsoft_Keyvault: "Microsoft.Keyvault",
@@ -136,6 +145,15 @@ export const MinimumTlsVersion = {
  * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
  */
 export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
+
+export const Name = {
+    AccessTimeTracking: "AccessTimeTracking",
+} as const;
+
+/**
+ * Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+ */
+export type Name = (typeof Name)[keyof typeof Name];
 
 export const Permissions = {
     R: "r",

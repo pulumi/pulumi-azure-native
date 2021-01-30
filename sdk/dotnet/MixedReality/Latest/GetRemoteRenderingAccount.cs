@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// The name of the storage account associated with this accountId
+        /// </summary>
+        public readonly string? StorageAccountName;
+        /// <summary>
         /// System metadata for this account
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
 
             Outputs.SkuResponse? sku,
 
+            string? storageAccountName,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
             Name = name;
             Plan = plan;
             Sku = sku;
+            StorageAccountName = storageAccountName;
             SystemData = systemData;
             Tags = tags;
             Type = type;

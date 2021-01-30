@@ -75,6 +75,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

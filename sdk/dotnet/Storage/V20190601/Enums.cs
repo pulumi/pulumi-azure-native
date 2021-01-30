@@ -257,6 +257,36 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
     }
 
     /// <summary>
+    /// The valid value is Inventory
+    /// </summary>
+    [EnumType]
+    public readonly struct InventoryRuleType : IEquatable<InventoryRuleType>
+    {
+        private readonly string _value;
+
+        private InventoryRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InventoryRuleType Inventory { get; } = new InventoryRuleType("Inventory");
+
+        public static bool operator ==(InventoryRuleType left, InventoryRuleType right) => left.Equals(right);
+        public static bool operator !=(InventoryRuleType left, InventoryRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(InventoryRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InventoryRuleType other && Equals(other);
+        public bool Equals(InventoryRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
     /// </summary>
     [EnumType]
@@ -408,6 +438,36 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MinimumTlsVersion other && Equals(other);
         public bool Equals(MinimumTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+    /// </summary>
+    [EnumType]
+    public readonly struct Name : IEquatable<Name>
+    {
+        private readonly string _value;
+
+        private Name(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Name AccessTimeTracking { get; } = new Name("AccessTimeTracking");
+
+        public static bool operator ==(Name left, Name right) => left.Equals(right);
+        public static bool operator !=(Name left, Name right) => !left.Equals(right);
+
+        public static explicit operator string(Name value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Name other && Equals(other);
+        public bool Equals(Name other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

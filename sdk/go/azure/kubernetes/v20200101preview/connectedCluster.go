@@ -78,6 +78,15 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:kubernetes/v20210301:ConnectedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kubernetes/v20210401preview:ConnectedCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectedCluster
 	err := ctx.RegisterResource("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster", name, args, &resource, opts...)
 	if err != nil {

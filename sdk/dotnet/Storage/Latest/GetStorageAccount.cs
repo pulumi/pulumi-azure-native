@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         public readonly bool? AllowBlobPublicAccess;
         /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+        /// </summary>
+        public readonly bool? AllowSharedKeyAccess;
+        /// <summary>
         /// Provides the identity based authentication settings for Azure Files.
         /// </summary>
         public readonly Outputs.AzureFilesIdentityBasedAuthenticationResponse? AzureFilesIdentityBasedAuthentication;
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 
             bool? allowBlobPublicAccess,
 
+            bool? allowSharedKeyAccess,
+
             Outputs.AzureFilesIdentityBasedAuthenticationResponse? azureFilesIdentityBasedAuthentication,
 
             Outputs.BlobRestoreStatusResponse blobRestoreStatus,
@@ -242,6 +248,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         {
             AccessTier = accessTier;
             AllowBlobPublicAccess = allowBlobPublicAccess;
+            AllowSharedKeyAccess = allowSharedKeyAccess;
             AzureFilesIdentityBasedAuthentication = azureFilesIdentityBasedAuthentication;
             BlobRestoreStatus = blobRestoreStatus;
             CreationTime = creationTime;

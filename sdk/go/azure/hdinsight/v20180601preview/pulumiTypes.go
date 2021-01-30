@@ -274,6 +274,8 @@ type ApplicationGetHttpsEndpoint struct {
 	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
 	Location *string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort *int `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
@@ -301,6 +303,8 @@ type ApplicationGetHttpsEndpointArgs struct {
 	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
@@ -379,6 +383,11 @@ func (o ApplicationGetHttpsEndpointOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// The private ip address of the endpoint.
+func (o ApplicationGetHttpsEndpointOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
 // The public port to connect to.
 func (o ApplicationGetHttpsEndpointOutput) PublicPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
@@ -419,6 +428,8 @@ type ApplicationGetHttpsEndpointResponse struct {
 	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
 	Location *string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort *int `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
@@ -446,6 +457,8 @@ type ApplicationGetHttpsEndpointResponseArgs struct {
 	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
@@ -522,6 +535,11 @@ func (o ApplicationGetHttpsEndpointResponseOutput) DisableGatewayAuth() pulumi.B
 // The location of the endpoint.
 func (o ApplicationGetHttpsEndpointResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o ApplicationGetHttpsEndpointResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
 // The public port to connect to.
@@ -8388,6 +8406,8 @@ type Role struct {
 	ScriptActions []ScriptAction `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount *int `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName *string `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile *VirtualNetworkProfile `pulumi:"virtualNetworkProfile"`
 }
@@ -8423,6 +8443,8 @@ type RoleArgs struct {
 	ScriptActions ScriptActionArrayInput `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount pulumi.IntPtrInput `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName pulumi.StringPtrInput `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput `pulumi:"virtualNetworkProfile"`
 }
@@ -8524,6 +8546,11 @@ func (o RoleOutput) TargetInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Role) *int { return v.TargetInstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// The name of the virtual machine group.
+func (o RoleOutput) VMGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Role) *string { return v.VMGroupName }).(pulumi.StringPtrOutput)
+}
+
 // The virtual network profile.
 func (o RoleOutput) VirtualNetworkProfile() VirtualNetworkProfilePtrOutput {
 	return o.ApplyT(func(v Role) *VirtualNetworkProfile { return v.VirtualNetworkProfile }).(VirtualNetworkProfilePtrOutput)
@@ -8569,6 +8596,8 @@ type RoleResponse struct {
 	ScriptActions []ScriptActionResponse `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount *int `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName *string `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
 }
@@ -8604,6 +8633,8 @@ type RoleResponseArgs struct {
 	ScriptActions ScriptActionResponseArrayInput `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount pulumi.IntPtrInput `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName pulumi.StringPtrInput `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput `pulumi:"virtualNetworkProfile"`
 }
@@ -8703,6 +8734,11 @@ func (o RoleResponseOutput) ScriptActions() ScriptActionResponseArrayOutput {
 // The instance count of the cluster.
 func (o RoleResponseOutput) TargetInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoleResponse) *int { return v.TargetInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// The name of the virtual machine group.
+func (o RoleResponseOutput) VMGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleResponse) *string { return v.VMGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The virtual network profile.
@@ -10275,6 +10311,8 @@ type StorageAccount struct {
 	Container *string `pulumi:"container"`
 	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
 	FileSystem *string `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare *string `pulumi:"fileshare"`
 	// Whether or not the storage account is the default storage account.
 	IsDefault *bool `pulumi:"isDefault"`
 	// The storage account access key.
@@ -10285,6 +10323,8 @@ type StorageAccount struct {
 	Name *string `pulumi:"name"`
 	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 	ResourceId *string `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey *string `pulumi:"saskey"`
 }
 
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
@@ -10304,6 +10344,8 @@ type StorageAccountArgs struct {
 	Container pulumi.StringPtrInput `pulumi:"container"`
 	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
 	FileSystem pulumi.StringPtrInput `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare pulumi.StringPtrInput `pulumi:"fileshare"`
 	// Whether or not the storage account is the default storage account.
 	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
 	// The storage account access key.
@@ -10314,6 +10356,8 @@ type StorageAccountArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey pulumi.StringPtrInput `pulumi:"saskey"`
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -10378,6 +10422,11 @@ func (o StorageAccountOutput) FileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.FileSystem }).(pulumi.StringPtrOutput)
 }
 
+// The file share name.
+func (o StorageAccountOutput) Fileshare() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.Fileshare }).(pulumi.StringPtrOutput)
+}
+
 // Whether or not the storage account is the default storage account.
 func (o StorageAccountOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
@@ -10401,6 +10450,11 @@ func (o StorageAccountOutput) Name() pulumi.StringPtrOutput {
 // The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 func (o StorageAccountOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The shared access signature key.
+func (o StorageAccountOutput) Saskey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.Saskey }).(pulumi.StringPtrOutput)
 }
 
 type StorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -10429,6 +10483,8 @@ type StorageAccountResponse struct {
 	Container *string `pulumi:"container"`
 	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
 	FileSystem *string `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare *string `pulumi:"fileshare"`
 	// Whether or not the storage account is the default storage account.
 	IsDefault *bool `pulumi:"isDefault"`
 	// The storage account access key.
@@ -10439,6 +10495,8 @@ type StorageAccountResponse struct {
 	Name *string `pulumi:"name"`
 	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 	ResourceId *string `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey *string `pulumi:"saskey"`
 }
 
 // StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
@@ -10458,6 +10516,8 @@ type StorageAccountResponseArgs struct {
 	Container pulumi.StringPtrInput `pulumi:"container"`
 	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
 	FileSystem pulumi.StringPtrInput `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare pulumi.StringPtrInput `pulumi:"fileshare"`
 	// Whether or not the storage account is the default storage account.
 	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
 	// The storage account access key.
@@ -10468,6 +10528,8 @@ type StorageAccountResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey pulumi.StringPtrInput `pulumi:"saskey"`
 }
 
 func (StorageAccountResponseArgs) ElementType() reflect.Type {
@@ -10532,6 +10594,11 @@ func (o StorageAccountResponseOutput) FileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.FileSystem }).(pulumi.StringPtrOutput)
 }
 
+// The file share name.
+func (o StorageAccountResponseOutput) Fileshare() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Fileshare }).(pulumi.StringPtrOutput)
+}
+
 // Whether or not the storage account is the default storage account.
 func (o StorageAccountResponseOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
@@ -10555,6 +10622,11 @@ func (o StorageAccountResponseOutput) Name() pulumi.StringPtrOutput {
 // The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 func (o StorageAccountResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The shared access signature key.
+func (o StorageAccountResponseOutput) Saskey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Saskey }).(pulumi.StringPtrOutput)
 }
 
 type StorageAccountResponseArrayOutput struct{ *pulumi.OutputState }

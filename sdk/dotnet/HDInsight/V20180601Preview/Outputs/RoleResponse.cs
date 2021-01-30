@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly int? TargetInstanceCount;
         /// <summary>
+        /// The name of the virtual machine group.
+        /// </summary>
+        public readonly string? VMGroupName;
+        /// <summary>
         /// The virtual network profile.
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetworkProfile;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             int? targetInstanceCount,
 
+            string? vMGroupName,
+
             Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile)
         {
             AutoscaleConfiguration = autoscaleConfiguration;
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
             OsProfile = osProfile;
             ScriptActions = scriptActions;
             TargetInstanceCount = targetInstanceCount;
+            VMGroupName = vMGroupName;
             VirtualNetworkProfile = virtualNetworkProfile;
         }
     }

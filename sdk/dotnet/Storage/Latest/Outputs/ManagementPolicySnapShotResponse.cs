@@ -17,11 +17,26 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Outputs
         /// The function to delete the blob snapshot
         /// </summary>
         public readonly Outputs.DateAfterCreationResponse? Delete;
+        /// <summary>
+        /// The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        /// </summary>
+        public readonly Outputs.DateAfterCreationResponse? TierToArchive;
+        /// <summary>
+        /// The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        /// </summary>
+        public readonly Outputs.DateAfterCreationResponse? TierToCool;
 
         [OutputConstructor]
-        private ManagementPolicySnapShotResponse(Outputs.DateAfterCreationResponse? delete)
+        private ManagementPolicySnapShotResponse(
+            Outputs.DateAfterCreationResponse? delete,
+
+            Outputs.DateAfterCreationResponse? tierToArchive,
+
+            Outputs.DateAfterCreationResponse? tierToCool)
         {
             Delete = delete;
+            TierToArchive = tierToArchive;
+            TierToCool = tierToCool;
         }
     }
 }

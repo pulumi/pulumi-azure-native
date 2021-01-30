@@ -81,6 +81,9 @@ func NewDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:Domain"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:Domain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Domain

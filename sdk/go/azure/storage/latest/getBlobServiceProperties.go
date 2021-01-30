@@ -43,6 +43,8 @@ type LookupBlobServicePropertiesResult struct {
 	Id string `pulumi:"id"`
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled *bool `pulumi:"isVersioningEnabled"`
+	// The blob service property to configure last access time based tracking policy.
+	LastAccessTimeTrackingPolicy *LastAccessTimeTrackingPolicyResponse `pulumi:"lastAccessTimeTrackingPolicy"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The blob service properties for blob restore policy.

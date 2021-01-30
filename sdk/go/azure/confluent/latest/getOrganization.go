@@ -38,7 +38,7 @@ type LookupOrganizationResult struct {
 	// Id of the Confluent organization.
 	OrganizationId string `pulumi:"organizationId"`
 	// Provision states for confluent RP
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// SSO url for the Confluent organization.
 	SsoUrl string `pulumi:"ssoUrl"`
 	// Organization resource tags

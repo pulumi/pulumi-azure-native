@@ -121,6 +121,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
                  destination_port: Optional[int] = None,
                  disable_gateway_auth: Optional[bool] = None,
                  location: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
                  public_port: Optional[int] = None,
                  sub_domain_suffix: Optional[str] = None):
         """
@@ -129,6 +130,7 @@ class ApplicationGetHttpsEndpointResponse(dict):
         :param int destination_port: The destination port to connect to.
         :param bool disable_gateway_auth: The value indicates whether to disable GatewayAuth.
         :param str location: The location of the endpoint.
+        :param str private_ip_address: The private ip address of the endpoint.
         :param int public_port: The public port to connect to.
         :param str sub_domain_suffix: The subdomain suffix of the application.
         """
@@ -140,6 +142,8 @@ class ApplicationGetHttpsEndpointResponse(dict):
             pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if public_port is not None:
             pulumi.set(__self__, "public_port", public_port)
         if sub_domain_suffix is not None:
@@ -176,6 +180,14 @@ class ApplicationGetHttpsEndpointResponse(dict):
         The location of the endpoint.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="publicPort")
@@ -1607,6 +1619,7 @@ class RoleResponse(dict):
                  os_profile: Optional['outputs.OsProfileResponse'] = None,
                  script_actions: Optional[Sequence['outputs.ScriptActionResponse']] = None,
                  target_instance_count: Optional[int] = None,
+                 v_m_group_name: Optional[str] = None,
                  virtual_network_profile: Optional['outputs.VirtualNetworkProfileResponse'] = None):
         """
         Describes a role on the cluster.
@@ -1619,6 +1632,7 @@ class RoleResponse(dict):
         :param 'OsProfileResponseArgs' os_profile: The operating system profile.
         :param Sequence['ScriptActionResponseArgs'] script_actions: The list of script actions on the role.
         :param int target_instance_count: The instance count of the cluster.
+        :param str v_m_group_name: The name of the virtual machine group.
         :param 'VirtualNetworkProfileResponseArgs' virtual_network_profile: The virtual network profile.
         """
         if autoscale_configuration is not None:
@@ -1639,6 +1653,8 @@ class RoleResponse(dict):
             pulumi.set(__self__, "script_actions", script_actions)
         if target_instance_count is not None:
             pulumi.set(__self__, "target_instance_count", target_instance_count)
+        if v_m_group_name is not None:
+            pulumi.set(__self__, "v_m_group_name", v_m_group_name)
         if virtual_network_profile is not None:
             pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
 
@@ -1713,6 +1729,14 @@ class RoleResponse(dict):
         The instance count of the cluster.
         """
         return pulumi.get(self, "target_instance_count")
+
+    @property
+    @pulumi.getter(name="vMGroupName")
+    def v_m_group_name(self) -> Optional[str]:
+        """
+        The name of the virtual machine group.
+        """
+        return pulumi.get(self, "v_m_group_name")
 
     @property
     @pulumi.getter(name="virtualNetworkProfile")
@@ -2025,25 +2049,31 @@ class StorageAccountResponse(dict):
     def __init__(__self__, *,
                  container: Optional[str] = None,
                  file_system: Optional[str] = None,
+                 fileshare: Optional[str] = None,
                  is_default: Optional[bool] = None,
                  key: Optional[str] = None,
                  msi_resource_id: Optional[str] = None,
                  name: Optional[str] = None,
-                 resource_id: Optional[str] = None):
+                 resource_id: Optional[str] = None,
+                 saskey: Optional[str] = None):
         """
         The storage Account.
         :param str container: The container in the storage account, only to be specified for WASB storage accounts.
         :param str file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        :param str fileshare: The file share name.
         :param bool is_default: Whether or not the storage account is the default storage account.
         :param str key: The storage account access key.
         :param str msi_resource_id: The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
         :param str name: The name of the storage account.
         :param str resource_id: The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        :param str saskey: The shared access signature key.
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
         if file_system is not None:
             pulumi.set(__self__, "file_system", file_system)
+        if fileshare is not None:
+            pulumi.set(__self__, "fileshare", fileshare)
         if is_default is not None:
             pulumi.set(__self__, "is_default", is_default)
         if key is not None:
@@ -2054,6 +2084,8 @@ class StorageAccountResponse(dict):
             pulumi.set(__self__, "name", name)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if saskey is not None:
+            pulumi.set(__self__, "saskey", saskey)
 
     @property
     @pulumi.getter
@@ -2070,6 +2102,14 @@ class StorageAccountResponse(dict):
         The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
         """
         return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter
+    def fileshare(self) -> Optional[str]:
+        """
+        The file share name.
+        """
+        return pulumi.get(self, "fileshare")
 
     @property
     @pulumi.getter(name="isDefault")
@@ -2110,6 +2150,14 @@ class StorageAccountResponse(dict):
         The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
         """
         return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def saskey(self) -> Optional[str]:
+        """
+        The shared access signature key.
+        """
+        return pulumi.get(self, "saskey")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

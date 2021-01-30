@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601.Inputs
         private InputList<string>? _blobTypes;
 
         /// <summary>
-        /// An array of predefined enum values. Only blockBlob is supported.
+        /// An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         /// </summary>
         public InputList<string> BlobTypes
         {
