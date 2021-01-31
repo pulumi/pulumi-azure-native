@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
     public sealed class IscsiLunResponse
     {
         /// <summary>
-        /// Unique Azure resource id of the managed disk. Required.
+        /// Azure Resource ID of the Managed Disk.
         /// </summary>
         public readonly string ManagedDiskAzureResourceId;
         /// <summary>
-        /// Lun name.
+        /// User defined name for iSCSI LUN; example: "lun0"
         /// </summary>
         public readonly string Name;
 

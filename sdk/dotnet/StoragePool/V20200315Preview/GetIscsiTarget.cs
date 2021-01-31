@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     public sealed class GetIscsiTargetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Disk Pool.
+        /// The name of the Disk pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public string DiskPoolName { get; set; } = null!;
@@ -54,19 +54,19 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the operation on the resource
+        /// State of the operation on the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Operational status of the Disk pool
+        /// Operational status of the iSCSI target.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         /// </summary>
         public readonly string TargetIqn;
         /// <summary>
-        /// list of iSCSI target portal groups
+        /// List of iSCSI target portal groups. Can have 1 portal group at most.
         /// </summary>
         public readonly ImmutableArray<Outputs.TargetPortalGroupResponse> Tpgs;
         /// <summary>

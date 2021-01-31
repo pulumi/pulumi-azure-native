@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
 {
 
     /// <summary>
-    /// Attributes of an iSCSI target
+    /// Attributes of a iSCSI target portal group.
     /// </summary>
     public sealed class AttributesArgs : Pulumi.ResourceArgs
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
         public Input<bool> Authentication { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether or not write protect is enabled on the luns.
+        /// Indicates whether or not write protect is enabled on the LUNs.
         /// </summary>
         [Input("prodModeWriteProtect", required: true)]
         public Input<bool> ProdModeWriteProtect { get; set; } = null!;

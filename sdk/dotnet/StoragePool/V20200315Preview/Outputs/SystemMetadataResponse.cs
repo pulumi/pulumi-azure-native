@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
     public sealed class SystemMetadataResponse
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC)
+        /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
@@ -22,19 +22,19 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
         /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
-        /// The type of identity that created the resource: user, application, managedIdentity
+        /// The type of identity that created the resource: user, application, managedIdentity.
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
+        /// The timestamp of resource last modification (UTC).
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>
-        /// A string identifier for the identity that last modified the resource
+        /// A string identifier for the identity that last modified the resource.
         /// </summary>
         public readonly string? LastModifiedBy;
         /// <summary>
-        /// The type of identity that last modified the resource: user, application, managedIdentity
+        /// The type of identity that last modified the resource: user, application, managedIdentity.
         /// </summary>
         public readonly string? LastModifiedByType;
 

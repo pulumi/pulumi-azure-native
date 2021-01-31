@@ -14,27 +14,27 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
     public sealed class TargetPortalGroupResponse
     {
         /// <summary>
-        /// Access Control List (ACL) for an iSCSI target lun
+        /// Access Control List (ACL) for an iSCSI target portal group.
         /// </summary>
         public readonly ImmutableArray<Outputs.AclResponse> Acls;
         /// <summary>
-        /// Attributes of an iSCSI target
+        /// Attributes of an iSCSI target portal group.
         /// </summary>
         public readonly Outputs.AttributesResponse Attributes;
         /// <summary>
-        /// list of public ip addresses to connect to the iSCSI target
+        /// List of private IPv4 addresses to connect to the iSCSI target.
         /// </summary>
         public readonly ImmutableArray<string> Endpoints;
         /// <summary>
-        /// Lun list to be exposed through the iSCSI target. Required
+        /// List of LUNs to be exposed through iSCSI target portal group.
         /// </summary>
         public readonly ImmutableArray<Outputs.IscsiLunResponse> Luns;
         /// <summary>
-        /// The port at which the iSCSI target is available
+        /// The port used by iSCSI target portal group.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The tag associated with the iSCSI target portal group
+        /// The tag associated with the iSCSI target portal group.
         /// </summary>
         public readonly int Tag;
 

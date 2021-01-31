@@ -11,12 +11,12 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
 {
 
     /// <summary>
-    /// Access Control List (ACL) for an iSCSI target lun
+    /// Access Control List (ACL) for an iSCSI target portal group
     /// </summary>
     public sealed class AclArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+        /// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         /// </summary>
         [Input("initiatorIqn", required: true)]
         public Input<string> InitiatorIqn { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
         private InputList<string>? _mappedLuns;
 
         /// <summary>
-        /// Array of lun names mapped to the ACL
+        /// List of LUN names mapped to the ACL.
         /// </summary>
         public InputList<string> MappedLuns
         {
@@ -34,13 +34,13 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
         }
 
         /// <summary>
-        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

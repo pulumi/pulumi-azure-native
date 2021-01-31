@@ -10,15 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group
 type Acl struct {
-	// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 	InitiatorIqn string `pulumi:"initiatorIqn"`
-	// Array of lun names mapped to the ACL
+	// List of LUN names mapped to the ACL.
 	MappedLuns []string `pulumi:"mappedLuns"`
-	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Password string `pulumi:"password"`
-	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Username string `pulumi:"username"`
 }
 
@@ -33,15 +33,15 @@ type AclInput interface {
 	ToAclOutputWithContext(context.Context) AclOutput
 }
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group
 type AclArgs struct {
-	// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 	InitiatorIqn pulumi.StringInput `pulumi:"initiatorIqn"`
-	// Array of lun names mapped to the ACL
+	// List of LUN names mapped to the ACL.
 	MappedLuns pulumi.StringArrayInput `pulumi:"mappedLuns"`
-	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -82,7 +82,7 @@ func (i AclArray) ToAclArrayOutputWithContext(ctx context.Context) AclArrayOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AclArrayOutput)
 }
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group
 type AclOutput struct{ *pulumi.OutputState }
 
 func (AclOutput) ElementType() reflect.Type {
@@ -97,22 +97,22 @@ func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
 }
 
-// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 func (o AclOutput) InitiatorIqn() pulumi.StringOutput {
 	return o.ApplyT(func(v Acl) string { return v.InitiatorIqn }).(pulumi.StringOutput)
 }
 
-// Array of lun names mapped to the ACL
+// List of LUN names mapped to the ACL.
 func (o AclOutput) MappedLuns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Acl) []string { return v.MappedLuns }).(pulumi.StringArrayOutput)
 }
 
-// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
 func (o AclOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v Acl) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
 func (o AclOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v Acl) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -137,15 +137,15 @@ func (o AclArrayOutput) Index(i pulumi.IntInput) AclOutput {
 	}).(AclOutput)
 }
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group
 type AclResponse struct {
-	// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 	InitiatorIqn string `pulumi:"initiatorIqn"`
-	// Array of lun names mapped to the ACL
+	// List of LUN names mapped to the ACL.
 	MappedLuns []string `pulumi:"mappedLuns"`
-	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Password string `pulumi:"password"`
-	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Username string `pulumi:"username"`
 }
 
@@ -160,15 +160,15 @@ type AclResponseInput interface {
 	ToAclResponseOutputWithContext(context.Context) AclResponseOutput
 }
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group
 type AclResponseArgs struct {
-	// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 	InitiatorIqn pulumi.StringInput `pulumi:"initiatorIqn"`
-	// Array of lun names mapped to the ACL
+	// List of LUN names mapped to the ACL.
 	MappedLuns pulumi.StringArrayInput `pulumi:"mappedLuns"`
-	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+	// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -209,7 +209,7 @@ func (i AclResponseArray) ToAclResponseArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AclResponseArrayOutput)
 }
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group
 type AclResponseOutput struct{ *pulumi.OutputState }
 
 func (AclResponseOutput) ElementType() reflect.Type {
@@ -224,22 +224,22 @@ func (o AclResponseOutput) ToAclResponseOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 func (o AclResponseOutput) InitiatorIqn() pulumi.StringOutput {
 	return o.ApplyT(func(v AclResponse) string { return v.InitiatorIqn }).(pulumi.StringOutput)
 }
 
-// Array of lun names mapped to the ACL
+// List of LUN names mapped to the ACL.
 func (o AclResponseOutput) MappedLuns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AclResponse) []string { return v.MappedLuns }).(pulumi.StringArrayOutput)
 }
 
-// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
 func (o AclResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v AclResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
 func (o AclResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v AclResponse) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -264,11 +264,11 @@ func (o AclResponseArrayOutput) Index(i pulumi.IntInput) AclResponseOutput {
 	}).(AclResponseOutput)
 }
 
-// Attributes of an iSCSI target
+// Attributes of a iSCSI target portal group.
 type Attributes struct {
 	// Indicates whether or not authentication is enabled on the ACL.
 	Authentication bool `pulumi:"authentication"`
-	// Indicates whether or not write protect is enabled on the luns.
+	// Indicates whether or not write protect is enabled on the LUNs.
 	ProdModeWriteProtect bool `pulumi:"prodModeWriteProtect"`
 }
 
@@ -283,11 +283,11 @@ type AttributesInput interface {
 	ToAttributesOutputWithContext(context.Context) AttributesOutput
 }
 
-// Attributes of an iSCSI target
+// Attributes of a iSCSI target portal group.
 type AttributesArgs struct {
 	// Indicates whether or not authentication is enabled on the ACL.
 	Authentication pulumi.BoolInput `pulumi:"authentication"`
-	// Indicates whether or not write protect is enabled on the luns.
+	// Indicates whether or not write protect is enabled on the LUNs.
 	ProdModeWriteProtect pulumi.BoolInput `pulumi:"prodModeWriteProtect"`
 }
 
@@ -303,7 +303,7 @@ func (i AttributesArgs) ToAttributesOutputWithContext(ctx context.Context) Attri
 	return pulumi.ToOutputWithContext(ctx, i).(AttributesOutput)
 }
 
-// Attributes of an iSCSI target
+// Attributes of a iSCSI target portal group.
 type AttributesOutput struct{ *pulumi.OutputState }
 
 func (AttributesOutput) ElementType() reflect.Type {
@@ -323,16 +323,16 @@ func (o AttributesOutput) Authentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v Attributes) bool { return v.Authentication }).(pulumi.BoolOutput)
 }
 
-// Indicates whether or not write protect is enabled on the luns.
+// Indicates whether or not write protect is enabled on the LUNs.
 func (o AttributesOutput) ProdModeWriteProtect() pulumi.BoolOutput {
 	return o.ApplyT(func(v Attributes) bool { return v.ProdModeWriteProtect }).(pulumi.BoolOutput)
 }
 
-// Attributes of an iSCSI target
+// Attributes of a iSCSI target portal group.
 type AttributesResponse struct {
 	// Indicates whether or not authentication is enabled on the ACL.
 	Authentication bool `pulumi:"authentication"`
-	// Indicates whether or not write protect is enabled on the luns.
+	// Indicates whether or not write protect is enabled on the LUNs.
 	ProdModeWriteProtect bool `pulumi:"prodModeWriteProtect"`
 }
 
@@ -347,11 +347,11 @@ type AttributesResponseInput interface {
 	ToAttributesResponseOutputWithContext(context.Context) AttributesResponseOutput
 }
 
-// Attributes of an iSCSI target
+// Attributes of a iSCSI target portal group.
 type AttributesResponseArgs struct {
 	// Indicates whether or not authentication is enabled on the ACL.
 	Authentication pulumi.BoolInput `pulumi:"authentication"`
-	// Indicates whether or not write protect is enabled on the luns.
+	// Indicates whether or not write protect is enabled on the LUNs.
 	ProdModeWriteProtect pulumi.BoolInput `pulumi:"prodModeWriteProtect"`
 }
 
@@ -367,7 +367,7 @@ func (i AttributesResponseArgs) ToAttributesResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AttributesResponseOutput)
 }
 
-// Attributes of an iSCSI target
+// Attributes of a iSCSI target portal group.
 type AttributesResponseOutput struct{ *pulumi.OutputState }
 
 func (AttributesResponseOutput) ElementType() reflect.Type {
@@ -387,14 +387,14 @@ func (o AttributesResponseOutput) Authentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v AttributesResponse) bool { return v.Authentication }).(pulumi.BoolOutput)
 }
 
-// Indicates whether or not write protect is enabled on the luns.
+// Indicates whether or not write protect is enabled on the LUNs.
 func (o AttributesResponseOutput) ProdModeWriteProtect() pulumi.BoolOutput {
 	return o.ApplyT(func(v AttributesResponse) bool { return v.ProdModeWriteProtect }).(pulumi.BoolOutput)
 }
 
-// Managed disk to attach to the DiskPool. Required.
+// Azure Managed Disk to attach to the Disk pool.
 type Disk struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Unique Azure Resource ID of the Managed Disk.
 	Id string `pulumi:"id"`
 }
 
@@ -409,9 +409,9 @@ type DiskInput interface {
 	ToDiskOutputWithContext(context.Context) DiskOutput
 }
 
-// Managed disk to attach to the DiskPool. Required.
+// Azure Managed Disk to attach to the Disk pool.
 type DiskArgs struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Unique Azure Resource ID of the Managed Disk.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -452,7 +452,7 @@ func (i DiskArray) ToDiskArrayOutputWithContext(ctx context.Context) DiskArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DiskArrayOutput)
 }
 
-// Managed disk to attach to the DiskPool. Required.
+// Azure Managed Disk to attach to the Disk pool.
 type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
@@ -467,7 +467,7 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
-// Unique Azure resource id of the managed disk. Required.
+// Unique Azure Resource ID of the Managed Disk.
 func (o DiskOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v Disk) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -492,9 +492,9 @@ func (o DiskArrayOutput) Index(i pulumi.IntInput) DiskOutput {
 	}).(DiskOutput)
 }
 
-// Managed disk to attach to the DiskPool. Required.
+// Azure Managed Disk to attach to the Disk pool.
 type DiskResponse struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Unique Azure Resource ID of the Managed Disk.
 	Id string `pulumi:"id"`
 }
 
@@ -509,9 +509,9 @@ type DiskResponseInput interface {
 	ToDiskResponseOutputWithContext(context.Context) DiskResponseOutput
 }
 
-// Managed disk to attach to the DiskPool. Required.
+// Azure Managed Disk to attach to the Disk pool.
 type DiskResponseArgs struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Unique Azure Resource ID of the Managed Disk.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -552,7 +552,7 @@ func (i DiskResponseArray) ToDiskResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DiskResponseArrayOutput)
 }
 
-// Managed disk to attach to the DiskPool. Required.
+// Azure Managed Disk to attach to the Disk pool.
 type DiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskResponseOutput) ElementType() reflect.Type {
@@ -567,7 +567,7 @@ func (o DiskResponseOutput) ToDiskResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Unique Azure resource id of the managed disk. Required.
+// Unique Azure Resource ID of the Managed Disk.
 func (o DiskResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -592,11 +592,11 @@ func (o DiskResponseArrayOutput) Index(i pulumi.IntInput) DiskResponseOutput {
 	}).(DiskResponseOutput)
 }
 
-// Lun to expose the ManagedDisk.
+// LUN to expose the Azure Managed Disk.
 type IscsiLun struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId string `pulumi:"managedDiskAzureResourceId"`
-	// Lun name.
+	// User defined name for iSCSI LUN; example: "lun0"
 	Name string `pulumi:"name"`
 }
 
@@ -611,11 +611,11 @@ type IscsiLunInput interface {
 	ToIscsiLunOutputWithContext(context.Context) IscsiLunOutput
 }
 
-// Lun to expose the ManagedDisk.
+// LUN to expose the Azure Managed Disk.
 type IscsiLunArgs struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId pulumi.StringInput `pulumi:"managedDiskAzureResourceId"`
-	// Lun name.
+	// User defined name for iSCSI LUN; example: "lun0"
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -656,7 +656,7 @@ func (i IscsiLunArray) ToIscsiLunArrayOutputWithContext(ctx context.Context) Isc
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiLunArrayOutput)
 }
 
-// Lun to expose the ManagedDisk.
+// LUN to expose the Azure Managed Disk.
 type IscsiLunOutput struct{ *pulumi.OutputState }
 
 func (IscsiLunOutput) ElementType() reflect.Type {
@@ -671,12 +671,12 @@ func (o IscsiLunOutput) ToIscsiLunOutputWithContext(ctx context.Context) IscsiLu
 	return o
 }
 
-// Unique Azure resource id of the managed disk. Required.
+// Azure Resource ID of the Managed Disk.
 func (o IscsiLunOutput) ManagedDiskAzureResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLun) string { return v.ManagedDiskAzureResourceId }).(pulumi.StringOutput)
 }
 
-// Lun name.
+// User defined name for iSCSI LUN; example: "lun0"
 func (o IscsiLunOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLun) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -701,11 +701,11 @@ func (o IscsiLunArrayOutput) Index(i pulumi.IntInput) IscsiLunOutput {
 	}).(IscsiLunOutput)
 }
 
-// Lun to expose the ManagedDisk.
+// LUN to expose the Azure Managed Disk.
 type IscsiLunResponse struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId string `pulumi:"managedDiskAzureResourceId"`
-	// Lun name.
+	// User defined name for iSCSI LUN; example: "lun0"
 	Name string `pulumi:"name"`
 }
 
@@ -720,11 +720,11 @@ type IscsiLunResponseInput interface {
 	ToIscsiLunResponseOutputWithContext(context.Context) IscsiLunResponseOutput
 }
 
-// Lun to expose the ManagedDisk.
+// LUN to expose the Azure Managed Disk.
 type IscsiLunResponseArgs struct {
-	// Unique Azure resource id of the managed disk. Required.
+	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId pulumi.StringInput `pulumi:"managedDiskAzureResourceId"`
-	// Lun name.
+	// User defined name for iSCSI LUN; example: "lun0"
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -765,7 +765,7 @@ func (i IscsiLunResponseArray) ToIscsiLunResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiLunResponseArrayOutput)
 }
 
-// Lun to expose the ManagedDisk.
+// LUN to expose the Azure Managed Disk.
 type IscsiLunResponseOutput struct{ *pulumi.OutputState }
 
 func (IscsiLunResponseOutput) ElementType() reflect.Type {
@@ -780,12 +780,12 @@ func (o IscsiLunResponseOutput) ToIscsiLunResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Unique Azure resource id of the managed disk. Required.
+// Azure Resource ID of the Managed Disk.
 func (o IscsiLunResponseOutput) ManagedDiskAzureResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLunResponse) string { return v.ManagedDiskAzureResourceId }).(pulumi.StringOutput)
 }
 
-// Lun name.
+// User defined name for iSCSI LUN; example: "lun0"
 func (o IscsiLunResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLunResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -810,439 +810,19 @@ func (o IscsiLunResponseArrayOutput) Index(i pulumi.IntInput) IscsiLunResponseOu
 	}).(IscsiLunResponseOutput)
 }
 
-// The resource model definition representing SKU
-type Sku struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
-}
-
-// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
-// You can construct a concrete instance of `SkuInput` via:
-//
-//          SkuArgs{...}
-type SkuInput interface {
-	pulumi.Input
-
-	ToSkuOutput() SkuOutput
-	ToSkuOutputWithContext(context.Context) SkuOutput
-}
-
-// The resource model definition representing SKU
-type SkuArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
-}
-
-func (SkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
-}
-
-func (i SkuArgs) ToSkuOutput() SkuOutput {
-	return i.ToSkuOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
-}
-
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
-// You can construct a concrete instance of `SkuPtrInput` via:
-//
-//          SkuArgs{...}
-//
-//  or:
-//
-//          nil
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
-}
-
-// The resource model definition representing SKU
-type SkuOutput struct{ *pulumi.OutputState }
-
-func (SkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
-}
-
-func (o SkuOutput) ToSkuOutput() SkuOutput {
-	return o
-}
-
-func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return o
-}
-
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU. Ex - P3. It is typically a letter+number code
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
-}
-
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU. Ex - P3. It is typically a letter+number code
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource model definition representing SKU
-type SkuResponse struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name string `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size *string `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
-}
-
-// SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
-// You can construct a concrete instance of `SkuResponseInput` via:
-//
-//          SkuResponseArgs{...}
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-// The resource model definition representing SKU
-type SkuResponseArgs struct {
-	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Ex - P3. It is typically a letter+number code
-	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-// SkuResponsePtrInput is an input type that accepts SkuResponseArgs, SkuResponsePtr and SkuResponsePtrOutput values.
-// You can construct a concrete instance of `SkuResponsePtrInput` via:
-//
-//          SkuResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
-// The resource model definition representing SKU
-type SkuResponseOutput struct{ *pulumi.OutputState }
-
-func (SkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
-	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
-}
-
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU. Ex - P3. It is typically a letter+number code
-func (o SkuResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type SkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
-}
-
-// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU. Ex - P3. It is typically a letter+number code
-func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
-func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource metadata required by ARM RPC
+// Resource metadata required by ARM RPC.
 type SystemMetadataResponse struct {
-	// The timestamp of resource creation (UTC)
+	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// A string identifier for the identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource: user, application, managedIdentity
+	// The type of identity that created the resource: user, application, managedIdentity.
 	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
+	// The timestamp of resource last modification (UTC).
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// A string identifier for the identity that last modified the resource
+	// A string identifier for the identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource: user, application, managedIdentity
+	// The type of identity that last modified the resource: user, application, managedIdentity.
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1257,19 +837,19 @@ type SystemMetadataResponseInput interface {
 	ToSystemMetadataResponseOutputWithContext(context.Context) SystemMetadataResponseOutput
 }
 
-// Resource metadata required by ARM RPC
+// Resource metadata required by ARM RPC.
 type SystemMetadataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
+	// The timestamp of resource creation (UTC).
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
 	// A string identifier for the identity that created the resource.
 	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource: user, application, managedIdentity
+	// The type of identity that created the resource: user, application, managedIdentity.
 	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
+	// The timestamp of resource last modification (UTC).
 	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// A string identifier for the identity that last modified the resource
+	// A string identifier for the identity that last modified the resource.
 	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource: user, application, managedIdentity
+	// The type of identity that last modified the resource: user, application, managedIdentity.
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1326,7 +906,7 @@ func (i *systemMetadataResponsePtrType) ToSystemMetadataResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SystemMetadataResponsePtrOutput)
 }
 
-// Resource metadata required by ARM RPC
+// Resource metadata required by ARM RPC.
 type SystemMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemMetadataResponseOutput) ElementType() reflect.Type {
@@ -1351,7 +931,7 @@ func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutputWithConte
 	}).(SystemMetadataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
+// The timestamp of resource creation (UTC).
 func (o SystemMetadataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -1361,22 +941,22 @@ func (o SystemMetadataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource: user, application, managedIdentity
+// The type of identity that created the resource: user, application, managedIdentity.
 func (o SystemMetadataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
+// The timestamp of resource last modification (UTC).
 func (o SystemMetadataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// A string identifier for the identity that last modified the resource
+// A string identifier for the identity that last modified the resource.
 func (o SystemMetadataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource: user, application, managedIdentity
+// The type of identity that last modified the resource: user, application, managedIdentity.
 func (o SystemMetadataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1399,7 +979,7 @@ func (o SystemMetadataResponsePtrOutput) Elem() SystemMetadataResponseOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse { return *v }).(SystemMetadataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
+// The timestamp of resource creation (UTC).
 func (o SystemMetadataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1419,7 +999,7 @@ func (o SystemMetadataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource: user, application, managedIdentity
+// The type of identity that created the resource: user, application, managedIdentity.
 func (o SystemMetadataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1429,7 +1009,7 @@ func (o SystemMetadataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
+// The timestamp of resource last modification (UTC).
 func (o SystemMetadataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1439,7 +1019,7 @@ func (o SystemMetadataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string identifier for the identity that last modified the resource
+// A string identifier for the identity that last modified the resource.
 func (o SystemMetadataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1449,7 +1029,7 @@ func (o SystemMetadataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource: user, application, managedIdentity
+// The type of identity that last modified the resource: user, application, managedIdentity.
 func (o SystemMetadataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1459,137 +1039,137 @@ func (o SystemMetadataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// iSCSI target portal group
-type TargetPortalGroup struct {
-	// Access Control List (ACL) for an iSCSI target lun
+// Target portal group properties for create or update iSCSI target request.
+type TargetPortalGroupCreate struct {
+	// Access Control List (ACL) for an iSCSI target portal group.
 	Acls []Acl `pulumi:"acls"`
-	// Attributes of an iSCSI target
+	// Attributes of an iSCSI target portal group.
 	Attributes Attributes `pulumi:"attributes"`
-	// Lun list to be exposed through the iSCSI target. Required
+	// List of LUNs to be exposed through the iSCSI target portal group.
 	Luns []IscsiLun `pulumi:"luns"`
 }
 
-// TargetPortalGroupInput is an input type that accepts TargetPortalGroupArgs and TargetPortalGroupOutput values.
-// You can construct a concrete instance of `TargetPortalGroupInput` via:
+// TargetPortalGroupCreateInput is an input type that accepts TargetPortalGroupCreateArgs and TargetPortalGroupCreateOutput values.
+// You can construct a concrete instance of `TargetPortalGroupCreateInput` via:
 //
-//          TargetPortalGroupArgs{...}
-type TargetPortalGroupInput interface {
+//          TargetPortalGroupCreateArgs{...}
+type TargetPortalGroupCreateInput interface {
 	pulumi.Input
 
-	ToTargetPortalGroupOutput() TargetPortalGroupOutput
-	ToTargetPortalGroupOutputWithContext(context.Context) TargetPortalGroupOutput
+	ToTargetPortalGroupCreateOutput() TargetPortalGroupCreateOutput
+	ToTargetPortalGroupCreateOutputWithContext(context.Context) TargetPortalGroupCreateOutput
 }
 
-// iSCSI target portal group
-type TargetPortalGroupArgs struct {
-	// Access Control List (ACL) for an iSCSI target lun
+// Target portal group properties for create or update iSCSI target request.
+type TargetPortalGroupCreateArgs struct {
+	// Access Control List (ACL) for an iSCSI target portal group.
 	Acls AclArrayInput `pulumi:"acls"`
-	// Attributes of an iSCSI target
+	// Attributes of an iSCSI target portal group.
 	Attributes AttributesInput `pulumi:"attributes"`
-	// Lun list to be exposed through the iSCSI target. Required
+	// List of LUNs to be exposed through the iSCSI target portal group.
 	Luns IscsiLunArrayInput `pulumi:"luns"`
 }
 
-func (TargetPortalGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetPortalGroup)(nil)).Elem()
+func (TargetPortalGroupCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetPortalGroupCreate)(nil)).Elem()
 }
 
-func (i TargetPortalGroupArgs) ToTargetPortalGroupOutput() TargetPortalGroupOutput {
-	return i.ToTargetPortalGroupOutputWithContext(context.Background())
+func (i TargetPortalGroupCreateArgs) ToTargetPortalGroupCreateOutput() TargetPortalGroupCreateOutput {
+	return i.ToTargetPortalGroupCreateOutputWithContext(context.Background())
 }
 
-func (i TargetPortalGroupArgs) ToTargetPortalGroupOutputWithContext(ctx context.Context) TargetPortalGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetPortalGroupOutput)
+func (i TargetPortalGroupCreateArgs) ToTargetPortalGroupCreateOutputWithContext(ctx context.Context) TargetPortalGroupCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPortalGroupCreateOutput)
 }
 
-// TargetPortalGroupArrayInput is an input type that accepts TargetPortalGroupArray and TargetPortalGroupArrayOutput values.
-// You can construct a concrete instance of `TargetPortalGroupArrayInput` via:
+// TargetPortalGroupCreateArrayInput is an input type that accepts TargetPortalGroupCreateArray and TargetPortalGroupCreateArrayOutput values.
+// You can construct a concrete instance of `TargetPortalGroupCreateArrayInput` via:
 //
-//          TargetPortalGroupArray{ TargetPortalGroupArgs{...} }
-type TargetPortalGroupArrayInput interface {
+//          TargetPortalGroupCreateArray{ TargetPortalGroupCreateArgs{...} }
+type TargetPortalGroupCreateArrayInput interface {
 	pulumi.Input
 
-	ToTargetPortalGroupArrayOutput() TargetPortalGroupArrayOutput
-	ToTargetPortalGroupArrayOutputWithContext(context.Context) TargetPortalGroupArrayOutput
+	ToTargetPortalGroupCreateArrayOutput() TargetPortalGroupCreateArrayOutput
+	ToTargetPortalGroupCreateArrayOutputWithContext(context.Context) TargetPortalGroupCreateArrayOutput
 }
 
-type TargetPortalGroupArray []TargetPortalGroupInput
+type TargetPortalGroupCreateArray []TargetPortalGroupCreateInput
 
-func (TargetPortalGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetPortalGroup)(nil)).Elem()
+func (TargetPortalGroupCreateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetPortalGroupCreate)(nil)).Elem()
 }
 
-func (i TargetPortalGroupArray) ToTargetPortalGroupArrayOutput() TargetPortalGroupArrayOutput {
-	return i.ToTargetPortalGroupArrayOutputWithContext(context.Background())
+func (i TargetPortalGroupCreateArray) ToTargetPortalGroupCreateArrayOutput() TargetPortalGroupCreateArrayOutput {
+	return i.ToTargetPortalGroupCreateArrayOutputWithContext(context.Background())
 }
 
-func (i TargetPortalGroupArray) ToTargetPortalGroupArrayOutputWithContext(ctx context.Context) TargetPortalGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetPortalGroupArrayOutput)
+func (i TargetPortalGroupCreateArray) ToTargetPortalGroupCreateArrayOutputWithContext(ctx context.Context) TargetPortalGroupCreateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPortalGroupCreateArrayOutput)
 }
 
-// iSCSI target portal group
-type TargetPortalGroupOutput struct{ *pulumi.OutputState }
+// Target portal group properties for create or update iSCSI target request.
+type TargetPortalGroupCreateOutput struct{ *pulumi.OutputState }
 
-func (TargetPortalGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetPortalGroup)(nil)).Elem()
+func (TargetPortalGroupCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetPortalGroupCreate)(nil)).Elem()
 }
 
-func (o TargetPortalGroupOutput) ToTargetPortalGroupOutput() TargetPortalGroupOutput {
+func (o TargetPortalGroupCreateOutput) ToTargetPortalGroupCreateOutput() TargetPortalGroupCreateOutput {
 	return o
 }
 
-func (o TargetPortalGroupOutput) ToTargetPortalGroupOutputWithContext(ctx context.Context) TargetPortalGroupOutput {
+func (o TargetPortalGroupCreateOutput) ToTargetPortalGroupCreateOutputWithContext(ctx context.Context) TargetPortalGroupCreateOutput {
 	return o
 }
 
-// Access Control List (ACL) for an iSCSI target lun
-func (o TargetPortalGroupOutput) Acls() AclArrayOutput {
-	return o.ApplyT(func(v TargetPortalGroup) []Acl { return v.Acls }).(AclArrayOutput)
+// Access Control List (ACL) for an iSCSI target portal group.
+func (o TargetPortalGroupCreateOutput) Acls() AclArrayOutput {
+	return o.ApplyT(func(v TargetPortalGroupCreate) []Acl { return v.Acls }).(AclArrayOutput)
 }
 
-// Attributes of an iSCSI target
-func (o TargetPortalGroupOutput) Attributes() AttributesOutput {
-	return o.ApplyT(func(v TargetPortalGroup) Attributes { return v.Attributes }).(AttributesOutput)
+// Attributes of an iSCSI target portal group.
+func (o TargetPortalGroupCreateOutput) Attributes() AttributesOutput {
+	return o.ApplyT(func(v TargetPortalGroupCreate) Attributes { return v.Attributes }).(AttributesOutput)
 }
 
-// Lun list to be exposed through the iSCSI target. Required
-func (o TargetPortalGroupOutput) Luns() IscsiLunArrayOutput {
-	return o.ApplyT(func(v TargetPortalGroup) []IscsiLun { return v.Luns }).(IscsiLunArrayOutput)
+// List of LUNs to be exposed through the iSCSI target portal group.
+func (o TargetPortalGroupCreateOutput) Luns() IscsiLunArrayOutput {
+	return o.ApplyT(func(v TargetPortalGroupCreate) []IscsiLun { return v.Luns }).(IscsiLunArrayOutput)
 }
 
-type TargetPortalGroupArrayOutput struct{ *pulumi.OutputState }
+type TargetPortalGroupCreateArrayOutput struct{ *pulumi.OutputState }
 
-func (TargetPortalGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetPortalGroup)(nil)).Elem()
+func (TargetPortalGroupCreateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetPortalGroupCreate)(nil)).Elem()
 }
 
-func (o TargetPortalGroupArrayOutput) ToTargetPortalGroupArrayOutput() TargetPortalGroupArrayOutput {
+func (o TargetPortalGroupCreateArrayOutput) ToTargetPortalGroupCreateArrayOutput() TargetPortalGroupCreateArrayOutput {
 	return o
 }
 
-func (o TargetPortalGroupArrayOutput) ToTargetPortalGroupArrayOutputWithContext(ctx context.Context) TargetPortalGroupArrayOutput {
+func (o TargetPortalGroupCreateArrayOutput) ToTargetPortalGroupCreateArrayOutputWithContext(ctx context.Context) TargetPortalGroupCreateArrayOutput {
 	return o
 }
 
-func (o TargetPortalGroupArrayOutput) Index(i pulumi.IntInput) TargetPortalGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetPortalGroup {
-		return vs[0].([]TargetPortalGroup)[vs[1].(int)]
-	}).(TargetPortalGroupOutput)
+func (o TargetPortalGroupCreateArrayOutput) Index(i pulumi.IntInput) TargetPortalGroupCreateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetPortalGroupCreate {
+		return vs[0].([]TargetPortalGroupCreate)[vs[1].(int)]
+	}).(TargetPortalGroupCreateOutput)
 }
 
-// iSCSI target portal group
+// Response properties for iSCSI target portal group.
 type TargetPortalGroupResponse struct {
-	// Access Control List (ACL) for an iSCSI target lun
+	// Access Control List (ACL) for an iSCSI target portal group.
 	Acls []AclResponse `pulumi:"acls"`
-	// Attributes of an iSCSI target
+	// Attributes of an iSCSI target portal group.
 	Attributes AttributesResponse `pulumi:"attributes"`
-	// list of public ip addresses to connect to the iSCSI target
+	// List of private IPv4 addresses to connect to the iSCSI target.
 	Endpoints []string `pulumi:"endpoints"`
-	// Lun list to be exposed through the iSCSI target. Required
+	// List of LUNs to be exposed through iSCSI target portal group.
 	Luns []IscsiLunResponse `pulumi:"luns"`
-	// The port at which the iSCSI target is available
+	// The port used by iSCSI target portal group.
 	Port int `pulumi:"port"`
-	// The tag associated with the iSCSI target portal group
+	// The tag associated with the iSCSI target portal group.
 	Tag int `pulumi:"tag"`
 }
 
@@ -1604,19 +1184,19 @@ type TargetPortalGroupResponseInput interface {
 	ToTargetPortalGroupResponseOutputWithContext(context.Context) TargetPortalGroupResponseOutput
 }
 
-// iSCSI target portal group
+// Response properties for iSCSI target portal group.
 type TargetPortalGroupResponseArgs struct {
-	// Access Control List (ACL) for an iSCSI target lun
+	// Access Control List (ACL) for an iSCSI target portal group.
 	Acls AclResponseArrayInput `pulumi:"acls"`
-	// Attributes of an iSCSI target
+	// Attributes of an iSCSI target portal group.
 	Attributes AttributesResponseInput `pulumi:"attributes"`
-	// list of public ip addresses to connect to the iSCSI target
+	// List of private IPv4 addresses to connect to the iSCSI target.
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
-	// Lun list to be exposed through the iSCSI target. Required
+	// List of LUNs to be exposed through iSCSI target portal group.
 	Luns IscsiLunResponseArrayInput `pulumi:"luns"`
-	// The port at which the iSCSI target is available
+	// The port used by iSCSI target portal group.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The tag associated with the iSCSI target portal group
+	// The tag associated with the iSCSI target portal group.
 	Tag pulumi.IntInput `pulumi:"tag"`
 }
 
@@ -1657,7 +1237,7 @@ func (i TargetPortalGroupResponseArray) ToTargetPortalGroupResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TargetPortalGroupResponseArrayOutput)
 }
 
-// iSCSI target portal group
+// Response properties for iSCSI target portal group.
 type TargetPortalGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetPortalGroupResponseOutput) ElementType() reflect.Type {
@@ -1672,32 +1252,32 @@ func (o TargetPortalGroupResponseOutput) ToTargetPortalGroupResponseOutputWithCo
 	return o
 }
 
-// Access Control List (ACL) for an iSCSI target lun
+// Access Control List (ACL) for an iSCSI target portal group.
 func (o TargetPortalGroupResponseOutput) Acls() AclResponseArrayOutput {
 	return o.ApplyT(func(v TargetPortalGroupResponse) []AclResponse { return v.Acls }).(AclResponseArrayOutput)
 }
 
-// Attributes of an iSCSI target
+// Attributes of an iSCSI target portal group.
 func (o TargetPortalGroupResponseOutput) Attributes() AttributesResponseOutput {
 	return o.ApplyT(func(v TargetPortalGroupResponse) AttributesResponse { return v.Attributes }).(AttributesResponseOutput)
 }
 
-// list of public ip addresses to connect to the iSCSI target
+// List of private IPv4 addresses to connect to the iSCSI target.
 func (o TargetPortalGroupResponseOutput) Endpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TargetPortalGroupResponse) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
-// Lun list to be exposed through the iSCSI target. Required
+// List of LUNs to be exposed through iSCSI target portal group.
 func (o TargetPortalGroupResponseOutput) Luns() IscsiLunResponseArrayOutput {
 	return o.ApplyT(func(v TargetPortalGroupResponse) []IscsiLunResponse { return v.Luns }).(IscsiLunResponseArrayOutput)
 }
 
-// The port at which the iSCSI target is available
+// The port used by iSCSI target portal group.
 func (o TargetPortalGroupResponseOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v TargetPortalGroupResponse) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The tag associated with the iSCSI target portal group
+// The tag associated with the iSCSI target portal group.
 func (o TargetPortalGroupResponseOutput) Tag() pulumi.IntOutput {
 	return o.ApplyT(func(v TargetPortalGroupResponse) int { return v.Tag }).(pulumi.IntOutput)
 }
@@ -1737,14 +1317,10 @@ func init() {
 	pulumi.RegisterOutputType(IscsiLunArrayOutput{})
 	pulumi.RegisterOutputType(IscsiLunResponseOutput{})
 	pulumi.RegisterOutputType(IscsiLunResponseArrayOutput{})
-	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
-	pulumi.RegisterOutputType(SkuResponseOutput{})
-	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemMetadataResponseOutput{})
 	pulumi.RegisterOutputType(SystemMetadataResponsePtrOutput{})
-	pulumi.RegisterOutputType(TargetPortalGroupOutput{})
-	pulumi.RegisterOutputType(TargetPortalGroupArrayOutput{})
+	pulumi.RegisterOutputType(TargetPortalGroupCreateOutput{})
+	pulumi.RegisterOutputType(TargetPortalGroupCreateArrayOutput{})
 	pulumi.RegisterOutputType(TargetPortalGroupResponseOutput{})
 	pulumi.RegisterOutputType(TargetPortalGroupResponseArrayOutput{})
 }

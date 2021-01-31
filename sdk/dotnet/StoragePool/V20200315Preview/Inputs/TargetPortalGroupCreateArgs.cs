@@ -11,15 +11,15 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
 {
 
     /// <summary>
-    /// iSCSI target portal group
+    /// Target portal group properties for create or update iSCSI target request.
     /// </summary>
-    public sealed class TargetPortalGroupArgs : Pulumi.ResourceArgs
+    public sealed class TargetPortalGroupCreateArgs : Pulumi.ResourceArgs
     {
         [Input("acls", required: true)]
         private InputList<Inputs.AclArgs>? _acls;
 
         /// <summary>
-        /// Access Control List (ACL) for an iSCSI target lun
+        /// Access Control List (ACL) for an iSCSI target portal group.
         /// </summary>
         public InputList<Inputs.AclArgs> Acls
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
         }
 
         /// <summary>
-        /// Attributes of an iSCSI target
+        /// Attributes of an iSCSI target portal group.
         /// </summary>
         [Input("attributes", required: true)]
         public Input<Inputs.AttributesArgs> Attributes { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
         private InputList<Inputs.IscsiLunArgs>? _luns;
 
         /// <summary>
-        /// Lun list to be exposed through the iSCSI target. Required
+        /// List of LUNs to be exposed through the iSCSI target portal group.
         /// </summary>
         public InputList<Inputs.IscsiLunArgs> Luns
         {
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
             set => _luns = value;
         }
 
-        public TargetPortalGroupArgs()
+        public TargetPortalGroupCreateArgs()
         {
         }
     }

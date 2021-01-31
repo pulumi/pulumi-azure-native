@@ -15,7 +15,6 @@ __all__ = [
     'AttributesResponse',
     'DiskResponse',
     'IscsiLunResponse',
-    'SkuResponse',
     'SystemMetadataResponse',
     'TargetPortalGroupResponse',
 ]
@@ -23,7 +22,7 @@ __all__ = [
 @pulumi.output_type
 class AclResponse(dict):
     """
-    Access Control List (ACL) for an iSCSI target lun
+    Access Control List (ACL) for an iSCSI target portal group
     """
     def __init__(__self__, *,
                  initiator_iqn: str,
@@ -31,11 +30,11 @@ class AclResponse(dict):
                  password: str,
                  username: str):
         """
-        Access Control List (ACL) for an iSCSI target lun
-        :param str initiator_iqn: iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
-        :param Sequence[str] mapped_luns: Array of lun names mapped to the ACL
-        :param str password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication
-        :param str username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+        Access Control List (ACL) for an iSCSI target portal group
+        :param str initiator_iqn: iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
+        :param Sequence[str] mapped_luns: List of LUN names mapped to the ACL.
+        :param str password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        :param str username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         pulumi.set(__self__, "initiator_iqn", initiator_iqn)
         pulumi.set(__self__, "mapped_luns", mapped_luns)
@@ -46,7 +45,7 @@ class AclResponse(dict):
     @pulumi.getter(name="initiatorIqn")
     def initiator_iqn(self) -> str:
         """
-        iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+        iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         """
         return pulumi.get(self, "initiator_iqn")
 
@@ -54,7 +53,7 @@ class AclResponse(dict):
     @pulumi.getter(name="mappedLuns")
     def mapped_luns(self) -> Sequence[str]:
         """
-        Array of lun names mapped to the ACL
+        List of LUN names mapped to the ACL.
         """
         return pulumi.get(self, "mapped_luns")
 
@@ -62,7 +61,7 @@ class AclResponse(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+        Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         return pulumi.get(self, "password")
 
@@ -70,7 +69,7 @@ class AclResponse(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+        Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         return pulumi.get(self, "username")
 
@@ -81,15 +80,15 @@ class AclResponse(dict):
 @pulumi.output_type
 class AttributesResponse(dict):
     """
-    Attributes of an iSCSI target
+    Attributes of a iSCSI target portal group.
     """
     def __init__(__self__, *,
                  authentication: bool,
                  prod_mode_write_protect: bool):
         """
-        Attributes of an iSCSI target
+        Attributes of a iSCSI target portal group.
         :param bool authentication: Indicates whether or not authentication is enabled on the ACL.
-        :param bool prod_mode_write_protect: Indicates whether or not write protect is enabled on the luns.
+        :param bool prod_mode_write_protect: Indicates whether or not write protect is enabled on the LUNs.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "prod_mode_write_protect", prod_mode_write_protect)
@@ -106,7 +105,7 @@ class AttributesResponse(dict):
     @pulumi.getter(name="prodModeWriteProtect")
     def prod_mode_write_protect(self) -> bool:
         """
-        Indicates whether or not write protect is enabled on the luns.
+        Indicates whether or not write protect is enabled on the LUNs.
         """
         return pulumi.get(self, "prod_mode_write_protect")
 
@@ -117,13 +116,13 @@ class AttributesResponse(dict):
 @pulumi.output_type
 class DiskResponse(dict):
     """
-    Managed disk to attach to the DiskPool. Required.
+    Azure Managed Disk to attach to the Disk pool.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        Managed disk to attach to the DiskPool. Required.
-        :param str id: Unique Azure resource id of the managed disk. Required.
+        Azure Managed Disk to attach to the Disk pool.
+        :param str id: Unique Azure Resource ID of the Managed Disk.
         """
         pulumi.set(__self__, "id", id)
 
@@ -131,7 +130,7 @@ class DiskResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Unique Azure resource id of the managed disk. Required.
+        Unique Azure Resource ID of the Managed Disk.
         """
         return pulumi.get(self, "id")
 
@@ -142,15 +141,15 @@ class DiskResponse(dict):
 @pulumi.output_type
 class IscsiLunResponse(dict):
     """
-    Lun to expose the ManagedDisk.
+    LUN to expose the Azure Managed Disk.
     """
     def __init__(__self__, *,
                  managed_disk_azure_resource_id: str,
                  name: str):
         """
-        Lun to expose the ManagedDisk.
-        :param str managed_disk_azure_resource_id: Unique Azure resource id of the managed disk. Required.
-        :param str name: Lun name.
+        LUN to expose the Azure Managed Disk.
+        :param str managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
+        :param str name: User defined name for iSCSI LUN; example: "lun0"
         """
         pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
         pulumi.set(__self__, "name", name)
@@ -159,7 +158,7 @@ class IscsiLunResponse(dict):
     @pulumi.getter(name="managedDiskAzureResourceId")
     def managed_disk_azure_resource_id(self) -> str:
         """
-        Unique Azure resource id of the managed disk. Required.
+        Azure Resource ID of the Managed Disk.
         """
         return pulumi.get(self, "managed_disk_azure_resource_id")
 
@@ -167,82 +166,9 @@ class IscsiLunResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Lun name.
+        User defined name for iSCSI LUN; example: "lun0"
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SkuResponse(dict):
-    """
-    The resource model definition representing SKU
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 capacity: Optional[int] = None,
-                 family: Optional[str] = None,
-                 size: Optional[str] = None,
-                 tier: Optional[str] = None):
-        """
-        The resource model definition representing SKU
-        :param str name: The name of the SKU. Ex - P3. It is typically a letter+number code
-        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[str]:
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        return pulumi.get(self, "size")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        return pulumi.get(self, "tier")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -251,7 +177,7 @@ class SkuResponse(dict):
 @pulumi.output_type
 class SystemMetadataResponse(dict):
     """
-    Resource metadata required by ARM RPC
+    Resource metadata required by ARM RPC.
     """
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
@@ -261,13 +187,13 @@ class SystemMetadataResponse(dict):
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
         """
-        Resource metadata required by ARM RPC
-        :param str created_at: The timestamp of resource creation (UTC)
+        Resource metadata required by ARM RPC.
+        :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: A string identifier for the identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource: user, application, managedIdentity
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: A string identifier for the identity that last modified the resource
-        :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity
+        :param str created_by_type: The type of identity that created the resource: user, application, managedIdentity.
+        :param str last_modified_at: The timestamp of resource last modification (UTC).
+        :param str last_modified_by: A string identifier for the identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -286,7 +212,7 @@ class SystemMetadataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The timestamp of resource creation (UTC)
+        The timestamp of resource creation (UTC).
         """
         return pulumi.get(self, "created_at")
 
@@ -302,7 +228,7 @@ class SystemMetadataResponse(dict):
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[str]:
         """
-        The type of identity that created the resource: user, application, managedIdentity
+        The type of identity that created the resource: user, application, managedIdentity.
         """
         return pulumi.get(self, "created_by_type")
 
@@ -310,7 +236,7 @@ class SystemMetadataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of resource last modification (UTC)
+        The timestamp of resource last modification (UTC).
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -318,7 +244,7 @@ class SystemMetadataResponse(dict):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[str]:
         """
-        A string identifier for the identity that last modified the resource
+        A string identifier for the identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -326,7 +252,7 @@ class SystemMetadataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource: user, application, managedIdentity
+        The type of identity that last modified the resource: user, application, managedIdentity.
         """
         return pulumi.get(self, "last_modified_by_type")
 
@@ -337,7 +263,7 @@ class SystemMetadataResponse(dict):
 @pulumi.output_type
 class TargetPortalGroupResponse(dict):
     """
-    iSCSI target portal group
+    Response properties for iSCSI target portal group.
     """
     def __init__(__self__, *,
                  acls: Sequence['outputs.AclResponse'],
@@ -347,13 +273,13 @@ class TargetPortalGroupResponse(dict):
                  port: int,
                  tag: int):
         """
-        iSCSI target portal group
-        :param Sequence['AclResponseArgs'] acls: Access Control List (ACL) for an iSCSI target lun
-        :param 'AttributesResponseArgs' attributes: Attributes of an iSCSI target
-        :param Sequence[str] endpoints: list of public ip addresses to connect to the iSCSI target
-        :param Sequence['IscsiLunResponseArgs'] luns: Lun list to be exposed through the iSCSI target. Required
-        :param int port: The port at which the iSCSI target is available
-        :param int tag: The tag associated with the iSCSI target portal group
+        Response properties for iSCSI target portal group.
+        :param Sequence['AclResponseArgs'] acls: Access Control List (ACL) for an iSCSI target portal group.
+        :param 'AttributesResponseArgs' attributes: Attributes of an iSCSI target portal group.
+        :param Sequence[str] endpoints: List of private IPv4 addresses to connect to the iSCSI target.
+        :param Sequence['IscsiLunResponseArgs'] luns: List of LUNs to be exposed through iSCSI target portal group.
+        :param int port: The port used by iSCSI target portal group.
+        :param int tag: The tag associated with the iSCSI target portal group.
         """
         pulumi.set(__self__, "acls", acls)
         pulumi.set(__self__, "attributes", attributes)
@@ -366,7 +292,7 @@ class TargetPortalGroupResponse(dict):
     @pulumi.getter
     def acls(self) -> Sequence['outputs.AclResponse']:
         """
-        Access Control List (ACL) for an iSCSI target lun
+        Access Control List (ACL) for an iSCSI target portal group.
         """
         return pulumi.get(self, "acls")
 
@@ -374,7 +300,7 @@ class TargetPortalGroupResponse(dict):
     @pulumi.getter
     def attributes(self) -> 'outputs.AttributesResponse':
         """
-        Attributes of an iSCSI target
+        Attributes of an iSCSI target portal group.
         """
         return pulumi.get(self, "attributes")
 
@@ -382,7 +308,7 @@ class TargetPortalGroupResponse(dict):
     @pulumi.getter
     def endpoints(self) -> Sequence[str]:
         """
-        list of public ip addresses to connect to the iSCSI target
+        List of private IPv4 addresses to connect to the iSCSI target.
         """
         return pulumi.get(self, "endpoints")
 
@@ -390,7 +316,7 @@ class TargetPortalGroupResponse(dict):
     @pulumi.getter
     def luns(self) -> Sequence['outputs.IscsiLunResponse']:
         """
-        Lun list to be exposed through the iSCSI target. Required
+        List of LUNs to be exposed through iSCSI target portal group.
         """
         return pulumi.get(self, "luns")
 
@@ -398,7 +324,7 @@ class TargetPortalGroupResponse(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        The port at which the iSCSI target is available
+        The port used by iSCSI target portal group.
         """
         return pulumi.get(self, "port")
 
@@ -406,7 +332,7 @@ class TargetPortalGroupResponse(dict):
     @pulumi.getter
     def tag(self) -> int:
         """
-        The tag associated with the iSCSI target portal group
+        The tag associated with the iSCSI target portal group.
         """
         return pulumi.get(self, "tag")
 

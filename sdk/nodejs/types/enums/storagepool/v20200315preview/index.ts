@@ -2,14 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const SkuTier = {
-    Free: "Free",
+export const DiskPoolTier = {
     Basic: "Basic",
     Standard: "Standard",
     Premium: "Premium",
 } as const;
 
 /**
- * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ * Determines the SKU of VM deployed for Disk pool
  */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+export type DiskPoolTier = (typeof DiskPoolTier)[keyof typeof DiskPoolTier];

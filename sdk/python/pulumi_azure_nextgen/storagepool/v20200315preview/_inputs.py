@@ -14,8 +14,7 @@ __all__ = [
     'AttributesArgs',
     'DiskArgs',
     'IscsiLunArgs',
-    'SkuArgs',
-    'TargetPortalGroupArgs',
+    'TargetPortalGroupCreateArgs',
 ]
 
 @pulumi.input_type
@@ -26,11 +25,11 @@ class AclArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        Access Control List (ACL) for an iSCSI target lun
-        :param pulumi.Input[str] initiator_iqn: iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] mapped_luns: Array of lun names mapped to the ACL
-        :param pulumi.Input[str] password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication
-        :param pulumi.Input[str] username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+        Access Control List (ACL) for an iSCSI target portal group
+        :param pulumi.Input[str] initiator_iqn: iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mapped_luns: List of LUN names mapped to the ACL.
+        :param pulumi.Input[str] password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        :param pulumi.Input[str] username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         pulumi.set(__self__, "initiator_iqn", initiator_iqn)
         pulumi.set(__self__, "mapped_luns", mapped_luns)
@@ -41,7 +40,7 @@ class AclArgs:
     @pulumi.getter(name="initiatorIqn")
     def initiator_iqn(self) -> pulumi.Input[str]:
         """
-        iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+        iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         """
         return pulumi.get(self, "initiator_iqn")
 
@@ -53,7 +52,7 @@ class AclArgs:
     @pulumi.getter(name="mappedLuns")
     def mapped_luns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Array of lun names mapped to the ACL
+        List of LUN names mapped to the ACL.
         """
         return pulumi.get(self, "mapped_luns")
 
@@ -65,7 +64,7 @@ class AclArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+        Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         return pulumi.get(self, "password")
 
@@ -77,7 +76,7 @@ class AclArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+        Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         return pulumi.get(self, "username")
 
@@ -92,9 +91,9 @@ class AttributesArgs:
                  authentication: pulumi.Input[bool],
                  prod_mode_write_protect: pulumi.Input[bool]):
         """
-        Attributes of an iSCSI target
+        Attributes of a iSCSI target portal group.
         :param pulumi.Input[bool] authentication: Indicates whether or not authentication is enabled on the ACL.
-        :param pulumi.Input[bool] prod_mode_write_protect: Indicates whether or not write protect is enabled on the luns.
+        :param pulumi.Input[bool] prod_mode_write_protect: Indicates whether or not write protect is enabled on the LUNs.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "prod_mode_write_protect", prod_mode_write_protect)
@@ -115,7 +114,7 @@ class AttributesArgs:
     @pulumi.getter(name="prodModeWriteProtect")
     def prod_mode_write_protect(self) -> pulumi.Input[bool]:
         """
-        Indicates whether or not write protect is enabled on the luns.
+        Indicates whether or not write protect is enabled on the LUNs.
         """
         return pulumi.get(self, "prod_mode_write_protect")
 
@@ -129,8 +128,8 @@ class DiskArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Managed disk to attach to the DiskPool. Required.
-        :param pulumi.Input[str] id: Unique Azure resource id of the managed disk. Required.
+        Azure Managed Disk to attach to the Disk pool.
+        :param pulumi.Input[str] id: Unique Azure Resource ID of the Managed Disk.
         """
         pulumi.set(__self__, "id", id)
 
@@ -138,7 +137,7 @@ class DiskArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        Unique Azure resource id of the managed disk. Required.
+        Unique Azure Resource ID of the Managed Disk.
         """
         return pulumi.get(self, "id")
 
@@ -153,9 +152,9 @@ class IscsiLunArgs:
                  managed_disk_azure_resource_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
         """
-        Lun to expose the ManagedDisk.
-        :param pulumi.Input[str] managed_disk_azure_resource_id: Unique Azure resource id of the managed disk. Required.
-        :param pulumi.Input[str] name: Lun name.
+        LUN to expose the Azure Managed Disk.
+        :param pulumi.Input[str] managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
+        :param pulumi.Input[str] name: User defined name for iSCSI LUN; example: "lun0"
         """
         pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
         pulumi.set(__self__, "name", name)
@@ -164,7 +163,7 @@ class IscsiLunArgs:
     @pulumi.getter(name="managedDiskAzureResourceId")
     def managed_disk_azure_resource_id(self) -> pulumi.Input[str]:
         """
-        Unique Azure resource id of the managed disk. Required.
+        Azure Resource ID of the Managed Disk.
         """
         return pulumi.get(self, "managed_disk_azure_resource_id")
 
@@ -176,7 +175,7 @@ class IscsiLunArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Lun name.
+        User defined name for iSCSI LUN; example: "lun0"
         """
         return pulumi.get(self, "name")
 
@@ -186,103 +185,16 @@ class IscsiLunArgs:
 
 
 @pulumi.input_type
-class SkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[int]] = None,
-                 family: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input['SkuTier']] = None):
-        """
-        The resource model definition representing SKU
-        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
-        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "size", value)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-        """
-        return pulumi.get(self, "tier")
-
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
-        pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class TargetPortalGroupArgs:
+class TargetPortalGroupCreateArgs:
     def __init__(__self__, *,
                  acls: pulumi.Input[Sequence[pulumi.Input['AclArgs']]],
                  attributes: pulumi.Input['AttributesArgs'],
                  luns: pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]):
         """
-        iSCSI target portal group
-        :param pulumi.Input[Sequence[pulumi.Input['AclArgs']]] acls: Access Control List (ACL) for an iSCSI target lun
-        :param pulumi.Input['AttributesArgs'] attributes: Attributes of an iSCSI target
-        :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: Lun list to be exposed through the iSCSI target. Required
+        Target portal group properties for create or update iSCSI target request.
+        :param pulumi.Input[Sequence[pulumi.Input['AclArgs']]] acls: Access Control List (ACL) for an iSCSI target portal group.
+        :param pulumi.Input['AttributesArgs'] attributes: Attributes of an iSCSI target portal group.
+        :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through the iSCSI target portal group.
         """
         pulumi.set(__self__, "acls", acls)
         pulumi.set(__self__, "attributes", attributes)
@@ -292,7 +204,7 @@ class TargetPortalGroupArgs:
     @pulumi.getter
     def acls(self) -> pulumi.Input[Sequence[pulumi.Input['AclArgs']]]:
         """
-        Access Control List (ACL) for an iSCSI target lun
+        Access Control List (ACL) for an iSCSI target portal group.
         """
         return pulumi.get(self, "acls")
 
@@ -304,7 +216,7 @@ class TargetPortalGroupArgs:
     @pulumi.getter
     def attributes(self) -> pulumi.Input['AttributesArgs']:
         """
-        Attributes of an iSCSI target
+        Attributes of an iSCSI target portal group.
         """
         return pulumi.get(self, "attributes")
 
@@ -316,7 +228,7 @@ class TargetPortalGroupArgs:
     @pulumi.getter
     def luns(self) -> pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]:
         """
-        Lun list to be exposed through the iSCSI target. Required
+        List of LUNs to be exposed through the iSCSI target portal group.
         """
         return pulumi.get(self, "luns")
 
