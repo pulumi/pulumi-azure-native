@@ -266,6 +266,16 @@ export const SampleName = {
  */
 export type SampleName = (typeof SampleName)[keyof typeof SampleName];
 
+export const SecurityAlertsPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+ */
+export type SecurityAlertsPolicyState = (typeof SecurityAlertsPolicyState)[keyof typeof SecurityAlertsPolicyState];
+
 export const SensitivityLabelRank = {
     None: "None",
     Low: "Low",
