@@ -8,6 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/logging"
 	"io"
 	"io/ioutil"
 	"log"
@@ -21,7 +22,6 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
@@ -154,7 +154,7 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 // Invoke dynamically executes a built-in function in the provider.
 func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
-	glog.V(9).Infof("%s executing", label)
+	logging.V(9).Infof("%s executing", label)
 
 	args, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.args", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
@@ -285,7 +285,7 @@ func (k *azureNextGenProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.Resource
 func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
-	glog.V(9).Infof("%s executing", label)
+	logging.V(9).Infof("%s executing", label)
 	var failures []*rpc.CheckFailure
 
 	// Deserialize RPC inputs.
@@ -552,7 +552,7 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 		// Protect against a crash for the transition from pre-__inputs state files.
 		// This shouldn't happen in any real user's stack.
 		oldInputs = resource.PropertyMap{}
-		glog.V(9).Infof("no __inputs found for '%s'", urn)
+		logging.V(9).Infof("no __inputs found for '%s'", urn)
 	}
 
 	// Get new resource inputs. The user is submitting these as an update.
@@ -640,7 +640,7 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
-	glog.V(9).Infof("%s executing", label)
+	logging.V(9).Infof("%s executing", label)
 
 	// Deserialize RPC inputs
 	inputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
@@ -728,7 +728,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
-	glog.V(9).Infof("%s executing", label)
+	logging.V(9).Infof("%s executing", label)
 	id := req.GetId()
 
 	// Retrieve the old state.
@@ -819,7 +819,7 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Update(%s)", k.name, urn)
-	glog.V(9).Infof("%s executing", label)
+	logging.V(9).Infof("%s executing", label)
 	inputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
 	})
@@ -909,7 +909,7 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
-	glog.V(9).Infof("%s executing", label)
+	logging.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	resourceKey := string(urn.Type())
 	res, ok := k.resourceMap.Resources[resourceKey]
@@ -1005,7 +1005,6 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	resp, err = autorest.SendWithSender(
 		k.client,
 		prepReq,
-		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1061,7 +1060,6 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
-		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1130,7 +1128,6 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
-		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1205,7 +1202,6 @@ func (k *azureNextGenProvider) azureHead(ctx context.Context, id string, apiVers
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
-		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1236,7 +1232,6 @@ func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
 	resp, err := autorest.SendWithSender(
 		k.client,
 		prepReq,
-		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1299,7 +1294,6 @@ func (k *azureNextGenProvider) azurePost(
 	resp, err = autorest.SendWithSender(
 		k.client,
 		prepReq,
-		withSenderLogging(),
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
@@ -1485,28 +1479,12 @@ func buildUserAgent(partnerID string) (userAgent string) {
 		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
 	}
 
-	glog.V(9).Infof("AzureNextGen User Agent: %s", userAgent)
+	logging.V(9).Infof("AzureNextGen User Agent: %s", userAgent)
 	return
 }
 
-// withSenderLogging decorates a sender with logging of HTTP methods, URLs, and statuses.
-func withSenderLogging() autorest.SendDecorator {
-	return func(s autorest.Sender) autorest.Sender {
-		return autorest.SenderFunc(func(r *http.Request) (*http.Response, error) {
-			glog.V(9).Infof("Sending %s %s", r.Method, r.URL)
-			resp, err := s.Do(r)
-			if err != nil {
-				glog.V(9).Infof("%s %s received error '%v'", r.Method, r.URL, err)
-			} else {
-				glog.V(9).Infof("%s %s received %s", r.Method, r.URL, resp.Status)
-			}
-			return resp, err
-		})
-	}
-}
-
-// withInspection is a copy of autorest's LoggingInspector.WithInspector. It uses glog instead
-// of a logger which gets complicated in the presence of log redirection via the host.
+// withInspection is a copy of autorest's LoggingInspector.WithInspector. It uses our glog wrapper
+// instead of a go logger which gets complicated in the presence of log redirection via the host.
 func withInspection() autorest.PrepareDecorator {
 	return func(p autorest.Preparer) autorest.Preparer {
 		return autorest.PreparerFunc(func(r *http.Request) (*http.Request, error) {
@@ -1520,19 +1498,19 @@ func withInspection() autorest.PrepareDecorator {
 					return nil, fmt.Errorf("Failed to write response: %v", err)
 				}
 
-				glog.V(9).Infof(requestFormat, r.Method, r.URL, b.String())
+				logging.V(9).Infof(requestFormat, r.Method, r.URL, b.String())
 
 				r.Body = ioutil.NopCloser(&body)
 			} else {
-				glog.V(9).Infof(requestFormat, r.Method, r.URL, "Empty body")
+				logging.V(9).Infof(requestFormat, r.Method, r.URL, "Empty body")
 			}
 			return p.Prepare(r)
 		})
 	}
 }
 
-// byInspecting is acopy of autorest's LoggingInspector.ByInspecting(). It uses glog instead
-// of a logger which gets complicated in the presence of log redirection via the host.
+// byInspecting is acopy of autorest's LoggingInspector.ByInspecting(). It uses our glog wrapper
+// instead of a go logger which gets complicated in the presence of log redirection via the host.
 func byInspecting() autorest.RespondDecorator {
 	return func(r autorest.Responder) autorest.Responder {
 		return autorest.ResponderFunc(func(resp *http.Response) error {
@@ -1543,7 +1521,7 @@ func byInspecting() autorest.RespondDecorator {
 				return fmt.Errorf("Failed to write response: %v", err)
 			}
 
-			glog.V(9).Infof(responseFormat, resp.Request.Method, resp.Request.URL, b.String())
+			logging.V(9).Infof(responseFormat, resp.Request.Method, resp.Request.URL, b.String())
 
 			resp.Body = ioutil.NopCloser(&body)
 			return r.Respond(resp)
