@@ -133,7 +133,7 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	k.client.Authorizer = tokenAuth
 	k.client.UserAgent = k.getUserAgent()
 
-	k.customResources = resources.BuildCustomResources(&env, bearerAuth, k.client.UserAgent)
+	k.customResources = resources.BuildCustomResources(&env, k.subscriptionID, bearerAuth, tokenAuth, k.client.UserAgent)
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
@@ -675,26 +675,46 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 		return nil, err
 	}
 
-	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
-	// (though it's technically impossible since the only operation supported is an upsert).
-	err = k.azureCanCreate(ctx, id, &res)
-	if err != nil {
-		return nil, err
-	}
+	var outputs map[string]interface{}
+	customRes, isCustom := k.customResources[res.Path]
+	switch {
+	case isCustom && customRes.Create != nil:
+		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
+		_, exists, err := customRes.Read(ctx, inputs)
+		if err != nil {
+			return nil, err
+		}
+		if exists {
+			return nil, fmt.Errorf("cannot create already existing resource %q", id)
+		}
 
-	// Submit the `PUT` against the ARM endpoint
-	response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
-	if err != nil {
-		return nil, err
-	}
+		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
+		outputs, err = customRes.Create(ctx, inputs)
+		if err != nil {
+			return nil, err
+		}
+	default:
+		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
+		// (though it's technically impossible since the only operation supported is an upsert).
+		err = k.azureCanCreate(ctx, id, &res)
+		if err != nil {
+			return nil, err
+		}
 
-	// Read the canonical ID from the response.
-	if azureId, ok := response["id"].(string); ok {
-		id = azureId
-	}
+		// Submit the `PUT` against the ARM endpoint
+		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
+		if err != nil {
+			return nil, err
+		}
 
-	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
+		// Read the canonical ID from the response.
+		if azureId, ok := response["id"].(string); ok {
+			id = azureId
+		}
+
+		// Map the raw response to the shape of outputs that the SDKs expect.
+		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+	}
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
@@ -736,19 +756,34 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 
 	url := id + res.ReadPath
 
+	var outputs map[string]interface{}
+	customRes, isCustom := k.customResources[res.Path]
 	var response map[string]interface{}
-	switch res.ReadMethod {
-	case "HEAD":
+	switch {
+	case isCustom && customRes.Read != nil:
+		var exists bool
+		response, exists, err = customRes.Read(ctx, oldState)
+		if err != nil {
+			return nil, err
+		}
+		if !exists {
+			return &rpc.ReadResponse{Id: ""}, nil
+		}
+		outputs = response
+	case res.ReadMethod == "HEAD":
 		err = k.azureHead(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
-	case "POST":
+		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+	case res.ReadMethod == "POST":
 		bodyParams := map[string]interface{}{}
 		queryParams := map[string]interface{}{
 			"api-version": res.APIVersion,
 		}
 		response, err = k.azurePost(ctx, url, bodyParams, queryParams)
+		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
 	default:
 		response, err = k.azureGet(ctx, url, res.APIVersion)
+		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
 	}
 	if err != nil {
 		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
@@ -757,9 +792,6 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 		}
 		return nil, err
 	}
-
-	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
 
 	// Extract old inputs from the `__inputs` field of the old state.
 	inputs := parseCheckpointObject(oldState)
@@ -877,13 +909,23 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 		return nil, err
 	}
 
-	response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
-	if err != nil {
-		return nil, err
-	}
+	var outputs map[string]interface{}
+	customRes, isCustom := k.customResources[res.Path]
+	switch {
+	case isCustom && customRes.Update != nil:
+		outputs, err = customRes.Update(ctx, inputs)
+		if err != nil {
+			return nil, err
+		}
+	default:
+		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
+		if err != nil {
+			return nil, err
+		}
 
-	// Map the raw response to the shape of outputs that the SDKs expect.
-	outputs := k.converter.BodyPropertiesToSDK(res.Response, response)
+		// Map the raw response to the shape of outputs that the SDKs expect.
+		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+	}
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)

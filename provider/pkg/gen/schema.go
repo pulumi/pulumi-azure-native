@@ -294,7 +294,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		}
 	}
 
-	err := genMixins(&pkg)
+	err := genMixins(&pkg, &metadata)
 	if err != nil {
 		return nil, nil, nil, err
 	}
@@ -338,7 +338,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	return &pkg, &metadata, exampleMap, nil
 }
 
-func genMixins(pkg *pschema.PackageSpec) error {
+func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
 	// Mixin 'getClientConfig' to read current configuration values.
 	if _, has := pkg.Functions["azure-nextgen:authorization/latest:getClientConfig"]; has {
 		return errors.New("Invoke 'azure-nextgen:authorization/latest:getClientConfig' is already defined")
@@ -350,22 +350,22 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Properties: map[string]schema.PropertySpec{
 				"clientId": {
 					Description: "Azure Client ID (Application Object ID).",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				"objectId": {
 					Description: "Azure Object ID of the current user or service principal.",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				"subscriptionId": {
 					Description: "Azure Subscription ID",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				"tenantId": {
 					Description: "Azure Tenant ID",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 			},
-			Type: "object",
+			Type:     "object",
 			Required: []string{"clientId", "objectId", "subscriptionId", "tenantId"},
 		},
 	}
@@ -380,7 +380,7 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Properties: map[string]schema.PropertySpec{
 				"endpoint": {
 					Description: "Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 			},
 			Type: "object",
@@ -390,12 +390,26 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Properties: map[string]schema.PropertySpec{
 				"token": {
 					Description: "OAuth token for Azure Management API and SDK authentication.",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 			},
-			Type: "object",
+			Type:     "object",
 			Required: []string{"token"},
 		},
+	}
+
+	// Mixin all the custom resources that define schema and/or metadata.
+	for tok, r := range resources.SchemaMixins() {
+		if _, has := pkg.Resources[tok]; has {
+			return errors.Errorf("Resource %q is already defined", tok)
+		}
+		pkg.Resources[tok] = r
+	}
+	for tok, r := range resources.MetaMixins() {
+		if _, has := metadata.Resources[tok]; has {
+			return errors.Errorf("Metadata %q is already defined", tok)
+		}
+		metadata.Resources[tok] = r
 	}
 
 	return nil

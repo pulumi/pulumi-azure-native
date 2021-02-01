@@ -2,84 +2,53 @@ package resources
 
 import (
 	"context"
-	"fmt"
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
+	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
-	"net/http"
 )
 
-// customResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
+// CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
 type CustomResource struct {
-	path   string
+	path string
+	tok  string
+	// Resource schema. Optional, by default the schema is assumed to be included in Azure Open API specs.
+	Schema *schema.ResourceSpec
+	// Resource metadata. Defines the parameters and properties that are used for diff calculation and validation.
+	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
+	Meta *AzureAPIResource
+	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
+	Create func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
+	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
+	// resource outputs. If the requested resource does not exist, the second result is false.
+	Read func(context.Context, resource.PropertyMap) (map[string]interface{}, bool, error)
+	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
+	Update func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
+	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(context.Context, resource.PropertyMap) error
 }
 
-func reportDeletionError(err error) error {
-	if detailed, ok := err.(autorest.DetailedError); ok && detailed.StatusCode == http.StatusNotFound {
-		return nil
-	}
-	return err
-}
-
-// keyVaultSecret creates a custom resource for Azure KeyVault Secret.
-func keyVaultSecret(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
-	return &CustomResource{
-		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
-		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
-			vaultName := properties["vaultName"]
-			if !vaultName.HasValue() || !vaultName.IsString() {
-				return errors.New("vaultName not found in resource state")
-			}
-			secretName := properties["secretName"]
-			if !secretName.HasValue() || !secretName.IsString() {
-				return errors.New("secretName not found in resource state")
-			}
-
-			vaultUrl := fmt.Sprintf("https://%s.%s", vaultName.StringValue(), keyVaultDNSSuffix)
-			_, err := kvClient.DeleteSecret(ctx, vaultUrl, secretName.StringValue())
-			return reportDeletionError(err)
-		},
-	}
-}
-
-// keyVaultKey creates a custom resource for Azure KeyVault Key.
-func keyVaultKey(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
-	return &CustomResource{
-		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
-		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
-			vaultName := properties["vaultName"]
-			if !vaultName.HasValue() || !vaultName.IsString() {
-				return errors.New("vaultName not found in resource state")
-			}
-			keyName := properties["keyName"]
-			if !keyName.HasValue() || !keyName.IsString() {
-				return errors.New("keyName not found in resource state")
-			}
-
-			vaultUrl := fmt.Sprintf("https://%s.%s", vaultName.StringValue(), keyVaultDNSSuffix)
-			_, err := kvClient.DeleteKey(ctx, vaultUrl, keyName.StringValue())
-			return reportDeletionError(err)
-		},
-	}
-}
-
 // BuildCustomResources creates a map of custom resources for given environment parameters.
-func BuildCustomResources(env *azure.Environment, bearerAuth autorest.Authorizer,
-	userAgent string) map[string]*CustomResource {
+func BuildCustomResources(env *azure.Environment, subscriptionID string, bearerAuth autorest.Authorizer,
+	tokenAuth autorest.Authorizer, userAgent string) map[string]*CustomResource {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = bearerAuth
 	kvClient.UserAgent = userAgent
 
+	storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
+	storageAccountsClient.Authorizer = tokenAuth
+	storageAccountsClient.UserAgent = userAgent
+
 	resources := []*CustomResource{
-		// Azure KeyVault resources
+		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
-		// Doesn't work yet in our tests. We need to figure this out with Azure before publishing.
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
+		// Storage resources.
+		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 	}
 
 	result := map[string]*CustomResource{}
@@ -90,7 +59,7 @@ func BuildCustomResources(env *azure.Environment, bearerAuth autorest.Authorizer
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup = BuildCustomResources(&azure.Environment{}, nil, "")
+var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, "")
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
@@ -98,4 +67,26 @@ func HasCustomDelete(path string) bool {
 		return res.Delete != nil
 	}
 	return false
+}
+
+// SchemaMixins returns the map of custom resource schema definitions per resource token.
+func SchemaMixins() map[string]schema.ResourceSpec {
+	specs := map[string]schema.ResourceSpec{}
+	for _, r := range featureLookup {
+		if r.tok != "" && r.Schema != nil {
+			specs[r.tok] = *r.Schema
+		}
+	}
+	return specs
+}
+
+// SchemaMixins returns the map of custom resource metadata definitions per resource token.
+func MetaMixins() map[string]AzureAPIResource {
+	meta := map[string]AzureAPIResource{}
+	for _, r := range featureLookup {
+		if r.tok != "" && r.Meta != nil {
+			meta[r.tok] = *r.Meta
+		}
+	}
+	return meta
 }
