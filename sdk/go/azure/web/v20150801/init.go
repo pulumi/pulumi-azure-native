@@ -35,6 +35,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServerFarmRouteForVnet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20150801:Site":
 		r, err = NewSite(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteAppSettings":
+		r, err = NewSiteAppSettings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteAppSettingsSlot":
+		r, err = NewSiteAppSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteAuthSettings":
+		r, err = NewSiteAuthSettings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteAuthSettingsSlot":
+		r, err = NewSiteAuthSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteBackupConfiguration":
+		r, err = NewSiteBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteBackupConfigurationSlot":
+		r, err = NewSiteBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteConnectionStrings":
+		r, err = NewSiteConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteConnectionStringsSlot":
+		r, err = NewSiteConnectionStringsSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20150801:SiteDeployment":
 		r, err = NewSiteDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20150801:SiteDeploymentSlot":
@@ -49,6 +65,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSiteInstanceDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20150801:SiteLogsConfig":
 		r, err = NewSiteLogsConfig(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteMetadata":
+		r, err = NewSiteMetadata(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20150801:SiteMetadataSlot":
+		r, err = NewSiteMetadataSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
 		r, err = NewSiteRelayServiceConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":
