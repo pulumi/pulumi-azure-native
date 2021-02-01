@@ -33,6 +33,32 @@ export const AzureResourceType = {
  */
 export type AzureResourceType = (typeof AzureResourceType)[keyof typeof AzureResourceType];
 
+export const AzureStorageType = {
+    AzureFiles: "AzureFiles",
+    AzureBlob: "AzureBlob",
+} as const;
+
+/**
+ * Type of storage.
+ */
+export type AzureStorageType = (typeof AzureStorageType)[keyof typeof AzureStorageType];
+
+export const BuiltInAuthenticationProvider = {
+    AzureActiveDirectory: "AzureActiveDirectory",
+    Facebook: "Facebook",
+    Google: "Google",
+    MicrosoftAccount: "MicrosoftAccount",
+    Twitter: "Twitter",
+    Github: "Github",
+} as const;
+
+/**
+ * The default authentication provider to use when multiple providers are configured.
+ * This setting is only needed if multiple providers are configured and the unauthenticated client
+ * action is set to "RedirectToLoginPage".
+ */
+export type BuiltInAuthenticationProvider = (typeof BuiltInAuthenticationProvider)[keyof typeof BuiltInAuthenticationProvider];
+
 export const ClientCertMode = {
     Required: "Required",
     Optional: "Optional",
@@ -45,6 +71,12 @@ export const ClientCertMode = {
  * - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
  */
 export type ClientCertMode = (typeof ClientCertMode)[keyof typeof ClientCertMode];
+
+export const ClientCredentialMethod = {
+    ClientSecretPost: "ClientSecretPost",
+} as const;
+
+export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
 
 export const ComputeModeOptions = {
     Shared: "Shared",
@@ -76,6 +108,13 @@ export const ConnectionStringType = {
  */
 export type ConnectionStringType = (typeof ConnectionStringType)[keyof typeof ConnectionStringType];
 
+export const CookieExpirationConvention = {
+    FixedTime: "FixedTime",
+    IdentityProviderDerived: "IdentityProviderDerived",
+} as const;
+
+export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
+
 export const CustomHostNameDnsRecordType = {
     CName: "CName",
     A: "A",
@@ -97,6 +136,14 @@ export const DatabaseType = {
  * Database type (e.g. SqlAzure / MySql).
  */
 export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
+
+export const ForwardProxyConvention = {
+    NoProxy: "NoProxy",
+    Standard: "Standard",
+    Custom: "Custom",
+} as const;
+
+export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
 export const FrequencyUnit = {
     Day: "Day",
@@ -293,3 +340,22 @@ export const SupportedTlsVersions = {
  * ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
  */
 export type SupportedTlsVersions = (typeof SupportedTlsVersions)[keyof typeof SupportedTlsVersions];
+
+export const UnauthenticatedClientAction = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+} as const;
+
+/**
+ * The action to take when an unauthenticated client attempts to access the app.
+ */
+export type UnauthenticatedClientAction = (typeof UnauthenticatedClientAction)[keyof typeof UnauthenticatedClientAction];
+
+export const UnauthenticatedClientActionV2 = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+    Return401: "Return401",
+    Return403: "Return403",
+} as const;
+
+export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];

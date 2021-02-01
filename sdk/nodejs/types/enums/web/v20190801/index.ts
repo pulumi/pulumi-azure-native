@@ -33,6 +33,31 @@ export const AzureResourceType = {
  */
 export type AzureResourceType = (typeof AzureResourceType)[keyof typeof AzureResourceType];
 
+export const AzureStorageType = {
+    AzureFiles: "AzureFiles",
+    AzureBlob: "AzureBlob",
+} as const;
+
+/**
+ * Type of storage.
+ */
+export type AzureStorageType = (typeof AzureStorageType)[keyof typeof AzureStorageType];
+
+export const BuiltInAuthenticationProvider = {
+    AzureActiveDirectory: "AzureActiveDirectory",
+    Facebook: "Facebook",
+    Google: "Google",
+    MicrosoftAccount: "MicrosoftAccount",
+    Twitter: "Twitter",
+} as const;
+
+/**
+ * The default authentication provider to use when multiple providers are configured.
+ * This setting is only needed if multiple providers are configured and the unauthenticated client
+ * action is set to "RedirectToLoginPage".
+ */
+export type BuiltInAuthenticationProvider = (typeof BuiltInAuthenticationProvider)[keyof typeof BuiltInAuthenticationProvider];
+
 export const ComputeModeOptions = {
     Shared: "Shared",
     Dedicated: "Dedicated",
@@ -278,3 +303,13 @@ export const SupportedTlsVersions = {
  * MinTlsVersion: configures the minimum version of TLS required for SSL requests
  */
 export type SupportedTlsVersions = (typeof SupportedTlsVersions)[keyof typeof SupportedTlsVersions];
+
+export const UnauthenticatedClientAction = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+} as const;
+
+/**
+ * The action to take when an unauthenticated client attempts to access the app.
+ */
+export type UnauthenticatedClientAction = (typeof UnauthenticatedClientAction)[keyof typeof UnauthenticatedClientAction];
