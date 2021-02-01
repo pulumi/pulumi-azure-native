@@ -270,6 +270,100 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     }
 
     /// <summary>
+    /// Specifies that the alert is sent to the account administrators.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyEmailAccountAdmins : IEquatable<SecurityAlertPolicyEmailAccountAdmins>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyEmailAccountAdmins(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyEmailAccountAdmins Enabled { get; } = new SecurityAlertPolicyEmailAccountAdmins("Enabled");
+        public static SecurityAlertPolicyEmailAccountAdmins Disabled { get; } = new SecurityAlertPolicyEmailAccountAdmins("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyEmailAccountAdmins left, SecurityAlertPolicyEmailAccountAdmins right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyEmailAccountAdmins left, SecurityAlertPolicyEmailAccountAdmins right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyEmailAccountAdmins value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyEmailAccountAdmins other && Equals(other);
+        public bool Equals(SecurityAlertPolicyEmailAccountAdmins other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyState : IEquatable<SecurityAlertPolicyState>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyState New { get; } = new SecurityAlertPolicyState("New");
+        public static SecurityAlertPolicyState Enabled { get; } = new SecurityAlertPolicyState("Enabled");
+        public static SecurityAlertPolicyState Disabled { get; } = new SecurityAlertPolicyState("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyState other && Equals(other);
+        public bool Equals(SecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether to use the default server policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyUseServerDefault : IEquatable<SecurityAlertPolicyUseServerDefault>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyUseServerDefault(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyUseServerDefault Enabled { get; } = new SecurityAlertPolicyUseServerDefault("Enabled");
+        public static SecurityAlertPolicyUseServerDefault Disabled { get; } = new SecurityAlertPolicyUseServerDefault("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyUseServerDefault left, SecurityAlertPolicyUseServerDefault right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyUseServerDefault left, SecurityAlertPolicyUseServerDefault right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyUseServerDefault value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyUseServerDefault other && Equals(other);
+        public bool Equals(SecurityAlertPolicyUseServerDefault other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The version of the server.
     /// </summary>
     [EnumType]
