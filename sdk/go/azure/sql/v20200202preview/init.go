@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-nextgen:sql/v20200202preview:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy":
+		r, err = NewDatabaseSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:sql/v20200202preview:DatabaseVulnerabilityAssessment":
 		r, err = NewDatabaseVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:sql/v20200202preview:DatabaseVulnerabilityAssessmentRuleBaseline":

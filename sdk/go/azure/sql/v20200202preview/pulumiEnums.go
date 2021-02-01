@@ -688,6 +688,34 @@ func (e SampleName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+type SecurityAlertsPolicyState pulumi.String
+
+const (
+	SecurityAlertsPolicyStateEnabled  = SecurityAlertsPolicyState("Enabled")
+	SecurityAlertsPolicyStateDisabled = SecurityAlertsPolicyState("Disabled")
+)
+
+func (SecurityAlertsPolicyState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityAlertsPolicyState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertsPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertsPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityAlertsPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type SensitivityLabelRank pulumi.String
 
 const (
