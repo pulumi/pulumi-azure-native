@@ -102,6 +102,42 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     }
 
     /// <summary>
+    /// The default authentication provider to use when multiple providers are configured.
+    /// This setting is only needed if multiple providers are configured and the unauthenticated client
+    /// action is set to "RedirectToLoginPage".
+    /// </summary>
+    [EnumType]
+    public readonly struct BuiltInAuthenticationProvider : IEquatable<BuiltInAuthenticationProvider>
+    {
+        private readonly string _value;
+
+        private BuiltInAuthenticationProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BuiltInAuthenticationProvider AzureActiveDirectory { get; } = new BuiltInAuthenticationProvider("AzureActiveDirectory");
+        public static BuiltInAuthenticationProvider Facebook { get; } = new BuiltInAuthenticationProvider("Facebook");
+        public static BuiltInAuthenticationProvider Google { get; } = new BuiltInAuthenticationProvider("Google");
+        public static BuiltInAuthenticationProvider MicrosoftAccount { get; } = new BuiltInAuthenticationProvider("MicrosoftAccount");
+        public static BuiltInAuthenticationProvider Twitter { get; } = new BuiltInAuthenticationProvider("Twitter");
+
+        public static bool operator ==(BuiltInAuthenticationProvider left, BuiltInAuthenticationProvider right) => left.Equals(right);
+        public static bool operator !=(BuiltInAuthenticationProvider left, BuiltInAuthenticationProvider right) => !left.Equals(right);
+
+        public static explicit operator string(BuiltInAuthenticationProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BuiltInAuthenticationProvider other && Equals(other);
+        public bool Equals(BuiltInAuthenticationProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of database.
     /// </summary>
     [EnumType]
@@ -658,6 +694,37 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SupportedTlsVersions other && Equals(other);
         public bool Equals(SupportedTlsVersions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action to take when an unauthenticated client attempts to access the app.
+    /// </summary>
+    [EnumType]
+    public readonly struct UnauthenticatedClientAction : IEquatable<UnauthenticatedClientAction>
+    {
+        private readonly string _value;
+
+        private UnauthenticatedClientAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UnauthenticatedClientAction RedirectToLoginPage { get; } = new UnauthenticatedClientAction("RedirectToLoginPage");
+        public static UnauthenticatedClientAction AllowAnonymous { get; } = new UnauthenticatedClientAction("AllowAnonymous");
+
+        public static bool operator ==(UnauthenticatedClientAction left, UnauthenticatedClientAction right) => left.Equals(right);
+        public static bool operator !=(UnauthenticatedClientAction left, UnauthenticatedClientAction right) => !left.Equals(right);
+
+        public static explicit operator string(UnauthenticatedClientAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UnauthenticatedClientAction other && Equals(other);
+        public bool Equals(UnauthenticatedClientAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

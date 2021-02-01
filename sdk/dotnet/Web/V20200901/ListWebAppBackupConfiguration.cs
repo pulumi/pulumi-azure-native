@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// Schedule for the backup if it is executed periodically.
         /// </summary>
-        public readonly Outputs.BackupScheduleResponseResult? BackupSchedule;
+        public readonly Outputs.BackupScheduleResponse? BackupSchedule;
         /// <summary>
         /// Databases included in the backup.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> Databases;
+        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponse> Databases;
         /// <summary>
         /// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         private ListWebAppBackupConfigurationResult(
             string? backupName,
 
-            Outputs.BackupScheduleResponseResult? backupSchedule,
+            Outputs.BackupScheduleResponse? backupSchedule,
 
-            ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> databases,
+            ImmutableArray<Outputs.DatabaseBackupSettingResponse> databases,
 
             bool? enabled,
 
