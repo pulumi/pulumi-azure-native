@@ -9,12 +9,17 @@ __all__ = [
     'ApiType',
     'AutoHealActionType',
     'AzureResourceType',
+    'AzureStorageType',
+    'BuiltInAuthenticationProvider',
     'ClientCertMode',
+    'ClientCredentialMethod',
     'ComputeModeOptions',
     'ConnectionParameterType',
     'ConnectionStringType',
+    'CookieExpirationConvention',
     'CustomHostNameDnsRecordType',
     'DatabaseType',
+    'ForwardProxyConvention',
     'FrequencyUnit',
     'FtpsState',
     'HostNameType',
@@ -34,6 +39,8 @@ __all__ = [
     'SiteLoadBalancing',
     'SslState',
     'SupportedTlsVersions',
+    'UnauthenticatedClientAction',
+    'UnauthenticatedClientActionV2',
     'WorkerSizeOptions',
     'WsdlImportMethod',
 ]
@@ -70,6 +77,28 @@ class AzureResourceType(str, Enum):
     TRAFFIC_MANAGER = "TrafficManager"
 
 
+class AzureStorageType(str, Enum):
+    """
+    Type of storage.
+    """
+    AZURE_FILES = "AzureFiles"
+    AZURE_BLOB = "AzureBlob"
+
+
+class BuiltInAuthenticationProvider(str, Enum):
+    """
+    The default authentication provider to use when multiple providers are configured.
+    This setting is only needed if multiple providers are configured and the unauthenticated client
+    action is set to "RedirectToLoginPage".
+    """
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+    FACEBOOK = "Facebook"
+    GOOGLE = "Google"
+    MICROSOFT_ACCOUNT = "MicrosoftAccount"
+    TWITTER = "Twitter"
+    GITHUB = "Github"
+
+
 class ClientCertMode(str, Enum):
     """
     This composes with ClientCertEnabled setting.
@@ -79,6 +108,10 @@ class ClientCertMode(str, Enum):
     """
     REQUIRED = "Required"
     OPTIONAL = "Optional"
+
+
+class ClientCredentialMethod(str, Enum):
+    CLIENT_SECRET_POST = "ClientSecretPost"
 
 
 class ComputeModeOptions(str, Enum):
@@ -122,6 +155,11 @@ class ConnectionStringType(str, Enum):
     POSTGRE_SQL = "PostgreSQL"
 
 
+class CookieExpirationConvention(str, Enum):
+    FIXED_TIME = "FixedTime"
+    IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
+
+
 class CustomHostNameDnsRecordType(str, Enum):
     """
     Custom DNS record type.
@@ -138,6 +176,12 @@ class DatabaseType(str, Enum):
     MY_SQL = "MySql"
     LOCAL_MY_SQL = "LocalMySql"
     POSTGRE_SQL = "PostgreSql"
+
+
+class ForwardProxyConvention(str, Enum):
+    NO_PROXY = "NoProxy"
+    STANDARD = "Standard"
+    CUSTOM = "Custom"
 
 
 class FrequencyUnit(str, Enum):
@@ -332,6 +376,21 @@ class SupportedTlsVersions(str, Enum):
     SUPPORTED_TLS_VERSIONS_1_0 = "1.0"
     SUPPORTED_TLS_VERSIONS_1_1 = "1.1"
     SUPPORTED_TLS_VERSIONS_1_2 = "1.2"
+
+
+class UnauthenticatedClientAction(str, Enum):
+    """
+    The action to take when an unauthenticated client attempts to access the app.
+    """
+    REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
+    ALLOW_ANONYMOUS = "AllowAnonymous"
+
+
+class UnauthenticatedClientActionV2(str, Enum):
+    REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
+    ALLOW_ANONYMOUS = "AllowAnonymous"
+    RETURN401 = "Return401"
+    RETURN403 = "Return403"
 
 
 class WorkerSizeOptions(str, Enum):

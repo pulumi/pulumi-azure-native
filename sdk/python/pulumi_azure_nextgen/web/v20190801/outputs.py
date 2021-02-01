@@ -21,16 +21,16 @@ __all__ = [
     'AutoHealTriggersResponse',
     'AzureBlobStorageApplicationLogsConfigResponse',
     'AzureBlobStorageHttpLogsConfigResponse',
-    'AzureStorageInfoValueResponseResult',
+    'AzureStorageInfoValueResponse',
     'AzureTableStorageApplicationLogsConfigResponse',
     'BackupItemResponseResult',
-    'BackupScheduleResponseResult',
+    'BackupScheduleResponse',
     'CapabilityResponse',
     'CloningInfoResponse',
     'ConnStringInfoResponse',
-    'ConnStringValueTypePairResponseResult',
+    'ConnStringValueTypePairResponse',
     'CorsSettingsResponse',
-    'DatabaseBackupSettingResponseResult',
+    'DatabaseBackupSettingResponse',
     'EnabledConfigResponse',
     'ExperimentsResponse',
     'FileSystemApplicationLogsConfigResponse',
@@ -492,7 +492,7 @@ class AzureBlobStorageHttpLogsConfigResponse(dict):
 
 
 @pulumi.output_type
-class AzureStorageInfoValueResponseResult(dict):
+class AzureStorageInfoValueResponse(dict):
     """
     Azure Files or Blob Storage access information value for dictionary storage.
     """
@@ -572,6 +572,9 @@ class AzureStorageInfoValueResponseResult(dict):
         """
         return pulumi.get(self, "type")
 
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AzureTableStorageApplicationLogsConfigResponse(dict):
@@ -620,7 +623,7 @@ class BackupItemResponseResult(dict):
                  blob_name: str,
                  correlation_id: str,
                  created: str,
-                 databases: Sequence['outputs.DatabaseBackupSettingResponseResult'],
+                 databases: Sequence['outputs.DatabaseBackupSettingResponse'],
                  finished_time_stamp: str,
                  id: str,
                  last_restore_time_stamp: str,
@@ -706,7 +709,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter
-    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponseResult']:
+    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponse']:
         """
         List of databases included in the backup.
         """
@@ -810,7 +813,7 @@ class BackupItemResponseResult(dict):
 
 
 @pulumi.output_type
-class BackupScheduleResponseResult(dict):
+class BackupScheduleResponse(dict):
     """
     Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
     """
@@ -893,6 +896,9 @@ class BackupScheduleResponseResult(dict):
         When the schedule should start working.
         """
         return pulumi.get(self, "start_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1151,7 +1157,7 @@ class ConnStringInfoResponse(dict):
 
 
 @pulumi.output_type
-class ConnStringValueTypePairResponseResult(dict):
+class ConnStringValueTypePairResponse(dict):
     """
     Database connection string value to type pair.
     """
@@ -1181,6 +1187,9 @@ class ConnStringValueTypePairResponseResult(dict):
         Value of pair.
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1228,7 +1237,7 @@ class CorsSettingsResponse(dict):
 
 
 @pulumi.output_type
-class DatabaseBackupSettingResponseResult(dict):
+class DatabaseBackupSettingResponse(dict):
     """
     Database backup settings.
     """
@@ -1281,6 +1290,9 @@ class DatabaseBackupSettingResponseResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

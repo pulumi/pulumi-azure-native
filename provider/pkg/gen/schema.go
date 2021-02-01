@@ -492,9 +492,18 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
 
-	op := path.Get
-	if op == nil {
+	var op *spec.Operation
+	switch {
+	case resource.PathItemList != nil:
+		if resource.PathItemList.Post != nil {
+			op = resource.PathItemList.Post
+		} else {
+			op = resource.PathItemList.Get
+		}
+	case path.Get == nil:
 		op = path.Head
+	default:
+		op = path.Get
 	}
 
 	parameters = swagger.MergeParameters(op.Parameters, path.Parameters)
@@ -535,6 +544,17 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		g.metadata.Invokes[functionTok] = f
 	}
 
+	var readMethod, readPath string
+	switch {
+	case resource.PathItemList != nil:
+		readPath = "/list"
+		if resource.PathItemList.Post != nil {
+			readMethod = "POST"
+		}
+	case resource.PathItem.Get == nil:
+		readMethod = "HEAD"
+	}
+
 	r := resources.AzureAPIResource{
 		APIVersion:       swagger.Info.Version,
 		Path:             resource.Path,
@@ -544,7 +564,8 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		Singleton:        resource.PathItem.Delete == nil,
 		PutAsyncStyle:    g.getAsyncStyle(resource.PathItem.Put),
 		DeleteAsyncStyle: g.getAsyncStyle(resource.PathItem.Delete),
-		ReadWithHead:     resource.PathItem.Get == nil,
+		ReadMethod:       readMethod,
+		ReadPath:         readPath,
 	}
 	g.metadata.Resources[resourceTok] = r
 

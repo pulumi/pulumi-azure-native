@@ -25,6 +25,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebApp":
 		r, err = NewWebApp(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppAuthSettings":
+		r, err = NewWebAppAuthSettings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppAuthSettingsSlot":
+		r, err = NewWebAppAuthSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppAzureStorageAccounts":
+		r, err = NewWebAppAzureStorageAccounts(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot":
+		r, err = NewWebAppAzureStorageAccountsSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppBackupConfiguration":
+		r, err = NewWebAppBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppBackupConfigurationSlot":
+		r, err = NewWebAppBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppConnectionStrings":
+		r, err = NewWebAppConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppConnectionStringsSlot":
+		r, err = NewWebAppConnectionStringsSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppDeployment":
 		r, err = NewWebAppDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppDeploymentSlot":
@@ -47,6 +63,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewWebAppHybridConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot":
 		r, err = NewWebAppInstanceFunctionSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppMetadata":
+		r, err = NewWebAppMetadata(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppMetadataSlot":
+		r, err = NewWebAppMetadataSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppPremierAddOn":
 		r, err = NewWebAppPremierAddOn(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppPremierAddOnSlot":
@@ -63,6 +83,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewWebAppSiteExtension(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppSiteExtensionSlot":
 		r, err = NewWebAppSiteExtensionSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppSitePushSettings":
+		r, err = NewWebAppSitePushSettings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot":
+		r, err = NewWebAppSitePushSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppSlot":
 		r, err = NewWebAppSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppSlotConfigurationNames":
@@ -79,6 +103,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewWebAppVnetConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:web/v20181101:WebAppVnetConnectionSlot":
 		r, err = NewWebAppVnetConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebApplicationSettings":
+		r, err = NewWebApplicationSettings(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:web/v20181101:WebApplicationSettingsSlot":
+		r, err = NewWebApplicationSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

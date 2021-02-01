@@ -95,6 +95,68 @@ func (e AzureResourceType) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Type of storage.
+type AzureStorageType pulumi.String
+
+const (
+	AzureStorageTypeAzureFiles = AzureStorageType("AzureFiles")
+	AzureStorageTypeAzureBlob  = AzureStorageType("AzureBlob")
+)
+
+func (AzureStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AzureStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The default authentication provider to use when multiple providers are configured.
+// This setting is only needed if multiple providers are configured and the unauthenticated client
+// action is set to "RedirectToLoginPage".
+type BuiltInAuthenticationProvider pulumi.String
+
+const (
+	BuiltInAuthenticationProviderAzureActiveDirectory = BuiltInAuthenticationProvider("AzureActiveDirectory")
+	BuiltInAuthenticationProviderFacebook             = BuiltInAuthenticationProvider("Facebook")
+	BuiltInAuthenticationProviderGoogle               = BuiltInAuthenticationProvider("Google")
+	BuiltInAuthenticationProviderMicrosoftAccount     = BuiltInAuthenticationProvider("MicrosoftAccount")
+	BuiltInAuthenticationProviderTwitter              = BuiltInAuthenticationProvider("Twitter")
+	BuiltInAuthenticationProviderGithub               = BuiltInAuthenticationProvider("Github")
+)
+
+func (BuiltInAuthenticationProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e BuiltInAuthenticationProvider) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BuiltInAuthenticationProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BuiltInAuthenticationProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BuiltInAuthenticationProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // This composes with ClientCertEnabled setting.
 // - ClientCertEnabled: false means ClientCert is ignored.
 // - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
@@ -123,6 +185,32 @@ func (e ClientCertMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ClientCertMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClientCredentialMethod pulumi.String
+
+const (
+	ClientCredentialMethodClientSecretPost = ClientCredentialMethod("ClientSecretPost")
+)
+
+func (ClientCredentialMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ClientCredentialMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClientCredentialMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClientCredentialMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClientCredentialMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -192,6 +280,33 @@ func (e ConnectionStringType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type CookieExpirationConvention pulumi.String
+
+const (
+	CookieExpirationConventionFixedTime               = CookieExpirationConvention("FixedTime")
+	CookieExpirationConventionIdentityProviderDerived = CookieExpirationConvention("IdentityProviderDerived")
+)
+
+func (CookieExpirationConvention) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CookieExpirationConvention) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CookieExpirationConvention) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CookieExpirationConvention) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CookieExpirationConvention) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Custom DNS record type.
 type CustomHostNameDnsRecordType pulumi.String
 
@@ -247,6 +362,34 @@ func (e DatabaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DatabaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ForwardProxyConvention pulumi.String
+
+const (
+	ForwardProxyConventionNoProxy  = ForwardProxyConvention("NoProxy")
+	ForwardProxyConventionStandard = ForwardProxyConvention("Standard")
+	ForwardProxyConventionCustom   = ForwardProxyConvention("Custom")
+)
+
+func (ForwardProxyConvention) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ForwardProxyConvention) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ForwardProxyConvention) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ForwardProxyConvention) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ForwardProxyConvention) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -731,5 +874,62 @@ func (e SupportedTlsVersions) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SupportedTlsVersions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The action to take when an unauthenticated client attempts to access the app.
+type UnauthenticatedClientAction pulumi.String
+
+const (
+	UnauthenticatedClientActionRedirectToLoginPage = UnauthenticatedClientAction("RedirectToLoginPage")
+	UnauthenticatedClientActionAllowAnonymous      = UnauthenticatedClientAction("AllowAnonymous")
+)
+
+func (UnauthenticatedClientAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e UnauthenticatedClientAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UnauthenticatedClientAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UnauthenticatedClientAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UnauthenticatedClientAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UnauthenticatedClientActionV2 pulumi.String
+
+const (
+	UnauthenticatedClientActionV2RedirectToLoginPage = UnauthenticatedClientActionV2("RedirectToLoginPage")
+	UnauthenticatedClientActionV2AllowAnonymous      = UnauthenticatedClientActionV2("AllowAnonymous")
+	UnauthenticatedClientActionV2Return401           = UnauthenticatedClientActionV2("Return401")
+	UnauthenticatedClientActionV2Return403           = UnauthenticatedClientActionV2("Return403")
+)
+
+func (UnauthenticatedClientActionV2) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e UnauthenticatedClientActionV2) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UnauthenticatedClientActionV2) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UnauthenticatedClientActionV2) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UnauthenticatedClientActionV2) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

@@ -46,6 +46,14 @@ from .managed_hosting_environment import *
 from .server_farm import *
 from .server_farm_route_for_vnet import *
 from .site import *
+from .site_app_settings import *
+from .site_app_settings_slot import *
+from .site_auth_settings import *
+from .site_auth_settings_slot import *
+from .site_backup_configuration import *
+from .site_backup_configuration_slot import *
+from .site_connection_strings import *
+from .site_connection_strings_slot import *
 from .site_deployment import *
 from .site_deployment_slot import *
 from .site_host_name_binding import *
@@ -53,6 +61,8 @@ from .site_host_name_binding_slot import *
 from .site_instance_deployment import *
 from .site_instance_deployment_slot import *
 from .site_logs_config import *
+from .site_metadata import *
+from .site_metadata_slot import *
 from .site_relay_service_connection import *
 from .site_relay_service_connection_slot import *
 from .site_slot import *
@@ -90,6 +100,22 @@ def _register_module():
                 return ServerFarmRouteForVnet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:Site":
                 return Site(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteAppSettings":
+                return SiteAppSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteAppSettingsSlot":
+                return SiteAppSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteAuthSettings":
+                return SiteAuthSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteAuthSettingsSlot":
+                return SiteAuthSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteBackupConfiguration":
+                return SiteBackupConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteBackupConfigurationSlot":
+                return SiteBackupConfigurationSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteConnectionStrings":
+                return SiteConnectionStrings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteConnectionStringsSlot":
+                return SiteConnectionStringsSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteDeployment":
                 return SiteDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteDeploymentSlot":
@@ -104,6 +130,10 @@ def _register_module():
                 return SiteInstanceDeploymentSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteLogsConfig":
                 return SiteLogsConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteMetadata":
+                return SiteMetadata(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteMetadataSlot":
+                return SiteMetadataSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
                 return SiteRelayServiceConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":

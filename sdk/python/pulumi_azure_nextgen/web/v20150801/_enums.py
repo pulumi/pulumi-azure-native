@@ -9,6 +9,7 @@ __all__ = [
     'AutoHealActionType',
     'AzureResourceType',
     'BackupRestoreOperationType',
+    'BuiltInAuthenticationProvider',
     'ComputeModeOptions',
     'CustomHostNameDnsRecordType',
     'DatabaseServerType',
@@ -21,6 +22,7 @@ __all__ = [
     'ProvisioningState',
     'SiteLoadBalancing',
     'SslState',
+    'UnauthenticatedClientAction',
     'WorkerSizeOptions',
 ]
 
@@ -54,6 +56,19 @@ class BackupRestoreOperationType(str, Enum):
     DEFAULT = "Default"
     CLONE = "Clone"
     RELOCATION = "Relocation"
+
+
+class BuiltInAuthenticationProvider(str, Enum):
+    """
+    Gets or sets the default authentication provider to use when multiple providers are configured.
+                This setting is only needed if multiple providers are configured and the unauthenticated client
+                action is set to "RedirectToLoginPage".
+    """
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+    FACEBOOK = "Facebook"
+    GOOGLE = "Google"
+    MICROSOFT_ACCOUNT = "MicrosoftAccount"
+    TWITTER = "Twitter"
 
 
 class ComputeModeOptions(str, Enum):
@@ -166,6 +181,14 @@ class SslState(str, Enum):
     DISABLED = "Disabled"
     SNI_ENABLED = "SniEnabled"
     IP_BASED_ENABLED = "IpBasedEnabled"
+
+
+class UnauthenticatedClientAction(str, Enum):
+    """
+    Gets or sets the action to take when an unauthenticated client attempts to access the app.
+    """
+    REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
+    ALLOW_ANONYMOUS = "AllowAnonymous"
 
 
 class WorkerSizeOptions(str, Enum):

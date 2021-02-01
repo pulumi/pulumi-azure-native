@@ -110,23 +110,43 @@ const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     name: randomString.result,
-
     serverFarmId: appServicePlan.id,
-    siteConfig: {
-        appSettings: [
-            // TODO: "WEBSITE_RUN_FROM_ZIP": codeBlobUrl,
-            {
-                name: "ApplicationInsights:InstrumentationKey",
-                value: appInsights.instrumentationKey?.apply(v => v!),
-            },
-        ],
-        connectionStrings: [{
-            name: "db",
-            connectionString:
-                pulumi.all([sqlServer.name, database.name]).apply(([server, db]) =>
-                    `Server=tcp:${server}.database.windows.net;initial catalog=${db};user ID=${username};password=${pwd};Min Pool Size=0;Max Pool Size=30;Persist Security Info=true;`),
+});
+
+new web.WebAppMetadata("meta", {
+    resourceGroupName: resourceGroup.name,
+    name: app.name,
+    properties: {
+        CURRENT_STACK: "dotnetcore",
+    },
+});
+
+new web.WebApplicationSettings("settings", {
+    resourceGroupName: resourceGroup.name,
+    name: app.name,
+    properties: {
+        "ApplicationInsights:InstrumentationKey": appInsights.instrumentationKey?.apply(v => v!),
+        "test": "Test"
+    },
+});
+
+new web.WebAppConnectionStrings("conns", {
+    resourceGroupName: resourceGroup.name,
+    name: app.name,
+    properties: {
+        db: {
+            value: pulumi.all([sqlServer.name, database.name]).apply(([server, db]) =>
+                `Server=tcp:${server}.database.windows.net;initial catalog=${db};user ID=${username};password=${pwd};Min Pool Size=0;Max Pool Size=30;Persist Security Info=true;`),
             type: "SQLAzure",
-        }],    
+        },
+    },
+});
+
+new web.WebAppAuthSettingsV2("auth", {
+    resourceGroupName: resourceGroup.name,
+    name: app.name,
+    httpSettings: {
+        requireHttps: true,
     },
 });
 

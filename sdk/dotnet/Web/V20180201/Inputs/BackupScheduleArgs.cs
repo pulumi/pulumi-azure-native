@@ -13,37 +13,37 @@ namespace Pulumi.AzureNextGen.Web.V20180201.Inputs
     /// <summary>
     /// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
     /// </summary>
-    public sealed class BackupScheduleArgs : Pulumi.InvokeArgs
+    public sealed class BackupScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         /// </summary>
         [Input("frequencyInterval", required: true)]
-        public int FrequencyInterval { get; set; }
+        public Input<int> FrequencyInterval { get; set; } = null!;
 
         /// <summary>
         /// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         /// </summary>
         [Input("frequencyUnit", required: true)]
-        public Pulumi.AzureNextGen.Web.V20180201.FrequencyUnit FrequencyUnit { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20180201.FrequencyUnit> FrequencyUnit { get; set; } = null!;
 
         /// <summary>
         /// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
         /// </summary>
         [Input("keepAtLeastOneBackup", required: true)]
-        public bool KeepAtLeastOneBackup { get; set; }
+        public Input<bool> KeepAtLeastOneBackup { get; set; } = null!;
 
         /// <summary>
         /// After how many days backups should be deleted.
         /// </summary>
         [Input("retentionPeriodInDays", required: true)]
-        public int RetentionPeriodInDays { get; set; }
+        public Input<int> RetentionPeriodInDays { get; set; } = null!;
 
         /// <summary>
         /// When the schedule should start working.
         /// </summary>
         [Input("startTime")]
-        public string? StartTime { get; set; }
+        public Input<string>? StartTime { get; set; }
 
         public BackupScheduleArgs()
         {

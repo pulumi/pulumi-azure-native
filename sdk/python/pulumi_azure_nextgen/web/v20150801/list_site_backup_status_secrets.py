@@ -104,7 +104,7 @@ class ListSiteBackupStatusSecretsResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponseResult']]:
+    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponse']]:
         """
         List of databases included in the backup
         """

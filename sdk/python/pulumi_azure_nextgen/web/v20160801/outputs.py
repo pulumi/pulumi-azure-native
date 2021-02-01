@@ -20,12 +20,12 @@ __all__ = [
     'AzureBlobStorageApplicationLogsConfigResponse',
     'AzureBlobStorageHttpLogsConfigResponse',
     'AzureTableStorageApplicationLogsConfigResponse',
-    'BackupScheduleResponseResult',
+    'BackupScheduleResponse',
     'CloningInfoResponse',
     'ConnStringInfoResponse',
-    'ConnStringValueTypePairResponseResult',
+    'ConnStringValueTypePairResponse',
     'CorsSettingsResponse',
-    'DatabaseBackupSettingResponseResult',
+    'DatabaseBackupSettingResponse',
     'EnabledConfigResponse',
     'ExperimentsResponse',
     'FileSystemApplicationLogsConfigResponse',
@@ -467,7 +467,7 @@ class AzureTableStorageApplicationLogsConfigResponse(dict):
 
 
 @pulumi.output_type
-class BackupScheduleResponseResult(dict):
+class BackupScheduleResponse(dict):
     """
     Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
     """
@@ -550,6 +550,9 @@ class BackupScheduleResponseResult(dict):
         When the schedule should start working.
         """
         return pulumi.get(self, "start_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -758,7 +761,7 @@ class ConnStringInfoResponse(dict):
 
 
 @pulumi.output_type
-class ConnStringValueTypePairResponseResult(dict):
+class ConnStringValueTypePairResponse(dict):
     """
     Database connection string value to type pair.
     """
@@ -788,6 +791,9 @@ class ConnStringValueTypePairResponseResult(dict):
         Value of pair.
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -819,7 +825,7 @@ class CorsSettingsResponse(dict):
 
 
 @pulumi.output_type
-class DatabaseBackupSettingResponseResult(dict):
+class DatabaseBackupSettingResponse(dict):
     """
     Database backup settings.
     """
@@ -872,6 +878,9 @@ class DatabaseBackupSettingResponseResult(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

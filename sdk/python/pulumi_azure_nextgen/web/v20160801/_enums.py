@@ -8,6 +8,7 @@ __all__ = [
     'AutoHealActionType',
     'AzureResourceType',
     'BackupRestoreOperationType',
+    'BuiltInAuthenticationProvider',
     'ConnectionStringType',
     'CustomHostNameDnsRecordType',
     'DatabaseType',
@@ -22,6 +23,7 @@ __all__ = [
     'SiteLoadBalancing',
     'SslState',
     'SupportedTlsVersions',
+    'UnauthenticatedClientAction',
 ]
 
 
@@ -50,6 +52,19 @@ class BackupRestoreOperationType(str, Enum):
     CLONE = "Clone"
     RELOCATION = "Relocation"
     SNAPSHOT = "Snapshot"
+
+
+class BuiltInAuthenticationProvider(str, Enum):
+    """
+    The default authentication provider to use when multiple providers are configured.
+    This setting is only needed if multiple providers are configured and the unauthenticated client
+    action is set to "RedirectToLoginPage".
+    """
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+    FACEBOOK = "Facebook"
+    GOOGLE = "Google"
+    MICROSOFT_ACCOUNT = "MicrosoftAccount"
+    TWITTER = "Twitter"
 
 
 class ConnectionStringType(str, Enum):
@@ -192,3 +207,11 @@ class SupportedTlsVersions(str, Enum):
     SUPPORTED_TLS_VERSIONS_1_0 = "1.0"
     SUPPORTED_TLS_VERSIONS_1_1 = "1.1"
     SUPPORTED_TLS_VERSIONS_1_2 = "1.2"
+
+
+class UnauthenticatedClientAction(str, Enum):
+    """
+    The action to take when an unauthenticated client attempts to access the app.
+    """
+    REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
+    ALLOW_ANONYMOUS = "AllowAnonymous"

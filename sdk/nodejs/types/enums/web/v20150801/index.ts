@@ -41,6 +41,21 @@ export const BackupRestoreOperationType = {
  */
 export type BackupRestoreOperationType = (typeof BackupRestoreOperationType)[keyof typeof BackupRestoreOperationType];
 
+export const BuiltInAuthenticationProvider = {
+    AzureActiveDirectory: "AzureActiveDirectory",
+    Facebook: "Facebook",
+    Google: "Google",
+    MicrosoftAccount: "MicrosoftAccount",
+    Twitter: "Twitter",
+} as const;
+
+/**
+ * Gets or sets the default authentication provider to use when multiple providers are configured.
+ *             This setting is only needed if multiple providers are configured and the unauthenticated client
+ *             action is set to "RedirectToLoginPage".
+ */
+export type BuiltInAuthenticationProvider = (typeof BuiltInAuthenticationProvider)[keyof typeof BuiltInAuthenticationProvider];
+
 export const ComputeModeOptions = {
     Shared: "Shared",
     Dedicated: "Dedicated",
@@ -176,6 +191,16 @@ export const SslState = {
  * SSL type
  */
 export type SslState = (typeof SslState)[keyof typeof SslState];
+
+export const UnauthenticatedClientAction = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+} as const;
+
+/**
+ * Gets or sets the action to take when an unauthenticated client attempts to access the app.
+ */
+export type UnauthenticatedClientAction = (typeof UnauthenticatedClientAction)[keyof typeof UnauthenticatedClientAction];
 
 export const WorkerSizeOptions = {
     Default: "Default",

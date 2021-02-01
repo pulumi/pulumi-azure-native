@@ -66,7 +66,7 @@ class ListWebAppConnectionStringsResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, 'outputs.ConnStringValueTypePairResponseResult']:
+    def properties(self) -> Mapping[str, 'outputs.ConnStringValueTypePairResponse']:
         """
         Connection strings.
         """

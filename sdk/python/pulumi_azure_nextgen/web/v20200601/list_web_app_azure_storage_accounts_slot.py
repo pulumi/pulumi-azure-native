@@ -63,7 +63,7 @@ class ListWebAppAzureStorageAccountsSlotResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, 'outputs.AzureStorageInfoValueResponseResult']:
+    def properties(self) -> Mapping[str, 'outputs.AzureStorageInfoValueResponse']:
         """
         Azure storage accounts.
         """

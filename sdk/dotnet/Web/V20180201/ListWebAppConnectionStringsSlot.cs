@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// <summary>
         /// Connection strings.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponseResult> Properties;
+        public readonly ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponse> Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponseResult> properties,
+            ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponse> properties,
 
             string type)
         {

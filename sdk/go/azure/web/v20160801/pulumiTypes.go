@@ -3059,6 +3059,47 @@ func (i BackupScheduleArgs) ToBackupScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
 }
 
+func (i BackupScheduleArgs) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleArgs) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput).ToBackupSchedulePtrOutputWithContext(ctx)
+}
+
+// BackupSchedulePtrInput is an input type that accepts BackupScheduleArgs, BackupSchedulePtr and BackupSchedulePtrOutput values.
+// You can construct a concrete instance of `BackupSchedulePtrInput` via:
+//
+//          BackupScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupSchedulePtrInput interface {
+	pulumi.Input
+
+	ToBackupSchedulePtrOutput() BackupSchedulePtrOutput
+	ToBackupSchedulePtrOutputWithContext(context.Context) BackupSchedulePtrOutput
+}
+
+type backupSchedulePtrType BackupScheduleArgs
+
+func BackupSchedulePtr(v *BackupScheduleArgs) BackupSchedulePtrInput {
+	return (*backupSchedulePtrType)(v)
+}
+
+func (*backupSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
+}
+
+func (i *backupSchedulePtrType) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupSchedulePtrType) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupSchedulePtrOutput)
+}
+
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleOutput struct{ *pulumi.OutputState }
 
@@ -3072,6 +3113,16 @@ func (o BackupScheduleOutput) ToBackupScheduleOutput() BackupScheduleOutput {
 
 func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
 	return o
+}
+
+func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return o.ToBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
+		return &v
+	}).(BackupSchedulePtrOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -3097,6 +3148,74 @@ func (o BackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
 // When the schedule should start working.
 func (o BackupScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type BackupSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
+}
+
+func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return o
+}
+
+func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return o
+}
+
+func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
+	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
+}
+
+// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+func (o BackupSchedulePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.KeepAtLeastOneBackup
+	}).(pulumi.BoolPtrOutput)
+}
+
+// After how many days backups should be deleted.
+func (o BackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// When the schedule should start working.
+func (o BackupSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
@@ -3154,6 +3273,47 @@ func (i BackupScheduleResponseArgs) ToBackupScheduleResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponseOutput)
 }
 
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return i.ToBackupScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponseOutput).ToBackupScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// BackupScheduleResponsePtrInput is an input type that accepts BackupScheduleResponseArgs, BackupScheduleResponsePtr and BackupScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `BackupScheduleResponsePtrInput` via:
+//
+//          BackupScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput
+	ToBackupScheduleResponsePtrOutputWithContext(context.Context) BackupScheduleResponsePtrOutput
+}
+
+type backupScheduleResponsePtrType BackupScheduleResponseArgs
+
+func BackupScheduleResponsePtr(v *BackupScheduleResponseArgs) BackupScheduleResponsePtrInput {
+	return (*backupScheduleResponsePtrType)(v)
+}
+
+func (*backupScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupScheduleResponse)(nil)).Elem()
+}
+
+func (i *backupScheduleResponsePtrType) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return i.ToBackupScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *backupScheduleResponsePtrType) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponsePtrOutput)
+}
+
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleResponseOutput struct{ *pulumi.OutputState }
 
@@ -3167,6 +3327,16 @@ func (o BackupScheduleResponseOutput) ToBackupScheduleResponseOutput() BackupSch
 
 func (o BackupScheduleResponseOutput) ToBackupScheduleResponseOutputWithContext(ctx context.Context) BackupScheduleResponseOutput {
 	return o
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return o.ToBackupScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) *BackupScheduleResponse {
+		return &v
+	}).(BackupScheduleResponsePtrOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -3197,6 +3367,84 @@ func (o BackupScheduleResponseOutput) RetentionPeriodInDays() pulumi.IntOutput {
 // When the schedule should start working.
 func (o BackupScheduleResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type BackupScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupScheduleResponse)(nil)).Elem()
+}
+
+func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return o
+}
+
+func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return o
+}
+
+func (o BackupScheduleResponsePtrOutput) Elem() BackupScheduleResponseOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse { return *v }).(BackupScheduleResponseOutput)
+}
+
+// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+func (o BackupScheduleResponsePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+func (o BackupScheduleResponsePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+func (o BackupScheduleResponsePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.KeepAtLeastOneBackup
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Last time when this schedule was triggered.
+func (o BackupScheduleResponsePtrOutput) LastExecutionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastExecutionTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// After how many days backups should be deleted.
+func (o BackupScheduleResponsePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// When the schedule should start working.
+func (o BackupScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Information needed for cloning operation.
@@ -4121,6 +4369,115 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnStringInfoResponse {
 		return vs[0].([]ConnStringInfoResponse)[vs[1].(int)]
 	}).(ConnStringInfoResponseOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePair struct {
+	// Type of database.
+	Type string `pulumi:"type"`
+	// Value of pair.
+	Value string `pulumi:"value"`
+}
+
+// ConnStringValueTypePairInput is an input type that accepts ConnStringValueTypePairArgs and ConnStringValueTypePairOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairInput` via:
+//
+//          ConnStringValueTypePairArgs{...}
+type ConnStringValueTypePairInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairOutput() ConnStringValueTypePairOutput
+	ToConnStringValueTypePairOutputWithContext(context.Context) ConnStringValueTypePairOutput
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairArgs struct {
+	// Type of database.
+	Type ConnectionStringType `pulumi:"type"`
+	// Value of pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnStringValueTypePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePair)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairArgs) ToConnStringValueTypePairOutput() ConnStringValueTypePairOutput {
+	return i.ToConnStringValueTypePairOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairArgs) ToConnStringValueTypePairOutputWithContext(ctx context.Context) ConnStringValueTypePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairOutput)
+}
+
+// ConnStringValueTypePairMapInput is an input type that accepts ConnStringValueTypePairMap and ConnStringValueTypePairMapOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairMapInput` via:
+//
+//          ConnStringValueTypePairMap{ "key": ConnStringValueTypePairArgs{...} }
+type ConnStringValueTypePairMapInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairMapOutput() ConnStringValueTypePairMapOutput
+	ToConnStringValueTypePairMapOutputWithContext(context.Context) ConnStringValueTypePairMapOutput
+}
+
+type ConnStringValueTypePairMap map[string]ConnStringValueTypePairInput
+
+func (ConnStringValueTypePairMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePair)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairMap) ToConnStringValueTypePairMapOutput() ConnStringValueTypePairMapOutput {
+	return i.ToConnStringValueTypePairMapOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairMap) ToConnStringValueTypePairMapOutputWithContext(ctx context.Context) ConnStringValueTypePairMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairMapOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePair)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairOutput) ToConnStringValueTypePairOutput() ConnStringValueTypePairOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairOutput) ToConnStringValueTypePairOutputWithContext(ctx context.Context) ConnStringValueTypePairOutput {
+	return o
+}
+
+// Type of database.
+func (o ConnStringValueTypePairOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of pair.
+func (o ConnStringValueTypePairOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnStringValueTypePairMapOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePair)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairMapOutput) ToConnStringValueTypePairMapOutput() ConnStringValueTypePairMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairMapOutput) ToConnStringValueTypePairMapOutputWithContext(ctx context.Context) ConnStringValueTypePairMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairMapOutput) MapIndex(k pulumi.StringInput) ConnStringValueTypePairOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnStringValueTypePair {
+		return vs[0].(map[string]ConnStringValueTypePair)[vs[1].(string)]
+	}).(ConnStringValueTypePairOutput)
 }
 
 // Database connection string value to type pair.
@@ -13756,7 +14113,9 @@ func init() {
 	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
+	pulumi.RegisterOutputType(BackupSchedulePtrOutput{})
 	pulumi.RegisterOutputType(BackupScheduleResponseOutput{})
+	pulumi.RegisterOutputType(BackupScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloningInfoOutput{})
 	pulumi.RegisterOutputType(CloningInfoPtrOutput{})
 	pulumi.RegisterOutputType(CloningInfoResponseOutput{})
@@ -13765,6 +14124,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairMapOutput{})
 	pulumi.RegisterOutputType(ConnStringValueTypePairResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringValueTypePairResponseMapOutput{})
 	pulumi.RegisterOutputType(CorsSettingsOutput{})

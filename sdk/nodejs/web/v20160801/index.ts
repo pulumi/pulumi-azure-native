@@ -54,6 +54,12 @@ export * from "./listWebAppSyncFunctionTriggersSlot";
 export * from "./listWebApplicationSettings";
 export * from "./listWebApplicationSettingsSlot";
 export * from "./webApp";
+export * from "./webAppAuthSettings";
+export * from "./webAppAuthSettingsSlot";
+export * from "./webAppBackupConfiguration";
+export * from "./webAppBackupConfigurationSlot";
+export * from "./webAppConnectionStrings";
+export * from "./webAppConnectionStringsSlot";
 export * from "./webAppDeployment";
 export * from "./webAppDeploymentSlot";
 export * from "./webAppDiagnosticLogsConfiguration";
@@ -65,6 +71,8 @@ export * from "./webAppHostNameBindingSlot";
 export * from "./webAppHybridConnection";
 export * from "./webAppHybridConnectionSlot";
 export * from "./webAppInstanceFunctionSlot";
+export * from "./webAppMetadata";
+export * from "./webAppMetadataSlot";
 export * from "./webAppPremierAddOn";
 export * from "./webAppPremierAddOnSlot";
 export * from "./webAppPublicCertificate";
@@ -73,18 +81,28 @@ export * from "./webAppRelayServiceConnection";
 export * from "./webAppRelayServiceConnectionSlot";
 export * from "./webAppSiteExtension";
 export * from "./webAppSiteExtensionSlot";
+export * from "./webAppSitePushSettings";
+export * from "./webAppSitePushSettingsSlot";
 export * from "./webAppSlot";
 export * from "./webAppSlotConfigurationNames";
 export * from "./webAppSourceControl";
 export * from "./webAppSourceControlSlot";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
+export * from "./webApplicationSettings";
+export * from "./webApplicationSettingsSlot";
 
 // Export enums:
 export * from "../../types/enums/web/v20160801";
 
 // Import resources to register:
 import { WebApp } from "./webApp";
+import { WebAppAuthSettings } from "./webAppAuthSettings";
+import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
+import { WebAppBackupConfiguration } from "./webAppBackupConfiguration";
+import { WebAppBackupConfigurationSlot } from "./webAppBackupConfigurationSlot";
+import { WebAppConnectionStrings } from "./webAppConnectionStrings";
+import { WebAppConnectionStringsSlot } from "./webAppConnectionStringsSlot";
 import { WebAppDeployment } from "./webAppDeployment";
 import { WebAppDeploymentSlot } from "./webAppDeploymentSlot";
 import { WebAppDiagnosticLogsConfiguration } from "./webAppDiagnosticLogsConfiguration";
@@ -96,6 +114,8 @@ import { WebAppHostNameBindingSlot } from "./webAppHostNameBindingSlot";
 import { WebAppHybridConnection } from "./webAppHybridConnection";
 import { WebAppHybridConnectionSlot } from "./webAppHybridConnectionSlot";
 import { WebAppInstanceFunctionSlot } from "./webAppInstanceFunctionSlot";
+import { WebAppMetadata } from "./webAppMetadata";
+import { WebAppMetadataSlot } from "./webAppMetadataSlot";
 import { WebAppPremierAddOn } from "./webAppPremierAddOn";
 import { WebAppPremierAddOnSlot } from "./webAppPremierAddOnSlot";
 import { WebAppPublicCertificate } from "./webAppPublicCertificate";
@@ -104,12 +124,16 @@ import { WebAppRelayServiceConnection } from "./webAppRelayServiceConnection";
 import { WebAppRelayServiceConnectionSlot } from "./webAppRelayServiceConnectionSlot";
 import { WebAppSiteExtension } from "./webAppSiteExtension";
 import { WebAppSiteExtensionSlot } from "./webAppSiteExtensionSlot";
+import { WebAppSitePushSettings } from "./webAppSitePushSettings";
+import { WebAppSitePushSettingsSlot } from "./webAppSitePushSettingsSlot";
 import { WebAppSlot } from "./webAppSlot";
 import { WebAppSlotConfigurationNames } from "./webAppSlotConfigurationNames";
 import { WebAppSourceControl } from "./webAppSourceControl";
 import { WebAppSourceControlSlot } from "./webAppSourceControlSlot";
 import { WebAppVnetConnection } from "./webAppVnetConnection";
 import { WebAppVnetConnectionSlot } from "./webAppVnetConnectionSlot";
+import { WebApplicationSettings } from "./webApplicationSettings";
+import { WebApplicationSettingsSlot } from "./webApplicationSettingsSlot";
 
 const _module = {
     version: utilities.getVersion(),
@@ -117,6 +141,18 @@ const _module = {
         switch (type) {
             case "azure-nextgen:web/v20160801:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppAuthSettings":
+                return new WebAppAuthSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot":
+                return new WebAppAuthSettingsSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppBackupConfiguration":
+                return new WebAppBackupConfiguration(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppBackupConfigurationSlot":
+                return new WebAppBackupConfigurationSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppConnectionStrings":
+                return new WebAppConnectionStrings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppConnectionStringsSlot":
+                return new WebAppConnectionStringsSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppDeployment":
                 return new WebAppDeployment(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppDeploymentSlot":
@@ -139,6 +175,10 @@ const _module = {
                 return new WebAppHybridConnectionSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot":
                 return new WebAppInstanceFunctionSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppMetadata":
+                return new WebAppMetadata(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppMetadataSlot":
+                return new WebAppMetadataSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppPremierAddOn":
                 return new WebAppPremierAddOn(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppPremierAddOnSlot":
@@ -155,6 +195,10 @@ const _module = {
                 return new WebAppSiteExtension(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppSiteExtensionSlot":
                 return new WebAppSiteExtensionSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppSitePushSettings":
+                return new WebAppSitePushSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot":
+                return new WebAppSitePushSettingsSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppSlot":
                 return new WebAppSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppSlotConfigurationNames":
@@ -167,6 +211,10 @@ const _module = {
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot":
                 return new WebAppVnetConnectionSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebApplicationSettings":
+                return new WebApplicationSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20160801:WebApplicationSettingsSlot":
+                return new WebApplicationSettingsSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

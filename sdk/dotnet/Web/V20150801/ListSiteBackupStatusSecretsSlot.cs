@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <summary>
         /// List of databases included in the backup
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> Databases;
+        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponse> Databases;
         /// <summary>
         /// Timestamp when this backup finished.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? created,
 
-            ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> databases,
+            ImmutableArray<Outputs.DatabaseBackupSettingResponse> databases,
 
             string? finishedTimeStamp,
 

@@ -47,6 +47,14 @@ export * from "./managedHostingEnvironment";
 export * from "./serverFarm";
 export * from "./serverFarmRouteForVnet";
 export * from "./site";
+export * from "./siteAppSettings";
+export * from "./siteAppSettingsSlot";
+export * from "./siteAuthSettings";
+export * from "./siteAuthSettingsSlot";
+export * from "./siteBackupConfiguration";
+export * from "./siteBackupConfigurationSlot";
+export * from "./siteConnectionStrings";
+export * from "./siteConnectionStringsSlot";
 export * from "./siteDeployment";
 export * from "./siteDeploymentSlot";
 export * from "./siteHostNameBinding";
@@ -54,6 +62,8 @@ export * from "./siteHostNameBindingSlot";
 export * from "./siteInstanceDeployment";
 export * from "./siteInstanceDeploymentSlot";
 export * from "./siteLogsConfig";
+export * from "./siteMetadata";
+export * from "./siteMetadataSlot";
 export * from "./siteRelayServiceConnection";
 export * from "./siteRelayServiceConnectionSlot";
 export * from "./siteSlot";
@@ -74,6 +84,14 @@ import { ManagedHostingEnvironment } from "./managedHostingEnvironment";
 import { ServerFarm } from "./serverFarm";
 import { ServerFarmRouteForVnet } from "./serverFarmRouteForVnet";
 import { Site } from "./site";
+import { SiteAppSettings } from "./siteAppSettings";
+import { SiteAppSettingsSlot } from "./siteAppSettingsSlot";
+import { SiteAuthSettings } from "./siteAuthSettings";
+import { SiteAuthSettingsSlot } from "./siteAuthSettingsSlot";
+import { SiteBackupConfiguration } from "./siteBackupConfiguration";
+import { SiteBackupConfigurationSlot } from "./siteBackupConfigurationSlot";
+import { SiteConnectionStrings } from "./siteConnectionStrings";
+import { SiteConnectionStringsSlot } from "./siteConnectionStringsSlot";
 import { SiteDeployment } from "./siteDeployment";
 import { SiteDeploymentSlot } from "./siteDeploymentSlot";
 import { SiteHostNameBinding } from "./siteHostNameBinding";
@@ -81,6 +99,8 @@ import { SiteHostNameBindingSlot } from "./siteHostNameBindingSlot";
 import { SiteInstanceDeployment } from "./siteInstanceDeployment";
 import { SiteInstanceDeploymentSlot } from "./siteInstanceDeploymentSlot";
 import { SiteLogsConfig } from "./siteLogsConfig";
+import { SiteMetadata } from "./siteMetadata";
+import { SiteMetadataSlot } from "./siteMetadataSlot";
 import { SiteRelayServiceConnection } from "./siteRelayServiceConnection";
 import { SiteRelayServiceConnectionSlot } from "./siteRelayServiceConnectionSlot";
 import { SiteSlot } from "./siteSlot";
@@ -108,6 +128,22 @@ const _module = {
                 return new ServerFarmRouteForVnet(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:Site":
                 return new Site(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteAppSettings":
+                return new SiteAppSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteAppSettingsSlot":
+                return new SiteAppSettingsSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteAuthSettings":
+                return new SiteAuthSettings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteAuthSettingsSlot":
+                return new SiteAuthSettingsSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteBackupConfiguration":
+                return new SiteBackupConfiguration(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteBackupConfigurationSlot":
+                return new SiteBackupConfigurationSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteConnectionStrings":
+                return new SiteConnectionStrings(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteConnectionStringsSlot":
+                return new SiteConnectionStringsSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteDeployment":
                 return new SiteDeployment(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteDeploymentSlot":
@@ -122,6 +158,10 @@ const _module = {
                 return new SiteInstanceDeploymentSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteLogsConfig":
                 return new SiteLogsConfig(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteMetadata":
+                return new SiteMetadata(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteMetadataSlot":
+                return new SiteMetadataSlot(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
                 return new SiteRelayServiceConnection(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":
