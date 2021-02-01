@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
     public sealed class DiskResponse
     {
         /// <summary>
-        /// Unique Azure resource id of the managed disk. Required.
+        /// Unique Azure Resource ID of the Managed Disk.
         /// </summary>
         public readonly string Id;
 

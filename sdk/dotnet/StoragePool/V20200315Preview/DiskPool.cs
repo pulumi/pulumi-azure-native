@@ -10,25 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 {
     /// <summary>
-    /// Request payload for Create or Update Disk Pool requests.
+    /// Response for Disk pool request.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storagepool/v20200315preview:DiskPool")]
     public partial class DiskPool : Pulumi.CustomResource
     {
         /// <summary>
-        /// Logical zone for DiskPool resource.
+        /// List of additional capabilities for Disk pool.
+        /// </summary>
+        [Output("additionalCapabilities")]
+        public Output<ImmutableArray<string>> AdditionalCapabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// Logical zone for Disk pool resource; example: ["1"].
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// List of Azure managed disks to attach to a DiskPool
+        /// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         /// </summary>
         [Output("disks")]
         public Output<ImmutableArray<Outputs.DiskResponse>> Disks { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// The geo-location where the resource lives.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -40,25 +46,19 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the operation on the resource
+        /// State of the operation on the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Sku description.
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Operational status of the Disk pool
+        /// Operational status of the Disk pool.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource id of the subnet for the DiskPool
+        /// Azure Resource ID of a Subnet for the Disk pool.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -74,6 +74,12 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines the SKU of VM deployed for Disk pool
+        /// </summary>
+        [Output("tier")]
+        public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -126,11 +132,23 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
     public sealed class DiskPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("additionalCapabilities")]
+        private InputList<string>? _additionalCapabilities;
+
+        /// <summary>
+        /// List of additional capabilities for a Disk pool.
+        /// </summary>
+        public InputList<string> AdditionalCapabilities
+        {
+            get => _additionalCapabilities ?? (_additionalCapabilities = new InputList<string>());
+            set => _additionalCapabilities = value;
+        }
+
         [Input("availabilityZones", required: true)]
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// Logical zone for DiskPool resource.
+        /// Logical zone for Disk pool resource; example: ["1"].
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -139,7 +157,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         }
 
         /// <summary>
-        /// The name of the Disk Pool.
+        /// The name of the Disk pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public Input<string> DiskPoolName { get; set; } = null!;
@@ -148,7 +166,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         private InputList<Inputs.DiskArgs>? _disks;
 
         /// <summary>
-        /// List of Azure managed disks to attach to a DiskPool
+        /// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         /// </summary>
         public InputList<Inputs.DiskArgs> Disks
         {
@@ -157,7 +175,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         }
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// The geo-location where the resource lives.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -169,13 +187,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sku description.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Azure resource id of the subnet for the DiskPool
+        /// Azure Resource ID of a Subnet for the Disk pool.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -191,6 +203,12 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Determines the SKU of VM deployed for Disk pool
+        /// </summary>
+        [Input("tier", required: true)]
+        public InputUnion<string, Pulumi.AzureNextGen.StoragePool.V20200315Preview.DiskPoolTier> Tier { get; set; } = null!;
 
         public DiskPoolArgs()
         {

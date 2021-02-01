@@ -17,7 +17,7 @@ func LookupIscsiTarget(ctx *pulumi.Context, args *LookupIscsiTargetArgs, opts ..
 }
 
 type LookupIscsiTargetArgs struct {
-	// The name of the Disk Pool.
+	// The name of the Disk pool.
 	DiskPoolName string `pulumi:"diskPoolName"`
 	// The name of the iSCSI target.
 	IscsiTargetName string `pulumi:"iscsiTargetName"`
@@ -25,19 +25,19 @@ type LookupIscsiTargetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Payload for iSCSI Target Create or Update requests.
+// Response for iSCSI target requests.
 type LookupIscsiTargetResult struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// State of the operation on the resource
+	// State of the operation on the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Operational status of the Disk pool
+	// Operational status of the iSCSI target.
 	Status string `pulumi:"status"`
-	// iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
 	TargetIqn string `pulumi:"targetIqn"`
-	// list of iSCSI target portal groups
+	// List of iSCSI target portal groups. Can have 1 portal group at most.
 	Tpgs []TargetPortalGroupResponse `pulumi:"tpgs"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`

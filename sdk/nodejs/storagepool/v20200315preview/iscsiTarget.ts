@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Payload for iSCSI Target Create or Update requests.
+ * Response for iSCSI target requests.
  */
 export class IscsiTarget extends pulumi.CustomResource {
     /**
@@ -40,19 +40,19 @@ export class IscsiTarget extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * State of the operation on the resource
+     * State of the operation on the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Operational status of the Disk pool
+     * Operational status of the iSCSI target.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
     public readonly targetIqn!: pulumi.Output<string>;
     /**
-     * list of iSCSI target portal groups
+     * List of iSCSI target portal groups. Can have 1 portal group at most.
      */
     public readonly tpgs!: pulumi.Output<outputs.storagepool.v20200315preview.TargetPortalGroupResponse[]>;
     /**
@@ -78,9 +78,6 @@ export class IscsiTarget extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.targetIqn === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'targetIqn'");
             }
             if ((!args || args.tpgs === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tpgs'");
@@ -118,7 +115,7 @@ export class IscsiTarget extends pulumi.CustomResource {
  */
 export interface IscsiTargetArgs {
     /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName: pulumi.Input<string>;
     /**
@@ -130,11 +127,11 @@ export interface IscsiTargetArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
-    readonly targetIqn: pulumi.Input<string>;
+    readonly targetIqn?: pulumi.Input<string>;
     /**
-     * list of iSCSI target portal groups
+     * List of iSCSI target portal groups. Can have 1 portal group at most.
      */
-    readonly tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.v20200315preview.TargetPortalGroup>[]>;
+    readonly tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.v20200315preview.TargetPortalGroupCreate>[]>;
 }

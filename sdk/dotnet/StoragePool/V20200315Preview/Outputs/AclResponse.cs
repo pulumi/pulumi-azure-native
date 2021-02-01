@@ -14,19 +14,19 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
     public sealed class AclResponse
     {
         /// <summary>
-        /// iSCSI initiator iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:client
+        /// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         /// </summary>
         public readonly string InitiatorIqn;
         /// <summary>
-        /// Array of lun names mapped to the ACL
+        /// List of LUN names mapped to the ACL.
         /// </summary>
         public readonly ImmutableArray<string> MappedLuns;
         /// <summary>
-        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication
+        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication
+        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         /// </summary>
         public readonly string Username;
 

@@ -11,18 +11,18 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
 {
 
     /// <summary>
-    /// Lun to expose the ManagedDisk.
+    /// LUN to expose the Azure Managed Disk.
     /// </summary>
     public sealed class IscsiLunArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Unique Azure resource id of the managed disk. Required.
+        /// Azure Resource ID of the Managed Disk.
         /// </summary>
         [Input("managedDiskAzureResourceId", required: true)]
         public Input<string> ManagedDiskAzureResourceId { get; set; } = null!;
 
         /// <summary>
-        /// Lun name.
+        /// User defined name for iSCSI LUN; example: "lun0"
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -21,7 +21,7 @@ export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDiskPoolArgs {
     /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName: string;
     /**
@@ -31,15 +31,19 @@ export interface GetDiskPoolArgs {
 }
 
 /**
- * Request payload for Create or Update Disk Pool requests.
+ * Response for Disk pool request.
  */
 export interface GetDiskPoolResult {
     /**
-     * Logical zone for DiskPool resource.
+     * List of additional capabilities for Disk pool.
+     */
+    readonly additionalCapabilities?: string[];
+    /**
+     * Logical zone for Disk pool resource; example: ["1"].
      */
     readonly availabilityZones: string[];
     /**
-     * List of Azure managed disks to attach to a DiskPool
+     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
      */
     readonly disks?: outputs.storagepool.v20200315preview.DiskResponse[];
     /**
@@ -47,7 +51,7 @@ export interface GetDiskPoolResult {
      */
     readonly id: string;
     /**
-     * The geo-location where the resource lives
+     * The geo-location where the resource lives.
      */
     readonly location: string;
     /**
@@ -55,19 +59,15 @@ export interface GetDiskPoolResult {
      */
     readonly name: string;
     /**
-     * State of the operation on the resource
+     * State of the operation on the resource.
      */
     readonly provisioningState: string;
     /**
-     * Sku description.
-     */
-    readonly sku?: outputs.storagepool.v20200315preview.SkuResponse;
-    /**
-     * Operational status of the Disk pool
+     * Operational status of the Disk pool.
      */
     readonly status: string;
     /**
-     * Azure resource id of the subnet for the DiskPool
+     * Azure Resource ID of a Subnet for the Disk pool.
      */
     readonly subnetId: string;
     /**
@@ -78,6 +78,10 @@ export interface GetDiskPoolResult {
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Determines the SKU of VM deployed for Disk pool
+     */
+    readonly tier: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

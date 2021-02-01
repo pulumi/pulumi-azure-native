@@ -21,20 +21,20 @@ class IscsiTarget(pulumi.CustomResource):
                  iscsi_target_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_iqn: Optional[pulumi.Input[str]] = None,
-                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupArgs']]]]] = None,
+                 tpgs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Payload for iSCSI Target Create or Update requests.
+        Response for iSCSI target requests.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] disk_pool_name: The name of the Disk Pool.
+        :param pulumi.Input[str] disk_pool_name: The name of the Disk pool.
         :param pulumi.Input[str] iscsi_target_name: The name of the iSCSI target.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] target_iqn: iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupArgs']]]] tpgs: list of iSCSI target portal groups
+        :param pulumi.Input[str] target_iqn: iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetPortalGroupCreateArgs']]]] tpgs: List of iSCSI target portal groups. Can have 1 portal group at most.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,8 +62,6 @@ class IscsiTarget(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if target_iqn is None and not opts.urn:
-                raise TypeError("Missing required property 'target_iqn'")
             __props__['target_iqn'] = target_iqn
             if tpgs is None and not opts.urn:
                 raise TypeError("Missing required property 'tpgs'")
@@ -108,7 +106,7 @@ class IscsiTarget(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        State of the operation on the resource
+        State of the operation on the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -116,7 +114,7 @@ class IscsiTarget(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Operational status of the Disk pool
+        Operational status of the iSCSI target.
         """
         return pulumi.get(self, "status")
 
@@ -124,7 +122,7 @@ class IscsiTarget(pulumi.CustomResource):
     @pulumi.getter(name="targetIqn")
     def target_iqn(self) -> pulumi.Output[str]:
         """
-        iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
         return pulumi.get(self, "target_iqn")
 
@@ -132,7 +130,7 @@ class IscsiTarget(pulumi.CustomResource):
     @pulumi.getter
     def tpgs(self) -> pulumi.Output[Sequence['outputs.TargetPortalGroupResponse']]:
         """
-        list of iSCSI target portal groups
+        List of iSCSI target portal groups. Can have 1 portal group at most.
         """
         return pulumi.get(self, "tpgs")
 

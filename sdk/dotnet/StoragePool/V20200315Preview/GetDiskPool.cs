@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     public sealed class GetDiskPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Disk Pool.
+        /// The name of the Disk pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public string DiskPoolName { get; set; } = null!;
@@ -40,11 +40,15 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     public sealed class GetDiskPoolResult
     {
         /// <summary>
-        /// Logical zone for DiskPool resource.
+        /// List of additional capabilities for Disk pool.
+        /// </summary>
+        public readonly ImmutableArray<string> AdditionalCapabilities;
+        /// <summary>
+        /// Logical zone for Disk pool resource; example: ["1"].
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// List of Azure managed disks to attach to a DiskPool
+        /// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiskResponse> Disks;
         /// <summary>
@@ -52,7 +56,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The geo-location where the resource lives
+        /// The geo-location where the resource lives.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -60,19 +64,15 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the operation on the resource
+        /// State of the operation on the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Sku description.
-        /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// Operational status of the Disk pool
+        /// Operational status of the Disk pool.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Azure resource id of the subnet for the DiskPool
+        /// Azure Resource ID of a Subnet for the Disk pool.
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
@@ -84,12 +84,18 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Determines the SKU of VM deployed for Disk pool
+        /// </summary>
+        public readonly string Tier;
+        /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDiskPoolResult(
+            ImmutableArray<string> additionalCapabilities,
+
             ImmutableArray<string> availabilityZones,
 
             ImmutableArray<Outputs.DiskResponse> disks,
@@ -102,8 +108,6 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
-
             string status,
 
             string subnetId,
@@ -112,19 +116,22 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
             ImmutableDictionary<string, string>? tags,
 
+            string tier,
+
             string type)
         {
+            AdditionalCapabilities = additionalCapabilities;
             AvailabilityZones = availabilityZones;
             Disks = disks;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            Sku = sku;
             Status = status;
             SubnetId = subnetId;
             SystemData = systemData;
             Tags = tags;
+            Tier = tier;
             Type = type;
         }
     }

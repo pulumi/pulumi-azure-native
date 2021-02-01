@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetIscsiTargetResult:
     """
-    Payload for iSCSI Target Create or Update requests.
+    Response for iSCSI target requests.
     """
     def __init__(__self__, id=None, name=None, provisioning_state=None, status=None, target_iqn=None, tpgs=None, type=None):
         if id and not isinstance(id, str):
@@ -63,7 +63,7 @@ class GetIscsiTargetResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        State of the operation on the resource
+        State of the operation on the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -71,7 +71,7 @@ class GetIscsiTargetResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Operational status of the Disk pool
+        Operational status of the iSCSI target.
         """
         return pulumi.get(self, "status")
 
@@ -79,7 +79,7 @@ class GetIscsiTargetResult:
     @pulumi.getter(name="targetIqn")
     def target_iqn(self) -> str:
         """
-        iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
         return pulumi.get(self, "target_iqn")
 
@@ -87,7 +87,7 @@ class GetIscsiTargetResult:
     @pulumi.getter
     def tpgs(self) -> Sequence['outputs.TargetPortalGroupResponse']:
         """
-        list of iSCSI target portal groups
+        List of iSCSI target portal groups. Can have 1 portal group at most.
         """
         return pulumi.get(self, "tpgs")
 
@@ -122,7 +122,7 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str disk_pool_name: The name of the Disk Pool.
+    :param str disk_pool_name: The name of the Disk pool.
     :param str iscsi_target_name: The name of the iSCSI target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

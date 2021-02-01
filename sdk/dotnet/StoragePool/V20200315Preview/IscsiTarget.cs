@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 {
     /// <summary>
-    /// Payload for iSCSI Target Create or Update requests.
+    /// Response for iSCSI target requests.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storagepool/v20200315preview:IscsiTarget")]
     public partial class IscsiTarget : Pulumi.CustomResource
@@ -22,25 +22,25 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the operation on the resource
+        /// State of the operation on the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Operational status of the Disk pool
+        /// Operational status of the iSCSI target.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         /// </summary>
         [Output("targetIqn")]
         public Output<string> TargetIqn { get; private set; } = null!;
 
         /// <summary>
-        /// list of iSCSI target portal groups
+        /// List of iSCSI target portal groups. Can have 1 portal group at most.
         /// </summary>
         [Output("tpgs")]
         public Output<ImmutableArray<Outputs.TargetPortalGroupResponse>> Tpgs { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     public sealed class IscsiTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Disk Pool.
+        /// The name of the Disk pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public Input<string> DiskPoolName { get; set; } = null!;
@@ -115,20 +115,20 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         /// </summary>
-        [Input("targetIqn", required: true)]
-        public Input<string> TargetIqn { get; set; } = null!;
+        [Input("targetIqn")]
+        public Input<string>? TargetIqn { get; set; }
 
         [Input("tpgs", required: true)]
-        private InputList<Inputs.TargetPortalGroupArgs>? _tpgs;
+        private InputList<Inputs.TargetPortalGroupCreateArgs>? _tpgs;
 
         /// <summary>
-        /// list of iSCSI target portal groups
+        /// List of iSCSI target portal groups. Can have 1 portal group at most.
         /// </summary>
-        public InputList<Inputs.TargetPortalGroupArgs> Tpgs
+        public InputList<Inputs.TargetPortalGroupCreateArgs> Tpgs
         {
-            get => _tpgs ?? (_tpgs = new InputList<Inputs.TargetPortalGroupArgs>());
+            get => _tpgs ?? (_tpgs = new InputList<Inputs.TargetPortalGroupCreateArgs>());
             set => _tpgs = value;
         }
 

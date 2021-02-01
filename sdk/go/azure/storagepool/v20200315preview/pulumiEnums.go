@@ -10,32 +10,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-type SkuTier pulumi.String
+// Determines the SKU of VM deployed for Disk pool
+type DiskPoolTier pulumi.String
 
 const (
-	SkuTierFree     = SkuTier("Free")
-	SkuTierBasic    = SkuTier("Basic")
-	SkuTierStandard = SkuTier("Standard")
-	SkuTierPremium  = SkuTier("Premium")
+	DiskPoolTierBasic    = DiskPoolTier("Basic")
+	DiskPoolTierStandard = DiskPoolTier("Standard")
+	DiskPoolTierPremium  = DiskPoolTier("Premium")
 )
 
-func (SkuTier) ElementType() reflect.Type {
+func (DiskPoolTier) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SkuTier) ToStringOutput() pulumi.StringOutput {
+func (e DiskPoolTier) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DiskPoolTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DiskPoolTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DiskPoolTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

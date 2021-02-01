@@ -8,31 +8,30 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 {
     /// <summary>
-    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    /// Determines the SKU of VM deployed for Disk pool
     /// </summary>
     [EnumType]
-    public readonly struct SkuTier : IEquatable<SkuTier>
+    public readonly struct DiskPoolTier : IEquatable<DiskPoolTier>
     {
         private readonly string _value;
 
-        private SkuTier(string value)
+        private DiskPoolTier(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SkuTier Free { get; } = new SkuTier("Free");
-        public static SkuTier Basic { get; } = new SkuTier("Basic");
-        public static SkuTier Standard { get; } = new SkuTier("Standard");
-        public static SkuTier Premium { get; } = new SkuTier("Premium");
+        public static DiskPoolTier Basic { get; } = new DiskPoolTier("Basic");
+        public static DiskPoolTier Standard { get; } = new DiskPoolTier("Standard");
+        public static DiskPoolTier Premium { get; } = new DiskPoolTier("Premium");
 
-        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
-        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
+        public static bool operator ==(DiskPoolTier left, DiskPoolTier right) => left.Equals(right);
+        public static bool operator !=(DiskPoolTier left, DiskPoolTier right) => !left.Equals(right);
 
-        public static explicit operator string(SkuTier value) => value._value;
+        public static explicit operator string(DiskPoolTier value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
-        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DiskPoolTier other && Equals(other);
+        public bool Equals(DiskPoolTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

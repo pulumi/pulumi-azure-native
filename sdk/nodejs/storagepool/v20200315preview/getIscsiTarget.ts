@@ -22,7 +22,7 @@ export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOpt
 
 export interface GetIscsiTargetArgs {
     /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName: string;
     /**
@@ -36,7 +36,7 @@ export interface GetIscsiTargetArgs {
 }
 
 /**
- * Payload for iSCSI Target Create or Update requests.
+ * Response for iSCSI target requests.
  */
 export interface GetIscsiTargetResult {
     /**
@@ -48,19 +48,19 @@ export interface GetIscsiTargetResult {
      */
     readonly name: string;
     /**
-     * State of the operation on the resource
+     * State of the operation on the resource.
      */
     readonly provisioningState: string;
     /**
-     * Operational status of the Disk pool
+     * Operational status of the iSCSI target.
      */
     readonly status: string;
     /**
-     * iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
+     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
     readonly targetIqn: string;
     /**
-     * list of iSCSI target portal groups
+     * List of iSCSI target portal groups. Can have 1 portal group at most.
      */
     readonly tpgs: outputs.storagepool.v20200315preview.TargetPortalGroupResponse[];
     /**

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Outputs
         /// </summary>
         public readonly bool Authentication;
         /// <summary>
-        /// Indicates whether or not write protect is enabled on the luns.
+        /// Indicates whether or not write protect is enabled on the LUNs.
         /// </summary>
         public readonly bool ProdModeWriteProtect;
 

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview.Inputs
 {
 
     /// <summary>
-    /// Managed disk to attach to the DiskPool. Required.
+    /// Azure Managed Disk to attach to the Disk pool.
     /// </summary>
     public sealed class DiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Unique Azure resource id of the managed disk. Required.
+        /// Unique Azure Resource ID of the Managed Disk.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
