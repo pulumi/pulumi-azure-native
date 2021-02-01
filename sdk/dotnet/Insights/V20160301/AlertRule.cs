@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

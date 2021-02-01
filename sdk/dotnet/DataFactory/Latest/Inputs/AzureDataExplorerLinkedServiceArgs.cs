@@ -66,20 +66,20 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// <summary>
         /// The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
         /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<object> ServicePrincipalId { get; set; } = null!;
+        [Input("servicePrincipalId")]
+        public Input<object>? ServicePrincipalId { get; set; }
 
         /// <summary>
         /// The key of the service principal used to authenticate against Kusto.
         /// </summary>
-        [Input("servicePrincipalKey", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> ServicePrincipalKey { get; set; } = null!;
+        [Input("servicePrincipalKey")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
 
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        [Input("tenant", required: true)]
-        public Input<object> Tenant { get; set; } = null!;
+        [Input("tenant")]
+        public Input<object>? Tenant { get; set; }
 
         /// <summary>
         /// Type of linked service.

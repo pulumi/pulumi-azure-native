@@ -80,7 +80,7 @@ class ProtectionPolicy(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201201:ProtectionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201201:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20210101:ProtectionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionPolicy, __self__).__init__(
             'azure-nextgen:recoveryservices/v20160601:ProtectionPolicy',
