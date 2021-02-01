@@ -112,7 +112,7 @@ class ListWebAppBackupStatusSecretsResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponseResult']:
+    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponse']:
         """
         List of databases included in the backup.
         """

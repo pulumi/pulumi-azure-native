@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AllowedAudiencesValidationArgs',
     'ApiConnectionDefinitionPropertiesArgs',
     'ApiConnectionTestLinkArgs',
     'ApiDefinitionInfoArgs',
@@ -19,39 +20,69 @@ __all__ = [
     'ApiReferenceArgs',
     'ApiResourceBackendServiceArgs',
     'ApiResourceDefinitionsArgs',
+    'AppRegistrationArgs',
     'ApplicationLogsConfigArgs',
+    'AuthPlatformArgs',
     'AutoHealActionsArgs',
     'AutoHealCustomActionArgs',
     'AutoHealRulesArgs',
     'AutoHealTriggersArgs',
+    'AzureActiveDirectoryArgs',
+    'AzureActiveDirectoryLoginArgs',
+    'AzureActiveDirectoryRegistrationArgs',
+    'AzureActiveDirectoryValidationArgs',
     'AzureBlobStorageApplicationLogsConfigArgs',
     'AzureBlobStorageHttpLogsConfigArgs',
+    'AzureStorageInfoValueArgs',
     'AzureTableStorageApplicationLogsConfigArgs',
     'BackupScheduleArgs',
+    'BlobStorageTokenStoreArgs',
     'CapabilityArgs',
+    'ClientRegistrationArgs',
     'CloningInfoArgs',
     'ConnStringInfoArgs',
+    'ConnStringValueTypePairArgs',
     'ConnectionErrorArgs',
     'ConnectionGatewayDefinitionPropertiesArgs',
     'ConnectionGatewayReferenceArgs',
     'ConnectionParameterArgs',
     'ConnectionStatusDefinitionArgs',
     'ConsentLinkParameterDefinitionArgs',
+    'CookieExpirationArgs',
     'CorsSettingsArgs',
     'CustomApiPropertiesDefinitionArgs',
+    'CustomOpenIdConnectProviderArgs',
     'DatabaseBackupSettingArgs',
     'EnabledConfigArgs',
     'ExperimentsArgs',
+    'FacebookArgs',
     'FileSystemApplicationLogsConfigArgs',
     'FileSystemHttpLogsConfigArgs',
+    'FileSystemTokenStoreArgs',
+    'ForwardProxyArgs',
+    'GitHubArgs',
+    'GlobalValidationArgs',
+    'GoogleArgs',
     'HandlerMappingArgs',
     'HostNameSslStateArgs',
     'HostingEnvironmentProfileArgs',
     'HttpLogsConfigArgs',
+    'HttpSettingsArgs',
+    'HttpSettingsRoutesArgs',
+    'IdentityProvidersArgs',
     'IpSecurityRestrictionArgs',
+    'JwtClaimChecksArgs',
+    'LoginArgs',
+    'LoginRoutesArgs',
+    'LoginScopesArgs',
     'ManagedServiceIdentityArgs',
     'NameValuePairArgs',
     'NetworkAccessControlEntryArgs',
+    'NonceArgs',
+    'OpenIdConnectClientCredentialArgs',
+    'OpenIdConnectConfigArgs',
+    'OpenIdConnectLoginArgs',
+    'OpenIdConnectRegistrationArgs',
     'PrivateLinkConnectionStateArgs',
     'PushSettingsArgs',
     'RampUpRuleArgs',
@@ -64,6 +95,9 @@ __all__ = [
     'StampCapacityArgs',
     'StaticSiteBuildPropertiesArgs',
     'StatusCodesBasedTriggerArgs',
+    'TokenStoreArgs',
+    'TwitterArgs',
+    'TwitterRegistrationArgs',
     'VirtualApplicationArgs',
     'VirtualDirectoryArgs',
     'VirtualIPMappingArgs',
@@ -72,6 +106,41 @@ __all__ = [
     'WsdlDefinitionArgs',
     'WsdlServiceArgs',
 ]
+
+@pulumi.input_type
+class AllowedAudiencesValidationArgs:
+    def __init__(__self__, *,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
 
 @pulumi.input_type
 class ApiConnectionDefinitionPropertiesArgs:
@@ -684,6 +753,53 @@ class ApiResourceDefinitionsArgs:
 
 
 @pulumi.input_type
+class AppRegistrationArgs:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
 class ApplicationLogsConfigArgs:
     def __init__(__self__, *,
                  azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']] = None,
@@ -737,6 +853,65 @@ class ApplicationLogsConfigArgs:
     @file_system.setter
     def file_system(self, value: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]):
         pulumi.set(self, "file_system", value)
+
+
+@pulumi.input_type
+class AuthPlatformArgs:
+    def __init__(__self__, *,
+                 config_file_path: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "config_file_path")
+
+    @config_file_path.setter
+    def config_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file_path", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
 
 
 @pulumi.input_type
@@ -951,6 +1126,254 @@ class AutoHealTriggersArgs:
 
 
 @pulumi.input_type
+class AzureActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 is_auto_provisioned: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']] = None,
+                 registration: Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']] = None,
+                 validation: Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if is_auto_provisioned is not None:
+            pulumi.set(__self__, "is_auto_provisioned", is_auto_provisioned)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="isAutoProvisioned")
+    def is_auto_provisioned(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_auto_provisioned")
+
+    @is_auto_provisioned.setter
+    def is_auto_provisioned(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_auto_provisioned", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']]:
+        return pulumi.get(self, "validation")
+
+    @validation.setter
+    def validation(self, value: Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']]):
+        pulumi.set(self, "validation", value)
+
+
+@pulumi.input_type
+class AzureActiveDirectoryLoginArgs:
+    def __init__(__self__, *,
+                 disable_www_authenticate: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if disable_www_authenticate is not None:
+            pulumi.set(__self__, "disable_www_authenticate", disable_www_authenticate)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login_parameters is not None:
+            pulumi.set(__self__, "login_parameters", login_parameters)
+
+    @property
+    @pulumi.getter(name="disableWWWAuthenticate")
+    def disable_www_authenticate(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_www_authenticate")
+
+    @disable_www_authenticate.setter
+    def disable_www_authenticate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_www_authenticate", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="loginParameters")
+    def login_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "login_parameters")
+
+    @login_parameters.setter
+    def login_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_parameters", value)
+
+
+@pulumi.input_type
+class AzureActiveDirectoryRegistrationArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 open_id_issuer: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if open_id_issuer is not None:
+            pulumi.set(__self__, "open_id_issuer", open_id_issuer)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @client_secret_certificate_thumbprint.setter
+    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="openIdIssuer")
+    def open_id_issuer(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "open_id_issuer")
+
+    @open_id_issuer.setter
+    def open_id_issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "open_id_issuer", value)
+
+
+@pulumi.input_type
+class AzureActiveDirectoryValidationArgs:
+    def __init__(__self__, *,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 jwt_claim_checks: Optional[pulumi.Input['JwtClaimChecksArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if jwt_claim_checks is not None:
+            pulumi.set(__self__, "jwt_claim_checks", jwt_claim_checks)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="jwtClaimChecks")
+    def jwt_claim_checks(self) -> Optional[pulumi.Input['JwtClaimChecksArgs']]:
+        return pulumi.get(self, "jwt_claim_checks")
+
+    @jwt_claim_checks.setter
+    def jwt_claim_checks(self, value: Optional[pulumi.Input['JwtClaimChecksArgs']]):
+        pulumi.set(self, "jwt_claim_checks", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
 class AzureBlobStorageApplicationLogsConfigArgs:
     def __init__(__self__, *,
                  level: Optional[pulumi.Input['LogLevel']] = None,
@@ -1071,6 +1494,94 @@ class AzureBlobStorageHttpLogsConfigArgs:
 
 
 @pulumi.input_type
+class AzureStorageInfoValueArgs:
+    def __init__(__self__, *,
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 mount_path: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['AzureStorageType']] = None):
+        """
+        Azure Files or Blob Storage access information value for dictionary storage.
+        :param pulumi.Input[str] access_key: Access key for the storage account.
+        :param pulumi.Input[str] account_name: Name of the storage account.
+        :param pulumi.Input[str] mount_path: Path to mount the storage within the site's runtime environment.
+        :param pulumi.Input[str] share_name: Name of the file share (container name, for Blob storage).
+        :param pulumi.Input['AzureStorageType'] type: Type of storage.
+        """
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the storage account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to mount the storage within the site's runtime environment.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the file share (container name, for Blob storage).
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AzureStorageType']]:
+        """
+        Type of storage.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AzureStorageType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class AzureTableStorageApplicationLogsConfigArgs:
     def __init__(__self__, *,
                  sas_url: pulumi.Input[str],
@@ -1112,18 +1623,18 @@ class AzureTableStorageApplicationLogsConfigArgs:
 @pulumi.input_type
 class BackupScheduleArgs:
     def __init__(__self__, *,
-                 frequency_interval: int,
-                 frequency_unit: 'FrequencyUnit',
-                 keep_at_least_one_backup: bool,
-                 retention_period_in_days: int,
-                 start_time: Optional[str] = None):
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input['FrequencyUnit'],
+                 keep_at_least_one_backup: pulumi.Input[bool],
+                 retention_period_in_days: pulumi.Input[int],
+                 start_time: Optional[pulumi.Input[str]] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
-        :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        :param 'FrequencyUnit' frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        :param int retention_period_in_days: After how many days backups should be deleted.
-        :param str start_time: When the schedule should start working.
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        :param pulumi.Input['FrequencyUnit'] frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        :param pulumi.Input[bool] keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        :param pulumi.Input[int] retention_period_in_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working.
         """
         if frequency_interval is None:
             frequency_interval = 7
@@ -1142,63 +1653,98 @@ class BackupScheduleArgs:
 
     @property
     @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> int:
+    def frequency_interval(self) -> pulumi.Input[int]:
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         """
         return pulumi.get(self, "frequency_interval")
 
     @frequency_interval.setter
-    def frequency_interval(self, value: int):
+    def frequency_interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "frequency_interval", value)
 
     @property
     @pulumi.getter(name="frequencyUnit")
-    def frequency_unit(self) -> 'FrequencyUnit':
+    def frequency_unit(self) -> pulumi.Input['FrequencyUnit']:
         """
         The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         """
         return pulumi.get(self, "frequency_unit")
 
     @frequency_unit.setter
-    def frequency_unit(self, value: 'FrequencyUnit'):
+    def frequency_unit(self, value: pulumi.Input['FrequencyUnit']):
         pulumi.set(self, "frequency_unit", value)
 
     @property
     @pulumi.getter(name="keepAtLeastOneBackup")
-    def keep_at_least_one_backup(self) -> bool:
+    def keep_at_least_one_backup(self) -> pulumi.Input[bool]:
         """
         True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
         """
         return pulumi.get(self, "keep_at_least_one_backup")
 
     @keep_at_least_one_backup.setter
-    def keep_at_least_one_backup(self, value: bool):
+    def keep_at_least_one_backup(self, value: pulumi.Input[bool]):
         pulumi.set(self, "keep_at_least_one_backup", value)
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> int:
+    def retention_period_in_days(self) -> pulumi.Input[int]:
         """
         After how many days backups should be deleted.
         """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
-    def retention_period_in_days(self, value: int):
+    def retention_period_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_period_in_days", value)
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> Optional[pulumi.Input[str]]:
         """
         When the schedule should start working.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[str]):
+    def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class BlobStorageTokenStoreArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 sas_url_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if sas_url_setting_name is not None:
+            pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="sasUrlSettingName")
+    def sas_url_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sas_url_setting_name")
+
+    @sas_url_setting_name.setter
+    def sas_url_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sas_url_setting_name", value)
 
 
 @pulumi.input_type
@@ -1255,6 +1801,53 @@ class CapabilityArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClientRegistrationArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type
@@ -1504,6 +2097,44 @@ class ConnStringInfoArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ConnectionStringType']]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ConnStringValueTypePairArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ConnectionStringType'],
+                 value: pulumi.Input[str]):
+        """
+        Database connection string value to type pair.
+        :param pulumi.Input['ConnectionStringType'] type: Type of database.
+        :param pulumi.Input[str] value: Value of pair.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ConnectionStringType']:
+        """
+        Type of database.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ConnectionStringType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of pair.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1954,6 +2585,53 @@ class ConsentLinkParameterDefinitionArgs:
 
 
 @pulumi.input_type
+class CookieExpirationArgs:
+    def __init__(__self__, *,
+                 convention: Optional[pulumi.Input['CookieExpirationConvention']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 time_to_expiration: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if convention is not None:
+            pulumi.set(__self__, "convention", convention)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if time_to_expiration is not None:
+            pulumi.set(__self__, "time_to_expiration", time_to_expiration)
+
+    @property
+    @pulumi.getter
+    def convention(self) -> Optional[pulumi.Input['CookieExpirationConvention']]:
+        return pulumi.get(self, "convention")
+
+    @convention.setter
+    def convention(self, value: Optional[pulumi.Input['CookieExpirationConvention']]):
+        pulumi.set(self, "convention", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="timeToExpiration")
+    def time_to_expiration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_to_expiration")
+
+    @time_to_expiration.setter
+    def time_to_expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_expiration", value)
+
+
+@pulumi.input_type
 class CorsSettingsArgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2200,17 +2878,76 @@ class CustomApiPropertiesDefinitionArgs:
 
 
 @pulumi.input_type
+class CustomOpenIdConnectProviderArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['OpenIdConnectLoginArgs']] = None,
+                 registration: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['OpenIdConnectLoginArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['OpenIdConnectLoginArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['OpenIdConnectRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+
+@pulumi.input_type
 class DatabaseBackupSettingArgs:
     def __init__(__self__, *,
-                 database_type: Union[str, 'DatabaseType'],
-                 connection_string: Optional[str] = None,
-                 connection_string_name: Optional[str] = None,
-                 name: Optional[str] = None):
+                 database_type: pulumi.Input[Union[str, 'DatabaseType']],
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 connection_string_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         Database backup settings.
-        :param Union[str, 'DatabaseType'] database_type: Database type (e.g. SqlAzure / MySql).
-        :param str connection_string: Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-        :param str connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        :param pulumi.Input[Union[str, 'DatabaseType']] database_type: Database type (e.g. SqlAzure / MySql).
+        :param pulumi.Input[str] connection_string: Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        :param pulumi.Input[str] connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
                This is used during restore with overwrite connection strings options.
         """
         pulumi.set(__self__, "database_type", database_type)
@@ -2223,31 +2960,31 @@ class DatabaseBackupSettingArgs:
 
     @property
     @pulumi.getter(name="databaseType")
-    def database_type(self) -> Union[str, 'DatabaseType']:
+    def database_type(self) -> pulumi.Input[Union[str, 'DatabaseType']]:
         """
         Database type (e.g. SqlAzure / MySql).
         """
         return pulumi.get(self, "database_type")
 
     @database_type.setter
-    def database_type(self, value: Union[str, 'DatabaseType']):
+    def database_type(self, value: pulumi.Input[Union[str, 'DatabaseType']]):
         pulumi.set(self, "database_type", value)
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[str]:
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
         """
         Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[str]):
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter(name="connectionStringName")
-    def connection_string_name(self) -> Optional[str]:
+    def connection_string_name(self) -> Optional[pulumi.Input[str]]:
         """
         Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
         This is used during restore with overwrite connection strings options.
@@ -2255,16 +2992,16 @@ class DatabaseBackupSettingArgs:
         return pulumi.get(self, "connection_string_name")
 
     @connection_string_name.setter
-    def connection_string_name(self, value: Optional[str]):
+    def connection_string_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string_name", value)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2314,6 +3051,77 @@ class ExperimentsArgs:
     @ramp_up_rules.setter
     def ramp_up_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]):
         pulumi.set(self, "ramp_up_rules", value)
+
+
+@pulumi.input_type
+class FacebookArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 graph_api_version: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+                 registration: Optional[pulumi.Input['AppRegistrationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if graph_api_version is not None:
+            pulumi.set(__self__, "graph_api_version", graph_api_version)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="graphApiVersion")
+    def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "graph_api_version")
+
+    @graph_api_version.setter
+    def graph_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graph_api_version", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['AppRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['AppRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
 
 
 @pulumi.input_type
@@ -2404,6 +3212,301 @@ class FileSystemHttpLogsConfigArgs:
     @retention_in_mb.setter
     def retention_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_mb", value)
+
+
+@pulumi.input_type
+class FileSystemTokenStoreArgs:
+    def __init__(__self__, *,
+                 directory: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "directory")
+
+    @directory.setter
+    def directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class ForwardProxyArgs:
+    def __init__(__self__, *,
+                 convention: Optional[pulumi.Input['ForwardProxyConvention']] = None,
+                 custom_host_header_name: Optional[pulumi.Input[str]] = None,
+                 custom_proto_header_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if convention is not None:
+            pulumi.set(__self__, "convention", convention)
+        if custom_host_header_name is not None:
+            pulumi.set(__self__, "custom_host_header_name", custom_host_header_name)
+        if custom_proto_header_name is not None:
+            pulumi.set(__self__, "custom_proto_header_name", custom_proto_header_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def convention(self) -> Optional[pulumi.Input['ForwardProxyConvention']]:
+        return pulumi.get(self, "convention")
+
+    @convention.setter
+    def convention(self, value: Optional[pulumi.Input['ForwardProxyConvention']]):
+        pulumi.set(self, "convention", value)
+
+    @property
+    @pulumi.getter(name="customHostHeaderName")
+    def custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_host_header_name")
+
+    @custom_host_header_name.setter
+    def custom_host_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_host_header_name", value)
+
+    @property
+    @pulumi.getter(name="customProtoHeaderName")
+    def custom_proto_header_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_proto_header_name")
+
+    @custom_proto_header_name.setter
+    def custom_proto_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_proto_header_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class GitHubArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+
+@pulumi.input_type
+class GlobalValidationArgs:
+    def __init__(__self__, *,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 redirect_to_provider: Optional[pulumi.Input[str]] = None,
+                 require_authentication: Optional[pulumi.Input[bool]] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientActionV2']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if redirect_to_provider is not None:
+            pulumi.set(__self__, "redirect_to_provider", redirect_to_provider)
+        if require_authentication is not None:
+            pulumi.set(__self__, "require_authentication", require_authentication)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="redirectToProvider")
+    def redirect_to_provider(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "redirect_to_provider")
+
+    @redirect_to_provider.setter
+    def redirect_to_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_to_provider", value)
+
+    @property
+    @pulumi.getter(name="requireAuthentication")
+    def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "require_authentication")
+
+    @require_authentication.setter
+    def require_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_authentication", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input['UnauthenticatedClientActionV2']]:
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input['UnauthenticatedClientActionV2']]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class GoogleArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
+                 validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
+        return pulumi.get(self, "validation")
+
+    @validation.setter
+    def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
+        pulumi.set(self, "validation", value)
 
 
 @pulumi.input_type
@@ -2632,6 +3735,195 @@ class HttpLogsConfigArgs:
 
 
 @pulumi.input_type
+class HttpSettingsArgs:
+    def __init__(__self__, *,
+                 forward_proxy: Optional[pulumi.Input['ForwardProxyArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 require_https: Optional[pulumi.Input[bool]] = None,
+                 routes: Optional[pulumi.Input['HttpSettingsRoutesArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if forward_proxy is not None:
+            pulumi.set(__self__, "forward_proxy", forward_proxy)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if require_https is not None:
+            pulumi.set(__self__, "require_https", require_https)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+
+    @property
+    @pulumi.getter(name="forwardProxy")
+    def forward_proxy(self) -> Optional[pulumi.Input['ForwardProxyArgs']]:
+        return pulumi.get(self, "forward_proxy")
+
+    @forward_proxy.setter
+    def forward_proxy(self, value: Optional[pulumi.Input['ForwardProxyArgs']]):
+        pulumi.set(self, "forward_proxy", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="requireHttps")
+    def require_https(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "require_https")
+
+    @require_https.setter
+    def require_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_https", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input['HttpSettingsRoutesArgs']]:
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input['HttpSettingsRoutesArgs']]):
+        pulumi.set(self, "routes", value)
+
+
+@pulumi.input_type
+class HttpSettingsRoutesArgs:
+    def __init__(__self__, *,
+                 api_prefix: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if api_prefix is not None:
+            pulumi.set(__self__, "api_prefix", api_prefix)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="apiPrefix")
+    def api_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_prefix")
+
+    @api_prefix.setter
+    def api_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_prefix", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class IdentityProvidersArgs:
+    def __init__(__self__, *,
+                 azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
+                 custom_open_id_connect_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]] = None,
+                 facebook: Optional[pulumi.Input['FacebookArgs']] = None,
+                 git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
+                 google: Optional[pulumi.Input['GoogleArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 twitter: Optional[pulumi.Input['TwitterArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if azure_active_directory is not None:
+            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+        if custom_open_id_connect_providers is not None:
+            pulumi.set(__self__, "custom_open_id_connect_providers", custom_open_id_connect_providers)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if git_hub is not None:
+            pulumi.set(__self__, "git_hub", git_hub)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectory")
+    def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
+        return pulumi.get(self, "azure_active_directory")
+
+    @azure_active_directory.setter
+    def azure_active_directory(self, value: Optional[pulumi.Input['AzureActiveDirectoryArgs']]):
+        pulumi.set(self, "azure_active_directory", value)
+
+    @property
+    @pulumi.getter(name="customOpenIdConnectProviders")
+    def custom_open_id_connect_providers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]:
+        return pulumi.get(self, "custom_open_id_connect_providers")
+
+    @custom_open_id_connect_providers.setter
+    def custom_open_id_connect_providers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]):
+        pulumi.set(self, "custom_open_id_connect_providers", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['FacebookArgs']]:
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['FacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter(name="gitHub")
+    def git_hub(self) -> Optional[pulumi.Input['GitHubArgs']]:
+        return pulumi.get(self, "git_hub")
+
+    @git_hub.setter
+    def git_hub(self, value: Optional[pulumi.Input['GitHubArgs']]):
+        pulumi.set(self, "git_hub", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['GoogleArgs']]:
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['GoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['TwitterArgs']]:
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['TwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+
+@pulumi.input_type
 class IpSecurityRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
@@ -2852,6 +4144,218 @@ class IpSecurityRestrictionArgs:
 
 
 @pulumi.input_type
+class JwtClaimChecksArgs:
+    def __init__(__self__, *,
+                 allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if allowed_client_applications is not None:
+            pulumi.set(__self__, "allowed_client_applications", allowed_client_applications)
+        if allowed_groups is not None:
+            pulumi.set(__self__, "allowed_groups", allowed_groups)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="allowedClientApplications")
+    def allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_client_applications")
+
+    @allowed_client_applications.setter
+    def allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_client_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedGroups")
+    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_groups")
+
+    @allowed_groups.setter
+    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_groups", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class LoginArgs:
+    def __init__(__self__, *,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cookie_expiration: Optional[pulumi.Input['CookieExpirationArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 nonce: Optional[pulumi.Input['NonceArgs']] = None,
+                 preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+                 routes: Optional[pulumi.Input['LoginRoutesArgs']] = None,
+                 token_store: Optional[pulumi.Input['TokenStoreArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if cookie_expiration is not None:
+            pulumi.set(__self__, "cookie_expiration", cookie_expiration)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if nonce is not None:
+            pulumi.set(__self__, "nonce", nonce)
+        if preserve_url_fragments_for_logins is not None:
+            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if token_store is not None:
+            pulumi.set(__self__, "token_store", token_store)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="cookieExpiration")
+    def cookie_expiration(self) -> Optional[pulumi.Input['CookieExpirationArgs']]:
+        return pulumi.get(self, "cookie_expiration")
+
+    @cookie_expiration.setter
+    def cookie_expiration(self, value: Optional[pulumi.Input['CookieExpirationArgs']]):
+        pulumi.set(self, "cookie_expiration", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def nonce(self) -> Optional[pulumi.Input['NonceArgs']]:
+        return pulumi.get(self, "nonce")
+
+    @nonce.setter
+    def nonce(self, value: Optional[pulumi.Input['NonceArgs']]):
+        pulumi.set(self, "nonce", value)
+
+    @property
+    @pulumi.getter(name="preserveUrlFragmentsForLogins")
+    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "preserve_url_fragments_for_logins")
+
+    @preserve_url_fragments_for_logins.setter
+    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_url_fragments_for_logins", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input['LoginRoutesArgs']]:
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input['LoginRoutesArgs']]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter(name="tokenStore")
+    def token_store(self) -> Optional[pulumi.Input['TokenStoreArgs']]:
+        return pulumi.get(self, "token_store")
+
+    @token_store.setter
+    def token_store(self, value: Optional[pulumi.Input['TokenStoreArgs']]):
+        pulumi.set(self, "token_store", value)
+
+
+@pulumi.input_type
+class LoginRoutesArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 logout_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if logout_endpoint is not None:
+            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logout_endpoint", value)
+
+
+@pulumi.input_type
+class LoginScopesArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+
+@pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
@@ -2982,6 +4486,289 @@ class NetworkAccessControlEntryArgs:
     @remote_subnet.setter
     def remote_subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_subnet", value)
+
+
+@pulumi.input_type
+class NonceArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 nonce_expiration_interval: Optional[pulumi.Input[str]] = None,
+                 validate_nonce: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if nonce_expiration_interval is not None:
+            pulumi.set(__self__, "nonce_expiration_interval", nonce_expiration_interval)
+        if validate_nonce is not None:
+            pulumi.set(__self__, "validate_nonce", validate_nonce)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="nonceExpirationInterval")
+    def nonce_expiration_interval(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "nonce_expiration_interval")
+
+    @nonce_expiration_interval.setter
+    def nonce_expiration_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nonce_expiration_interval", value)
+
+    @property
+    @pulumi.getter(name="validateNonce")
+    def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "validate_nonce")
+
+    @validate_nonce.setter
+    def validate_nonce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_nonce", value)
+
+
+@pulumi.input_type
+class OpenIdConnectClientCredentialArgs:
+    def __init__(__self__, *,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input['ClientCredentialMethod']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input['ClientCredentialMethod']]:
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input['ClientCredentialMethod']]):
+        pulumi.set(self, "method", value)
+
+
+@pulumi.input_type
+class OpenIdConnectConfigArgs:
+    def __init__(__self__, *,
+                 authorization_endpoint: Optional[pulumi.Input[str]] = None,
+                 certification_uri: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None,
+                 well_known_open_id_configuration: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if certification_uri is not None:
+            pulumi.set(__self__, "certification_uri", certification_uri)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if well_known_open_id_configuration is not None:
+            pulumi.set(__self__, "well_known_open_id_configuration", well_known_open_id_configuration)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="certificationUri")
+    def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certification_uri")
+
+    @certification_uri.setter
+    def certification_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certification_uri", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter(name="wellKnownOpenIdConfiguration")
+    def well_known_open_id_configuration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "well_known_open_id_configuration")
+
+    @well_known_open_id_configuration.setter
+    def well_known_open_id_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "well_known_open_id_configuration", value)
+
+
+@pulumi.input_type
+class OpenIdConnectLoginArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name_claim_type: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name_claim_type is not None:
+            pulumi.set(__self__, "name_claim_type", name_claim_type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="nameClaimType")
+    def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name_claim_type")
+
+    @name_claim_type.setter
+    def name_claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_claim_type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+
+@pulumi.input_type
+class OpenIdConnectRegistrationArgs:
+    def __init__(__self__, *,
+                 client_credential: Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 open_id_connect_configuration: Optional[pulumi.Input['OpenIdConnectConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if client_credential is not None:
+            pulumi.set(__self__, "client_credential", client_credential)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if open_id_connect_configuration is not None:
+            pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @property
+    @pulumi.getter(name="clientCredential")
+    def client_credential(self) -> Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']]:
+        return pulumi.get(self, "client_credential")
+
+    @client_credential.setter
+    def client_credential(self, value: Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']]):
+        pulumi.set(self, "client_credential", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> Optional[pulumi.Input['OpenIdConnectConfigArgs']]:
+        return pulumi.get(self, "open_id_connect_configuration")
+
+    @open_id_connect_configuration.setter
+    def open_id_connect_configuration(self, value: Optional[pulumi.Input['OpenIdConnectConfigArgs']]):
+        pulumi.set(self, "open_id_connect_configuration", value)
 
 
 @pulumi.input_type
@@ -4881,6 +6668,171 @@ class StatusCodesBasedTriggerArgs:
     @win32_status.setter
     def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
+
+
+@pulumi.input_type
+class TokenStoreArgs:
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional[pulumi.Input['BlobStorageTokenStoreArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 file_system: Optional[pulumi.Input['FileSystemTokenStoreArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['BlobStorageTokenStoreArgs']]:
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['BlobStorageTokenStoreArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[pulumi.Input['FileSystemTokenStoreArgs']]:
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: Optional[pulumi.Input['FileSystemTokenStoreArgs']]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+
+@pulumi.input_type
+class TwitterArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 registration: Optional[pulumi.Input['TwitterRegistrationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['TwitterRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['TwitterRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+
+@pulumi.input_type
+class TwitterRegistrationArgs:
+    def __init__(__self__, *,
+                 consumer_key: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if consumer_key is not None:
+            pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type

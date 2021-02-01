@@ -77,6 +77,14 @@ from .list_web_application_settings import *
 from .list_web_application_settings_slot import *
 from .static_site import *
 from .web_app import *
+from .web_app_auth_settings import *
+from .web_app_auth_settings_slot import *
+from .web_app_azure_storage_accounts import *
+from .web_app_azure_storage_accounts_slot import *
+from .web_app_backup_configuration import *
+from .web_app_backup_configuration_slot import *
+from .web_app_connection_strings import *
+from .web_app_connection_strings_slot import *
 from .web_app_deployment import *
 from .web_app_deployment_slot import *
 from .web_app_diagnostic_logs_configuration import *
@@ -88,6 +96,8 @@ from .web_app_host_name_binding_slot import *
 from .web_app_hybrid_connection import *
 from .web_app_hybrid_connection_slot import *
 from .web_app_instance_function_slot import *
+from .web_app_metadata import *
+from .web_app_metadata_slot import *
 from .web_app_premier_add_on import *
 from .web_app_premier_add_on_slot import *
 from .web_app_private_endpoint_connection import *
@@ -97,6 +107,8 @@ from .web_app_relay_service_connection import *
 from .web_app_relay_service_connection_slot import *
 from .web_app_site_extension import *
 from .web_app_site_extension_slot import *
+from .web_app_site_push_settings import *
+from .web_app_site_push_settings_slot import *
 from .web_app_slot import *
 from .web_app_slot_configuration_names import *
 from .web_app_source_control import *
@@ -105,6 +117,8 @@ from .web_app_swift_virtual_network_connection import *
 from .web_app_swift_virtual_network_connection_slot import *
 from .web_app_vnet_connection import *
 from .web_app_vnet_connection_slot import *
+from .web_application_settings import *
+from .web_application_settings_slot import *
 from ._inputs import *
 from . import outputs
 
@@ -132,6 +146,22 @@ def _register_module():
                 return StaticSite(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebApp":
                 return WebApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppAuthSettings":
+                return WebAppAuthSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot":
+                return WebAppAuthSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts":
+                return WebAppAzureStorageAccounts(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot":
+                return WebAppAzureStorageAccountsSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppBackupConfiguration":
+                return WebAppBackupConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppBackupConfigurationSlot":
+                return WebAppBackupConfigurationSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppConnectionStrings":
+                return WebAppConnectionStrings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppConnectionStringsSlot":
+                return WebAppConnectionStringsSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppDeployment":
                 return WebAppDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppDeploymentSlot":
@@ -154,6 +184,10 @@ def _register_module():
                 return WebAppHybridConnectionSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot":
                 return WebAppInstanceFunctionSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppMetadata":
+                return WebAppMetadata(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppMetadataSlot":
+                return WebAppMetadataSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppPremierAddOn":
                 return WebAppPremierAddOn(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppPremierAddOnSlot":
@@ -172,6 +206,10 @@ def _register_module():
                 return WebAppSiteExtension(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppSiteExtensionSlot":
                 return WebAppSiteExtensionSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppSitePushSettings":
+                return WebAppSitePushSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot":
+                return WebAppSitePushSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppSlot":
                 return WebAppSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppSlotConfigurationNames":
@@ -188,6 +226,10 @@ def _register_module():
                 return WebAppVnetConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot":
                 return WebAppVnetConnectionSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebApplicationSettings":
+                return WebApplicationSettings(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20190801:WebApplicationSettingsSlot":
+                return WebApplicationSettingsSlot(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

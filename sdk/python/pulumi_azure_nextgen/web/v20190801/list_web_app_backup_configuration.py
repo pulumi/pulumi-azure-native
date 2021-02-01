@@ -59,7 +59,7 @@ class ListWebAppBackupConfigurationResult:
 
     @property
     @pulumi.getter(name="backupSchedule")
-    def backup_schedule(self) -> Optional['outputs.BackupScheduleResponseResult']:
+    def backup_schedule(self) -> Optional['outputs.BackupScheduleResponse']:
         """
         Schedule for the backup if it is executed periodically.
         """
@@ -67,7 +67,7 @@ class ListWebAppBackupConfigurationResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponseResult']]:
+    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponse']]:
         """
         Databases included in the backup.
         """
