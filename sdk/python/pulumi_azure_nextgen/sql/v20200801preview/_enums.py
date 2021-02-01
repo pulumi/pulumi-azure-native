@@ -29,6 +29,7 @@ __all__ = [
     'ReadWriteEndpointFailoverPolicy',
     'SampleName',
     'SecondaryType',
+    'SecurityAlertsPolicyState',
     'SensitivityLabelRank',
     'ServerKeyType',
     'ServerPublicNetworkAccess',
@@ -264,6 +265,14 @@ class SecondaryType(str, Enum):
     """
     GEO = "Geo"
     NAMED = "Named"
+
+
+class SecurityAlertsPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SensitivityLabelRank(str, Enum):
