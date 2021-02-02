@@ -72,8 +72,6 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	client.RequestInspector = withInspection()
 	// Log responses
 	client.ResponseInspector = byInspecting()
-	// Set a long timeout of 2 hours for now.
-	client.PollingDuration = 120 * time.Minute
 
 	resourceMap, err := LoadMetadata(azureAPIResourcesBytes)
 	if err != nil {
@@ -699,10 +697,13 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 			return nil, fmt.Errorf("cannot create already existing resource %q", id)
 		}
 
+		ctx, cancel := azureContext(ctx, req.Timeout)
+		defer cancel()
+
 		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
 		outputs, err = customRes.Create(ctx, inputs)
 		if err != nil {
-			return nil, err
+			return nil, azureError(err)
 		}
 	default:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
@@ -712,10 +713,13 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 			return nil, err
 		}
 
+		ctx, cancel := azureContext(ctx, req.Timeout)
+		defer cancel()
+
 		// Submit the `PUT` against the ARM endpoint
 		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
 		if err != nil {
-			return nil, err
+			return nil, azureError(err)
 		}
 
 		// Read the canonical ID from the response.
@@ -920,18 +924,21 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 		return nil, err
 	}
 
+	ctx, cancel := azureContext(ctx, req.Timeout)
+	defer cancel()
+
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
 	switch {
 	case isCustom && customRes.Update != nil:
 		outputs, err = customRes.Update(ctx, inputs)
 		if err != nil {
-			return nil, err
+			return nil, azureError(err)
 		}
 	default:
 		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
 		if err != nil {
-			return nil, err
+			return nil, azureError(err)
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.
@@ -969,6 +976,9 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 
 	customRes, isCustom := k.customResources[res.Path]
 
+	ctx, cancel := azureContext(ctx, req.Timeout)
+	defer cancel()
+
 	switch {
 	case isCustom && customRes.Delete != nil:
 		state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
@@ -984,7 +994,7 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 		// Our hand-crafted implementation of DELETE operation.
 		err = customRes.Delete(ctx, inputs)
 		if err != nil {
-			return nil, err
+			return nil, azureError(err)
 		}
 	case res.Singleton:
 		// Singleton resources can't be deleted (or created), set them to the default state.
@@ -995,14 +1005,14 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
 				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
 				if err != nil {
-					return nil, err
+					return nil, azureError(err)
 				}
 			}
 		}
 	default:
 		err := k.azureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle)
 		if err != nil {
-			return nil, errors.Wrapf(err, "deleting %s", label)
+			return nil, azureError(err)
 		}
 	}
 	return &pbempty.Empty{}, nil
@@ -1534,6 +1544,24 @@ func buildUserAgent(partnerID string) (userAgent string) {
 
 	logging.V(9).Infof("AzureNextGen User Agent: %s", userAgent)
 	return
+}
+
+// azureContext returns a new context with a timeout - either the one explicitly specified,
+// or the default one (2 hours).
+func azureContext(ctx context.Context, timeout float64) (context.Context, context.CancelFunc) {
+	d := 120 * time.Minute
+	if timeout > 0 {
+		d = time.Duration(timeout) * time.Second
+	}
+	return context.WithTimeout(ctx, d)
+}
+
+// azureError catches common errors and substitutes them with more user-friendly ones.
+func azureError(err error) error {
+	if errors.Is(err, context.DeadlineExceeded) {
+		return errors.New("operation timed out")
+	}
+	return err
 }
 
 // withInspection is a copy of autorest's LoggingInspector.WithInspector. It uses our glog wrapper
