@@ -31,7 +31,7 @@ class ProtectionContainer(pulumi.CustomResource):
                  __opts__=None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,7 +79,7 @@ class ProtectionContainer(pulumi.CustomResource):
             __props__['vault_name'] = vault_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20161201:ProtectionContainer"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionContainer"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201201:ProtectionContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20161201:ProtectionContainer"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionContainer"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201201:ProtectionContainer"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20210101:ProtectionContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionContainer, __self__).__init__(
             'azure-nextgen:recoveryservices/latest:ProtectionContainer',

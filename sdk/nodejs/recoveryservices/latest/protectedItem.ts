@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for backup items.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-01-01.
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class ProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190513:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190513:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectedItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectedItem.__pulumiType, name, inputs, opts);
     }

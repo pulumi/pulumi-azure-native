@@ -20,7 +20,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -33,6 +33,9 @@ class GetBigDataPoolResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if custom_libraries and not isinstance(custom_libraries, list):
+            raise TypeError("Expected argument 'custom_libraries' to be a list")
+        pulumi.set(__self__, "custom_libraries", custom_libraries)
         if default_spark_log_folder and not isinstance(default_spark_log_folder, str):
             raise TypeError("Expected argument 'default_spark_log_folder' to be a str")
         pulumi.set(__self__, "default_spark_log_folder", default_spark_log_folder)
@@ -116,6 +119,14 @@ class GetBigDataPoolResult:
         The time when the Big Data pool was created.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="customLibraries")
+    def custom_libraries(self) -> Optional[Sequence['outputs.LibraryResourcePropertiesResponse']]:
+        """
+        List of custom libraries/packages associated with the spark pool.
+        """
+        return pulumi.get(self, "custom_libraries")
 
     @property
     @pulumi.getter(name="defaultSparkLogFolder")
@@ -264,6 +275,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             auto_scale=self.auto_scale,
             cache_size=self.cache_size,
             creation_date=self.creation_date,
+            custom_libraries=self.custom_libraries,
             default_spark_log_folder=self.default_spark_log_folder,
             dynamic_executor_allocation=self.dynamic_executor_allocation,
             id=self.id,
@@ -309,6 +321,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         auto_scale=__ret__.auto_scale,
         cache_size=__ret__.cache_size,
         creation_date=__ret__.creation_date,
+        custom_libraries=__ret__.custom_libraries,
         default_spark_log_folder=__ret__.default_spark_log_folder,
         dynamic_executor_allocation=__ret__.dynamic_executor_allocation,
         id=__ret__.id,

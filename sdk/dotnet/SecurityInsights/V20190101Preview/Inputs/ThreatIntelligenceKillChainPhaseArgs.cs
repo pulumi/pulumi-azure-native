@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.Inputs
         /// Phase name
         /// </summary>
         [Input("phaseName")]
-        public Input<int>? PhaseName { get; set; }
+        public Input<string>? PhaseName { get; set; }
 
         public ThreatIntelligenceKillChainPhaseArgs()
         {

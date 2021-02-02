@@ -23,6 +23,7 @@ class Registry(pulumi.CustomResource):
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_options: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  policies: Optional[pulumi.Input[pulumi.InputType['PoliciesArgs']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -44,6 +45,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EncryptionPropertyArgs']] encryption: The encryption settings of container registry.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the container registry.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[Union[str, 'NetworkRuleBypassOptions']] network_rule_bypass_options: Whether to allow trusted Azure services to access a network restricted registry.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: The network rule set for a container registry.
         :param pulumi.Input[pulumi.InputType['PoliciesArgs']] policies: The policies for a container registry.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the container registry.
@@ -79,6 +81,9 @@ class Registry(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if network_rule_bypass_options is None:
+                network_rule_bypass_options = 'AzureServices'
+            __props__['network_rule_bypass_options'] = network_rule_bypass_options
             __props__['network_rule_set'] = network_rule_set
             __props__['policies'] = policies
             if public_network_access is None:
@@ -201,6 +206,14 @@ class Registry(pulumi.CustomResource):
         The name of the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleBypassOptions")
+    def network_rule_bypass_options(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted registry.
+        """
+        return pulumi.get(self, "network_rule_bypass_options")
 
     @property
     @pulumi.getter(name="networkRuleSet")

@@ -45,6 +45,8 @@ type LookupRegistryResult struct {
 	LoginServer string `pulumi:"loginServer"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions *string `pulumi:"networkRuleBypassOptions"`
 	// The network rule set for a container registry.
 	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
 	// The policies for a container registry.

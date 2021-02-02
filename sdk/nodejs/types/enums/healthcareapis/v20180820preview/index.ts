@@ -12,3 +12,13 @@ export const Kind = {
  * The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of identity being specified, currently SystemAssigned and None are allowed.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];

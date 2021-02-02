@@ -1913,16 +1913,20 @@ class PeriodicModePropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  backup_interval_in_minutes: Optional[int] = None,
-                 backup_retention_interval_in_hours: Optional[int] = None):
+                 backup_retention_interval_in_hours: Optional[int] = None,
+                 backup_storage_redundancy: Optional[str] = None):
         """
         Configuration values for periodic mode backup
         :param int backup_interval_in_minutes: An integer representing the interval in minutes between two backups
         :param int backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        :param str backup_storage_redundancy: Enum to indicate type of backup residency
         """
         if backup_interval_in_minutes is not None:
             pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
             pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+        if backup_storage_redundancy is not None:
+            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -1939,6 +1943,14 @@ class PeriodicModePropertiesResponse(dict):
         An integer representing the time (in hours) that each backup is retained
         """
         return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    @property
+    @pulumi.getter(name="backupStorageRedundancy")
+    def backup_storage_redundancy(self) -> Optional[str]:
+        """
+        Enum to indicate type of backup residency
+        """
+        return pulumi.get(self, "backup_storage_redundancy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

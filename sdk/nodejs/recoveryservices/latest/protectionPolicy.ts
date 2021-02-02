@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for backup policy. Workload-specific backup policies are derived from this class.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-01-01.
  */
 export class ProtectionPolicy extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionPolicy.__pulumiType, name, inputs, opts);
     }

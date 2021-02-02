@@ -10,6 +10,7 @@ __all__ = [
     'ConnectionStatus',
     'DefaultAction',
     'EncryptionStatus',
+    'NetworkRuleBypassOptions',
     'PipelineOptions',
     'PipelineRunSourceType',
     'PipelineRunTargetType',
@@ -64,6 +65,14 @@ class EncryptionStatus(str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class NetworkRuleBypassOptions(str, Enum):
+    """
+    Whether to allow trusted Azure services to access a network restricted registry.
+    """
+    AZURE_SERVICES = "AzureServices"
+    NONE = "None"
 
 
 class PipelineOptions(str, Enum):

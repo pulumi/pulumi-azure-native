@@ -23,6 +23,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
@@ -30,10 +31,12 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 language: Optional[pulumi.Input[str]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+                 parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -58,6 +61,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of a threat intelligence entity
         :param pulumi.Input[str] display_name: Display name of a threat intelligence entity
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param Any extensions: Extensions map
         :param pulumi.Input[str] external_id: External ID of threat intelligence entity
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_references: External References
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
@@ -65,10 +69,12 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
         :param pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']] kind: The kind of the entity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
+        :param pulumi.Input[str] language: Language of threat intelligence entity
         :param pulumi.Input[str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[str] modified: Modified by
         :param pulumi.Input[str] name: Threat intelligence indicator name field.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]] parsed_pattern: Parsed patterns
         :param pulumi.Input[str] pattern: Pattern of a threat intelligence entity
         :param pulumi.Input[str] pattern_type: Pattern type of a threat intelligence entity
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -103,6 +109,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['etag'] = etag
+            __props__['extensions'] = extensions
             __props__['external_id'] = external_id
             __props__['external_references'] = external_references
             __props__['granular_markings'] = granular_markings
@@ -112,6 +119,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['labels'] = labels
+            __props__['language'] = language
             __props__['last_updated_time_utc'] = last_updated_time_utc
             __props__['modified'] = modified
             if name is None and not opts.urn:
@@ -120,6 +128,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
+            __props__['parsed_pattern'] = parsed_pattern
             __props__['pattern'] = pattern
             __props__['pattern_type'] = pattern_type
             if resource_group_name is None and not opts.urn:

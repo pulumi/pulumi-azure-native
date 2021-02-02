@@ -25,7 +25,7 @@ type PolicyExemption struct {
 	ExpiresOn pulumi.StringPtrOutput `pulumi:"expiresOn"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The name of the resource
+	// The name of the policy exemption.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the policy assignment that is being exempted.
 	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
@@ -33,7 +33,7 @@ type PolicyExemption struct {
 	PolicyDefinitionReferenceIds pulumi.StringArrayOutput `pulumi:"policyDefinitionReferenceIds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource (Microsoft.Authorization/policyExemptions).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -88,7 +88,7 @@ type policyExemptionState struct {
 	ExpiresOn *string `pulumi:"expiresOn"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata interface{} `pulumi:"metadata"`
-	// The name of the resource
+	// The name of the policy exemption.
 	Name *string `pulumi:"name"`
 	// The ID of the policy assignment that is being exempted.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
@@ -96,7 +96,7 @@ type policyExemptionState struct {
 	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource (Microsoft.Authorization/policyExemptions).
 	Type *string `pulumi:"type"`
 }
 
@@ -111,7 +111,7 @@ type PolicyExemptionState struct {
 	ExpiresOn pulumi.StringPtrInput
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata pulumi.Input
-	// The name of the resource
+	// The name of the policy exemption.
 	Name pulumi.StringPtrInput
 	// The ID of the policy assignment that is being exempted.
 	PolicyAssignmentId pulumi.StringPtrInput
@@ -119,7 +119,7 @@ type PolicyExemptionState struct {
 	PolicyDefinitionReferenceIds pulumi.StringArrayInput
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource (Microsoft.Authorization/policyExemptions).
 	Type pulumi.StringPtrInput
 }
 

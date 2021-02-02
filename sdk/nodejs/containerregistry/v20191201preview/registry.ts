@@ -72,6 +72,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Whether to allow trusted Azure services to access a network restricted registry.
+     */
+    public readonly networkRuleBypassOptions!: pulumi.Output<string | undefined>;
+    /**
      * The network rule set for a container registry.
      */
     public readonly networkRuleSet!: pulumi.Output<outputs.containerregistry.v20191201preview.NetworkRuleSetResponse | undefined>;
@@ -143,6 +147,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["networkRuleBypassOptions"] = (args ? args.networkRuleBypassOptions : undefined) || "AzureServices";
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["policies"] = args ? args.policies : undefined;
             inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
@@ -170,6 +175,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkRuleBypassOptions"] = undefined /*out*/;
             inputs["networkRuleSet"] = undefined /*out*/;
             inputs["policies"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
@@ -219,6 +225,10 @@ export interface RegistryArgs {
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted registry.
+     */
+    readonly networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.v20191201preview.NetworkRuleBypassOptions>;
     /**
      * The network rule set for a container registry.
      */

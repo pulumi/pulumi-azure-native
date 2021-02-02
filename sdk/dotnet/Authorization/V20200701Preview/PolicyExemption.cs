@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// The name of the policy exemption.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The type of the resource (Microsoft.Authorization/policyExemptions).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

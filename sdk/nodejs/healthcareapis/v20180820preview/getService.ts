@@ -43,6 +43,10 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
+     * Setting indicating whether the service has a managed identity associated with it.
+     */
+    readonly identity?: outputs.healthcareapis.v20180820preview.ResourceResponseIdentity;
+    /**
      * The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
      */
     readonly kind: string;

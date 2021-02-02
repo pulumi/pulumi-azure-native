@@ -149,7 +149,7 @@ class PolicyExemption(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        The name of the policy exemption.
         """
         return pulumi.get(self, "name")
 
@@ -181,7 +181,7 @@ class PolicyExemption(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the resource (Microsoft.Authorization/policyExemptions).
         """
         return pulumi.get(self, "type")
 

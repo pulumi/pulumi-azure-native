@@ -12,7 +12,7 @@ import (
 )
 
 // Base class for backup policy. Workload-specific backup policies are derived from this class.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 type ProtectionPolicy struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +55,9 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

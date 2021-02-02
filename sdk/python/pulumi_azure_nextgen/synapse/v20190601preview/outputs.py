@@ -29,6 +29,7 @@ __all__ = [
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
     'LibraryRequirementsResponse',
+    'LibraryResourcePropertiesResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
     'LinkedIntegrationRuntimeResponseResult',
@@ -952,6 +953,97 @@ class LibraryRequirementsResponse(dict):
         The filename of the library requirements file.
         """
         return pulumi.get(self, "filename")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LibraryResourcePropertiesResponse(dict):
+    """
+    Library/package properties
+    """
+    def __init__(__self__, *,
+                 container_name: str,
+                 creator_id: str,
+                 name: str,
+                 path: str,
+                 provisioning_status: str,
+                 type: str,
+                 uploaded_timestamp: str):
+        """
+        Library/package properties
+        :param str container_name: Container name of the library/package.
+        :param str creator_id: Creator Id of the library/package.
+        :param str name: Name of the library/package.
+        :param str path: Location of library/package in storage account.
+        :param str provisioning_status: Provisioning status of the library/package.
+        :param str type: Type of the library/package.
+        :param str uploaded_timestamp: The last update time of the library/package.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "creator_id", creator_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "provisioning_status", provisioning_status)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Container name of the library/package.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="creatorId")
+    def creator_id(self) -> str:
+        """
+        Creator Id of the library/package.
+        """
+        return pulumi.get(self, "creator_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the library/package.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Location of library/package in storage account.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> str:
+        """
+        Provisioning status of the library/package.
+        """
+        return pulumi.get(self, "provisioning_status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the library/package.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> str:
+        """
+        The last update time of the library/package.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

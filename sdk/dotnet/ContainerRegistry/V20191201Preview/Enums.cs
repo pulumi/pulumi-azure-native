@@ -163,6 +163,37 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Whether to allow trusted Azure services to access a network restricted registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkRuleBypassOptions : IEquatable<NetworkRuleBypassOptions>
+    {
+        private readonly string _value;
+
+        private NetworkRuleBypassOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkRuleBypassOptions AzureServices { get; } = new NetworkRuleBypassOptions("AzureServices");
+        public static NetworkRuleBypassOptions None { get; } = new NetworkRuleBypassOptions("None");
+
+        public static bool operator ==(NetworkRuleBypassOptions left, NetworkRuleBypassOptions right) => left.Equals(right);
+        public static bool operator !=(NetworkRuleBypassOptions left, NetworkRuleBypassOptions right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkRuleBypassOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkRuleBypassOptions other && Equals(other);
+        public bool Equals(NetworkRuleBypassOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct PipelineOptions : IEquatable<PipelineOptions>
     {

@@ -20,7 +20,7 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_account=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_bypass_options=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_account=None, system_data=None, tags=None, type=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
@@ -51,6 +51,9 @@ class GetRegistryResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_rule_bypass_options and not isinstance(network_rule_bypass_options, str):
+            raise TypeError("Expected argument 'network_rule_bypass_options' to be a str")
+        pulumi.set(__self__, "network_rule_bypass_options", network_rule_bypass_options)
         if network_rule_set and not isinstance(network_rule_set, dict):
             raise TypeError("Expected argument 'network_rule_set' to be a dict")
         pulumi.set(__self__, "network_rule_set", network_rule_set)
@@ -166,6 +169,14 @@ class GetRegistryResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkRuleBypassOptions")
+    def network_rule_bypass_options(self) -> Optional[str]:
+        """
+        Whether to allow trusted Azure services to access a network restricted registry.
+        """
+        return pulumi.get(self, "network_rule_bypass_options")
+
+    @property
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> Optional['outputs.NetworkRuleSetResponse']:
         """
@@ -270,6 +281,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             location=self.location,
             login_server=self.login_server,
             name=self.name,
+            network_rule_bypass_options=self.network_rule_bypass_options,
             network_rule_set=self.network_rule_set,
             policies=self.policies,
             private_endpoint_connections=self.private_endpoint_connections,
@@ -312,6 +324,7 @@ def get_registry(registry_name: Optional[str] = None,
         location=__ret__.location,
         login_server=__ret__.login_server,
         name=__ret__.name,
+        network_rule_bypass_options=__ret__.network_rule_bypass_options,
         network_rule_set=__ret__.network_rule_set,
         policies=__ret__.policies,
         private_endpoint_connections=__ret__.private_endpoint_connections,

@@ -10,6 +10,312 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Setting indicating whether the service has a managed identity associated with it.
+type ResourceIdentity struct {
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
+// You can construct a concrete instance of `ResourceIdentityInput` via:
+//
+//          ResourceIdentityArgs{...}
+type ResourceIdentityInput interface {
+	pulumi.Input
+
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ResourceIdentityArgs struct {
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
+//
+//          ResourceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
+}
+
+type resourceIdentityPtrType ResourceIdentityArgs
+
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
+}
+
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+		return &v
+	}).(ResourceIdentityPtrOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ResourceResponseIdentity struct {
+	// The principal ID of the resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the resource.
+	TenantId string `pulumi:"tenantId"`
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceResponseIdentityInput is an input type that accepts ResourceResponseIdentityArgs and ResourceResponseIdentityOutput values.
+// You can construct a concrete instance of `ResourceResponseIdentityInput` via:
+//
+//          ResourceResponseIdentityArgs{...}
+type ResourceResponseIdentityInput interface {
+	pulumi.Input
+
+	ToResourceResponseIdentityOutput() ResourceResponseIdentityOutput
+	ToResourceResponseIdentityOutputWithContext(context.Context) ResourceResponseIdentityOutput
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ResourceResponseIdentityArgs struct {
+	// The principal ID of the resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of the resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceResponseIdentity)(nil)).Elem()
+}
+
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityOutput() ResourceResponseIdentityOutput {
+	return i.ToResourceResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityOutputWithContext(ctx context.Context) ResourceResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponseIdentityOutput)
+}
+
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return i.ToResourceResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponseIdentityOutput).ToResourceResponseIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceResponseIdentityPtrInput is an input type that accepts ResourceResponseIdentityArgs, ResourceResponseIdentityPtr and ResourceResponseIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceResponseIdentityPtrInput` via:
+//
+//          ResourceResponseIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput
+	ToResourceResponseIdentityPtrOutputWithContext(context.Context) ResourceResponseIdentityPtrOutput
+}
+
+type resourceResponseIdentityPtrType ResourceResponseIdentityArgs
+
+func ResourceResponseIdentityPtr(v *ResourceResponseIdentityArgs) ResourceResponseIdentityPtrInput {
+	return (*resourceResponseIdentityPtrType)(v)
+}
+
+func (*resourceResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceResponseIdentity)(nil)).Elem()
+}
+
+func (i *resourceResponseIdentityPtrType) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return i.ToResourceResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceResponseIdentityPtrType) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponseIdentityPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ResourceResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceResponseIdentity)(nil)).Elem()
+}
+
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityOutput() ResourceResponseIdentityOutput {
+	return o
+}
+
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityOutputWithContext(ctx context.Context) ResourceResponseIdentityOutput {
+	return o
+}
+
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return o.ToResourceResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) *ResourceResponseIdentity {
+		return &v
+	}).(ResourceResponseIdentityPtrOutput)
+}
+
+// The principal ID of the resource identity.
+func (o ResourceResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the resource.
+func (o ResourceResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ResourceResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceResponseIdentity)(nil)).Elem()
+}
+
+func (o ResourceResponseIdentityPtrOutput) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceResponseIdentityPtrOutput) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceResponseIdentityPtrOutput) Elem() ResourceResponseIdentityOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) ResourceResponseIdentity { return *v }).(ResourceResponseIdentityOutput)
+}
+
+// The principal ID of the resource identity.
+func (o ResourceResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of the resource.
+func (o ResourceResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ResourceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // An access policy entry.
 type ServiceAccessPolicyEntry struct {
 	// An object ID that is allowed access to the FHIR service.
@@ -1652,6 +1958,10 @@ func (o ServicesPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPt
 }
 
 func init() {
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceResponseIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceResponseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseOutput{})

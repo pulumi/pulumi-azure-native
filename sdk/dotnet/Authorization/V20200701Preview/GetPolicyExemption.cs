@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// </summary>
         public readonly string? ExpiresOn;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The ID of the policy exemption.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// </summary>
         public readonly object? Metadata;
         /// <summary>
-        /// The name of the resource
+        /// The name of the policy exemption.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The type of the resource (Microsoft.Authorization/policyExemptions).
         /// </summary>
         public readonly string Type;
 

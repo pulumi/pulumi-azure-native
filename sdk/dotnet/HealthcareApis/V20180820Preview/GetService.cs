@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Setting indicating whether the service has a managed identity associated with it.
+        /// </summary>
+        public readonly Outputs.ResourceResponseIdentity? Identity;
+        /// <summary>
         /// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
         /// </summary>
         public readonly string Kind;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
 
             string id,
 
+            Outputs.ResourceResponseIdentity? identity,
+
             string kind,
 
             string location,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         {
             Etag = etag;
             Id = id;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;

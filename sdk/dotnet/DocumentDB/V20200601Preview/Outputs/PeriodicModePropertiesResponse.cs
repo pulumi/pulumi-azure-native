@@ -21,15 +21,22 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Outputs
         /// An integer representing the time (in hours) that each backup is retained
         /// </summary>
         public readonly int? BackupRetentionIntervalInHours;
+        /// <summary>
+        /// Enum to indicate type of backup residency
+        /// </summary>
+        public readonly string? BackupStorageRedundancy;
 
         [OutputConstructor]
         private PeriodicModePropertiesResponse(
             int? backupIntervalInMinutes,
 
-            int? backupRetentionIntervalInHours)
+            int? backupRetentionIntervalInHours,
+
+            string? backupStorageRedundancy)
         {
             BackupIntervalInMinutes = backupIntervalInMinutes;
             BackupRetentionIntervalInHours = backupRetentionIntervalInHours;
+            BackupStorageRedundancy = backupStorageRedundancy;
         }
     }
 }

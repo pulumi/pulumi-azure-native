@@ -11,12 +11,61 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ResourceResponseIdentity',
     'ServiceAccessPolicyEntryResponse',
     'ServiceAuthenticationConfigurationInfoResponse',
     'ServiceCorsConfigurationInfoResponse',
     'ServiceCosmosDbConfigurationInfoResponse',
     'ServicesPropertiesResponse',
 ]
+
+@pulumi.output_type
+class ResourceResponseIdentity(dict):
+    """
+    Setting indicating whether the service has a managed identity associated with it.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        :param str principal_id: The principal ID of the resource identity.
+        :param str tenant_id: The tenant ID of the resource.
+        :param str type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ServiceAccessPolicyEntryResponse(dict):

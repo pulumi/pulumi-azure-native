@@ -10,12 +10,37 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'ResourceIdentityArgs',
     'ServiceAccessPolicyEntryArgs',
     'ServiceAuthenticationConfigurationInfoArgs',
     'ServiceCorsConfigurationInfoArgs',
     'ServiceCosmosDbConfigurationInfoArgs',
     'ServicesPropertiesArgs',
 ]
+
+@pulumi.input_type
+class ResourceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.input_type
 class ServiceAccessPolicyEntryArgs:

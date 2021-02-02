@@ -1816,16 +1816,20 @@ class PeriodicModeBackupPolicyArgs:
 class PeriodicModePropertiesArgs:
     def __init__(__self__, *,
                  backup_interval_in_minutes: Optional[pulumi.Input[int]] = None,
-                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None):
+                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None,
+                 backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None):
         """
         Configuration values for periodic mode backup
         :param pulumi.Input[int] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
         :param pulumi.Input[int] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] backup_storage_redundancy: Enum to indicate type of backup residency
         """
         if backup_interval_in_minutes is not None:
             pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
         if backup_retention_interval_in_hours is not None:
             pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+        if backup_storage_redundancy is not None:
+            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
 
     @property
     @pulumi.getter(name="backupIntervalInMinutes")
@@ -1850,6 +1854,18 @@ class PeriodicModePropertiesArgs:
     @backup_retention_interval_in_hours.setter
     def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_interval_in_hours", value)
+
+    @property
+    @pulumi.getter(name="backupStorageRedundancy")
+    def backup_storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]:
+        """
+        Enum to indicate type of backup residency
+        """
+        return pulumi.get(self, "backup_storage_redundancy")
+
+    @backup_storage_redundancy.setter
+    def backup_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]):
+        pulumi.set(self, "backup_storage_redundancy", value)
 
 
 @pulumi.input_type

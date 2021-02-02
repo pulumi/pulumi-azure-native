@@ -151,6 +151,34 @@ func (e EncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Whether to allow trusted Azure services to access a network restricted registry.
+type NetworkRuleBypassOptions pulumi.String
+
+const (
+	NetworkRuleBypassOptionsAzureServices = NetworkRuleBypassOptions("AzureServices")
+	NetworkRuleBypassOptionsNone          = NetworkRuleBypassOptions("None")
+)
+
+func (NetworkRuleBypassOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkRuleBypassOptions) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkRuleBypassOptions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkRuleBypassOptions) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkRuleBypassOptions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type PipelineOptions pulumi.String
 
 const (

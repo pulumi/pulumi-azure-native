@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-01-01.
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

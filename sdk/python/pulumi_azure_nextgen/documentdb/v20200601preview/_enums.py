@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'BackupStorageRedundancy',
     'BackupType',
     'CompositePathSortOrder',
     'ConflictResolutionMode',
@@ -25,6 +26,15 @@ __all__ = [
     'TriggerOperation',
     'TriggerType',
 ]
+
+
+class BackupStorageRedundancy(str, Enum):
+    """
+    Enum to indicate type of backup residency
+    """
+    GEO = "Geo"
+    LOCAL = "Local"
+    ZONE = "Zone"
 
 
 class BackupType(str, Enum):

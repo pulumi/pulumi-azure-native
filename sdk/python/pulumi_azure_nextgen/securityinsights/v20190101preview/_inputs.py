@@ -15,6 +15,8 @@ __all__ = [
     'IncidentOwnerInfoArgs',
     'ThreatIntelligenceGranularMarkingModelArgs',
     'ThreatIntelligenceKillChainPhaseArgs',
+    'ThreatIntelligenceParsedPatternArgs',
+    'ThreatIntelligenceParsedPatternTypeValueArgs',
     'UserInfoArgs',
 ]
 
@@ -241,11 +243,11 @@ class ThreatIntelligenceGranularMarkingModelArgs:
 class ThreatIntelligenceKillChainPhaseArgs:
     def __init__(__self__, *,
                  kill_chain_name: Optional[pulumi.Input[str]] = None,
-                 phase_name: Optional[pulumi.Input[int]] = None):
+                 phase_name: Optional[pulumi.Input[str]] = None):
         """
         Describes threat kill chain phase entity
         :param pulumi.Input[str] kill_chain_name: Kill chainName name
-        :param pulumi.Input[int] phase_name: Phase name
+        :param pulumi.Input[str] phase_name: Phase name
         """
         if kill_chain_name is not None:
             pulumi.set(__self__, "kill_chain_name", kill_chain_name)
@@ -266,15 +268,95 @@ class ThreatIntelligenceKillChainPhaseArgs:
 
     @property
     @pulumi.getter(name="phaseName")
-    def phase_name(self) -> Optional[pulumi.Input[int]]:
+    def phase_name(self) -> Optional[pulumi.Input[str]]:
         """
         Phase name
         """
         return pulumi.get(self, "phase_name")
 
     @phase_name.setter
-    def phase_name(self, value: Optional[pulumi.Input[int]]):
+    def phase_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phase_name", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceParsedPatternArgs:
+    def __init__(__self__, *,
+                 pattern_type_key: Optional[pulumi.Input[str]] = None,
+                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]] = None):
+        """
+        Describes parsed pattern entity
+        :param pulumi.Input[str] pattern_type_key: Pattern type key
+        :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]] pattern_type_values: Pattern type keys
+        """
+        if pattern_type_key is not None:
+            pulumi.set(__self__, "pattern_type_key", pattern_type_key)
+        if pattern_type_values is not None:
+            pulumi.set(__self__, "pattern_type_values", pattern_type_values)
+
+    @property
+    @pulumi.getter(name="patternTypeKey")
+    def pattern_type_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pattern type key
+        """
+        return pulumi.get(self, "pattern_type_key")
+
+    @pattern_type_key.setter
+    def pattern_type_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern_type_key", value)
+
+    @property
+    @pulumi.getter(name="patternTypeValues")
+    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]:
+        """
+        Pattern type keys
+        """
+        return pulumi.get(self, "pattern_type_values")
+
+    @pattern_type_values.setter
+    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]):
+        pulumi.set(self, "pattern_type_values", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceParsedPatternTypeValueArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_type: Optional[pulumi.Input[str]] = None):
+        """
+        Describes threat kill chain phase entity
+        :param pulumi.Input[str] value: Value of parsed pattern
+        :param pulumi.Input[str] value_type: Type of the value
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of parsed pattern
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the value
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_type", value)
 
 
 @pulumi.input_type

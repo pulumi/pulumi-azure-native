@@ -33,11 +33,11 @@ type LookupPolicyExemptionResult struct {
 	ExemptionCategory string `pulumi:"exemptionCategory"`
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn *string `pulumi:"expiresOn"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// The ID of the policy exemption.
 	Id string `pulumi:"id"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata interface{} `pulumi:"metadata"`
-	// The name of the resource
+	// The name of the policy exemption.
 	Name string `pulumi:"name"`
 	// The ID of the policy assignment that is being exempted.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
@@ -45,6 +45,6 @@ type LookupPolicyExemptionResult struct {
 	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of the resource (Microsoft.Authorization/policyExemptions).
 	Type string `pulumi:"type"`
 }

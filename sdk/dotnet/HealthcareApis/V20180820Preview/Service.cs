@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Setting indicating whether the service has a managed identity associated with it.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ResourceResponseIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
         /// </summary>
         [Output("kind")]
@@ -115,6 +121,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Setting indicating whether the service has a managed identity associated with it.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.

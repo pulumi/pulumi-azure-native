@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 {
     /// <summary>
+    /// Enum to indicate type of backup residency
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupStorageRedundancy : IEquatable<BackupStorageRedundancy>
+    {
+        private readonly string _value;
+
+        private BackupStorageRedundancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupStorageRedundancy Geo { get; } = new BackupStorageRedundancy("Geo");
+        public static BackupStorageRedundancy Local { get; } = new BackupStorageRedundancy("Local");
+        public static BackupStorageRedundancy Zone { get; } = new BackupStorageRedundancy("Zone");
+
+        public static bool operator ==(BackupStorageRedundancy left, BackupStorageRedundancy right) => left.Equals(right);
+        public static bool operator !=(BackupStorageRedundancy left, BackupStorageRedundancy right) => !left.Equals(right);
+
+        public static explicit operator string(BackupStorageRedundancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupStorageRedundancy other && Equals(other);
+        public bool Equals(BackupStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the mode of backups.
     /// </summary>
     [EnumType]

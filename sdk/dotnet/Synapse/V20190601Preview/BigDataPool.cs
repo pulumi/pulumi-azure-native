@@ -40,6 +40,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
+        /// List of custom libraries/packages associated with the spark pool.
+        /// </summary>
+        [Output("customLibraries")]
+        public Output<ImmutableArray<Outputs.LibraryResourcePropertiesResponse>> CustomLibraries { get; private set; } = null!;
+
+        /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
         [Output("defaultSparkLogFolder")]
