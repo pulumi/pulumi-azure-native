@@ -1548,10 +1548,10 @@ func buildUserAgent(partnerID string) (userAgent string) {
 
 // azureContext returns a new context with a timeout - either the one explicitly specified,
 // or the default one (2 hours).
-func azureContext(ctx context.Context, timeout float64) (context.Context, context.CancelFunc) {
+func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context, context.CancelFunc) {
 	d := 120 * time.Minute
-	if timeout > 0 {
-		d = time.Duration(timeout) * time.Second
+	if timeoutSeconds > 0 {
+		d = time.Duration(timeoutSeconds) * time.Second
 	}
 	return context.WithTimeout(ctx, d)
 }
