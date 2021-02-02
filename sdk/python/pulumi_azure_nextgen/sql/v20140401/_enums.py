@@ -12,6 +12,9 @@ __all__ = [
     'GeoBackupPolicyState',
     'ReadScale',
     'SampleName',
+    'SecurityAlertPolicyEmailAccountAdmins',
+    'SecurityAlertPolicyState',
+    'SecurityAlertPolicyUseServerDefault',
     'ServerVersion',
     'ServiceObjectiveName',
     'TransparentDataEncryptionStatus',
@@ -117,6 +120,31 @@ class SampleName(str, Enum):
     Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
     """
     ADVENTURE_WORKS_LT = "AdventureWorksLT"
+
+
+class SecurityAlertPolicyEmailAccountAdmins(str, Enum):
+    """
+    Specifies that the alert is sent to the account administrators.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    """
+    NEW = "New"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SecurityAlertPolicyUseServerDefault(str, Enum):
+    """
+    Specifies whether to use the default server policy.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ServerVersion(str, Enum):

@@ -98,6 +98,14 @@ const database = new sql.Database("db", {
     },
 });
 
+new sql.DatabaseSecurityAlertPolicy("dsal", {
+    resourceGroupName: resourceGroup.name,
+    serverName: sqlServer.name,
+    databaseName: database.name,
+    securityAlertPolicyName: "default",
+    state: "Enabled",
+});
+
 new sqltde.TransparentDataEncryption("tde", {
     resourceGroupName: resourceGroup.name,
     transparentDataEncryptionName: "current",

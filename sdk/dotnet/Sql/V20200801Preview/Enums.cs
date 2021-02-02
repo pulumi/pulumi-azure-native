@@ -785,6 +785,37 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertsPolicyState : IEquatable<SecurityAlertsPolicyState>
+    {
+        private readonly string _value;
+
+        private SecurityAlertsPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertsPolicyState Enabled { get; } = new SecurityAlertsPolicyState("Enabled");
+        public static SecurityAlertsPolicyState Disabled { get; } = new SecurityAlertsPolicyState("Disabled");
+
+        public static bool operator ==(SecurityAlertsPolicyState left, SecurityAlertsPolicyState right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertsPolicyState left, SecurityAlertsPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertsPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertsPolicyState other && Equals(other);
+        public bool Equals(SecurityAlertsPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SensitivityLabelRank : IEquatable<SensitivityLabelRank>
     {

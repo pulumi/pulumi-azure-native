@@ -4,6 +4,8 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .database_security_alert_policy import *
+from .get_database_security_alert_policy import *
 from .get_instance_pool import *
 from .get_managed_database import *
 from .get_managed_database_sensitivity_label import *
@@ -35,7 +37,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:sql/v20180601preview:InstancePool":
+            if typ == "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy":
+                return DatabaseSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:InstancePool":
                 return InstancePool(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20180601preview:ManagedDatabase":
                 return ManagedDatabase(name, pulumi.ResourceOptions(urn=urn))

@@ -117,6 +117,37 @@ export const SampleName = {
  */
 export type SampleName = (typeof SampleName)[keyof typeof SampleName];
 
+export const SecurityAlertPolicyEmailAccountAdmins = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies that the alert is sent to the account administrators.
+ */
+export type SecurityAlertPolicyEmailAccountAdmins = (typeof SecurityAlertPolicyEmailAccountAdmins)[keyof typeof SecurityAlertPolicyEmailAccountAdmins];
+
+export const SecurityAlertPolicyState = {
+    New: "New",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+ */
+export type SecurityAlertPolicyState = (typeof SecurityAlertPolicyState)[keyof typeof SecurityAlertPolicyState];
+
+export const SecurityAlertPolicyUseServerDefault = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies whether to use the default server policy.
+ */
+export type SecurityAlertPolicyUseServerDefault = (typeof SecurityAlertPolicyUseServerDefault)[keyof typeof SecurityAlertPolicyUseServerDefault];
+
 export const ServerVersion = {
     ServerVersion_2_0: "2.0",
     ServerVersion_12_0: "12.0",

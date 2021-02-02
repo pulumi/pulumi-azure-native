@@ -6,11 +6,13 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./database";
+export * from "./databaseThreatDetectionPolicy";
 export * from "./disasterRecoveryConfiguration";
 export * from "./elasticPool";
 export * from "./firewallRule";
 export * from "./geoBackupPolicy";
 export * from "./getDatabase";
+export * from "./getDatabaseThreatDetectionPolicy";
 export * from "./getDisasterRecoveryConfiguration";
 export * from "./getElasticPool";
 export * from "./getFirewallRule";
@@ -29,6 +31,7 @@ export * from "../../types/enums/sql/v20140401";
 
 // Import resources to register:
 import { Database } from "./database";
+import { DatabaseThreatDetectionPolicy } from "./databaseThreatDetectionPolicy";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
 import { ElasticPool } from "./elasticPool";
 import { FirewallRule } from "./firewallRule";
@@ -44,6 +47,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:sql/v20140401:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy":
+                return new DatabaseThreatDetectionPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration":
                 return new DisasterRecoveryConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20140401:ElasticPool":

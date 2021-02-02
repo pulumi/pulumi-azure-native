@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./databaseSecurityAlertPolicy";
+export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getInstancePool";
 export * from "./getManagedDatabase";
 export * from "./getManagedDatabaseSensitivityLabel";
@@ -26,6 +28,7 @@ export * from "./serverVulnerabilityAssessment";
 export * from "../../types/enums/sql/v20180601preview";
 
 // Import resources to register:
+import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { InstancePool } from "./instancePool";
 import { ManagedDatabase } from "./managedDatabase";
 import { ManagedDatabaseSensitivityLabel } from "./managedDatabaseSensitivityLabel";
@@ -39,6 +42,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy":
+                return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20180601preview:InstancePool":
                 return new InstancePool(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20180601preview:ManagedDatabase":

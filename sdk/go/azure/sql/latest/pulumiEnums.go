@@ -243,6 +243,91 @@ func (e SampleName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Specifies that the alert is sent to the account administrators.
+type SecurityAlertPolicyEmailAccountAdmins pulumi.String
+
+const (
+	SecurityAlertPolicyEmailAccountAdminsEnabled  = SecurityAlertPolicyEmailAccountAdmins("Enabled")
+	SecurityAlertPolicyEmailAccountAdminsDisabled = SecurityAlertPolicyEmailAccountAdmins("Disabled")
+)
+
+func (SecurityAlertPolicyEmailAccountAdmins) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityAlertPolicyEmailAccountAdmins) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyEmailAccountAdmins) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyEmailAccountAdmins) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityAlertPolicyEmailAccountAdmins) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+type SecurityAlertPolicyState pulumi.String
+
+const (
+	SecurityAlertPolicyStateNew      = SecurityAlertPolicyState("New")
+	SecurityAlertPolicyStateEnabled  = SecurityAlertPolicyState("Enabled")
+	SecurityAlertPolicyStateDisabled = SecurityAlertPolicyState("Disabled")
+)
+
+func (SecurityAlertPolicyState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityAlertPolicyState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityAlertPolicyState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specifies whether to use the default server policy.
+type SecurityAlertPolicyUseServerDefault pulumi.String
+
+const (
+	SecurityAlertPolicyUseServerDefaultEnabled  = SecurityAlertPolicyUseServerDefault("Enabled")
+	SecurityAlertPolicyUseServerDefaultDisabled = SecurityAlertPolicyUseServerDefault("Disabled")
+)
+
+func (SecurityAlertPolicyUseServerDefault) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityAlertPolicyUseServerDefault) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyUseServerDefault) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityAlertPolicyUseServerDefault) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityAlertPolicyUseServerDefault) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The version of the server.
 type ServerVersion pulumi.String
 

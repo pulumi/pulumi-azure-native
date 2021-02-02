@@ -6,12 +6,14 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./database";
+export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
 export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getDatabase";
+export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
 export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getElasticPool";
@@ -89,6 +91,7 @@ export * from "../../types/enums/sql/v20200202preview";
 
 // Import resources to register:
 import { Database } from "./database";
+import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { ElasticPool } from "./elasticPool";
@@ -134,6 +137,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:sql/v20200202preview:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy":
+                return new DatabaseSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:DatabaseVulnerabilityAssessmentRuleBaseline":

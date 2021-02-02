@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-nextgen:sql/latest:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy":
+		r, err = NewDatabaseThreatDetectionPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:sql/latest:DisasterRecoveryConfiguration":
 		r, err = NewDisasterRecoveryConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:sql/latest:ElasticPool":

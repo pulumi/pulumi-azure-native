@@ -5,12 +5,14 @@
 # Export this package's modules as members:
 from ._enums import *
 from .database import *
+from .database_security_alert_policy import *
 from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .elastic_pool import *
 from .failover_group import *
 from .firewall_rule import *
 from .get_database import *
+from .get_database_security_alert_policy import *
 from .get_database_vulnerability_assessment import *
 from .get_database_vulnerability_assessment_rule_baseline import *
 from .get_elastic_pool import *
@@ -99,6 +101,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:sql/v20200801preview:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy":
+                return DatabaseSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20200801preview:DatabaseVulnerabilityAssessment":
                 return DatabaseVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20200801preview:DatabaseVulnerabilityAssessmentRuleBaseline":

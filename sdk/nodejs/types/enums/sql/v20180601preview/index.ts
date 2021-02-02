@@ -90,6 +90,17 @@ export const ManagedServerCreateMode = {
  */
 export type ManagedServerCreateMode = (typeof ManagedServerCreateMode)[keyof typeof ManagedServerCreateMode];
 
+export const SecurityAlertPolicyState = {
+    New: "New",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+ */
+export type SecurityAlertPolicyState = (typeof SecurityAlertPolicyState)[keyof typeof SecurityAlertPolicyState];
+
 export const SensitivityLabelRank = {
     None: "None",
     Low: "Low",

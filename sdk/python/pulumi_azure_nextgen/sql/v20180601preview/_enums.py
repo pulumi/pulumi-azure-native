@@ -13,6 +13,7 @@ __all__ = [
     'ManagedInstanceLicenseType',
     'ManagedInstanceProxyOverride',
     'ManagedServerCreateMode',
+    'SecurityAlertPolicyState',
     'SensitivityLabelRank',
 ]
 
@@ -87,6 +88,15 @@ class ManagedServerCreateMode(str, Enum):
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+
+
+class SecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+    """
+    NEW = "New"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SensitivityLabelRank(str, Enum):

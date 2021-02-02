@@ -5,11 +5,13 @@
 # Export this package's modules as members:
 from ._enums import *
 from .database import *
+from .database_threat_detection_policy import *
 from .disaster_recovery_configuration import *
 from .elastic_pool import *
 from .firewall_rule import *
 from .geo_backup_policy import *
 from .get_database import *
+from .get_database_threat_detection_policy import *
 from .get_disaster_recovery_configuration import *
 from .get_elastic_pool import *
 from .get_firewall_rule import *
@@ -38,6 +40,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:sql/latest:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy":
+                return DatabaseThreatDetectionPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/latest:DisasterRecoveryConfiguration":
                 return DisasterRecoveryConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/latest:ElasticPool":

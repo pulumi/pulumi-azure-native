@@ -28,6 +28,7 @@ __all__ = [
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
     'SampleName',
+    'SecurityAlertsPolicyState',
     'SensitivityLabelRank',
     'ServerKeyType',
     'ServerPublicNetworkAccess',
@@ -255,6 +256,14 @@ class SampleName(str, Enum):
     ADVENTURE_WORKS_LT = "AdventureWorksLT"
     WIDE_WORLD_IMPORTERS_STD = "WideWorldImportersStd"
     WIDE_WORLD_IMPORTERS_FULL = "WideWorldImportersFull"
+
+
+class SecurityAlertsPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SensitivityLabelRank(str, Enum):
