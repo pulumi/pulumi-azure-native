@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewQueueServiceProperties(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage/latest:StorageAccount":
 		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:storage/latest:StorageAccountStaticWebsite":
+		r, err = NewStorageAccountStaticWebsite(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage/latest:Table":
 		r, err = NewTable(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage/latest:TableServiceProperties":

@@ -26,10 +26,14 @@ const storageAccount = new storage.StorageAccount("websitesa", {
         name: storage.SkuName.Standard_LRS,
     },
     kind: storage.Kind.StorageV2,
-    // Apparently, this is not supported via ARM.
-    // staticWebsite: {
-    //     indexDocument: "index.html",
-    // },
+});
+
+// Create a public endpoint for the storage account
+const staticWebsite = new storage.StorageAccountStaticWebsite("staticsite", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    indexDocument: "index.html",
+    error404Document: "404.html",
 });
 
 // Upload the files

@@ -34,6 +34,7 @@ export * from "./privateEndpointConnection";
 export * from "./queue";
 export * from "./queueServiceProperties";
 export * from "./storageAccount";
+export * from "./storageAccountStaticWebsite";
 export * from "./table";
 export * from "./tableServiceProperties";
 
@@ -53,6 +54,7 @@ import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Queue } from "./queue";
 import { QueueServiceProperties } from "./queueServiceProperties";
 import { StorageAccount } from "./storageAccount";
+import { StorageAccountStaticWebsite } from "./storageAccountStaticWebsite";
 import { Table } from "./table";
 import { TableServiceProperties } from "./tableServiceProperties";
 
@@ -84,6 +86,8 @@ const _module = {
                 return new QueueServiceProperties(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
+            case "azure-nextgen:storage/latest:StorageAccountStaticWebsite":
+                return new StorageAccountStaticWebsite(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:Table":
                 return new Table(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:TableServiceProperties":
