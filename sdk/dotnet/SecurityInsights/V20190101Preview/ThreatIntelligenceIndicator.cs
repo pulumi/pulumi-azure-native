@@ -121,6 +121,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Extensions map
+        /// </summary>
+        [Input("extensions")]
+        public Input<object>? Extensions { get; set; }
+
+        /// <summary>
         /// External ID of threat intelligence entity
         /// </summary>
         [Input("externalId")]
@@ -193,6 +199,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         }
 
         /// <summary>
+        /// Language of threat intelligence entity
+        /// </summary>
+        [Input("language")]
+        public Input<string>? Language { get; set; }
+
+        /// <summary>
         /// Last updated time in UTC
         /// </summary>
         [Input("lastUpdatedTimeUtc")]
@@ -215,6 +227,18 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         [Input("operationalInsightsResourceProvider", required: true)]
         public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
+
+        [Input("parsedPattern")]
+        private InputList<Inputs.ThreatIntelligenceParsedPatternArgs>? _parsedPattern;
+
+        /// <summary>
+        /// Parsed patterns
+        /// </summary>
+        public InputList<Inputs.ThreatIntelligenceParsedPatternArgs> ParsedPattern
+        {
+            get => _parsedPattern ?? (_parsedPattern = new InputList<Inputs.ThreatIntelligenceParsedPatternArgs>());
+            set => _parsedPattern = value;
+        }
 
         /// <summary>
         /// Pattern of a threat intelligence entity

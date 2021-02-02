@@ -83,6 +83,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["extensions"] = args ? args.extensions : undefined;
             inputs["externalId"] = args ? args.externalId : undefined;
             inputs["externalReferences"] = args ? args.externalReferences : undefined;
             inputs["granularMarkings"] = args ? args.granularMarkings : undefined;
@@ -90,10 +91,12 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             inputs["killChainPhases"] = args ? args.killChainPhases : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["labels"] = args ? args.labels : undefined;
+            inputs["language"] = args ? args.language : undefined;
             inputs["lastUpdatedTimeUtc"] = args ? args.lastUpdatedTimeUtc : undefined;
             inputs["modified"] = args ? args.modified : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            inputs["parsedPattern"] = args ? args.parsedPattern : undefined;
             inputs["pattern"] = args ? args.pattern : undefined;
             inputs["patternType"] = args ? args.patternType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -151,6 +154,10 @@ export interface ThreatIntelligenceIndicatorArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * Extensions map
+     */
+    readonly extensions?: any;
+    /**
      * External ID of threat intelligence entity
      */
     readonly externalId?: pulumi.Input<string>;
@@ -179,6 +186,10 @@ export interface ThreatIntelligenceIndicatorArgs {
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Language of threat intelligence entity
+     */
+    readonly language?: pulumi.Input<string>;
+    /**
      * Last updated time in UTC
      */
     readonly lastUpdatedTimeUtc?: pulumi.Input<string>;
@@ -194,6 +205,10 @@ export interface ThreatIntelligenceIndicatorArgs {
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
     readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    /**
+     * Parsed patterns
+     */
+    readonly parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceParsedPattern>[]>;
     /**
      * Pattern of a threat intelligence entity
      */

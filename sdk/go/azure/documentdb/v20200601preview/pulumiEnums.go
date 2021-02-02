@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Enum to indicate type of backup residency
+type BackupStorageRedundancy pulumi.String
+
+const (
+	BackupStorageRedundancyGeo   = BackupStorageRedundancy("Geo")
+	BackupStorageRedundancyLocal = BackupStorageRedundancy("Local")
+	BackupStorageRedundancyZone  = BackupStorageRedundancy("Zone")
+)
+
+func (BackupStorageRedundancy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e BackupStorageRedundancy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackupStorageRedundancy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackupStorageRedundancy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BackupStorageRedundancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Describes the mode of backups.
 type BackupType pulumi.String
 

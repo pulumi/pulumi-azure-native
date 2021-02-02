@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         [Input("backupRetentionIntervalInHours")]
         public Input<int>? BackupRetentionIntervalInHours { get; set; }
 
+        /// <summary>
+        /// Enum to indicate type of backup residency
+        /// </summary>
+        [Input("backupStorageRedundancy")]
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.BackupStorageRedundancy>? BackupStorageRedundancy { get; set; }
+
         public PeriodicModePropertiesArgs()
         {
         }

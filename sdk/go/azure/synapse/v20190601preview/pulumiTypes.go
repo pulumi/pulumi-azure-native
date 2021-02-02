@@ -5579,6 +5579,160 @@ func (o LibraryRequirementsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Library/package properties
+type LibraryResourcePropertiesResponse struct {
+	// Container name of the library/package.
+	ContainerName string `pulumi:"containerName"`
+	// Creator Id of the library/package.
+	CreatorId string `pulumi:"creatorId"`
+	// Name of the library/package.
+	Name string `pulumi:"name"`
+	// Location of library/package in storage account.
+	Path string `pulumi:"path"`
+	// Provisioning status of the library/package.
+	ProvisioningStatus string `pulumi:"provisioningStatus"`
+	// Type of the library/package.
+	Type string `pulumi:"type"`
+	// The last update time of the library/package.
+	UploadedTimestamp string `pulumi:"uploadedTimestamp"`
+}
+
+// LibraryResourcePropertiesResponseInput is an input type that accepts LibraryResourcePropertiesResponseArgs and LibraryResourcePropertiesResponseOutput values.
+// You can construct a concrete instance of `LibraryResourcePropertiesResponseInput` via:
+//
+//          LibraryResourcePropertiesResponseArgs{...}
+type LibraryResourcePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToLibraryResourcePropertiesResponseOutput() LibraryResourcePropertiesResponseOutput
+	ToLibraryResourcePropertiesResponseOutputWithContext(context.Context) LibraryResourcePropertiesResponseOutput
+}
+
+// Library/package properties
+type LibraryResourcePropertiesResponseArgs struct {
+	// Container name of the library/package.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Creator Id of the library/package.
+	CreatorId pulumi.StringInput `pulumi:"creatorId"`
+	// Name of the library/package.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Location of library/package in storage account.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Provisioning status of the library/package.
+	ProvisioningStatus pulumi.StringInput `pulumi:"provisioningStatus"`
+	// Type of the library/package.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The last update time of the library/package.
+	UploadedTimestamp pulumi.StringInput `pulumi:"uploadedTimestamp"`
+}
+
+func (LibraryResourcePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i LibraryResourcePropertiesResponseArgs) ToLibraryResourcePropertiesResponseOutput() LibraryResourcePropertiesResponseOutput {
+	return i.ToLibraryResourcePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i LibraryResourcePropertiesResponseArgs) ToLibraryResourcePropertiesResponseOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryResourcePropertiesResponseOutput)
+}
+
+// LibraryResourcePropertiesResponseArrayInput is an input type that accepts LibraryResourcePropertiesResponseArray and LibraryResourcePropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `LibraryResourcePropertiesResponseArrayInput` via:
+//
+//          LibraryResourcePropertiesResponseArray{ LibraryResourcePropertiesResponseArgs{...} }
+type LibraryResourcePropertiesResponseArrayInput interface {
+	pulumi.Input
+
+	ToLibraryResourcePropertiesResponseArrayOutput() LibraryResourcePropertiesResponseArrayOutput
+	ToLibraryResourcePropertiesResponseArrayOutputWithContext(context.Context) LibraryResourcePropertiesResponseArrayOutput
+}
+
+type LibraryResourcePropertiesResponseArray []LibraryResourcePropertiesResponseInput
+
+func (LibraryResourcePropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i LibraryResourcePropertiesResponseArray) ToLibraryResourcePropertiesResponseArrayOutput() LibraryResourcePropertiesResponseArrayOutput {
+	return i.ToLibraryResourcePropertiesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LibraryResourcePropertiesResponseArray) ToLibraryResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryResourcePropertiesResponseArrayOutput)
+}
+
+// Library/package properties
+type LibraryResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (LibraryResourcePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o LibraryResourcePropertiesResponseOutput) ToLibraryResourcePropertiesResponseOutput() LibraryResourcePropertiesResponseOutput {
+	return o
+}
+
+func (o LibraryResourcePropertiesResponseOutput) ToLibraryResourcePropertiesResponseOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseOutput {
+	return o
+}
+
+// Container name of the library/package.
+func (o LibraryResourcePropertiesResponseOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Creator Id of the library/package.
+func (o LibraryResourcePropertiesResponseOutput) CreatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.CreatorId }).(pulumi.StringOutput)
+}
+
+// Name of the library/package.
+func (o LibraryResourcePropertiesResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Location of library/package in storage account.
+func (o LibraryResourcePropertiesResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Provisioning status of the library/package.
+func (o LibraryResourcePropertiesResponseOutput) ProvisioningStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.ProvisioningStatus }).(pulumi.StringOutput)
+}
+
+// Type of the library/package.
+func (o LibraryResourcePropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The last update time of the library/package.
+func (o LibraryResourcePropertiesResponseOutput) UploadedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.UploadedTimestamp }).(pulumi.StringOutput)
+}
+
+type LibraryResourcePropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LibraryResourcePropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o LibraryResourcePropertiesResponseArrayOutput) ToLibraryResourcePropertiesResponseArrayOutput() LibraryResourcePropertiesResponseArrayOutput {
+	return o
+}
+
+func (o LibraryResourcePropertiesResponseArrayOutput) ToLibraryResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseArrayOutput {
+	return o
+}
+
+func (o LibraryResourcePropertiesResponseArrayOutput) Index(i pulumi.IntInput) LibraryResourcePropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryResourcePropertiesResponse {
+		return vs[0].([]LibraryResourcePropertiesResponse)[vs[1].(int)]
+	}).(LibraryResourcePropertiesResponseOutput)
+}
+
 // The key authorization type integration runtime.
 type LinkedIntegrationRuntimeKeyAuthorization struct {
 	// The authorization type for integration runtime sharing.
@@ -12359,6 +12513,8 @@ func init() {
 	pulumi.RegisterOutputType(LibraryRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsResponseOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsResponsePtrOutput{})
+	pulumi.RegisterOutputType(LibraryResourcePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(LibraryResourcePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeKeyAuthorizationOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeKeyAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeRbacAuthorizationOutput{})

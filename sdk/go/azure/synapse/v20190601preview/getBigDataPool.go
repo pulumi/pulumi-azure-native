@@ -35,6 +35,8 @@ type LookupBigDataPoolResult struct {
 	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries []LibraryResourcePropertiesResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation

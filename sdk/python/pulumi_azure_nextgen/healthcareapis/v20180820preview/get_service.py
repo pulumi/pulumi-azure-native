@@ -20,13 +20,16 @@ class GetServiceResult:
     """
     The description of the service.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -61,6 +64,14 @@ class GetServiceResult:
         The resource identifier.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceResponseIdentity']:
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             etag=self.etag,
             id=self.id,
+            identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -148,6 +160,7 @@ def get_service(resource_group_name: Optional[str] = None,
     return AwaitableGetServiceResult(
         etag=__ret__.etag,
         id=__ret__.id,
+        identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

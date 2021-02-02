@@ -33,6 +33,8 @@ type Registry struct {
 	LoginServer pulumi.StringOutput `pulumi:"loginServer"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions pulumi.StringPtrOutput `pulumi:"networkRuleBypassOptions"`
 	// The network rule set for a container registry.
 	NetworkRuleSet NetworkRuleSetResponsePtrOutput `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
@@ -78,6 +80,9 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	if args.AdminUserEnabled == nil {
 		args.AdminUserEnabled = pulumi.BoolPtr(false)
+	}
+	if args.NetworkRuleBypassOptions == nil {
+		args.NetworkRuleBypassOptions = pulumi.StringPtr("AzureServices")
 	}
 	if args.PublicNetworkAccess == nil {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
@@ -146,6 +151,8 @@ type registryState struct {
 	LoginServer *string `pulumi:"loginServer"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions *string `pulumi:"networkRuleBypassOptions"`
 	// The network rule set for a container registry.
 	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
@@ -189,6 +196,8 @@ type RegistryState struct {
 	LoginServer pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions pulumi.StringPtrInput
 	// The network rule set for a container registry.
 	NetworkRuleSet NetworkRuleSetResponsePtrInput
 	// The policies for a container registry.
@@ -228,6 +237,8 @@ type registryArgs struct {
 	Identity *IdentityProperties `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions *string `pulumi:"networkRuleBypassOptions"`
 	// The network rule set for a container registry.
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
@@ -258,6 +269,8 @@ type RegistryArgs struct {
 	Identity IdentityPropertiesPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
+	// Whether to allow trusted Azure services to access a network restricted registry.
+	NetworkRuleBypassOptions pulumi.StringPtrInput
 	// The network rule set for a container registry.
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The policies for a container registry.

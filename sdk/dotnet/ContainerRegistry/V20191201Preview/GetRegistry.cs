@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted registry.
+        /// </summary>
+        public readonly string? NetworkRuleBypassOptions;
+        /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkRuleSet;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             string name,
 
+            string? networkRuleBypassOptions,
+
             Outputs.NetworkRuleSetResponse? networkRuleSet,
 
             Outputs.PoliciesResponse? policies,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             Location = location;
             LoginServer = loginServer;
             Name = name;
+            NetworkRuleBypassOptions = networkRuleBypassOptions;
             NetworkRuleSet = networkRuleSet;
             Policies = policies;
             PrivateEndpointConnections = privateEndpointConnections;

@@ -40,6 +40,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Setting indicating whether the service has a managed identity associated with it.
+     */
+    public readonly identity!: pulumi.Output<outputs.healthcareapis.v20180820preview.ResourceResponseIdentity | undefined>;
+    /**
      * The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
      */
     public readonly kind!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -97,6 +102,7 @@ export class Service extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -125,6 +131,10 @@ export interface ServiceArgs {
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * Setting indicating whether the service has a managed identity associated with it.
+     */
+    readonly identity?: pulumi.Input<inputs.healthcareapis.v20180820preview.ResourceIdentity>;
     /**
      * The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
      */

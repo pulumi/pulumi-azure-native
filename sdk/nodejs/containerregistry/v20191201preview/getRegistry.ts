@@ -75,6 +75,10 @@ export interface GetRegistryResult {
      */
     readonly name: string;
     /**
+     * Whether to allow trusted Azure services to access a network restricted registry.
+     */
+    readonly networkRuleBypassOptions?: string;
+    /**
      * The network rule set for a container registry.
      */
     readonly networkRuleSet?: outputs.containerregistry.v20191201preview.NetworkRuleSetResponse;

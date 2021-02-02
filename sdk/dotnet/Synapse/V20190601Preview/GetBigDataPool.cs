@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? CreationDate;
         /// <summary>
+        /// List of custom libraries/packages associated with the spark pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LibraryResourcePropertiesResponse> CustomLibraries;
+        /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
         public readonly string? DefaultSparkLogFolder;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? creationDate,
 
+            ImmutableArray<Outputs.LibraryResourcePropertiesResponse> customLibraries,
+
             string? defaultSparkLogFolder,
 
             Outputs.DynamicExecutorAllocationResponse? dynamicExecutorAllocation,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             AutoScale = autoScale;
             CacheSize = cacheSize;
             CreationDate = creationDate;
+            CustomLibraries = customLibraries;
             DefaultSparkLogFolder = defaultSparkLogFolder;
             DynamicExecutorAllocation = dynamicExecutorAllocation;
             Id = id;

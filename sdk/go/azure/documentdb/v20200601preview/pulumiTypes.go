@@ -10417,6 +10417,8 @@ type PeriodicModeProperties struct {
 	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
 	// An integer representing the time (in hours) that each backup is retained
 	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
+	// Enum to indicate type of backup residency
+	BackupStorageRedundancy *string `pulumi:"backupStorageRedundancy"`
 }
 
 // PeriodicModePropertiesInput is an input type that accepts PeriodicModePropertiesArgs and PeriodicModePropertiesOutput values.
@@ -10436,6 +10438,8 @@ type PeriodicModePropertiesArgs struct {
 	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
 	// An integer representing the time (in hours) that each backup is retained
 	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
+	// Enum to indicate type of backup residency
+	BackupStorageRedundancy pulumi.StringPtrInput `pulumi:"backupStorageRedundancy"`
 }
 
 func (PeriodicModePropertiesArgs) ElementType() reflect.Type {
@@ -10526,6 +10530,11 @@ func (o PeriodicModePropertiesOutput) BackupRetentionIntervalInHours() pulumi.In
 	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
 }
 
+// Enum to indicate type of backup residency
+func (o PeriodicModePropertiesOutput) BackupStorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *string { return v.BackupStorageRedundancy }).(pulumi.StringPtrOutput)
+}
+
 type PeriodicModePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (PeriodicModePropertiesPtrOutput) ElementType() reflect.Type {
@@ -10564,12 +10573,24 @@ func (o PeriodicModePropertiesPtrOutput) BackupRetentionIntervalInHours() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Enum to indicate type of backup residency
+func (o PeriodicModePropertiesPtrOutput) BackupStorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackupStorageRedundancy
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration values for periodic mode backup
 type PeriodicModePropertiesResponse struct {
 	// An integer representing the interval in minutes between two backups
 	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
 	// An integer representing the time (in hours) that each backup is retained
 	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
+	// Enum to indicate type of backup residency
+	BackupStorageRedundancy *string `pulumi:"backupStorageRedundancy"`
 }
 
 // PeriodicModePropertiesResponseInput is an input type that accepts PeriodicModePropertiesResponseArgs and PeriodicModePropertiesResponseOutput values.
@@ -10589,6 +10610,8 @@ type PeriodicModePropertiesResponseArgs struct {
 	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
 	// An integer representing the time (in hours) that each backup is retained
 	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
+	// Enum to indicate type of backup residency
+	BackupStorageRedundancy pulumi.StringPtrInput `pulumi:"backupStorageRedundancy"`
 }
 
 func (PeriodicModePropertiesResponseArgs) ElementType() reflect.Type {
@@ -10679,6 +10702,11 @@ func (o PeriodicModePropertiesResponseOutput) BackupRetentionIntervalInHours() p
 	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
 }
 
+// Enum to indicate type of backup residency
+func (o PeriodicModePropertiesResponseOutput) BackupStorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *string { return v.BackupStorageRedundancy }).(pulumi.StringPtrOutput)
+}
+
 type PeriodicModePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (PeriodicModePropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -10715,6 +10743,16 @@ func (o PeriodicModePropertiesResponsePtrOutput) BackupRetentionIntervalInHours(
 		}
 		return v.BackupRetentionIntervalInHours
 	}).(pulumi.IntPtrOutput)
+}
+
+// Enum to indicate type of backup residency
+func (o PeriodicModePropertiesResponsePtrOutput) BackupStorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackupStorageRedundancy
+	}).(pulumi.StringPtrOutput)
 }
 
 // The set of data plane operations permitted through this Role Definition.

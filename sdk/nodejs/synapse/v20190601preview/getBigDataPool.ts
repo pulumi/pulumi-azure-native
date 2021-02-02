@@ -56,6 +56,10 @@ export interface GetBigDataPoolResult {
      */
     readonly creationDate?: string;
     /**
+     * List of custom libraries/packages associated with the spark pool.
+     */
+    readonly customLibraries?: outputs.synapse.v20190601preview.LibraryResourcePropertiesResponse[];
+    /**
      * The default folder where Spark logs will be written.
      */
     readonly defaultSparkLogFolder?: string;

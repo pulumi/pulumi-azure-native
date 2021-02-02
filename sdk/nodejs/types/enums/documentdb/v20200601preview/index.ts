@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BackupStorageRedundancy = {
+    Geo: "Geo",
+    Local: "Local",
+    Zone: "Zone",
+} as const;
+
+/**
+ * Enum to indicate type of backup residency
+ */
+export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
+
 export const BackupType = {
     Periodic: "Periodic",
     Continuous: "Continuous",

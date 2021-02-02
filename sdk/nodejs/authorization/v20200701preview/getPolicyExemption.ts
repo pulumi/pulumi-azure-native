@@ -51,7 +51,7 @@ export interface GetPolicyExemptionResult {
      */
     readonly expiresOn?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The ID of the policy exemption.
      */
     readonly id: string;
     /**
@@ -59,7 +59,7 @@ export interface GetPolicyExemptionResult {
      */
     readonly metadata?: any;
     /**
-     * The name of the resource
+     * The name of the policy exemption.
      */
     readonly name: string;
     /**
@@ -75,7 +75,7 @@ export interface GetPolicyExemptionResult {
      */
     readonly systemData: outputs.authorization.v20200701preview.SystemDataResponse;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of the resource (Microsoft.Authorization/policyExemptions).
      */
     readonly type: string;
 }

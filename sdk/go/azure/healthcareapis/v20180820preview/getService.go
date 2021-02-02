@@ -29,6 +29,8 @@ type LookupServiceResult struct {
 	Etag *string `pulumi:"etag"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity *ResourceResponseIdentity `pulumi:"identity"`
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind string `pulumi:"kind"`
 	// The resource location.

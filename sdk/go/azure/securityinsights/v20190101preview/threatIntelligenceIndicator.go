@@ -107,6 +107,8 @@ type threatIntelligenceIndicatorArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Extensions map
+	Extensions interface{} `pulumi:"extensions"`
 	// External ID of threat intelligence entity
 	ExternalId *string `pulumi:"externalId"`
 	// External References
@@ -121,6 +123,8 @@ type threatIntelligenceIndicatorArgs struct {
 	Kind string `pulumi:"kind"`
 	// Labels  of threat intelligence entity
 	Labels []string `pulumi:"labels"`
+	// Language of threat intelligence entity
+	Language *string `pulumi:"language"`
 	// Last updated time in UTC
 	LastUpdatedTimeUtc *string `pulumi:"lastUpdatedTimeUtc"`
 	// Modified by
@@ -129,6 +133,8 @@ type threatIntelligenceIndicatorArgs struct {
 	Name string `pulumi:"name"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
+	// Parsed patterns
+	ParsedPattern []ThreatIntelligenceParsedPattern `pulumi:"parsedPattern"`
 	// Pattern of a threat intelligence entity
 	Pattern *string `pulumi:"pattern"`
 	// Pattern type of a threat intelligence entity
@@ -165,6 +171,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// Extensions map
+	Extensions pulumi.Input
 	// External ID of threat intelligence entity
 	ExternalId pulumi.StringPtrInput
 	// External References
@@ -179,6 +187,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Kind pulumi.StringInput
 	// Labels  of threat intelligence entity
 	Labels pulumi.StringArrayInput
+	// Language of threat intelligence entity
+	Language pulumi.StringPtrInput
 	// Last updated time in UTC
 	LastUpdatedTimeUtc pulumi.StringPtrInput
 	// Modified by
@@ -187,6 +197,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Name pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
+	// Parsed patterns
+	ParsedPattern ThreatIntelligenceParsedPatternArrayInput
 	// Pattern of a threat intelligence entity
 	Pattern pulumi.StringPtrInput
 	// Pattern type of a threat intelligence entity

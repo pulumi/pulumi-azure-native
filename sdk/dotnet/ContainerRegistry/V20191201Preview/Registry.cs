@@ -70,6 +70,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted registry.
+        /// </summary>
+        [Output("networkRuleBypassOptions")]
+        public Output<string?> NetworkRuleBypassOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
         [Output("networkRuleSet")]
@@ -221,6 +227,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted registry.
+        /// </summary>
+        [Input("networkRuleBypassOptions")]
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.NetworkRuleBypassOptions>? NetworkRuleBypassOptions { get; set; }
+
+        /// <summary>
         /// The network rule set for a container registry.
         /// </summary>
         [Input("networkRuleSet")]
@@ -277,6 +289,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public RegistryArgs()
         {
             AdminUserEnabled = false;
+            NetworkRuleBypassOptions = "AzureServices";
             PublicNetworkAccess = "Enabled";
         }
     }

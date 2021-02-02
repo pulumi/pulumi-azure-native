@@ -17,6 +17,8 @@ type Service struct {
 
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity ResourceResponseIdentityPtrOutput `pulumi:"identity"`
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The resource location.
@@ -89,6 +91,8 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity *ResourceResponseIdentity `pulumi:"identity"`
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind *string `pulumi:"kind"`
 	// The resource location.
@@ -106,6 +110,8 @@ type serviceState struct {
 type ServiceState struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrInput
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity ResourceResponseIdentityPtrInput
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind pulumi.StringPtrInput
 	// The resource location.
@@ -127,6 +133,8 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind string `pulumi:"kind"`
 	// The resource location.
@@ -145,6 +153,8 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrInput
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity ResourceIdentityPtrInput
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind Kind
 	// The resource location.

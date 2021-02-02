@@ -53,6 +53,16 @@ export const EncryptionStatus = {
  */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
+export const NetworkRuleBypassOptions = {
+    AzureServices: "AzureServices",
+    None: "None",
+} as const;
+
+/**
+ * Whether to allow trusted Azure services to access a network restricted registry.
+ */
+export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
+
 export const PipelineOptions = {
     OverwriteTags: "OverwriteTags",
     OverwriteBlobs: "OverwriteBlobs",

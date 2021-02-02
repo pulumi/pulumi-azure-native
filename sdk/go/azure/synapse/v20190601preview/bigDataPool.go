@@ -23,6 +23,8 @@ type BigDataPool struct {
 	CacheSize pulumi.IntPtrOutput `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries LibraryResourcePropertiesResponseArrayOutput `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrOutput `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
@@ -112,6 +114,8 @@ type bigDataPoolState struct {
 	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries []LibraryResourcePropertiesResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
@@ -155,6 +159,8 @@ type BigDataPoolState struct {
 	CacheSize pulumi.IntPtrInput
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries LibraryResourcePropertiesResponseArrayInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Dynamic Executor Allocation

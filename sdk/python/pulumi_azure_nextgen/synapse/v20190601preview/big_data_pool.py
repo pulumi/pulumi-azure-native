@@ -118,6 +118,7 @@ class BigDataPool(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['custom_libraries'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20201201:BigDataPool")])
@@ -177,6 +178,14 @@ class BigDataPool(pulumi.CustomResource):
         The time when the Big Data pool was created.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="customLibraries")
+    def custom_libraries(self) -> pulumi.Output[Optional[Sequence['outputs.LibraryResourcePropertiesResponse']]]:
+        """
+        List of custom libraries/packages associated with the spark pool.
+        """
+        return pulumi.get(self, "custom_libraries")
 
     @property
     @pulumi.getter(name="defaultSparkLogFolder")

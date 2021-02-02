@@ -19,6 +19,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input['Kind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ServicesPropertiesArgs']]] = None,
@@ -34,6 +35,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input['Kind'] kind: The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['ServicesPropertiesArgs']] properties: The common properties of a service.
@@ -59,6 +61,7 @@ class Service(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
+            __props__['identity'] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
@@ -108,6 +111,14 @@ class Service(pulumi.CustomResource):
         An etag associated with the resource, used for optimistic concurrency when editing it.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceResponseIdentity']]:
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
