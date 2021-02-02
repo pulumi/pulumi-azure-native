@@ -12855,6 +12855,10 @@
       {
         "applicationId": "b4ca0290-4e73-4e31-ade0-c82ecfaabf6a",
         "roleDefinitionId": "18363e25-ff21-4159-ae8d-7dfecb5bd001"
+      },
+      {
+        "applicationId": "79d7fb34-4bef-4417-8184-ff713af7a679",
+        "roleDefinitionId": "1c1f11ef-abfa-4abe-a02b-226771d07fc7"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Network",
@@ -12879,6 +12883,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -12966,7 +12971,111 @@
       },
       {
         "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2015-06-15",
+            "profileVersion": "2017-03-09-profile"
+          },
+          {
+            "apiVersion": "2017-10-01",
+            "profileVersion": "2018-03-01-hybrid"
+          },
+          {
+            "apiVersion": "2017-10-01",
+            "profileVersion": "2019-03-01-hybrid"
+          }
+        ],
         "apiVersions": [
+          "2020-11-01",
+          "2020-08-01",
+          "2020-07-01",
+          "2020-06-01",
+          "2020-05-01",
+          "2020-04-01",
+          "2020-03-01",
+          "2020-01-01",
+          "2019-12-01",
+          "2019-11-01",
+          "2019-09-01",
+          "2019-08-01",
+          "2019-07-01",
+          "2019-06-01",
+          "2019-04-01",
+          "2019-02-01",
+          "2018-12-01",
+          "2018-11-01",
+          "2018-10-01",
+          "2018-08-01",
+          "2018-07-01",
+          "2018-06-01",
+          "2018-05-01",
+          "2018-04-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2018-01-01",
+          "2017-11-01",
+          "2017-10-01",
+          "2017-09-01",
+          "2017-08-01",
+          "2017-06-01",
+          "2017-04-01",
+          "2017-03-01",
+          "2016-12-01",
+          "2016-11-01",
+          "2016-10-01",
+          "2016-09-01",
+          "2016-08-01",
+          "2016-07-01",
+          "2016-06-01",
+          "2016-03-30",
+          "2015-06-15",
+          "2015-05-01-preview",
+          "2014-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-03-01",
+        "locations": [
+          "West US",
+          "East US",
+          "North Europe",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "North Central US",
+          "South Central US",
+          "Central US",
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "Brazil South",
+          "Australia East",
+          "Australia Southeast",
+          "Central India",
+          "South India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West Central US",
+          "West US 2",
+          "UK West",
+          "UK South",
+          "Korea Central",
+          "Korea South",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
+        ],
+        "properties": null,
+        "resourceType": "virtualNetworks/taggedTrafficConsumers"
+      },
+      {
+        "aliases": null,
+        "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13172,6 +13281,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13390,6 +13500,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01"
@@ -13581,6 +13692,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13669,6 +13781,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13728,6 +13841,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13797,6 +13911,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13899,6 +14014,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -13997,6 +14113,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14070,6 +14187,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14140,6 +14258,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14222,6 +14341,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14310,6 +14430,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14504,6 +14625,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14566,6 +14688,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14651,6 +14774,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14724,6 +14848,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14797,6 +14922,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14818,6 +14944,7 @@
           "2018-08-01",
           "2018-07-01",
           "2018-06-01",
+          "2018-05-01",
           "2018-04-01",
           "2018-03-01",
           "2018-02-01",
@@ -14883,6 +15010,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -14985,6 +15113,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15087,6 +15216,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15175,6 +15305,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15393,6 +15524,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15467,6 +15599,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15534,6 +15667,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15635,6 +15769,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15722,6 +15857,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15809,6 +15945,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15870,6 +16007,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -15957,6 +16095,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16032,6 +16171,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16098,6 +16238,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16156,6 +16297,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16214,6 +16356,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16268,6 +16411,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16325,6 +16469,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16382,6 +16527,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16431,6 +16577,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16480,6 +16627,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16546,6 +16694,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01"
         ],
         "capabilities": "None",
@@ -16590,6 +16739,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01"
         ],
         "capabilities": "None",
@@ -16634,6 +16784,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16700,6 +16851,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16766,6 +16918,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16832,6 +16985,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -16898,6 +17052,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -17618,6 +17773,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -17706,6 +17862,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -17793,6 +17950,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -17869,6 +18027,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -17943,6 +18102,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18003,6 +18163,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18063,6 +18224,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18123,6 +18285,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18201,6 +18364,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18278,6 +18442,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18351,6 +18516,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18424,6 +18590,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18477,6 +18644,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18550,6 +18718,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18623,6 +18792,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18686,6 +18856,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18745,6 +18916,37 @@
         ],
         "properties": null,
         "resourceType": "expressRouteGateways"
+      },
+      {
+        "aliases": null,
+        "apiVersions": [
+          "2020-11-01",
+          "2020-08-01",
+          "2020-07-01",
+          "2020-06-01",
+          "2020-05-01",
+          "2020-04-01",
+          "2020-03-01",
+          "2020-01-01",
+          "2019-12-01",
+          "2019-11-01",
+          "2019-09-01",
+          "2019-08-01",
+          "2019-07-01",
+          "2019-06-01",
+          "2019-04-01",
+          "2019-02-01",
+          "2018-12-01",
+          "2018-11-01",
+          "2018-10-01",
+          "2018-08-01"
+        ],
+        "capabilities": "None",
+        "locations": [
+          "France Central"
+        ],
+        "properties": null,
+        "resourceType": "expressRoutePortsLocations"
       },
       {
         "aliases": null,
@@ -18826,7 +19028,7 @@
           "2019-08-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2019-08-01",
+        "defaultApiVersion": "2020-04-01",
         "locations": [
           "UAE North",
           "Australia Central 2",
@@ -18930,6 +19132,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -18979,6 +19182,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19176,6 +19380,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19238,6 +19443,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19301,6 +19507,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19364,6 +19571,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19419,6 +19627,7 @@
           }
         ],
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19488,6 +19697,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19809,6 +20019,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19872,6 +20083,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -19948,7 +20160,7 @@
           "2019-07-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2019-07-01",
+        "defaultApiVersion": "2020-04-01",
         "locations": [
           "UAE North",
           "Australia Central 2",
@@ -20007,7 +20219,7 @@
           "2019-12-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2019-12-01",
+        "defaultApiVersion": "2020-04-01",
         "locations": [
           "UAE North",
           "Australia Central 2",
@@ -20056,6 +20268,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-01",
           "2020-08-01",
           "2020-07-01",
           "2020-06-01",
@@ -20134,7 +20347,7 @@
           "2020-03-01"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2020-03-01",
+        "defaultApiVersion": "2020-04-01",
         "locations": [],
         "properties": null,
         "resourceType": "networkVirtualApplianceSkus"
@@ -28759,6 +28972,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -28831,6 +29045,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -28877,6 +29092,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -28943,6 +29159,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -28989,6 +29206,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -29094,6 +29312,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -29152,6 +29371,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "UAE North",
           "Japan West",
@@ -29213,6 +29433,7 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
+          "Australia Central 2",
           "UAE Central",
           "Brazil South",
           "UAE North",
@@ -35789,6 +36010,27 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-10-05-privatepreview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "locations": [
+          "East US 2",
+          "East US",
+          "North Central US",
+          "Canada Central",
+          "Australia East",
+          "UK South",
+          "West Europe",
+          "Southeast Asia",
+          "West US 2",
+          "North Europe"
+        ],
+        "properties": null,
+        "resourceType": "serverGroupsv2"
+      },
+      {
+        "aliases": null,
+        "apiVersions": [
           "2018-03-29-privatepreview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
@@ -35810,6 +36052,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
         ],
@@ -35905,6 +36148,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
         ],
@@ -35926,6 +36170,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
         ],
@@ -36330,7 +36575,11 @@
       },
       {
         "aliases": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2020-11-05-preview",
+          "2020-02-14-privatepreview",
+          "2020-02-14-preview"
+        ],
         "capabilities": "None",
         "locations": [
           "East US 2",
@@ -42505,6 +42754,7 @@
           }
         ],
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-07-01-preview",
           "2020-07-01",
@@ -42580,6 +42830,7 @@
           }
         ],
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-07-01-preview",
           "2020-07-01",
@@ -57827,6 +58078,8 @@
           "West US",
           "West US 2",
           "East US",
+          "East US 2",
+          "South Central US",
           "West Europe",
           "North Europe",
           "Japan East",
@@ -57856,6 +58109,8 @@
           "West US",
           "West US 2",
           "East US",
+          "East US 2",
+          "South Central US",
           "West Europe",
           "North Europe",
           "Japan East",
@@ -57875,6 +58130,8 @@
           "West US",
           "West US 2",
           "East US",
+          "East US 2",
+          "South Central US",
           "West Europe",
           "North Europe",
           "Japan East",
@@ -60758,7 +61015,41 @@
           "2014-04-01"
         ],
         "capabilities": "None",
-        "locations": [],
+        "locations": [
+          "North Central US",
+          "South Central US",
+          "East US",
+          "East US 2",
+          "Canada Central",
+          "Canada East",
+          "West US",
+          "West US 2",
+          "West Central US",
+          "Australia East",
+          "Australia Southeast",
+          "South Africa North",
+          "UAE North",
+          "Australia Central",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East",
+          "Central US",
+          "East Asia",
+          "Southeast Asia",
+          "North Europe",
+          "West Europe",
+          "UK South",
+          "UK West",
+          "Japan East",
+          "Japan West",
+          "Brazil South",
+          "South India",
+          "Central India",
+          "West India",
+          "Korea Central",
+          "Korea South",
+          "France Central"
+        ],
         "properties": null,
         "resourceType": "domainNames/slots/roles/metrics"
       },
@@ -61694,7 +61985,41 @@
           "2014-04-01"
         ],
         "capabilities": "None",
-        "locations": [],
+        "locations": [
+          "West US",
+          "Central US",
+          "South Central US",
+          "Japan East",
+          "Japan West",
+          "East Asia",
+          "Southeast Asia",
+          "Australia East",
+          "Australia Southeast",
+          "South India",
+          "Central India",
+          "West India",
+          "West US 2",
+          "West Central US",
+          "East US",
+          "East US 2",
+          "North Central US",
+          "North Europe",
+          "West Europe",
+          "Brazil South",
+          "Canada Central",
+          "Canada East",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "France Central",
+          "South Africa North",
+          "UAE North",
+          "Australia Central",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
+        ],
         "properties": null,
         "resourceType": "storageAccounts/services/metrics"
       },
@@ -61714,7 +62039,41 @@
           "2014-04-01"
         ],
         "capabilities": "None",
-        "locations": [],
+        "locations": [
+          "West US",
+          "Central US",
+          "South Central US",
+          "Japan East",
+          "Japan West",
+          "East Asia",
+          "Southeast Asia",
+          "Australia East",
+          "Australia Southeast",
+          "South India",
+          "Central India",
+          "West India",
+          "West US 2",
+          "West Central US",
+          "East US",
+          "East US 2",
+          "North Central US",
+          "North Europe",
+          "West Europe",
+          "Brazil South",
+          "Canada Central",
+          "Canada East",
+          "UK South",
+          "UK West",
+          "Korea Central",
+          "Korea South",
+          "France Central",
+          "South Africa North",
+          "UAE North",
+          "Australia Central",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
+        ],
         "properties": null,
         "resourceType": "storageAccounts/metrics"
       },
@@ -64641,6 +65000,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-10-01-preview",
           "2020-09-01",
           "2019-11-01",
           "2018-11-01-alpha"
@@ -64670,6 +65030,7 @@
       {
         "aliases": null,
         "apiVersions": [
+          "2020-10-01-preview",
           "2020-09-01",
           "2019-11-01",
           "2018-11-01-alpha"
@@ -72300,7 +72661,9 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway East",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "operations"
