@@ -11216,6 +11216,7 @@
         "sqlvirtualmachine/v20170301preview/sqlVirtualMachine.ts",
         "sqlvirtualmachine/v20170301preview/sqlVirtualMachineGroup.ts",
         "storage/index.ts",
+        "storage/latest/blob.ts",
         "storage/latest/blobContainer.ts",
         "storage/latest/blobContainerImmutabilityPolicy.ts",
         "storage/latest/blobInventoryPolicy.ts",

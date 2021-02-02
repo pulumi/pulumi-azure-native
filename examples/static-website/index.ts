@@ -37,17 +37,44 @@ const staticWebsite = new storage.StorageAccountStaticWebsite("staticsite", {
 });
 
 // Upload the files
-// TODO: Blobs are not part of ARM API.
-// ["index.html", "404.html"].map(name =>
-//     new azure.storage.Blob(name, {
-//         name,
-//         storageAccountName: storageAccount.name,
-//         storageContainerName: "$web",
-//         type: "Block",
-//         source: new pulumi.asset.FileAsset(`./wwwroot/${name}`),
-//         contentType: "text/html",
-//     }),
-// );
+["index.html", "404.html"].map(name =>
+    new storage.Blob(name, {
+        resourceGroupName: resourceGroup.name,
+        accountName: storageAccount.name,
+        containerName: staticWebsite.containerName,
+        blobName: name,
+        source: new pulumi.asset.FileAsset(`./wwwroot/${name}`),
+        contentType: "text/html",
+    }),
+);
+
+new storage.Blob("test.html", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    containerName: staticWebsite.containerName,
+    blobName: "test.html",
+    source: new pulumi.asset.StringAsset("<h1>This is deployed as-is</h1>"),
+    contentMd5: "+vC+ix/2YjgiJLA4GimBqg==",
+    contentType: "text/html",
+});
+
+new storage.Blob("backup.zip", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    containerName: staticWebsite.containerName,
+    blobName: "backup.zip",
+    source: new pulumi.asset.FileArchive("./wwwroot"),
+    contentType: "text/html",
+});
+
+// A test for an append blob.
+new storage.Blob("append-blob", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    containerName: staticWebsite.containerName,
+    blobName: "append-me.dat",
+    type: storage.BlobType.Append,
+});
 
 // Web endpoint to the website
 export const staticEndpoint = storageAccount.primaryEndpoints.web;

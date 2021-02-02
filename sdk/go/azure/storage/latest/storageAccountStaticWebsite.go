@@ -19,7 +19,7 @@ type StorageAccountStaticWebsite struct {
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document pulumi.StringPtrOutput `pulumi:"error404Document"`
-	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
 	IndexDocument pulumi.StringPtrOutput `pulumi:"indexDocument"`
 }
 
@@ -62,7 +62,7 @@ type storageAccountStaticWebsiteState struct {
 	ContainerName *string `pulumi:"containerName"`
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document *string `pulumi:"error404Document"`
-	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
 	IndexDocument *string `pulumi:"indexDocument"`
 }
 
@@ -71,7 +71,7 @@ type StorageAccountStaticWebsiteState struct {
 	ContainerName pulumi.StringPtrInput
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document pulumi.StringPtrInput
-	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
 	IndexDocument pulumi.StringPtrInput
 }
 
@@ -84,7 +84,7 @@ type storageAccountStaticWebsiteArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document *string `pulumi:"error404Document"`
-	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
 	IndexDocument *string `pulumi:"indexDocument"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -96,7 +96,7 @@ type StorageAccountStaticWebsiteArgs struct {
 	AccountName pulumi.StringInput
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document pulumi.StringPtrInput
-	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
 	IndexDocument pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

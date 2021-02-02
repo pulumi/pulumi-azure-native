@@ -47,14 +47,15 @@ const storageContainer = new storage.BlobContainer("c", {
     publicAccess: storage.PublicAccess.None,
 });
 
-// TODO: blobs are not supported
-// const blob = new azure.storage.Blob(`${prefix}-b`, {
-//     storageAccountName: storageAccount.name,
-//     storageContainerName: storageContainer.name,
-//     type: "Block",
+const blob = new storage.Blob("b", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    containerName: storageContainer.name,
+    blobName: "wwwroot",
+    type: "Block",
 
-//     source: new pulumi.asset.FileArchive("wwwroot"),
-// });
+    source: new pulumi.asset.FileArchive("wwwroot"),
+});
 
 // TODO: invokes are not supported yet
 // const codeBlobUrl = azure.storage.signedBlobReadUrl(blob, storageAccount);
