@@ -13,6 +13,7 @@ var excludeResourcePatterns = []string{
 	"azure-nextgen:costmanagement/.*:Budget",
 	"azure-nextgen:datamigration/.*:Task",
 	"azure-nextgen:machinelearning/.*:WebService",
+	"azure-nextgen:machinelearningservices/.*:LabelingJob",
 	"azure-nextgen:media/latest:Job",
 	"azure-nextgen:migrate/.*:MoveCollection",
 	"azure-nextgen:migrate/.*:MoveResource",
