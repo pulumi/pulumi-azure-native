@@ -30,6 +30,9 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
       - name: Cleanup SDK folder
         run: make clean
       - name: commit changes
