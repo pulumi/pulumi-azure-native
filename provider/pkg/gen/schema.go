@@ -405,6 +405,12 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		}
 		pkg.Resources[tok] = r
 	}
+	for tok, t := range resources.SchemaTypeMixins() {
+		if _, has := pkg.Types[tok]; has {
+			return errors.Errorf("Type %q is already defined", tok)
+		}
+		pkg.Types[tok] = t
+	}
 	for tok, r := range resources.MetaMixins() {
 		if _, has := metadata.Resources[tok]; has {
 			return errors.Errorf("Metadata %q is already defined", tok)

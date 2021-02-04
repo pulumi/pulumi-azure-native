@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./blob";
 export * from "./blobContainer";
 export * from "./blobContainerImmutabilityPolicy";
 export * from "./blobInventoryPolicy";
@@ -42,6 +43,7 @@ export * from "./tableServiceProperties";
 export * from "../../types/enums/storage/latest";
 
 // Import resources to register:
+import { Blob } from "./blob";
 import { BlobContainer } from "./blobContainer";
 import { BlobContainerImmutabilityPolicy } from "./blobContainerImmutabilityPolicy";
 import { BlobInventoryPolicy } from "./blobInventoryPolicy";
@@ -62,6 +64,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:storage/latest:Blob":
+                return new Blob(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:BlobContainer":
                 return new BlobContainer(name, <any>undefined, { urn })
             case "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy":

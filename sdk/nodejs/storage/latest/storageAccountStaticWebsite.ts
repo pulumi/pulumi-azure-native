@@ -43,7 +43,7 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
      */
     public readonly error404Document!: pulumi.Output<string | undefined>;
     /**
-     * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+     * The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
      */
     public readonly indexDocument!: pulumi.Output<string | undefined>;
 
@@ -97,7 +97,7 @@ export interface StorageAccountStaticWebsiteArgs {
      */
     readonly error404Document?: pulumi.Input<string>;
     /**
-     * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+     * The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
      */
     readonly indexDocument?: pulumi.Input<string>;
     /**

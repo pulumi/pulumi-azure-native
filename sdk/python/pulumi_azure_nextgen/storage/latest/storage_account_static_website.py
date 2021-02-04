@@ -29,7 +29,7 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group.
         :param pulumi.Input[str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-        :param pulumi.Input[str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+        :param pulumi.Input[str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         if __name__ is not None:
@@ -102,7 +102,7 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
     @pulumi.getter(name="indexDocument")
     def index_document(self) -> pulumi.Output[Optional[str]]:
         """
-        The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+        The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
 

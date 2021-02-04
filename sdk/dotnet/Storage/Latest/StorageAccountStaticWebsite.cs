@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         public Output<string?> Error404Document { get; private set; } = null!;
 
         /// <summary>
-        /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+        /// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
         /// </summary>
         [Output("indexDocument")]
         public Output<string?> IndexDocument { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         public Input<string>? Error404Document { get; set; }
 
         /// <summary>
-        /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, 'index.html'. The value is case-sensitive.
+        /// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
         /// </summary>
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }

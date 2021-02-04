@@ -15,6 +15,8 @@ import (
 type CustomResource struct {
 	path string
 	tok  string
+	// Auxiliary types defined for this resource. Optional.
+	Types map[string]schema.ComplexTypeSpec
 	// Resource schema. Optional, by default the schema is assumed to be included in Azure Open API specs.
 	Schema *schema.ResourceSpec
 	// Resource metadata. Defines the parameters and properties that are used for diff calculation and validation.
@@ -49,6 +51,7 @@ func BuildCustomResources(env *azure.Environment, subscriptionID string, bearerA
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
+		newBlob(env, &storageAccountsClient),
 	}
 
 	result := map[string]*CustomResource{}
@@ -78,6 +81,17 @@ func SchemaMixins() map[string]schema.ResourceSpec {
 		}
 	}
 	return specs
+}
+
+// SchemaTypeMixins returns the map of custom resource schema definitions per resource token.
+func SchemaTypeMixins() map[string]schema.ComplexTypeSpec {
+	types := map[string]schema.ComplexTypeSpec{}
+	for _, r := range featureLookup {
+		for n, v := range r.Types {
+			types[n] = v
+		}
+	}
+	return types
 }
 
 // SchemaMixins returns the map of custom resource metadata definitions per resource token.

@@ -558,7 +558,6 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 		Label:        fmt.Sprintf("%s.news", label),
 		KeepUnknowns: true,
 		SkipNulls:    true,
-		RejectAssets: true,
 		KeepSecrets:  true,
 	})
 	if err != nil {
