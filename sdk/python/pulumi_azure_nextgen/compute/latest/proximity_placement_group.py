@@ -29,7 +29,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         Specifies information about the proximity placement group.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             __props__['type'] = None
             __props__['virtual_machine_scale_sets'] = None
             __props__['virtual_machines'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:ProximityPlacementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:ProximityPlacementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProximityPlacementGroup, __self__).__init__(
             'azure-nextgen:compute/latest:ProximityPlacementGroup',

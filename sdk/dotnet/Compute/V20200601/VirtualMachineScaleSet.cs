@@ -184,6 +184,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineScaleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

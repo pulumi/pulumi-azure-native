@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:SshPublicKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

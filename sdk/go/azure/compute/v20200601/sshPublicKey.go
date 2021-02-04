@@ -50,6 +50,9 @@ func NewSshPublicKey(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:SshPublicKey"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:SshPublicKey"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SshPublicKey

@@ -12,6 +12,7 @@ __all__ = [
     'DiffDiskPlacement',
     'DiskCreateOption',
     'DiskCreateOptionTypes',
+    'DiskDetachOptionTypes',
     'DiskEncryptionSetIdentityType',
     'DiskEncryptionSetType',
     'DiskStorageAccountTypes',
@@ -22,16 +23,18 @@ __all__ = [
     'HyperVGeneration',
     'HyperVGenerationTypes',
     'IPVersion',
-    'InGuestPatchMode',
     'IntervalInMins',
+    'LinuxVMGuestPatchMode',
     'NetworkAccessPolicy',
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
+    'OrchestrationMode',
     'PassNames',
     'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProximityPlacementGroupType',
     'ResourceIdentityType',
+    'SecurityTypes',
     'SettingNames',
     'SnapshotStorageAccountTypes',
     'StatusLevelTypes',
@@ -42,6 +45,7 @@ __all__ = [
     'VirtualMachinePriorityTypes',
     'VirtualMachineScaleSetScaleInRules',
     'VirtualMachineSizeTypes',
+    'WindowsVMGuestPatchMode',
 ]
 
 
@@ -105,6 +109,13 @@ class DiskCreateOptionTypes(str, Enum):
     FROM_IMAGE = "FromImage"
     EMPTY = "Empty"
     ATTACH = "Attach"
+
+
+class DiskDetachOptionTypes(str, Enum):
+    """
+    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    """
+    FORCE_DETACH = "ForceDetach"
 
 
 class DiskEncryptionSetIdentityType(str, Enum):
@@ -190,15 +201,6 @@ class IPVersion(str, Enum):
     I_PV6 = "IPv6"
 
 
-class InGuestPatchMode(str, Enum):
-    """
-    Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
-    """
-    MANUAL = "Manual"
-    AUTOMATIC_BY_OS = "AutomaticByOS"
-    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
-
-
 class IntervalInMins(str, Enum):
     """
     Interval value in minutes used to create LogAnalytics call rate logs.
@@ -207,6 +209,14 @@ class IntervalInMins(str, Enum):
     FIVE_MINS = "FiveMins"
     THIRTY_MINS = "ThirtyMins"
     SIXTY_MINS = "SixtyMins"
+
+
+class LinuxVMGuestPatchMode(str, Enum):
+    """
+    Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    """
+    IMAGE_DEFAULT = "ImageDefault"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
 class NetworkAccessPolicy(str, Enum):
@@ -232,6 +242,14 @@ class OperatingSystemTypes(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+
+
+class OrchestrationMode(str, Enum):
+    """
+    Specifies the orchestration mode for the virtual machine scale set.
+    """
+    UNIFORM = "Uniform"
+    FLEXIBLE = "Flexible"
 
 
 class PassNames(str, Enum):
@@ -274,6 +292,13 @@ class ResourceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
+
+
+class SecurityTypes(str, Enum):
+    """
+    Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+    """
+    TRUSTED_LAUNCH = "TrustedLaunch"
 
 
 class SettingNames(str, Enum):
@@ -355,7 +380,7 @@ class VirtualMachineScaleSetScaleInRules(str, Enum):
 
 class VirtualMachineSizeTypes(str, Enum):
     """
-    Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+    Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
     """
     BASIC_A0 = "Basic_A0"
     BASIC_A1 = "Basic_A1"
@@ -523,3 +548,12 @@ class VirtualMachineSizeTypes(str, Enum):
     STANDARD_NV6 = "Standard_NV6"
     STANDARD_NV12 = "Standard_NV12"
     STANDARD_NV24 = "Standard_NV24"
+
+
+class WindowsVMGuestPatchMode(str, Enum):
+    """
+    Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    """
+    MANUAL = "Manual"
+    AUTOMATIC_BY_OS = "AutomaticByOS"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"

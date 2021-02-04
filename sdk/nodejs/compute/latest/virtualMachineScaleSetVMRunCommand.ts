@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine run command.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
     /**
@@ -165,7 +165,7 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVMRunCommand.__pulumiType, name, inputs, opts);
     }

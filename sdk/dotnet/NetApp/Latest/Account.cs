@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// NetApp account resource
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Account")]
     public partial class Account : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         [Output("activeDirectories")]
         public Output<ImmutableArray<Outputs.ActiveDirectoryResponse>> ActiveDirectories { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption settings
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.AccountEncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -39,6 +45,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -91,6 +103,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,6 +144,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
             get => _activeDirectories ?? (_activeDirectories = new InputList<Inputs.ActiveDirectoryArgs>());
             set => _activeDirectories = value;
         }
+
+        /// <summary>
+        /// Encryption settings
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// Resource location

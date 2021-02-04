@@ -88,7 +88,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__['provisioning_time'] = None
             __props__['type'] = None
             __props__['virtual_machines'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHost")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHost")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHost, __self__).__init__(
             'azure-nextgen:compute/v20190701:DedicatedHost',

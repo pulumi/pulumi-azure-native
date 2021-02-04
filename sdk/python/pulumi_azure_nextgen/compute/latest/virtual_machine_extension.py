@@ -37,7 +37,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Virtual Machine Extension.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +97,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__['vm_name'] = vm_name
             __props__['name'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineExtension, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineExtension',

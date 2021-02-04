@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly string StartTime;
         /// <summary>
-        /// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+        /// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
         /// </summary>
         public readonly string Status;
 

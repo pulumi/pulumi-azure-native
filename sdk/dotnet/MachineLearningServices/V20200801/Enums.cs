@@ -39,6 +39,36 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
     }
 
     /// <summary>
+    /// The Compute Instance Authorization type. Available values are personal (default).
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeInstanceAuthorizationType : IEquatable<ComputeInstanceAuthorizationType>
+    {
+        private readonly string _value;
+
+        private ComputeInstanceAuthorizationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeInstanceAuthorizationType Personal { get; } = new ComputeInstanceAuthorizationType("personal");
+
+        public static bool operator ==(ComputeInstanceAuthorizationType left, ComputeInstanceAuthorizationType right) => left.Equals(right);
+        public static bool operator !=(ComputeInstanceAuthorizationType left, ComputeInstanceAuthorizationType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeInstanceAuthorizationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeInstanceAuthorizationType other && Equals(other);
+        public bool Equals(ComputeInstanceAuthorizationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of compute
     /// </summary>
     [EnumType]
@@ -99,6 +129,37 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionStatus other && Equals(other);
         public bool Equals(EncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Compute OS Type
+    /// </summary>
+    [EnumType]
+    public readonly struct OsType : IEquatable<OsType>
+    {
+        private readonly string _value;
+
+        private OsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OsType Linux { get; } = new OsType("Linux");
+        public static OsType Windows { get; } = new OsType("Windows");
+
+        public static bool operator ==(OsType left, OsType right) => left.Equals(right);
+        public static bool operator !=(OsType left, OsType right) => !left.Equals(right);
+
+        public static explicit operator string(OsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OsType other && Equals(other);
+        public bool Equals(OsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -186,8 +247,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801
         }
 
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
         public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned,UserAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);

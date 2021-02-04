@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
     public sealed class RollingUpgradePolicyResponse
     {
         /// <summary>
+        /// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+        /// </summary>
+        public readonly bool? EnableCrossZoneUpgrade;
+        /// <summary>
         /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
         /// </summary>
         public readonly int? MaxBatchInstancePercent;
@@ -29,21 +33,31 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
         /// </summary>
         public readonly string? PauseTimeBetweenBatches;
+        /// <summary>
+        /// Upgrade all unhealthy instances in a scale set before any healthy instances.
+        /// </summary>
+        public readonly bool? PrioritizeUnhealthyInstances;
 
         [OutputConstructor]
         private RollingUpgradePolicyResponse(
+            bool? enableCrossZoneUpgrade,
+
             int? maxBatchInstancePercent,
 
             int? maxUnhealthyInstancePercent,
 
             int? maxUnhealthyUpgradedInstancePercent,
 
-            string? pauseTimeBetweenBatches)
+            string? pauseTimeBetweenBatches,
+
+            bool? prioritizeUnhealthyInstances)
         {
+            EnableCrossZoneUpgrade = enableCrossZoneUpgrade;
             MaxBatchInstancePercent = maxBatchInstancePercent;
             MaxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             MaxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
             PauseTimeBetweenBatches = pauseTimeBetweenBatches;
+            PrioritizeUnhealthyInstances = prioritizeUnhealthyInstances;
         }
     }
 }

@@ -31,7 +31,7 @@ export interface GetSignalRArgs {
 }
 
 /**
- * A class represent a SignalR service resource.
+ * A class represent a resource.
  */
 export interface GetSignalRResult {
     /**
@@ -39,7 +39,7 @@ export interface GetSignalRResult {
      */
     readonly cors?: outputs.signalrservice.v20200701preview.SignalRCorsSettingsResponse;
     /**
-     * The publicly accessible IP of the SignalR service.
+     * The publicly accessible IP of the resource.
      */
     readonly externalIP: string;
     /**
@@ -52,7 +52,7 @@ export interface GetSignalRResult {
      */
     readonly features?: outputs.signalrservice.v20200701preview.SignalRFeatureResponse[];
     /**
-     * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+     * FQDN of the service instance.
      */
     readonly hostName: string;
     /**
@@ -64,11 +64,11 @@ export interface GetSignalRResult {
      */
     readonly identity?: outputs.signalrservice.v20200701preview.ManagedIdentityResponse;
     /**
-     * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+     * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
      */
     readonly kind?: string;
     /**
-     * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
     readonly location?: string;
     /**
@@ -80,7 +80,7 @@ export interface GetSignalRResult {
      */
     readonly networkACLs?: outputs.signalrservice.v20200701preview.SignalRNetworkACLsResponse;
     /**
-     * Private endpoint connections to the SignalR resource.
+     * Private endpoint connections to the resource.
      */
     readonly privateEndpointConnections: outputs.signalrservice.v20200701preview.PrivateEndpointConnectionResponse[];
     /**
@@ -88,11 +88,11 @@ export interface GetSignalRResult {
      */
     readonly provisioningState: string;
     /**
-     * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+     * The publicly accessible port of the resource which is designed for browser/client side usage.
      */
     readonly publicPort: number;
     /**
-     * The publicly accessible port of the SignalR service which is designed for customer server side usage.
+     * The publicly accessible port of the resource which is designed for customer server side usage.
      */
     readonly serverPort: number;
     /**
@@ -116,7 +116,7 @@ export interface GetSignalRResult {
      */
     readonly upstream?: outputs.signalrservice.v20200701preview.ServerlessUpstreamSettingsResponse;
     /**
-     * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+     * Version of the resource. Probably you need the same or higher version of client SDKs.
      */
     readonly version: string;
 }

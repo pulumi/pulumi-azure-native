@@ -555,10 +555,10 @@ class IncidentInfoResponse(dict):
     Describes related incident information for the bookmark
     """
     def __init__(__self__, *,
-                 incident_id: str,
-                 relation_name: str,
-                 severity: str,
-                 title: str):
+                 incident_id: Optional[str] = None,
+                 relation_name: Optional[str] = None,
+                 severity: Optional[str] = None,
+                 title: Optional[str] = None):
         """
         Describes related incident information for the bookmark
         :param str incident_id: Incident Id
@@ -566,14 +566,18 @@ class IncidentInfoResponse(dict):
         :param str severity: The severity of the incident
         :param str title: The title of the incident
         """
-        pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "relation_name", relation_name)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "title", title)
+        if incident_id is not None:
+            pulumi.set(__self__, "incident_id", incident_id)
+        if relation_name is not None:
+            pulumi.set(__self__, "relation_name", relation_name)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter(name="incidentId")
-    def incident_id(self) -> str:
+    def incident_id(self) -> Optional[str]:
         """
         Incident Id
         """
@@ -581,7 +585,7 @@ class IncidentInfoResponse(dict):
 
     @property
     @pulumi.getter(name="relationName")
-    def relation_name(self) -> str:
+    def relation_name(self) -> Optional[str]:
         """
         Relation Name
         """
@@ -589,7 +593,7 @@ class IncidentInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def severity(self) -> str:
+    def severity(self) -> Optional[str]:
         """
         The severity of the incident
         """
@@ -597,7 +601,7 @@ class IncidentInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> Optional[str]:
         """
         The title of the incident
         """

@@ -77,6 +77,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:Workspace"),
 		},
 	})

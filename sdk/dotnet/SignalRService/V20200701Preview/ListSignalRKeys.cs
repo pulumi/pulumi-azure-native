@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
     public sealed class ListSignalRKeysResult
     {
         /// <summary>
-        /// SignalR connection string constructed via the primaryKey
+        /// Connection string constructed via the primaryKey
         /// </summary>
         public readonly string? PrimaryConnectionString;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly string? PrimaryKey;
         /// <summary>
-        /// SignalR connection string constructed via the secondaryKey
+        /// Connection string constructed via the secondaryKey
         /// </summary>
         public readonly string? SecondaryConnectionString;
         /// <summary>

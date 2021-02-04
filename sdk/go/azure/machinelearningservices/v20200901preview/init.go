@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-nextgen:machinelearningservices/v20200901preview:LabelingJob":
+		r, err = NewLabelingJob(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:machinelearningservices/v20200901preview:LinkedService":
 		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute":

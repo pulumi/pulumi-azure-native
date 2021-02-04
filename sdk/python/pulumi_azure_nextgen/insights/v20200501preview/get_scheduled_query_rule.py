@@ -20,10 +20,13 @@ class GetScheduledQueryRuleResult:
     """
     The scheduled query rule resource.
     """
-    def __init__(__self__, actions=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, created_with_api_version=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, is_legacy_log_analytics_rule=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if created_with_api_version and not isinstance(created_with_api_version, str):
+            raise TypeError("Expected argument 'created_with_api_version' to be a str")
+        pulumi.set(__self__, "created_with_api_version", created_with_api_version)
         if criteria and not isinstance(criteria, dict):
             raise TypeError("Expected argument 'criteria' to be a dict")
         pulumi.set(__self__, "criteria", criteria)
@@ -45,6 +48,9 @@ class GetScheduledQueryRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_legacy_log_analytics_rule and not isinstance(is_legacy_log_analytics_rule, bool):
+            raise TypeError("Expected argument 'is_legacy_log_analytics_rule' to be a bool")
+        pulumi.set(__self__, "is_legacy_log_analytics_rule", is_legacy_log_analytics_rule)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -83,6 +89,14 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.ActionResponse']]:
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> str:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
 
     @property
     @pulumi.getter
@@ -139,6 +153,14 @@ class GetScheduledQueryRuleResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> bool:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
 
     @property
     @pulumi.getter
@@ -236,6 +258,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             yield self
         return GetScheduledQueryRuleResult(
             actions=self.actions,
+            created_with_api_version=self.created_with_api_version,
             criteria=self.criteria,
             description=self.description,
             display_name=self.display_name,
@@ -243,6 +266,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             etag=self.etag,
             evaluation_frequency=self.evaluation_frequency,
             id=self.id,
+            is_legacy_log_analytics_rule=self.is_legacy_log_analytics_rule,
             kind=self.kind,
             location=self.location,
             mute_actions_duration=self.mute_actions_duration,
@@ -276,6 +300,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
 
     return AwaitableGetScheduledQueryRuleResult(
         actions=__ret__.actions,
+        created_with_api_version=__ret__.created_with_api_version,
         criteria=__ret__.criteria,
         description=__ret__.description,
         display_name=__ret__.display_name,
@@ -283,6 +308,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         etag=__ret__.etag,
         evaluation_frequency=__ret__.evaluation_frequency,
         id=__ret__.id,
+        is_legacy_log_analytics_rule=__ret__.is_legacy_log_analytics_rule,
         kind=__ret__.kind,
         location=__ret__.location,
         mute_actions_duration=__ret__.mute_actions_duration,

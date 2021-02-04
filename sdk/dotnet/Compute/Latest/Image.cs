@@ -11,11 +11,17 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:Image")]
     public partial class Image : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The extended location of the Image.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
         /// <summary>
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
         /// </summary>
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,6 +129,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
     public sealed class ImageArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The extended location of the Image.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
         /// <summary>
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
         /// </summary>

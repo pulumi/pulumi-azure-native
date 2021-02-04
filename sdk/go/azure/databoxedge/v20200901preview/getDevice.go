@@ -32,7 +32,7 @@ type LookupDeviceResult struct {
 	// The status of the Data Box Edge/Gateway device.
 	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
 	// The Description of the Data Box Edge/Gateway device.
-	Description *string `pulumi:"description"`
+	Description string `pulumi:"description"`
 	// The device software version number of the device (eg: 1.2.18105.6).
 	DeviceHcsVersion string `pulumi:"deviceHcsVersion"`
 	// The Data Box Edge/Gateway device local capacity in MB.
@@ -44,27 +44,27 @@ type LookupDeviceResult struct {
 	// The type of the Data Box Edge/Gateway device.
 	DeviceType string `pulumi:"deviceType"`
 	// The details of Edge Profile for this resource
-	EdgeProfile *EdgeProfileResponse `pulumi:"edgeProfile"`
+	EdgeProfile EdgeProfileResponse `pulumi:"edgeProfile"`
 	// The etag for the devices.
 	Etag *string `pulumi:"etag"`
 	// The Data Box Edge/Gateway device name.
-	FriendlyName *string `pulumi:"friendlyName"`
+	FriendlyName string `pulumi:"friendlyName"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// Msi identity of the resource
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The etag for the devices.
-	Kind *string `pulumi:"kind"`
+	Kind string `pulumi:"kind"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
 	// The description of the Data Box Edge/Gateway device model.
-	ModelDescription *string `pulumi:"modelDescription"`
+	ModelDescription string `pulumi:"modelDescription"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// The number of nodes in the cluster.
 	NodeCount int `pulumi:"nodeCount"`
 	// The details of the move operation on this resource.
-	ResourceMoveDetails *ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
+	ResourceMoveDetails ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
 	// The Serial Number of Data Box Edge/Gateway device.
 	SerialNumber string `pulumi:"serialNumber"`
 	// The SKU type.

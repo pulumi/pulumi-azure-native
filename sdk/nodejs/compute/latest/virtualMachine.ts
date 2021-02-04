@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * The extended location of the Virtual Machine.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.compute.latest.ExtendedLocationResponse | undefined>;
+    /**
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
@@ -104,6 +108,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     public readonly plan!: pulumi.Output<outputs.compute.latest.PlanResponse | undefined>;
+    /**
+     * Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
+     */
+    public readonly platformFaultDomain!: pulumi.Output<number | undefined>;
     /**
      * Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
      */
@@ -173,6 +181,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["billingProfile"] = args ? args.billingProfile : undefined;
             inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             inputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
             inputs["host"] = args ? args.host : undefined;
@@ -183,6 +192,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["osProfile"] = args ? args.osProfile : undefined;
             inputs["plan"] = args ? args.plan : undefined;
+            inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -204,6 +214,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["billingProfile"] = undefined /*out*/;
             inputs["diagnosticsProfile"] = undefined /*out*/;
             inputs["evictionPolicy"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["extensionsTimeBudget"] = undefined /*out*/;
             inputs["hardwareProfile"] = undefined /*out*/;
             inputs["host"] = undefined /*out*/;
@@ -216,6 +227,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["networkProfile"] = undefined /*out*/;
             inputs["osProfile"] = undefined /*out*/;
             inputs["plan"] = undefined /*out*/;
+            inputs["platformFaultDomain"] = undefined /*out*/;
             inputs["priority"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proximityPlacementGroup"] = undefined /*out*/;
@@ -235,7 +247,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180601:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180601:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }
@@ -265,6 +277,10 @@ export interface VirtualMachineArgs {
      * Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
      */
     readonly evictionPolicy?: pulumi.Input<string | enums.compute.latest.VirtualMachineEvictionPolicyTypes>;
+    /**
+     * The extended location of the Virtual Machine.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.compute.latest.ExtendedLocation>;
     /**
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
      */
@@ -305,6 +321,10 @@ export interface VirtualMachineArgs {
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     readonly plan?: pulumi.Input<inputs.compute.latest.Plan>;
+    /**
+     * Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
+     */
+    readonly platformFaultDomain?: pulumi.Input<number>;
     /**
      * Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
      */

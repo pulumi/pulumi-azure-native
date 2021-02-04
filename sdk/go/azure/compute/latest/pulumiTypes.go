@@ -1756,7 +1756,7 @@ type AvailablePatchSummaryResponse struct {
 	RebootPending bool `pulumi:"rebootPending"`
 	// The UTC timestamp when the operation began.
 	StartTime string `pulumi:"startTime"`
-	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 	Status string `pulumi:"status"`
 }
 
@@ -1787,7 +1787,7 @@ type AvailablePatchSummaryResponseArgs struct {
 	RebootPending pulumi.BoolInput `pulumi:"rebootPending"`
 	// The UTC timestamp when the operation began.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1904,7 +1904,7 @@ func (o AvailablePatchSummaryResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailablePatchSummaryResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 func (o AvailablePatchSummaryResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailablePatchSummaryResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1997,7 +1997,7 @@ func (o AvailablePatchSummaryResponsePtrOutput) StartTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 func (o AvailablePatchSummaryResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AvailablePatchSummaryResponse) *string {
 		if v == nil {
@@ -3312,6 +3312,8 @@ type DataDisk struct {
 	Caching *string `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 	CreateOption string `pulumi:"createOption"`
+	// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+	DetachOption *string `pulumi:"detachOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -3347,6 +3349,8 @@ type DataDiskArgs struct {
 	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+	DetachOption pulumi.StringPtrInput `pulumi:"detachOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -3425,6 +3429,11 @@ func (o DataDiskOutput) Caching() pulumi.StringPtrOutput {
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 func (o DataDiskOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v DataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+func (o DataDiskOutput) DetachOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataDisk) *string { return v.DetachOption }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -3711,6 +3720,8 @@ type DataDiskResponse struct {
 	Caching *string `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 	CreateOption string `pulumi:"createOption"`
+	// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+	DetachOption *string `pulumi:"detachOption"`
 	// Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
 	DiskIOPSReadWrite float64 `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
@@ -3750,6 +3761,8 @@ type DataDiskResponseArgs struct {
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+	DetachOption pulumi.StringPtrInput `pulumi:"detachOption"`
 	// Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
 	DiskIOPSReadWrite pulumi.Float64Input `pulumi:"diskIOPSReadWrite"`
 	// Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
@@ -3832,6 +3845,11 @@ func (o DataDiskResponseOutput) Caching() pulumi.StringPtrOutput {
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 func (o DataDiskResponseOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v DataDiskResponse) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+func (o DataDiskResponseOutput) DetachOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataDiskResponse) *string { return v.DetachOption }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
@@ -11197,7 +11215,7 @@ func (o GalleryOSDiskImageResponsePtrOutput) Source() GalleryArtifactVersionSour
 
 // Specifies the hardware settings for the virtual machine.
 type HardwareProfile struct {
-	// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize *string `pulumi:"vmSize"`
 }
 
@@ -11214,7 +11232,7 @@ type HardwareProfileInput interface {
 
 // Specifies the hardware settings for the virtual machine.
 type HardwareProfileArgs struct {
-	// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
 }
 
@@ -11296,7 +11314,7 @@ func (o HardwareProfileOutput) ToHardwareProfilePtrOutputWithContext(ctx context
 	}).(HardwareProfilePtrOutput)
 }
 
-// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 func (o HardwareProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HardwareProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -11319,7 +11337,7 @@ func (o HardwareProfilePtrOutput) Elem() HardwareProfileOutput {
 	return o.ApplyT(func(v *HardwareProfile) HardwareProfile { return *v }).(HardwareProfileOutput)
 }
 
-// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 func (o HardwareProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HardwareProfile) *string {
 		if v == nil {
@@ -11331,7 +11349,7 @@ func (o HardwareProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 // Specifies the hardware settings for the virtual machine.
 type HardwareProfileResponse struct {
-	// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize *string `pulumi:"vmSize"`
 }
 
@@ -11348,7 +11366,7 @@ type HardwareProfileResponseInput interface {
 
 // Specifies the hardware settings for the virtual machine.
 type HardwareProfileResponseArgs struct {
-	// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+	// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
 }
 
@@ -11430,7 +11448,7 @@ func (o HardwareProfileResponseOutput) ToHardwareProfileResponsePtrOutputWithCon
 	}).(HardwareProfileResponsePtrOutput)
 }
 
-// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 func (o HardwareProfileResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HardwareProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -11453,7 +11471,7 @@ func (o HardwareProfileResponsePtrOutput) Elem() HardwareProfileResponseOutput {
 	return o.ApplyT(func(v *HardwareProfileResponse) HardwareProfileResponse { return *v }).(HardwareProfileResponseOutput)
 }
 
-// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+// Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
 func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HardwareProfileResponse) *string {
 		if v == nil {
@@ -16052,13 +16070,9 @@ type LastPatchInstallationSummaryResponse struct {
 	NotSelectedPatchCount int `pulumi:"notSelectedPatchCount"`
 	// The number of all available patches expected to be installed over the course of the patch installation operation.
 	PendingPatchCount int `pulumi:"pendingPatchCount"`
-	// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
-	RebootStatus string `pulumi:"rebootStatus"`
 	// The UTC timestamp when the operation began.
 	StartTime string `pulumi:"startTime"`
-	// The person or system account that started the operation
-	StartedBy string `pulumi:"startedBy"`
-	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 	Status string `pulumi:"status"`
 }
 
@@ -16093,13 +16107,9 @@ type LastPatchInstallationSummaryResponseArgs struct {
 	NotSelectedPatchCount pulumi.IntInput `pulumi:"notSelectedPatchCount"`
 	// The number of all available patches expected to be installed over the course of the patch installation operation.
 	PendingPatchCount pulumi.IntInput `pulumi:"pendingPatchCount"`
-	// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
-	RebootStatus pulumi.StringInput `pulumi:"rebootStatus"`
 	// The UTC timestamp when the operation began.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// The person or system account that started the operation
-	StartedBy pulumi.StringInput `pulumi:"startedBy"`
-	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+	// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -16226,22 +16236,12 @@ func (o LastPatchInstallationSummaryResponseOutput) PendingPatchCount() pulumi.I
 	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) int { return v.PendingPatchCount }).(pulumi.IntOutput)
 }
 
-// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
-func (o LastPatchInstallationSummaryResponseOutput) RebootStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.RebootStatus }).(pulumi.StringOutput)
-}
-
 // The UTC timestamp when the operation began.
 func (o LastPatchInstallationSummaryResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The person or system account that started the operation
-func (o LastPatchInstallationSummaryResponseOutput) StartedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.StartedBy }).(pulumi.StringOutput)
-}
-
-// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 func (o LastPatchInstallationSummaryResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LastPatchInstallationSummaryResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -16354,16 +16354,6 @@ func (o LastPatchInstallationSummaryResponsePtrOutput) PendingPatchCount() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
-func (o LastPatchInstallationSummaryResponsePtrOutput) RebootStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RebootStatus
-	}).(pulumi.StringPtrOutput)
-}
-
 // The UTC timestamp when the operation began.
 func (o LastPatchInstallationSummaryResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
@@ -16374,17 +16364,7 @@ func (o LastPatchInstallationSummaryResponsePtrOutput) StartTime() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The person or system account that started the operation
-func (o LastPatchInstallationSummaryResponsePtrOutput) StartedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
 func (o LastPatchInstallationSummaryResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LastPatchInstallationSummaryResponse) *string {
 		if v == nil {
@@ -16398,6 +16378,8 @@ func (o LastPatchInstallationSummaryResponsePtrOutput) Status() pulumi.StringPtr
 type LinuxConfiguration struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+	PatchSettings *LinuxPatchSettings `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent *bool `pulumi:"provisionVMAgent"`
 	// Specifies the ssh key configuration for a Linux OS.
@@ -16419,6 +16401,8 @@ type LinuxConfigurationInput interface {
 type LinuxConfigurationArgs struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+	PatchSettings LinuxPatchSettingsPtrInput `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent pulumi.BoolPtrInput `pulumi:"provisionVMAgent"`
 	// Specifies the ssh key configuration for a Linux OS.
@@ -16508,6 +16492,11 @@ func (o LinuxConfigurationOutput) DisablePasswordAuthentication() pulumi.BoolPtr
 	return o.ApplyT(func(v LinuxConfiguration) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
+// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+func (o LinuxConfigurationOutput) PatchSettings() LinuxPatchSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxConfiguration) *LinuxPatchSettings { return v.PatchSettings }).(LinuxPatchSettingsPtrOutput)
+}
+
 // Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 func (o LinuxConfigurationOutput) ProvisionVMAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxConfiguration) *bool { return v.ProvisionVMAgent }).(pulumi.BoolPtrOutput)
@@ -16546,6 +16535,16 @@ func (o LinuxConfigurationPtrOutput) DisablePasswordAuthentication() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+func (o LinuxConfigurationPtrOutput) PatchSettings() LinuxPatchSettingsPtrOutput {
+	return o.ApplyT(func(v *LinuxConfiguration) *LinuxPatchSettings {
+		if v == nil {
+			return nil
+		}
+		return v.PatchSettings
+	}).(LinuxPatchSettingsPtrOutput)
+}
+
 // Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 func (o LinuxConfigurationPtrOutput) ProvisionVMAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxConfiguration) *bool {
@@ -16570,6 +16569,8 @@ func (o LinuxConfigurationPtrOutput) Ssh() SshConfigurationPtrOutput {
 type LinuxConfigurationResponse struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+	PatchSettings *LinuxPatchSettingsResponse `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent *bool `pulumi:"provisionVMAgent"`
 	// Specifies the ssh key configuration for a Linux OS.
@@ -16591,6 +16592,8 @@ type LinuxConfigurationResponseInput interface {
 type LinuxConfigurationResponseArgs struct {
 	// Specifies whether password authentication should be disabled.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+	PatchSettings LinuxPatchSettingsResponsePtrInput `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent pulumi.BoolPtrInput `pulumi:"provisionVMAgent"`
 	// Specifies the ssh key configuration for a Linux OS.
@@ -16680,6 +16683,11 @@ func (o LinuxConfigurationResponseOutput) DisablePasswordAuthentication() pulumi
 	return o.ApplyT(func(v LinuxConfigurationResponse) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
+// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+func (o LinuxConfigurationResponseOutput) PatchSettings() LinuxPatchSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LinuxConfigurationResponse) *LinuxPatchSettingsResponse { return v.PatchSettings }).(LinuxPatchSettingsResponsePtrOutput)
+}
+
 // Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 func (o LinuxConfigurationResponseOutput) ProvisionVMAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxConfigurationResponse) *bool { return v.ProvisionVMAgent }).(pulumi.BoolPtrOutput)
@@ -16718,6 +16726,16 @@ func (o LinuxConfigurationResponsePtrOutput) DisablePasswordAuthentication() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+func (o LinuxConfigurationResponsePtrOutput) PatchSettings() LinuxPatchSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *LinuxConfigurationResponse) *LinuxPatchSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PatchSettings
+	}).(LinuxPatchSettingsResponsePtrOutput)
+}
+
 // Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 func (o LinuxConfigurationResponsePtrOutput) ProvisionVMAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxConfigurationResponse) *bool {
@@ -16736,6 +16754,274 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 		}
 		return v.Ssh
 	}).(SshConfigurationResponsePtrOutput)
+}
+
+// Specifies settings related to VM Guest Patching on Linux.
+type LinuxPatchSettings struct {
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+	PatchMode *string `pulumi:"patchMode"`
+}
+
+// LinuxPatchSettingsInput is an input type that accepts LinuxPatchSettingsArgs and LinuxPatchSettingsOutput values.
+// You can construct a concrete instance of `LinuxPatchSettingsInput` via:
+//
+//          LinuxPatchSettingsArgs{...}
+type LinuxPatchSettingsInput interface {
+	pulumi.Input
+
+	ToLinuxPatchSettingsOutput() LinuxPatchSettingsOutput
+	ToLinuxPatchSettingsOutputWithContext(context.Context) LinuxPatchSettingsOutput
+}
+
+// Specifies settings related to VM Guest Patching on Linux.
+type LinuxPatchSettingsArgs struct {
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
+}
+
+func (LinuxPatchSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxPatchSettings)(nil)).Elem()
+}
+
+func (i LinuxPatchSettingsArgs) ToLinuxPatchSettingsOutput() LinuxPatchSettingsOutput {
+	return i.ToLinuxPatchSettingsOutputWithContext(context.Background())
+}
+
+func (i LinuxPatchSettingsArgs) ToLinuxPatchSettingsOutputWithContext(ctx context.Context) LinuxPatchSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsOutput)
+}
+
+func (i LinuxPatchSettingsArgs) ToLinuxPatchSettingsPtrOutput() LinuxPatchSettingsPtrOutput {
+	return i.ToLinuxPatchSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxPatchSettingsArgs) ToLinuxPatchSettingsPtrOutputWithContext(ctx context.Context) LinuxPatchSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsOutput).ToLinuxPatchSettingsPtrOutputWithContext(ctx)
+}
+
+// LinuxPatchSettingsPtrInput is an input type that accepts LinuxPatchSettingsArgs, LinuxPatchSettingsPtr and LinuxPatchSettingsPtrOutput values.
+// You can construct a concrete instance of `LinuxPatchSettingsPtrInput` via:
+//
+//          LinuxPatchSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxPatchSettingsPtrInput interface {
+	pulumi.Input
+
+	ToLinuxPatchSettingsPtrOutput() LinuxPatchSettingsPtrOutput
+	ToLinuxPatchSettingsPtrOutputWithContext(context.Context) LinuxPatchSettingsPtrOutput
+}
+
+type linuxPatchSettingsPtrType LinuxPatchSettingsArgs
+
+func LinuxPatchSettingsPtr(v *LinuxPatchSettingsArgs) LinuxPatchSettingsPtrInput {
+	return (*linuxPatchSettingsPtrType)(v)
+}
+
+func (*linuxPatchSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxPatchSettings)(nil)).Elem()
+}
+
+func (i *linuxPatchSettingsPtrType) ToLinuxPatchSettingsPtrOutput() LinuxPatchSettingsPtrOutput {
+	return i.ToLinuxPatchSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxPatchSettingsPtrType) ToLinuxPatchSettingsPtrOutputWithContext(ctx context.Context) LinuxPatchSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsPtrOutput)
+}
+
+// Specifies settings related to VM Guest Patching on Linux.
+type LinuxPatchSettingsOutput struct{ *pulumi.OutputState }
+
+func (LinuxPatchSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxPatchSettings)(nil)).Elem()
+}
+
+func (o LinuxPatchSettingsOutput) ToLinuxPatchSettingsOutput() LinuxPatchSettingsOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsOutput) ToLinuxPatchSettingsOutputWithContext(ctx context.Context) LinuxPatchSettingsOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsOutput) ToLinuxPatchSettingsPtrOutput() LinuxPatchSettingsPtrOutput {
+	return o.ToLinuxPatchSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxPatchSettingsOutput) ToLinuxPatchSettingsPtrOutputWithContext(ctx context.Context) LinuxPatchSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxPatchSettings) *LinuxPatchSettings {
+		return &v
+	}).(LinuxPatchSettingsPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+func (o LinuxPatchSettingsOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxPatchSettings) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
+}
+
+type LinuxPatchSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxPatchSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxPatchSettings)(nil)).Elem()
+}
+
+func (o LinuxPatchSettingsPtrOutput) ToLinuxPatchSettingsPtrOutput() LinuxPatchSettingsPtrOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsPtrOutput) ToLinuxPatchSettingsPtrOutputWithContext(ctx context.Context) LinuxPatchSettingsPtrOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsPtrOutput) Elem() LinuxPatchSettingsOutput {
+	return o.ApplyT(func(v *LinuxPatchSettings) LinuxPatchSettings { return *v }).(LinuxPatchSettingsOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+func (o LinuxPatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxPatchSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies settings related to VM Guest Patching on Linux.
+type LinuxPatchSettingsResponse struct {
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+	PatchMode *string `pulumi:"patchMode"`
+}
+
+// LinuxPatchSettingsResponseInput is an input type that accepts LinuxPatchSettingsResponseArgs and LinuxPatchSettingsResponseOutput values.
+// You can construct a concrete instance of `LinuxPatchSettingsResponseInput` via:
+//
+//          LinuxPatchSettingsResponseArgs{...}
+type LinuxPatchSettingsResponseInput interface {
+	pulumi.Input
+
+	ToLinuxPatchSettingsResponseOutput() LinuxPatchSettingsResponseOutput
+	ToLinuxPatchSettingsResponseOutputWithContext(context.Context) LinuxPatchSettingsResponseOutput
+}
+
+// Specifies settings related to VM Guest Patching on Linux.
+type LinuxPatchSettingsResponseArgs struct {
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
+}
+
+func (LinuxPatchSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxPatchSettingsResponse)(nil)).Elem()
+}
+
+func (i LinuxPatchSettingsResponseArgs) ToLinuxPatchSettingsResponseOutput() LinuxPatchSettingsResponseOutput {
+	return i.ToLinuxPatchSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i LinuxPatchSettingsResponseArgs) ToLinuxPatchSettingsResponseOutputWithContext(ctx context.Context) LinuxPatchSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsResponseOutput)
+}
+
+func (i LinuxPatchSettingsResponseArgs) ToLinuxPatchSettingsResponsePtrOutput() LinuxPatchSettingsResponsePtrOutput {
+	return i.ToLinuxPatchSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxPatchSettingsResponseArgs) ToLinuxPatchSettingsResponsePtrOutputWithContext(ctx context.Context) LinuxPatchSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsResponseOutput).ToLinuxPatchSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// LinuxPatchSettingsResponsePtrInput is an input type that accepts LinuxPatchSettingsResponseArgs, LinuxPatchSettingsResponsePtr and LinuxPatchSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `LinuxPatchSettingsResponsePtrInput` via:
+//
+//          LinuxPatchSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxPatchSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinuxPatchSettingsResponsePtrOutput() LinuxPatchSettingsResponsePtrOutput
+	ToLinuxPatchSettingsResponsePtrOutputWithContext(context.Context) LinuxPatchSettingsResponsePtrOutput
+}
+
+type linuxPatchSettingsResponsePtrType LinuxPatchSettingsResponseArgs
+
+func LinuxPatchSettingsResponsePtr(v *LinuxPatchSettingsResponseArgs) LinuxPatchSettingsResponsePtrInput {
+	return (*linuxPatchSettingsResponsePtrType)(v)
+}
+
+func (*linuxPatchSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxPatchSettingsResponse)(nil)).Elem()
+}
+
+func (i *linuxPatchSettingsResponsePtrType) ToLinuxPatchSettingsResponsePtrOutput() LinuxPatchSettingsResponsePtrOutput {
+	return i.ToLinuxPatchSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxPatchSettingsResponsePtrType) ToLinuxPatchSettingsResponsePtrOutputWithContext(ctx context.Context) LinuxPatchSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPatchSettingsResponsePtrOutput)
+}
+
+// Specifies settings related to VM Guest Patching on Linux.
+type LinuxPatchSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (LinuxPatchSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxPatchSettingsResponse)(nil)).Elem()
+}
+
+func (o LinuxPatchSettingsResponseOutput) ToLinuxPatchSettingsResponseOutput() LinuxPatchSettingsResponseOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsResponseOutput) ToLinuxPatchSettingsResponseOutputWithContext(ctx context.Context) LinuxPatchSettingsResponseOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsResponseOutput) ToLinuxPatchSettingsResponsePtrOutput() LinuxPatchSettingsResponsePtrOutput {
+	return o.ToLinuxPatchSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxPatchSettingsResponseOutput) ToLinuxPatchSettingsResponsePtrOutputWithContext(ctx context.Context) LinuxPatchSettingsResponsePtrOutput {
+	return o.ApplyT(func(v LinuxPatchSettingsResponse) *LinuxPatchSettingsResponse {
+		return &v
+	}).(LinuxPatchSettingsResponsePtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+func (o LinuxPatchSettingsResponseOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxPatchSettingsResponse) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
+}
+
+type LinuxPatchSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxPatchSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxPatchSettingsResponse)(nil)).Elem()
+}
+
+func (o LinuxPatchSettingsResponsePtrOutput) ToLinuxPatchSettingsResponsePtrOutput() LinuxPatchSettingsResponsePtrOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsResponsePtrOutput) ToLinuxPatchSettingsResponsePtrOutputWithContext(ctx context.Context) LinuxPatchSettingsResponsePtrOutput {
+	return o
+}
+
+func (o LinuxPatchSettingsResponsePtrOutput) Elem() LinuxPatchSettingsResponseOutput {
+	return o.ApplyT(func(v *LinuxPatchSettingsResponse) LinuxPatchSettingsResponse { return *v }).(LinuxPatchSettingsResponseOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+func (o LinuxPatchSettingsResponsePtrOutput) PatchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxPatchSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // LogAnalytics output properties
@@ -19359,8 +19645,11 @@ func (o OSProfileResponsePtrOutput) WindowsConfiguration() WindowsConfigurationR
 	}).(WindowsConfigurationResponsePtrOutput)
 }
 
+// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettings struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+	EnableHotpatching *bool `pulumi:"enableHotpatching"`
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode *string `pulumi:"patchMode"`
 }
 
@@ -19375,8 +19664,11 @@ type PatchSettingsInput interface {
 	ToPatchSettingsOutputWithContext(context.Context) PatchSettingsOutput
 }
 
+// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsArgs struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+	EnableHotpatching pulumi.BoolPtrInput `pulumi:"enableHotpatching"`
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
 }
 
@@ -19433,6 +19725,7 @@ func (i *patchSettingsPtrType) ToPatchSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PatchSettingsPtrOutput)
 }
 
+// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsOutput struct{ *pulumi.OutputState }
 
 func (PatchSettingsOutput) ElementType() reflect.Type {
@@ -19457,7 +19750,12 @@ func (o PatchSettingsOutput) ToPatchSettingsPtrOutputWithContext(ctx context.Con
 	}).(PatchSettingsPtrOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+func (o PatchSettingsOutput) EnableHotpatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PatchSettings) *bool { return v.EnableHotpatching }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchSettings) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -19480,7 +19778,17 @@ func (o PatchSettingsPtrOutput) Elem() PatchSettingsOutput {
 	return o.ApplyT(func(v *PatchSettings) PatchSettings { return *v }).(PatchSettingsOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+func (o PatchSettingsPtrOutput) EnableHotpatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PatchSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHotpatching
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PatchSettings) *string {
 		if v == nil {
@@ -19490,8 +19798,11 @@ func (o PatchSettingsPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsResponse struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+	EnableHotpatching *bool `pulumi:"enableHotpatching"`
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode *string `pulumi:"patchMode"`
 }
 
@@ -19506,8 +19817,11 @@ type PatchSettingsResponseInput interface {
 	ToPatchSettingsResponseOutputWithContext(context.Context) PatchSettingsResponseOutput
 }
 
+// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsResponseArgs struct {
-	// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+	// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+	EnableHotpatching pulumi.BoolPtrInput `pulumi:"enableHotpatching"`
+	// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
 }
 
@@ -19564,6 +19878,7 @@ func (i *patchSettingsResponsePtrType) ToPatchSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PatchSettingsResponsePtrOutput)
 }
 
+// Specifies settings related to VM Guest Patching on Windows.
 type PatchSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PatchSettingsResponseOutput) ElementType() reflect.Type {
@@ -19588,7 +19903,12 @@ func (o PatchSettingsResponseOutput) ToPatchSettingsResponsePtrOutputWithContext
 	}).(PatchSettingsResponsePtrOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+func (o PatchSettingsResponseOutput) EnableHotpatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PatchSettingsResponse) *bool { return v.EnableHotpatching }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsResponseOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchSettingsResponse) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -19611,7 +19931,17 @@ func (o PatchSettingsResponsePtrOutput) Elem() PatchSettingsResponseOutput {
 	return o.ApplyT(func(v *PatchSettingsResponse) PatchSettingsResponse { return *v }).(PatchSettingsResponseOutput)
 }
 
-// Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+// Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+func (o PatchSettingsResponsePtrOutput) EnableHotpatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PatchSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHotpatching
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
 func (o PatchSettingsResponsePtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PatchSettingsResponse) *string {
 		if v == nil {
@@ -21906,6 +22236,8 @@ func (o ResourceRangeResponsePtrOutput) Min() pulumi.IntPtrOutput {
 
 // The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicy struct {
+	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+	EnableCrossZoneUpgrade *bool `pulumi:"enableCrossZoneUpgrade"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
 	MaxBatchInstancePercent *int `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
@@ -21914,6 +22246,8 @@ type RollingUpgradePolicy struct {
 	MaxUnhealthyUpgradedInstancePercent *int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
 	PauseTimeBetweenBatches *string `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances.
+	PrioritizeUnhealthyInstances *bool `pulumi:"prioritizeUnhealthyInstances"`
 }
 
 // RollingUpgradePolicyInput is an input type that accepts RollingUpgradePolicyArgs and RollingUpgradePolicyOutput values.
@@ -21929,6 +22263,8 @@ type RollingUpgradePolicyInput interface {
 
 // The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyArgs struct {
+	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+	EnableCrossZoneUpgrade pulumi.BoolPtrInput `pulumi:"enableCrossZoneUpgrade"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
 	MaxBatchInstancePercent pulumi.IntPtrInput `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
@@ -21937,6 +22273,8 @@ type RollingUpgradePolicyArgs struct {
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntPtrInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
 	PauseTimeBetweenBatches pulumi.StringPtrInput `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances.
+	PrioritizeUnhealthyInstances pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstances"`
 }
 
 func (RollingUpgradePolicyArgs) ElementType() reflect.Type {
@@ -22017,6 +22355,11 @@ func (o RollingUpgradePolicyOutput) ToRollingUpgradePolicyPtrOutputWithContext(c
 	}).(RollingUpgradePolicyPtrOutput)
 }
 
+// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+func (o RollingUpgradePolicyOutput) EnableCrossZoneUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RollingUpgradePolicy) *bool { return v.EnableCrossZoneUpgrade }).(pulumi.BoolPtrOutput)
+}
+
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
 func (o RollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
@@ -22037,6 +22380,11 @@ func (o RollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringPtrOu
 	return o.ApplyT(func(v RollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
 
+// Upgrade all unhealthy instances in a scale set before any healthy instances.
+func (o RollingUpgradePolicyOutput) PrioritizeUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RollingUpgradePolicy) *bool { return v.PrioritizeUnhealthyInstances }).(pulumi.BoolPtrOutput)
+}
+
 type RollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (RollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
@@ -22053,6 +22401,16 @@ func (o RollingUpgradePolicyPtrOutput) ToRollingUpgradePolicyPtrOutputWithContex
 
 func (o RollingUpgradePolicyPtrOutput) Elem() RollingUpgradePolicyOutput {
 	return o.ApplyT(func(v *RollingUpgradePolicy) RollingUpgradePolicy { return *v }).(RollingUpgradePolicyOutput)
+}
+
+// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+func (o RollingUpgradePolicyPtrOutput) EnableCrossZoneUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCrossZoneUpgrade
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
@@ -22095,8 +22453,20 @@ func (o RollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Upgrade all unhealthy instances in a scale set before any healthy instances.
+func (o RollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrioritizeUnhealthyInstances
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyResponse struct {
+	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+	EnableCrossZoneUpgrade *bool `pulumi:"enableCrossZoneUpgrade"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
 	MaxBatchInstancePercent *int `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
@@ -22105,6 +22475,8 @@ type RollingUpgradePolicyResponse struct {
 	MaxUnhealthyUpgradedInstancePercent *int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
 	PauseTimeBetweenBatches *string `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances.
+	PrioritizeUnhealthyInstances *bool `pulumi:"prioritizeUnhealthyInstances"`
 }
 
 // RollingUpgradePolicyResponseInput is an input type that accepts RollingUpgradePolicyResponseArgs and RollingUpgradePolicyResponseOutput values.
@@ -22120,6 +22492,8 @@ type RollingUpgradePolicyResponseInput interface {
 
 // The configuration parameters used while performing a rolling upgrade.
 type RollingUpgradePolicyResponseArgs struct {
+	// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+	EnableCrossZoneUpgrade pulumi.BoolPtrInput `pulumi:"enableCrossZoneUpgrade"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
 	MaxBatchInstancePercent pulumi.IntPtrInput `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
@@ -22128,6 +22502,8 @@ type RollingUpgradePolicyResponseArgs struct {
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntPtrInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
 	PauseTimeBetweenBatches pulumi.StringPtrInput `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances.
+	PrioritizeUnhealthyInstances pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstances"`
 }
 
 func (RollingUpgradePolicyResponseArgs) ElementType() reflect.Type {
@@ -22208,6 +22584,11 @@ func (o RollingUpgradePolicyResponseOutput) ToRollingUpgradePolicyResponsePtrOut
 	}).(RollingUpgradePolicyResponsePtrOutput)
 }
 
+// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+func (o RollingUpgradePolicyResponseOutput) EnableCrossZoneUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RollingUpgradePolicyResponse) *bool { return v.EnableCrossZoneUpgrade }).(pulumi.BoolPtrOutput)
+}
+
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
 func (o RollingUpgradePolicyResponseOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RollingUpgradePolicyResponse) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
@@ -22228,6 +22609,11 @@ func (o RollingUpgradePolicyResponseOutput) PauseTimeBetweenBatches() pulumi.Str
 	return o.ApplyT(func(v RollingUpgradePolicyResponse) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
 
+// Upgrade all unhealthy instances in a scale set before any healthy instances.
+func (o RollingUpgradePolicyResponseOutput) PrioritizeUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RollingUpgradePolicyResponse) *bool { return v.PrioritizeUnhealthyInstances }).(pulumi.BoolPtrOutput)
+}
+
 type RollingUpgradePolicyResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (RollingUpgradePolicyResponsePtrOutput) ElementType() reflect.Type {
@@ -22244,6 +22630,16 @@ func (o RollingUpgradePolicyResponsePtrOutput) ToRollingUpgradePolicyResponsePtr
 
 func (o RollingUpgradePolicyResponsePtrOutput) Elem() RollingUpgradePolicyResponseOutput {
 	return o.ApplyT(func(v *RollingUpgradePolicyResponse) RollingUpgradePolicyResponse { return *v }).(RollingUpgradePolicyResponseOutput)
+}
+
+// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+func (o RollingUpgradePolicyResponsePtrOutput) EnableCrossZoneUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradePolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCrossZoneUpgrade
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
@@ -22284,6 +22680,16 @@ func (o RollingUpgradePolicyResponsePtrOutput) PauseTimeBetweenBatches() pulumi.
 		}
 		return v.PauseTimeBetweenBatches
 	}).(pulumi.StringPtrOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances.
+func (o RollingUpgradePolicyResponsePtrOutput) PrioritizeUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RollingUpgradePolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrioritizeUnhealthyInstances
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Describes the properties of a run command parameter.
@@ -23040,6 +23446,10 @@ func (o ScheduledEventsProfileResponsePtrOutput) TerminateNotificationProfile() 
 type SecurityProfile struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost *bool `pulumi:"encryptionAtHost"`
+	// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+	SecurityType *string `pulumi:"securityType"`
+	// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	UefiSettings *UefiSettings `pulumi:"uefiSettings"`
 }
 
 // SecurityProfileInput is an input type that accepts SecurityProfileArgs and SecurityProfileOutput values.
@@ -23057,6 +23467,10 @@ type SecurityProfileInput interface {
 type SecurityProfileArgs struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost pulumi.BoolPtrInput `pulumi:"encryptionAtHost"`
+	// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+	SecurityType *SecurityTypes `pulumi:"securityType"`
+	// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	UefiSettings UefiSettingsPtrInput `pulumi:"uefiSettings"`
 }
 
 func (SecurityProfileArgs) ElementType() reflect.Type {
@@ -23142,6 +23556,16 @@ func (o SecurityProfileOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityProfile) *bool { return v.EncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+func (o SecurityProfileOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfile) *string { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o SecurityProfileOutput) UefiSettings() UefiSettingsPtrOutput {
+	return o.ApplyT(func(v SecurityProfile) *UefiSettings { return v.UefiSettings }).(UefiSettingsPtrOutput)
+}
+
 type SecurityProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfilePtrOutput) ElementType() reflect.Type {
@@ -23170,10 +23594,34 @@ func (o SecurityProfilePtrOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+func (o SecurityProfilePtrOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o SecurityProfilePtrOutput) UefiSettings() UefiSettingsPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) *UefiSettings {
+		if v == nil {
+			return nil
+		}
+		return v.UefiSettings
+	}).(UefiSettingsPtrOutput)
+}
+
 // Specifies the Security profile settings for the virtual machine or virtual machine scale set.
 type SecurityProfileResponse struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost *bool `pulumi:"encryptionAtHost"`
+	// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+	SecurityType *string `pulumi:"securityType"`
+	// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	UefiSettings *UefiSettingsResponse `pulumi:"uefiSettings"`
 }
 
 // SecurityProfileResponseInput is an input type that accepts SecurityProfileResponseArgs and SecurityProfileResponseOutput values.
@@ -23191,6 +23639,10 @@ type SecurityProfileResponseInput interface {
 type SecurityProfileResponseArgs struct {
 	// This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
 	EncryptionAtHost pulumi.BoolPtrInput `pulumi:"encryptionAtHost"`
+	// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
+	// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	UefiSettings UefiSettingsResponsePtrInput `pulumi:"uefiSettings"`
 }
 
 func (SecurityProfileResponseArgs) ElementType() reflect.Type {
@@ -23276,6 +23728,16 @@ func (o SecurityProfileResponseOutput) EncryptionAtHost() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityProfileResponse) *bool { return v.EncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+func (o SecurityProfileResponseOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfileResponse) *string { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o SecurityProfileResponseOutput) UefiSettings() UefiSettingsResponsePtrOutput {
+	return o.ApplyT(func(v SecurityProfileResponse) *UefiSettingsResponse { return v.UefiSettings }).(UefiSettingsResponsePtrOutput)
+}
+
 type SecurityProfileResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileResponsePtrOutput) ElementType() reflect.Type {
@@ -23302,6 +23764,26 @@ func (o SecurityProfileResponsePtrOutput) EncryptionAtHost() pulumi.BoolPtrOutpu
 		}
 		return v.EncryptionAtHost
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+func (o SecurityProfileResponsePtrOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o SecurityProfileResponsePtrOutput) UefiSettings() UefiSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityProfileResponse) *UefiSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UefiSettings
+	}).(UefiSettingsResponsePtrOutput)
 }
 
 type ShareInfoElementResponse struct {
@@ -26635,6 +27117,312 @@ func (o TerminateNotificationProfileResponsePtrOutput) NotBeforeTimeout() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+type UefiSettings struct {
+	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	VTpmEnabled *bool `pulumi:"vTpmEnabled"`
+}
+
+// UefiSettingsInput is an input type that accepts UefiSettingsArgs and UefiSettingsOutput values.
+// You can construct a concrete instance of `UefiSettingsInput` via:
+//
+//          UefiSettingsArgs{...}
+type UefiSettingsInput interface {
+	pulumi.Input
+
+	ToUefiSettingsOutput() UefiSettingsOutput
+	ToUefiSettingsOutputWithContext(context.Context) UefiSettingsOutput
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+type UefiSettingsArgs struct {
+	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	VTpmEnabled pulumi.BoolPtrInput `pulumi:"vTpmEnabled"`
+}
+
+func (UefiSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UefiSettings)(nil)).Elem()
+}
+
+func (i UefiSettingsArgs) ToUefiSettingsOutput() UefiSettingsOutput {
+	return i.ToUefiSettingsOutputWithContext(context.Background())
+}
+
+func (i UefiSettingsArgs) ToUefiSettingsOutputWithContext(ctx context.Context) UefiSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsOutput)
+}
+
+func (i UefiSettingsArgs) ToUefiSettingsPtrOutput() UefiSettingsPtrOutput {
+	return i.ToUefiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UefiSettingsArgs) ToUefiSettingsPtrOutputWithContext(ctx context.Context) UefiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsOutput).ToUefiSettingsPtrOutputWithContext(ctx)
+}
+
+// UefiSettingsPtrInput is an input type that accepts UefiSettingsArgs, UefiSettingsPtr and UefiSettingsPtrOutput values.
+// You can construct a concrete instance of `UefiSettingsPtrInput` via:
+//
+//          UefiSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UefiSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUefiSettingsPtrOutput() UefiSettingsPtrOutput
+	ToUefiSettingsPtrOutputWithContext(context.Context) UefiSettingsPtrOutput
+}
+
+type uefiSettingsPtrType UefiSettingsArgs
+
+func UefiSettingsPtr(v *UefiSettingsArgs) UefiSettingsPtrInput {
+	return (*uefiSettingsPtrType)(v)
+}
+
+func (*uefiSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UefiSettings)(nil)).Elem()
+}
+
+func (i *uefiSettingsPtrType) ToUefiSettingsPtrOutput() UefiSettingsPtrOutput {
+	return i.ToUefiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *uefiSettingsPtrType) ToUefiSettingsPtrOutputWithContext(ctx context.Context) UefiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsPtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+type UefiSettingsOutput struct{ *pulumi.OutputState }
+
+func (UefiSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UefiSettings)(nil)).Elem()
+}
+
+func (o UefiSettingsOutput) ToUefiSettingsOutput() UefiSettingsOutput {
+	return o
+}
+
+func (o UefiSettingsOutput) ToUefiSettingsOutputWithContext(ctx context.Context) UefiSettingsOutput {
+	return o
+}
+
+func (o UefiSettingsOutput) ToUefiSettingsPtrOutput() UefiSettingsPtrOutput {
+	return o.ToUefiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UefiSettingsOutput) ToUefiSettingsPtrOutputWithContext(ctx context.Context) UefiSettingsPtrOutput {
+	return o.ApplyT(func(v UefiSettings) *UefiSettings {
+		return &v
+	}).(UefiSettingsPtrOutput)
+}
+
+// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UefiSettings) *bool { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsOutput) VTpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UefiSettings) *bool { return v.VTpmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type UefiSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UefiSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UefiSettings)(nil)).Elem()
+}
+
+func (o UefiSettingsPtrOutput) ToUefiSettingsPtrOutput() UefiSettingsPtrOutput {
+	return o
+}
+
+func (o UefiSettingsPtrOutput) ToUefiSettingsPtrOutputWithContext(ctx context.Context) UefiSettingsPtrOutput {
+	return o
+}
+
+func (o UefiSettingsPtrOutput) Elem() UefiSettingsOutput {
+	return o.ApplyT(func(v *UefiSettings) UefiSettings { return *v }).(UefiSettingsOutput)
+}
+
+// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsPtrOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UefiSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecureBootEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsPtrOutput) VTpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UefiSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VTpmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+type UefiSettingsResponse struct {
+	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	VTpmEnabled *bool `pulumi:"vTpmEnabled"`
+}
+
+// UefiSettingsResponseInput is an input type that accepts UefiSettingsResponseArgs and UefiSettingsResponseOutput values.
+// You can construct a concrete instance of `UefiSettingsResponseInput` via:
+//
+//          UefiSettingsResponseArgs{...}
+type UefiSettingsResponseInput interface {
+	pulumi.Input
+
+	ToUefiSettingsResponseOutput() UefiSettingsResponseOutput
+	ToUefiSettingsResponseOutputWithContext(context.Context) UefiSettingsResponseOutput
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+type UefiSettingsResponseArgs struct {
+	// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
+	// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+	VTpmEnabled pulumi.BoolPtrInput `pulumi:"vTpmEnabled"`
+}
+
+func (UefiSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UefiSettingsResponse)(nil)).Elem()
+}
+
+func (i UefiSettingsResponseArgs) ToUefiSettingsResponseOutput() UefiSettingsResponseOutput {
+	return i.ToUefiSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i UefiSettingsResponseArgs) ToUefiSettingsResponseOutputWithContext(ctx context.Context) UefiSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsResponseOutput)
+}
+
+func (i UefiSettingsResponseArgs) ToUefiSettingsResponsePtrOutput() UefiSettingsResponsePtrOutput {
+	return i.ToUefiSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UefiSettingsResponseArgs) ToUefiSettingsResponsePtrOutputWithContext(ctx context.Context) UefiSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsResponseOutput).ToUefiSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// UefiSettingsResponsePtrInput is an input type that accepts UefiSettingsResponseArgs, UefiSettingsResponsePtr and UefiSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `UefiSettingsResponsePtrInput` via:
+//
+//          UefiSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UefiSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToUefiSettingsResponsePtrOutput() UefiSettingsResponsePtrOutput
+	ToUefiSettingsResponsePtrOutputWithContext(context.Context) UefiSettingsResponsePtrOutput
+}
+
+type uefiSettingsResponsePtrType UefiSettingsResponseArgs
+
+func UefiSettingsResponsePtr(v *UefiSettingsResponseArgs) UefiSettingsResponsePtrInput {
+	return (*uefiSettingsResponsePtrType)(v)
+}
+
+func (*uefiSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UefiSettingsResponse)(nil)).Elem()
+}
+
+func (i *uefiSettingsResponsePtrType) ToUefiSettingsResponsePtrOutput() UefiSettingsResponsePtrOutput {
+	return i.ToUefiSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *uefiSettingsResponsePtrType) ToUefiSettingsResponsePtrOutputWithContext(ctx context.Context) UefiSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UefiSettingsResponsePtrOutput)
+}
+
+// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+type UefiSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (UefiSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UefiSettingsResponse)(nil)).Elem()
+}
+
+func (o UefiSettingsResponseOutput) ToUefiSettingsResponseOutput() UefiSettingsResponseOutput {
+	return o
+}
+
+func (o UefiSettingsResponseOutput) ToUefiSettingsResponseOutputWithContext(ctx context.Context) UefiSettingsResponseOutput {
+	return o
+}
+
+func (o UefiSettingsResponseOutput) ToUefiSettingsResponsePtrOutput() UefiSettingsResponsePtrOutput {
+	return o.ToUefiSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UefiSettingsResponseOutput) ToUefiSettingsResponsePtrOutputWithContext(ctx context.Context) UefiSettingsResponsePtrOutput {
+	return o.ApplyT(func(v UefiSettingsResponse) *UefiSettingsResponse {
+		return &v
+	}).(UefiSettingsResponsePtrOutput)
+}
+
+// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsResponseOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UefiSettingsResponse) *bool { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsResponseOutput) VTpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UefiSettingsResponse) *bool { return v.VTpmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type UefiSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UefiSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UefiSettingsResponse)(nil)).Elem()
+}
+
+func (o UefiSettingsResponsePtrOutput) ToUefiSettingsResponsePtrOutput() UefiSettingsResponsePtrOutput {
+	return o
+}
+
+func (o UefiSettingsResponsePtrOutput) ToUefiSettingsResponsePtrOutputWithContext(ctx context.Context) UefiSettingsResponsePtrOutput {
+	return o
+}
+
+func (o UefiSettingsResponsePtrOutput) Elem() UefiSettingsResponseOutput {
+	return o.ApplyT(func(v *UefiSettingsResponse) UefiSettingsResponse { return *v }).(UefiSettingsResponseOutput)
+}
+
+// Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsResponsePtrOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UefiSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecureBootEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+func (o UefiSettingsResponsePtrOutput) VTpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UefiSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VTpmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Describes an upgrade policy - automatic, manual, or rolling.
 type UpgradePolicy struct {
 	// Configuration parameters used for performing automatic OS Upgrade.
@@ -29913,7 +30701,7 @@ type VirtualMachineInstanceViewResponse struct {
 	OsName *string `pulumi:"osName"`
 	// The version of Operating System running on the virtual machine.
 	OsVersion *string `pulumi:"osVersion"`
-	// The status of virtual machine patch operations.
+	// [Preview Feature] The status of virtual machine patch operations.
 	PatchStatus *VirtualMachinePatchStatusResponse `pulumi:"patchStatus"`
 	// Specifies the fault domain of the virtual machine.
 	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
@@ -29960,7 +30748,7 @@ type VirtualMachineInstanceViewResponseArgs struct {
 	OsName pulumi.StringPtrInput `pulumi:"osName"`
 	// The version of Operating System running on the virtual machine.
 	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The status of virtual machine patch operations.
+	// [Preview Feature] The status of virtual machine patch operations.
 	PatchStatus VirtualMachinePatchStatusResponsePtrInput `pulumi:"patchStatus"`
 	// Specifies the fault domain of the virtual machine.
 	PlatformFaultDomain pulumi.IntPtrInput `pulumi:"platformFaultDomain"`
@@ -30105,7 +30893,7 @@ func (o VirtualMachineInstanceViewResponseOutput) OsVersion() pulumi.StringPtrOu
 	return o.ApplyT(func(v VirtualMachineInstanceViewResponse) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The status of virtual machine patch operations.
+// [Preview Feature] The status of virtual machine patch operations.
 func (o VirtualMachineInstanceViewResponseOutput) PatchStatus() VirtualMachinePatchStatusResponsePtrOutput {
 	return o.ApplyT(func(v VirtualMachineInstanceViewResponse) *VirtualMachinePatchStatusResponse { return v.PatchStatus }).(VirtualMachinePatchStatusResponsePtrOutput)
 }
@@ -30248,7 +31036,7 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) OsVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of virtual machine patch operations.
+// [Preview Feature] The status of virtual machine patch operations.
 func (o VirtualMachineInstanceViewResponsePtrOutput) PatchStatus() VirtualMachinePatchStatusResponsePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineInstanceViewResponse) *VirtualMachinePatchStatusResponse {
 		if v == nil {
@@ -30322,6 +31110,8 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) VmHealth() VirtualMachineHe
 type VirtualMachinePatchStatusResponse struct {
 	// The available patch summary of the latest assessment operation for the virtual machine.
 	AvailablePatchSummary *AvailablePatchSummaryResponse `pulumi:"availablePatchSummary"`
+	// The enablement status of the specified patchMode
+	ConfigurationStatuses []InstanceViewStatusResponse `pulumi:"configurationStatuses"`
 	// The installation summary of the latest installation operation for the virtual machine.
 	LastPatchInstallationSummary *LastPatchInstallationSummaryResponse `pulumi:"lastPatchInstallationSummary"`
 }
@@ -30341,6 +31131,8 @@ type VirtualMachinePatchStatusResponseInput interface {
 type VirtualMachinePatchStatusResponseArgs struct {
 	// The available patch summary of the latest assessment operation for the virtual machine.
 	AvailablePatchSummary AvailablePatchSummaryResponsePtrInput `pulumi:"availablePatchSummary"`
+	// The enablement status of the specified patchMode
+	ConfigurationStatuses InstanceViewStatusResponseArrayInput `pulumi:"configurationStatuses"`
 	// The installation summary of the latest installation operation for the virtual machine.
 	LastPatchInstallationSummary LastPatchInstallationSummaryResponsePtrInput `pulumi:"lastPatchInstallationSummary"`
 }
@@ -30430,6 +31222,11 @@ func (o VirtualMachinePatchStatusResponseOutput) AvailablePatchSummary() Availab
 	}).(AvailablePatchSummaryResponsePtrOutput)
 }
 
+// The enablement status of the specified patchMode
+func (o VirtualMachinePatchStatusResponseOutput) ConfigurationStatuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachinePatchStatusResponse) []InstanceViewStatusResponse { return v.ConfigurationStatuses }).(InstanceViewStatusResponseArrayOutput)
+}
+
 // The installation summary of the latest installation operation for the virtual machine.
 func (o VirtualMachinePatchStatusResponseOutput) LastPatchInstallationSummary() LastPatchInstallationSummaryResponsePtrOutput {
 	return o.ApplyT(func(v VirtualMachinePatchStatusResponse) *LastPatchInstallationSummaryResponse {
@@ -30463,6 +31260,16 @@ func (o VirtualMachinePatchStatusResponsePtrOutput) AvailablePatchSummary() Avai
 		}
 		return v.AvailablePatchSummary
 	}).(AvailablePatchSummaryResponsePtrOutput)
+}
+
+// The enablement status of the specified patchMode
+func (o VirtualMachinePatchStatusResponsePtrOutput) ConfigurationStatuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachinePatchStatusResponse) []InstanceViewStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationStatuses
+	}).(InstanceViewStatusResponseArrayOutput)
 }
 
 // The installation summary of the latest installation operation for the virtual machine.
@@ -38733,7 +39540,7 @@ type WindowsConfiguration struct {
 	AdditionalUnattendContent []AdditionalUnattendContent `pulumi:"additionalUnattendContent"`
 	// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
-	// Specifies settings related to in-guest patching (KBs).
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 	PatchSettings *PatchSettings `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent *bool `pulumi:"provisionVMAgent"`
@@ -38760,7 +39567,7 @@ type WindowsConfigurationArgs struct {
 	AdditionalUnattendContent AdditionalUnattendContentArrayInput `pulumi:"additionalUnattendContent"`
 	// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
 	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
-	// Specifies settings related to in-guest patching (KBs).
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 	PatchSettings PatchSettingsPtrInput `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent pulumi.BoolPtrInput `pulumi:"provisionVMAgent"`
@@ -38858,7 +39665,7 @@ func (o WindowsConfigurationOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v WindowsConfiguration) *bool { return v.EnableAutomaticUpdates }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies settings related to in-guest patching (KBs).
+// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 func (o WindowsConfigurationOutput) PatchSettings() PatchSettingsPtrOutput {
 	return o.ApplyT(func(v WindowsConfiguration) *PatchSettings { return v.PatchSettings }).(PatchSettingsPtrOutput)
 }
@@ -38916,7 +39723,7 @@ func (o WindowsConfigurationPtrOutput) EnableAutomaticUpdates() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies settings related to in-guest patching (KBs).
+// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 func (o WindowsConfigurationPtrOutput) PatchSettings() PatchSettingsPtrOutput {
 	return o.ApplyT(func(v *WindowsConfiguration) *PatchSettings {
 		if v == nil {
@@ -38962,7 +39769,7 @@ type WindowsConfigurationResponse struct {
 	AdditionalUnattendContent []AdditionalUnattendContentResponse `pulumi:"additionalUnattendContent"`
 	// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
-	// Specifies settings related to in-guest patching (KBs).
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 	PatchSettings *PatchSettingsResponse `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent *bool `pulumi:"provisionVMAgent"`
@@ -38989,7 +39796,7 @@ type WindowsConfigurationResponseArgs struct {
 	AdditionalUnattendContent AdditionalUnattendContentResponseArrayInput `pulumi:"additionalUnattendContent"`
 	// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
 	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
-	// Specifies settings related to in-guest patching (KBs).
+	// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 	PatchSettings PatchSettingsResponsePtrInput `pulumi:"patchSettings"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
 	ProvisionVMAgent pulumi.BoolPtrInput `pulumi:"provisionVMAgent"`
@@ -39089,7 +39896,7 @@ func (o WindowsConfigurationResponseOutput) EnableAutomaticUpdates() pulumi.Bool
 	return o.ApplyT(func(v WindowsConfigurationResponse) *bool { return v.EnableAutomaticUpdates }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies settings related to in-guest patching (KBs).
+// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 func (o WindowsConfigurationResponseOutput) PatchSettings() PatchSettingsResponsePtrOutput {
 	return o.ApplyT(func(v WindowsConfigurationResponse) *PatchSettingsResponse { return v.PatchSettings }).(PatchSettingsResponsePtrOutput)
 }
@@ -39147,7 +39954,7 @@ func (o WindowsConfigurationResponsePtrOutput) EnableAutomaticUpdates() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies settings related to in-guest patching (KBs).
+// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
 func (o WindowsConfigurationResponsePtrOutput) PatchSettings() PatchSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *WindowsConfigurationResponse) *PatchSettingsResponse {
 		if v == nil {
@@ -39394,6 +40201,10 @@ func init() {
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(LinuxPatchSettingsOutput{})
+	pulumi.RegisterOutputType(LinuxPatchSettingsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxPatchSettingsResponseOutput{})
+	pulumi.RegisterOutputType(LinuxPatchSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsOutputResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponsePtrOutput{})
@@ -39523,6 +40334,10 @@ func init() {
 	pulumi.RegisterOutputType(TerminateNotificationProfilePtrOutput{})
 	pulumi.RegisterOutputType(TerminateNotificationProfileResponseOutput{})
 	pulumi.RegisterOutputType(TerminateNotificationProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(UefiSettingsOutput{})
+	pulumi.RegisterOutputType(UefiSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UefiSettingsResponseOutput{})
+	pulumi.RegisterOutputType(UefiSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpgradePolicyOutput{})
 	pulumi.RegisterOutputType(UpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(UpgradePolicyResponseOutput{})

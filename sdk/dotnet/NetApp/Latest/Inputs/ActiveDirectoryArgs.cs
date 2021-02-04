@@ -64,6 +64,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
         public Input<string>? KdcIP { get; set; }
 
         /// <summary>
+        /// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        /// </summary>
+        [Input("ldapOverTLS")]
+        public Input<bool>? LdapOverTLS { get; set; }
+
+        /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be signed.
         /// </summary>
         [Input("ldapSigning")]
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Inputs
 
         public ActiveDirectoryArgs()
         {
+            OrganizationalUnit = "CN=Computers";
         }
     }
 }

@@ -369,7 +369,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 @pulumi.output_type
 class ResourceSkuResponse(dict):
     """
-    The billing information of the SignalR resource.
+    The billing information of the resource.
     """
     def __init__(__self__, *,
                  family: str,
@@ -378,7 +378,7 @@ class ResourceSkuResponse(dict):
                  capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
-        The billing information of the SignalR resource.
+        The billing information of the resource.
         :param str family: Not used. Retained for future use.
         :param str name: The name of the SKU. Required.
                
@@ -456,12 +456,12 @@ class ResourceSkuResponse(dict):
 @pulumi.output_type
 class ServerlessUpstreamSettingsResponse(dict):
     """
-    The settings for the Upstream when the Azure SignalR is in server-less mode.
+    The settings for the Upstream when the service is in server-less mode.
     """
     def __init__(__self__, *,
                  templates: Optional[Sequence['outputs.UpstreamTemplateResponse']] = None):
         """
-        The settings for the Upstream when the Azure SignalR is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         :param Sequence['UpstreamTemplateResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
@@ -560,14 +560,14 @@ class SignalRFeatureResponse(dict):
 @pulumi.output_type
 class SignalRNetworkACLsResponse(dict):
     """
-    Network ACLs for SignalR
+    Network ACLs for the resource
     """
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
                  private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLResponse']] = None,
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
-        Network ACLs for SignalR
+        Network ACLs for the resource
         :param str default_action: Default action when no other rule matches
         :param Sequence['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
         :param 'NetworkACLResponseArgs' public_network: ACL for requests from public network
@@ -612,12 +612,12 @@ class SignalRNetworkACLsResponse(dict):
 @pulumi.output_type
 class SignalRTlsSettingsResponse(dict):
     """
-    TLS settings for SignalR
+    TLS settings for the resource
     """
     def __init__(__self__, *,
                  client_cert_enabled: Optional[bool] = None):
         """
-        TLS settings for SignalR
+        TLS settings for the resource
         :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled
         """
         if client_cert_enabled is not None:

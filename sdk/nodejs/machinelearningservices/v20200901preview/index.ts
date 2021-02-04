@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getLabelingJob";
 export * from "./getLinkedService";
 export * from "./getMachineLearningCompute";
 export * from "./getMachineLearningService";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
 export * from "./getWorkspaceConnection";
+export * from "./labelingJob";
 export * from "./linkedService";
 export * from "./listMachineLearningComputeKeys";
 export * from "./listMachineLearningComputeNodes";
@@ -26,6 +28,7 @@ export * from "./workspaceConnection";
 export * from "../../types/enums/machinelearningservices/v20200901preview";
 
 // Import resources to register:
+import { LabelingJob } from "./labelingJob";
 import { LinkedService } from "./linkedService";
 import { MachineLearningCompute } from "./machineLearningCompute";
 import { MachineLearningService } from "./machineLearningService";
@@ -37,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:machinelearningservices/v20200901preview:LabelingJob":
+                return new LabelingJob(name, <any>undefined, { urn })
             case "azure-nextgen:machinelearningservices/v20200901preview:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
             case "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute":

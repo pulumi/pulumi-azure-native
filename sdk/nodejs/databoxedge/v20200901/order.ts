@@ -42,7 +42,7 @@ export class Order extends pulumi.CustomResource {
     /**
      * Current status of the order.
      */
-    public readonly currentStatus!: pulumi.Output<outputs.databoxedge.v20200901.OrderStatusResponse | undefined>;
+    public /*out*/ readonly currentStatus!: pulumi.Output<outputs.databoxedge.v20200901.OrderStatusResponse>;
     /**
      * Tracking information for the package delivered to the customer whether it has an original or a replacement device.
      */
@@ -96,11 +96,11 @@ export class Order extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contactInformation"] = args ? args.contactInformation : undefined;
-            inputs["currentStatus"] = args ? args.currentStatus : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shipmentType"] = args ? args.shipmentType : undefined;
             inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
+            inputs["currentStatus"] = undefined /*out*/;
             inputs["deliveryTrackingInfo"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["orderHistory"] = undefined /*out*/;
@@ -140,10 +140,6 @@ export interface OrderArgs {
      * The contact details.
      */
     readonly contactInformation: pulumi.Input<inputs.databoxedge.v20200901.ContactDetails>;
-    /**
-     * Current status of the order.
-     */
-    readonly currentStatus?: pulumi.Input<inputs.databoxedge.v20200901.OrderStatus>;
     /**
      * The order details of a device.
      */

@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly Outputs.NodeStateCountsResponse NodeStateCounts;
         /// <summary>
+        /// Compute OS Type
+        /// </summary>
+        public readonly string? OsType;
+        /// <summary>
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         /// </summary>
         public readonly string? RemoteLoginPortPublicAccess;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             Outputs.NodeStateCountsResponse nodeStateCounts,
 
+            string? osType,
+
             string? remoteLoginPortPublicAccess,
 
             Outputs.ScaleSettingsResponse? scaleSettings,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             CurrentNodeCount = currentNodeCount;
             Errors = errors;
             NodeStateCounts = nodeStateCounts;
+            OsType = osType;
             RemoteLoginPortPublicAccess = remoteLoginPortPublicAccess;
             ScaleSettings = scaleSettings;
             Subnet = subnet;

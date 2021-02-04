@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
         /// <summary>
+        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// </summary>
+        public readonly string? EncryptionKeySource;
+        /// <summary>
         /// Set of export policy rules
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
@@ -100,7 +104,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS fro SMB protocol
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
         /// <summary>
@@ -108,7 +112,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The security style of volume
+        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         /// </summary>
         public readonly string? SecurityStyle;
         /// <summary>
@@ -124,7 +128,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly bool? SmbEncryption;
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
         /// <summary>
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
             string creationToken,
 
             Outputs.VolumePropertiesResponseDataProtection? dataProtection,
+
+            string? encryptionKeySource,
 
             Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
 
@@ -211,6 +217,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
             BaremetalTenantId = baremetalTenantId;
             CreationToken = creationToken;
             DataProtection = dataProtection;
+            EncryptionKeySource = encryptionKeySource;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;
             Id = id;

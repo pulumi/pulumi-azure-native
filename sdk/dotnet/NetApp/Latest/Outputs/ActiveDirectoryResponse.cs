@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
         /// </summary>
         public readonly string? KdcIP;
         /// <summary>
+        /// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        /// </summary>
+        public readonly bool? LdapOverTLS;
+        /// <summary>
         /// Specifies whether or not the LDAP traffic needs to be signed.
         /// </summary>
         public readonly bool? LdapSigning;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
 
             string? kdcIP,
 
+            bool? ldapOverTLS,
+
             bool? ldapSigning,
 
             string? organizationalUnit,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest.Outputs
             Dns = dns;
             Domain = domain;
             KdcIP = kdcIP;
+            LdapOverTLS = ldapOverTLS;
             LdapSigning = ldapSigning;
             OrganizationalUnit = organizationalUnit;
             Password = password;

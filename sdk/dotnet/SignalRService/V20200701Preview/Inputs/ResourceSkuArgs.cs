@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
 {
 
     /// <summary>
-    /// The billing information of the SignalR resource.
+    /// The billing information of the resource.
     /// </summary>
     public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
     {

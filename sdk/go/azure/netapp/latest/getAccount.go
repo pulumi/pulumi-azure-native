@@ -27,6 +27,8 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// Active Directories
 	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
+	// Encryption settings
+	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
@@ -35,6 +37,8 @@ type LookupAccountResult struct {
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

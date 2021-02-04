@@ -95,7 +95,7 @@ export class SshPublicKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }

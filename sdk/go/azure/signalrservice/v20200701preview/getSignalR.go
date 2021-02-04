@@ -23,11 +23,11 @@ type LookupSignalRArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 }
 
-// A class represent a SignalR service resource.
+// A class represent a resource.
 type LookupSignalRResult struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
-	// The publicly accessible IP of the SignalR service.
+	// The publicly accessible IP of the resource.
 	ExternalIP string `pulumi:"externalIP"`
 	// List of SignalR featureFlags. e.g. ServiceMode.
 	//
@@ -36,27 +36,27 @@ type LookupSignalRResult struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features []SignalRFeatureResponse `pulumi:"features"`
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	// FQDN of the service instance.
 	HostName string `pulumi:"hostName"`
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
 	// The managed identity response
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Network ACLs
 	NetworkACLs *SignalRNetworkACLsResponse `pulumi:"networkACLs"`
-	// Private endpoint connections to the SignalR resource.
+	// Private endpoint connections to the resource.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	// The publicly accessible port of the resource which is designed for browser/client side usage.
 	PublicPort int `pulumi:"publicPort"`
-	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	// The publicly accessible port of the resource which is designed for customer server side usage.
 	ServerPort int `pulumi:"serverPort"`
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku *ResourceSkuResponse `pulumi:"sku"`
@@ -68,6 +68,6 @@ type LookupSignalRResult struct {
 	Type string `pulumi:"type"`
 	// Upstream settings when the Azure SignalR is in server-less mode.
 	Upstream *ServerlessUpstreamSettingsResponse `pulumi:"upstream"`
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	// Version of the resource. Probably you need the same or higher version of client SDKs.
 	Version string `pulumi:"version"`
 }

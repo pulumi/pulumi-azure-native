@@ -16,6 +16,8 @@ import (
 type AlertRule struct {
 	pulumi.CustomResourceState
 
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action pulumi.AnyOutput `pulumi:"action"`
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions pulumi.ArrayOutput `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
@@ -30,6 +32,8 @@ type AlertRule struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// the provisioning state.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type
@@ -92,6 +96,8 @@ func GetAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRule resources.
 type alertRuleState struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action interface{} `pulumi:"action"`
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions []interface{} `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
@@ -106,6 +112,8 @@ type alertRuleState struct {
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
+	// the provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
@@ -113,6 +121,8 @@ type alertRuleState struct {
 }
 
 type AlertRuleState struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action pulumi.Input
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions pulumi.ArrayInput
 	// the condition that results in the alert rule being activated.
@@ -127,6 +137,8 @@ type AlertRuleState struct {
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
+	// the provisioning state.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure resource type
@@ -138,6 +150,8 @@ func (AlertRuleState) ElementType() reflect.Type {
 }
 
 type alertRuleArgs struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action interface{} `pulumi:"action"`
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions []interface{} `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
@@ -150,6 +164,8 @@ type alertRuleArgs struct {
 	Location string `pulumi:"location"`
 	// the name of the alert rule.
 	Name string `pulumi:"name"`
+	// the provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
@@ -160,6 +176,8 @@ type alertRuleArgs struct {
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action pulumi.Input
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions pulumi.ArrayInput
 	// the condition that results in the alert rule being activated.
@@ -172,6 +190,8 @@ type AlertRuleArgs struct {
 	Location pulumi.StringInput
 	// the name of the alert rule.
 	Name pulumi.StringInput
+	// the provisioning state.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.

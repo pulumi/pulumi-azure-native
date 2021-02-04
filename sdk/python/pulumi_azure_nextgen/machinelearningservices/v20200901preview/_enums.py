@@ -10,7 +10,9 @@ __all__ = [
     'ComputeInstanceAuthorizationType',
     'ComputeType',
     'EncryptionStatus',
+    'ImageAnnotationType',
     'LinkedServiceLinkType',
+    'MediaType',
     'OsType',
     'PrivateEndpointServiceConnectionStatus',
     'RemoteLoginPortPublicAccess',
@@ -65,11 +67,28 @@ class EncryptionStatus(str, Enum):
     DISABLED = "Disabled"
 
 
+class ImageAnnotationType(str, Enum):
+    """
+    Annotation type of image labeling tasks.
+    """
+    CLASSIFICATION = "Classification"
+    BOUNDING_BOX = "BoundingBox"
+    INSTANCE_SEGMENTATION = "InstanceSegmentation"
+
+
 class LinkedServiceLinkType(str, Enum):
     """
     Type of the link target.
     """
     SYNAPSE = "Synapse"
+
+
+class MediaType(str, Enum):
+    """
+    Media type of data asset.
+    """
+    IMAGE = "Image"
+    TEXT = "Text"
 
 
 class OsType(str, Enum):

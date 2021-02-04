@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly string? OsVersion;
         /// <summary>
-        /// The status of virtual machine patch operations.
+        /// [Preview Feature] The status of virtual machine patch operations.
         /// </summary>
         public readonly Outputs.VirtualMachinePatchStatusResponse? PatchStatus;
         /// <summary>

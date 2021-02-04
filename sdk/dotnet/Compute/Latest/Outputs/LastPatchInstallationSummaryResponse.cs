@@ -50,19 +50,11 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly int PendingPatchCount;
         /// <summary>
-        /// The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
-        /// </summary>
-        public readonly string RebootStatus;
-        /// <summary>
         /// The UTC timestamp when the operation began.
         /// </summary>
         public readonly string StartTime;
         /// <summary>
-        /// The person or system account that started the operation
-        /// </summary>
-        public readonly string StartedBy;
-        /// <summary>
-        /// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+        /// The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
         /// </summary>
         public readonly string Status;
 
@@ -86,11 +78,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
 
             int pendingPatchCount,
 
-            string rebootStatus,
-
             string startTime,
-
-            string startedBy,
 
             string status)
         {
@@ -103,9 +91,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
             MaintenanceWindowExceeded = maintenanceWindowExceeded;
             NotSelectedPatchCount = notSelectedPatchCount;
             PendingPatchCount = pendingPatchCount;
-            RebootStatus = rebootStatus;
             StartTime = startTime;
-            StartedBy = startedBy;
             Status = status;
         }
     }

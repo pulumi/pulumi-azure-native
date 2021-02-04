@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Backup of a Volume
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Backup")]
     public partial class Backup : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Failure reason
+        /// </summary>
+        [Output("failureReason")]
+        public Output<string> FailureReason { get; private set; } = null!;
 
         /// <summary>
         /// Label for backup
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Backup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

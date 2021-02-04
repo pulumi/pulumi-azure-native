@@ -109,7 +109,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
             if window_size is None and not opts.urn:
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
+            __props__['created_with_api_version'] = None
             __props__['etag'] = None
+            __props__['is_legacy_log_analytics_rule'] = None
             __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
@@ -143,6 +145,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.ActionResponse']]]:
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> pulumi.Output[str]:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
 
     @property
     @pulumi.getter
@@ -191,6 +201,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
         return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> pulumi.Output[bool]:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
 
     @property
     @pulumi.getter

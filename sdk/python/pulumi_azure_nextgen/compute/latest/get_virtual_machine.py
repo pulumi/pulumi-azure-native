@@ -20,7 +20,7 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, security_profile=None, storage_profile=None, tags=None, type=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, security_profile=None, storage_profile=None, tags=None, type=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -36,6 +36,9 @@ class GetVirtualMachineResult:
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if extensions_time_budget and not isinstance(extensions_time_budget, str):
             raise TypeError("Expected argument 'extensions_time_budget' to be a str")
         pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
@@ -75,6 +78,9 @@ class GetVirtualMachineResult:
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
+        if platform_fault_domain and not isinstance(platform_fault_domain, int):
+            raise TypeError("Expected argument 'platform_fault_domain' to be a int")
+        pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
         if priority and not isinstance(priority, str):
             raise TypeError("Expected argument 'priority' to be a str")
         pulumi.set(__self__, "priority", priority)
@@ -148,6 +154,14 @@ class GetVirtualMachineResult:
         Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the Virtual Machine.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="extensionsTimeBudget")
@@ -254,6 +268,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "plan")
 
     @property
+    @pulumi.getter(name="platformFaultDomain")
+    def platform_fault_domain(self) -> Optional[int]:
+        """
+        Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
+        """
+        return pulumi.get(self, "platform_fault_domain")
+
+    @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
         """
@@ -353,6 +375,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             billing_profile=self.billing_profile,
             diagnostics_profile=self.diagnostics_profile,
             eviction_policy=self.eviction_policy,
+            extended_location=self.extended_location,
             extensions_time_budget=self.extensions_time_budget,
             hardware_profile=self.hardware_profile,
             host=self.host,
@@ -366,6 +389,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             network_profile=self.network_profile,
             os_profile=self.os_profile,
             plan=self.plan,
+            platform_fault_domain=self.platform_fault_domain,
             priority=self.priority,
             provisioning_state=self.provisioning_state,
             proximity_placement_group=self.proximity_placement_group,
@@ -406,6 +430,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         billing_profile=__ret__.billing_profile,
         diagnostics_profile=__ret__.diagnostics_profile,
         eviction_policy=__ret__.eviction_policy,
+        extended_location=__ret__.extended_location,
         extensions_time_budget=__ret__.extensions_time_budget,
         hardware_profile=__ret__.hardware_profile,
         host=__ret__.host,
@@ -419,6 +444,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         network_profile=__ret__.network_profile,
         os_profile=__ret__.os_profile,
         plan=__ret__.plan,
+        platform_fault_domain=__ret__.platform_fault_domain,
         priority=__ret__.priority,
         provisioning_state=__ret__.provisioning_state,
         proximity_placement_group=__ret__.proximity_placement_group,

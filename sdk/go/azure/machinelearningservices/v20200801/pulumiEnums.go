@@ -38,6 +38,33 @@ func (e ApplicationSharingPolicy) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The Compute Instance Authorization type. Available values are personal (default).
+type ComputeInstanceAuthorizationType pulumi.String
+
+const (
+	ComputeInstanceAuthorizationTypePersonal = ComputeInstanceAuthorizationType("personal")
+)
+
+func (ComputeInstanceAuthorizationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ComputeInstanceAuthorizationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeInstanceAuthorizationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeInstanceAuthorizationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeInstanceAuthorizationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of compute
 type ComputeType pulumi.String
 
@@ -97,6 +124,34 @@ func (e EncryptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e EncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Compute OS Type
+type OsType pulumi.String
+
+const (
+	OsTypeLinux   = OsType("Linux")
+	OsTypeWindows = OsType("Windows")
+)
+
+func (OsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e OsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -165,8 +220,8 @@ type ResourceIdentityType pulumi.String
 
 const (
 	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
-	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
 	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned,UserAssigned")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
 	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
 )
 

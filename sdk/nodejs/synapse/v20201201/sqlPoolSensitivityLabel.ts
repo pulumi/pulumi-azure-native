@@ -149,7 +149,7 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolSensitivityLabel.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly doNotRunExtensionsOnOverprovisionedVMs!: pulumi.Output<boolean | undefined>;
     /**
+     * The extended location of the Virtual Machine Scale Set.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.compute.latest.ExtendedLocationResponse | undefined>;
+    /**
      * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
      */
     public readonly hostGroup!: pulumi.Output<outputs.compute.latest.SubResourceResponse | undefined>;
@@ -64,6 +68,10 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the orchestration mode for the virtual machine scale set.
+     */
+    public readonly orchestrationMode!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
@@ -147,9 +155,11 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             inputs["automaticRepairsPolicy"] = args ? args.automaticRepairsPolicy : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedVMs"] = args ? args.doNotRunExtensionsOnOverprovisionedVMs : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["hostGroup"] = args ? args.hostGroup : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["orchestrationMode"] = args ? args.orchestrationMode : undefined;
             inputs["overprovision"] = args ? args.overprovision : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
@@ -172,10 +182,12 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["additionalCapabilities"] = undefined /*out*/;
             inputs["automaticRepairsPolicy"] = undefined /*out*/;
             inputs["doNotRunExtensionsOnOverprovisionedVMs"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["hostGroup"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["orchestrationMode"] = undefined /*out*/;
             inputs["overprovision"] = undefined /*out*/;
             inputs["plan"] = undefined /*out*/;
             inputs["platformFaultDomainCount"] = undefined /*out*/;
@@ -199,7 +211,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20150615:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSet.__pulumiType, name, inputs, opts);
     }
@@ -222,6 +234,10 @@ export interface VirtualMachineScaleSetArgs {
      */
     readonly doNotRunExtensionsOnOverprovisionedVMs?: pulumi.Input<boolean>;
     /**
+     * The extended location of the Virtual Machine Scale Set.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.compute.latest.ExtendedLocation>;
+    /**
      * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
      */
     readonly hostGroup?: pulumi.Input<inputs.compute.latest.SubResource>;
@@ -233,6 +249,10 @@ export interface VirtualMachineScaleSetArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Specifies the orchestration mode for the virtual machine scale set.
+     */
+    readonly orchestrationMode?: pulumi.Input<enums.compute.latest.OrchestrationMode>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */

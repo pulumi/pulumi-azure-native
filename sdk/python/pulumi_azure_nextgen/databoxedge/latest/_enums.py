@@ -9,15 +9,12 @@ __all__ = [
     'AddonType',
     'AzureContainerDataFormat',
     'ClientPermissionType',
-    'DataBoxEdgeDeviceKind',
     'DataBoxEdgeDeviceStatus',
     'DataPolicy',
     'DayOfWeek',
     'EncryptionAlgorithm',
     'MonitoringStatus',
     'MsiIdentityType',
-    'OrderState',
-    'ResourceMoveStatus',
     'RoleTypes',
     'SSLStatus',
     'ShareAccessProtocol',
@@ -27,7 +24,6 @@ __all__ = [
     'SkuName',
     'SkuTier',
     'StorageAccountStatus',
-    'SubscriptionState',
     'TriggerEventType',
     'UserType',
 ]
@@ -65,16 +61,6 @@ class ClientPermissionType(str, Enum):
     NO_ACCESS = "NoAccess"
     READ_ONLY = "ReadOnly"
     READ_WRITE = "ReadWrite"
-
-
-class DataBoxEdgeDeviceKind(str, Enum):
-    """
-    The etag for the devices.
-    """
-    AZURE_DATA_BOX_GATEWAY = "AzureDataBoxGateway"
-    AZURE_STACK_EDGE = "AzureStackEdge"
-    AZURE_STACK_HUB = "AzureStackHub"
-    AZURE_MODULAR_DATA_CENTRE = "AzureModularDataCentre"
 
 
 class DataBoxEdgeDeviceStatus(str, Enum):
@@ -132,38 +118,6 @@ class MsiIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-
-
-class OrderState(str, Enum):
-    """
-    Status of the order as per the allowed status types.
-    """
-    UNTRACKED = "Untracked"
-    AWAITING_FULFILMENT = "AwaitingFulfilment"
-    AWAITING_PREPARATION = "AwaitingPreparation"
-    AWAITING_SHIPMENT = "AwaitingShipment"
-    SHIPPED = "Shipped"
-    ARRIVING = "Arriving"
-    DELIVERED = "Delivered"
-    REPLACEMENT_REQUESTED = "ReplacementRequested"
-    LOST_DEVICE = "LostDevice"
-    DECLINED = "Declined"
-    RETURN_INITIATED = "ReturnInitiated"
-    AWAITING_RETURN_SHIPMENT = "AwaitingReturnShipment"
-    SHIPPED_BACK = "ShippedBack"
-    COLLECTED_AT_MICROSOFT = "CollectedAtMicrosoft"
-    AWAITING_PICKUP = "AwaitingPickup"
-    PICKUP_COMPLETED = "PickupCompleted"
-    AWAITING_DROP = "AwaitingDrop"
-
-
-class ResourceMoveStatus(str, Enum):
-    """
-    Denotes whether move operation is in progress
-    """
-    NONE = "None"
-    RESOURCE_MOVE_IN_PROGRESS = "ResourceMoveInProgress"
-    RESOURCE_MOVE_FAILED = "ResourceMoveFailed"
 
 
 class RoleTypes(str, Enum):
@@ -267,14 +221,6 @@ class StorageAccountStatus(str, Enum):
     UNKNOWN = "Unknown"
     UPDATING = "Updating"
     NEEDS_ATTENTION = "NeedsAttention"
-
-
-class SubscriptionState(str, Enum):
-    REGISTERED = "Registered"
-    WARNED = "Warned"
-    SUSPENDED = "Suspended"
-    DELETED = "Deleted"
-    UNREGISTERED = "Unregistered"
 
 
 class TriggerEventType(str, Enum):

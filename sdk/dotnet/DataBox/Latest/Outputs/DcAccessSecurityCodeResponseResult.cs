@@ -16,20 +16,20 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Outputs
         /// <summary>
         /// Forward Dc access security code.
         /// </summary>
-        public readonly string? ForwardDcAccessCode;
+        public readonly string? ForwardDCAccessCode;
         /// <summary>
         /// Reverse Dc access security code.
         /// </summary>
-        public readonly string? ReverseDcAccessCode;
+        public readonly string? ReverseDCAccessCode;
 
         [OutputConstructor]
         private DcAccessSecurityCodeResponseResult(
-            string? forwardDcAccessCode,
+            string? forwardDCAccessCode,
 
-            string? reverseDcAccessCode)
+            string? reverseDCAccessCode)
         {
-            ForwardDcAccessCode = forwardDcAccessCode;
-            ReverseDcAccessCode = reverseDcAccessCode;
+            ForwardDCAccessCode = forwardDCAccessCode;
+            ReverseDCAccessCode = reverseDCAccessCode;
         }
     }
 }

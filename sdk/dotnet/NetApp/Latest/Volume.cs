@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Volume resource
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Volume")]
     public partial class Volume : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         [Output("dataProtection")]
         public Output<Outputs.VolumePropertiesResponseDataProtection?> DataProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// </summary>
+        [Output("encryptionKeySource")]
+        public Output<string?> EncryptionKeySource { get; private set; } = null!;
 
         /// <summary>
         /// Set of export policy rules
@@ -83,7 +89,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS fro SMB protocol
         /// </summary>
         [Output("protocolTypes")]
         public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
@@ -95,7 +101,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The security style of volume
+        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         /// </summary>
         [Output("securityStyle")]
         public Output<string?> SecurityStyle { get; private set; } = null!;
@@ -119,7 +125,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Output<bool?> SmbEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         /// </summary>
         [Output("snapshotDirectoryVisible")]
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -250,6 +257,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Input<Inputs.VolumePropertiesDataProtectionArgs>? DataProtection { get; set; }
 
         /// <summary>
+        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// </summary>
+        [Input("encryptionKeySource")]
+        public Input<string>? EncryptionKeySource { get; set; }
+
+        /// <summary>
         /// Set of export policy rules
         /// </summary>
         [Input("exportPolicy")]
@@ -273,18 +286,6 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        [Input("mountTargets")]
-        private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;
-
-        /// <summary>
-        /// List of mount targets
-        /// </summary>
-        public InputList<Inputs.MountTargetPropertiesArgs> MountTargets
-        {
-            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.MountTargetPropertiesArgs>());
-            set => _mountTargets = value;
-        }
-
         /// <summary>
         /// The name of the capacity pool
         /// </summary>
@@ -295,7 +296,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         private InputList<string>? _protocolTypes;
 
         /// <summary>
-        /// Set of protocol types
+        /// Set of protocol types, default NFSv3, CIFS fro SMB protocol
         /// </summary>
         public InputList<string> ProtocolTypes
         {
@@ -310,7 +311,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The security style of volume
+        /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         /// </summary>
         [Input("securityStyle")]
         public InputUnion<string, Pulumi.AzureNextGen.NetApp.Latest.SecurityStyle>? SecurityStyle { get; set; }
@@ -334,7 +335,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public Input<bool>? SmbEncryption { get; set; }
 
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
@@ -387,9 +388,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         public VolumeArgs()
         {
             KerberosEnabled = false;
+            SecurityStyle = "unix";
             ServiceLevel = "Premium";
             SmbContinuouslyAvailable = false;
             SmbEncryption = false;
+            SnapshotDirectoryVisible = true;
+            ThroughputMibps = 0;
             UsageThreshold = 107374182400;
         }
     }

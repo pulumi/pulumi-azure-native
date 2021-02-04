@@ -28,7 +28,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,7 +76,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__['instance_view'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHostGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHostGroup, __self__).__init__(
             'azure-nextgen:compute/latest:DedicatedHostGroup',

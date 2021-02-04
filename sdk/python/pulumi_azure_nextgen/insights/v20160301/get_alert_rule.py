@@ -20,7 +20,10 @@ class GetAlertRuleResult:
     """
     The alert rule resource.
     """
-    def __init__(__self__, actions=None, condition=None, description=None, id=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, action=None, actions=None, condition=None, description=None, id=None, is_enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if action and not isinstance(action, dict):
+            raise TypeError("Expected argument 'action' to be a dict")
+        pulumi.set(__self__, "action", action)
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -45,12 +48,23 @@ class GetAlertRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[Any]:
+        """
+        action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
@@ -117,6 +131,14 @@ class GetAlertRuleResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        the provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -139,6 +161,7 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
         if False:
             yield self
         return GetAlertRuleResult(
+            action=self.action,
             actions=self.actions,
             condition=self.condition,
             description=self.description,
@@ -147,6 +170,7 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -170,6 +194,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:insights/v20160301:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult).value
 
     return AwaitableGetAlertRuleResult(
+        action=__ret__.action,
         actions=__ret__.actions,
         condition=__ret__.condition,
         description=__ret__.description,
@@ -178,5 +203,6 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type)

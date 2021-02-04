@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -220,7 +220,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVM.__pulumiType, name, inputs, opts);
     }

@@ -1110,8 +1110,12 @@ type RuleManagementEventDataSource struct {
 	EventName *string `pulumi:"eventName"`
 	// the event source.
 	EventSource *string `pulumi:"eventSource"`
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId *string `pulumi:"legacyResourceId"`
 	// the level.
 	Level *string `pulumi:"level"`
+	// the namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType string `pulumi:"odataType"`
@@ -1119,6 +1123,8 @@ type RuleManagementEventDataSource struct {
 	OperationName *string `pulumi:"operationName"`
 	// the resource group name.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// the location of the resource.
+	ResourceLocation *string `pulumi:"resourceLocation"`
 	// the resource provider name.
 	ResourceProviderName *string `pulumi:"resourceProviderName"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -1148,8 +1154,12 @@ type RuleManagementEventDataSourceArgs struct {
 	EventName pulumi.StringPtrInput `pulumi:"eventName"`
 	// the event source.
 	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
 	// the level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
+	// the namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
@@ -1157,6 +1167,8 @@ type RuleManagementEventDataSourceArgs struct {
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
 	// the resource group name.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// the location of the resource.
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
 	// the resource provider name.
 	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -1209,9 +1221,19 @@ func (o RuleManagementEventDataSourceOutput) EventSource() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
+// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleManagementEventDataSourceOutput) LegacyResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
+}
+
 // the level.
 func (o RuleManagementEventDataSourceOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// the namespace of the metric.
+func (o RuleManagementEventDataSourceOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
@@ -1228,6 +1250,11 @@ func (o RuleManagementEventDataSourceOutput) OperationName() pulumi.StringPtrOut
 // the resource group name.
 func (o RuleManagementEventDataSourceOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// the location of the resource.
+func (o RuleManagementEventDataSourceOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
 // the resource provider name.
@@ -1258,8 +1285,12 @@ type RuleManagementEventDataSourceResponse struct {
 	EventName *string `pulumi:"eventName"`
 	// the event source.
 	EventSource *string `pulumi:"eventSource"`
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId *string `pulumi:"legacyResourceId"`
 	// the level.
 	Level *string `pulumi:"level"`
+	// the namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType string `pulumi:"odataType"`
@@ -1267,6 +1298,8 @@ type RuleManagementEventDataSourceResponse struct {
 	OperationName *string `pulumi:"operationName"`
 	// the resource group name.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// the location of the resource.
+	ResourceLocation *string `pulumi:"resourceLocation"`
 	// the resource provider name.
 	ResourceProviderName *string `pulumi:"resourceProviderName"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -1296,8 +1329,12 @@ type RuleManagementEventDataSourceResponseArgs struct {
 	EventName pulumi.StringPtrInput `pulumi:"eventName"`
 	// the event source.
 	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
 	// the level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
+	// the namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
@@ -1305,6 +1342,8 @@ type RuleManagementEventDataSourceResponseArgs struct {
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
 	// the resource group name.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// the location of the resource.
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
 	// the resource provider name.
 	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -1359,9 +1398,19 @@ func (o RuleManagementEventDataSourceResponseOutput) EventSource() pulumi.String
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
+// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleManagementEventDataSourceResponseOutput) LegacyResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
+}
+
 // the level.
 func (o RuleManagementEventDataSourceResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// the namespace of the metric.
+func (o RuleManagementEventDataSourceResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
@@ -1378,6 +1427,11 @@ func (o RuleManagementEventDataSourceResponseOutput) OperationName() pulumi.Stri
 // the resource group name.
 func (o RuleManagementEventDataSourceResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// the location of the resource.
+func (o RuleManagementEventDataSourceResponseOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
 // the resource provider name.
@@ -1402,11 +1456,17 @@ func (o RuleManagementEventDataSourceResponseOutput) SubStatus() pulumi.StringPt
 
 // A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
 type RuleMetricDataSource struct {
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId *string `pulumi:"legacyResourceId"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName *string `pulumi:"metricName"`
+	// the namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType string `pulumi:"odataType"`
+	// the location of the resource.
+	ResourceLocation *string `pulumi:"resourceLocation"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
 }
@@ -1424,11 +1484,17 @@ type RuleMetricDataSourceInput interface {
 
 // A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
 type RuleMetricDataSourceArgs struct {
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// the namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the location of the resource.
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
@@ -1460,15 +1526,30 @@ func (o RuleMetricDataSourceOutput) ToRuleMetricDataSourceOutputWithContext(ctx 
 	return o
 }
 
+// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleMetricDataSourceOutput) LegacyResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
+}
+
 // the name of the metric that defines what the rule monitors.
 func (o RuleMetricDataSourceOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+// the namespace of the metric.
+func (o RuleMetricDataSourceOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 // Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 func (o RuleMetricDataSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMetricDataSource) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the location of the resource.
+func (o RuleMetricDataSourceOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -1478,11 +1559,17 @@ func (o RuleMetricDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
 
 // A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
 type RuleMetricDataSourceResponse struct {
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId *string `pulumi:"legacyResourceId"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName *string `pulumi:"metricName"`
+	// the namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType string `pulumi:"odataType"`
+	// the location of the resource.
+	ResourceLocation *string `pulumi:"resourceLocation"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
 }
@@ -1500,11 +1587,17 @@ type RuleMetricDataSourceResponseInput interface {
 
 // A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
 type RuleMetricDataSourceResponseArgs struct {
+	// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	LegacyResourceId pulumi.StringPtrInput `pulumi:"legacyResourceId"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// the namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the location of the resource.
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
@@ -1536,15 +1629,30 @@ func (o RuleMetricDataSourceResponseOutput) ToRuleMetricDataSourceResponseOutput
 	return o
 }
 
+// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleMetricDataSourceResponseOutput) LegacyResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.LegacyResourceId }).(pulumi.StringPtrOutput)
+}
+
 // the name of the metric that defines what the rule monitors.
 func (o RuleMetricDataSourceResponseOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+// the namespace of the metric.
+func (o RuleMetricDataSourceResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 // Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
 func (o RuleMetricDataSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleMetricDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the location of the resource.
+func (o RuleMetricDataSourceResponseOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
 }
 
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.

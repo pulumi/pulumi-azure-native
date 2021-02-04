@@ -27,6 +27,8 @@ type LookupScheduledQueryRuleArgs struct {
 type LookupScheduledQueryRuleResult struct {
 	// Action needs to be taken on rule execution.
 	Action interface{} `pulumi:"action"`
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion string `pulumi:"createdWithApiVersion"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The display name of the alert rule
@@ -37,6 +39,8 @@ type LookupScheduledQueryRuleResult struct {
 	Etag string `pulumi:"etag"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule bool `pulumi:"isLegacyLogAnalyticsRule"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind string `pulumi:"kind"`
 	// Last time the rule was updated in IS08601 format.

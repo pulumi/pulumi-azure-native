@@ -12,7 +12,7 @@ import (
 )
 
 // Capacity pool resource
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-11-01.
 type Pool struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +113,9 @@ func NewPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201101:Pool"),
 		},
 	})
 	opts = append(opts, aliases)

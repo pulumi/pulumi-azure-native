@@ -23,11 +23,14 @@ class Bookmark(pulumi.CustomResource):
                  created_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 event_time: Optional[pulumi.Input[str]] = None,
                  incident_info: Optional[pulumi.Input[pulumi.InputType['IncidentInfoArgs']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
+                 query_end_time: Optional[pulumi.Input[str]] = None,
                  query_result: Optional[pulumi.Input[str]] = None,
+                 query_start_time: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
                  updated_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
@@ -45,11 +48,14 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] created_by: Describes a user that created the bookmark
         :param pulumi.Input[str] display_name: The display name of the bookmark
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] event_time: The bookmark event time
         :param pulumi.Input[pulumi.InputType['IncidentInfoArgs']] incident_info: Describes an incident that relates to bookmark
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this bookmark
         :param pulumi.Input[str] notes: The notes of the bookmark
         :param pulumi.Input[str] query: The query of the bookmark.
+        :param pulumi.Input[str] query_end_time: The end time for the query
         :param pulumi.Input[str] query_result: The query result of the bookmark.
+        :param pulumi.Input[str] query_start_time: The start time for the query
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] updated: The last time the bookmark was updated
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] updated_by: Describes a user that updated the bookmark
@@ -81,13 +87,16 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['etag'] = etag
+            __props__['event_time'] = event_time
             __props__['incident_info'] = incident_info
             __props__['labels'] = labels
             __props__['notes'] = notes
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
+            __props__['query_end_time'] = query_end_time
             __props__['query_result'] = query_result
+            __props__['query_start_time'] = query_start_time
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -157,6 +166,14 @@ class Bookmark(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="eventTime")
+    def event_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The bookmark event time
+        """
+        return pulumi.get(self, "event_time")
+
+    @property
     @pulumi.getter(name="incidentInfo")
     def incident_info(self) -> pulumi.Output[Optional['outputs.IncidentInfoResponse']]:
         """
@@ -197,12 +214,28 @@ class Bookmark(pulumi.CustomResource):
         return pulumi.get(self, "query")
 
     @property
+    @pulumi.getter(name="queryEndTime")
+    def query_end_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The end time for the query
+        """
+        return pulumi.get(self, "query_end_time")
+
+    @property
     @pulumi.getter(name="queryResult")
     def query_result(self) -> pulumi.Output[Optional[str]]:
         """
         The query result of the bookmark.
         """
         return pulumi.get(self, "query_result")
+
+    @property
+    @pulumi.getter(name="queryStartTime")
+    def query_start_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The start time for the query
+        """
+        return pulumi.get(self, "query_start_time")
 
     @property
     @pulumi.getter

@@ -19,7 +19,7 @@ class GetBackupResult:
     """
     Backup of a Volume
     """
-    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None):
+    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -29,6 +29,9 @@ class GetBackupResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if failure_reason and not isinstance(failure_reason, str):
+            raise TypeError("Expected argument 'failure_reason' to be a str")
+        pulumi.set(__self__, "failure_reason", failure_reason)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -74,6 +77,14 @@ class GetBackupResult:
         The creation date of the backup
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> str:
+        """
+        Failure reason
+        """
+        return pulumi.get(self, "failure_reason")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetBackupResult(GetBackupResult):
             backup_id=self.backup_id,
             backup_type=self.backup_type,
             creation_date=self.creation_date,
+            failure_reason=self.failure_reason,
             id=self.id,
             label=self.label,
             location=self.location,
@@ -181,6 +193,7 @@ def get_backup(account_name: Optional[str] = None,
         backup_id=__ret__.backup_id,
         backup_type=__ret__.backup_type,
         creation_date=__ret__.creation_date,
+        failure_reason=__ret__.failure_reason,
         id=__ret__.id,
         label=__ret__.label,
         location=__ret__.location,

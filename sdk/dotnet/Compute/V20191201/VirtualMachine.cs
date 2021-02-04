@@ -202,6 +202,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

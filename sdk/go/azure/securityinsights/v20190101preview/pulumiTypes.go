@@ -1131,13 +1131,13 @@ func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOut
 // Describes related incident information for the bookmark
 type IncidentInfo struct {
 	// Incident Id
-	IncidentId string `pulumi:"incidentId"`
+	IncidentId *string `pulumi:"incidentId"`
 	// Relation Name
-	RelationName string `pulumi:"relationName"`
+	RelationName *string `pulumi:"relationName"`
 	// The severity of the incident
-	Severity string `pulumi:"severity"`
+	Severity *string `pulumi:"severity"`
 	// The title of the incident
-	Title string `pulumi:"title"`
+	Title *string `pulumi:"title"`
 }
 
 // IncidentInfoInput is an input type that accepts IncidentInfoArgs and IncidentInfoOutput values.
@@ -1154,13 +1154,13 @@ type IncidentInfoInput interface {
 // Describes related incident information for the bookmark
 type IncidentInfoArgs struct {
 	// Incident Id
-	IncidentId pulumi.StringInput `pulumi:"incidentId"`
+	IncidentId pulumi.StringPtrInput `pulumi:"incidentId"`
 	// Relation Name
-	RelationName pulumi.StringInput `pulumi:"relationName"`
+	RelationName pulumi.StringPtrInput `pulumi:"relationName"`
 	// The severity of the incident
-	Severity pulumi.StringInput `pulumi:"severity"`
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The title of the incident
-	Title pulumi.StringInput `pulumi:"title"`
+	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (IncidentInfoArgs) ElementType() reflect.Type {
@@ -1242,23 +1242,23 @@ func (o IncidentInfoOutput) ToIncidentInfoPtrOutputWithContext(ctx context.Conte
 }
 
 // Incident Id
-func (o IncidentInfoOutput) IncidentId() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfo) string { return v.IncidentId }).(pulumi.StringOutput)
+func (o IncidentInfoOutput) IncidentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfo) *string { return v.IncidentId }).(pulumi.StringPtrOutput)
 }
 
 // Relation Name
-func (o IncidentInfoOutput) RelationName() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfo) string { return v.RelationName }).(pulumi.StringOutput)
+func (o IncidentInfoOutput) RelationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfo) *string { return v.RelationName }).(pulumi.StringPtrOutput)
 }
 
 // The severity of the incident
-func (o IncidentInfoOutput) Severity() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfo) string { return v.Severity }).(pulumi.StringOutput)
+func (o IncidentInfoOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfo) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
 // The title of the incident
-func (o IncidentInfoOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfo) string { return v.Title }).(pulumi.StringOutput)
+func (o IncidentInfoOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfo) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
 type IncidentInfoPtrOutput struct{ *pulumi.OutputState }
@@ -1285,7 +1285,7 @@ func (o IncidentInfoPtrOutput) IncidentId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.IncidentId
+		return v.IncidentId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1295,7 +1295,7 @@ func (o IncidentInfoPtrOutput) RelationName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.RelationName
+		return v.RelationName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1305,7 +1305,7 @@ func (o IncidentInfoPtrOutput) Severity() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Severity
+		return v.Severity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1315,20 +1315,20 @@ func (o IncidentInfoPtrOutput) Title() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Title
+		return v.Title
 	}).(pulumi.StringPtrOutput)
 }
 
 // Describes related incident information for the bookmark
 type IncidentInfoResponse struct {
 	// Incident Id
-	IncidentId string `pulumi:"incidentId"`
+	IncidentId *string `pulumi:"incidentId"`
 	// Relation Name
-	RelationName string `pulumi:"relationName"`
+	RelationName *string `pulumi:"relationName"`
 	// The severity of the incident
-	Severity string `pulumi:"severity"`
+	Severity *string `pulumi:"severity"`
 	// The title of the incident
-	Title string `pulumi:"title"`
+	Title *string `pulumi:"title"`
 }
 
 // IncidentInfoResponseInput is an input type that accepts IncidentInfoResponseArgs and IncidentInfoResponseOutput values.
@@ -1345,13 +1345,13 @@ type IncidentInfoResponseInput interface {
 // Describes related incident information for the bookmark
 type IncidentInfoResponseArgs struct {
 	// Incident Id
-	IncidentId pulumi.StringInput `pulumi:"incidentId"`
+	IncidentId pulumi.StringPtrInput `pulumi:"incidentId"`
 	// Relation Name
-	RelationName pulumi.StringInput `pulumi:"relationName"`
+	RelationName pulumi.StringPtrInput `pulumi:"relationName"`
 	// The severity of the incident
-	Severity pulumi.StringInput `pulumi:"severity"`
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The title of the incident
-	Title pulumi.StringInput `pulumi:"title"`
+	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (IncidentInfoResponseArgs) ElementType() reflect.Type {
@@ -1433,23 +1433,23 @@ func (o IncidentInfoResponseOutput) ToIncidentInfoResponsePtrOutputWithContext(c
 }
 
 // Incident Id
-func (o IncidentInfoResponseOutput) IncidentId() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfoResponse) string { return v.IncidentId }).(pulumi.StringOutput)
+func (o IncidentInfoResponseOutput) IncidentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.IncidentId }).(pulumi.StringPtrOutput)
 }
 
 // Relation Name
-func (o IncidentInfoResponseOutput) RelationName() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfoResponse) string { return v.RelationName }).(pulumi.StringOutput)
+func (o IncidentInfoResponseOutput) RelationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.RelationName }).(pulumi.StringPtrOutput)
 }
 
 // The severity of the incident
-func (o IncidentInfoResponseOutput) Severity() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfoResponse) string { return v.Severity }).(pulumi.StringOutput)
+func (o IncidentInfoResponseOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
 // The title of the incident
-func (o IncidentInfoResponseOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v IncidentInfoResponse) string { return v.Title }).(pulumi.StringOutput)
+func (o IncidentInfoResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
 type IncidentInfoResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1476,7 +1476,7 @@ func (o IncidentInfoResponsePtrOutput) IncidentId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.IncidentId
+		return v.IncidentId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1486,7 +1486,7 @@ func (o IncidentInfoResponsePtrOutput) RelationName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.RelationName
+		return v.RelationName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1496,7 +1496,7 @@ func (o IncidentInfoResponsePtrOutput) Severity() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Severity
+		return v.Severity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1506,7 +1506,7 @@ func (o IncidentInfoResponsePtrOutput) Title() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Title
+		return v.Title
 	}).(pulumi.StringPtrOutput)
 }
 

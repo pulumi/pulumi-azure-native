@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetSignalRResult:
     """
-    A class represent a SignalR service resource.
+    A class represent a resource.
     """
     def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, id=None, identity=None, kind=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, tls=None, type=None, upstream=None, version=None):
         if cors and not isinstance(cors, dict):
@@ -94,7 +94,7 @@ class GetSignalRResult:
     @pulumi.getter(name="externalIP")
     def external_ip(self) -> str:
         """
-        The publicly accessible IP of the SignalR service.
+        The publicly accessible IP of the resource.
         """
         return pulumi.get(self, "external_ip")
 
@@ -115,7 +115,7 @@ class GetSignalRResult:
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        FQDN of the service instance.
         """
         return pulumi.get(self, "host_name")
 
@@ -139,7 +139,7 @@ class GetSignalRResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
         """
         return pulumi.get(self, "kind")
 
@@ -147,7 +147,7 @@ class GetSignalRResult:
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         """
         return pulumi.get(self, "location")
 
@@ -171,7 +171,7 @@ class GetSignalRResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        Private endpoint connections to the SignalR resource.
+        Private endpoint connections to the resource.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -187,7 +187,7 @@ class GetSignalRResult:
     @pulumi.getter(name="publicPort")
     def public_port(self) -> int:
         """
-        The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        The publicly accessible port of the resource which is designed for browser/client side usage.
         """
         return pulumi.get(self, "public_port")
 
@@ -195,7 +195,7 @@ class GetSignalRResult:
     @pulumi.getter(name="serverPort")
     def server_port(self) -> int:
         """
-        The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        The publicly accessible port of the resource which is designed for customer server side usage.
         """
         return pulumi.get(self, "server_port")
 
@@ -243,7 +243,7 @@ class GetSignalRResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        Version of the resource. Probably you need the same or higher version of client SDKs.
         """
         return pulumi.get(self, "version")
 

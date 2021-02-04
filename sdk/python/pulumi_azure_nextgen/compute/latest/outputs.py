@@ -68,6 +68,7 @@ __all__ = [
     'KeyVaultSecretReferenceResponse',
     'LastPatchInstallationSummaryResponse',
     'LinuxConfigurationResponse',
+    'LinuxPatchSettingsResponse',
     'LogAnalyticsOutputResponseResult',
     'MaintenanceRedeployStatusResponse',
     'ManagedDiskParametersResponse',
@@ -105,6 +106,7 @@ __all__ = [
     'SubResourceWithColocationStatusResponse',
     'TargetRegionResponse',
     'TerminateNotificationProfileResponse',
+    'UefiSettingsResponse',
     'UpgradePolicyResponse',
     'UserArtifactManageResponse',
     'UserArtifactSourceResponse',
@@ -484,7 +486,7 @@ class AvailablePatchSummaryResponse(dict):
         :param int other_patch_count: The number of all available patches excluding critical and security.
         :param bool reboot_pending: The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
         :param str start_time: The UTC timestamp when the operation began.
-        :param str status: The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+        :param str status: The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
         """
         pulumi.set(__self__, "assessment_activity_id", assessment_activity_id)
         pulumi.set(__self__, "critical_and_security_patch_count", critical_and_security_patch_count)
@@ -555,7 +557,7 @@ class AvailablePatchSummaryResponse(dict):
     @pulumi.getter
     def status(self) -> str:
         """
-        The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+        The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
         """
         return pulumi.get(self, "status")
 
@@ -842,6 +844,7 @@ class DataDiskResponse(dict):
                  disk_m_bps_read_write: float,
                  lun: int,
                  caching: Optional[str] = None,
+                 detach_option: Optional[str] = None,
                  disk_size_gb: Optional[int] = None,
                  image: Optional['outputs.VirtualHardDiskResponse'] = None,
                  managed_disk: Optional['outputs.ManagedDiskParametersResponse'] = None,
@@ -856,6 +859,7 @@ class DataDiskResponse(dict):
         :param float disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
         :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param str detach_option: Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param 'ManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
@@ -870,6 +874,8 @@ class DataDiskResponse(dict):
         pulumi.set(__self__, "lun", lun)
         if caching is not None:
             pulumi.set(__self__, "caching", caching)
+        if detach_option is not None:
+            pulumi.set(__self__, "detach_option", detach_option)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if image is not None:
@@ -924,6 +930,14 @@ class DataDiskResponse(dict):
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="detachOption")
+    def detach_option(self) -> Optional[str]:
+        """
+        Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        """
+        return pulumi.get(self, "detach_option")
 
     @property
     @pulumi.getter(name="diskSizeGB")
@@ -2199,7 +2213,7 @@ class HardwareProfileResponse(dict):
                  vm_size: Optional[str] = None):
         """
         Specifies the hardware settings for the virtual machine.
-        :param str vm_size: Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+        :param str vm_size: Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
         """
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
@@ -2208,7 +2222,7 @@ class HardwareProfileResponse(dict):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+        Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
         """
         return pulumi.get(self, "vm_size")
 
@@ -2975,9 +2989,7 @@ class LastPatchInstallationSummaryResponse(dict):
                  maintenance_window_exceeded: bool,
                  not_selected_patch_count: int,
                  pending_patch_count: int,
-                 reboot_status: str,
                  start_time: str,
-                 started_by: str,
                  status: str):
         """
         Describes the properties of the last installed patch summary.
@@ -2990,10 +3002,8 @@ class LastPatchInstallationSummaryResponse(dict):
         :param bool maintenance_window_exceeded: Describes whether the operation ran out of time before it completed all its intended actions
         :param int not_selected_patch_count: The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
         :param int pending_patch_count: The number of all available patches expected to be installed over the course of the patch installation operation.
-        :param str reboot_status: The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
         :param str start_time: The UTC timestamp when the operation began.
-        :param str started_by: The person or system account that started the operation
-        :param str status: The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+        :param str status: The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
         """
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "excluded_patch_count", excluded_patch_count)
@@ -3004,9 +3014,7 @@ class LastPatchInstallationSummaryResponse(dict):
         pulumi.set(__self__, "maintenance_window_exceeded", maintenance_window_exceeded)
         pulumi.set(__self__, "not_selected_patch_count", not_selected_patch_count)
         pulumi.set(__self__, "pending_patch_count", pending_patch_count)
-        pulumi.set(__self__, "reboot_status", reboot_status)
         pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "started_by", started_by)
         pulumi.set(__self__, "status", status)
 
     @property
@@ -3082,14 +3090,6 @@ class LastPatchInstallationSummaryResponse(dict):
         return pulumi.get(self, "pending_patch_count")
 
     @property
-    @pulumi.getter(name="rebootStatus")
-    def reboot_status(self) -> str:
-        """
-        The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
-        """
-        return pulumi.get(self, "reboot_status")
-
-    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
         """
@@ -3098,18 +3098,10 @@ class LastPatchInstallationSummaryResponse(dict):
         return pulumi.get(self, "start_time")
 
     @property
-    @pulumi.getter(name="startedBy")
-    def started_by(self) -> str:
-        """
-        The person or system account that started the operation
-        """
-        return pulumi.get(self, "started_by")
-
-    @property
     @pulumi.getter
     def status(self) -> str:
         """
-        The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
+        The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Unknown", "Failed", "Succeeded", or "CompletedWithWarnings."
         """
         return pulumi.get(self, "status")
 
@@ -3124,16 +3116,20 @@ class LinuxConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  disable_password_authentication: Optional[bool] = None,
+                 patch_settings: Optional['outputs.LinuxPatchSettingsResponse'] = None,
                  provision_vm_agent: Optional[bool] = None,
                  ssh: Optional['outputs.SshConfigurationResponse'] = None):
         """
         Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled.
+        :param 'LinuxPatchSettingsResponseArgs' patch_settings: [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         :param 'SshConfigurationResponseArgs' ssh: Specifies the ssh key configuration for a Linux OS.
         """
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if patch_settings is not None:
+            pulumi.set(__self__, "patch_settings", patch_settings)
         if provision_vm_agent is not None:
             pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
         if ssh is not None:
@@ -3146,6 +3142,14 @@ class LinuxConfigurationResponse(dict):
         Specifies whether password authentication should be disabled.
         """
         return pulumi.get(self, "disable_password_authentication")
+
+    @property
+    @pulumi.getter(name="patchSettings")
+    def patch_settings(self) -> Optional['outputs.LinuxPatchSettingsResponse']:
+        """
+        [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+        """
+        return pulumi.get(self, "patch_settings")
 
     @property
     @pulumi.getter(name="provisionVMAgent")
@@ -3162,6 +3166,32 @@ class LinuxConfigurationResponse(dict):
         Specifies the ssh key configuration for a Linux OS.
         """
         return pulumi.get(self, "ssh")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinuxPatchSettingsResponse(dict):
+    """
+    Specifies settings related to VM Guest Patching on Linux.
+    """
+    def __init__(__self__, *,
+                 patch_mode: Optional[str] = None):
+        """
+        Specifies settings related to VM Guest Patching on Linux.
+        :param str patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+        """
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[str]:
+        """
+        Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+        """
+        return pulumi.get(self, "patch_mode")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3696,19 +3726,35 @@ class OSProfileResponse(dict):
 
 @pulumi.output_type
 class PatchSettingsResponse(dict):
+    """
+    Specifies settings related to VM Guest Patching on Windows.
+    """
     def __init__(__self__, *,
+                 enable_hotpatching: Optional[bool] = None,
                  patch_mode: Optional[str] = None):
         """
-        :param str patch_mode: Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        Specifies settings related to VM Guest Patching on Windows.
+        :param bool enable_hotpatching: Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+        :param str patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
         """
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> Optional[bool]:
+        """
+        Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+        """
+        return pulumi.get(self, "enable_hotpatching")
 
     @property
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[str]:
         """
-        Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
         """
         return pulumi.get(self, "patch_mode")
 
@@ -4169,17 +4215,23 @@ class RollingUpgradePolicyResponse(dict):
     The configuration parameters used while performing a rolling upgrade.
     """
     def __init__(__self__, *,
+                 enable_cross_zone_upgrade: Optional[bool] = None,
                  max_batch_instance_percent: Optional[int] = None,
                  max_unhealthy_instance_percent: Optional[int] = None,
                  max_unhealthy_upgraded_instance_percent: Optional[int] = None,
-                 pause_time_between_batches: Optional[str] = None):
+                 pause_time_between_batches: Optional[str] = None,
+                 prioritize_unhealthy_instances: Optional[bool] = None):
         """
         The configuration parameters used while performing a rolling upgrade.
+        :param bool enable_cross_zone_upgrade: Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
         :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
         :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
         :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
+        :param bool prioritize_unhealthy_instances: Upgrade all unhealthy instances in a scale set before any healthy instances.
         """
+        if enable_cross_zone_upgrade is not None:
+            pulumi.set(__self__, "enable_cross_zone_upgrade", enable_cross_zone_upgrade)
         if max_batch_instance_percent is not None:
             pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
         if max_unhealthy_instance_percent is not None:
@@ -4188,6 +4240,16 @@ class RollingUpgradePolicyResponse(dict):
             pulumi.set(__self__, "max_unhealthy_upgraded_instance_percent", max_unhealthy_upgraded_instance_percent)
         if pause_time_between_batches is not None:
             pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
+        if prioritize_unhealthy_instances is not None:
+            pulumi.set(__self__, "prioritize_unhealthy_instances", prioritize_unhealthy_instances)
+
+    @property
+    @pulumi.getter(name="enableCrossZoneUpgrade")
+    def enable_cross_zone_upgrade(self) -> Optional[bool]:
+        """
+        Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+        """
+        return pulumi.get(self, "enable_cross_zone_upgrade")
 
     @property
     @pulumi.getter(name="maxBatchInstancePercent")
@@ -4220,6 +4282,14 @@ class RollingUpgradePolicyResponse(dict):
         The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
         """
         return pulumi.get(self, "pause_time_between_batches")
+
+    @property
+    @pulumi.getter(name="prioritizeUnhealthyInstances")
+    def prioritize_unhealthy_instances(self) -> Optional[bool]:
+        """
+        Upgrade all unhealthy instances in a scale set before any healthy instances.
+        """
+        return pulumi.get(self, "prioritize_unhealthy_instances")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4315,13 +4385,21 @@ class SecurityProfileResponse(dict):
     Specifies the Security profile settings for the virtual machine or virtual machine scale set.
     """
     def __init__(__self__, *,
-                 encryption_at_host: Optional[bool] = None):
+                 encryption_at_host: Optional[bool] = None,
+                 security_type: Optional[str] = None,
+                 uefi_settings: Optional['outputs.UefiSettingsResponse'] = None):
         """
         Specifies the Security profile settings for the virtual machine or virtual machine scale set.
         :param bool encryption_at_host: This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+        :param str security_type: Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+        :param 'UefiSettingsResponseArgs' uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
         """
         if encryption_at_host is not None:
             pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+        if uefi_settings is not None:
+            pulumi.set(__self__, "uefi_settings", uefi_settings)
 
     @property
     @pulumi.getter(name="encryptionAtHost")
@@ -4330,6 +4408,22 @@ class SecurityProfileResponse(dict):
         This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
         """
         return pulumi.get(self, "encryption_at_host")
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[str]:
+        """
+        Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+        """
+        return pulumi.get(self, "security_type")
+
+    @property
+    @pulumi.getter(name="uefiSettings")
+    def uefi_settings(self) -> Optional['outputs.UefiSettingsResponse']:
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+        """
+        return pulumi.get(self, "uefi_settings")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4825,6 +4919,44 @@ class TerminateNotificationProfileResponse(dict):
         Configurable length of time a Virtual Machine being deleted will have to potentially approve the Terminate Scheduled Event before the event is auto approved (timed out). The configuration must be specified in ISO 8601 format, the default value is 5 minutes (PT5M)
         """
         return pulumi.get(self, "not_before_timeout")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UefiSettingsResponse(dict):
+    """
+    Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+    """
+    def __init__(__self__, *,
+                 secure_boot_enabled: Optional[bool] = None,
+                 v_tpm_enabled: Optional[bool] = None):
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
+        :param bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+        :param bool v_tpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+        """
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+        if v_tpm_enabled is not None:
+            pulumi.set(__self__, "v_tpm_enabled", v_tpm_enabled)
+
+    @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @property
+    @pulumi.getter(name="vTpmEnabled")
+    def v_tpm_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
+        """
+        return pulumi.get(self, "v_tpm_enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -5565,7 +5697,7 @@ class VirtualMachineInstanceViewResponse(dict):
         :param 'MaintenanceRedeployStatusResponseArgs' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
         :param str os_name: The Operating System running on the virtual machine.
         :param str os_version: The version of Operating System running on the virtual machine.
-        :param 'VirtualMachinePatchStatusResponseArgs' patch_status: The status of virtual machine patch operations.
+        :param 'VirtualMachinePatchStatusResponseArgs' patch_status: [Preview Feature] The status of virtual machine patch operations.
         :param int platform_fault_domain: Specifies the fault domain of the virtual machine.
         :param int platform_update_domain: Specifies the update domain of the virtual machine.
         :param str rdp_thumb_print: The Remote desktop certificate thumbprint.
@@ -5687,7 +5819,7 @@ class VirtualMachineInstanceViewResponse(dict):
     @pulumi.getter(name="patchStatus")
     def patch_status(self) -> Optional['outputs.VirtualMachinePatchStatusResponse']:
         """
-        The status of virtual machine patch operations.
+        [Preview Feature] The status of virtual machine patch operations.
         """
         return pulumi.get(self, "patch_status")
 
@@ -5741,17 +5873,28 @@ class VirtualMachinePatchStatusResponse(dict):
     The status of virtual machine patch operations.
     """
     def __init__(__self__, *,
+                 configuration_statuses: Sequence['outputs.InstanceViewStatusResponse'],
                  available_patch_summary: Optional['outputs.AvailablePatchSummaryResponse'] = None,
                  last_patch_installation_summary: Optional['outputs.LastPatchInstallationSummaryResponse'] = None):
         """
         The status of virtual machine patch operations.
+        :param Sequence['InstanceViewStatusResponseArgs'] configuration_statuses: The enablement status of the specified patchMode
         :param 'AvailablePatchSummaryResponseArgs' available_patch_summary: The available patch summary of the latest assessment operation for the virtual machine.
         :param 'LastPatchInstallationSummaryResponseArgs' last_patch_installation_summary: The installation summary of the latest installation operation for the virtual machine.
         """
+        pulumi.set(__self__, "configuration_statuses", configuration_statuses)
         if available_patch_summary is not None:
             pulumi.set(__self__, "available_patch_summary", available_patch_summary)
         if last_patch_installation_summary is not None:
             pulumi.set(__self__, "last_patch_installation_summary", last_patch_installation_summary)
+
+    @property
+    @pulumi.getter(name="configurationStatuses")
+    def configuration_statuses(self) -> Sequence['outputs.InstanceViewStatusResponse']:
+        """
+        The enablement status of the specified patchMode
+        """
+        return pulumi.get(self, "configuration_statuses")
 
     @property
     @pulumi.getter(name="availablePatchSummary")
@@ -7568,7 +7711,7 @@ class WindowsConfigurationResponse(dict):
         Specifies Windows operating system settings on the virtual machine.
         :param Sequence['AdditionalUnattendContentResponseArgs'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         :param bool enable_automatic_updates: Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
-        :param 'PatchSettingsResponseArgs' patch_settings: Specifies settings related to in-guest patching (KBs).
+        :param 'PatchSettingsResponseArgs' patch_settings: [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         :param str time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.getsystemtimezones).
         :param 'WinRMConfigurationResponseArgs' win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
@@ -7606,7 +7749,7 @@ class WindowsConfigurationResponse(dict):
     @pulumi.getter(name="patchSettings")
     def patch_settings(self) -> Optional['outputs.PatchSettingsResponse']:
         """
-        Specifies settings related to in-guest patching (KBs).
+        [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         """
         return pulumi.get(self, "patch_settings")
 

@@ -48,7 +48,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
         /// <summary>
         /// The expected size of the data, which needs to be transferred in this job, in terabytes.
         /// </summary>
-        public readonly int? ExpectedDataSizeInTerabytes;
+        public readonly int? ExpectedDataSizeInTeraBytes;
         /// <summary>
         /// Indicates the type of job details.
         /// Expected value is 'DataBoxDisk'.
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
 
             ImmutableDictionary<string, int> disksAndSizeDetails,
 
-            int? expectedDataSizeInTerabytes,
+            int? expectedDataSizeInTeraBytes,
 
             string jobDetailsType,
 
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Outputs
             DataImportDetails = dataImportDetails;
             DeliveryPackage = deliveryPackage;
             DisksAndSizeDetails = disksAndSizeDetails;
-            ExpectedDataSizeInTerabytes = expectedDataSizeInTerabytes;
+            ExpectedDataSizeInTeraBytes = expectedDataSizeInTeraBytes;
             JobDetailsType = jobDetailsType;
             JobStages = jobStages;
             KeyEncryptionKey = keyEncryptionKey;

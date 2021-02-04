@@ -6,8 +6,10 @@ from enum import Enum
 
 __all__ = [
     'ApplicationSharingPolicy',
+    'ComputeInstanceAuthorizationType',
     'ComputeType',
     'EncryptionStatus',
+    'OsType',
     'PrivateEndpointServiceConnectionStatus',
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityType',
@@ -22,6 +24,13 @@ class ApplicationSharingPolicy(str, Enum):
     """
     PERSONAL = "Personal"
     SHARED = "Shared"
+
+
+class ComputeInstanceAuthorizationType(str, Enum):
+    """
+    The Compute Instance Authorization type. Available values are personal (default).
+    """
+    PERSONAL = "personal"
 
 
 class ComputeType(str, Enum):
@@ -44,6 +53,14 @@ class EncryptionStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class OsType(str, Enum):
+    """
+    Compute OS Type
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -71,8 +88,8 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+    USER_ASSIGNED = "UserAssigned"
     NONE = "None"
 
 

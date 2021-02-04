@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> Action;
         /// <summary>
+        /// The api-version used when creating this alert rule
+        /// </summary>
+        public readonly string CreatedWithApiVersion;
+        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         public readonly string? Description;
@@ -63,6 +67,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// True if alert rule is legacy Log Analytic rule
+        /// </summary>
+        public readonly bool IsLegacyLogAnalyticsRule;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -104,6 +112,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         private GetScheduledQueryRuleResult(
             Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> action,
 
+            string createdWithApiVersion,
+
             string? description,
 
             string? displayName,
@@ -113,6 +123,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             string etag,
 
             string id,
+
+            bool isLegacyLogAnalyticsRule,
 
             string kind,
 
@@ -133,11 +145,13 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             string type)
         {
             Action = action;
+            CreatedWithApiVersion = createdWithApiVersion;
             Description = description;
             DisplayName = displayName;
             Enabled = enabled;
             Etag = etag;
             Id = id;
+            IsLegacyLogAnalyticsRule = isLegacyLogAnalyticsRule;
             Kind = kind;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;

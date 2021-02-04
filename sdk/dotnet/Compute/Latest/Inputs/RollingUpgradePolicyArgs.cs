@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
     public sealed class RollingUpgradePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size.
+        /// </summary>
+        [Input("enableCrossZoneUpgrade")]
+        public Input<bool>? EnableCrossZoneUpgrade { get; set; }
+
+        /// <summary>
         /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
         /// </summary>
         [Input("maxBatchInstancePercent")]
@@ -38,6 +44,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// </summary>
         [Input("pauseTimeBetweenBatches")]
         public Input<string>? PauseTimeBetweenBatches { get; set; }
+
+        /// <summary>
+        /// Upgrade all unhealthy instances in a scale set before any healthy instances.
+        /// </summary>
+        [Input("prioritizeUnhealthyInstances")]
+        public Input<bool>? PrioritizeUnhealthyInstances { get; set; }
 
         public RollingUpgradePolicyArgs()
         {

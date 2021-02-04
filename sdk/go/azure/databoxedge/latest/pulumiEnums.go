@@ -124,36 +124,6 @@ func (e ClientPermissionType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The etag for the devices.
-type DataBoxEdgeDeviceKind pulumi.String
-
-const (
-	DataBoxEdgeDeviceKindAzureDataBoxGateway    = DataBoxEdgeDeviceKind("AzureDataBoxGateway")
-	DataBoxEdgeDeviceKindAzureStackEdge         = DataBoxEdgeDeviceKind("AzureStackEdge")
-	DataBoxEdgeDeviceKindAzureStackHub          = DataBoxEdgeDeviceKind("AzureStackHub")
-	DataBoxEdgeDeviceKindAzureModularDataCentre = DataBoxEdgeDeviceKind("AzureModularDataCentre")
-)
-
-func (DataBoxEdgeDeviceKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The status of the Data Box Edge/Gateway device.
 type DataBoxEdgeDeviceStatus pulumi.String
 
@@ -330,78 +300,6 @@ func (e MsiIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e MsiIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Status of the order as per the allowed status types.
-type OrderStateEnum pulumi.String
-
-const (
-	OrderStateEnumUntracked              = OrderStateEnum("Untracked")
-	OrderStateEnumAwaitingFulfilment     = OrderStateEnum("AwaitingFulfilment")
-	OrderStateEnumAwaitingPreparation    = OrderStateEnum("AwaitingPreparation")
-	OrderStateEnumAwaitingShipment       = OrderStateEnum("AwaitingShipment")
-	OrderStateEnumShipped                = OrderStateEnum("Shipped")
-	OrderStateEnumArriving               = OrderStateEnum("Arriving")
-	OrderStateEnumDelivered              = OrderStateEnum("Delivered")
-	OrderStateEnumReplacementRequested   = OrderStateEnum("ReplacementRequested")
-	OrderStateEnumLostDevice             = OrderStateEnum("LostDevice")
-	OrderStateEnumDeclined               = OrderStateEnum("Declined")
-	OrderStateEnumReturnInitiated        = OrderStateEnum("ReturnInitiated")
-	OrderStateEnumAwaitingReturnShipment = OrderStateEnum("AwaitingReturnShipment")
-	OrderStateEnumShippedBack            = OrderStateEnum("ShippedBack")
-	OrderStateEnumCollectedAtMicrosoft   = OrderStateEnum("CollectedAtMicrosoft")
-	OrderStateEnumAwaitingPickup         = OrderStateEnum("AwaitingPickup")
-	OrderStateEnumPickupCompleted        = OrderStateEnum("PickupCompleted")
-	OrderStateEnumAwaitingDrop           = OrderStateEnum("AwaitingDrop")
-)
-
-func (OrderStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e OrderStateEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OrderStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OrderStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e OrderStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Denotes whether move operation is in progress
-type ResourceMoveStatus pulumi.String
-
-const (
-	ResourceMoveStatusNone                   = ResourceMoveStatus("None")
-	ResourceMoveStatusResourceMoveInProgress = ResourceMoveStatus("ResourceMoveInProgress")
-	ResourceMoveStatusResourceMoveFailed     = ResourceMoveStatus("ResourceMoveFailed")
-)
-
-func (ResourceMoveStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ResourceMoveStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceMoveStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceMoveStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResourceMoveStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -685,36 +583,6 @@ func (e StorageAccountStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e StorageAccountStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SubscriptionState pulumi.String
-
-const (
-	SubscriptionStateRegistered   = SubscriptionState("Registered")
-	SubscriptionStateWarned       = SubscriptionState("Warned")
-	SubscriptionStateSuspended    = SubscriptionState("Suspended")
-	SubscriptionStateDeleted      = SubscriptionState("Deleted")
-	SubscriptionStateUnregistered = SubscriptionState("Unregistered")
-)
-
-func (SubscriptionState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SubscriptionState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SubscriptionState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SubscriptionState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SubscriptionState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

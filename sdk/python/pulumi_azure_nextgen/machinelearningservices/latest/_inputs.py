@@ -15,6 +15,7 @@ __all__ = [
     'AksNetworkingConfigurationArgs',
     'AmlComputeArgs',
     'AmlComputePropertiesArgs',
+    'AssignedUserArgs',
     'ComputeInstanceArgs',
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
@@ -29,6 +30,7 @@ __all__ = [
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'LinkedWorkspacePropsArgs',
+    'PersonalComputeInstanceSettingsArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ResourceIdArgs',
     'ScaleSettingsArgs',
@@ -170,7 +172,7 @@ class AKSPropertiesArgs:
         pulumi.set(self, "agent_count", value)
 
     @property
-    @pulumi.getter(name="agentVMSize")
+    @pulumi.getter(name="agentVmSize")
     def agent_vm_size(self) -> Optional[pulumi.Input[str]]:
         """
         Agent virtual machine size
@@ -382,6 +384,7 @@ class AmlComputeArgs:
 @pulumi.input_type
 class AmlComputePropertiesArgs:
     def __init__(__self__, *,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
                  remote_login_port_public_access: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]] = None,
                  scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
@@ -390,6 +393,7 @@ class AmlComputePropertiesArgs:
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         AML Compute properties
+        :param pulumi.Input[Union[str, 'OsType']] os_type: Compute OS Type
         :param pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for AML Compute
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -397,6 +401,10 @@ class AmlComputePropertiesArgs:
         :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        if os_type is None:
+            os_type = 'Linux'
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
         if remote_login_port_public_access is None:
             remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
@@ -411,6 +419,18 @@ class AmlComputePropertiesArgs:
             pulumi.set(__self__, "vm_priority", vm_priority)
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OsType']]]:
+        """
+        Compute OS Type
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
+        pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="remoteLoginPortPublicAccess")
@@ -483,6 +503,44 @@ class AmlComputePropertiesArgs:
     @vm_size.setter
     def vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_size", value)
+
+
+@pulumi.input_type
+class AssignedUserArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str]):
+        """
+        A user that can be assigned to a compute instance.
+        :param pulumi.Input[str] object_id: User’s AAD Object Id.
+        :param pulumi.Input[str] tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -578,12 +636,16 @@ class ComputeInstanceArgs:
 class ComputeInstancePropertiesArgs:
     def __init__(__self__, *,
                  application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
+                 compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
+                 personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
                  ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         Compute Instance properties
         :param pulumi.Input[Union[str, 'ApplicationSharingPolicy']] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
         :param pulumi.Input['ComputeInstanceSshSettingsArgs'] ssh_settings: Specifies policy and settings for SSH access.
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input[str] vm_size: Virtual Machine Size
@@ -592,6 +654,12 @@ class ComputeInstancePropertiesArgs:
             application_sharing_policy = 'Shared'
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is None:
+            compute_instance_authorization_type = 'personal'
+        if compute_instance_authorization_type is not None:
+            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if personal_compute_instance_settings is not None:
+            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if ssh_settings is not None:
             pulumi.set(__self__, "ssh_settings", ssh_settings)
         if subnet is not None:
@@ -610,6 +678,30 @@ class ComputeInstancePropertiesArgs:
     @application_sharing_policy.setter
     def application_sharing_policy(self, value: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]):
         pulumi.set(self, "application_sharing_policy", value)
+
+    @property
+    @pulumi.getter(name="computeInstanceAuthorizationType")
+    def compute_instance_authorization_type(self) -> Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]:
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        return pulumi.get(self, "compute_instance_authorization_type")
+
+    @compute_instance_authorization_type.setter
+    def compute_instance_authorization_type(self, value: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]):
+        pulumi.set(self, "compute_instance_authorization_type", value)
+
+    @property
+    @pulumi.getter(name="personalComputeInstanceSettings")
+    def personal_compute_instance_settings(self) -> Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]:
+        """
+        Settings for a personal compute instance.
+        """
+        return pulumi.get(self, "personal_compute_instance_settings")
+
+    @personal_compute_instance_settings.setter
+    def personal_compute_instance_settings(self, value: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]):
+        pulumi.set(self, "personal_compute_instance_settings", value)
 
     @property
     @pulumi.getter(name="sshSettings")
@@ -1289,6 +1381,30 @@ class LinkedWorkspacePropsArgs:
 
 
 @pulumi.input_type
+class PersonalComputeInstanceSettingsArgs:
+    def __init__(__self__, *,
+                 assigned_user: Optional[pulumi.Input['AssignedUserArgs']] = None):
+        """
+        Settings for a personal compute instance.
+        :param pulumi.Input['AssignedUserArgs'] assigned_user: A user explicitly assigned to a personal compute instance.
+        """
+        if assigned_user is not None:
+            pulumi.set(__self__, "assigned_user", assigned_user)
+
+    @property
+    @pulumi.getter(name="assignedUser")
+    def assigned_user(self) -> Optional[pulumi.Input['AssignedUserArgs']]:
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+        return pulumi.get(self, "assigned_user")
+
+    @assigned_user.setter
+    def assigned_user(self, value: Optional[pulumi.Input['AssignedUserArgs']]):
+        pulumi.set(self, "assigned_user", value)
+
+
+@pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
@@ -1377,7 +1493,7 @@ class ScaleSettingsArgs:
         scale settings for AML Compute
         :param pulumi.Input[int] max_node_count: Max number of nodes to use
         :param pulumi.Input[int] min_node_count: Min number of nodes to use
-        :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
+        :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
         if min_node_count is None:
@@ -1415,7 +1531,7 @@ class ScaleSettingsArgs:
     @pulumi.getter(name="nodeIdleTimeBeforeScaleDown")
     def node_idle_time_before_scale_down(self) -> Optional[pulumi.Input[str]]:
         """
-        Node Idle Time before scaling down amlCompute
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         return pulumi.get(self, "node_idle_time_before_scale_down")
 

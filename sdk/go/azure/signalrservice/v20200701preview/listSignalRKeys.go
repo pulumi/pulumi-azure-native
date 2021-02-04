@@ -23,13 +23,13 @@ type ListSignalRKeysArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 }
 
-// A class represents the access keys of SignalR service.
+// A class represents the access keys of the resource.
 type ListSignalRKeysResult struct {
-	// SignalR connection string constructed via the primaryKey
+	// Connection string constructed via the primaryKey
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The primary access key.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// SignalR connection string constructed via the secondaryKey
+	// Connection string constructed via the secondaryKey
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The secondary access key.
 	SecondaryKey *string `pulumi:"secondaryKey"`

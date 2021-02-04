@@ -35,6 +35,10 @@ export interface GetAlertRuleArgs {
  */
 export interface GetAlertRuleResult {
     /**
+     * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    readonly action?: outputs.insights.latest.RuleEmailActionResponse | outputs.insights.latest.RuleWebhookActionResponse;
+    /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
     readonly actions?: outputs.insights.latest.RuleEmailActionResponse | outputs.insights.latest.RuleWebhookActionResponse[];
@@ -66,6 +70,10 @@ export interface GetAlertRuleResult {
      * Azure resource name
      */
     readonly name: string;
+    /**
+     * the provisioning state.
+     */
+    readonly provisioningState?: string;
     /**
      * Resource tags
      */

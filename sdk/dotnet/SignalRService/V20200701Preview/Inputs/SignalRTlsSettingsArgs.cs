@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
 {
 
     /// <summary>
-    /// TLS settings for SignalR
+    /// TLS settings for the resource
     /// </summary>
     public sealed class SignalRTlsSettingsArgs : Pulumi.ResourceArgs
     {

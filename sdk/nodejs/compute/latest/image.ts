@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class Image extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
+    /**
+     * The extended location of the Image.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.compute.latest.ExtendedLocationResponse | undefined>;
     /**
      * Gets the HyperVGenerationType of the VirtualMachine created from the image
      */
@@ -88,6 +92,7 @@ export class Image extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["imageName"] = args ? args.imageName : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -99,6 +104,7 @@ export class Image extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["hyperVGeneration"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -115,7 +121,7 @@ export class Image extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Image" }, { type: "azure-nextgen:compute/v20170330:Image" }, { type: "azure-nextgen:compute/v20171201:Image" }, { type: "azure-nextgen:compute/v20180401:Image" }, { type: "azure-nextgen:compute/v20180601:Image" }, { type: "azure-nextgen:compute/v20181001:Image" }, { type: "azure-nextgen:compute/v20190301:Image" }, { type: "azure-nextgen:compute/v20190701:Image" }, { type: "azure-nextgen:compute/v20191201:Image" }, { type: "azure-nextgen:compute/v20200601:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Image" }, { type: "azure-nextgen:compute/v20170330:Image" }, { type: "azure-nextgen:compute/v20171201:Image" }, { type: "azure-nextgen:compute/v20180401:Image" }, { type: "azure-nextgen:compute/v20180601:Image" }, { type: "azure-nextgen:compute/v20181001:Image" }, { type: "azure-nextgen:compute/v20190301:Image" }, { type: "azure-nextgen:compute/v20190701:Image" }, { type: "azure-nextgen:compute/v20191201:Image" }, { type: "azure-nextgen:compute/v20200601:Image" }, { type: "azure-nextgen:compute/v20201201:Image" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Image.__pulumiType, name, inputs, opts);
     }
@@ -125,6 +131,10 @@ export class Image extends pulumi.CustomResource {
  * The set of arguments for constructing a Image resource.
  */
 export interface ImageArgs {
+    /**
+     * The extended location of the Image.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.compute.latest.ExtendedLocation>;
     /**
      * Gets the HyperVGenerationType of the VirtualMachine created from the image
      */

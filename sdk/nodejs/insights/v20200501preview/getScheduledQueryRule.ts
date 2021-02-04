@@ -36,6 +36,10 @@ export interface GetScheduledQueryRuleArgs {
 export interface GetScheduledQueryRuleResult {
     readonly actions?: outputs.insights.v20200501preview.ActionResponse[];
     /**
+     * The api-version used when creating this alert rule
+     */
+    readonly createdWithApiVersion: string;
+    /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
     readonly criteria: outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse;
@@ -63,6 +67,10 @@ export interface GetScheduledQueryRuleResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * True if alert rule is legacy Log Analytic rule
+     */
+    readonly isLegacyLogAnalyticsRule: boolean;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */

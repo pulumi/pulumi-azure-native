@@ -31,6 +31,7 @@ __all__ = [
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
     'AssignedUserResponse',
+    'ComputeBindingResponse',
     'ComputeInstanceApplicationResponse',
     'ComputeInstanceConnectivityEndpointsResponse',
     'ComputeInstanceCreatedByResponse',
@@ -55,7 +56,14 @@ __all__ = [
     'IdentityResponse',
     'ImageAssetResponse',
     'KeyVaultPropertiesResponse',
+    'LabelCategoryResponse',
+    'LabelClassResponse',
+    'LabelingDatasetConfigurationResponse',
+    'LabelingJobImagePropertiesResponse',
+    'LabelingJobInstructionsResponse',
+    'LabelingJobPropertiesResponse',
     'LinkedServicePropsResponse',
+    'MLAssistConfigurationResponse',
     'MachineLearningServiceErrorResponse',
     'ModelDockerSectionResponseResponseBaseImageRegistry',
     'ModelEnvironmentDefinitionResponseResponseDocker',
@@ -69,16 +77,22 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProgressMetricsResponse',
     'RCranPackageResponse',
     'RGitHubPackageResponseResponse',
     'RegistryListCredentialsResultResponseResult',
     'ResourceIdResponse',
     'ScaleSettingsResponse',
+    'ScriptReferenceResponse',
+    'ScriptsToExecuteResponse',
     'ServiceResponseBaseResponseError',
+    'SetupScriptsResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
     'SparkMavenPackageResponse',
     'SslConfigurationResponse',
+    'StatusMessageResponse',
+    'SystemDataResponse',
     'SystemServiceResponse',
     'UserAccountCredentialsResponse',
     'UserAssignedIdentityResponse',
@@ -834,7 +848,7 @@ class AKSResponseProperties(dict):
         return pulumi.get(self, "agent_count")
 
     @property
-    @pulumi.getter(name="agentVMSize")
+    @pulumi.getter(name="agentVmSize")
     def agent_vm_size(self) -> Optional[str]:
         """
         Agent virtual machine size
@@ -2015,6 +2029,8 @@ class AmlComputeResponseProperties(dict):
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if isolated_network is not None:
             pulumi.set(__self__, "isolated_network", isolated_network)
+        if os_type is None:
+            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if remote_login_port_public_access is None:
@@ -2197,6 +2213,44 @@ class AssignedUserResponse(dict):
         User’s AAD Tenant Id.
         """
         return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeBindingResponse(dict):
+    """
+    Compute binding definition.
+    """
+    def __init__(__self__, *,
+                 compute_id: Optional[str] = None,
+                 node_count: Optional[int] = None):
+        """
+        Compute binding definition.
+        :param str compute_id: ID of the compute resource.
+        :param int node_count: Number of nodes.
+        """
+        if compute_id is not None:
+            pulumi.set(__self__, "compute_id", compute_id)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+
+    @property
+    @pulumi.getter(name="computeId")
+    def compute_id(self) -> Optional[str]:
+        """
+        ID of the compute resource.
+        """
+        return pulumi.get(self, "compute_id")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[int]:
+        """
+        Number of nodes.
+        """
+        return pulumi.get(self, "node_count")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2518,6 +2572,7 @@ class ComputeInstanceResponseProperties(dict):
                  application_sharing_policy: Optional[str] = None,
                  compute_instance_authorization_type: Optional[str] = None,
                  personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
+                 setup_scripts: Optional['outputs.SetupScriptsResponse'] = None,
                  ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
                  vm_size: Optional[str] = None):
@@ -2532,6 +2587,7 @@ class ComputeInstanceResponseProperties(dict):
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param 'PersonalComputeInstanceSettingsResponseArgs' personal_compute_instance_settings: Settings for a personal compute instance.
+        :param 'SetupScriptsResponseArgs' setup_scripts: Details of customized scripts to execute for setting up the cluster.
         :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param str vm_size: Virtual Machine Size
@@ -2552,6 +2608,8 @@ class ComputeInstanceResponseProperties(dict):
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if setup_scripts is not None:
+            pulumi.set(__self__, "setup_scripts", setup_scripts)
         if ssh_settings is not None:
             pulumi.set(__self__, "ssh_settings", ssh_settings)
         if subnet is not None:
@@ -2630,6 +2688,14 @@ class ComputeInstanceResponseProperties(dict):
         Settings for a personal compute instance.
         """
         return pulumi.get(self, "personal_compute_instance_settings")
+
+    @property
+    @pulumi.getter(name="setupScripts")
+    def setup_scripts(self) -> Optional['outputs.SetupScriptsResponse']:
+        """
+        Details of customized scripts to execute for setting up the cluster.
+        """
+        return pulumi.get(self, "setup_scripts")
 
     @property
     @pulumi.getter(name="sshSettings")
@@ -3837,6 +3903,349 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LabelCategoryResponse(dict):
+    """
+    Represents a category of labels in a labeling job.
+    """
+    def __init__(__self__, *,
+                 classes: Mapping[str, 'outputs.LabelClassResponse'],
+                 allow_multi_select: Optional[bool] = None,
+                 display_name: Optional[str] = None):
+        """
+        Represents a category of labels in a labeling job.
+        :param Mapping[str, 'LabelClassResponseArgs'] classes: Dictionary of label classes in this category.
+        :param bool allow_multi_select: Indicates whether it is allowed to select multiple classes in this category.
+        :param str display_name: Display name of the label category.
+        """
+        pulumi.set(__self__, "classes", classes)
+        if allow_multi_select is not None:
+            pulumi.set(__self__, "allow_multi_select", allow_multi_select)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def classes(self) -> Mapping[str, 'outputs.LabelClassResponse']:
+        """
+        Dictionary of label classes in this category.
+        """
+        return pulumi.get(self, "classes")
+
+    @property
+    @pulumi.getter(name="allowMultiSelect")
+    def allow_multi_select(self) -> Optional[bool]:
+        """
+        Indicates whether it is allowed to select multiple classes in this category.
+        """
+        return pulumi.get(self, "allow_multi_select")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the label category.
+        """
+        return pulumi.get(self, "display_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LabelClassResponse(dict):
+    """
+    Represents a label or a category of labels in a labeling job.
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 subclasses: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None):
+        """
+        Represents a label or a category of labels in a labeling job.
+        :param str display_name: Display name of the label class.
+        :param Mapping[str, 'LabelClassResponseArgs'] subclasses: Dictionary of subclasses of the label class.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if subclasses is not None:
+            pulumi.set(__self__, "subclasses", subclasses)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the label class.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def subclasses(self) -> Optional[Mapping[str, 'outputs.LabelClassResponse']]:
+        """
+        Dictionary of subclasses of the label class.
+        """
+        return pulumi.get(self, "subclasses")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LabelingDatasetConfigurationResponse(dict):
+    """
+    Represents configuration of dataset used in a labeling job.
+    """
+    def __init__(__self__, *,
+                 asset_name: str,
+                 dataset_version: str,
+                 enable_incremental_dataset_refresh: Optional[bool] = None):
+        """
+        Represents configuration of dataset used in a labeling job.
+        :param str asset_name: Name of the data asset to perform labeling.
+        :param str dataset_version: AML dataset version.
+        :param bool enable_incremental_dataset_refresh: Indicates whether to enable incremental dataset refresh.
+        """
+        pulumi.set(__self__, "asset_name", asset_name)
+        pulumi.set(__self__, "dataset_version", dataset_version)
+        if enable_incremental_dataset_refresh is not None:
+            pulumi.set(__self__, "enable_incremental_dataset_refresh", enable_incremental_dataset_refresh)
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
+        """
+        Name of the data asset to perform labeling.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="datasetVersion")
+    def dataset_version(self) -> str:
+        """
+        AML dataset version.
+        """
+        return pulumi.get(self, "dataset_version")
+
+    @property
+    @pulumi.getter(name="enableIncrementalDatasetRefresh")
+    def enable_incremental_dataset_refresh(self) -> Optional[bool]:
+        """
+        Indicates whether to enable incremental dataset refresh.
+        """
+        return pulumi.get(self, "enable_incremental_dataset_refresh")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LabelingJobImagePropertiesResponse(dict):
+    def __init__(__self__, *,
+                 media_type: str,
+                 annotation_type: Optional[str] = None):
+        """
+        :param str media_type: Media type of data asset.
+        :param str annotation_type: Annotation type of image labeling tasks.
+        """
+        pulumi.set(__self__, "media_type", media_type)
+        if annotation_type is not None:
+            pulumi.set(__self__, "annotation_type", annotation_type)
+
+    @property
+    @pulumi.getter(name="mediaType")
+    def media_type(self) -> str:
+        """
+        Media type of data asset.
+        """
+        return pulumi.get(self, "media_type")
+
+    @property
+    @pulumi.getter(name="annotationType")
+    def annotation_type(self) -> Optional[str]:
+        """
+        Annotation type of image labeling tasks.
+        """
+        return pulumi.get(self, "annotation_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LabelingJobInstructionsResponse(dict):
+    """
+    Instructions for a labeling job.
+    """
+    def __init__(__self__, *,
+                 uri: Optional[str] = None):
+        """
+        Instructions for a labeling job.
+        :param str uri: The link to a page with detailed labeling instructions for labelers.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The link to a page with detailed labeling instructions for labelers.
+        """
+        return pulumi.get(self, "uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LabelingJobPropertiesResponse(dict):
+    """
+    Definition of a labeling job.
+    """
+    def __init__(__self__, *,
+                 created_time_utc: str,
+                 dataset_configuration: 'outputs.LabelingDatasetConfigurationResponse',
+                 job_instructions: 'outputs.LabelingJobInstructionsResponse',
+                 label_categories: Mapping[str, 'outputs.LabelCategoryResponse'],
+                 labeling_job_media_properties: 'outputs.LabelingJobImagePropertiesResponse',
+                 progress_metrics: 'outputs.ProgressMetricsResponse',
+                 project_id: str,
+                 status: str,
+                 status_messages: Sequence['outputs.StatusMessageResponse'],
+                 ml_assist_configuration: Optional['outputs.MLAssistConfigurationResponse'] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Definition of a labeling job.
+        :param str created_time_utc: Created time of the job in UTC timezone.
+        :param 'LabelingDatasetConfigurationResponseArgs' dataset_configuration: Dataset configuration for the job.
+        :param 'LabelingJobInstructionsResponseArgs' job_instructions: Instructions for the job.
+        :param Mapping[str, 'LabelCategoryResponseArgs'] label_categories: Label categories of the job.
+        :param 'LabelingJobImagePropertiesResponseArgs' labeling_job_media_properties: Media specific properties in a labeling job.
+        :param 'ProgressMetricsResponseArgs' progress_metrics: Progress metrics of the job.
+        :param str project_id: Internal id of the job(Previously called project).
+        :param str status: Status of the job.
+        :param Sequence['StatusMessageResponseArgs'] status_messages: Status messages of the job.
+        :param 'MLAssistConfigurationResponseArgs' ml_assist_configuration: Machine learning assisted configuration for the job.
+        :param Mapping[str, str] properties: The job property dictionary. Properties can be added, but not removed or altered.
+        :param Mapping[str, str] tags: The job tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "created_time_utc", created_time_utc)
+        pulumi.set(__self__, "dataset_configuration", dataset_configuration)
+        pulumi.set(__self__, "job_instructions", job_instructions)
+        pulumi.set(__self__, "label_categories", label_categories)
+        pulumi.set(__self__, "labeling_job_media_properties", labeling_job_media_properties)
+        pulumi.set(__self__, "progress_metrics", progress_metrics)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_messages", status_messages)
+        if ml_assist_configuration is not None:
+            pulumi.set(__self__, "ml_assist_configuration", ml_assist_configuration)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="createdTimeUtc")
+    def created_time_utc(self) -> str:
+        """
+        Created time of the job in UTC timezone.
+        """
+        return pulumi.get(self, "created_time_utc")
+
+    @property
+    @pulumi.getter(name="datasetConfiguration")
+    def dataset_configuration(self) -> 'outputs.LabelingDatasetConfigurationResponse':
+        """
+        Dataset configuration for the job.
+        """
+        return pulumi.get(self, "dataset_configuration")
+
+    @property
+    @pulumi.getter(name="jobInstructions")
+    def job_instructions(self) -> 'outputs.LabelingJobInstructionsResponse':
+        """
+        Instructions for the job.
+        """
+        return pulumi.get(self, "job_instructions")
+
+    @property
+    @pulumi.getter(name="labelCategories")
+    def label_categories(self) -> Mapping[str, 'outputs.LabelCategoryResponse']:
+        """
+        Label categories of the job.
+        """
+        return pulumi.get(self, "label_categories")
+
+    @property
+    @pulumi.getter(name="labelingJobMediaProperties")
+    def labeling_job_media_properties(self) -> 'outputs.LabelingJobImagePropertiesResponse':
+        """
+        Media specific properties in a labeling job.
+        """
+        return pulumi.get(self, "labeling_job_media_properties")
+
+    @property
+    @pulumi.getter(name="progressMetrics")
+    def progress_metrics(self) -> 'outputs.ProgressMetricsResponse':
+        """
+        Progress metrics of the job.
+        """
+        return pulumi.get(self, "progress_metrics")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        Internal id of the job(Previously called project).
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the job.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessages")
+    def status_messages(self) -> Sequence['outputs.StatusMessageResponse']:
+        """
+        Status messages of the job.
+        """
+        return pulumi.get(self, "status_messages")
+
+    @property
+    @pulumi.getter(name="mlAssistConfiguration")
+    def ml_assist_configuration(self) -> Optional['outputs.MLAssistConfigurationResponse']:
+        """
+        Machine learning assisted configuration for the job.
+        """
+        return pulumi.get(self, "ml_assist_configuration")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The job property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The job tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LinkedServicePropsResponse(dict):
     """
     LinkedService specific properties.
@@ -3892,6 +4301,77 @@ class LinkedServicePropsResponse(dict):
         The last modified time of the linked service.
         """
         return pulumi.get(self, "modified_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MLAssistConfigurationResponse(dict):
+    """
+    Represents configuration for machine learning assisted features in a labeling job.
+    """
+    def __init__(__self__, *,
+                 inferencing_compute_binding: 'outputs.ComputeBindingResponse',
+                 model_name_prefix: str,
+                 training_compute_binding: 'outputs.ComputeBindingResponse',
+                 ml_assist_enabled: Optional[bool] = None,
+                 prelabel_accuracy_threshold: Optional[float] = None):
+        """
+        Represents configuration for machine learning assisted features in a labeling job.
+        :param 'ComputeBindingResponseArgs' inferencing_compute_binding: The compute designated for inferencing.
+        :param str model_name_prefix: Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+        :param 'ComputeBindingResponseArgs' training_compute_binding: The compute designated for training.
+        :param bool ml_assist_enabled: Indicates whether MLAssist feature is enabled.
+        :param float prelabel_accuracy_threshold: Prelabel accuracy threshold used in MLAssist feature.
+        """
+        pulumi.set(__self__, "inferencing_compute_binding", inferencing_compute_binding)
+        pulumi.set(__self__, "model_name_prefix", model_name_prefix)
+        pulumi.set(__self__, "training_compute_binding", training_compute_binding)
+        if ml_assist_enabled is not None:
+            pulumi.set(__self__, "ml_assist_enabled", ml_assist_enabled)
+        if prelabel_accuracy_threshold is not None:
+            pulumi.set(__self__, "prelabel_accuracy_threshold", prelabel_accuracy_threshold)
+
+    @property
+    @pulumi.getter(name="inferencingComputeBinding")
+    def inferencing_compute_binding(self) -> 'outputs.ComputeBindingResponse':
+        """
+        The compute designated for inferencing.
+        """
+        return pulumi.get(self, "inferencing_compute_binding")
+
+    @property
+    @pulumi.getter(name="modelNamePrefix")
+    def model_name_prefix(self) -> str:
+        """
+        Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+        """
+        return pulumi.get(self, "model_name_prefix")
+
+    @property
+    @pulumi.getter(name="trainingComputeBinding")
+    def training_compute_binding(self) -> 'outputs.ComputeBindingResponse':
+        """
+        The compute designated for training.
+        """
+        return pulumi.get(self, "training_compute_binding")
+
+    @property
+    @pulumi.getter(name="mlAssistEnabled")
+    def ml_assist_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether MLAssist feature is enabled.
+        """
+        return pulumi.get(self, "ml_assist_enabled")
+
+    @property
+    @pulumi.getter(name="prelabelAccuracyThreshold")
+    def prelabel_accuracy_threshold(self) -> Optional[float]:
+        """
+        Prelabel accuracy threshold used in MLAssist feature.
+        """
+        return pulumi.get(self, "prelabel_accuracy_threshold")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4807,6 +5287,64 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ProgressMetricsResponse(dict):
+    """
+    Progress metrics for a labeling job.
+    """
+    def __init__(__self__, *,
+                 completed_datapoint_count: float,
+                 incremental_dataset_last_refresh_time: str,
+                 skipped_datapoint_count: float,
+                 total_datapoint_count: float):
+        """
+        Progress metrics for a labeling job.
+        :param float completed_datapoint_count: The completed datapoint count.
+        :param str incremental_dataset_last_refresh_time: The time of last successful incremental dataset refresh in UTC.
+        :param float skipped_datapoint_count: The skipped datapoint count.
+        :param float total_datapoint_count: The total datapoint count.
+        """
+        pulumi.set(__self__, "completed_datapoint_count", completed_datapoint_count)
+        pulumi.set(__self__, "incremental_dataset_last_refresh_time", incremental_dataset_last_refresh_time)
+        pulumi.set(__self__, "skipped_datapoint_count", skipped_datapoint_count)
+        pulumi.set(__self__, "total_datapoint_count", total_datapoint_count)
+
+    @property
+    @pulumi.getter(name="completedDatapointCount")
+    def completed_datapoint_count(self) -> float:
+        """
+        The completed datapoint count.
+        """
+        return pulumi.get(self, "completed_datapoint_count")
+
+    @property
+    @pulumi.getter(name="incrementalDatasetLastRefreshTime")
+    def incremental_dataset_last_refresh_time(self) -> str:
+        """
+        The time of last successful incremental dataset refresh in UTC.
+        """
+        return pulumi.get(self, "incremental_dataset_last_refresh_time")
+
+    @property
+    @pulumi.getter(name="skippedDatapointCount")
+    def skipped_datapoint_count(self) -> float:
+        """
+        The skipped datapoint count.
+        """
+        return pulumi.get(self, "skipped_datapoint_count")
+
+    @property
+    @pulumi.getter(name="totalDatapointCount")
+    def total_datapoint_count(self) -> float:
+        """
+        The total datapoint count.
+        """
+        return pulumi.get(self, "total_datapoint_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RCranPackageResponse(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
@@ -4966,6 +5504,106 @@ class ScaleSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ScriptReferenceResponse(dict):
+    """
+    Script reference
+    """
+    def __init__(__self__, *,
+                 script_arguments: Optional[str] = None,
+                 script_data: Optional[str] = None,
+                 script_source: Optional[str] = None,
+                 timeout: Optional[str] = None):
+        """
+        Script reference
+        :param str script_arguments: Optional command line arguments passed to the script to run.
+        :param str script_data: The location of scripts in the mounted volume.
+        :param str script_source: The storage source of the script: inline, workspace.
+        :param str timeout: Optional time period passed to timeout command.
+        """
+        if script_arguments is not None:
+            pulumi.set(__self__, "script_arguments", script_arguments)
+        if script_data is not None:
+            pulumi.set(__self__, "script_data", script_data)
+        if script_source is not None:
+            pulumi.set(__self__, "script_source", script_source)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="scriptArguments")
+    def script_arguments(self) -> Optional[str]:
+        """
+        Optional command line arguments passed to the script to run.
+        """
+        return pulumi.get(self, "script_arguments")
+
+    @property
+    @pulumi.getter(name="scriptData")
+    def script_data(self) -> Optional[str]:
+        """
+        The location of scripts in the mounted volume.
+        """
+        return pulumi.get(self, "script_data")
+
+    @property
+    @pulumi.getter(name="scriptSource")
+    def script_source(self) -> Optional[str]:
+        """
+        The storage source of the script: inline, workspace.
+        """
+        return pulumi.get(self, "script_source")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[str]:
+        """
+        Optional time period passed to timeout command.
+        """
+        return pulumi.get(self, "timeout")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ScriptsToExecuteResponse(dict):
+    """
+    Customized setup scripts
+    """
+    def __init__(__self__, *,
+                 creation_script: Optional['outputs.ScriptReferenceResponse'] = None,
+                 startup_script: Optional['outputs.ScriptReferenceResponse'] = None):
+        """
+        Customized setup scripts
+        :param 'ScriptReferenceResponseArgs' creation_script: Script that's run only once during provision of the compute.
+        :param 'ScriptReferenceResponseArgs' startup_script: Script that's run every time the machine starts.
+        """
+        if creation_script is not None:
+            pulumi.set(__self__, "creation_script", creation_script)
+        if startup_script is not None:
+            pulumi.set(__self__, "startup_script", startup_script)
+
+    @property
+    @pulumi.getter(name="creationScript")
+    def creation_script(self) -> Optional['outputs.ScriptReferenceResponse']:
+        """
+        Script that's run only once during provision of the compute.
+        """
+        return pulumi.get(self, "creation_script")
+
+    @property
+    @pulumi.getter(name="startupScript")
+    def startup_script(self) -> Optional['outputs.ScriptReferenceResponse']:
+        """
+        Script that's run every time the machine starts.
+        """
+        return pulumi.get(self, "startup_script")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ServiceResponseBaseResponseError(dict):
     """
     The error details.
@@ -5007,6 +5645,32 @@ class ServiceResponseBaseResponseError(dict):
         Error message.
         """
         return pulumi.get(self, "message")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SetupScriptsResponse(dict):
+    """
+    Details of customized scripts to execute for setting up the cluster.
+    """
+    def __init__(__self__, *,
+                 scripts: Optional['outputs.ScriptsToExecuteResponse'] = None):
+        """
+        Details of customized scripts to execute for setting up the cluster.
+        :param 'ScriptsToExecuteResponseArgs' scripts: Customized setup scripts
+        """
+        if scripts is not None:
+            pulumi.set(__self__, "scripts", scripts)
+
+    @property
+    @pulumi.getter
+    def scripts(self) -> Optional['outputs.ScriptsToExecuteResponse']:
+        """
+        Customized setup scripts
+        """
+        return pulumi.get(self, "scripts")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -5209,6 +5873,150 @@ class SslConfigurationResponse(dict):
         Enable or disable ssl for scoring
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StatusMessageResponse(dict):
+    """
+    Active message associated with project.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 created_time_utc: str,
+                 level: str,
+                 message: str):
+        """
+        Active message associated with project.
+        :param str code: Service-defined message code.
+        :param str created_time_utc: Time in UTC at which the message was created.
+        :param str level: Severity level of the status message.
+        :param str message: A human-readable representation of the message code.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "created_time_utc", created_time_utc)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Service-defined message code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="createdTimeUtc")
+    def created_time_utc(self) -> str:
+        """
+        Time in UTC at which the message was created.
+        """
+        return pulumi.get(self, "created_time_utc")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        """
+        Severity level of the status message.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        A human-readable representation of the message code.
+        """
+        return pulumi.get(self, "message")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

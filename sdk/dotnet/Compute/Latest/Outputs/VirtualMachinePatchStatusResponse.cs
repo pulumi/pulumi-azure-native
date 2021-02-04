@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly Outputs.AvailablePatchSummaryResponse? AvailablePatchSummary;
         /// <summary>
+        /// The enablement status of the specified patchMode
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InstanceViewStatusResponse> ConfigurationStatuses;
+        /// <summary>
         /// The installation summary of the latest installation operation for the virtual machine.
         /// </summary>
         public readonly Outputs.LastPatchInstallationSummaryResponse? LastPatchInstallationSummary;
@@ -26,9 +30,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         private VirtualMachinePatchStatusResponse(
             Outputs.AvailablePatchSummaryResponse? availablePatchSummary,
 
+            ImmutableArray<Outputs.InstanceViewStatusResponse> configurationStatuses,
+
             Outputs.LastPatchInstallationSummaryResponse? lastPatchInstallationSummary)
         {
             AvailablePatchSummary = availablePatchSummary;
+            ConfigurationStatuses = configurationStatuses;
             LastPatchInstallationSummary = lastPatchInstallationSummary;
         }
     }

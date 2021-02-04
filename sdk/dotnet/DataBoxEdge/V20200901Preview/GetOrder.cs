@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// Current status of the order.
         /// </summary>
-        public readonly Outputs.OrderStatusResponse? CurrentStatus;
+        public readonly Outputs.OrderStatusResponse CurrentStatus;
         /// <summary>
         /// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         private GetOrderResult(
             Outputs.ContactDetailsResponse contactInformation,
 
-            Outputs.OrderStatusResponse? currentStatus,
+            Outputs.OrderStatusResponse currentStatus,
 
             ImmutableArray<Outputs.TrackingInfoResponse> deliveryTrackingInfo,
 

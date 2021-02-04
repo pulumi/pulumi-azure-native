@@ -160,7 +160,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, inputs, opts);
     }

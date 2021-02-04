@@ -19,10 +19,10 @@ __all__ = [
 @pulumi.input_type
 class IncidentInfoArgs:
     def __init__(__self__, *,
-                 incident_id: pulumi.Input[str],
-                 relation_name: pulumi.Input[str],
-                 severity: pulumi.Input[Union[str, 'CaseSeverity']],
-                 title: pulumi.Input[str]):
+                 incident_id: Optional[pulumi.Input[str]] = None,
+                 relation_name: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'CaseSeverity']]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
         """
         Describes related incident information for the bookmark
         :param pulumi.Input[str] incident_id: Incident Id
@@ -30,57 +30,61 @@ class IncidentInfoArgs:
         :param pulumi.Input[Union[str, 'CaseSeverity']] severity: The severity of the incident
         :param pulumi.Input[str] title: The title of the incident
         """
-        pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "relation_name", relation_name)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "title", title)
+        if incident_id is not None:
+            pulumi.set(__self__, "incident_id", incident_id)
+        if relation_name is not None:
+            pulumi.set(__self__, "relation_name", relation_name)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
 
     @property
     @pulumi.getter(name="incidentId")
-    def incident_id(self) -> pulumi.Input[str]:
+    def incident_id(self) -> Optional[pulumi.Input[str]]:
         """
         Incident Id
         """
         return pulumi.get(self, "incident_id")
 
     @incident_id.setter
-    def incident_id(self, value: pulumi.Input[str]):
+    def incident_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "incident_id", value)
 
     @property
     @pulumi.getter(name="relationName")
-    def relation_name(self) -> pulumi.Input[str]:
+    def relation_name(self) -> Optional[pulumi.Input[str]]:
         """
         Relation Name
         """
         return pulumi.get(self, "relation_name")
 
     @relation_name.setter
-    def relation_name(self, value: pulumi.Input[str]):
+    def relation_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "relation_name", value)
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[Union[str, 'CaseSeverity']]:
+    def severity(self) -> Optional[pulumi.Input[Union[str, 'CaseSeverity']]]:
         """
         The severity of the incident
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[Union[str, 'CaseSeverity']]):
+    def severity(self, value: Optional[pulumi.Input[Union[str, 'CaseSeverity']]]):
         pulumi.set(self, "severity", value)
 
     @property
     @pulumi.getter
-    def title(self) -> pulumi.Input[str]:
+    def title(self) -> Optional[pulumi.Input[str]]:
         """
         The title of the incident
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: pulumi.Input[str]):
+    def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
 
 

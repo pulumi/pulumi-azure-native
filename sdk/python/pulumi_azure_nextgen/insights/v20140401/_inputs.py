@@ -294,9 +294,12 @@ class RuleManagementEventDataSourceArgs:
                  claims: Optional[pulumi.Input['RuleManagementEventClaimsDataSourceArgs']] = None,
                  event_name: Optional[pulumi.Input[str]] = None,
                  event_source: Optional[pulumi.Input[str]] = None,
+                 legacy_resource_id: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[str]] = None,
+                 metric_namespace: Optional[pulumi.Input[str]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_location: Optional[pulumi.Input[str]] = None,
                  resource_provider_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -308,9 +311,12 @@ class RuleManagementEventDataSourceArgs:
         :param pulumi.Input['RuleManagementEventClaimsDataSourceArgs'] claims: the claims.
         :param pulumi.Input[str] event_name: the event name.
         :param pulumi.Input[str] event_source: the event source.
+        :param pulumi.Input[str] legacy_resource_id: the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         :param pulumi.Input[str] level: the level.
+        :param pulumi.Input[str] metric_namespace: the namespace of the metric.
         :param pulumi.Input[str] operation_name: The name of the operation that should be checked for. If no name is provided, any operation will match.
         :param pulumi.Input[str] resource_group_name: the resource group name.
+        :param pulumi.Input[str] resource_location: the location of the resource.
         :param pulumi.Input[str] resource_provider_name: the resource provider name.
         :param pulumi.Input[str] resource_uri: the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         :param pulumi.Input[str] status: The status of the operation that should be checked for. If no status is provided, any status will match.
@@ -323,12 +329,18 @@ class RuleManagementEventDataSourceArgs:
             pulumi.set(__self__, "event_name", event_name)
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
+        if legacy_resource_id is not None:
+            pulumi.set(__self__, "legacy_resource_id", legacy_resource_id)
         if level is not None:
             pulumi.set(__self__, "level", level)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_location is not None:
+            pulumi.set(__self__, "resource_location", resource_location)
         if resource_provider_name is not None:
             pulumi.set(__self__, "resource_provider_name", resource_provider_name)
         if resource_uri is not None:
@@ -388,6 +400,18 @@ class RuleManagementEventDataSourceArgs:
         pulumi.set(self, "event_source", value)
 
     @property
+    @pulumi.getter(name="legacyResourceId")
+    def legacy_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+        return pulumi.get(self, "legacy_resource_id")
+
+    @legacy_resource_id.setter
+    def legacy_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "legacy_resource_id", value)
+
+    @property
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
@@ -398,6 +422,18 @@ class RuleManagementEventDataSourceArgs:
     @level.setter
     def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        the namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @metric_namespace.setter
+    def metric_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_namespace", value)
 
     @property
     @pulumi.getter(name="operationName")
@@ -422,6 +458,18 @@ class RuleManagementEventDataSourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceLocation")
+    def resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource.
+        """
+        return pulumi.get(self, "resource_location")
+
+    @resource_location.setter
+    def resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_location", value)
 
     @property
     @pulumi.getter(name="resourceProviderName")
@@ -476,18 +524,30 @@ class RuleManagementEventDataSourceArgs:
 class RuleMetricDataSourceArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
+                 legacy_resource_id: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
+                 metric_namespace: Optional[pulumi.Input[str]] = None,
+                 resource_location: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
         A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
         :param pulumi.Input[str] odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
                Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
+        :param pulumi.Input[str] legacy_resource_id: the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         :param pulumi.Input[str] metric_name: the name of the metric that defines what the rule monitors.
+        :param pulumi.Input[str] metric_namespace: the namespace of the metric.
+        :param pulumi.Input[str] resource_location: the location of the resource.
         :param pulumi.Input[str] resource_uri: the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource')
+        if legacy_resource_id is not None:
+            pulumi.set(__self__, "legacy_resource_id", legacy_resource_id)
         if metric_name is not None:
             pulumi.set(__self__, "metric_name", metric_name)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if resource_location is not None:
+            pulumi.set(__self__, "resource_location", resource_location)
         if resource_uri is not None:
             pulumi.set(__self__, "resource_uri", resource_uri)
 
@@ -505,6 +565,18 @@ class RuleMetricDataSourceArgs:
         pulumi.set(self, "odata_type", value)
 
     @property
+    @pulumi.getter(name="legacyResourceId")
+    def legacy_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+        return pulumi.get(self, "legacy_resource_id")
+
+    @legacy_resource_id.setter
+    def legacy_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "legacy_resource_id", value)
+
+    @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -515,6 +587,30 @@ class RuleMetricDataSourceArgs:
     @metric_name.setter
     def metric_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        the namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @metric_namespace.setter
+    def metric_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_namespace", value)
+
+    @property
+    @pulumi.getter(name="resourceLocation")
+    def resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource.
+        """
+        return pulumi.get(self, "resource_location")
+
+    @resource_location.setter
+    def resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_location", value)
 
     @property
     @pulumi.getter(name="resourceUri")

@@ -24,8 +24,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         /// <summary>
         /// Agent virtual machine size
         /// </summary>
-        [Input("agentVMSize")]
-        public Input<string>? AgentVMSize { get; set; }
+        [Input("agentVmSize")]
+        public Input<string>? AgentVmSize { get; set; }
 
         /// <summary>
         /// AKS networking configuration for vnet

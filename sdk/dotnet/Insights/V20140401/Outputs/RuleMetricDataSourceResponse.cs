@@ -14,14 +14,26 @@ namespace Pulumi.AzureNextGen.Insights.V20140401.Outputs
     public sealed class RuleMetricDataSourceResponse
     {
         /// <summary>
+        /// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        /// </summary>
+        public readonly string? LegacyResourceId;
+        /// <summary>
         /// the name of the metric that defines what the rule monitors.
         /// </summary>
         public readonly string? MetricName;
+        /// <summary>
+        /// the namespace of the metric.
+        /// </summary>
+        public readonly string? MetricNamespace;
         /// <summary>
         /// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
         /// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource'.
         /// </summary>
         public readonly string OdataType;
+        /// <summary>
+        /// the location of the resource.
+        /// </summary>
+        public readonly string? ResourceLocation;
         /// <summary>
         /// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         /// </summary>
@@ -29,14 +41,23 @@ namespace Pulumi.AzureNextGen.Insights.V20140401.Outputs
 
         [OutputConstructor]
         private RuleMetricDataSourceResponse(
+            string? legacyResourceId,
+
             string? metricName,
+
+            string? metricNamespace,
 
             string odataType,
 
+            string? resourceLocation,
+
             string? resourceUri)
         {
+            LegacyResourceId = legacyResourceId;
             MetricName = metricName;
+            MetricNamespace = metricNamespace;
             OdataType = odataType;
+            ResourceLocation = resourceLocation;
             ResourceUri = resourceUri;
         }
     }

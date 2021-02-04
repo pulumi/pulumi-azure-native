@@ -201,6 +201,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

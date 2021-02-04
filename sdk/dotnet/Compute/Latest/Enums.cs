@@ -252,6 +252,36 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     }
 
     /// <summary>
+    /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. &lt;br&gt;&lt;br&gt; detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. &lt;br&gt;&lt;br&gt; This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskDetachOptionTypes : IEquatable<DiskDetachOptionTypes>
+    {
+        private readonly string _value;
+
+        private DiskDetachOptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskDetachOptionTypes ForceDetach { get; } = new DiskDetachOptionTypes("ForceDetach");
+
+        public static bool operator ==(DiskDetachOptionTypes left, DiskDetachOptionTypes right) => left.Equals(right);
+        public static bool operator !=(DiskDetachOptionTypes left, DiskDetachOptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskDetachOptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskDetachOptionTypes other && Equals(other);
+        public bool Equals(DiskDetachOptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
     /// </summary>
     [EnumType]
@@ -592,38 +622,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     }
 
     /// <summary>
-    /// Specifies the mode of in-guest patching to IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
-    /// </summary>
-    [EnumType]
-    public readonly struct InGuestPatchMode : IEquatable<InGuestPatchMode>
-    {
-        private readonly string _value;
-
-        private InGuestPatchMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static InGuestPatchMode Manual { get; } = new InGuestPatchMode("Manual");
-        public static InGuestPatchMode AutomaticByOS { get; } = new InGuestPatchMode("AutomaticByOS");
-        public static InGuestPatchMode AutomaticByPlatform { get; } = new InGuestPatchMode("AutomaticByPlatform");
-
-        public static bool operator ==(InGuestPatchMode left, InGuestPatchMode right) => left.Equals(right);
-        public static bool operator !=(InGuestPatchMode left, InGuestPatchMode right) => !left.Equals(right);
-
-        public static explicit operator string(InGuestPatchMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is InGuestPatchMode other && Equals(other);
-        public bool Equals(InGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Interval value in minutes used to create LogAnalytics call rate logs.
     /// </summary>
     [EnumType]
@@ -649,6 +647,37 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntervalInMins other && Equals(other);
         public bool Equals(IntervalInMins other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxVMGuestPatchMode : IEquatable<LinuxVMGuestPatchMode>
+    {
+        private readonly string _value;
+
+        private LinuxVMGuestPatchMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxVMGuestPatchMode ImageDefault { get; } = new LinuxVMGuestPatchMode("ImageDefault");
+        public static LinuxVMGuestPatchMode AutomaticByPlatform { get; } = new LinuxVMGuestPatchMode("AutomaticByPlatform");
+
+        public static bool operator ==(LinuxVMGuestPatchMode left, LinuxVMGuestPatchMode right) => left.Equals(right);
+        public static bool operator !=(LinuxVMGuestPatchMode left, LinuxVMGuestPatchMode right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxVMGuestPatchMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxVMGuestPatchMode other && Equals(other);
+        public bool Equals(LinuxVMGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -758,6 +787,37 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OperatingSystemTypes other && Equals(other);
         public bool Equals(OperatingSystemTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the orchestration mode for the virtual machine scale set.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrchestrationMode : IEquatable<OrchestrationMode>
+    {
+        private readonly string _value;
+
+        private OrchestrationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrchestrationMode Uniform { get; } = new OrchestrationMode("Uniform");
+        public static OrchestrationMode Flexible { get; } = new OrchestrationMode("Flexible");
+
+        public static bool operator ==(OrchestrationMode left, OrchestrationMode right) => left.Equals(right);
+        public static bool operator !=(OrchestrationMode left, OrchestrationMode right) => !left.Equals(right);
+
+        public static explicit operator string(OrchestrationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrchestrationMode other && Equals(other);
+        public bool Equals(OrchestrationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -915,6 +975,36 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityTypes : IEquatable<SecurityTypes>
+    {
+        private readonly string _value;
+
+        private SecurityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("TrustedLaunch");
+
+        public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityTypes left, SecurityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityTypes other && Equals(other);
+        public bool Equals(SecurityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1216,7 +1306,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     }
 
     /// <summary>
-    /// Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). &lt;br&gt;&lt;br&gt; The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). &lt;br&gt;&lt;br&gt; This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+    /// Specifies the size of the virtual machine. &lt;br&gt;&lt;br&gt; The enum data type is currently deprecated and will be removed by December 23rd 2023. &lt;br&gt;&lt;br&gt; Recommended way to get the list of available sizes is using these APIs: &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). &lt;br&gt;&lt;br&gt; The available VM sizes depend on region and availability set.
     /// </summary>
     [EnumType]
     public readonly struct VirtualMachineSizeTypes : IEquatable<VirtualMachineSizeTypes>
@@ -1403,6 +1493,38 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VirtualMachineSizeTypes other && Equals(other);
         public bool Equals(VirtualMachineSizeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowsVMGuestPatchMode : IEquatable<WindowsVMGuestPatchMode>
+    {
+        private readonly string _value;
+
+        private WindowsVMGuestPatchMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WindowsVMGuestPatchMode Manual { get; } = new WindowsVMGuestPatchMode("Manual");
+        public static WindowsVMGuestPatchMode AutomaticByOS { get; } = new WindowsVMGuestPatchMode("AutomaticByOS");
+        public static WindowsVMGuestPatchMode AutomaticByPlatform { get; } = new WindowsVMGuestPatchMode("AutomaticByPlatform");
+
+        public static bool operator ==(WindowsVMGuestPatchMode left, WindowsVMGuestPatchMode right) => left.Equals(right);
+        public static bool operator !=(WindowsVMGuestPatchMode left, WindowsVMGuestPatchMode right) => !left.Equals(right);
+
+        public static explicit operator string(WindowsVMGuestPatchMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowsVMGuestPatchMode other && Equals(other);
+        public bool Equals(WindowsVMGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

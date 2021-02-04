@@ -1943,7 +1943,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing information of the SignalR resource.
+// The billing information of the resource.
 type ResourceSku struct {
 	// Optional, integer. The unit count of SignalR resource. 1 by default.
 	//
@@ -1972,7 +1972,7 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// The billing information of the SignalR resource.
+// The billing information of the resource.
 type ResourceSkuArgs struct {
 	// Optional, integer. The unit count of SignalR resource. 1 by default.
 	//
@@ -2043,7 +2043,7 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// The billing information of the SignalR resource.
+// The billing information of the resource.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -2147,7 +2147,7 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing information of the SignalR resource.
+// The billing information of the resource.
 type ResourceSkuResponse struct {
 	// Optional, integer. The unit count of SignalR resource. 1 by default.
 	//
@@ -2180,7 +2180,7 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// The billing information of the SignalR resource.
+// The billing information of the resource.
 type ResourceSkuResponseArgs struct {
 	// Optional, integer. The unit count of SignalR resource. 1 by default.
 	//
@@ -2255,7 +2255,7 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// The billing information of the SignalR resource.
+// The billing information of the resource.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -2389,7 +2389,7 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings for the Upstream when the Azure SignalR is in server-less mode.
+// The settings for the Upstream when the service is in server-less mode.
 type ServerlessUpstreamSettings struct {
 	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates []UpstreamTemplate `pulumi:"templates"`
@@ -2406,7 +2406,7 @@ type ServerlessUpstreamSettingsInput interface {
 	ToServerlessUpstreamSettingsOutputWithContext(context.Context) ServerlessUpstreamSettingsOutput
 }
 
-// The settings for the Upstream when the Azure SignalR is in server-less mode.
+// The settings for the Upstream when the service is in server-less mode.
 type ServerlessUpstreamSettingsArgs struct {
 	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates UpstreamTemplateArrayInput `pulumi:"templates"`
@@ -2465,7 +2465,7 @@ func (i *serverlessUpstreamSettingsPtrType) ToServerlessUpstreamSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessUpstreamSettingsPtrOutput)
 }
 
-// The settings for the Upstream when the Azure SignalR is in server-less mode.
+// The settings for the Upstream when the service is in server-less mode.
 type ServerlessUpstreamSettingsOutput struct{ *pulumi.OutputState }
 
 func (ServerlessUpstreamSettingsOutput) ElementType() reflect.Type {
@@ -2523,7 +2523,7 @@ func (o ServerlessUpstreamSettingsPtrOutput) Templates() UpstreamTemplateArrayOu
 	}).(UpstreamTemplateArrayOutput)
 }
 
-// The settings for the Upstream when the Azure SignalR is in server-less mode.
+// The settings for the Upstream when the service is in server-less mode.
 type ServerlessUpstreamSettingsResponse struct {
 	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates []UpstreamTemplateResponse `pulumi:"templates"`
@@ -2540,7 +2540,7 @@ type ServerlessUpstreamSettingsResponseInput interface {
 	ToServerlessUpstreamSettingsResponseOutputWithContext(context.Context) ServerlessUpstreamSettingsResponseOutput
 }
 
-// The settings for the Upstream when the Azure SignalR is in server-less mode.
+// The settings for the Upstream when the service is in server-less mode.
 type ServerlessUpstreamSettingsResponseArgs struct {
 	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates UpstreamTemplateResponseArrayInput `pulumi:"templates"`
@@ -2599,7 +2599,7 @@ func (i *serverlessUpstreamSettingsResponsePtrType) ToServerlessUpstreamSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessUpstreamSettingsResponsePtrOutput)
 }
 
-// The settings for the Upstream when the Azure SignalR is in server-less mode.
+// The settings for the Upstream when the service is in server-less mode.
 type ServerlessUpstreamSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerlessUpstreamSettingsResponseOutput) ElementType() reflect.Type {
@@ -3173,7 +3173,7 @@ func (o SignalRFeatureResponseArrayOutput) Index(i pulumi.IntInput) SignalRFeatu
 	}).(SignalRFeatureResponseOutput)
 }
 
-// Network ACLs for SignalR
+// Network ACLs for the resource
 type SignalRNetworkACLs struct {
 	// Default action when no other rule matches
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -3194,7 +3194,7 @@ type SignalRNetworkACLsInput interface {
 	ToSignalRNetworkACLsOutputWithContext(context.Context) SignalRNetworkACLsOutput
 }
 
-// Network ACLs for SignalR
+// Network ACLs for the resource
 type SignalRNetworkACLsArgs struct {
 	// Default action when no other rule matches
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
@@ -3257,7 +3257,7 @@ func (i *signalRNetworkACLsPtrType) ToSignalRNetworkACLsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRNetworkACLsPtrOutput)
 }
 
-// Network ACLs for SignalR
+// Network ACLs for the resource
 type SignalRNetworkACLsOutput struct{ *pulumi.OutputState }
 
 func (SignalRNetworkACLsOutput) ElementType() reflect.Type {
@@ -3345,7 +3345,7 @@ func (o SignalRNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 	}).(NetworkACLPtrOutput)
 }
 
-// Network ACLs for SignalR
+// Network ACLs for the resource
 type SignalRNetworkACLsResponse struct {
 	// Default action when no other rule matches
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -3366,7 +3366,7 @@ type SignalRNetworkACLsResponseInput interface {
 	ToSignalRNetworkACLsResponseOutputWithContext(context.Context) SignalRNetworkACLsResponseOutput
 }
 
-// Network ACLs for SignalR
+// Network ACLs for the resource
 type SignalRNetworkACLsResponseArgs struct {
 	// Default action when no other rule matches
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
@@ -3429,7 +3429,7 @@ func (i *signalRNetworkACLsResponsePtrType) ToSignalRNetworkACLsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRNetworkACLsResponsePtrOutput)
 }
 
-// Network ACLs for SignalR
+// Network ACLs for the resource
 type SignalRNetworkACLsResponseOutput struct{ *pulumi.OutputState }
 
 func (SignalRNetworkACLsResponseOutput) ElementType() reflect.Type {
@@ -3517,7 +3517,7 @@ func (o SignalRNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLResponseP
 	}).(NetworkACLResponsePtrOutput)
 }
 
-// TLS settings for SignalR
+// TLS settings for the resource
 type SignalRTlsSettings struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
@@ -3534,7 +3534,7 @@ type SignalRTlsSettingsInput interface {
 	ToSignalRTlsSettingsOutputWithContext(context.Context) SignalRTlsSettingsOutput
 }
 
-// TLS settings for SignalR
+// TLS settings for the resource
 type SignalRTlsSettingsArgs struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
@@ -3593,7 +3593,7 @@ func (i *signalRTlsSettingsPtrType) ToSignalRTlsSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsPtrOutput)
 }
 
-// TLS settings for SignalR
+// TLS settings for the resource
 type SignalRTlsSettingsOutput struct{ *pulumi.OutputState }
 
 func (SignalRTlsSettingsOutput) ElementType() reflect.Type {
@@ -3651,7 +3651,7 @@ func (o SignalRTlsSettingsPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// TLS settings for SignalR
+// TLS settings for the resource
 type SignalRTlsSettingsResponse struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
@@ -3668,7 +3668,7 @@ type SignalRTlsSettingsResponseInput interface {
 	ToSignalRTlsSettingsResponseOutputWithContext(context.Context) SignalRTlsSettingsResponseOutput
 }
 
-// TLS settings for SignalR
+// TLS settings for the resource
 type SignalRTlsSettingsResponseArgs struct {
 	// Request client certificate during TLS handshake if enabled
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
@@ -3727,7 +3727,7 @@ func (i *signalRTlsSettingsResponsePtrType) ToSignalRTlsSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsResponsePtrOutput)
 }
 
-// TLS settings for SignalR
+// TLS settings for the resource
 type SignalRTlsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SignalRTlsSettingsResponseOutput) ElementType() reflect.Type {

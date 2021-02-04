@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : Pulumi.CustomResource
@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

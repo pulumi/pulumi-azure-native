@@ -122,6 +122,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:DedicatedHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DedicatedHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

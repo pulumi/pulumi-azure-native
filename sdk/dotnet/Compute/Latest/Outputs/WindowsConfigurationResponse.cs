@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly bool? EnableAutomaticUpdates;
         /// <summary>
-        /// Specifies settings related to in-guest patching (KBs).
+        /// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         /// </summary>
         public readonly Outputs.PatchSettingsResponse? PatchSettings;
         /// <summary>

@@ -113,6 +113,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         public Input<string>? TargetStorageAccountId { get; set; }
 
         /// <summary>
+        /// The target VM size.
+        /// </summary>
+        [Input("targetVmSize")]
+        public Input<string>? TargetVmSize { get; set; }
+
+        /// <summary>
         /// A value indicating whether managed disks should be used during failover.
         /// </summary>
         [Input("useManagedDisks")]

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         public Input<bool>? DisablePasswordAuthentication { get; set; }
 
         /// <summary>
+        /// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+        /// </summary>
+        [Input("patchSettings")]
+        public Input<Inputs.LinuxPatchSettingsArgs>? PatchSettings { get; set; }
+
+        /// <summary>
         /// Indicates whether virtual machine agent should be provisioned on the virtual machine. &lt;br&gt;&lt;br&gt; When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         /// </summary>
         [Input("provisionVMAgent")]

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * NetApp account resource
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-11-01.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly activeDirectories!: pulumi.Output<outputs.netapp.latest.ActiveDirectoryResponse[] | undefined>;
     /**
+     * Encryption settings
+     */
+    public readonly encryption!: pulumi.Output<outputs.netapp.latest.AccountEncryptionResponse | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -52,6 +56,10 @@ export class Account extends pulumi.CustomResource {
      * Azure lifecycle management
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.latest.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -82,17 +90,21 @@ export class Account extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["activeDirectories"] = args ? args.activeDirectories : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["activeDirectories"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -103,7 +115,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190501:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200201:Account" }, { type: "azure-nextgen:netapp/v20200301:Account" }, { type: "azure-nextgen:netapp/v20200501:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }, { type: "azure-nextgen:netapp/v20200701:Account" }, { type: "azure-nextgen:netapp/v20200801:Account" }, { type: "azure-nextgen:netapp/v20200901:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190501:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200201:Account" }, { type: "azure-nextgen:netapp/v20200301:Account" }, { type: "azure-nextgen:netapp/v20200501:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }, { type: "azure-nextgen:netapp/v20200701:Account" }, { type: "azure-nextgen:netapp/v20200801:Account" }, { type: "azure-nextgen:netapp/v20200901:Account" }, { type: "azure-nextgen:netapp/v20201101:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }
@@ -121,6 +133,10 @@ export interface AccountArgs {
      * Active Directories
      */
     readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.latest.ActiveDirectory>[]>;
+    /**
+     * Encryption settings
+     */
+    readonly encryption?: pulumi.Input<inputs.netapp.latest.AccountEncryption>;
     /**
      * Resource location
      */

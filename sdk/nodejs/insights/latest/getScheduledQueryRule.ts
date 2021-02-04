@@ -39,6 +39,10 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly action: outputs.insights.latest.AlertingActionResponse | outputs.insights.latest.LogToMetricActionResponse;
     /**
+     * The api-version used when creating this alert rule
+     */
+    readonly createdWithApiVersion: string;
+    /**
      * The description of the Log Search rule.
      */
     readonly description?: string;
@@ -58,6 +62,10 @@ export interface GetScheduledQueryRuleResult {
      * Azure resource Id
      */
     readonly id: string;
+    /**
+     * True if alert rule is legacy Log Analytic rule
+     */
+    readonly isLegacyLogAnalyticsRule: boolean;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */

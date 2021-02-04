@@ -17,6 +17,7 @@ __all__ = [
     'AmlComputeNodeInformationResponseResult',
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
+    'AssignedUserResponse',
     'ComputeInstanceApplicationResponse',
     'ComputeInstanceConnectivityEndpointsResponse',
     'ComputeInstanceCreatedByResponse',
@@ -44,6 +45,7 @@ __all__ = [
     'NotebookPreparationErrorResponse',
     'NotebookResourceInfoResponse',
     'PasswordResponseResult',
+    'PersonalComputeInstanceSettingsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -240,7 +242,7 @@ class AKSResponseProperties(dict):
         return pulumi.get(self, "agent_count")
 
     @property
-    @pulumi.getter(name="agentVMSize")
+    @pulumi.getter(name="agentVmSize")
     def agent_vm_size(self) -> Optional[str]:
         """
         Agent virtual machine size
@@ -556,6 +558,7 @@ class AmlComputeResponseProperties(dict):
                  errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  node_state_counts: 'outputs.NodeStateCountsResponse',
                  target_node_count: int,
+                 os_type: Optional[str] = None,
                  remote_login_port_public_access: Optional[str] = None,
                  scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
@@ -570,6 +573,7 @@ class AmlComputeResponseProperties(dict):
         :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
         :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
         :param int target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
+        :param str os_type: Compute OS Type
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -583,6 +587,10 @@ class AmlComputeResponseProperties(dict):
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "node_state_counts", node_state_counts)
         pulumi.set(__self__, "target_node_count", target_node_count)
+        if os_type is None:
+            os_type = 'Linux'
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
         if remote_login_port_public_access is None:
             remote_login_port_public_access = 'NotSpecified'
         if remote_login_port_public_access is not None:
@@ -647,6 +655,14 @@ class AmlComputeResponseProperties(dict):
         return pulumi.get(self, "target_node_count")
 
     @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Compute OS Type
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
     @pulumi.getter(name="remoteLoginPortPublicAccess")
     def remote_login_port_public_access(self) -> Optional[str]:
         """
@@ -693,6 +709,42 @@ class AmlComputeResponseProperties(dict):
         Virtual Machine Size
         """
         return pulumi.get(self, "vm_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AssignedUserResponse(dict):
+    """
+    A user that can be assigned to a compute instance.
+    """
+    def __init__(__self__, *,
+                 object_id: str,
+                 tenant_id: str):
+        """
+        A user that can be assigned to a compute instance.
+        :param str object_id: User’s AAD Object Id.
+        :param str tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1012,6 +1064,8 @@ class ComputeInstanceResponseProperties(dict):
                  last_operation: 'outputs.ComputeInstanceLastOperationResponse',
                  state: str,
                  application_sharing_policy: Optional[str] = None,
+                 compute_instance_authorization_type: Optional[str] = None,
+                 personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
                  ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
                  vm_size: Optional[str] = None):
@@ -1024,6 +1078,8 @@ class ComputeInstanceResponseProperties(dict):
         :param 'ComputeInstanceLastOperationResponseArgs' last_operation: The last operation on ComputeInstance.
         :param str state: The current state of this ComputeInstance.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param 'PersonalComputeInstanceSettingsResponseArgs' personal_compute_instance_settings: Settings for a personal compute instance.
         :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param str vm_size: Virtual Machine Size
@@ -1038,6 +1094,12 @@ class ComputeInstanceResponseProperties(dict):
             application_sharing_policy = 'Shared'
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is None:
+            compute_instance_authorization_type = 'personal'
+        if compute_instance_authorization_type is not None:
+            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if personal_compute_instance_settings is not None:
+            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if ssh_settings is not None:
             pulumi.set(__self__, "ssh_settings", ssh_settings)
         if subnet is not None:
@@ -1100,6 +1162,22 @@ class ComputeInstanceResponseProperties(dict):
         Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         """
         return pulumi.get(self, "application_sharing_policy")
+
+    @property
+    @pulumi.getter(name="computeInstanceAuthorizationType")
+    def compute_instance_authorization_type(self) -> Optional[str]:
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        return pulumi.get(self, "compute_instance_authorization_type")
+
+    @property
+    @pulumi.getter(name="personalComputeInstanceSettings")
+    def personal_compute_instance_settings(self) -> Optional['outputs.PersonalComputeInstanceSettingsResponse']:
+        """
+        Settings for a personal compute instance.
+        """
+        return pulumi.get(self, "personal_compute_instance_settings")
 
     @property
     @pulumi.getter(name="sshSettings")
@@ -2277,6 +2355,32 @@ class PasswordResponseResult(dict):
 
 
 @pulumi.output_type
+class PersonalComputeInstanceSettingsResponse(dict):
+    """
+    Settings for a personal compute instance.
+    """
+    def __init__(__self__, *,
+                 assigned_user: Optional['outputs.AssignedUserResponse'] = None):
+        """
+        Settings for a personal compute instance.
+        :param 'AssignedUserResponseArgs' assigned_user: A user explicitly assigned to a personal compute instance.
+        """
+        if assigned_user is not None:
+            pulumi.set(__self__, "assigned_user", assigned_user)
+
+    @property
+    @pulumi.getter(name="assignedUser")
+    def assigned_user(self) -> Optional['outputs.AssignedUserResponse']:
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+        return pulumi.get(self, "assigned_user")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
@@ -2497,7 +2601,7 @@ class ScaleSettingsResponse(dict):
         scale settings for AML Compute
         :param int max_node_count: Max number of nodes to use
         :param int min_node_count: Min number of nodes to use
-        :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
+        :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
         if min_node_count is None:
@@ -2527,7 +2631,7 @@ class ScaleSettingsResponse(dict):
     @pulumi.getter(name="nodeIdleTimeBeforeScaleDown")
     def node_idle_time_before_scale_down(self) -> Optional[str]:
         """
-        Node Idle Time before scaling down amlCompute
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         return pulumi.get(self, "node_idle_time_before_scale_down")
 

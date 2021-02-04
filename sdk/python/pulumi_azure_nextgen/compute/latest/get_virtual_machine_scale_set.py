@@ -20,7 +20,7 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_vms=None, host_group=None, id=None, identity=None, location=None, name=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, scale_in_policy=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_vms=None, extended_location=None, host_group=None, id=None, identity=None, location=None, name=None, orchestration_mode=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, scale_in_policy=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -30,6 +30,9 @@ class GetVirtualMachineScaleSetResult:
         if do_not_run_extensions_on_overprovisioned_vms and not isinstance(do_not_run_extensions_on_overprovisioned_vms, bool):
             raise TypeError("Expected argument 'do_not_run_extensions_on_overprovisioned_vms' to be a bool")
         pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_vms", do_not_run_extensions_on_overprovisioned_vms)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if host_group and not isinstance(host_group, dict):
             raise TypeError("Expected argument 'host_group' to be a dict")
         pulumi.set(__self__, "host_group", host_group)
@@ -45,6 +48,9 @@ class GetVirtualMachineScaleSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if orchestration_mode and not isinstance(orchestration_mode, str):
+            raise TypeError("Expected argument 'orchestration_mode' to be a str")
+        pulumi.set(__self__, "orchestration_mode", orchestration_mode)
         if overprovision and not isinstance(overprovision, bool):
             raise TypeError("Expected argument 'overprovision' to be a bool")
         pulumi.set(__self__, "overprovision", overprovision)
@@ -116,6 +122,14 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_vms")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter(name="hostGroup")
     def host_group(self) -> Optional['outputs.SubResourceResponse']:
         """
@@ -154,6 +168,14 @@ class GetVirtualMachineScaleSetResult:
         Resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orchestrationMode")
+    def orchestration_mode(self) -> Optional[str]:
+        """
+        Specifies the orchestration mode for the virtual machine scale set.
+        """
+        return pulumi.get(self, "orchestration_mode")
 
     @property
     @pulumi.getter
@@ -285,11 +307,13 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             additional_capabilities=self.additional_capabilities,
             automatic_repairs_policy=self.automatic_repairs_policy,
             do_not_run_extensions_on_overprovisioned_vms=self.do_not_run_extensions_on_overprovisioned_vms,
+            extended_location=self.extended_location,
             host_group=self.host_group,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
+            orchestration_mode=self.orchestration_mode,
             overprovision=self.overprovision,
             plan=self.plan,
             platform_fault_domain_count=self.platform_fault_domain_count,
@@ -329,11 +353,13 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
         additional_capabilities=__ret__.additional_capabilities,
         automatic_repairs_policy=__ret__.automatic_repairs_policy,
         do_not_run_extensions_on_overprovisioned_vms=__ret__.do_not_run_extensions_on_overprovisioned_vms,
+        extended_location=__ret__.extended_location,
         host_group=__ret__.host_group,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
+        orchestration_mode=__ret__.orchestration_mode,
         overprovision=__ret__.overprovision,
         plan=__ret__.plan,
         platform_fault_domain_count=__ret__.platform_fault_domain_count,

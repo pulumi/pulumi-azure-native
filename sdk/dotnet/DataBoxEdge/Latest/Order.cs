@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Current status of the order.
         /// </summary>
         [Output("currentStatus")]
-        public Output<Outputs.OrderStatusResponse?> CurrentStatus { get; private set; } = null!;
+        public Output<Outputs.OrderStatusResponse> CurrentStatus { get; private set; } = null!;
 
         /// <summary>
         /// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
@@ -135,12 +135,6 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         [Input("contactInformation", required: true)]
         public Input<Inputs.ContactDetailsArgs> ContactInformation { get; set; } = null!;
-
-        /// <summary>
-        /// Current status of the order.
-        /// </summary>
-        [Input("currentStatus")]
-        public Input<Inputs.OrderStatusArgs>? CurrentStatus { get; set; }
 
         /// <summary>
         /// The order details of a device.

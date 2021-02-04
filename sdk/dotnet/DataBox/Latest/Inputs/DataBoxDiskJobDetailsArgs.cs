@@ -48,8 +48,8 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// <summary>
         /// The expected size of the data, which needs to be transferred in this job, in terabytes.
         /// </summary>
-        [Input("expectedDataSizeInTerabytes")]
-        public Input<int>? ExpectedDataSizeInTerabytes { get; set; }
+        [Input("expectedDataSizeInTeraBytes")]
+        public Input<int>? ExpectedDataSizeInTeraBytes { get; set; }
 
         /// <summary>
         /// Indicates the type of job details.

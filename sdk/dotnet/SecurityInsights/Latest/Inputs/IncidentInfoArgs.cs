@@ -18,26 +18,26 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest.Inputs
         /// <summary>
         /// Incident Id
         /// </summary>
-        [Input("incidentId", required: true)]
-        public Input<string> IncidentId { get; set; } = null!;
+        [Input("incidentId")]
+        public Input<string>? IncidentId { get; set; }
 
         /// <summary>
         /// Relation Name
         /// </summary>
-        [Input("relationName", required: true)]
-        public Input<string> RelationName { get; set; } = null!;
+        [Input("relationName")]
+        public Input<string>? RelationName { get; set; }
 
         /// <summary>
         /// The severity of the incident
         /// </summary>
-        [Input("severity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.CaseSeverity> Severity { get; set; } = null!;
+        [Input("severity")]
+        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.CaseSeverity>? Severity { get; set; }
 
         /// <summary>
         /// The title of the incident
         /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
+        [Input("title")]
+        public Input<string>? Title { get; set; }
 
         public IncidentInfoArgs()
         {

@@ -12,7 +12,7 @@ import (
 )
 
 // Backup of a Volume
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-11-01.
 type Backup struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type Backup struct {
 	BackupType pulumi.StringOutput `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// Failure reason
+	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// Label for backup
 	Label pulumi.StringPtrOutput `pulumi:"label"`
 	// Resource location
@@ -77,6 +79,9 @@ func NewBackup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Backup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201101:Backup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Backup
@@ -107,6 +112,8 @@ type backupState struct {
 	BackupType *string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate *string `pulumi:"creationDate"`
+	// Failure reason
+	FailureReason *string `pulumi:"failureReason"`
 	// Label for backup
 	Label *string `pulumi:"label"`
 	// Resource location
@@ -128,6 +135,8 @@ type BackupState struct {
 	BackupType pulumi.StringPtrInput
 	// The creation date of the backup
 	CreationDate pulumi.StringPtrInput
+	// Failure reason
+	FailureReason pulumi.StringPtrInput
 	// Label for backup
 	Label pulumi.StringPtrInput
 	// Resource location

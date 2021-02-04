@@ -47,6 +47,10 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly doNotRunExtensionsOnOverprovisionedVMs?: boolean;
     /**
+     * The extended location of the Virtual Machine Scale Set.
+     */
+    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationResponse;
+    /**
      * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
      */
     readonly hostGroup?: outputs.compute.latest.SubResourceResponse;
@@ -66,6 +70,10 @@ export interface GetVirtualMachineScaleSetResult {
      * Resource name
      */
     readonly name: string;
+    /**
+     * Specifies the orchestration mode for the virtual machine scale set.
+     */
+    readonly orchestrationMode?: string;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */

@@ -39,6 +39,10 @@ export interface GetAccountResult {
      */
     readonly activeDirectories?: outputs.netapp.latest.ActiveDirectoryResponse[];
     /**
+     * Encryption settings
+     */
+    readonly encryption?: outputs.netapp.latest.AccountEncryptionResponse;
+    /**
      * Resource Id
      */
     readonly id: string;
@@ -54,6 +58,10 @@ export interface GetAccountResult {
      * Azure lifecycle management
      */
     readonly provisioningState: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.netapp.latest.SystemDataResponse;
     /**
      * Resource tags
      */

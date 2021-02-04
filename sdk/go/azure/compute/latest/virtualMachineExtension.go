@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine Extension.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type VirtualMachineExtension struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +99,9 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineExtension"),
 		},
 	})
 	opts = append(opts, aliases)

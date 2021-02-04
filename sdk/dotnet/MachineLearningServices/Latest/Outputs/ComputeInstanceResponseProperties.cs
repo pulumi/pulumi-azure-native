@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputeInstanceApplicationResponse> Applications;
         /// <summary>
+        /// The Compute Instance Authorization type. Available values are personal (default).
+        /// </summary>
+        public readonly string? ComputeInstanceAuthorizationType;
+        /// <summary>
         /// Describes all connectivity endpoints available for this ComputeInstance.
         /// </summary>
         public readonly Outputs.ComputeInstanceConnectivityEndpointsResponse ConnectivityEndpoints;
@@ -37,6 +41,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// The last operation on ComputeInstance.
         /// </summary>
         public readonly Outputs.ComputeInstanceLastOperationResponse LastOperation;
+        /// <summary>
+        /// Settings for a personal compute instance.
+        /// </summary>
+        public readonly Outputs.PersonalComputeInstanceSettingsResponse? PersonalComputeInstanceSettings;
         /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
@@ -60,6 +68,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             ImmutableArray<Outputs.ComputeInstanceApplicationResponse> applications,
 
+            string? computeInstanceAuthorizationType,
+
             Outputs.ComputeInstanceConnectivityEndpointsResponse connectivityEndpoints,
 
             Outputs.ComputeInstanceCreatedByResponse createdBy,
@@ -67,6 +77,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             ImmutableArray<Outputs.MachineLearningServiceErrorResponse> errors,
 
             Outputs.ComputeInstanceLastOperationResponse lastOperation,
+
+            Outputs.PersonalComputeInstanceSettingsResponse? personalComputeInstanceSettings,
 
             Outputs.ComputeInstanceSshSettingsResponse? sshSettings,
 
@@ -78,10 +90,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         {
             ApplicationSharingPolicy = applicationSharingPolicy;
             Applications = applications;
+            ComputeInstanceAuthorizationType = computeInstanceAuthorizationType;
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedBy = createdBy;
             Errors = errors;
             LastOperation = lastOperation;
+            PersonalComputeInstanceSettings = personalComputeInstanceSettings;
             SshSettings = sshSettings;
             State = state;
             Subnet = subnet;

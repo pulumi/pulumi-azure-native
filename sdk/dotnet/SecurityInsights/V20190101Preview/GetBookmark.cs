@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The bookmark event time
+        /// </summary>
+        public readonly string? EventTime;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -92,9 +96,17 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string Query;
         /// <summary>
+        /// The end time for the query
+        /// </summary>
+        public readonly string? QueryEndTime;
+        /// <summary>
         /// The query result of the bookmark.
         /// </summary>
         public readonly string? QueryResult;
+        /// <summary>
+        /// The start time for the query
+        /// </summary>
+        public readonly string? QueryStartTime;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -118,6 +130,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string? etag,
 
+            string? eventTime,
+
             string id,
 
             Outputs.IncidentInfoResponse? incidentInfo,
@@ -130,7 +144,11 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string query,
 
+            string? queryEndTime,
+
             string? queryResult,
+
+            string? queryStartTime,
 
             string type,
 
@@ -142,13 +160,16 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             CreatedBy = createdBy;
             DisplayName = displayName;
             Etag = etag;
+            EventTime = eventTime;
             Id = id;
             IncidentInfo = incidentInfo;
             Labels = labels;
             Name = name;
             Notes = notes;
             Query = query;
+            QueryEndTime = queryEndTime;
             QueryResult = queryResult;
+            QueryStartTime = queryStartTime;
             Type = type;
             Updated = updated;
             UpdatedBy = updatedBy;

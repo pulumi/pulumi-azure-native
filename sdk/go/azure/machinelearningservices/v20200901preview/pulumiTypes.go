@@ -1108,7 +1108,7 @@ type AKSProperties struct {
 	// Number of agents
 	AgentCount *int `pulumi:"agentCount"`
 	// Agent virtual machine size
-	AgentVMSize *string `pulumi:"agentVMSize"`
+	AgentVmSize *string `pulumi:"agentVmSize"`
 	// AKS networking configuration for vnet
 	AksNetworkingConfiguration *AksNetworkingConfiguration `pulumi:"aksNetworkingConfiguration"`
 	// Cluster full qualified domain name
@@ -1133,7 +1133,7 @@ type AKSPropertiesArgs struct {
 	// Number of agents
 	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
 	// Agent virtual machine size
-	AgentVMSize pulumi.StringPtrInput `pulumi:"agentVMSize"`
+	AgentVmSize pulumi.StringPtrInput `pulumi:"agentVmSize"`
 	// AKS networking configuration for vnet
 	AksNetworkingConfiguration AksNetworkingConfigurationPtrInput `pulumi:"aksNetworkingConfiguration"`
 	// Cluster full qualified domain name
@@ -1226,8 +1226,8 @@ func (o AKSPropertiesOutput) AgentCount() pulumi.IntPtrOutput {
 }
 
 // Agent virtual machine size
-func (o AKSPropertiesOutput) AgentVMSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AKSProperties) *string { return v.AgentVMSize }).(pulumi.StringPtrOutput)
+func (o AKSPropertiesOutput) AgentVmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSProperties) *string { return v.AgentVmSize }).(pulumi.StringPtrOutput)
 }
 
 // AKS networking configuration for vnet
@@ -1274,12 +1274,12 @@ func (o AKSPropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
 }
 
 // Agent virtual machine size
-func (o AKSPropertiesPtrOutput) AgentVMSize() pulumi.StringPtrOutput {
+func (o AKSPropertiesPtrOutput) AgentVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AKSProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AgentVMSize
+		return v.AgentVmSize
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1629,7 +1629,7 @@ type AKSResponseProperties struct {
 	// Number of agents
 	AgentCount *int `pulumi:"agentCount"`
 	// Agent virtual machine size
-	AgentVMSize *string `pulumi:"agentVMSize"`
+	AgentVmSize *string `pulumi:"agentVmSize"`
 	// AKS networking configuration for vnet
 	AksNetworkingConfiguration *AksNetworkingConfigurationResponse `pulumi:"aksNetworkingConfiguration"`
 	// Cluster full qualified domain name
@@ -1656,7 +1656,7 @@ type AKSResponsePropertiesArgs struct {
 	// Number of agents
 	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
 	// Agent virtual machine size
-	AgentVMSize pulumi.StringPtrInput `pulumi:"agentVMSize"`
+	AgentVmSize pulumi.StringPtrInput `pulumi:"agentVmSize"`
 	// AKS networking configuration for vnet
 	AksNetworkingConfiguration AksNetworkingConfigurationResponsePtrInput `pulumi:"aksNetworkingConfiguration"`
 	// Cluster full qualified domain name
@@ -1751,8 +1751,8 @@ func (o AKSResponsePropertiesOutput) AgentCount() pulumi.IntPtrOutput {
 }
 
 // Agent virtual machine size
-func (o AKSResponsePropertiesOutput) AgentVMSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AKSResponseProperties) *string { return v.AgentVMSize }).(pulumi.StringPtrOutput)
+func (o AKSResponsePropertiesOutput) AgentVmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AKSResponseProperties) *string { return v.AgentVmSize }).(pulumi.StringPtrOutput)
 }
 
 // AKS networking configuration for vnet
@@ -1804,12 +1804,12 @@ func (o AKSResponsePropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
 }
 
 // Agent virtual machine size
-func (o AKSResponsePropertiesPtrOutput) AgentVMSize() pulumi.StringPtrOutput {
+func (o AKSResponsePropertiesPtrOutput) AgentVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AKSResponseProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AgentVMSize
+		return v.AgentVmSize
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4992,6 +4992,312 @@ func (o AssignedUserResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Compute binding definition.
+type ComputeBinding struct {
+	// ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
+	// Number of nodes.
+	NodeCount *int `pulumi:"nodeCount"`
+}
+
+// ComputeBindingInput is an input type that accepts ComputeBindingArgs and ComputeBindingOutput values.
+// You can construct a concrete instance of `ComputeBindingInput` via:
+//
+//          ComputeBindingArgs{...}
+type ComputeBindingInput interface {
+	pulumi.Input
+
+	ToComputeBindingOutput() ComputeBindingOutput
+	ToComputeBindingOutputWithContext(context.Context) ComputeBindingOutput
+}
+
+// Compute binding definition.
+type ComputeBindingArgs struct {
+	// ID of the compute resource.
+	ComputeId pulumi.StringPtrInput `pulumi:"computeId"`
+	// Number of nodes.
+	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
+}
+
+func (ComputeBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeBinding)(nil)).Elem()
+}
+
+func (i ComputeBindingArgs) ToComputeBindingOutput() ComputeBindingOutput {
+	return i.ToComputeBindingOutputWithContext(context.Background())
+}
+
+func (i ComputeBindingArgs) ToComputeBindingOutputWithContext(ctx context.Context) ComputeBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingOutput)
+}
+
+func (i ComputeBindingArgs) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
+	return i.ToComputeBindingPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeBindingArgs) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingOutput).ToComputeBindingPtrOutputWithContext(ctx)
+}
+
+// ComputeBindingPtrInput is an input type that accepts ComputeBindingArgs, ComputeBindingPtr and ComputeBindingPtrOutput values.
+// You can construct a concrete instance of `ComputeBindingPtrInput` via:
+//
+//          ComputeBindingArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeBindingPtrInput interface {
+	pulumi.Input
+
+	ToComputeBindingPtrOutput() ComputeBindingPtrOutput
+	ToComputeBindingPtrOutputWithContext(context.Context) ComputeBindingPtrOutput
+}
+
+type computeBindingPtrType ComputeBindingArgs
+
+func ComputeBindingPtr(v *ComputeBindingArgs) ComputeBindingPtrInput {
+	return (*computeBindingPtrType)(v)
+}
+
+func (*computeBindingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeBinding)(nil)).Elem()
+}
+
+func (i *computeBindingPtrType) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
+	return i.ToComputeBindingPtrOutputWithContext(context.Background())
+}
+
+func (i *computeBindingPtrType) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingPtrOutput)
+}
+
+// Compute binding definition.
+type ComputeBindingOutput struct{ *pulumi.OutputState }
+
+func (ComputeBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeBinding)(nil)).Elem()
+}
+
+func (o ComputeBindingOutput) ToComputeBindingOutput() ComputeBindingOutput {
+	return o
+}
+
+func (o ComputeBindingOutput) ToComputeBindingOutputWithContext(ctx context.Context) ComputeBindingOutput {
+	return o
+}
+
+func (o ComputeBindingOutput) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
+	return o.ToComputeBindingPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeBindingOutput) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
+	return o.ApplyT(func(v ComputeBinding) *ComputeBinding {
+		return &v
+	}).(ComputeBindingPtrOutput)
+}
+
+// ID of the compute resource.
+func (o ComputeBindingOutput) ComputeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeBinding) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
+}
+
+// Number of nodes.
+func (o ComputeBindingOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeBinding) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+type ComputeBindingPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeBindingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeBinding)(nil)).Elem()
+}
+
+func (o ComputeBindingPtrOutput) ToComputeBindingPtrOutput() ComputeBindingPtrOutput {
+	return o
+}
+
+func (o ComputeBindingPtrOutput) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
+	return o
+}
+
+func (o ComputeBindingPtrOutput) Elem() ComputeBindingOutput {
+	return o.ApplyT(func(v *ComputeBinding) ComputeBinding { return *v }).(ComputeBindingOutput)
+}
+
+// ID of the compute resource.
+func (o ComputeBindingPtrOutput) ComputeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeBinding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of nodes.
+func (o ComputeBindingPtrOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeBinding) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Compute binding definition.
+type ComputeBindingResponse struct {
+	// ID of the compute resource.
+	ComputeId *string `pulumi:"computeId"`
+	// Number of nodes.
+	NodeCount *int `pulumi:"nodeCount"`
+}
+
+// ComputeBindingResponseInput is an input type that accepts ComputeBindingResponseArgs and ComputeBindingResponseOutput values.
+// You can construct a concrete instance of `ComputeBindingResponseInput` via:
+//
+//          ComputeBindingResponseArgs{...}
+type ComputeBindingResponseInput interface {
+	pulumi.Input
+
+	ToComputeBindingResponseOutput() ComputeBindingResponseOutput
+	ToComputeBindingResponseOutputWithContext(context.Context) ComputeBindingResponseOutput
+}
+
+// Compute binding definition.
+type ComputeBindingResponseArgs struct {
+	// ID of the compute resource.
+	ComputeId pulumi.StringPtrInput `pulumi:"computeId"`
+	// Number of nodes.
+	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
+}
+
+func (ComputeBindingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeBindingResponse)(nil)).Elem()
+}
+
+func (i ComputeBindingResponseArgs) ToComputeBindingResponseOutput() ComputeBindingResponseOutput {
+	return i.ToComputeBindingResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeBindingResponseArgs) ToComputeBindingResponseOutputWithContext(ctx context.Context) ComputeBindingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingResponseOutput)
+}
+
+func (i ComputeBindingResponseArgs) ToComputeBindingResponsePtrOutput() ComputeBindingResponsePtrOutput {
+	return i.ToComputeBindingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeBindingResponseArgs) ToComputeBindingResponsePtrOutputWithContext(ctx context.Context) ComputeBindingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingResponseOutput).ToComputeBindingResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeBindingResponsePtrInput is an input type that accepts ComputeBindingResponseArgs, ComputeBindingResponsePtr and ComputeBindingResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeBindingResponsePtrInput` via:
+//
+//          ComputeBindingResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeBindingResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeBindingResponsePtrOutput() ComputeBindingResponsePtrOutput
+	ToComputeBindingResponsePtrOutputWithContext(context.Context) ComputeBindingResponsePtrOutput
+}
+
+type computeBindingResponsePtrType ComputeBindingResponseArgs
+
+func ComputeBindingResponsePtr(v *ComputeBindingResponseArgs) ComputeBindingResponsePtrInput {
+	return (*computeBindingResponsePtrType)(v)
+}
+
+func (*computeBindingResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeBindingResponse)(nil)).Elem()
+}
+
+func (i *computeBindingResponsePtrType) ToComputeBindingResponsePtrOutput() ComputeBindingResponsePtrOutput {
+	return i.ToComputeBindingResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeBindingResponsePtrType) ToComputeBindingResponsePtrOutputWithContext(ctx context.Context) ComputeBindingResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeBindingResponsePtrOutput)
+}
+
+// Compute binding definition.
+type ComputeBindingResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeBindingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeBindingResponse)(nil)).Elem()
+}
+
+func (o ComputeBindingResponseOutput) ToComputeBindingResponseOutput() ComputeBindingResponseOutput {
+	return o
+}
+
+func (o ComputeBindingResponseOutput) ToComputeBindingResponseOutputWithContext(ctx context.Context) ComputeBindingResponseOutput {
+	return o
+}
+
+func (o ComputeBindingResponseOutput) ToComputeBindingResponsePtrOutput() ComputeBindingResponsePtrOutput {
+	return o.ToComputeBindingResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeBindingResponseOutput) ToComputeBindingResponsePtrOutputWithContext(ctx context.Context) ComputeBindingResponsePtrOutput {
+	return o.ApplyT(func(v ComputeBindingResponse) *ComputeBindingResponse {
+		return &v
+	}).(ComputeBindingResponsePtrOutput)
+}
+
+// ID of the compute resource.
+func (o ComputeBindingResponseOutput) ComputeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeBindingResponse) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
+}
+
+// Number of nodes.
+func (o ComputeBindingResponseOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeBindingResponse) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+type ComputeBindingResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeBindingResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeBindingResponse)(nil)).Elem()
+}
+
+func (o ComputeBindingResponsePtrOutput) ToComputeBindingResponsePtrOutput() ComputeBindingResponsePtrOutput {
+	return o
+}
+
+func (o ComputeBindingResponsePtrOutput) ToComputeBindingResponsePtrOutputWithContext(ctx context.Context) ComputeBindingResponsePtrOutput {
+	return o
+}
+
+func (o ComputeBindingResponsePtrOutput) Elem() ComputeBindingResponseOutput {
+	return o.ApplyT(func(v *ComputeBindingResponse) ComputeBindingResponse { return *v }).(ComputeBindingResponseOutput)
+}
+
+// ID of the compute resource.
+func (o ComputeBindingResponsePtrOutput) ComputeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeBindingResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of nodes.
+func (o ComputeBindingResponsePtrOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeBindingResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
 // An Azure Machine Learning compute instance.
 type ComputeInstance struct {
 	// Location for the underlying compute
@@ -5702,6 +6008,8 @@ type ComputeInstanceProperties struct {
 	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettings `pulumi:"personalComputeInstanceSettings"`
+	// Details of customized scripts to execute for setting up the cluster.
+	SetupScripts *SetupScripts `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
 	SshSettings *ComputeInstanceSshSettings `pulumi:"sshSettings"`
 	// Virtual network subnet resource ID the compute nodes belong to.
@@ -5729,6 +6037,8 @@ type ComputeInstancePropertiesArgs struct {
 	ComputeInstanceAuthorizationType pulumi.StringPtrInput `pulumi:"computeInstanceAuthorizationType"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsPtrInput `pulumi:"personalComputeInstanceSettings"`
+	// Details of customized scripts to execute for setting up the cluster.
+	SetupScripts SetupScriptsPtrInput `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
 	SshSettings ComputeInstanceSshSettingsPtrInput `pulumi:"sshSettings"`
 	// Virtual network subnet resource ID the compute nodes belong to.
@@ -5832,6 +6142,11 @@ func (o ComputeInstancePropertiesOutput) PersonalComputeInstanceSettings() Perso
 	}).(PersonalComputeInstanceSettingsPtrOutput)
 }
 
+// Details of customized scripts to execute for setting up the cluster.
+func (o ComputeInstancePropertiesOutput) SetupScripts() SetupScriptsPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *SetupScripts { return v.SetupScripts }).(SetupScriptsPtrOutput)
+}
+
 // Specifies policy and settings for SSH access.
 func (o ComputeInstancePropertiesOutput) SshSettings() ComputeInstanceSshSettingsPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceProperties) *ComputeInstanceSshSettings { return v.SshSettings }).(ComputeInstanceSshSettingsPtrOutput)
@@ -5893,6 +6208,16 @@ func (o ComputeInstancePropertiesPtrOutput) PersonalComputeInstanceSettings() Pe
 		}
 		return v.PersonalComputeInstanceSettings
 	}).(PersonalComputeInstanceSettingsPtrOutput)
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+func (o ComputeInstancePropertiesPtrOutput) SetupScripts() SetupScriptsPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *SetupScripts {
+		if v == nil {
+			return nil
+		}
+		return v.SetupScripts
+	}).(SetupScriptsPtrOutput)
 }
 
 // Specifies policy and settings for SSH access.
@@ -6082,6 +6407,8 @@ type ComputeInstanceResponseProperties struct {
 	LastOperation ComputeInstanceLastOperationResponse `pulumi:"lastOperation"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettingsResponse `pulumi:"personalComputeInstanceSettings"`
+	// Details of customized scripts to execute for setting up the cluster.
+	SetupScripts *SetupScriptsResponse `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
 	SshSettings *ComputeInstanceSshSettingsResponse `pulumi:"sshSettings"`
 	// The current state of this ComputeInstance.
@@ -6121,6 +6448,8 @@ type ComputeInstanceResponsePropertiesArgs struct {
 	LastOperation ComputeInstanceLastOperationResponseInput `pulumi:"lastOperation"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsResponsePtrInput `pulumi:"personalComputeInstanceSettings"`
+	// Details of customized scripts to execute for setting up the cluster.
+	SetupScripts SetupScriptsResponsePtrInput `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
 	SshSettings ComputeInstanceSshSettingsResponsePtrInput `pulumi:"sshSettings"`
 	// The current state of this ComputeInstance.
@@ -6253,6 +6582,11 @@ func (o ComputeInstanceResponsePropertiesOutput) PersonalComputeInstanceSettings
 	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
 }
 
+// Details of customized scripts to execute for setting up the cluster.
+func (o ComputeInstanceResponsePropertiesOutput) SetupScripts() SetupScriptsResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *SetupScriptsResponse { return v.SetupScripts }).(SetupScriptsResponsePtrOutput)
+}
+
 // Specifies policy and settings for SSH access.
 func (o ComputeInstanceResponsePropertiesOutput) SshSettings() ComputeInstanceSshSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeInstanceSshSettingsResponse { return v.SshSettings }).(ComputeInstanceSshSettingsResponsePtrOutput)
@@ -6369,6 +6703,16 @@ func (o ComputeInstanceResponsePropertiesPtrOutput) PersonalComputeInstanceSetti
 		}
 		return v.PersonalComputeInstanceSettings
 	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+func (o ComputeInstanceResponsePropertiesPtrOutput) SetupScripts() SetupScriptsResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *SetupScriptsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SetupScripts
+	}).(SetupScriptsResponsePtrOutput)
 }
 
 // Specifies policy and settings for SSH access.
@@ -11775,6 +12119,1967 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a category of labels in a labeling job.
+type LabelCategory struct {
+	// Indicates whether it is allowed to select multiple classes in this category.
+	AllowMultiSelect *bool `pulumi:"allowMultiSelect"`
+	// Dictionary of label classes in this category.
+	Classes map[string]LabelClass `pulumi:"classes"`
+	// Display name of the label category.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// LabelCategoryInput is an input type that accepts LabelCategoryArgs and LabelCategoryOutput values.
+// You can construct a concrete instance of `LabelCategoryInput` via:
+//
+//          LabelCategoryArgs{...}
+type LabelCategoryInput interface {
+	pulumi.Input
+
+	ToLabelCategoryOutput() LabelCategoryOutput
+	ToLabelCategoryOutputWithContext(context.Context) LabelCategoryOutput
+}
+
+// Represents a category of labels in a labeling job.
+type LabelCategoryArgs struct {
+	// Indicates whether it is allowed to select multiple classes in this category.
+	AllowMultiSelect pulumi.BoolPtrInput `pulumi:"allowMultiSelect"`
+	// Dictionary of label classes in this category.
+	Classes LabelClassMapInput `pulumi:"classes"`
+	// Display name of the label category.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (LabelCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelCategory)(nil)).Elem()
+}
+
+func (i LabelCategoryArgs) ToLabelCategoryOutput() LabelCategoryOutput {
+	return i.ToLabelCategoryOutputWithContext(context.Background())
+}
+
+func (i LabelCategoryArgs) ToLabelCategoryOutputWithContext(ctx context.Context) LabelCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelCategoryOutput)
+}
+
+// LabelCategoryMapInput is an input type that accepts LabelCategoryMap and LabelCategoryMapOutput values.
+// You can construct a concrete instance of `LabelCategoryMapInput` via:
+//
+//          LabelCategoryMap{ "key": LabelCategoryArgs{...} }
+type LabelCategoryMapInput interface {
+	pulumi.Input
+
+	ToLabelCategoryMapOutput() LabelCategoryMapOutput
+	ToLabelCategoryMapOutputWithContext(context.Context) LabelCategoryMapOutput
+}
+
+type LabelCategoryMap map[string]LabelCategoryInput
+
+func (LabelCategoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelCategory)(nil)).Elem()
+}
+
+func (i LabelCategoryMap) ToLabelCategoryMapOutput() LabelCategoryMapOutput {
+	return i.ToLabelCategoryMapOutputWithContext(context.Background())
+}
+
+func (i LabelCategoryMap) ToLabelCategoryMapOutputWithContext(ctx context.Context) LabelCategoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelCategoryMapOutput)
+}
+
+// Represents a category of labels in a labeling job.
+type LabelCategoryOutput struct{ *pulumi.OutputState }
+
+func (LabelCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelCategory)(nil)).Elem()
+}
+
+func (o LabelCategoryOutput) ToLabelCategoryOutput() LabelCategoryOutput {
+	return o
+}
+
+func (o LabelCategoryOutput) ToLabelCategoryOutputWithContext(ctx context.Context) LabelCategoryOutput {
+	return o
+}
+
+// Indicates whether it is allowed to select multiple classes in this category.
+func (o LabelCategoryOutput) AllowMultiSelect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabelCategory) *bool { return v.AllowMultiSelect }).(pulumi.BoolPtrOutput)
+}
+
+// Dictionary of label classes in this category.
+func (o LabelCategoryOutput) Classes() LabelClassMapOutput {
+	return o.ApplyT(func(v LabelCategory) map[string]LabelClass { return v.Classes }).(LabelClassMapOutput)
+}
+
+// Display name of the label category.
+func (o LabelCategoryOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelCategory) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type LabelCategoryMapOutput struct{ *pulumi.OutputState }
+
+func (LabelCategoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelCategory)(nil)).Elem()
+}
+
+func (o LabelCategoryMapOutput) ToLabelCategoryMapOutput() LabelCategoryMapOutput {
+	return o
+}
+
+func (o LabelCategoryMapOutput) ToLabelCategoryMapOutputWithContext(ctx context.Context) LabelCategoryMapOutput {
+	return o
+}
+
+func (o LabelCategoryMapOutput) MapIndex(k pulumi.StringInput) LabelCategoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelCategory {
+		return vs[0].(map[string]LabelCategory)[vs[1].(string)]
+	}).(LabelCategoryOutput)
+}
+
+// Represents a category of labels in a labeling job.
+type LabelCategoryResponse struct {
+	// Indicates whether it is allowed to select multiple classes in this category.
+	AllowMultiSelect *bool `pulumi:"allowMultiSelect"`
+	// Dictionary of label classes in this category.
+	Classes map[string]LabelClassResponse `pulumi:"classes"`
+	// Display name of the label category.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// LabelCategoryResponseInput is an input type that accepts LabelCategoryResponseArgs and LabelCategoryResponseOutput values.
+// You can construct a concrete instance of `LabelCategoryResponseInput` via:
+//
+//          LabelCategoryResponseArgs{...}
+type LabelCategoryResponseInput interface {
+	pulumi.Input
+
+	ToLabelCategoryResponseOutput() LabelCategoryResponseOutput
+	ToLabelCategoryResponseOutputWithContext(context.Context) LabelCategoryResponseOutput
+}
+
+// Represents a category of labels in a labeling job.
+type LabelCategoryResponseArgs struct {
+	// Indicates whether it is allowed to select multiple classes in this category.
+	AllowMultiSelect pulumi.BoolPtrInput `pulumi:"allowMultiSelect"`
+	// Dictionary of label classes in this category.
+	Classes LabelClassResponseMapInput `pulumi:"classes"`
+	// Display name of the label category.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (LabelCategoryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelCategoryResponse)(nil)).Elem()
+}
+
+func (i LabelCategoryResponseArgs) ToLabelCategoryResponseOutput() LabelCategoryResponseOutput {
+	return i.ToLabelCategoryResponseOutputWithContext(context.Background())
+}
+
+func (i LabelCategoryResponseArgs) ToLabelCategoryResponseOutputWithContext(ctx context.Context) LabelCategoryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelCategoryResponseOutput)
+}
+
+// LabelCategoryResponseMapInput is an input type that accepts LabelCategoryResponseMap and LabelCategoryResponseMapOutput values.
+// You can construct a concrete instance of `LabelCategoryResponseMapInput` via:
+//
+//          LabelCategoryResponseMap{ "key": LabelCategoryResponseArgs{...} }
+type LabelCategoryResponseMapInput interface {
+	pulumi.Input
+
+	ToLabelCategoryResponseMapOutput() LabelCategoryResponseMapOutput
+	ToLabelCategoryResponseMapOutputWithContext(context.Context) LabelCategoryResponseMapOutput
+}
+
+type LabelCategoryResponseMap map[string]LabelCategoryResponseInput
+
+func (LabelCategoryResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelCategoryResponse)(nil)).Elem()
+}
+
+func (i LabelCategoryResponseMap) ToLabelCategoryResponseMapOutput() LabelCategoryResponseMapOutput {
+	return i.ToLabelCategoryResponseMapOutputWithContext(context.Background())
+}
+
+func (i LabelCategoryResponseMap) ToLabelCategoryResponseMapOutputWithContext(ctx context.Context) LabelCategoryResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelCategoryResponseMapOutput)
+}
+
+// Represents a category of labels in a labeling job.
+type LabelCategoryResponseOutput struct{ *pulumi.OutputState }
+
+func (LabelCategoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelCategoryResponse)(nil)).Elem()
+}
+
+func (o LabelCategoryResponseOutput) ToLabelCategoryResponseOutput() LabelCategoryResponseOutput {
+	return o
+}
+
+func (o LabelCategoryResponseOutput) ToLabelCategoryResponseOutputWithContext(ctx context.Context) LabelCategoryResponseOutput {
+	return o
+}
+
+// Indicates whether it is allowed to select multiple classes in this category.
+func (o LabelCategoryResponseOutput) AllowMultiSelect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabelCategoryResponse) *bool { return v.AllowMultiSelect }).(pulumi.BoolPtrOutput)
+}
+
+// Dictionary of label classes in this category.
+func (o LabelCategoryResponseOutput) Classes() LabelClassResponseMapOutput {
+	return o.ApplyT(func(v LabelCategoryResponse) map[string]LabelClassResponse { return v.Classes }).(LabelClassResponseMapOutput)
+}
+
+// Display name of the label category.
+func (o LabelCategoryResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelCategoryResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type LabelCategoryResponseMapOutput struct{ *pulumi.OutputState }
+
+func (LabelCategoryResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelCategoryResponse)(nil)).Elem()
+}
+
+func (o LabelCategoryResponseMapOutput) ToLabelCategoryResponseMapOutput() LabelCategoryResponseMapOutput {
+	return o
+}
+
+func (o LabelCategoryResponseMapOutput) ToLabelCategoryResponseMapOutputWithContext(ctx context.Context) LabelCategoryResponseMapOutput {
+	return o
+}
+
+func (o LabelCategoryResponseMapOutput) MapIndex(k pulumi.StringInput) LabelCategoryResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelCategoryResponse {
+		return vs[0].(map[string]LabelCategoryResponse)[vs[1].(string)]
+	}).(LabelCategoryResponseOutput)
+}
+
+// Represents a label or a category of labels in a labeling job.
+type LabelClass struct {
+	// Display name of the label class.
+	DisplayName *string `pulumi:"displayName"`
+	// Dictionary of subclasses of the label class.
+	Subclasses map[string]LabelClass `pulumi:"subclasses"`
+}
+
+// LabelClassInput is an input type that accepts LabelClassArgs and LabelClassOutput values.
+// You can construct a concrete instance of `LabelClassInput` via:
+//
+//          LabelClassArgs{...}
+type LabelClassInput interface {
+	pulumi.Input
+
+	ToLabelClassOutput() LabelClassOutput
+	ToLabelClassOutputWithContext(context.Context) LabelClassOutput
+}
+
+// Represents a label or a category of labels in a labeling job.
+type LabelClassArgs struct {
+	// Display name of the label class.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Dictionary of subclasses of the label class.
+	Subclasses LabelClassMapInput `pulumi:"subclasses"`
+}
+
+func (LabelClassArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelClass)(nil)).Elem()
+}
+
+func (i LabelClassArgs) ToLabelClassOutput() LabelClassOutput {
+	return i.ToLabelClassOutputWithContext(context.Background())
+}
+
+func (i LabelClassArgs) ToLabelClassOutputWithContext(ctx context.Context) LabelClassOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelClassOutput)
+}
+
+// LabelClassMapInput is an input type that accepts LabelClassMap and LabelClassMapOutput values.
+// You can construct a concrete instance of `LabelClassMapInput` via:
+//
+//          LabelClassMap{ "key": LabelClassArgs{...} }
+type LabelClassMapInput interface {
+	pulumi.Input
+
+	ToLabelClassMapOutput() LabelClassMapOutput
+	ToLabelClassMapOutputWithContext(context.Context) LabelClassMapOutput
+}
+
+type LabelClassMap map[string]LabelClassInput
+
+func (LabelClassMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelClass)(nil)).Elem()
+}
+
+func (i LabelClassMap) ToLabelClassMapOutput() LabelClassMapOutput {
+	return i.ToLabelClassMapOutputWithContext(context.Background())
+}
+
+func (i LabelClassMap) ToLabelClassMapOutputWithContext(ctx context.Context) LabelClassMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelClassMapOutput)
+}
+
+// Represents a label or a category of labels in a labeling job.
+type LabelClassOutput struct{ *pulumi.OutputState }
+
+func (LabelClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelClass)(nil)).Elem()
+}
+
+func (o LabelClassOutput) ToLabelClassOutput() LabelClassOutput {
+	return o
+}
+
+func (o LabelClassOutput) ToLabelClassOutputWithContext(ctx context.Context) LabelClassOutput {
+	return o
+}
+
+// Display name of the label class.
+func (o LabelClassOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelClass) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of subclasses of the label class.
+func (o LabelClassOutput) Subclasses() LabelClassMapOutput {
+	return o.ApplyT(func(v LabelClass) map[string]LabelClass { return v.Subclasses }).(LabelClassMapOutput)
+}
+
+type LabelClassMapOutput struct{ *pulumi.OutputState }
+
+func (LabelClassMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelClass)(nil)).Elem()
+}
+
+func (o LabelClassMapOutput) ToLabelClassMapOutput() LabelClassMapOutput {
+	return o
+}
+
+func (o LabelClassMapOutput) ToLabelClassMapOutputWithContext(ctx context.Context) LabelClassMapOutput {
+	return o
+}
+
+func (o LabelClassMapOutput) MapIndex(k pulumi.StringInput) LabelClassOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelClass {
+		return vs[0].(map[string]LabelClass)[vs[1].(string)]
+	}).(LabelClassOutput)
+}
+
+// Represents a label or a category of labels in a labeling job.
+type LabelClassResponse struct {
+	// Display name of the label class.
+	DisplayName *string `pulumi:"displayName"`
+	// Dictionary of subclasses of the label class.
+	Subclasses map[string]LabelClassResponse `pulumi:"subclasses"`
+}
+
+// LabelClassResponseInput is an input type that accepts LabelClassResponseArgs and LabelClassResponseOutput values.
+// You can construct a concrete instance of `LabelClassResponseInput` via:
+//
+//          LabelClassResponseArgs{...}
+type LabelClassResponseInput interface {
+	pulumi.Input
+
+	ToLabelClassResponseOutput() LabelClassResponseOutput
+	ToLabelClassResponseOutputWithContext(context.Context) LabelClassResponseOutput
+}
+
+// Represents a label or a category of labels in a labeling job.
+type LabelClassResponseArgs struct {
+	// Display name of the label class.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Dictionary of subclasses of the label class.
+	Subclasses LabelClassResponseMapInput `pulumi:"subclasses"`
+}
+
+func (LabelClassResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelClassResponse)(nil)).Elem()
+}
+
+func (i LabelClassResponseArgs) ToLabelClassResponseOutput() LabelClassResponseOutput {
+	return i.ToLabelClassResponseOutputWithContext(context.Background())
+}
+
+func (i LabelClassResponseArgs) ToLabelClassResponseOutputWithContext(ctx context.Context) LabelClassResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelClassResponseOutput)
+}
+
+// LabelClassResponseMapInput is an input type that accepts LabelClassResponseMap and LabelClassResponseMapOutput values.
+// You can construct a concrete instance of `LabelClassResponseMapInput` via:
+//
+//          LabelClassResponseMap{ "key": LabelClassResponseArgs{...} }
+type LabelClassResponseMapInput interface {
+	pulumi.Input
+
+	ToLabelClassResponseMapOutput() LabelClassResponseMapOutput
+	ToLabelClassResponseMapOutputWithContext(context.Context) LabelClassResponseMapOutput
+}
+
+type LabelClassResponseMap map[string]LabelClassResponseInput
+
+func (LabelClassResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelClassResponse)(nil)).Elem()
+}
+
+func (i LabelClassResponseMap) ToLabelClassResponseMapOutput() LabelClassResponseMapOutput {
+	return i.ToLabelClassResponseMapOutputWithContext(context.Background())
+}
+
+func (i LabelClassResponseMap) ToLabelClassResponseMapOutputWithContext(ctx context.Context) LabelClassResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelClassResponseMapOutput)
+}
+
+// Represents a label or a category of labels in a labeling job.
+type LabelClassResponseOutput struct{ *pulumi.OutputState }
+
+func (LabelClassResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelClassResponse)(nil)).Elem()
+}
+
+func (o LabelClassResponseOutput) ToLabelClassResponseOutput() LabelClassResponseOutput {
+	return o
+}
+
+func (o LabelClassResponseOutput) ToLabelClassResponseOutputWithContext(ctx context.Context) LabelClassResponseOutput {
+	return o
+}
+
+// Display name of the label class.
+func (o LabelClassResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelClassResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of subclasses of the label class.
+func (o LabelClassResponseOutput) Subclasses() LabelClassResponseMapOutput {
+	return o.ApplyT(func(v LabelClassResponse) map[string]LabelClassResponse { return v.Subclasses }).(LabelClassResponseMapOutput)
+}
+
+type LabelClassResponseMapOutput struct{ *pulumi.OutputState }
+
+func (LabelClassResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LabelClassResponse)(nil)).Elem()
+}
+
+func (o LabelClassResponseMapOutput) ToLabelClassResponseMapOutput() LabelClassResponseMapOutput {
+	return o
+}
+
+func (o LabelClassResponseMapOutput) ToLabelClassResponseMapOutputWithContext(ctx context.Context) LabelClassResponseMapOutput {
+	return o
+}
+
+func (o LabelClassResponseMapOutput) MapIndex(k pulumi.StringInput) LabelClassResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LabelClassResponse {
+		return vs[0].(map[string]LabelClassResponse)[vs[1].(string)]
+	}).(LabelClassResponseOutput)
+}
+
+// Represents configuration of dataset used in a labeling job.
+type LabelingDatasetConfiguration struct {
+	// Name of the data asset to perform labeling.
+	AssetName string `pulumi:"assetName"`
+	// AML dataset version.
+	DatasetVersion string `pulumi:"datasetVersion"`
+	// Indicates whether to enable incremental dataset refresh.
+	EnableIncrementalDatasetRefresh *bool `pulumi:"enableIncrementalDatasetRefresh"`
+}
+
+// LabelingDatasetConfigurationInput is an input type that accepts LabelingDatasetConfigurationArgs and LabelingDatasetConfigurationOutput values.
+// You can construct a concrete instance of `LabelingDatasetConfigurationInput` via:
+//
+//          LabelingDatasetConfigurationArgs{...}
+type LabelingDatasetConfigurationInput interface {
+	pulumi.Input
+
+	ToLabelingDatasetConfigurationOutput() LabelingDatasetConfigurationOutput
+	ToLabelingDatasetConfigurationOutputWithContext(context.Context) LabelingDatasetConfigurationOutput
+}
+
+// Represents configuration of dataset used in a labeling job.
+type LabelingDatasetConfigurationArgs struct {
+	// Name of the data asset to perform labeling.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// AML dataset version.
+	DatasetVersion pulumi.StringInput `pulumi:"datasetVersion"`
+	// Indicates whether to enable incremental dataset refresh.
+	EnableIncrementalDatasetRefresh pulumi.BoolPtrInput `pulumi:"enableIncrementalDatasetRefresh"`
+}
+
+func (LabelingDatasetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingDatasetConfiguration)(nil)).Elem()
+}
+
+func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationOutput() LabelingDatasetConfigurationOutput {
+	return i.ToLabelingDatasetConfigurationOutputWithContext(context.Background())
+}
+
+func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationOutputWithContext(ctx context.Context) LabelingDatasetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationOutput)
+}
+
+func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
+	return i.ToLabelingDatasetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingDatasetConfigurationArgs) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationOutput).ToLabelingDatasetConfigurationPtrOutputWithContext(ctx)
+}
+
+// LabelingDatasetConfigurationPtrInput is an input type that accepts LabelingDatasetConfigurationArgs, LabelingDatasetConfigurationPtr and LabelingDatasetConfigurationPtrOutput values.
+// You can construct a concrete instance of `LabelingDatasetConfigurationPtrInput` via:
+//
+//          LabelingDatasetConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingDatasetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput
+	ToLabelingDatasetConfigurationPtrOutputWithContext(context.Context) LabelingDatasetConfigurationPtrOutput
+}
+
+type labelingDatasetConfigurationPtrType LabelingDatasetConfigurationArgs
+
+func LabelingDatasetConfigurationPtr(v *LabelingDatasetConfigurationArgs) LabelingDatasetConfigurationPtrInput {
+	return (*labelingDatasetConfigurationPtrType)(v)
+}
+
+func (*labelingDatasetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingDatasetConfiguration)(nil)).Elem()
+}
+
+func (i *labelingDatasetConfigurationPtrType) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
+	return i.ToLabelingDatasetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingDatasetConfigurationPtrType) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationPtrOutput)
+}
+
+// Represents configuration of dataset used in a labeling job.
+type LabelingDatasetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LabelingDatasetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingDatasetConfiguration)(nil)).Elem()
+}
+
+func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationOutput() LabelingDatasetConfigurationOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationOutputWithContext(ctx context.Context) LabelingDatasetConfigurationOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
+	return o.ToLabelingDatasetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
+	return o.ApplyT(func(v LabelingDatasetConfiguration) *LabelingDatasetConfiguration {
+		return &v
+	}).(LabelingDatasetConfigurationPtrOutput)
+}
+
+// Name of the data asset to perform labeling.
+func (o LabelingDatasetConfigurationOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingDatasetConfiguration) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// AML dataset version.
+func (o LabelingDatasetConfigurationOutput) DatasetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingDatasetConfiguration) string { return v.DatasetVersion }).(pulumi.StringOutput)
+}
+
+// Indicates whether to enable incremental dataset refresh.
+func (o LabelingDatasetConfigurationOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabelingDatasetConfiguration) *bool { return v.EnableIncrementalDatasetRefresh }).(pulumi.BoolPtrOutput)
+}
+
+type LabelingDatasetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingDatasetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingDatasetConfiguration)(nil)).Elem()
+}
+
+func (o LabelingDatasetConfigurationPtrOutput) ToLabelingDatasetConfigurationPtrOutput() LabelingDatasetConfigurationPtrOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationPtrOutput) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationPtrOutput) Elem() LabelingDatasetConfigurationOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfiguration) LabelingDatasetConfiguration { return *v }).(LabelingDatasetConfigurationOutput)
+}
+
+// Name of the data asset to perform labeling.
+func (o LabelingDatasetConfigurationPtrOutput) AssetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// AML dataset version.
+func (o LabelingDatasetConfigurationPtrOutput) DatasetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable incremental dataset refresh.
+func (o LabelingDatasetConfigurationPtrOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIncrementalDatasetRefresh
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Represents configuration of dataset used in a labeling job.
+type LabelingDatasetConfigurationResponse struct {
+	// Name of the data asset to perform labeling.
+	AssetName string `pulumi:"assetName"`
+	// AML dataset version.
+	DatasetVersion string `pulumi:"datasetVersion"`
+	// Indicates whether to enable incremental dataset refresh.
+	EnableIncrementalDatasetRefresh *bool `pulumi:"enableIncrementalDatasetRefresh"`
+}
+
+// LabelingDatasetConfigurationResponseInput is an input type that accepts LabelingDatasetConfigurationResponseArgs and LabelingDatasetConfigurationResponseOutput values.
+// You can construct a concrete instance of `LabelingDatasetConfigurationResponseInput` via:
+//
+//          LabelingDatasetConfigurationResponseArgs{...}
+type LabelingDatasetConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToLabelingDatasetConfigurationResponseOutput() LabelingDatasetConfigurationResponseOutput
+	ToLabelingDatasetConfigurationResponseOutputWithContext(context.Context) LabelingDatasetConfigurationResponseOutput
+}
+
+// Represents configuration of dataset used in a labeling job.
+type LabelingDatasetConfigurationResponseArgs struct {
+	// Name of the data asset to perform labeling.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// AML dataset version.
+	DatasetVersion pulumi.StringInput `pulumi:"datasetVersion"`
+	// Indicates whether to enable incremental dataset refresh.
+	EnableIncrementalDatasetRefresh pulumi.BoolPtrInput `pulumi:"enableIncrementalDatasetRefresh"`
+}
+
+func (LabelingDatasetConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (i LabelingDatasetConfigurationResponseArgs) ToLabelingDatasetConfigurationResponseOutput() LabelingDatasetConfigurationResponseOutput {
+	return i.ToLabelingDatasetConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i LabelingDatasetConfigurationResponseArgs) ToLabelingDatasetConfigurationResponseOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationResponseOutput)
+}
+
+func (i LabelingDatasetConfigurationResponseArgs) ToLabelingDatasetConfigurationResponsePtrOutput() LabelingDatasetConfigurationResponsePtrOutput {
+	return i.ToLabelingDatasetConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingDatasetConfigurationResponseArgs) ToLabelingDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationResponseOutput).ToLabelingDatasetConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// LabelingDatasetConfigurationResponsePtrInput is an input type that accepts LabelingDatasetConfigurationResponseArgs, LabelingDatasetConfigurationResponsePtr and LabelingDatasetConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `LabelingDatasetConfigurationResponsePtrInput` via:
+//
+//          LabelingDatasetConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingDatasetConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToLabelingDatasetConfigurationResponsePtrOutput() LabelingDatasetConfigurationResponsePtrOutput
+	ToLabelingDatasetConfigurationResponsePtrOutputWithContext(context.Context) LabelingDatasetConfigurationResponsePtrOutput
+}
+
+type labelingDatasetConfigurationResponsePtrType LabelingDatasetConfigurationResponseArgs
+
+func LabelingDatasetConfigurationResponsePtr(v *LabelingDatasetConfigurationResponseArgs) LabelingDatasetConfigurationResponsePtrInput {
+	return (*labelingDatasetConfigurationResponsePtrType)(v)
+}
+
+func (*labelingDatasetConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (i *labelingDatasetConfigurationResponsePtrType) ToLabelingDatasetConfigurationResponsePtrOutput() LabelingDatasetConfigurationResponsePtrOutput {
+	return i.ToLabelingDatasetConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingDatasetConfigurationResponsePtrType) ToLabelingDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingDatasetConfigurationResponsePtrOutput)
+}
+
+// Represents configuration of dataset used in a labeling job.
+type LabelingDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (LabelingDatasetConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponseOutput() LabelingDatasetConfigurationResponseOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponseOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponseOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponsePtrOutput() LabelingDatasetConfigurationResponsePtrOutput {
+	return o.ToLabelingDatasetConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) *LabelingDatasetConfigurationResponse {
+		return &v
+	}).(LabelingDatasetConfigurationResponsePtrOutput)
+}
+
+// Name of the data asset to perform labeling.
+func (o LabelingDatasetConfigurationResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// AML dataset version.
+func (o LabelingDatasetConfigurationResponseOutput) DatasetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) string { return v.DatasetVersion }).(pulumi.StringOutput)
+}
+
+// Indicates whether to enable incremental dataset refresh.
+func (o LabelingDatasetConfigurationResponseOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) *bool { return v.EnableIncrementalDatasetRefresh }).(pulumi.BoolPtrOutput)
+}
+
+type LabelingDatasetConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingDatasetConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (o LabelingDatasetConfigurationResponsePtrOutput) ToLabelingDatasetConfigurationResponsePtrOutput() LabelingDatasetConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationResponsePtrOutput) ToLabelingDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o LabelingDatasetConfigurationResponsePtrOutput) Elem() LabelingDatasetConfigurationResponseOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfigurationResponse) LabelingDatasetConfigurationResponse { return *v }).(LabelingDatasetConfigurationResponseOutput)
+}
+
+// Name of the data asset to perform labeling.
+func (o LabelingDatasetConfigurationResponsePtrOutput) AssetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// AML dataset version.
+func (o LabelingDatasetConfigurationResponsePtrOutput) DatasetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable incremental dataset refresh.
+func (o LabelingDatasetConfigurationResponsePtrOutput) EnableIncrementalDatasetRefresh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabelingDatasetConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIncrementalDatasetRefresh
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LabelingJobImageProperties struct {
+	// Annotation type of image labeling tasks.
+	AnnotationType *string `pulumi:"annotationType"`
+	// Media type of data asset.
+	MediaType string `pulumi:"mediaType"`
+}
+
+// LabelingJobImagePropertiesInput is an input type that accepts LabelingJobImagePropertiesArgs and LabelingJobImagePropertiesOutput values.
+// You can construct a concrete instance of `LabelingJobImagePropertiesInput` via:
+//
+//          LabelingJobImagePropertiesArgs{...}
+type LabelingJobImagePropertiesInput interface {
+	pulumi.Input
+
+	ToLabelingJobImagePropertiesOutput() LabelingJobImagePropertiesOutput
+	ToLabelingJobImagePropertiesOutputWithContext(context.Context) LabelingJobImagePropertiesOutput
+}
+
+type LabelingJobImagePropertiesArgs struct {
+	// Annotation type of image labeling tasks.
+	AnnotationType pulumi.StringPtrInput `pulumi:"annotationType"`
+	// Media type of data asset.
+	MediaType pulumi.StringInput `pulumi:"mediaType"`
+}
+
+func (LabelingJobImagePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobImageProperties)(nil)).Elem()
+}
+
+func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesOutput() LabelingJobImagePropertiesOutput {
+	return i.ToLabelingJobImagePropertiesOutputWithContext(context.Background())
+}
+
+func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesOutputWithContext(ctx context.Context) LabelingJobImagePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesOutput)
+}
+
+func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
+	return i.ToLabelingJobImagePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobImagePropertiesArgs) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesOutput).ToLabelingJobImagePropertiesPtrOutputWithContext(ctx)
+}
+
+// LabelingJobImagePropertiesPtrInput is an input type that accepts LabelingJobImagePropertiesArgs, LabelingJobImagePropertiesPtr and LabelingJobImagePropertiesPtrOutput values.
+// You can construct a concrete instance of `LabelingJobImagePropertiesPtrInput` via:
+//
+//          LabelingJobImagePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingJobImagePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput
+	ToLabelingJobImagePropertiesPtrOutputWithContext(context.Context) LabelingJobImagePropertiesPtrOutput
+}
+
+type labelingJobImagePropertiesPtrType LabelingJobImagePropertiesArgs
+
+func LabelingJobImagePropertiesPtr(v *LabelingJobImagePropertiesArgs) LabelingJobImagePropertiesPtrInput {
+	return (*labelingJobImagePropertiesPtrType)(v)
+}
+
+func (*labelingJobImagePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobImageProperties)(nil)).Elem()
+}
+
+func (i *labelingJobImagePropertiesPtrType) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
+	return i.ToLabelingJobImagePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobImagePropertiesPtrType) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesPtrOutput)
+}
+
+type LabelingJobImagePropertiesOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobImagePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobImageProperties)(nil)).Elem()
+}
+
+func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesOutput() LabelingJobImagePropertiesOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesOutputWithContext(ctx context.Context) LabelingJobImagePropertiesOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
+	return o.ToLabelingJobImagePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
+	return o.ApplyT(func(v LabelingJobImageProperties) *LabelingJobImageProperties {
+		return &v
+	}).(LabelingJobImagePropertiesPtrOutput)
+}
+
+// Annotation type of image labeling tasks.
+func (o LabelingJobImagePropertiesOutput) AnnotationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobImageProperties) *string { return v.AnnotationType }).(pulumi.StringPtrOutput)
+}
+
+// Media type of data asset.
+func (o LabelingJobImagePropertiesOutput) MediaType() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobImageProperties) string { return v.MediaType }).(pulumi.StringOutput)
+}
+
+type LabelingJobImagePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobImagePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobImageProperties)(nil)).Elem()
+}
+
+func (o LabelingJobImagePropertiesPtrOutput) ToLabelingJobImagePropertiesPtrOutput() LabelingJobImagePropertiesPtrOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesPtrOutput) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesPtrOutput) Elem() LabelingJobImagePropertiesOutput {
+	return o.ApplyT(func(v *LabelingJobImageProperties) LabelingJobImageProperties { return *v }).(LabelingJobImagePropertiesOutput)
+}
+
+// Annotation type of image labeling tasks.
+func (o LabelingJobImagePropertiesPtrOutput) AnnotationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobImageProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Media type of data asset.
+func (o LabelingJobImagePropertiesPtrOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobImageProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MediaType
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobImagePropertiesResponse struct {
+	// Annotation type of image labeling tasks.
+	AnnotationType *string `pulumi:"annotationType"`
+	// Media type of data asset.
+	MediaType string `pulumi:"mediaType"`
+}
+
+// LabelingJobImagePropertiesResponseInput is an input type that accepts LabelingJobImagePropertiesResponseArgs and LabelingJobImagePropertiesResponseOutput values.
+// You can construct a concrete instance of `LabelingJobImagePropertiesResponseInput` via:
+//
+//          LabelingJobImagePropertiesResponseArgs{...}
+type LabelingJobImagePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToLabelingJobImagePropertiesResponseOutput() LabelingJobImagePropertiesResponseOutput
+	ToLabelingJobImagePropertiesResponseOutputWithContext(context.Context) LabelingJobImagePropertiesResponseOutput
+}
+
+type LabelingJobImagePropertiesResponseArgs struct {
+	// Annotation type of image labeling tasks.
+	AnnotationType pulumi.StringPtrInput `pulumi:"annotationType"`
+	// Media type of data asset.
+	MediaType pulumi.StringInput `pulumi:"mediaType"`
+}
+
+func (LabelingJobImagePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobImagePropertiesResponse)(nil)).Elem()
+}
+
+func (i LabelingJobImagePropertiesResponseArgs) ToLabelingJobImagePropertiesResponseOutput() LabelingJobImagePropertiesResponseOutput {
+	return i.ToLabelingJobImagePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i LabelingJobImagePropertiesResponseArgs) ToLabelingJobImagePropertiesResponseOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesResponseOutput)
+}
+
+func (i LabelingJobImagePropertiesResponseArgs) ToLabelingJobImagePropertiesResponsePtrOutput() LabelingJobImagePropertiesResponsePtrOutput {
+	return i.ToLabelingJobImagePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobImagePropertiesResponseArgs) ToLabelingJobImagePropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesResponseOutput).ToLabelingJobImagePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// LabelingJobImagePropertiesResponsePtrInput is an input type that accepts LabelingJobImagePropertiesResponseArgs, LabelingJobImagePropertiesResponsePtr and LabelingJobImagePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `LabelingJobImagePropertiesResponsePtrInput` via:
+//
+//          LabelingJobImagePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingJobImagePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobImagePropertiesResponsePtrOutput() LabelingJobImagePropertiesResponsePtrOutput
+	ToLabelingJobImagePropertiesResponsePtrOutputWithContext(context.Context) LabelingJobImagePropertiesResponsePtrOutput
+}
+
+type labelingJobImagePropertiesResponsePtrType LabelingJobImagePropertiesResponseArgs
+
+func LabelingJobImagePropertiesResponsePtr(v *LabelingJobImagePropertiesResponseArgs) LabelingJobImagePropertiesResponsePtrInput {
+	return (*labelingJobImagePropertiesResponsePtrType)(v)
+}
+
+func (*labelingJobImagePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobImagePropertiesResponse)(nil)).Elem()
+}
+
+func (i *labelingJobImagePropertiesResponsePtrType) ToLabelingJobImagePropertiesResponsePtrOutput() LabelingJobImagePropertiesResponsePtrOutput {
+	return i.ToLabelingJobImagePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobImagePropertiesResponsePtrType) ToLabelingJobImagePropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobImagePropertiesResponsePtrOutput)
+}
+
+type LabelingJobImagePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobImagePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobImagePropertiesResponse)(nil)).Elem()
+}
+
+func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponseOutput() LabelingJobImagePropertiesResponseOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponseOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponseOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponsePtrOutput() LabelingJobImagePropertiesResponsePtrOutput {
+	return o.ToLabelingJobImagePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LabelingJobImagePropertiesResponse) *LabelingJobImagePropertiesResponse {
+		return &v
+	}).(LabelingJobImagePropertiesResponsePtrOutput)
+}
+
+// Annotation type of image labeling tasks.
+func (o LabelingJobImagePropertiesResponseOutput) AnnotationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobImagePropertiesResponse) *string { return v.AnnotationType }).(pulumi.StringPtrOutput)
+}
+
+// Media type of data asset.
+func (o LabelingJobImagePropertiesResponseOutput) MediaType() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobImagePropertiesResponse) string { return v.MediaType }).(pulumi.StringOutput)
+}
+
+type LabelingJobImagePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobImagePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobImagePropertiesResponse)(nil)).Elem()
+}
+
+func (o LabelingJobImagePropertiesResponsePtrOutput) ToLabelingJobImagePropertiesResponsePtrOutput() LabelingJobImagePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesResponsePtrOutput) ToLabelingJobImagePropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o LabelingJobImagePropertiesResponsePtrOutput) Elem() LabelingJobImagePropertiesResponseOutput {
+	return o.ApplyT(func(v *LabelingJobImagePropertiesResponse) LabelingJobImagePropertiesResponse { return *v }).(LabelingJobImagePropertiesResponseOutput)
+}
+
+// Annotation type of image labeling tasks.
+func (o LabelingJobImagePropertiesResponsePtrOutput) AnnotationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobImagePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Media type of data asset.
+func (o LabelingJobImagePropertiesResponsePtrOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobImagePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MediaType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Instructions for a labeling job.
+type LabelingJobInstructions struct {
+	// The link to a page with detailed labeling instructions for labelers.
+	Uri *string `pulumi:"uri"`
+}
+
+// LabelingJobInstructionsInput is an input type that accepts LabelingJobInstructionsArgs and LabelingJobInstructionsOutput values.
+// You can construct a concrete instance of `LabelingJobInstructionsInput` via:
+//
+//          LabelingJobInstructionsArgs{...}
+type LabelingJobInstructionsInput interface {
+	pulumi.Input
+
+	ToLabelingJobInstructionsOutput() LabelingJobInstructionsOutput
+	ToLabelingJobInstructionsOutputWithContext(context.Context) LabelingJobInstructionsOutput
+}
+
+// Instructions for a labeling job.
+type LabelingJobInstructionsArgs struct {
+	// The link to a page with detailed labeling instructions for labelers.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (LabelingJobInstructionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInstructions)(nil)).Elem()
+}
+
+func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsOutput() LabelingJobInstructionsOutput {
+	return i.ToLabelingJobInstructionsOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsOutputWithContext(ctx context.Context) LabelingJobInstructionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsOutput)
+}
+
+func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
+	return i.ToLabelingJobInstructionsPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInstructionsArgs) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsOutput).ToLabelingJobInstructionsPtrOutputWithContext(ctx)
+}
+
+// LabelingJobInstructionsPtrInput is an input type that accepts LabelingJobInstructionsArgs, LabelingJobInstructionsPtr and LabelingJobInstructionsPtrOutput values.
+// You can construct a concrete instance of `LabelingJobInstructionsPtrInput` via:
+//
+//          LabelingJobInstructionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingJobInstructionsPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput
+	ToLabelingJobInstructionsPtrOutputWithContext(context.Context) LabelingJobInstructionsPtrOutput
+}
+
+type labelingJobInstructionsPtrType LabelingJobInstructionsArgs
+
+func LabelingJobInstructionsPtr(v *LabelingJobInstructionsArgs) LabelingJobInstructionsPtrInput {
+	return (*labelingJobInstructionsPtrType)(v)
+}
+
+func (*labelingJobInstructionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInstructions)(nil)).Elem()
+}
+
+func (i *labelingJobInstructionsPtrType) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
+	return i.ToLabelingJobInstructionsPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInstructionsPtrType) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsPtrOutput)
+}
+
+// Instructions for a labeling job.
+type LabelingJobInstructionsOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInstructionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInstructions)(nil)).Elem()
+}
+
+func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsOutput() LabelingJobInstructionsOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsOutputWithContext(ctx context.Context) LabelingJobInstructionsOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
+	return o.ToLabelingJobInstructionsPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
+	return o.ApplyT(func(v LabelingJobInstructions) *LabelingJobInstructions {
+		return &v
+	}).(LabelingJobInstructionsPtrOutput)
+}
+
+// The link to a page with detailed labeling instructions for labelers.
+func (o LabelingJobInstructionsOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobInstructions) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobInstructionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInstructionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInstructions)(nil)).Elem()
+}
+
+func (o LabelingJobInstructionsPtrOutput) ToLabelingJobInstructionsPtrOutput() LabelingJobInstructionsPtrOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsPtrOutput) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsPtrOutput) Elem() LabelingJobInstructionsOutput {
+	return o.ApplyT(func(v *LabelingJobInstructions) LabelingJobInstructions { return *v }).(LabelingJobInstructionsOutput)
+}
+
+// The link to a page with detailed labeling instructions for labelers.
+func (o LabelingJobInstructionsPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobInstructions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Instructions for a labeling job.
+type LabelingJobInstructionsResponse struct {
+	// The link to a page with detailed labeling instructions for labelers.
+	Uri *string `pulumi:"uri"`
+}
+
+// LabelingJobInstructionsResponseInput is an input type that accepts LabelingJobInstructionsResponseArgs and LabelingJobInstructionsResponseOutput values.
+// You can construct a concrete instance of `LabelingJobInstructionsResponseInput` via:
+//
+//          LabelingJobInstructionsResponseArgs{...}
+type LabelingJobInstructionsResponseInput interface {
+	pulumi.Input
+
+	ToLabelingJobInstructionsResponseOutput() LabelingJobInstructionsResponseOutput
+	ToLabelingJobInstructionsResponseOutputWithContext(context.Context) LabelingJobInstructionsResponseOutput
+}
+
+// Instructions for a labeling job.
+type LabelingJobInstructionsResponseArgs struct {
+	// The link to a page with detailed labeling instructions for labelers.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (LabelingJobInstructionsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInstructionsResponse)(nil)).Elem()
+}
+
+func (i LabelingJobInstructionsResponseArgs) ToLabelingJobInstructionsResponseOutput() LabelingJobInstructionsResponseOutput {
+	return i.ToLabelingJobInstructionsResponseOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInstructionsResponseArgs) ToLabelingJobInstructionsResponseOutputWithContext(ctx context.Context) LabelingJobInstructionsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsResponseOutput)
+}
+
+func (i LabelingJobInstructionsResponseArgs) ToLabelingJobInstructionsResponsePtrOutput() LabelingJobInstructionsResponsePtrOutput {
+	return i.ToLabelingJobInstructionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInstructionsResponseArgs) ToLabelingJobInstructionsResponsePtrOutputWithContext(ctx context.Context) LabelingJobInstructionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsResponseOutput).ToLabelingJobInstructionsResponsePtrOutputWithContext(ctx)
+}
+
+// LabelingJobInstructionsResponsePtrInput is an input type that accepts LabelingJobInstructionsResponseArgs, LabelingJobInstructionsResponsePtr and LabelingJobInstructionsResponsePtrOutput values.
+// You can construct a concrete instance of `LabelingJobInstructionsResponsePtrInput` via:
+//
+//          LabelingJobInstructionsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingJobInstructionsResponsePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInstructionsResponsePtrOutput() LabelingJobInstructionsResponsePtrOutput
+	ToLabelingJobInstructionsResponsePtrOutputWithContext(context.Context) LabelingJobInstructionsResponsePtrOutput
+}
+
+type labelingJobInstructionsResponsePtrType LabelingJobInstructionsResponseArgs
+
+func LabelingJobInstructionsResponsePtr(v *LabelingJobInstructionsResponseArgs) LabelingJobInstructionsResponsePtrInput {
+	return (*labelingJobInstructionsResponsePtrType)(v)
+}
+
+func (*labelingJobInstructionsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInstructionsResponse)(nil)).Elem()
+}
+
+func (i *labelingJobInstructionsResponsePtrType) ToLabelingJobInstructionsResponsePtrOutput() LabelingJobInstructionsResponsePtrOutput {
+	return i.ToLabelingJobInstructionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInstructionsResponsePtrType) ToLabelingJobInstructionsResponsePtrOutputWithContext(ctx context.Context) LabelingJobInstructionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInstructionsResponsePtrOutput)
+}
+
+// Instructions for a labeling job.
+type LabelingJobInstructionsResponseOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInstructionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInstructionsResponse)(nil)).Elem()
+}
+
+func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponseOutput() LabelingJobInstructionsResponseOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponseOutputWithContext(ctx context.Context) LabelingJobInstructionsResponseOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponsePtrOutput() LabelingJobInstructionsResponsePtrOutput {
+	return o.ToLabelingJobInstructionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponsePtrOutputWithContext(ctx context.Context) LabelingJobInstructionsResponsePtrOutput {
+	return o.ApplyT(func(v LabelingJobInstructionsResponse) *LabelingJobInstructionsResponse {
+		return &v
+	}).(LabelingJobInstructionsResponsePtrOutput)
+}
+
+// The link to a page with detailed labeling instructions for labelers.
+func (o LabelingJobInstructionsResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobInstructionsResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobInstructionsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInstructionsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInstructionsResponse)(nil)).Elem()
+}
+
+func (o LabelingJobInstructionsResponsePtrOutput) ToLabelingJobInstructionsResponsePtrOutput() LabelingJobInstructionsResponsePtrOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsResponsePtrOutput) ToLabelingJobInstructionsResponsePtrOutputWithContext(ctx context.Context) LabelingJobInstructionsResponsePtrOutput {
+	return o
+}
+
+func (o LabelingJobInstructionsResponsePtrOutput) Elem() LabelingJobInstructionsResponseOutput {
+	return o.ApplyT(func(v *LabelingJobInstructionsResponse) LabelingJobInstructionsResponse { return *v }).(LabelingJobInstructionsResponseOutput)
+}
+
+// The link to a page with detailed labeling instructions for labelers.
+func (o LabelingJobInstructionsResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobInstructionsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of a labeling job.
+type LabelingJobProperties struct {
+	// Dataset configuration for the job.
+	DatasetConfiguration LabelingDatasetConfiguration `pulumi:"datasetConfiguration"`
+	// Instructions for the job.
+	JobInstructions LabelingJobInstructions `pulumi:"jobInstructions"`
+	// Label categories of the job.
+	LabelCategories map[string]LabelCategory `pulumi:"labelCategories"`
+	// Media specific properties in a labeling job.
+	LabelingJobMediaProperties LabelingJobImageProperties `pulumi:"labelingJobMediaProperties"`
+	// Machine learning assisted configuration for the job.
+	MlAssistConfiguration *MLAssistConfiguration `pulumi:"mlAssistConfiguration"`
+	// The job property dictionary. Properties can be added, but not removed or altered.
+	Properties map[string]string `pulumi:"properties"`
+	// The job tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// LabelingJobPropertiesInput is an input type that accepts LabelingJobPropertiesArgs and LabelingJobPropertiesOutput values.
+// You can construct a concrete instance of `LabelingJobPropertiesInput` via:
+//
+//          LabelingJobPropertiesArgs{...}
+type LabelingJobPropertiesInput interface {
+	pulumi.Input
+
+	ToLabelingJobPropertiesOutput() LabelingJobPropertiesOutput
+	ToLabelingJobPropertiesOutputWithContext(context.Context) LabelingJobPropertiesOutput
+}
+
+// Definition of a labeling job.
+type LabelingJobPropertiesArgs struct {
+	// Dataset configuration for the job.
+	DatasetConfiguration LabelingDatasetConfigurationInput `pulumi:"datasetConfiguration"`
+	// Instructions for the job.
+	JobInstructions LabelingJobInstructionsInput `pulumi:"jobInstructions"`
+	// Label categories of the job.
+	LabelCategories LabelCategoryMapInput `pulumi:"labelCategories"`
+	// Media specific properties in a labeling job.
+	LabelingJobMediaProperties LabelingJobImagePropertiesInput `pulumi:"labelingJobMediaProperties"`
+	// Machine learning assisted configuration for the job.
+	MlAssistConfiguration MLAssistConfigurationPtrInput `pulumi:"mlAssistConfiguration"`
+	// The job property dictionary. Properties can be added, but not removed or altered.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// The job tag dictionary. Tags can be added, removed, and updated.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LabelingJobPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobProperties)(nil)).Elem()
+}
+
+func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesOutput() LabelingJobPropertiesOutput {
+	return i.ToLabelingJobPropertiesOutputWithContext(context.Background())
+}
+
+func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesOutputWithContext(ctx context.Context) LabelingJobPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesOutput)
+}
+
+func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
+	return i.ToLabelingJobPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobPropertiesArgs) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesOutput).ToLabelingJobPropertiesPtrOutputWithContext(ctx)
+}
+
+// LabelingJobPropertiesPtrInput is an input type that accepts LabelingJobPropertiesArgs, LabelingJobPropertiesPtr and LabelingJobPropertiesPtrOutput values.
+// You can construct a concrete instance of `LabelingJobPropertiesPtrInput` via:
+//
+//          LabelingJobPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingJobPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput
+	ToLabelingJobPropertiesPtrOutputWithContext(context.Context) LabelingJobPropertiesPtrOutput
+}
+
+type labelingJobPropertiesPtrType LabelingJobPropertiesArgs
+
+func LabelingJobPropertiesPtr(v *LabelingJobPropertiesArgs) LabelingJobPropertiesPtrInput {
+	return (*labelingJobPropertiesPtrType)(v)
+}
+
+func (*labelingJobPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobProperties)(nil)).Elem()
+}
+
+func (i *labelingJobPropertiesPtrType) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
+	return i.ToLabelingJobPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobPropertiesPtrType) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesPtrOutput)
+}
+
+// Definition of a labeling job.
+type LabelingJobPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobProperties)(nil)).Elem()
+}
+
+func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesOutput() LabelingJobPropertiesOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesOutputWithContext(ctx context.Context) LabelingJobPropertiesOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
+	return o.ToLabelingJobPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
+	return o.ApplyT(func(v LabelingJobProperties) *LabelingJobProperties {
+		return &v
+	}).(LabelingJobPropertiesPtrOutput)
+}
+
+// Dataset configuration for the job.
+func (o LabelingJobPropertiesOutput) DatasetConfiguration() LabelingDatasetConfigurationOutput {
+	return o.ApplyT(func(v LabelingJobProperties) LabelingDatasetConfiguration { return v.DatasetConfiguration }).(LabelingDatasetConfigurationOutput)
+}
+
+// Instructions for the job.
+func (o LabelingJobPropertiesOutput) JobInstructions() LabelingJobInstructionsOutput {
+	return o.ApplyT(func(v LabelingJobProperties) LabelingJobInstructions { return v.JobInstructions }).(LabelingJobInstructionsOutput)
+}
+
+// Label categories of the job.
+func (o LabelingJobPropertiesOutput) LabelCategories() LabelCategoryMapOutput {
+	return o.ApplyT(func(v LabelingJobProperties) map[string]LabelCategory { return v.LabelCategories }).(LabelCategoryMapOutput)
+}
+
+// Media specific properties in a labeling job.
+func (o LabelingJobPropertiesOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesOutput {
+	return o.ApplyT(func(v LabelingJobProperties) LabelingJobImageProperties { return v.LabelingJobMediaProperties }).(LabelingJobImagePropertiesOutput)
+}
+
+// Machine learning assisted configuration for the job.
+func (o LabelingJobPropertiesOutput) MlAssistConfiguration() MLAssistConfigurationPtrOutput {
+	return o.ApplyT(func(v LabelingJobProperties) *MLAssistConfiguration { return v.MlAssistConfiguration }).(MLAssistConfigurationPtrOutput)
+}
+
+// The job property dictionary. Properties can be added, but not removed or altered.
+func (o LabelingJobPropertiesOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabelingJobProperties) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// The job tag dictionary. Tags can be added, removed, and updated.
+func (o LabelingJobPropertiesOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabelingJobProperties) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type LabelingJobPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobProperties)(nil)).Elem()
+}
+
+func (o LabelingJobPropertiesPtrOutput) ToLabelingJobPropertiesPtrOutput() LabelingJobPropertiesPtrOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesPtrOutput) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesPtrOutput) Elem() LabelingJobPropertiesOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) LabelingJobProperties { return *v }).(LabelingJobPropertiesOutput)
+}
+
+// Dataset configuration for the job.
+func (o LabelingJobPropertiesPtrOutput) DatasetConfiguration() LabelingDatasetConfigurationPtrOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) *LabelingDatasetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetConfiguration
+	}).(LabelingDatasetConfigurationPtrOutput)
+}
+
+// Instructions for the job.
+func (o LabelingJobPropertiesPtrOutput) JobInstructions() LabelingJobInstructionsPtrOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) *LabelingJobInstructions {
+		if v == nil {
+			return nil
+		}
+		return &v.JobInstructions
+	}).(LabelingJobInstructionsPtrOutput)
+}
+
+// Label categories of the job.
+func (o LabelingJobPropertiesPtrOutput) LabelCategories() LabelCategoryMapOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) map[string]LabelCategory {
+		if v == nil {
+			return nil
+		}
+		return v.LabelCategories
+	}).(LabelCategoryMapOutput)
+}
+
+// Media specific properties in a labeling job.
+func (o LabelingJobPropertiesPtrOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesPtrOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) *LabelingJobImageProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.LabelingJobMediaProperties
+	}).(LabelingJobImagePropertiesPtrOutput)
+}
+
+// Machine learning assisted configuration for the job.
+func (o LabelingJobPropertiesPtrOutput) MlAssistConfiguration() MLAssistConfigurationPtrOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) *MLAssistConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MlAssistConfiguration
+	}).(MLAssistConfigurationPtrOutput)
+}
+
+// The job property dictionary. Properties can be added, but not removed or altered.
+func (o LabelingJobPropertiesPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// The job tag dictionary. Tags can be added, removed, and updated.
+func (o LabelingJobPropertiesPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabelingJobProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Definition of a labeling job.
+type LabelingJobPropertiesResponse struct {
+	// Created time of the job in UTC timezone.
+	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
+	// Dataset configuration for the job.
+	DatasetConfiguration LabelingDatasetConfigurationResponse `pulumi:"datasetConfiguration"`
+	// Instructions for the job.
+	JobInstructions LabelingJobInstructionsResponse `pulumi:"jobInstructions"`
+	// Label categories of the job.
+	LabelCategories map[string]LabelCategoryResponse `pulumi:"labelCategories"`
+	// Media specific properties in a labeling job.
+	LabelingJobMediaProperties LabelingJobImagePropertiesResponse `pulumi:"labelingJobMediaProperties"`
+	// Machine learning assisted configuration for the job.
+	MlAssistConfiguration *MLAssistConfigurationResponse `pulumi:"mlAssistConfiguration"`
+	// Progress metrics of the job.
+	ProgressMetrics ProgressMetricsResponse `pulumi:"progressMetrics"`
+	// Internal id of the job(Previously called project).
+	ProjectId string `pulumi:"projectId"`
+	// The job property dictionary. Properties can be added, but not removed or altered.
+	Properties map[string]string `pulumi:"properties"`
+	// Status of the job.
+	Status string `pulumi:"status"`
+	// Status messages of the job.
+	StatusMessages []StatusMessageResponse `pulumi:"statusMessages"`
+	// The job tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// LabelingJobPropertiesResponseInput is an input type that accepts LabelingJobPropertiesResponseArgs and LabelingJobPropertiesResponseOutput values.
+// You can construct a concrete instance of `LabelingJobPropertiesResponseInput` via:
+//
+//          LabelingJobPropertiesResponseArgs{...}
+type LabelingJobPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToLabelingJobPropertiesResponseOutput() LabelingJobPropertiesResponseOutput
+	ToLabelingJobPropertiesResponseOutputWithContext(context.Context) LabelingJobPropertiesResponseOutput
+}
+
+// Definition of a labeling job.
+type LabelingJobPropertiesResponseArgs struct {
+	// Created time of the job in UTC timezone.
+	CreatedTimeUtc pulumi.StringInput `pulumi:"createdTimeUtc"`
+	// Dataset configuration for the job.
+	DatasetConfiguration LabelingDatasetConfigurationResponseInput `pulumi:"datasetConfiguration"`
+	// Instructions for the job.
+	JobInstructions LabelingJobInstructionsResponseInput `pulumi:"jobInstructions"`
+	// Label categories of the job.
+	LabelCategories LabelCategoryResponseMapInput `pulumi:"labelCategories"`
+	// Media specific properties in a labeling job.
+	LabelingJobMediaProperties LabelingJobImagePropertiesResponseInput `pulumi:"labelingJobMediaProperties"`
+	// Machine learning assisted configuration for the job.
+	MlAssistConfiguration MLAssistConfigurationResponsePtrInput `pulumi:"mlAssistConfiguration"`
+	// Progress metrics of the job.
+	ProgressMetrics ProgressMetricsResponseInput `pulumi:"progressMetrics"`
+	// Internal id of the job(Previously called project).
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// The job property dictionary. Properties can be added, but not removed or altered.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Status of the job.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Status messages of the job.
+	StatusMessages StatusMessageResponseArrayInput `pulumi:"statusMessages"`
+	// The job tag dictionary. Tags can be added, removed, and updated.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LabelingJobPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobPropertiesResponse)(nil)).Elem()
+}
+
+func (i LabelingJobPropertiesResponseArgs) ToLabelingJobPropertiesResponseOutput() LabelingJobPropertiesResponseOutput {
+	return i.ToLabelingJobPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i LabelingJobPropertiesResponseArgs) ToLabelingJobPropertiesResponseOutputWithContext(ctx context.Context) LabelingJobPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesResponseOutput)
+}
+
+func (i LabelingJobPropertiesResponseArgs) ToLabelingJobPropertiesResponsePtrOutput() LabelingJobPropertiesResponsePtrOutput {
+	return i.ToLabelingJobPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobPropertiesResponseArgs) ToLabelingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesResponseOutput).ToLabelingJobPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// LabelingJobPropertiesResponsePtrInput is an input type that accepts LabelingJobPropertiesResponseArgs, LabelingJobPropertiesResponsePtr and LabelingJobPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `LabelingJobPropertiesResponsePtrInput` via:
+//
+//          LabelingJobPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LabelingJobPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobPropertiesResponsePtrOutput() LabelingJobPropertiesResponsePtrOutput
+	ToLabelingJobPropertiesResponsePtrOutputWithContext(context.Context) LabelingJobPropertiesResponsePtrOutput
+}
+
+type labelingJobPropertiesResponsePtrType LabelingJobPropertiesResponseArgs
+
+func LabelingJobPropertiesResponsePtr(v *LabelingJobPropertiesResponseArgs) LabelingJobPropertiesResponsePtrInput {
+	return (*labelingJobPropertiesResponsePtrType)(v)
+}
+
+func (*labelingJobPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobPropertiesResponse)(nil)).Elem()
+}
+
+func (i *labelingJobPropertiesResponsePtrType) ToLabelingJobPropertiesResponsePtrOutput() LabelingJobPropertiesResponsePtrOutput {
+	return i.ToLabelingJobPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobPropertiesResponsePtrType) ToLabelingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobPropertiesResponsePtrOutput)
+}
+
+// Definition of a labeling job.
+type LabelingJobPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobPropertiesResponse)(nil)).Elem()
+}
+
+func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponseOutput() LabelingJobPropertiesResponseOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponseOutputWithContext(ctx context.Context) LabelingJobPropertiesResponseOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponsePtrOutput() LabelingJobPropertiesResponsePtrOutput {
+	return o.ToLabelingJobPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) *LabelingJobPropertiesResponse {
+		return &v
+	}).(LabelingJobPropertiesResponsePtrOutput)
+}
+
+// Created time of the job in UTC timezone.
+func (o LabelingJobPropertiesResponseOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Dataset configuration for the job.
+func (o LabelingJobPropertiesResponseOutput) DatasetConfiguration() LabelingDatasetConfigurationResponseOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) LabelingDatasetConfigurationResponse {
+		return v.DatasetConfiguration
+	}).(LabelingDatasetConfigurationResponseOutput)
+}
+
+// Instructions for the job.
+func (o LabelingJobPropertiesResponseOutput) JobInstructions() LabelingJobInstructionsResponseOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) LabelingJobInstructionsResponse { return v.JobInstructions }).(LabelingJobInstructionsResponseOutput)
+}
+
+// Label categories of the job.
+func (o LabelingJobPropertiesResponseOutput) LabelCategories() LabelCategoryResponseMapOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) map[string]LabelCategoryResponse { return v.LabelCategories }).(LabelCategoryResponseMapOutput)
+}
+
+// Media specific properties in a labeling job.
+func (o LabelingJobPropertiesResponseOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesResponseOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) LabelingJobImagePropertiesResponse {
+		return v.LabelingJobMediaProperties
+	}).(LabelingJobImagePropertiesResponseOutput)
+}
+
+// Machine learning assisted configuration for the job.
+func (o LabelingJobPropertiesResponseOutput) MlAssistConfiguration() MLAssistConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) *MLAssistConfigurationResponse { return v.MlAssistConfiguration }).(MLAssistConfigurationResponsePtrOutput)
+}
+
+// Progress metrics of the job.
+func (o LabelingJobPropertiesResponseOutput) ProgressMetrics() ProgressMetricsResponseOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) ProgressMetricsResponse { return v.ProgressMetrics }).(ProgressMetricsResponseOutput)
+}
+
+// Internal id of the job(Previously called project).
+func (o LabelingJobPropertiesResponseOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// The job property dictionary. Properties can be added, but not removed or altered.
+func (o LabelingJobPropertiesResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Status of the job.
+func (o LabelingJobPropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Status messages of the job.
+func (o LabelingJobPropertiesResponseOutput) StatusMessages() StatusMessageResponseArrayOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) []StatusMessageResponse { return v.StatusMessages }).(StatusMessageResponseArrayOutput)
+}
+
+// The job tag dictionary. Tags can be added, removed, and updated.
+func (o LabelingJobPropertiesResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type LabelingJobPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobPropertiesResponse)(nil)).Elem()
+}
+
+func (o LabelingJobPropertiesResponsePtrOutput) ToLabelingJobPropertiesResponsePtrOutput() LabelingJobPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesResponsePtrOutput) ToLabelingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o LabelingJobPropertiesResponsePtrOutput) Elem() LabelingJobPropertiesResponseOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) LabelingJobPropertiesResponse { return *v }).(LabelingJobPropertiesResponseOutput)
+}
+
+// Created time of the job in UTC timezone.
+func (o LabelingJobPropertiesResponsePtrOutput) CreatedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset configuration for the job.
+func (o LabelingJobPropertiesResponsePtrOutput) DatasetConfiguration() LabelingDatasetConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *LabelingDatasetConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetConfiguration
+	}).(LabelingDatasetConfigurationResponsePtrOutput)
+}
+
+// Instructions for the job.
+func (o LabelingJobPropertiesResponsePtrOutput) JobInstructions() LabelingJobInstructionsResponsePtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *LabelingJobInstructionsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.JobInstructions
+	}).(LabelingJobInstructionsResponsePtrOutput)
+}
+
+// Label categories of the job.
+func (o LabelingJobPropertiesResponsePtrOutput) LabelCategories() LabelCategoryResponseMapOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) map[string]LabelCategoryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LabelCategories
+	}).(LabelCategoryResponseMapOutput)
+}
+
+// Media specific properties in a labeling job.
+func (o LabelingJobPropertiesResponsePtrOutput) LabelingJobMediaProperties() LabelingJobImagePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *LabelingJobImagePropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.LabelingJobMediaProperties
+	}).(LabelingJobImagePropertiesResponsePtrOutput)
+}
+
+// Machine learning assisted configuration for the job.
+func (o LabelingJobPropertiesResponsePtrOutput) MlAssistConfiguration() MLAssistConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *MLAssistConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MlAssistConfiguration
+	}).(MLAssistConfigurationResponsePtrOutput)
+}
+
+// Progress metrics of the job.
+func (o LabelingJobPropertiesResponsePtrOutput) ProgressMetrics() ProgressMetricsResponsePtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *ProgressMetricsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProgressMetrics
+	}).(ProgressMetricsResponsePtrOutput)
+}
+
+// Internal id of the job(Previously called project).
+func (o LabelingJobPropertiesResponsePtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The job property dictionary. Properties can be added, but not removed or altered.
+func (o LabelingJobPropertiesResponsePtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// Status of the job.
+func (o LabelingJobPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status messages of the job.
+func (o LabelingJobPropertiesResponsePtrOutput) StatusMessages() StatusMessageResponseArrayOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) []StatusMessageResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StatusMessages
+	}).(StatusMessageResponseArrayOutput)
+}
+
+// The job tag dictionary. Tags can be added, removed, and updated.
+func (o LabelingJobPropertiesResponsePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
 // LinkedService specific properties.
 type LinkedServiceProps struct {
 	// The creation time of the linked service.
@@ -12155,6 +14460,426 @@ func (o LinkedServicePropsResponsePtrOutput) ModifiedTime() pulumi.StringPtrOutp
 		}
 		return v.ModifiedTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents configuration for machine learning assisted features in a labeling job.
+type MLAssistConfiguration struct {
+	// The compute designated for inferencing.
+	InferencingComputeBinding ComputeBinding `pulumi:"inferencingComputeBinding"`
+	// Indicates whether MLAssist feature is enabled.
+	MlAssistEnabled *bool `pulumi:"mlAssistEnabled"`
+	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+	ModelNamePrefix string `pulumi:"modelNamePrefix"`
+	// Prelabel accuracy threshold used in MLAssist feature.
+	PrelabelAccuracyThreshold *float64 `pulumi:"prelabelAccuracyThreshold"`
+	// The compute designated for training.
+	TrainingComputeBinding ComputeBinding `pulumi:"trainingComputeBinding"`
+}
+
+// MLAssistConfigurationInput is an input type that accepts MLAssistConfigurationArgs and MLAssistConfigurationOutput values.
+// You can construct a concrete instance of `MLAssistConfigurationInput` via:
+//
+//          MLAssistConfigurationArgs{...}
+type MLAssistConfigurationInput interface {
+	pulumi.Input
+
+	ToMLAssistConfigurationOutput() MLAssistConfigurationOutput
+	ToMLAssistConfigurationOutputWithContext(context.Context) MLAssistConfigurationOutput
+}
+
+// Represents configuration for machine learning assisted features in a labeling job.
+type MLAssistConfigurationArgs struct {
+	// The compute designated for inferencing.
+	InferencingComputeBinding ComputeBindingInput `pulumi:"inferencingComputeBinding"`
+	// Indicates whether MLAssist feature is enabled.
+	MlAssistEnabled pulumi.BoolPtrInput `pulumi:"mlAssistEnabled"`
+	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+	ModelNamePrefix pulumi.StringInput `pulumi:"modelNamePrefix"`
+	// Prelabel accuracy threshold used in MLAssist feature.
+	PrelabelAccuracyThreshold pulumi.Float64PtrInput `pulumi:"prelabelAccuracyThreshold"`
+	// The compute designated for training.
+	TrainingComputeBinding ComputeBindingInput `pulumi:"trainingComputeBinding"`
+}
+
+func (MLAssistConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLAssistConfiguration)(nil)).Elem()
+}
+
+func (i MLAssistConfigurationArgs) ToMLAssistConfigurationOutput() MLAssistConfigurationOutput {
+	return i.ToMLAssistConfigurationOutputWithContext(context.Background())
+}
+
+func (i MLAssistConfigurationArgs) ToMLAssistConfigurationOutputWithContext(ctx context.Context) MLAssistConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationOutput)
+}
+
+func (i MLAssistConfigurationArgs) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
+	return i.ToMLAssistConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MLAssistConfigurationArgs) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationOutput).ToMLAssistConfigurationPtrOutputWithContext(ctx)
+}
+
+// MLAssistConfigurationPtrInput is an input type that accepts MLAssistConfigurationArgs, MLAssistConfigurationPtr and MLAssistConfigurationPtrOutput values.
+// You can construct a concrete instance of `MLAssistConfigurationPtrInput` via:
+//
+//          MLAssistConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type MLAssistConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput
+	ToMLAssistConfigurationPtrOutputWithContext(context.Context) MLAssistConfigurationPtrOutput
+}
+
+type mlassistConfigurationPtrType MLAssistConfigurationArgs
+
+func MLAssistConfigurationPtr(v *MLAssistConfigurationArgs) MLAssistConfigurationPtrInput {
+	return (*mlassistConfigurationPtrType)(v)
+}
+
+func (*mlassistConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLAssistConfiguration)(nil)).Elem()
+}
+
+func (i *mlassistConfigurationPtrType) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
+	return i.ToMLAssistConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mlassistConfigurationPtrType) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationPtrOutput)
+}
+
+// Represents configuration for machine learning assisted features in a labeling job.
+type MLAssistConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MLAssistConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLAssistConfiguration)(nil)).Elem()
+}
+
+func (o MLAssistConfigurationOutput) ToMLAssistConfigurationOutput() MLAssistConfigurationOutput {
+	return o
+}
+
+func (o MLAssistConfigurationOutput) ToMLAssistConfigurationOutputWithContext(ctx context.Context) MLAssistConfigurationOutput {
+	return o
+}
+
+func (o MLAssistConfigurationOutput) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
+	return o.ToMLAssistConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MLAssistConfigurationOutput) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
+	return o.ApplyT(func(v MLAssistConfiguration) *MLAssistConfiguration {
+		return &v
+	}).(MLAssistConfigurationPtrOutput)
+}
+
+// The compute designated for inferencing.
+func (o MLAssistConfigurationOutput) InferencingComputeBinding() ComputeBindingOutput {
+	return o.ApplyT(func(v MLAssistConfiguration) ComputeBinding { return v.InferencingComputeBinding }).(ComputeBindingOutput)
+}
+
+// Indicates whether MLAssist feature is enabled.
+func (o MLAssistConfigurationOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MLAssistConfiguration) *bool { return v.MlAssistEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+func (o MLAssistConfigurationOutput) ModelNamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v MLAssistConfiguration) string { return v.ModelNamePrefix }).(pulumi.StringOutput)
+}
+
+// Prelabel accuracy threshold used in MLAssist feature.
+func (o MLAssistConfigurationOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MLAssistConfiguration) *float64 { return v.PrelabelAccuracyThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The compute designated for training.
+func (o MLAssistConfigurationOutput) TrainingComputeBinding() ComputeBindingOutput {
+	return o.ApplyT(func(v MLAssistConfiguration) ComputeBinding { return v.TrainingComputeBinding }).(ComputeBindingOutput)
+}
+
+type MLAssistConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MLAssistConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLAssistConfiguration)(nil)).Elem()
+}
+
+func (o MLAssistConfigurationPtrOutput) ToMLAssistConfigurationPtrOutput() MLAssistConfigurationPtrOutput {
+	return o
+}
+
+func (o MLAssistConfigurationPtrOutput) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
+	return o
+}
+
+func (o MLAssistConfigurationPtrOutput) Elem() MLAssistConfigurationOutput {
+	return o.ApplyT(func(v *MLAssistConfiguration) MLAssistConfiguration { return *v }).(MLAssistConfigurationOutput)
+}
+
+// The compute designated for inferencing.
+func (o MLAssistConfigurationPtrOutput) InferencingComputeBinding() ComputeBindingPtrOutput {
+	return o.ApplyT(func(v *MLAssistConfiguration) *ComputeBinding {
+		if v == nil {
+			return nil
+		}
+		return &v.InferencingComputeBinding
+	}).(ComputeBindingPtrOutput)
+}
+
+// Indicates whether MLAssist feature is enabled.
+func (o MLAssistConfigurationPtrOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MLAssistConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MlAssistEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+func (o MLAssistConfigurationPtrOutput) ModelNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLAssistConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prelabel accuracy threshold used in MLAssist feature.
+func (o MLAssistConfigurationPtrOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLAssistConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PrelabelAccuracyThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The compute designated for training.
+func (o MLAssistConfigurationPtrOutput) TrainingComputeBinding() ComputeBindingPtrOutput {
+	return o.ApplyT(func(v *MLAssistConfiguration) *ComputeBinding {
+		if v == nil {
+			return nil
+		}
+		return &v.TrainingComputeBinding
+	}).(ComputeBindingPtrOutput)
+}
+
+// Represents configuration for machine learning assisted features in a labeling job.
+type MLAssistConfigurationResponse struct {
+	// The compute designated for inferencing.
+	InferencingComputeBinding ComputeBindingResponse `pulumi:"inferencingComputeBinding"`
+	// Indicates whether MLAssist feature is enabled.
+	MlAssistEnabled *bool `pulumi:"mlAssistEnabled"`
+	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+	ModelNamePrefix string `pulumi:"modelNamePrefix"`
+	// Prelabel accuracy threshold used in MLAssist feature.
+	PrelabelAccuracyThreshold *float64 `pulumi:"prelabelAccuracyThreshold"`
+	// The compute designated for training.
+	TrainingComputeBinding ComputeBindingResponse `pulumi:"trainingComputeBinding"`
+}
+
+// MLAssistConfigurationResponseInput is an input type that accepts MLAssistConfigurationResponseArgs and MLAssistConfigurationResponseOutput values.
+// You can construct a concrete instance of `MLAssistConfigurationResponseInput` via:
+//
+//          MLAssistConfigurationResponseArgs{...}
+type MLAssistConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToMLAssistConfigurationResponseOutput() MLAssistConfigurationResponseOutput
+	ToMLAssistConfigurationResponseOutputWithContext(context.Context) MLAssistConfigurationResponseOutput
+}
+
+// Represents configuration for machine learning assisted features in a labeling job.
+type MLAssistConfigurationResponseArgs struct {
+	// The compute designated for inferencing.
+	InferencingComputeBinding ComputeBindingResponseInput `pulumi:"inferencingComputeBinding"`
+	// Indicates whether MLAssist feature is enabled.
+	MlAssistEnabled pulumi.BoolPtrInput `pulumi:"mlAssistEnabled"`
+	// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+	ModelNamePrefix pulumi.StringInput `pulumi:"modelNamePrefix"`
+	// Prelabel accuracy threshold used in MLAssist feature.
+	PrelabelAccuracyThreshold pulumi.Float64PtrInput `pulumi:"prelabelAccuracyThreshold"`
+	// The compute designated for training.
+	TrainingComputeBinding ComputeBindingResponseInput `pulumi:"trainingComputeBinding"`
+}
+
+func (MLAssistConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLAssistConfigurationResponse)(nil)).Elem()
+}
+
+func (i MLAssistConfigurationResponseArgs) ToMLAssistConfigurationResponseOutput() MLAssistConfigurationResponseOutput {
+	return i.ToMLAssistConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i MLAssistConfigurationResponseArgs) ToMLAssistConfigurationResponseOutputWithContext(ctx context.Context) MLAssistConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationResponseOutput)
+}
+
+func (i MLAssistConfigurationResponseArgs) ToMLAssistConfigurationResponsePtrOutput() MLAssistConfigurationResponsePtrOutput {
+	return i.ToMLAssistConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MLAssistConfigurationResponseArgs) ToMLAssistConfigurationResponsePtrOutputWithContext(ctx context.Context) MLAssistConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationResponseOutput).ToMLAssistConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// MLAssistConfigurationResponsePtrInput is an input type that accepts MLAssistConfigurationResponseArgs, MLAssistConfigurationResponsePtr and MLAssistConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `MLAssistConfigurationResponsePtrInput` via:
+//
+//          MLAssistConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MLAssistConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToMLAssistConfigurationResponsePtrOutput() MLAssistConfigurationResponsePtrOutput
+	ToMLAssistConfigurationResponsePtrOutputWithContext(context.Context) MLAssistConfigurationResponsePtrOutput
+}
+
+type mlassistConfigurationResponsePtrType MLAssistConfigurationResponseArgs
+
+func MLAssistConfigurationResponsePtr(v *MLAssistConfigurationResponseArgs) MLAssistConfigurationResponsePtrInput {
+	return (*mlassistConfigurationResponsePtrType)(v)
+}
+
+func (*mlassistConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLAssistConfigurationResponse)(nil)).Elem()
+}
+
+func (i *mlassistConfigurationResponsePtrType) ToMLAssistConfigurationResponsePtrOutput() MLAssistConfigurationResponsePtrOutput {
+	return i.ToMLAssistConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mlassistConfigurationResponsePtrType) ToMLAssistConfigurationResponsePtrOutputWithContext(ctx context.Context) MLAssistConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLAssistConfigurationResponsePtrOutput)
+}
+
+// Represents configuration for machine learning assisted features in a labeling job.
+type MLAssistConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (MLAssistConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLAssistConfigurationResponse)(nil)).Elem()
+}
+
+func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponseOutput() MLAssistConfigurationResponseOutput {
+	return o
+}
+
+func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponseOutputWithContext(ctx context.Context) MLAssistConfigurationResponseOutput {
+	return o
+}
+
+func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponsePtrOutput() MLAssistConfigurationResponsePtrOutput {
+	return o.ToMLAssistConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponsePtrOutputWithContext(ctx context.Context) MLAssistConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) *MLAssistConfigurationResponse {
+		return &v
+	}).(MLAssistConfigurationResponsePtrOutput)
+}
+
+// The compute designated for inferencing.
+func (o MLAssistConfigurationResponseOutput) InferencingComputeBinding() ComputeBindingResponseOutput {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) ComputeBindingResponse { return v.InferencingComputeBinding }).(ComputeBindingResponseOutput)
+}
+
+// Indicates whether MLAssist feature is enabled.
+func (o MLAssistConfigurationResponseOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) *bool { return v.MlAssistEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+func (o MLAssistConfigurationResponseOutput) ModelNamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) string { return v.ModelNamePrefix }).(pulumi.StringOutput)
+}
+
+// Prelabel accuracy threshold used in MLAssist feature.
+func (o MLAssistConfigurationResponseOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) *float64 { return v.PrelabelAccuracyThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The compute designated for training.
+func (o MLAssistConfigurationResponseOutput) TrainingComputeBinding() ComputeBindingResponseOutput {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) ComputeBindingResponse { return v.TrainingComputeBinding }).(ComputeBindingResponseOutput)
+}
+
+type MLAssistConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MLAssistConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLAssistConfigurationResponse)(nil)).Elem()
+}
+
+func (o MLAssistConfigurationResponsePtrOutput) ToMLAssistConfigurationResponsePtrOutput() MLAssistConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o MLAssistConfigurationResponsePtrOutput) ToMLAssistConfigurationResponsePtrOutputWithContext(ctx context.Context) MLAssistConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o MLAssistConfigurationResponsePtrOutput) Elem() MLAssistConfigurationResponseOutput {
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) MLAssistConfigurationResponse { return *v }).(MLAssistConfigurationResponseOutput)
+}
+
+// The compute designated for inferencing.
+func (o MLAssistConfigurationResponsePtrOutput) InferencingComputeBinding() ComputeBindingResponsePtrOutput {
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) *ComputeBindingResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.InferencingComputeBinding
+	}).(ComputeBindingResponsePtrOutput)
+}
+
+// Indicates whether MLAssist feature is enabled.
+func (o MLAssistConfigurationResponsePtrOutput) MlAssistEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MlAssistEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
+func (o MLAssistConfigurationResponsePtrOutput) ModelNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prelabel accuracy threshold used in MLAssist feature.
+func (o MLAssistConfigurationResponsePtrOutput) PrelabelAccuracyThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PrelabelAccuracyThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The compute designated for training.
+func (o MLAssistConfigurationResponsePtrOutput) TrainingComputeBinding() ComputeBindingResponsePtrOutput {
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) *ComputeBindingResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.TrainingComputeBinding
+	}).(ComputeBindingResponsePtrOutput)
 }
 
 // Wrapper for error response to follow ARM guidelines.
@@ -15983,6 +18708,197 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Progress metrics for a labeling job.
+type ProgressMetricsResponse struct {
+	// The completed datapoint count.
+	CompletedDatapointCount float64 `pulumi:"completedDatapointCount"`
+	// The time of last successful incremental dataset refresh in UTC.
+	IncrementalDatasetLastRefreshTime string `pulumi:"incrementalDatasetLastRefreshTime"`
+	// The skipped datapoint count.
+	SkippedDatapointCount float64 `pulumi:"skippedDatapointCount"`
+	// The total datapoint count.
+	TotalDatapointCount float64 `pulumi:"totalDatapointCount"`
+}
+
+// ProgressMetricsResponseInput is an input type that accepts ProgressMetricsResponseArgs and ProgressMetricsResponseOutput values.
+// You can construct a concrete instance of `ProgressMetricsResponseInput` via:
+//
+//          ProgressMetricsResponseArgs{...}
+type ProgressMetricsResponseInput interface {
+	pulumi.Input
+
+	ToProgressMetricsResponseOutput() ProgressMetricsResponseOutput
+	ToProgressMetricsResponseOutputWithContext(context.Context) ProgressMetricsResponseOutput
+}
+
+// Progress metrics for a labeling job.
+type ProgressMetricsResponseArgs struct {
+	// The completed datapoint count.
+	CompletedDatapointCount pulumi.Float64Input `pulumi:"completedDatapointCount"`
+	// The time of last successful incremental dataset refresh in UTC.
+	IncrementalDatasetLastRefreshTime pulumi.StringInput `pulumi:"incrementalDatasetLastRefreshTime"`
+	// The skipped datapoint count.
+	SkippedDatapointCount pulumi.Float64Input `pulumi:"skippedDatapointCount"`
+	// The total datapoint count.
+	TotalDatapointCount pulumi.Float64Input `pulumi:"totalDatapointCount"`
+}
+
+func (ProgressMetricsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgressMetricsResponse)(nil)).Elem()
+}
+
+func (i ProgressMetricsResponseArgs) ToProgressMetricsResponseOutput() ProgressMetricsResponseOutput {
+	return i.ToProgressMetricsResponseOutputWithContext(context.Background())
+}
+
+func (i ProgressMetricsResponseArgs) ToProgressMetricsResponseOutputWithContext(ctx context.Context) ProgressMetricsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgressMetricsResponseOutput)
+}
+
+func (i ProgressMetricsResponseArgs) ToProgressMetricsResponsePtrOutput() ProgressMetricsResponsePtrOutput {
+	return i.ToProgressMetricsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProgressMetricsResponseArgs) ToProgressMetricsResponsePtrOutputWithContext(ctx context.Context) ProgressMetricsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgressMetricsResponseOutput).ToProgressMetricsResponsePtrOutputWithContext(ctx)
+}
+
+// ProgressMetricsResponsePtrInput is an input type that accepts ProgressMetricsResponseArgs, ProgressMetricsResponsePtr and ProgressMetricsResponsePtrOutput values.
+// You can construct a concrete instance of `ProgressMetricsResponsePtrInput` via:
+//
+//          ProgressMetricsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProgressMetricsResponsePtrInput interface {
+	pulumi.Input
+
+	ToProgressMetricsResponsePtrOutput() ProgressMetricsResponsePtrOutput
+	ToProgressMetricsResponsePtrOutputWithContext(context.Context) ProgressMetricsResponsePtrOutput
+}
+
+type progressMetricsResponsePtrType ProgressMetricsResponseArgs
+
+func ProgressMetricsResponsePtr(v *ProgressMetricsResponseArgs) ProgressMetricsResponsePtrInput {
+	return (*progressMetricsResponsePtrType)(v)
+}
+
+func (*progressMetricsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgressMetricsResponse)(nil)).Elem()
+}
+
+func (i *progressMetricsResponsePtrType) ToProgressMetricsResponsePtrOutput() ProgressMetricsResponsePtrOutput {
+	return i.ToProgressMetricsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *progressMetricsResponsePtrType) ToProgressMetricsResponsePtrOutputWithContext(ctx context.Context) ProgressMetricsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgressMetricsResponsePtrOutput)
+}
+
+// Progress metrics for a labeling job.
+type ProgressMetricsResponseOutput struct{ *pulumi.OutputState }
+
+func (ProgressMetricsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgressMetricsResponse)(nil)).Elem()
+}
+
+func (o ProgressMetricsResponseOutput) ToProgressMetricsResponseOutput() ProgressMetricsResponseOutput {
+	return o
+}
+
+func (o ProgressMetricsResponseOutput) ToProgressMetricsResponseOutputWithContext(ctx context.Context) ProgressMetricsResponseOutput {
+	return o
+}
+
+func (o ProgressMetricsResponseOutput) ToProgressMetricsResponsePtrOutput() ProgressMetricsResponsePtrOutput {
+	return o.ToProgressMetricsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProgressMetricsResponseOutput) ToProgressMetricsResponsePtrOutputWithContext(ctx context.Context) ProgressMetricsResponsePtrOutput {
+	return o.ApplyT(func(v ProgressMetricsResponse) *ProgressMetricsResponse {
+		return &v
+	}).(ProgressMetricsResponsePtrOutput)
+}
+
+// The completed datapoint count.
+func (o ProgressMetricsResponseOutput) CompletedDatapointCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ProgressMetricsResponse) float64 { return v.CompletedDatapointCount }).(pulumi.Float64Output)
+}
+
+// The time of last successful incremental dataset refresh in UTC.
+func (o ProgressMetricsResponseOutput) IncrementalDatasetLastRefreshTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ProgressMetricsResponse) string { return v.IncrementalDatasetLastRefreshTime }).(pulumi.StringOutput)
+}
+
+// The skipped datapoint count.
+func (o ProgressMetricsResponseOutput) SkippedDatapointCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ProgressMetricsResponse) float64 { return v.SkippedDatapointCount }).(pulumi.Float64Output)
+}
+
+// The total datapoint count.
+func (o ProgressMetricsResponseOutput) TotalDatapointCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ProgressMetricsResponse) float64 { return v.TotalDatapointCount }).(pulumi.Float64Output)
+}
+
+type ProgressMetricsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgressMetricsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgressMetricsResponse)(nil)).Elem()
+}
+
+func (o ProgressMetricsResponsePtrOutput) ToProgressMetricsResponsePtrOutput() ProgressMetricsResponsePtrOutput {
+	return o
+}
+
+func (o ProgressMetricsResponsePtrOutput) ToProgressMetricsResponsePtrOutputWithContext(ctx context.Context) ProgressMetricsResponsePtrOutput {
+	return o
+}
+
+func (o ProgressMetricsResponsePtrOutput) Elem() ProgressMetricsResponseOutput {
+	return o.ApplyT(func(v *ProgressMetricsResponse) ProgressMetricsResponse { return *v }).(ProgressMetricsResponseOutput)
+}
+
+// The completed datapoint count.
+func (o ProgressMetricsResponsePtrOutput) CompletedDatapointCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ProgressMetricsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.CompletedDatapointCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The time of last successful incremental dataset refresh in UTC.
+func (o ProgressMetricsResponsePtrOutput) IncrementalDatasetLastRefreshTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProgressMetricsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IncrementalDatasetLastRefreshTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The skipped datapoint count.
+func (o ProgressMetricsResponsePtrOutput) SkippedDatapointCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ProgressMetricsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.SkippedDatapointCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The total datapoint count.
+func (o ProgressMetricsResponsePtrOutput) TotalDatapointCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ProgressMetricsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalDatapointCount
+	}).(pulumi.Float64PtrOutput)
+}
+
 type RCranPackage struct {
 	// The package name.
 	Name *string `pulumi:"name"`
@@ -17071,6 +19987,694 @@ func (o ScaleSettingsResponsePtrOutput) NodeIdleTimeBeforeScaleDown() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Script reference
+type ScriptReference struct {
+	// Optional command line arguments passed to the script to run.
+	ScriptArguments *string `pulumi:"scriptArguments"`
+	// The location of scripts in the mounted volume.
+	ScriptData *string `pulumi:"scriptData"`
+	// The storage source of the script: inline, workspace.
+	ScriptSource *string `pulumi:"scriptSource"`
+	// Optional time period passed to timeout command.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// ScriptReferenceInput is an input type that accepts ScriptReferenceArgs and ScriptReferenceOutput values.
+// You can construct a concrete instance of `ScriptReferenceInput` via:
+//
+//          ScriptReferenceArgs{...}
+type ScriptReferenceInput interface {
+	pulumi.Input
+
+	ToScriptReferenceOutput() ScriptReferenceOutput
+	ToScriptReferenceOutputWithContext(context.Context) ScriptReferenceOutput
+}
+
+// Script reference
+type ScriptReferenceArgs struct {
+	// Optional command line arguments passed to the script to run.
+	ScriptArguments pulumi.StringPtrInput `pulumi:"scriptArguments"`
+	// The location of scripts in the mounted volume.
+	ScriptData pulumi.StringPtrInput `pulumi:"scriptData"`
+	// The storage source of the script: inline, workspace.
+	ScriptSource pulumi.StringPtrInput `pulumi:"scriptSource"`
+	// Optional time period passed to timeout command.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (ScriptReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptReference)(nil)).Elem()
+}
+
+func (i ScriptReferenceArgs) ToScriptReferenceOutput() ScriptReferenceOutput {
+	return i.ToScriptReferenceOutputWithContext(context.Background())
+}
+
+func (i ScriptReferenceArgs) ToScriptReferenceOutputWithContext(ctx context.Context) ScriptReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptReferenceOutput)
+}
+
+func (i ScriptReferenceArgs) ToScriptReferencePtrOutput() ScriptReferencePtrOutput {
+	return i.ToScriptReferencePtrOutputWithContext(context.Background())
+}
+
+func (i ScriptReferenceArgs) ToScriptReferencePtrOutputWithContext(ctx context.Context) ScriptReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptReferenceOutput).ToScriptReferencePtrOutputWithContext(ctx)
+}
+
+// ScriptReferencePtrInput is an input type that accepts ScriptReferenceArgs, ScriptReferencePtr and ScriptReferencePtrOutput values.
+// You can construct a concrete instance of `ScriptReferencePtrInput` via:
+//
+//          ScriptReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptReferencePtrInput interface {
+	pulumi.Input
+
+	ToScriptReferencePtrOutput() ScriptReferencePtrOutput
+	ToScriptReferencePtrOutputWithContext(context.Context) ScriptReferencePtrOutput
+}
+
+type scriptReferencePtrType ScriptReferenceArgs
+
+func ScriptReferencePtr(v *ScriptReferenceArgs) ScriptReferencePtrInput {
+	return (*scriptReferencePtrType)(v)
+}
+
+func (*scriptReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptReference)(nil)).Elem()
+}
+
+func (i *scriptReferencePtrType) ToScriptReferencePtrOutput() ScriptReferencePtrOutput {
+	return i.ToScriptReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *scriptReferencePtrType) ToScriptReferencePtrOutputWithContext(ctx context.Context) ScriptReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptReferencePtrOutput)
+}
+
+// Script reference
+type ScriptReferenceOutput struct{ *pulumi.OutputState }
+
+func (ScriptReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptReference)(nil)).Elem()
+}
+
+func (o ScriptReferenceOutput) ToScriptReferenceOutput() ScriptReferenceOutput {
+	return o
+}
+
+func (o ScriptReferenceOutput) ToScriptReferenceOutputWithContext(ctx context.Context) ScriptReferenceOutput {
+	return o
+}
+
+func (o ScriptReferenceOutput) ToScriptReferencePtrOutput() ScriptReferencePtrOutput {
+	return o.ToScriptReferencePtrOutputWithContext(context.Background())
+}
+
+func (o ScriptReferenceOutput) ToScriptReferencePtrOutputWithContext(ctx context.Context) ScriptReferencePtrOutput {
+	return o.ApplyT(func(v ScriptReference) *ScriptReference {
+		return &v
+	}).(ScriptReferencePtrOutput)
+}
+
+// Optional command line arguments passed to the script to run.
+func (o ScriptReferenceOutput) ScriptArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReference) *string { return v.ScriptArguments }).(pulumi.StringPtrOutput)
+}
+
+// The location of scripts in the mounted volume.
+func (o ScriptReferenceOutput) ScriptData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReference) *string { return v.ScriptData }).(pulumi.StringPtrOutput)
+}
+
+// The storage source of the script: inline, workspace.
+func (o ScriptReferenceOutput) ScriptSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReference) *string { return v.ScriptSource }).(pulumi.StringPtrOutput)
+}
+
+// Optional time period passed to timeout command.
+func (o ScriptReferenceOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReference) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type ScriptReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptReference)(nil)).Elem()
+}
+
+func (o ScriptReferencePtrOutput) ToScriptReferencePtrOutput() ScriptReferencePtrOutput {
+	return o
+}
+
+func (o ScriptReferencePtrOutput) ToScriptReferencePtrOutputWithContext(ctx context.Context) ScriptReferencePtrOutput {
+	return o
+}
+
+func (o ScriptReferencePtrOutput) Elem() ScriptReferenceOutput {
+	return o.ApplyT(func(v *ScriptReference) ScriptReference { return *v }).(ScriptReferenceOutput)
+}
+
+// Optional command line arguments passed to the script to run.
+func (o ScriptReferencePtrOutput) ScriptArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptArguments
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of scripts in the mounted volume.
+func (o ScriptReferencePtrOutput) ScriptData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptData
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage source of the script: inline, workspace.
+func (o ScriptReferencePtrOutput) ScriptSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional time period passed to timeout command.
+func (o ScriptReferencePtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script reference
+type ScriptReferenceResponse struct {
+	// Optional command line arguments passed to the script to run.
+	ScriptArguments *string `pulumi:"scriptArguments"`
+	// The location of scripts in the mounted volume.
+	ScriptData *string `pulumi:"scriptData"`
+	// The storage source of the script: inline, workspace.
+	ScriptSource *string `pulumi:"scriptSource"`
+	// Optional time period passed to timeout command.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// ScriptReferenceResponseInput is an input type that accepts ScriptReferenceResponseArgs and ScriptReferenceResponseOutput values.
+// You can construct a concrete instance of `ScriptReferenceResponseInput` via:
+//
+//          ScriptReferenceResponseArgs{...}
+type ScriptReferenceResponseInput interface {
+	pulumi.Input
+
+	ToScriptReferenceResponseOutput() ScriptReferenceResponseOutput
+	ToScriptReferenceResponseOutputWithContext(context.Context) ScriptReferenceResponseOutput
+}
+
+// Script reference
+type ScriptReferenceResponseArgs struct {
+	// Optional command line arguments passed to the script to run.
+	ScriptArguments pulumi.StringPtrInput `pulumi:"scriptArguments"`
+	// The location of scripts in the mounted volume.
+	ScriptData pulumi.StringPtrInput `pulumi:"scriptData"`
+	// The storage source of the script: inline, workspace.
+	ScriptSource pulumi.StringPtrInput `pulumi:"scriptSource"`
+	// Optional time period passed to timeout command.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (ScriptReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptReferenceResponse)(nil)).Elem()
+}
+
+func (i ScriptReferenceResponseArgs) ToScriptReferenceResponseOutput() ScriptReferenceResponseOutput {
+	return i.ToScriptReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i ScriptReferenceResponseArgs) ToScriptReferenceResponseOutputWithContext(ctx context.Context) ScriptReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptReferenceResponseOutput)
+}
+
+func (i ScriptReferenceResponseArgs) ToScriptReferenceResponsePtrOutput() ScriptReferenceResponsePtrOutput {
+	return i.ToScriptReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScriptReferenceResponseArgs) ToScriptReferenceResponsePtrOutputWithContext(ctx context.Context) ScriptReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptReferenceResponseOutput).ToScriptReferenceResponsePtrOutputWithContext(ctx)
+}
+
+// ScriptReferenceResponsePtrInput is an input type that accepts ScriptReferenceResponseArgs, ScriptReferenceResponsePtr and ScriptReferenceResponsePtrOutput values.
+// You can construct a concrete instance of `ScriptReferenceResponsePtrInput` via:
+//
+//          ScriptReferenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToScriptReferenceResponsePtrOutput() ScriptReferenceResponsePtrOutput
+	ToScriptReferenceResponsePtrOutputWithContext(context.Context) ScriptReferenceResponsePtrOutput
+}
+
+type scriptReferenceResponsePtrType ScriptReferenceResponseArgs
+
+func ScriptReferenceResponsePtr(v *ScriptReferenceResponseArgs) ScriptReferenceResponsePtrInput {
+	return (*scriptReferenceResponsePtrType)(v)
+}
+
+func (*scriptReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptReferenceResponse)(nil)).Elem()
+}
+
+func (i *scriptReferenceResponsePtrType) ToScriptReferenceResponsePtrOutput() ScriptReferenceResponsePtrOutput {
+	return i.ToScriptReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scriptReferenceResponsePtrType) ToScriptReferenceResponsePtrOutputWithContext(ctx context.Context) ScriptReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptReferenceResponsePtrOutput)
+}
+
+// Script reference
+type ScriptReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (ScriptReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptReferenceResponse)(nil)).Elem()
+}
+
+func (o ScriptReferenceResponseOutput) ToScriptReferenceResponseOutput() ScriptReferenceResponseOutput {
+	return o
+}
+
+func (o ScriptReferenceResponseOutput) ToScriptReferenceResponseOutputWithContext(ctx context.Context) ScriptReferenceResponseOutput {
+	return o
+}
+
+func (o ScriptReferenceResponseOutput) ToScriptReferenceResponsePtrOutput() ScriptReferenceResponsePtrOutput {
+	return o.ToScriptReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScriptReferenceResponseOutput) ToScriptReferenceResponsePtrOutputWithContext(ctx context.Context) ScriptReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ScriptReferenceResponse) *ScriptReferenceResponse {
+		return &v
+	}).(ScriptReferenceResponsePtrOutput)
+}
+
+// Optional command line arguments passed to the script to run.
+func (o ScriptReferenceResponseOutput) ScriptArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReferenceResponse) *string { return v.ScriptArguments }).(pulumi.StringPtrOutput)
+}
+
+// The location of scripts in the mounted volume.
+func (o ScriptReferenceResponseOutput) ScriptData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReferenceResponse) *string { return v.ScriptData }).(pulumi.StringPtrOutput)
+}
+
+// The storage source of the script: inline, workspace.
+func (o ScriptReferenceResponseOutput) ScriptSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReferenceResponse) *string { return v.ScriptSource }).(pulumi.StringPtrOutput)
+}
+
+// Optional time period passed to timeout command.
+func (o ScriptReferenceResponseOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptReferenceResponse) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type ScriptReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptReferenceResponse)(nil)).Elem()
+}
+
+func (o ScriptReferenceResponsePtrOutput) ToScriptReferenceResponsePtrOutput() ScriptReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ScriptReferenceResponsePtrOutput) ToScriptReferenceResponsePtrOutputWithContext(ctx context.Context) ScriptReferenceResponsePtrOutput {
+	return o
+}
+
+func (o ScriptReferenceResponsePtrOutput) Elem() ScriptReferenceResponseOutput {
+	return o.ApplyT(func(v *ScriptReferenceResponse) ScriptReferenceResponse { return *v }).(ScriptReferenceResponseOutput)
+}
+
+// Optional command line arguments passed to the script to run.
+func (o ScriptReferenceResponsePtrOutput) ScriptArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptArguments
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of scripts in the mounted volume.
+func (o ScriptReferenceResponsePtrOutput) ScriptData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptData
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage source of the script: inline, workspace.
+func (o ScriptReferenceResponsePtrOutput) ScriptSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional time period passed to timeout command.
+func (o ScriptReferenceResponsePtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// Customized setup scripts
+type ScriptsToExecute struct {
+	// Script that's run only once during provision of the compute.
+	CreationScript *ScriptReference `pulumi:"creationScript"`
+	// Script that's run every time the machine starts.
+	StartupScript *ScriptReference `pulumi:"startupScript"`
+}
+
+// ScriptsToExecuteInput is an input type that accepts ScriptsToExecuteArgs and ScriptsToExecuteOutput values.
+// You can construct a concrete instance of `ScriptsToExecuteInput` via:
+//
+//          ScriptsToExecuteArgs{...}
+type ScriptsToExecuteInput interface {
+	pulumi.Input
+
+	ToScriptsToExecuteOutput() ScriptsToExecuteOutput
+	ToScriptsToExecuteOutputWithContext(context.Context) ScriptsToExecuteOutput
+}
+
+// Customized setup scripts
+type ScriptsToExecuteArgs struct {
+	// Script that's run only once during provision of the compute.
+	CreationScript ScriptReferencePtrInput `pulumi:"creationScript"`
+	// Script that's run every time the machine starts.
+	StartupScript ScriptReferencePtrInput `pulumi:"startupScript"`
+}
+
+func (ScriptsToExecuteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptsToExecute)(nil)).Elem()
+}
+
+func (i ScriptsToExecuteArgs) ToScriptsToExecuteOutput() ScriptsToExecuteOutput {
+	return i.ToScriptsToExecuteOutputWithContext(context.Background())
+}
+
+func (i ScriptsToExecuteArgs) ToScriptsToExecuteOutputWithContext(ctx context.Context) ScriptsToExecuteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptsToExecuteOutput)
+}
+
+func (i ScriptsToExecuteArgs) ToScriptsToExecutePtrOutput() ScriptsToExecutePtrOutput {
+	return i.ToScriptsToExecutePtrOutputWithContext(context.Background())
+}
+
+func (i ScriptsToExecuteArgs) ToScriptsToExecutePtrOutputWithContext(ctx context.Context) ScriptsToExecutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptsToExecuteOutput).ToScriptsToExecutePtrOutputWithContext(ctx)
+}
+
+// ScriptsToExecutePtrInput is an input type that accepts ScriptsToExecuteArgs, ScriptsToExecutePtr and ScriptsToExecutePtrOutput values.
+// You can construct a concrete instance of `ScriptsToExecutePtrInput` via:
+//
+//          ScriptsToExecuteArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptsToExecutePtrInput interface {
+	pulumi.Input
+
+	ToScriptsToExecutePtrOutput() ScriptsToExecutePtrOutput
+	ToScriptsToExecutePtrOutputWithContext(context.Context) ScriptsToExecutePtrOutput
+}
+
+type scriptsToExecutePtrType ScriptsToExecuteArgs
+
+func ScriptsToExecutePtr(v *ScriptsToExecuteArgs) ScriptsToExecutePtrInput {
+	return (*scriptsToExecutePtrType)(v)
+}
+
+func (*scriptsToExecutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptsToExecute)(nil)).Elem()
+}
+
+func (i *scriptsToExecutePtrType) ToScriptsToExecutePtrOutput() ScriptsToExecutePtrOutput {
+	return i.ToScriptsToExecutePtrOutputWithContext(context.Background())
+}
+
+func (i *scriptsToExecutePtrType) ToScriptsToExecutePtrOutputWithContext(ctx context.Context) ScriptsToExecutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptsToExecutePtrOutput)
+}
+
+// Customized setup scripts
+type ScriptsToExecuteOutput struct{ *pulumi.OutputState }
+
+func (ScriptsToExecuteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptsToExecute)(nil)).Elem()
+}
+
+func (o ScriptsToExecuteOutput) ToScriptsToExecuteOutput() ScriptsToExecuteOutput {
+	return o
+}
+
+func (o ScriptsToExecuteOutput) ToScriptsToExecuteOutputWithContext(ctx context.Context) ScriptsToExecuteOutput {
+	return o
+}
+
+func (o ScriptsToExecuteOutput) ToScriptsToExecutePtrOutput() ScriptsToExecutePtrOutput {
+	return o.ToScriptsToExecutePtrOutputWithContext(context.Background())
+}
+
+func (o ScriptsToExecuteOutput) ToScriptsToExecutePtrOutputWithContext(ctx context.Context) ScriptsToExecutePtrOutput {
+	return o.ApplyT(func(v ScriptsToExecute) *ScriptsToExecute {
+		return &v
+	}).(ScriptsToExecutePtrOutput)
+}
+
+// Script that's run only once during provision of the compute.
+func (o ScriptsToExecuteOutput) CreationScript() ScriptReferencePtrOutput {
+	return o.ApplyT(func(v ScriptsToExecute) *ScriptReference { return v.CreationScript }).(ScriptReferencePtrOutput)
+}
+
+// Script that's run every time the machine starts.
+func (o ScriptsToExecuteOutput) StartupScript() ScriptReferencePtrOutput {
+	return o.ApplyT(func(v ScriptsToExecute) *ScriptReference { return v.StartupScript }).(ScriptReferencePtrOutput)
+}
+
+type ScriptsToExecutePtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptsToExecutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptsToExecute)(nil)).Elem()
+}
+
+func (o ScriptsToExecutePtrOutput) ToScriptsToExecutePtrOutput() ScriptsToExecutePtrOutput {
+	return o
+}
+
+func (o ScriptsToExecutePtrOutput) ToScriptsToExecutePtrOutputWithContext(ctx context.Context) ScriptsToExecutePtrOutput {
+	return o
+}
+
+func (o ScriptsToExecutePtrOutput) Elem() ScriptsToExecuteOutput {
+	return o.ApplyT(func(v *ScriptsToExecute) ScriptsToExecute { return *v }).(ScriptsToExecuteOutput)
+}
+
+// Script that's run only once during provision of the compute.
+func (o ScriptsToExecutePtrOutput) CreationScript() ScriptReferencePtrOutput {
+	return o.ApplyT(func(v *ScriptsToExecute) *ScriptReference {
+		if v == nil {
+			return nil
+		}
+		return v.CreationScript
+	}).(ScriptReferencePtrOutput)
+}
+
+// Script that's run every time the machine starts.
+func (o ScriptsToExecutePtrOutput) StartupScript() ScriptReferencePtrOutput {
+	return o.ApplyT(func(v *ScriptsToExecute) *ScriptReference {
+		if v == nil {
+			return nil
+		}
+		return v.StartupScript
+	}).(ScriptReferencePtrOutput)
+}
+
+// Customized setup scripts
+type ScriptsToExecuteResponse struct {
+	// Script that's run only once during provision of the compute.
+	CreationScript *ScriptReferenceResponse `pulumi:"creationScript"`
+	// Script that's run every time the machine starts.
+	StartupScript *ScriptReferenceResponse `pulumi:"startupScript"`
+}
+
+// ScriptsToExecuteResponseInput is an input type that accepts ScriptsToExecuteResponseArgs and ScriptsToExecuteResponseOutput values.
+// You can construct a concrete instance of `ScriptsToExecuteResponseInput` via:
+//
+//          ScriptsToExecuteResponseArgs{...}
+type ScriptsToExecuteResponseInput interface {
+	pulumi.Input
+
+	ToScriptsToExecuteResponseOutput() ScriptsToExecuteResponseOutput
+	ToScriptsToExecuteResponseOutputWithContext(context.Context) ScriptsToExecuteResponseOutput
+}
+
+// Customized setup scripts
+type ScriptsToExecuteResponseArgs struct {
+	// Script that's run only once during provision of the compute.
+	CreationScript ScriptReferenceResponsePtrInput `pulumi:"creationScript"`
+	// Script that's run every time the machine starts.
+	StartupScript ScriptReferenceResponsePtrInput `pulumi:"startupScript"`
+}
+
+func (ScriptsToExecuteResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptsToExecuteResponse)(nil)).Elem()
+}
+
+func (i ScriptsToExecuteResponseArgs) ToScriptsToExecuteResponseOutput() ScriptsToExecuteResponseOutput {
+	return i.ToScriptsToExecuteResponseOutputWithContext(context.Background())
+}
+
+func (i ScriptsToExecuteResponseArgs) ToScriptsToExecuteResponseOutputWithContext(ctx context.Context) ScriptsToExecuteResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptsToExecuteResponseOutput)
+}
+
+func (i ScriptsToExecuteResponseArgs) ToScriptsToExecuteResponsePtrOutput() ScriptsToExecuteResponsePtrOutput {
+	return i.ToScriptsToExecuteResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScriptsToExecuteResponseArgs) ToScriptsToExecuteResponsePtrOutputWithContext(ctx context.Context) ScriptsToExecuteResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptsToExecuteResponseOutput).ToScriptsToExecuteResponsePtrOutputWithContext(ctx)
+}
+
+// ScriptsToExecuteResponsePtrInput is an input type that accepts ScriptsToExecuteResponseArgs, ScriptsToExecuteResponsePtr and ScriptsToExecuteResponsePtrOutput values.
+// You can construct a concrete instance of `ScriptsToExecuteResponsePtrInput` via:
+//
+//          ScriptsToExecuteResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptsToExecuteResponsePtrInput interface {
+	pulumi.Input
+
+	ToScriptsToExecuteResponsePtrOutput() ScriptsToExecuteResponsePtrOutput
+	ToScriptsToExecuteResponsePtrOutputWithContext(context.Context) ScriptsToExecuteResponsePtrOutput
+}
+
+type scriptsToExecuteResponsePtrType ScriptsToExecuteResponseArgs
+
+func ScriptsToExecuteResponsePtr(v *ScriptsToExecuteResponseArgs) ScriptsToExecuteResponsePtrInput {
+	return (*scriptsToExecuteResponsePtrType)(v)
+}
+
+func (*scriptsToExecuteResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptsToExecuteResponse)(nil)).Elem()
+}
+
+func (i *scriptsToExecuteResponsePtrType) ToScriptsToExecuteResponsePtrOutput() ScriptsToExecuteResponsePtrOutput {
+	return i.ToScriptsToExecuteResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scriptsToExecuteResponsePtrType) ToScriptsToExecuteResponsePtrOutputWithContext(ctx context.Context) ScriptsToExecuteResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptsToExecuteResponsePtrOutput)
+}
+
+// Customized setup scripts
+type ScriptsToExecuteResponseOutput struct{ *pulumi.OutputState }
+
+func (ScriptsToExecuteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptsToExecuteResponse)(nil)).Elem()
+}
+
+func (o ScriptsToExecuteResponseOutput) ToScriptsToExecuteResponseOutput() ScriptsToExecuteResponseOutput {
+	return o
+}
+
+func (o ScriptsToExecuteResponseOutput) ToScriptsToExecuteResponseOutputWithContext(ctx context.Context) ScriptsToExecuteResponseOutput {
+	return o
+}
+
+func (o ScriptsToExecuteResponseOutput) ToScriptsToExecuteResponsePtrOutput() ScriptsToExecuteResponsePtrOutput {
+	return o.ToScriptsToExecuteResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScriptsToExecuteResponseOutput) ToScriptsToExecuteResponsePtrOutputWithContext(ctx context.Context) ScriptsToExecuteResponsePtrOutput {
+	return o.ApplyT(func(v ScriptsToExecuteResponse) *ScriptsToExecuteResponse {
+		return &v
+	}).(ScriptsToExecuteResponsePtrOutput)
+}
+
+// Script that's run only once during provision of the compute.
+func (o ScriptsToExecuteResponseOutput) CreationScript() ScriptReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ScriptsToExecuteResponse) *ScriptReferenceResponse { return v.CreationScript }).(ScriptReferenceResponsePtrOutput)
+}
+
+// Script that's run every time the machine starts.
+func (o ScriptsToExecuteResponseOutput) StartupScript() ScriptReferenceResponsePtrOutput {
+	return o.ApplyT(func(v ScriptsToExecuteResponse) *ScriptReferenceResponse { return v.StartupScript }).(ScriptReferenceResponsePtrOutput)
+}
+
+type ScriptsToExecuteResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptsToExecuteResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptsToExecuteResponse)(nil)).Elem()
+}
+
+func (o ScriptsToExecuteResponsePtrOutput) ToScriptsToExecuteResponsePtrOutput() ScriptsToExecuteResponsePtrOutput {
+	return o
+}
+
+func (o ScriptsToExecuteResponsePtrOutput) ToScriptsToExecuteResponsePtrOutputWithContext(ctx context.Context) ScriptsToExecuteResponsePtrOutput {
+	return o
+}
+
+func (o ScriptsToExecuteResponsePtrOutput) Elem() ScriptsToExecuteResponseOutput {
+	return o.ApplyT(func(v *ScriptsToExecuteResponse) ScriptsToExecuteResponse { return *v }).(ScriptsToExecuteResponseOutput)
+}
+
+// Script that's run only once during provision of the compute.
+func (o ScriptsToExecuteResponsePtrOutput) CreationScript() ScriptReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *ScriptsToExecuteResponse) *ScriptReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CreationScript
+	}).(ScriptReferenceResponsePtrOutput)
+}
+
+// Script that's run every time the machine starts.
+func (o ScriptsToExecuteResponsePtrOutput) StartupScript() ScriptReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *ScriptsToExecuteResponse) *ScriptReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StartupScript
+	}).(ScriptReferenceResponsePtrOutput)
+}
+
 // The error details.
 type ServiceResponseBaseResponseError struct {
 	// Error code.
@@ -17142,6 +20746,274 @@ func (o ServiceResponseBaseResponseErrorOutput) Details() ErrorDetailResponseArr
 // Error message.
 func (o ServiceResponseBaseResponseErrorOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceResponseBaseResponseError) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+type SetupScripts struct {
+	// Customized setup scripts
+	Scripts *ScriptsToExecute `pulumi:"scripts"`
+}
+
+// SetupScriptsInput is an input type that accepts SetupScriptsArgs and SetupScriptsOutput values.
+// You can construct a concrete instance of `SetupScriptsInput` via:
+//
+//          SetupScriptsArgs{...}
+type SetupScriptsInput interface {
+	pulumi.Input
+
+	ToSetupScriptsOutput() SetupScriptsOutput
+	ToSetupScriptsOutputWithContext(context.Context) SetupScriptsOutput
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+type SetupScriptsArgs struct {
+	// Customized setup scripts
+	Scripts ScriptsToExecutePtrInput `pulumi:"scripts"`
+}
+
+func (SetupScriptsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SetupScripts)(nil)).Elem()
+}
+
+func (i SetupScriptsArgs) ToSetupScriptsOutput() SetupScriptsOutput {
+	return i.ToSetupScriptsOutputWithContext(context.Background())
+}
+
+func (i SetupScriptsArgs) ToSetupScriptsOutputWithContext(ctx context.Context) SetupScriptsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetupScriptsOutput)
+}
+
+func (i SetupScriptsArgs) ToSetupScriptsPtrOutput() SetupScriptsPtrOutput {
+	return i.ToSetupScriptsPtrOutputWithContext(context.Background())
+}
+
+func (i SetupScriptsArgs) ToSetupScriptsPtrOutputWithContext(ctx context.Context) SetupScriptsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetupScriptsOutput).ToSetupScriptsPtrOutputWithContext(ctx)
+}
+
+// SetupScriptsPtrInput is an input type that accepts SetupScriptsArgs, SetupScriptsPtr and SetupScriptsPtrOutput values.
+// You can construct a concrete instance of `SetupScriptsPtrInput` via:
+//
+//          SetupScriptsArgs{...}
+//
+//  or:
+//
+//          nil
+type SetupScriptsPtrInput interface {
+	pulumi.Input
+
+	ToSetupScriptsPtrOutput() SetupScriptsPtrOutput
+	ToSetupScriptsPtrOutputWithContext(context.Context) SetupScriptsPtrOutput
+}
+
+type setupScriptsPtrType SetupScriptsArgs
+
+func SetupScriptsPtr(v *SetupScriptsArgs) SetupScriptsPtrInput {
+	return (*setupScriptsPtrType)(v)
+}
+
+func (*setupScriptsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SetupScripts)(nil)).Elem()
+}
+
+func (i *setupScriptsPtrType) ToSetupScriptsPtrOutput() SetupScriptsPtrOutput {
+	return i.ToSetupScriptsPtrOutputWithContext(context.Background())
+}
+
+func (i *setupScriptsPtrType) ToSetupScriptsPtrOutputWithContext(ctx context.Context) SetupScriptsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetupScriptsPtrOutput)
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+type SetupScriptsOutput struct{ *pulumi.OutputState }
+
+func (SetupScriptsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SetupScripts)(nil)).Elem()
+}
+
+func (o SetupScriptsOutput) ToSetupScriptsOutput() SetupScriptsOutput {
+	return o
+}
+
+func (o SetupScriptsOutput) ToSetupScriptsOutputWithContext(ctx context.Context) SetupScriptsOutput {
+	return o
+}
+
+func (o SetupScriptsOutput) ToSetupScriptsPtrOutput() SetupScriptsPtrOutput {
+	return o.ToSetupScriptsPtrOutputWithContext(context.Background())
+}
+
+func (o SetupScriptsOutput) ToSetupScriptsPtrOutputWithContext(ctx context.Context) SetupScriptsPtrOutput {
+	return o.ApplyT(func(v SetupScripts) *SetupScripts {
+		return &v
+	}).(SetupScriptsPtrOutput)
+}
+
+// Customized setup scripts
+func (o SetupScriptsOutput) Scripts() ScriptsToExecutePtrOutput {
+	return o.ApplyT(func(v SetupScripts) *ScriptsToExecute { return v.Scripts }).(ScriptsToExecutePtrOutput)
+}
+
+type SetupScriptsPtrOutput struct{ *pulumi.OutputState }
+
+func (SetupScriptsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SetupScripts)(nil)).Elem()
+}
+
+func (o SetupScriptsPtrOutput) ToSetupScriptsPtrOutput() SetupScriptsPtrOutput {
+	return o
+}
+
+func (o SetupScriptsPtrOutput) ToSetupScriptsPtrOutputWithContext(ctx context.Context) SetupScriptsPtrOutput {
+	return o
+}
+
+func (o SetupScriptsPtrOutput) Elem() SetupScriptsOutput {
+	return o.ApplyT(func(v *SetupScripts) SetupScripts { return *v }).(SetupScriptsOutput)
+}
+
+// Customized setup scripts
+func (o SetupScriptsPtrOutput) Scripts() ScriptsToExecutePtrOutput {
+	return o.ApplyT(func(v *SetupScripts) *ScriptsToExecute {
+		if v == nil {
+			return nil
+		}
+		return v.Scripts
+	}).(ScriptsToExecutePtrOutput)
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+type SetupScriptsResponse struct {
+	// Customized setup scripts
+	Scripts *ScriptsToExecuteResponse `pulumi:"scripts"`
+}
+
+// SetupScriptsResponseInput is an input type that accepts SetupScriptsResponseArgs and SetupScriptsResponseOutput values.
+// You can construct a concrete instance of `SetupScriptsResponseInput` via:
+//
+//          SetupScriptsResponseArgs{...}
+type SetupScriptsResponseInput interface {
+	pulumi.Input
+
+	ToSetupScriptsResponseOutput() SetupScriptsResponseOutput
+	ToSetupScriptsResponseOutputWithContext(context.Context) SetupScriptsResponseOutput
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+type SetupScriptsResponseArgs struct {
+	// Customized setup scripts
+	Scripts ScriptsToExecuteResponsePtrInput `pulumi:"scripts"`
+}
+
+func (SetupScriptsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SetupScriptsResponse)(nil)).Elem()
+}
+
+func (i SetupScriptsResponseArgs) ToSetupScriptsResponseOutput() SetupScriptsResponseOutput {
+	return i.ToSetupScriptsResponseOutputWithContext(context.Background())
+}
+
+func (i SetupScriptsResponseArgs) ToSetupScriptsResponseOutputWithContext(ctx context.Context) SetupScriptsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetupScriptsResponseOutput)
+}
+
+func (i SetupScriptsResponseArgs) ToSetupScriptsResponsePtrOutput() SetupScriptsResponsePtrOutput {
+	return i.ToSetupScriptsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SetupScriptsResponseArgs) ToSetupScriptsResponsePtrOutputWithContext(ctx context.Context) SetupScriptsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetupScriptsResponseOutput).ToSetupScriptsResponsePtrOutputWithContext(ctx)
+}
+
+// SetupScriptsResponsePtrInput is an input type that accepts SetupScriptsResponseArgs, SetupScriptsResponsePtr and SetupScriptsResponsePtrOutput values.
+// You can construct a concrete instance of `SetupScriptsResponsePtrInput` via:
+//
+//          SetupScriptsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SetupScriptsResponsePtrInput interface {
+	pulumi.Input
+
+	ToSetupScriptsResponsePtrOutput() SetupScriptsResponsePtrOutput
+	ToSetupScriptsResponsePtrOutputWithContext(context.Context) SetupScriptsResponsePtrOutput
+}
+
+type setupScriptsResponsePtrType SetupScriptsResponseArgs
+
+func SetupScriptsResponsePtr(v *SetupScriptsResponseArgs) SetupScriptsResponsePtrInput {
+	return (*setupScriptsResponsePtrType)(v)
+}
+
+func (*setupScriptsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SetupScriptsResponse)(nil)).Elem()
+}
+
+func (i *setupScriptsResponsePtrType) ToSetupScriptsResponsePtrOutput() SetupScriptsResponsePtrOutput {
+	return i.ToSetupScriptsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *setupScriptsResponsePtrType) ToSetupScriptsResponsePtrOutputWithContext(ctx context.Context) SetupScriptsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetupScriptsResponsePtrOutput)
+}
+
+// Details of customized scripts to execute for setting up the cluster.
+type SetupScriptsResponseOutput struct{ *pulumi.OutputState }
+
+func (SetupScriptsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SetupScriptsResponse)(nil)).Elem()
+}
+
+func (o SetupScriptsResponseOutput) ToSetupScriptsResponseOutput() SetupScriptsResponseOutput {
+	return o
+}
+
+func (o SetupScriptsResponseOutput) ToSetupScriptsResponseOutputWithContext(ctx context.Context) SetupScriptsResponseOutput {
+	return o
+}
+
+func (o SetupScriptsResponseOutput) ToSetupScriptsResponsePtrOutput() SetupScriptsResponsePtrOutput {
+	return o.ToSetupScriptsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SetupScriptsResponseOutput) ToSetupScriptsResponsePtrOutputWithContext(ctx context.Context) SetupScriptsResponsePtrOutput {
+	return o.ApplyT(func(v SetupScriptsResponse) *SetupScriptsResponse {
+		return &v
+	}).(SetupScriptsResponsePtrOutput)
+}
+
+// Customized setup scripts
+func (o SetupScriptsResponseOutput) Scripts() ScriptsToExecuteResponsePtrOutput {
+	return o.ApplyT(func(v SetupScriptsResponse) *ScriptsToExecuteResponse { return v.Scripts }).(ScriptsToExecuteResponsePtrOutput)
+}
+
+type SetupScriptsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SetupScriptsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SetupScriptsResponse)(nil)).Elem()
+}
+
+func (o SetupScriptsResponsePtrOutput) ToSetupScriptsResponsePtrOutput() SetupScriptsResponsePtrOutput {
+	return o
+}
+
+func (o SetupScriptsResponsePtrOutput) ToSetupScriptsResponsePtrOutputWithContext(ctx context.Context) SetupScriptsResponsePtrOutput {
+	return o
+}
+
+func (o SetupScriptsResponsePtrOutput) Elem() SetupScriptsResponseOutput {
+	return o.ApplyT(func(v *SetupScriptsResponse) SetupScriptsResponse { return *v }).(SetupScriptsResponseOutput)
+}
+
+// Customized setup scripts
+func (o SetupScriptsResponsePtrOutput) Scripts() ScriptsToExecuteResponsePtrOutput {
+	return o.ApplyT(func(v *SetupScriptsResponse) *ScriptsToExecuteResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Scripts
+	}).(ScriptsToExecuteResponsePtrOutput)
 }
 
 type SharedPrivateLinkResource struct {
@@ -18307,6 +22179,362 @@ func (o SslConfigurationResponsePtrOutput) Status() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active message associated with project.
+type StatusMessageResponse struct {
+	// Service-defined message code.
+	Code string `pulumi:"code"`
+	// Time in UTC at which the message was created.
+	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
+	// Severity level of the status message.
+	Level string `pulumi:"level"`
+	// A human-readable representation of the message code.
+	Message string `pulumi:"message"`
+}
+
+// StatusMessageResponseInput is an input type that accepts StatusMessageResponseArgs and StatusMessageResponseOutput values.
+// You can construct a concrete instance of `StatusMessageResponseInput` via:
+//
+//          StatusMessageResponseArgs{...}
+type StatusMessageResponseInput interface {
+	pulumi.Input
+
+	ToStatusMessageResponseOutput() StatusMessageResponseOutput
+	ToStatusMessageResponseOutputWithContext(context.Context) StatusMessageResponseOutput
+}
+
+// Active message associated with project.
+type StatusMessageResponseArgs struct {
+	// Service-defined message code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Time in UTC at which the message was created.
+	CreatedTimeUtc pulumi.StringInput `pulumi:"createdTimeUtc"`
+	// Severity level of the status message.
+	Level pulumi.StringInput `pulumi:"level"`
+	// A human-readable representation of the message code.
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (StatusMessageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusMessageResponse)(nil)).Elem()
+}
+
+func (i StatusMessageResponseArgs) ToStatusMessageResponseOutput() StatusMessageResponseOutput {
+	return i.ToStatusMessageResponseOutputWithContext(context.Background())
+}
+
+func (i StatusMessageResponseArgs) ToStatusMessageResponseOutputWithContext(ctx context.Context) StatusMessageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusMessageResponseOutput)
+}
+
+// StatusMessageResponseArrayInput is an input type that accepts StatusMessageResponseArray and StatusMessageResponseArrayOutput values.
+// You can construct a concrete instance of `StatusMessageResponseArrayInput` via:
+//
+//          StatusMessageResponseArray{ StatusMessageResponseArgs{...} }
+type StatusMessageResponseArrayInput interface {
+	pulumi.Input
+
+	ToStatusMessageResponseArrayOutput() StatusMessageResponseArrayOutput
+	ToStatusMessageResponseArrayOutputWithContext(context.Context) StatusMessageResponseArrayOutput
+}
+
+type StatusMessageResponseArray []StatusMessageResponseInput
+
+func (StatusMessageResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StatusMessageResponse)(nil)).Elem()
+}
+
+func (i StatusMessageResponseArray) ToStatusMessageResponseArrayOutput() StatusMessageResponseArrayOutput {
+	return i.ToStatusMessageResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StatusMessageResponseArray) ToStatusMessageResponseArrayOutputWithContext(ctx context.Context) StatusMessageResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusMessageResponseArrayOutput)
+}
+
+// Active message associated with project.
+type StatusMessageResponseOutput struct{ *pulumi.OutputState }
+
+func (StatusMessageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusMessageResponse)(nil)).Elem()
+}
+
+func (o StatusMessageResponseOutput) ToStatusMessageResponseOutput() StatusMessageResponseOutput {
+	return o
+}
+
+func (o StatusMessageResponseOutput) ToStatusMessageResponseOutputWithContext(ctx context.Context) StatusMessageResponseOutput {
+	return o
+}
+
+// Service-defined message code.
+func (o StatusMessageResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusMessageResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Time in UTC at which the message was created.
+func (o StatusMessageResponseOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusMessageResponse) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Severity level of the status message.
+func (o StatusMessageResponseOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusMessageResponse) string { return v.Level }).(pulumi.StringOutput)
+}
+
+// A human-readable representation of the message code.
+func (o StatusMessageResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusMessageResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type StatusMessageResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StatusMessageResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StatusMessageResponse)(nil)).Elem()
+}
+
+func (o StatusMessageResponseArrayOutput) ToStatusMessageResponseArrayOutput() StatusMessageResponseArrayOutput {
+	return o
+}
+
+func (o StatusMessageResponseArrayOutput) ToStatusMessageResponseArrayOutputWithContext(ctx context.Context) StatusMessageResponseArrayOutput {
+	return o
+}
+
+func (o StatusMessageResponseArrayOutput) Index(i pulumi.IntInput) StatusMessageResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StatusMessageResponse {
+		return vs[0].([]StatusMessageResponse)[vs[1].(int)]
+	}).(StatusMessageResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20190,6 +24418,10 @@ func init() {
 	pulumi.RegisterOutputType(AssignedUserPtrOutput{})
 	pulumi.RegisterOutputType(AssignedUserResponseOutput{})
 	pulumi.RegisterOutputType(AssignedUserResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeBindingOutput{})
+	pulumi.RegisterOutputType(ComputeBindingPtrOutput{})
+	pulumi.RegisterOutputType(ComputeBindingResponseOutput{})
+	pulumi.RegisterOutputType(ComputeBindingResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceApplicationResponseOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceApplicationResponseArrayOutput{})
@@ -20267,10 +24499,38 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabelCategoryOutput{})
+	pulumi.RegisterOutputType(LabelCategoryMapOutput{})
+	pulumi.RegisterOutputType(LabelCategoryResponseOutput{})
+	pulumi.RegisterOutputType(LabelCategoryResponseMapOutput{})
+	pulumi.RegisterOutputType(LabelClassOutput{})
+	pulumi.RegisterOutputType(LabelClassMapOutput{})
+	pulumi.RegisterOutputType(LabelClassResponseOutput{})
+	pulumi.RegisterOutputType(LabelClassResponseMapOutput{})
+	pulumi.RegisterOutputType(LabelingDatasetConfigurationOutput{})
+	pulumi.RegisterOutputType(LabelingDatasetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LabelingDatasetConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(LabelingDatasetConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobImagePropertiesOutput{})
+	pulumi.RegisterOutputType(LabelingJobImagePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobImagePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(LabelingJobImagePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInstructionsOutput{})
+	pulumi.RegisterOutputType(LabelingJobInstructionsPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInstructionsResponseOutput{})
+	pulumi.RegisterOutputType(LabelingJobInstructionsResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobPropertiesOutput{})
+	pulumi.RegisterOutputType(LabelingJobPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(LabelingJobPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServicePropsOutput{})
 	pulumi.RegisterOutputType(LinkedServicePropsPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServicePropsResponseOutput{})
 	pulumi.RegisterOutputType(LinkedServicePropsResponsePtrOutput{})
+	pulumi.RegisterOutputType(MLAssistConfigurationOutput{})
+	pulumi.RegisterOutputType(MLAssistConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MLAssistConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(MLAssistConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ModelOutput{})
@@ -20313,6 +24573,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProgressMetricsResponseOutput{})
+	pulumi.RegisterOutputType(ProgressMetricsResponsePtrOutput{})
 	pulumi.RegisterOutputType(RCranPackageOutput{})
 	pulumi.RegisterOutputType(RCranPackageArrayOutput{})
 	pulumi.RegisterOutputType(RCranPackageResponseOutput{})
@@ -20330,7 +24592,19 @@ func init() {
 	pulumi.RegisterOutputType(ScaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ScaleSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScriptReferenceOutput{})
+	pulumi.RegisterOutputType(ScriptReferencePtrOutput{})
+	pulumi.RegisterOutputType(ScriptReferenceResponseOutput{})
+	pulumi.RegisterOutputType(ScriptReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScriptsToExecuteOutput{})
+	pulumi.RegisterOutputType(ScriptsToExecutePtrOutput{})
+	pulumi.RegisterOutputType(ScriptsToExecuteResponseOutput{})
+	pulumi.RegisterOutputType(ScriptsToExecuteResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceResponseBaseResponseErrorOutput{})
+	pulumi.RegisterOutputType(SetupScriptsOutput{})
+	pulumi.RegisterOutputType(SetupScriptsPtrOutput{})
+	pulumi.RegisterOutputType(SetupScriptsResponseOutput{})
+	pulumi.RegisterOutputType(SetupScriptsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceArrayOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceResponseOutput{})
@@ -20347,6 +24621,10 @@ func init() {
 	pulumi.RegisterOutputType(SslConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(StatusMessageResponseOutput{})
+	pulumi.RegisterOutputType(StatusMessageResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemServiceResponseOutput{})
 	pulumi.RegisterOutputType(SystemServiceResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAccountCredentialsOutput{})

@@ -138,7 +138,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
     }
 
     /// <summary>
-    /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+    /// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
     /// </summary>
     [EnumType]
     public readonly struct ServiceKind : IEquatable<ServiceKind>

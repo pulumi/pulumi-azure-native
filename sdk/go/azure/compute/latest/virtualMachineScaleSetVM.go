@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a virtual machine scale set virtual machine.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type VirtualMachineScaleSetVM struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +111,9 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM"),
 		},
 	})
 	opts = append(opts, aliases)

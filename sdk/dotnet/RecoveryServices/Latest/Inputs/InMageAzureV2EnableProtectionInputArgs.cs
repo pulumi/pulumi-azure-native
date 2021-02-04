@@ -142,6 +142,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         [Input("targetProximityPlacementGroupId")]
         public Input<string>? TargetProximityPlacementGroupId { get; set; }
 
+        /// <summary>
+        /// The target VM size.
+        /// </summary>
+        [Input("targetVmSize")]
+        public Input<string>? TargetVmSize { get; set; }
+
         public InMageAzureV2EnableProtectionInputArgs()
         {
         }

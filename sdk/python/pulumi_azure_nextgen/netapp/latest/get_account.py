@@ -20,10 +20,13 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, encryption=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if active_directories and not isinstance(active_directories, list):
             raise TypeError("Expected argument 'active_directories' to be a list")
         pulumi.set(__self__, "active_directories", active_directories)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -36,6 +39,9 @@ class GetAccountResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -50,6 +56,14 @@ class GetAccountResult:
         Active Directories
         """
         return pulumi.get(self, "active_directories")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.AccountEncryptionResponse']:
+        """
+        Encryption settings
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -84,6 +98,14 @@ class GetAccountResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -107,10 +129,12 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             active_directories=self.active_directories,
+            encryption=self.encryption,
             id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -135,9 +159,11 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         active_directories=__ret__.active_directories,
+        encryption=__ret__.encryption,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

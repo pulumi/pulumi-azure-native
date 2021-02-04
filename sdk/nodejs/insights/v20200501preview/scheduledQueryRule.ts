@@ -37,6 +37,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
 
     public readonly actions!: pulumi.Output<outputs.insights.v20200501preview.ActionResponse[] | undefined>;
     /**
+     * The api-version used when creating this alert rule
+     */
+    public /*out*/ readonly createdWithApiVersion!: pulumi.Output<string>;
+    /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
     public readonly criteria!: pulumi.Output<outputs.insights.v20200501preview.ScheduledQueryRuleCriteriaResponse>;
@@ -60,6 +64,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
     public readonly evaluationFrequency!: pulumi.Output<string>;
+    /**
+     * True if alert rule is legacy Log Analytic rule
+     */
+    public /*out*/ readonly isLegacyLogAnalyticsRule!: pulumi.Output<boolean>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -158,18 +166,22 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
+            inputs["createdWithApiVersion"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["actions"] = undefined /*out*/;
+            inputs["createdWithApiVersion"] = undefined /*out*/;
             inputs["criteria"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["evaluationFrequency"] = undefined /*out*/;
+            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["muteActionsDuration"] = undefined /*out*/;

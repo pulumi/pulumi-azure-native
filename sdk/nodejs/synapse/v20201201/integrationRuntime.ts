@@ -94,7 +94,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20190601preview:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20190601preview:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

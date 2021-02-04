@@ -16,29 +16,29 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101.Outputs
         /// <summary>
         /// Incident Id
         /// </summary>
-        public readonly string IncidentId;
+        public readonly string? IncidentId;
         /// <summary>
         /// Relation Name
         /// </summary>
-        public readonly string RelationName;
+        public readonly string? RelationName;
         /// <summary>
         /// The severity of the incident
         /// </summary>
-        public readonly string Severity;
+        public readonly string? Severity;
         /// <summary>
         /// The title of the incident
         /// </summary>
-        public readonly string Title;
+        public readonly string? Title;
 
         [OutputConstructor]
         private IncidentInfoResponse(
-            string incidentId,
+            string? incidentId,
 
-            string relationName,
+            string? relationName,
 
-            string severity,
+            string? severity,
 
-            string title)
+            string? title)
         {
             IncidentId = incidentId;
             RelationName = relationName;

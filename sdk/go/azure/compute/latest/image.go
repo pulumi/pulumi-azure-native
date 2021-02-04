@@ -12,10 +12,12 @@ import (
 )
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type Image struct {
 	pulumi.CustomResourceState
 
+	// The extended location of the Image.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// Resource location
@@ -81,6 +83,9 @@ func NewImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:Image"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:Image"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Image
@@ -105,6 +110,8 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
+	// The extended location of the Image.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource location
@@ -124,6 +131,8 @@ type imageState struct {
 }
 
 type ImageState struct {
+	// The extended location of the Image.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration pulumi.StringPtrInput
 	// Resource location
@@ -147,6 +156,8 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
+	// The extended location of the Image.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// The name of the image.
@@ -165,6 +176,8 @@ type imageArgs struct {
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
+	// The extended location of the Image.
+	ExtendedLocation ExtendedLocationPtrInput
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration pulumi.StringPtrInput
 	// The name of the image.

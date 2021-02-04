@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. &lt;br&gt;&lt;br&gt; detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. &lt;br&gt;&lt;br&gt; This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        /// </summary>
+        [Input("detachOption")]
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.DiskDetachOptionTypes>? DetachOption { get; set; }
+
+        /// <summary>
         /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
         /// </summary>
         [Input("diskSizeGB")]

@@ -23,6 +23,8 @@ type Bookmark struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The bookmark event time
+	EventTime pulumi.StringPtrOutput `pulumi:"eventTime"`
 	// Describes an incident that relates to bookmark
 	IncidentInfo IncidentInfoResponsePtrOutput `pulumi:"incidentInfo"`
 	// List of labels relevant to this bookmark
@@ -33,8 +35,12 @@ type Bookmark struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The query of the bookmark.
 	Query pulumi.StringOutput `pulumi:"query"`
+	// The end time for the query
+	QueryEndTime pulumi.StringPtrOutput `pulumi:"queryEndTime"`
 	// The query result of the bookmark.
 	QueryResult pulumi.StringPtrOutput `pulumi:"queryResult"`
+	// The start time for the query
+	QueryStartTime pulumi.StringPtrOutput `pulumi:"queryStartTime"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The last time the bookmark was updated
@@ -98,6 +104,8 @@ type bookmarkState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// The bookmark event time
+	EventTime *string `pulumi:"eventTime"`
 	// Describes an incident that relates to bookmark
 	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
 	// List of labels relevant to this bookmark
@@ -108,8 +116,12 @@ type bookmarkState struct {
 	Notes *string `pulumi:"notes"`
 	// The query of the bookmark.
 	Query *string `pulumi:"query"`
+	// The end time for the query
+	QueryEndTime *string `pulumi:"queryEndTime"`
 	// The query result of the bookmark.
 	QueryResult *string `pulumi:"queryResult"`
+	// The start time for the query
+	QueryStartTime *string `pulumi:"queryStartTime"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 	// The last time the bookmark was updated
@@ -127,6 +139,8 @@ type BookmarkState struct {
 	DisplayName pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// The bookmark event time
+	EventTime pulumi.StringPtrInput
 	// Describes an incident that relates to bookmark
 	IncidentInfo IncidentInfoResponsePtrInput
 	// List of labels relevant to this bookmark
@@ -137,8 +151,12 @@ type BookmarkState struct {
 	Notes pulumi.StringPtrInput
 	// The query of the bookmark.
 	Query pulumi.StringPtrInput
+	// The end time for the query
+	QueryEndTime pulumi.StringPtrInput
 	// The query result of the bookmark.
 	QueryResult pulumi.StringPtrInput
+	// The start time for the query
+	QueryStartTime pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 	// The last time the bookmark was updated
@@ -162,6 +180,8 @@ type bookmarkArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// The bookmark event time
+	EventTime *string `pulumi:"eventTime"`
 	// Describes an incident that relates to bookmark
 	IncidentInfo *IncidentInfo `pulumi:"incidentInfo"`
 	// List of labels relevant to this bookmark
@@ -172,8 +192,12 @@ type bookmarkArgs struct {
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The query of the bookmark.
 	Query string `pulumi:"query"`
+	// The end time for the query
+	QueryEndTime *string `pulumi:"queryEndTime"`
 	// The query result of the bookmark.
 	QueryResult *string `pulumi:"queryResult"`
+	// The start time for the query
+	QueryStartTime *string `pulumi:"queryStartTime"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The last time the bookmark was updated
@@ -196,6 +220,8 @@ type BookmarkArgs struct {
 	DisplayName pulumi.StringInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// The bookmark event time
+	EventTime pulumi.StringPtrInput
 	// Describes an incident that relates to bookmark
 	IncidentInfo IncidentInfoPtrInput
 	// List of labels relevant to this bookmark
@@ -206,8 +232,12 @@ type BookmarkArgs struct {
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The query of the bookmark.
 	Query pulumi.StringInput
+	// The end time for the query
+	QueryEndTime pulumi.StringPtrInput
 	// The query result of the bookmark.
 	QueryResult pulumi.StringPtrInput
+	// The start time for the query
+	QueryStartTime pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The last time the bookmark was updated

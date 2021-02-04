@@ -128,7 +128,7 @@ func (e PrivateLinkServiceConnectionStatus) ToStringPtrOutputWithContext(ctx con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 type ServiceKind pulumi.String
 
 const (

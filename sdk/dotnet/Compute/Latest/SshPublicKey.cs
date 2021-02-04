@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Specifies information about the SSH public key.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource
@@ -73,6 +73,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:SshPublicKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

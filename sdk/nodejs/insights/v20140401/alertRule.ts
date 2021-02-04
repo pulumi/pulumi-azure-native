@@ -36,6 +36,10 @@ export class AlertRule extends pulumi.CustomResource {
     }
 
     /**
+     * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    public readonly action!: pulumi.Output<outputs.insights.v20140401.RuleEmailActionResponse | outputs.insights.v20140401.RuleWebhookActionResponse | undefined>;
+    /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
     public readonly actions!: pulumi.Output<outputs.insights.v20140401.RuleEmailActionResponse | outputs.insights.v20140401.RuleWebhookActionResponse[] | undefined>;
@@ -63,6 +67,10 @@ export class AlertRule extends pulumi.CustomResource {
      * Azure resource name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * the provisioning state.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -100,18 +108,21 @@ export class AlertRule extends pulumi.CustomResource {
             if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleName'");
             }
+            inputs["action"] = args ? args.action : undefined;
             inputs["actions"] = args ? args.actions : undefined;
             inputs["condition"] = args ? args.condition : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["action"] = undefined /*out*/;
             inputs["actions"] = undefined /*out*/;
             inputs["condition"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -119,6 +130,7 @@ export class AlertRule extends pulumi.CustomResource {
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -139,6 +151,10 @@ export class AlertRule extends pulumi.CustomResource {
  * The set of arguments for constructing a AlertRule resource.
  */
 export interface AlertRuleArgs {
+    /**
+     * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    readonly action?: pulumi.Input<inputs.insights.v20140401.RuleEmailAction | inputs.insights.v20140401.RuleWebhookAction>;
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
@@ -163,6 +179,10 @@ export interface AlertRuleArgs {
      * the name of the alert rule.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * the provisioning state.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

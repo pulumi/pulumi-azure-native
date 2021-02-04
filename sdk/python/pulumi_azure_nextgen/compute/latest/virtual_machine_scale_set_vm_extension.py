@@ -36,7 +36,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a VMSS VM Extension.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +94,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
             __props__['vm_scale_set_name'] = vm_scale_set_name
             __props__['name'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVMExtension, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension',

@@ -12,6 +12,15 @@ export const ApplicationSharingPolicy = {
  */
 export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
 
+export const ComputeInstanceAuthorizationType = {
+    Personal: "personal",
+} as const;
+
+/**
+ * The Compute Instance Authorization type. Available values are personal (default).
+ */
+export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizationType)[keyof typeof ComputeInstanceAuthorizationType];
+
 export const ComputeType = {
     AKS: "AKS",
     AmlCompute: "AmlCompute",
@@ -37,6 +46,16 @@ export const EncryptionStatus = {
  * Indicates whether or not the encryption is enabled for the workspace.
  */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+export const OsType = {
+    Linux: "Linux",
+    Windows: "Windows",
+} as const;
+
+/**
+ * Compute OS Type
+ */
+export type OsType = (typeof OsType)[keyof typeof OsType];
 
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
@@ -64,8 +83,8 @@ export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[k
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    UserAssigned: "UserAssigned",
     None: "None",
 } as const;
 

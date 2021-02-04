@@ -36,7 +36,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Virtual Machine run command.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +100,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineRunCommandByVirtualMachine, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine',

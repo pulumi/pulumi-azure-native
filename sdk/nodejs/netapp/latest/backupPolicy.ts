@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup policy information
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-11-01.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201101:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

@@ -56,7 +56,7 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
 
 class ServiceKind(str, Enum):
     """
-    The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+    The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
     """
     SIGNAL_R = "SignalR"
     RAW_WEB_SOCKETS = "RawWebSockets"

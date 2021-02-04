@@ -4,12 +4,14 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .get_labeling_job import *
 from .get_linked_service import *
 from .get_machine_learning_compute import *
 from .get_machine_learning_service import *
 from .get_private_endpoint_connection import *
 from .get_workspace import *
 from .get_workspace_connection import *
+from .labeling_job import *
 from .linked_service import *
 from .list_machine_learning_compute_keys import *
 from .list_machine_learning_compute_nodes import *
@@ -35,7 +37,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:machinelearningservices/v20200901preview:LinkedService":
+            if typ == "azure-nextgen:machinelearningservices/v20200901preview:LabelingJob":
+                return LabelingJob(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:machinelearningservices/v20200901preview:LinkedService":
                 return LinkedService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute":
                 return MachineLearningCompute(name, pulumi.ResourceOptions(urn=urn))

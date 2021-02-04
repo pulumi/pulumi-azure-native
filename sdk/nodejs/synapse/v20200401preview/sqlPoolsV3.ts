@@ -136,7 +136,7 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolsV3" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolsV3" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolsV3.__pulumiType, name, inputs, opts);
     }

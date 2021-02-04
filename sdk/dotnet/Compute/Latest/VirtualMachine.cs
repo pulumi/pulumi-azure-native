@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The extended location of the Virtual Machine.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). &lt;br&gt;&lt;br&gt; Minimum api-version: 2020-06-01
@@ -117,6 +123,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("plan")]
         public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.&lt;br&gt;&lt;li&gt;This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.&lt;li&gt;The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &amp;gt; 1.&lt;li&gt;This property cannot be updated once the Virtual Machine is created.&lt;li&gt;Fault domain assignment can be viewed in the Virtual Machine Instance View.&lt;br&gt;&lt;br&gt;Minimum api‐version: 2020‐12‐01
+        /// </summary>
+        [Output("platformFaultDomain")]
+        public Output<int?> PlatformFaultDomain { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
@@ -221,6 +233,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -273,6 +286,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Input("evictionPolicy")]
         public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// The extended location of the Virtual Machine.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). &lt;br&gt;&lt;br&gt; Minimum api-version: 2020-06-01
@@ -333,6 +352,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.&lt;br&gt;&lt;li&gt;This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.&lt;li&gt;The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &amp;gt; 1.&lt;li&gt;This property cannot be updated once the Virtual Machine is created.&lt;li&gt;Fault domain assignment can be viewed in the Virtual Machine Instance View.&lt;br&gt;&lt;br&gt;Minimum api‐version: 2020‐12‐01
+        /// </summary>
+        [Input("platformFaultDomain")]
+        public Input<int>? PlatformFaultDomain { get; set; }
 
         /// <summary>
         /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01

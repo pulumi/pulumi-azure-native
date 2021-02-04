@@ -274,7 +274,7 @@ class ResourceSkuArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]] = None):
         """
-        The billing information of the SignalR resource.
+        The billing information of the resource.
         :param pulumi.Input[str] name: The name of the SKU. Required.
                
                Allowed values: Standard_S1, Free_F1
@@ -343,7 +343,7 @@ class ServerlessUpstreamSettingsArgs:
     def __init__(__self__, *,
                  templates: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]]] = None):
         """
-        The settings for the Upstream when the Azure SignalR is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         :param pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
@@ -451,7 +451,7 @@ class SignalRNetworkACLsArgs:
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
-        Network ACLs for SignalR
+        Network ACLs for the resource
         :param pulumi.Input[Union[str, 'ACLAction']] default_action: Default action when no other rule matches
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
         :param pulumi.Input['NetworkACLArgs'] public_network: ACL for requests from public network
@@ -507,7 +507,7 @@ class SignalRTlsSettingsArgs:
     def __init__(__self__, *,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        TLS settings for SignalR
+        TLS settings for the resource
         :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled
         """
         if client_cert_enabled is not None:

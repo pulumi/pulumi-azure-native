@@ -31,7 +31,7 @@ class AvailabilitySet(pulumi.CustomResource):
                  __opts__=None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__['name'] = None
             __props__['statuses'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:AvailabilitySet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:AvailabilitySet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AvailabilitySet, __self__).__init__(
             'azure-nextgen:compute/latest:AvailabilitySet',

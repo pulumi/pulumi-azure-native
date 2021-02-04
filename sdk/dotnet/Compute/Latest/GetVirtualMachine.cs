@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly string? EvictionPolicy;
         /// <summary>
+        /// The extended location of the Virtual Machine.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). &lt;br&gt;&lt;br&gt; Minimum api-version: 2020-06-01
         /// </summary>
         public readonly string? ExtensionsTimeBudget;
@@ -117,6 +121,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
+        /// <summary>
+        /// Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.&lt;br&gt;&lt;li&gt;This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.&lt;li&gt;The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &amp;gt; 1.&lt;li&gt;This property cannot be updated once the Virtual Machine is created.&lt;li&gt;Fault domain assignment can be viewed in the Virtual Machine Instance View.&lt;br&gt;&lt;br&gt;Minimum api‐version: 2020‐12‐01
+        /// </summary>
+        public readonly int? PlatformFaultDomain;
         /// <summary>
         /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
         /// </summary>
@@ -174,6 +182,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string? evictionPolicy,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? extensionsTimeBudget,
 
             Outputs.HardwareProfileResponse? hardwareProfile,
@@ -199,6 +209,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             Outputs.OSProfileResponse? osProfile,
 
             Outputs.PlanResponse? plan,
+
+            int? platformFaultDomain,
 
             string? priority,
 
@@ -227,6 +239,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             BillingProfile = billingProfile;
             DiagnosticsProfile = diagnosticsProfile;
             EvictionPolicy = evictionPolicy;
+            ExtendedLocation = extendedLocation;
             ExtensionsTimeBudget = extensionsTimeBudget;
             HardwareProfile = hardwareProfile;
             Host = host;
@@ -240,6 +253,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             NetworkProfile = networkProfile;
             OsProfile = osProfile;
             Plan = plan;
+            PlatformFaultDomain = platformFaultDomain;
             Priority = priority;
             ProvisioningState = provisioningState;
             ProximityPlacementGroup = proximityPlacementGroup;

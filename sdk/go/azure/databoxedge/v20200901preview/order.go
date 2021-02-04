@@ -18,7 +18,7 @@ type Order struct {
 	// The contact details.
 	ContactInformation ContactDetailsResponseOutput `pulumi:"contactInformation"`
 	// Current status of the order.
-	CurrentStatus OrderStatusResponsePtrOutput `pulumi:"currentStatus"`
+	CurrentStatus OrderStatusResponseOutput `pulumi:"currentStatus"`
 	// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
 	DeliveryTrackingInfo TrackingInfoResponseArrayOutput `pulumi:"deliveryTrackingInfo"`
 	// The object name.
@@ -148,8 +148,6 @@ func (OrderState) ElementType() reflect.Type {
 type orderArgs struct {
 	// The contact details.
 	ContactInformation ContactDetails `pulumi:"contactInformation"`
-	// Current status of the order.
-	CurrentStatus *OrderStatus `pulumi:"currentStatus"`
 	// The order details of a device.
 	DeviceName string `pulumi:"deviceName"`
 	// The resource group name.
@@ -164,8 +162,6 @@ type orderArgs struct {
 type OrderArgs struct {
 	// The contact details.
 	ContactInformation ContactDetailsInput
-	// Current status of the order.
-	CurrentStatus OrderStatusPtrInput
 	// The order details of a device.
 	DeviceName pulumi.StringInput
 	// The resource group name.

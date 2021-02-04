@@ -105,6 +105,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:SnapshotPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

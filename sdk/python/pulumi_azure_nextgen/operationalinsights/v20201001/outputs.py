@@ -179,7 +179,7 @@ class IdentityResponse(dict):
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
-        :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param str type: Type of managed service identity.
         :param Mapping[str, 'UserIdentityPropertiesResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -208,7 +208,7 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
