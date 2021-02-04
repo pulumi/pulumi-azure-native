@@ -40,6 +40,10 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
+     * The extended location of the Image.
+     */
+    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationResponse;
+    /**
      * Gets the HyperVGenerationType of the VirtualMachine created from the image
      */
     readonly hyperVGeneration?: string;

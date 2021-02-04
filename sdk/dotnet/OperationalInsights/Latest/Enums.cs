@@ -131,7 +131,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     }
 
     /// <summary>
-    /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+    /// Type of managed service identity.
     /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>

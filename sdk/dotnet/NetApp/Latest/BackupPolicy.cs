@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Backup policy information
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

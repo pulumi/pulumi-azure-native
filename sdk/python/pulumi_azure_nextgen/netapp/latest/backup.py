@@ -27,7 +27,7 @@ class Backup(pulumi.CustomResource):
                  __opts__=None):
         """
         Backup of a Volume
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,11 +78,12 @@ class Backup(pulumi.CustomResource):
             __props__['backup_id'] = None
             __props__['backup_type'] = None
             __props__['creation_date'] = None
+            __props__['failure_reason'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['size'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-nextgen:netapp/latest:Backup',
@@ -131,6 +132,14 @@ class Backup(pulumi.CustomResource):
         The creation date of the backup
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> pulumi.Output[str]:
+        """
+        Failure reason
+        """
+        return pulumi.get(self, "failure_reason")
 
     @property
     @pulumi.getter

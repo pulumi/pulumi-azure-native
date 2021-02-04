@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.ActiveDirectoryResponse> ActiveDirectories;
         /// <summary>
+        /// Encryption settings
+        /// </summary>
+        public readonly Outputs.AccountEncryptionResponse? Encryption;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -60,6 +64,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -72,6 +80,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         private GetAccountResult(
             ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
 
+            Outputs.AccountEncryptionResponse? encryption,
+
             string id,
 
             string location,
@@ -80,15 +90,19 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             ActiveDirectories = activeDirectories;
+            Encryption = encryption;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

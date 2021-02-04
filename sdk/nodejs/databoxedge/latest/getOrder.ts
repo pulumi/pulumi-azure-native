@@ -41,7 +41,7 @@ export interface GetOrderResult {
     /**
      * Current status of the order.
      */
-    readonly currentStatus?: outputs.databoxedge.latest.OrderStatusResponse;
+    readonly currentStatus: outputs.databoxedge.latest.OrderStatusResponse;
     /**
      * Tracking information for the package delivered to the customer whether it has an original or a replacement device.
      */

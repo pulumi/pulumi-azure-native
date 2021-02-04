@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the proximity placement group.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190301:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20200601:ProximityPlacementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190301:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20201201:ProximityPlacementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProximityPlacementGroup.__pulumiType, name, inputs, opts);
     }

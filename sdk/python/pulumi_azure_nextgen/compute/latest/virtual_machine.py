@@ -23,6 +23,7 @@ class VirtualMachine(pulumi.CustomResource):
                  billing_profile: Optional[pulumi.Input[pulumi.InputType['BillingProfileArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
                  host: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -33,6 +34,7 @@ class VirtualMachine(pulumi.CustomResource):
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
+                 platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +49,7 @@ class VirtualMachine(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Virtual Machine.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -56,6 +58,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BillingProfileArgs']] billing_profile: Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
         :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Virtual Machine.
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Specifies the hardware settings for the virtual machine.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] host: Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
@@ -66,6 +69,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[pulumi.InputType['OSProfileArgs']] os_profile: Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+        :param pulumi.Input[int] platform_fault_domain: Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -98,6 +102,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['billing_profile'] = billing_profile
             __props__['diagnostics_profile'] = diagnostics_profile
             __props__['eviction_policy'] = eviction_policy
+            __props__['extended_location'] = extended_location
             __props__['extensions_time_budget'] = extensions_time_budget
             __props__['hardware_profile'] = hardware_profile
             __props__['host'] = host
@@ -110,6 +115,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['network_profile'] = network_profile
             __props__['os_profile'] = os_profile
             __props__['plan'] = plan
+            __props__['platform_fault_domain'] = platform_fault_domain
             __props__['priority'] = priority
             __props__['proximity_placement_group'] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
@@ -129,7 +135,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['resources'] = None
             __props__['type'] = None
             __props__['vm_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachine',
@@ -194,6 +200,14 @@ class VirtualMachine(pulumi.CustomResource):
         Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the Virtual Machine.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="extensionsTimeBudget")
@@ -290,6 +304,14 @@ class VirtualMachine(pulumi.CustomResource):
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
         return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="platformFaultDomain")
+    def platform_fault_domain(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
+        """
+        return pulumi.get(self, "platform_fault_domain")
 
     @property
     @pulumi.getter

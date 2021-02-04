@@ -9090,6 +9090,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                  target_azure_vm_name: Optional[pulumi.Input[str]] = None,
                  target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  target_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_vm_size: Optional[pulumi.Input[str]] = None,
                  use_managed_disks: Optional[pulumi.Input[str]] = None,
                  vhd_id: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None):
@@ -9111,6 +9112,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         :param pulumi.Input[str] target_azure_vm_name: The target azure Vm Name.
         :param pulumi.Input[str] target_proximity_placement_group_id: The proximity placement group ARM Id.
         :param pulumi.Input[str] target_storage_account_id: The storage account name.
+        :param pulumi.Input[str] target_vm_size: The target VM size.
         :param pulumi.Input[str] use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param pulumi.Input[str] vhd_id: The OS disk VHD id associated with vm.
         :param pulumi.Input[str] vm_name: The Vm Name.
@@ -9145,6 +9147,8 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_storage_account_id is not None:
             pulumi.set(__self__, "target_storage_account_id", target_storage_account_id)
+        if target_vm_size is not None:
+            pulumi.set(__self__, "target_vm_size", target_vm_size)
         if use_managed_disks is not None:
             pulumi.set(__self__, "use_managed_disks", use_managed_disks)
         if vhd_id is not None:
@@ -9332,6 +9336,18 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     @target_storage_account_id.setter
     def target_storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="targetVmSize")
+    def target_vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target VM size.
+        """
+        return pulumi.get(self, "target_vm_size")
+
+    @target_vm_size.setter
+    def target_vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_vm_size", value)
 
     @property
     @pulumi.getter(name="useManagedDisks")
@@ -10223,7 +10239,8 @@ class InMageAzureV2EnableProtectionInputArgs:
                  target_azure_v1_resource_group_id: Optional[pulumi.Input[str]] = None,
                  target_azure_v2_resource_group_id: Optional[pulumi.Input[str]] = None,
                  target_azure_vm_name: Optional[pulumi.Input[str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None):
+                 target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 target_vm_size: Optional[pulumi.Input[str]] = None):
         """
         VMware Azure specific enable protection input.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM ID.
@@ -10247,6 +10264,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         :param pulumi.Input[str] target_azure_v2_resource_group_id: The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
         :param pulumi.Input[str] target_azure_vm_name: The target azure Vm Name.
         :param pulumi.Input[str] target_proximity_placement_group_id: The proximity placement group ARM Id.
+        :param pulumi.Input[str] target_vm_size: The target VM size.
         """
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -10288,6 +10306,8 @@ class InMageAzureV2EnableProtectionInputArgs:
             pulumi.set(__self__, "target_azure_vm_name", target_azure_vm_name)
         if target_proximity_placement_group_id is not None:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+        if target_vm_size is not None:
+            pulumi.set(__self__, "target_vm_size", target_vm_size)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -10529,6 +10549,18 @@ class InMageAzureV2EnableProtectionInputArgs:
     @target_proximity_placement_group_id.setter
     def target_proximity_placement_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_proximity_placement_group_id", value)
+
+    @property
+    @pulumi.getter(name="targetVmSize")
+    def target_vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target VM size.
+        """
+        return pulumi.get(self, "target_vm_size")
+
+    @target_vm_size.setter
+    def target_vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_vm_size", value)
 
 
 @pulumi.input_type

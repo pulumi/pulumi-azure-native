@@ -56,6 +56,10 @@ export interface GetBookmarkResult {
      */
     readonly etag?: string;
     /**
+     * The bookmark event time
+     */
+    readonly eventTime?: string;
+    /**
      * Azure resource Id
      */
     readonly id: string;
@@ -80,9 +84,17 @@ export interface GetBookmarkResult {
      */
     readonly query: string;
     /**
+     * The end time for the query
+     */
+    readonly queryEndTime?: string;
+    /**
      * The query result of the bookmark.
      */
     readonly queryResult?: string;
+    /**
+     * The start time for the query
+     */
+    readonly queryStartTime?: string;
     /**
      * Azure resource type
      */

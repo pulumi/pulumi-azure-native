@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
 {
     /// <summary>
-    /// A class represent a SignalR service resource.
+    /// A class represent a resource.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:signalrservice/v20200701preview:SignalR")]
     public partial class SignalR : Pulumi.CustomResource
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Output<Outputs.SignalRCorsSettingsResponse?> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// The publicly accessible IP of the SignalR service.
+        /// The publicly accessible IP of the resource.
         /// </summary>
         [Output("externalIP")]
         public Output<string> ExternalIP { get; private set; } = null!;
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Output<ImmutableArray<Outputs.SignalRFeatureResponse>> Features { get; private set; } = null!;
 
         /// <summary>
-        /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        /// FQDN of the service instance.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
@@ -51,13 +51,13 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        /// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Output<Outputs.SignalRNetworkACLsResponse?> NetworkACLs { get; private set; } = null!;
 
         /// <summary>
-        /// Private endpoint connections to the SignalR resource.
+        /// Private endpoint connections to the resource.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
@@ -87,13 +87,13 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        /// The publicly accessible port of the resource which is designed for browser/client side usage.
         /// </summary>
         [Output("publicPort")]
         public Output<int> PublicPort { get; private set; } = null!;
 
         /// <summary>
-        /// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        /// The publicly accessible port of the resource which is designed for customer server side usage.
         /// </summary>
         [Output("serverPort")]
         public Output<int> ServerPort { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Output<Outputs.ServerlessUpstreamSettingsResponse?> Upstream { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        /// Version of the resource. Probably you need the same or higher version of client SDKs.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -216,13 +216,13 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        /// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         [Input("kind")]
         public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.ServiceKind>? Kind { get; set; }
 
         /// <summary>
-        /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

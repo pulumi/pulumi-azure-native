@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Capacity pool resource
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-11-01.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Pool" }, { type: "azure-nextgen:netapp/v20190501:Pool" }, { type: "azure-nextgen:netapp/v20190601:Pool" }, { type: "azure-nextgen:netapp/v20190701:Pool" }, { type: "azure-nextgen:netapp/v20190801:Pool" }, { type: "azure-nextgen:netapp/v20191001:Pool" }, { type: "azure-nextgen:netapp/v20191101:Pool" }, { type: "azure-nextgen:netapp/v20200201:Pool" }, { type: "azure-nextgen:netapp/v20200301:Pool" }, { type: "azure-nextgen:netapp/v20200501:Pool" }, { type: "azure-nextgen:netapp/v20200601:Pool" }, { type: "azure-nextgen:netapp/v20200701:Pool" }, { type: "azure-nextgen:netapp/v20200801:Pool" }, { type: "azure-nextgen:netapp/v20200901:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Pool" }, { type: "azure-nextgen:netapp/v20190501:Pool" }, { type: "azure-nextgen:netapp/v20190601:Pool" }, { type: "azure-nextgen:netapp/v20190701:Pool" }, { type: "azure-nextgen:netapp/v20190801:Pool" }, { type: "azure-nextgen:netapp/v20191001:Pool" }, { type: "azure-nextgen:netapp/v20191101:Pool" }, { type: "azure-nextgen:netapp/v20200201:Pool" }, { type: "azure-nextgen:netapp/v20200301:Pool" }, { type: "azure-nextgen:netapp/v20200501:Pool" }, { type: "azure-nextgen:netapp/v20200601:Pool" }, { type: "azure-nextgen:netapp/v20200701:Pool" }, { type: "azure-nextgen:netapp/v20200801:Pool" }, { type: "azure-nextgen:netapp/v20200901:Pool" }, { type: "azure-nextgen:netapp/v20201101:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }

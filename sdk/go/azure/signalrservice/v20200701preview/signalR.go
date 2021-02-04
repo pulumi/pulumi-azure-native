@@ -11,13 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A class represent a SignalR service resource.
+// A class represent a resource.
 type SignalR struct {
 	pulumi.CustomResourceState
 
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors SignalRCorsSettingsResponsePtrOutput `pulumi:"cors"`
-	// The publicly accessible IP of the SignalR service.
+	// The publicly accessible IP of the resource.
 	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
 	// List of SignalR featureFlags. e.g. ServiceMode.
 	//
@@ -26,25 +26,25 @@ type SignalR struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features SignalRFeatureResponseArrayOutput `pulumi:"features"`
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	// FQDN of the service instance.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The managed identity response
 	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network ACLs
 	NetworkACLs SignalRNetworkACLsResponsePtrOutput `pulumi:"networkACLs"`
-	// Private endpoint connections to the SignalR resource.
+	// Private endpoint connections to the resource.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	// The publicly accessible port of the resource which is designed for browser/client side usage.
 	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	// The publicly accessible port of the resource which is designed for customer server side usage.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
@@ -56,7 +56,7 @@ type SignalR struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Upstream settings when the Azure SignalR is in server-less mode.
 	Upstream ServerlessUpstreamSettingsResponsePtrOutput `pulumi:"upstream"`
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	// Version of the resource. Probably you need the same or higher version of client SDKs.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -112,7 +112,7 @@ func GetSignalR(ctx *pulumi.Context,
 type signalRState struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
-	// The publicly accessible IP of the SignalR service.
+	// The publicly accessible IP of the resource.
 	ExternalIP *string `pulumi:"externalIP"`
 	// List of SignalR featureFlags. e.g. ServiceMode.
 	//
@@ -121,25 +121,25 @@ type signalRState struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features []SignalRFeatureResponse `pulumi:"features"`
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	// FQDN of the service instance.
 	HostName *string `pulumi:"hostName"`
 	// The managed identity response
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// Network ACLs
 	NetworkACLs *SignalRNetworkACLsResponse `pulumi:"networkACLs"`
-	// Private endpoint connections to the SignalR resource.
+	// Private endpoint connections to the resource.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	// The publicly accessible port of the resource which is designed for browser/client side usage.
 	PublicPort *int `pulumi:"publicPort"`
-	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	// The publicly accessible port of the resource which is designed for customer server side usage.
 	ServerPort *int `pulumi:"serverPort"`
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku *ResourceSkuResponse `pulumi:"sku"`
@@ -151,14 +151,14 @@ type signalRState struct {
 	Type *string `pulumi:"type"`
 	// Upstream settings when the Azure SignalR is in server-less mode.
 	Upstream *ServerlessUpstreamSettingsResponse `pulumi:"upstream"`
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	// Version of the resource. Probably you need the same or higher version of client SDKs.
 	Version *string `pulumi:"version"`
 }
 
 type SignalRState struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors SignalRCorsSettingsResponsePtrInput
-	// The publicly accessible IP of the SignalR service.
+	// The publicly accessible IP of the resource.
 	ExternalIP pulumi.StringPtrInput
 	// List of SignalR featureFlags. e.g. ServiceMode.
 	//
@@ -167,25 +167,25 @@ type SignalRState struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features SignalRFeatureResponseArrayInput
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	// FQDN of the service instance.
 	HostName pulumi.StringPtrInput
 	// The managed identity response
 	Identity ManagedIdentityResponsePtrInput
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrInput
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// Network ACLs
 	NetworkACLs SignalRNetworkACLsResponsePtrInput
-	// Private endpoint connections to the SignalR resource.
+	// Private endpoint connections to the resource.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
-	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	// The publicly accessible port of the resource which is designed for browser/client side usage.
 	PublicPort pulumi.IntPtrInput
-	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	// The publicly accessible port of the resource which is designed for customer server side usage.
 	ServerPort pulumi.IntPtrInput
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku ResourceSkuResponsePtrInput
@@ -197,7 +197,7 @@ type SignalRState struct {
 	Type pulumi.StringPtrInput
 	// Upstream settings when the Azure SignalR is in server-less mode.
 	Upstream ServerlessUpstreamSettingsResponsePtrInput
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	// Version of the resource. Probably you need the same or higher version of client SDKs.
 	Version pulumi.StringPtrInput
 }
 
@@ -217,9 +217,9 @@ type signalRArgs struct {
 	Features []SignalRFeature `pulumi:"features"`
 	// The managed identity response
 	Identity *ManagedIdentity `pulumi:"identity"`
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
 	// Network ACLs
 	NetworkACLs *SignalRNetworkACLs `pulumi:"networkACLs"`
@@ -250,9 +250,9 @@ type SignalRArgs struct {
 	Features SignalRFeatureArrayInput
 	// The managed identity response
 	Identity ManagedIdentityPtrInput
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+	// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrInput
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrInput
 	// Network ACLs
 	NetworkACLs SignalRNetworkACLsPtrInput

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
 {
 
     /// <summary>
-    /// Network ACLs for SignalR
+    /// Network ACLs for the resource
     /// </summary>
     public sealed class SignalRNetworkACLsArgs : Pulumi.ResourceArgs
     {

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:IntegrationRuntime"},
                 },
             };

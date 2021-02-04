@@ -12,18 +12,22 @@ import (
 )
 
 // NetApp account resource
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-11-01.
 type Account struct {
 	pulumi.CustomResourceState
 
 	// Active Directories
 	ActiveDirectories ActiveDirectoryResponseArrayOutput `pulumi:"activeDirectories"`
+	// Encryption settings
+	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -89,6 +93,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Account"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201101:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account
@@ -115,12 +122,16 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// Active Directories
 	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
+	// Encryption settings
+	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -130,12 +141,16 @@ type accountState struct {
 type AccountState struct {
 	// Active Directories
 	ActiveDirectories ActiveDirectoryResponseArrayInput
+	// Encryption settings
+	Encryption AccountEncryptionResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -151,6 +166,8 @@ type accountArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Active Directories
 	ActiveDirectories []ActiveDirectory `pulumi:"activeDirectories"`
+	// Encryption settings
+	Encryption *AccountEncryption `pulumi:"encryption"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the resource group.
@@ -165,6 +182,8 @@ type AccountArgs struct {
 	AccountName pulumi.StringInput
 	// Active Directories
 	ActiveDirectories ActiveDirectoryArrayInput
+	// Encryption settings
+	Encryption AccountEncryptionPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the resource group.

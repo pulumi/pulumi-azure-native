@@ -819,7 +819,7 @@ class DataBoxDiskJobDetailsResponse(dict):
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
                  data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
-                 expected_data_size_in_terabytes: Optional[int] = None,
+                 expected_data_size_in_tera_bytes: Optional[int] = None,
                  key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
                  passkey: Optional[str] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None,
@@ -840,7 +840,7 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponseArgs'] data_export_details: Details of the data to be exported from azure.
         :param Sequence['DataImportDetailsResponseArgs'] data_import_details: Details of the data to be imported into azure.
-        :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param str passkey: User entered passkey for DataBox Disk job.
         :param 'PreferencesResponseArgs' preferences: Preferences for the order.
@@ -861,8 +861,8 @@ class DataBoxDiskJobDetailsResponse(dict):
             pulumi.set(__self__, "data_export_details", data_export_details)
         if data_import_details is not None:
             pulumi.set(__self__, "data_import_details", data_import_details)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if passkey is not None:
@@ -972,12 +972,12 @@ class DataBoxDiskJobDetailsResponse(dict):
         return pulumi.get(self, "data_import_details")
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[int]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[int]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -1180,7 +1180,7 @@ class DataBoxHeavyJobDetailsResponse(dict):
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
                  data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
                  device_password: Optional[str] = None,
-                 expected_data_size_in_terabytes: Optional[int] = None,
+                 expected_data_size_in_tera_bytes: Optional[int] = None,
                  key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None,
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
@@ -1199,7 +1199,7 @@ class DataBoxHeavyJobDetailsResponse(dict):
         :param Sequence['DataExportDetailsResponseArgs'] data_export_details: Details of the data to be exported from azure.
         :param Sequence['DataImportDetailsResponseArgs'] data_import_details: Details of the data to be imported into azure.
         :param str device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PreferencesResponseArgs' preferences: Preferences for the order.
         :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
@@ -1219,8 +1219,8 @@ class DataBoxHeavyJobDetailsResponse(dict):
             pulumi.set(__self__, "data_import_details", data_import_details)
         if device_password is not None:
             pulumi.set(__self__, "device_password", device_password)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
@@ -1326,12 +1326,12 @@ class DataBoxHeavyJobDetailsResponse(dict):
         return pulumi.get(self, "device_password")
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[int]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[int]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -1502,7 +1502,7 @@ class DataBoxJobDetailsResponse(dict):
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
                  data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
                  device_password: Optional[str] = None,
-                 expected_data_size_in_terabytes: Optional[int] = None,
+                 expected_data_size_in_tera_bytes: Optional[int] = None,
                  key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None,
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
@@ -1521,7 +1521,7 @@ class DataBoxJobDetailsResponse(dict):
         :param Sequence['DataExportDetailsResponseArgs'] data_export_details: Details of the data to be exported from azure.
         :param Sequence['DataImportDetailsResponseArgs'] data_import_details: Details of the data to be imported into azure.
         :param str device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        :param int expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param 'KeyEncryptionKeyResponseArgs' key_encryption_key: Details about which key encryption type is being used.
         :param 'PreferencesResponseArgs' preferences: Preferences for the order.
         :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
@@ -1541,8 +1541,8 @@ class DataBoxJobDetailsResponse(dict):
             pulumi.set(__self__, "data_import_details", data_import_details)
         if device_password is not None:
             pulumi.set(__self__, "device_password", device_password)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
@@ -1648,12 +1648,12 @@ class DataBoxJobDetailsResponse(dict):
         return pulumi.get(self, "device_password")
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[int]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[int]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -1899,7 +1899,7 @@ class DcAccessSecurityCodeResponseResult(dict):
             pulumi.set(__self__, "reverse_dc_access_code", reverse_dc_access_code)
 
     @property
-    @pulumi.getter(name="forwardDcAccessCode")
+    @pulumi.getter(name="forwardDCAccessCode")
     def forward_dc_access_code(self) -> Optional[str]:
         """
         Forward Dc access security code.
@@ -1907,7 +1907,7 @@ class DcAccessSecurityCodeResponseResult(dict):
         return pulumi.get(self, "forward_dc_access_code")
 
     @property
-    @pulumi.getter(name="reverseDcAccessCode")
+    @pulumi.getter(name="reverseDCAccessCode")
     def reverse_dc_access_code(self) -> Optional[str]:
         """
         Reverse Dc access security code.

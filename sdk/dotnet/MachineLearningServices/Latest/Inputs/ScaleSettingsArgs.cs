@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         public Input<int>? MinNodeCount { get; set; }
 
         /// <summary>
-        /// Node Idle Time before scaling down amlCompute
+        /// Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         /// </summary>
         [Input("nodeIdleTimeBeforeScaleDown")]
         public Input<string>? NodeIdleTimeBeforeScaleDown { get; set; }

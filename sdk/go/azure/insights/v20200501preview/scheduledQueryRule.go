@@ -16,6 +16,8 @@ type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 
 	Actions ActionResponseArrayOutput `pulumi:"actions"`
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion pulumi.StringOutput `pulumi:"createdWithApiVersion"`
 	// The rule criteria that defines the conditions of the scheduled query rule.
 	Criteria ScheduledQueryRuleCriteriaResponseOutput `pulumi:"criteria"`
 	// The description of the scheduled query rule.
@@ -28,6 +30,8 @@ type ScheduledQueryRule struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule pulumi.BoolOutput `pulumi:"isLegacyLogAnalyticsRule"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
@@ -118,6 +122,8 @@ func GetScheduledQueryRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ScheduledQueryRule resources.
 type scheduledQueryRuleState struct {
 	Actions []ActionResponse `pulumi:"actions"`
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion *string `pulumi:"createdWithApiVersion"`
 	// The rule criteria that defines the conditions of the scheduled query rule.
 	Criteria *ScheduledQueryRuleCriteriaResponse `pulumi:"criteria"`
 	// The description of the scheduled query rule.
@@ -130,6 +136,8 @@ type scheduledQueryRuleState struct {
 	Etag *string `pulumi:"etag"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule *bool `pulumi:"isLegacyLogAnalyticsRule"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
@@ -156,6 +164,8 @@ type scheduledQueryRuleState struct {
 
 type ScheduledQueryRuleState struct {
 	Actions ActionResponseArrayInput
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion pulumi.StringPtrInput
 	// The rule criteria that defines the conditions of the scheduled query rule.
 	Criteria ScheduledQueryRuleCriteriaResponsePtrInput
 	// The description of the scheduled query rule.
@@ -168,6 +178,8 @@ type ScheduledQueryRuleState struct {
 	Etag pulumi.StringPtrInput
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringPtrInput
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule pulumi.BoolPtrInput
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives

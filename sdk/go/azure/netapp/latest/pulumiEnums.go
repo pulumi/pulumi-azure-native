@@ -38,6 +38,34 @@ func (e EndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+type KeySource pulumi.String
+
+const (
+	// The service manages the keys.
+	KeySource_Microsoft_NetApp = KeySource("Microsoft.NetApp")
+)
+
+func (KeySource) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KeySource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeySource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeySource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeySource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The qos type of the pool
 type QosType pulumi.String
 
@@ -97,7 +125,7 @@ func (e ReplicationSchedule) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The security style of volume
+// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 type SecurityStyle pulumi.String
 
 const (

@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly Outputs.SignalRCorsSettingsResponse? Cors;
         /// <summary>
-        /// The publicly accessible IP of the SignalR service.
+        /// The publicly accessible IP of the resource.
         /// </summary>
         public readonly string ExternalIP;
         /// <summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.SignalRFeatureResponse> Features;
         /// <summary>
-        /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        /// FQDN of the service instance.
         /// </summary>
         public readonly string HostName;
         /// <summary>
@@ -69,11 +69,11 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
-        /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        /// The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly Outputs.SignalRNetworkACLsResponse? NetworkACLs;
         /// <summary>
-        /// Private endpoint connections to the SignalR resource.
+        /// Private endpoint connections to the resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
@@ -93,11 +93,11 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        /// The publicly accessible port of the resource which is designed for browser/client side usage.
         /// </summary>
         public readonly int PublicPort;
         /// <summary>
-        /// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        /// The publicly accessible port of the resource which is designed for customer server side usage.
         /// </summary>
         public readonly int ServerPort;
         /// <summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly Outputs.ServerlessUpstreamSettingsResponse? Upstream;
         /// <summary>
-        /// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        /// Version of the resource. Probably you need the same or higher version of client SDKs.
         /// </summary>
         public readonly string Version;
 

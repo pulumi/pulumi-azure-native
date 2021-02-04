@@ -124,6 +124,7 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

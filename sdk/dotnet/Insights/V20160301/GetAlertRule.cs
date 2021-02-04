@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
     public sealed class GetAlertRuleResult
     {
         /// <summary>
+        /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        /// </summary>
+        public readonly Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>? Action;
+        /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> Actions;
@@ -72,6 +76,10 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// the provisioning state.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -82,6 +90,8 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
 
         [OutputConstructor]
         private GetAlertRuleResult(
+            Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>? action,
+
             ImmutableArray<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>> actions,
 
             object condition,
@@ -98,10 +108,13 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
 
             string name,
 
+            string? provisioningState,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Action = action;
             Actions = actions;
             Condition = condition;
             Description = description;
@@ -110,6 +123,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

@@ -10,6 +10,274 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Encryption settings
+type AccountEncryption struct {
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+	KeySource *string `pulumi:"keySource"`
+}
+
+// AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
+// You can construct a concrete instance of `AccountEncryptionInput` via:
+//
+//          AccountEncryptionArgs{...}
+type AccountEncryptionInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionOutput() AccountEncryptionOutput
+	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
+}
+
+// Encryption settings
+type AccountEncryptionArgs struct {
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+}
+
+func (AccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return i.ToAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput).ToAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionPtrInput` via:
+//
+//          AccountEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput
+	ToAccountEncryptionPtrOutputWithContext(context.Context) AccountEncryptionPtrOutput
+}
+
+type accountEncryptionPtrType AccountEncryptionArgs
+
+func AccountEncryptionPtr(v *AccountEncryptionArgs) AccountEncryptionPtrInput {
+	return (*accountEncryptionPtrType)(v)
+}
+
+func (*accountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
+}
+
+// Encryption settings
+type AccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *AccountEncryption {
+		return &v
+	}).(AccountEncryptionPtrOutput)
+}
+
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+func (o AccountEncryptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption { return *v }).(AccountEncryptionOutput)
+}
+
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+func (o AccountEncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption settings
+type AccountEncryptionResponse struct {
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+	KeySource *string `pulumi:"keySource"`
+}
+
+// AccountEncryptionResponseInput is an input type that accepts AccountEncryptionResponseArgs and AccountEncryptionResponseOutput values.
+// You can construct a concrete instance of `AccountEncryptionResponseInput` via:
+//
+//          AccountEncryptionResponseArgs{...}
+type AccountEncryptionResponseInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionResponseOutput() AccountEncryptionResponseOutput
+	ToAccountEncryptionResponseOutputWithContext(context.Context) AccountEncryptionResponseOutput
+}
+
+// Encryption settings
+type AccountEncryptionResponseArgs struct {
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+}
+
+func (AccountEncryptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (i AccountEncryptionResponseArgs) ToAccountEncryptionResponseOutput() AccountEncryptionResponseOutput {
+	return i.ToAccountEncryptionResponseOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionResponseArgs) ToAccountEncryptionResponseOutputWithContext(ctx context.Context) AccountEncryptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionResponseOutput)
+}
+
+func (i AccountEncryptionResponseArgs) ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput {
+	return i.ToAccountEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionResponseArgs) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionResponseOutput).ToAccountEncryptionResponsePtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionResponsePtrInput is an input type that accepts AccountEncryptionResponseArgs, AccountEncryptionResponsePtr and AccountEncryptionResponsePtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionResponsePtrInput` via:
+//
+//          AccountEncryptionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountEncryptionResponsePtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput
+	ToAccountEncryptionResponsePtrOutputWithContext(context.Context) AccountEncryptionResponsePtrOutput
+}
+
+type accountEncryptionResponsePtrType AccountEncryptionResponseArgs
+
+func AccountEncryptionResponsePtr(v *AccountEncryptionResponseArgs) AccountEncryptionResponsePtrInput {
+	return (*accountEncryptionResponsePtrType)(v)
+}
+
+func (*accountEncryptionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (i *accountEncryptionResponsePtrType) ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput {
+	return i.ToAccountEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionResponsePtrType) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionResponsePtrOutput)
+}
+
+// Encryption settings
+type AccountEncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponseOutput() AccountEncryptionResponseOutput {
+	return o
+}
+
+func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponseOutputWithContext(ctx context.Context) AccountEncryptionResponseOutput {
+	return o
+}
+
+func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput {
+	return o.ToAccountEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) *AccountEncryptionResponse {
+		return &v
+	}).(AccountEncryptionResponsePtrOutput)
+}
+
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+func (o AccountEncryptionResponseOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse { return *v }).(AccountEncryptionResponseOutput)
+}
+
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+func (o AccountEncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
 // Active Directory
 type ActiveDirectory struct {
 	// Id of the Active Directory
@@ -26,6 +294,8 @@ type ActiveDirectory struct {
 	Domain *string `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP *string `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+	LdapOverTLS *bool `pulumi:"ldapOverTLS"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning *bool `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -71,6 +341,8 @@ type ActiveDirectoryArgs struct {
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+	LdapOverTLS pulumi.BoolPtrInput `pulumi:"ldapOverTLS"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -176,6 +448,11 @@ func (o ActiveDirectoryOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+func (o ActiveDirectoryOutput) LdapOverTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectory) *bool { return v.LdapOverTLS }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies whether or not the LDAP traffic needs to be signed.
 func (o ActiveDirectoryOutput) LdapSigning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *bool { return v.LdapSigning }).(pulumi.BoolPtrOutput)
@@ -252,6 +529,8 @@ type ActiveDirectoryResponse struct {
 	Domain *string `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP *string `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+	LdapOverTLS *bool `pulumi:"ldapOverTLS"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning *bool `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -301,6 +580,8 @@ type ActiveDirectoryResponseArgs struct {
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 	KdcIP pulumi.StringPtrInput `pulumi:"kdcIP"`
+	// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+	LdapOverTLS pulumi.BoolPtrInput `pulumi:"ldapOverTLS"`
 	// Specifies whether or not the LDAP traffic needs to be signed.
 	LdapSigning pulumi.BoolPtrInput `pulumi:"ldapSigning"`
 	// The Organizational Unit (OU) within the Windows Active Directory
@@ -408,6 +689,11 @@ func (o ActiveDirectoryResponseOutput) Domain() pulumi.StringPtrOutput {
 // kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
 func (o ActiveDirectoryResponseOutput) KdcIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.KdcIP }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be secured via TLS.
+func (o ActiveDirectoryResponseOutput) LdapOverTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.LdapOverTLS }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether or not the LDAP traffic needs to be signed.
@@ -2061,115 +2347,6 @@ func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 }
 
 // Mount target properties
-type MountTargetProperties struct {
-	// UUID v4 used to identify the MountTarget
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
-	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
-}
-
-// MountTargetPropertiesInput is an input type that accepts MountTargetPropertiesArgs and MountTargetPropertiesOutput values.
-// You can construct a concrete instance of `MountTargetPropertiesInput` via:
-//
-//          MountTargetPropertiesArgs{...}
-type MountTargetPropertiesInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesOutput() MountTargetPropertiesOutput
-	ToMountTargetPropertiesOutputWithContext(context.Context) MountTargetPropertiesOutput
-}
-
-// Mount target properties
-type MountTargetPropertiesArgs struct {
-	// UUID v4 used to identify the MountTarget
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
-	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
-}
-
-func (MountTargetPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTargetProperties)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesArgs) ToMountTargetPropertiesOutput() MountTargetPropertiesOutput {
-	return i.ToMountTargetPropertiesOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesArgs) ToMountTargetPropertiesOutputWithContext(ctx context.Context) MountTargetPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesOutput)
-}
-
-// MountTargetPropertiesArrayInput is an input type that accepts MountTargetPropertiesArray and MountTargetPropertiesArrayOutput values.
-// You can construct a concrete instance of `MountTargetPropertiesArrayInput` via:
-//
-//          MountTargetPropertiesArray{ MountTargetPropertiesArgs{...} }
-type MountTargetPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesArrayOutput() MountTargetPropertiesArrayOutput
-	ToMountTargetPropertiesArrayOutputWithContext(context.Context) MountTargetPropertiesArrayOutput
-}
-
-type MountTargetPropertiesArray []MountTargetPropertiesInput
-
-func (MountTargetPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetProperties)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesArray) ToMountTargetPropertiesArrayOutput() MountTargetPropertiesArrayOutput {
-	return i.ToMountTargetPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesArray) ToMountTargetPropertiesArrayOutputWithContext(ctx context.Context) MountTargetPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesArrayOutput)
-}
-
-// Mount target properties
-type MountTargetPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MountTargetPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountTargetProperties)(nil)).Elem()
-}
-
-func (o MountTargetPropertiesOutput) ToMountTargetPropertiesOutput() MountTargetPropertiesOutput {
-	return o
-}
-
-func (o MountTargetPropertiesOutput) ToMountTargetPropertiesOutputWithContext(ctx context.Context) MountTargetPropertiesOutput {
-	return o
-}
-
-// UUID v4 used to identify the MountTarget
-func (o MountTargetPropertiesOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v MountTargetProperties) string { return v.FileSystemId }).(pulumi.StringOutput)
-}
-
-// The SMB server's Fully Qualified Domain Name, FQDN
-func (o MountTargetPropertiesOutput) SmbServerFqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MountTargetProperties) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
-}
-
-type MountTargetPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (MountTargetPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetProperties)(nil)).Elem()
-}
-
-func (o MountTargetPropertiesArrayOutput) ToMountTargetPropertiesArrayOutput() MountTargetPropertiesArrayOutput {
-	return o
-}
-
-func (o MountTargetPropertiesArrayOutput) ToMountTargetPropertiesArrayOutputWithContext(ctx context.Context) MountTargetPropertiesArrayOutput {
-	return o
-}
-
-func (o MountTargetPropertiesArrayOutput) Index(i pulumi.IntInput) MountTargetPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountTargetProperties {
-		return vs[0].([]MountTargetProperties)[vs[1].(int)]
-	}).(MountTargetPropertiesOutput)
-}
-
-// Mount target properties
 type MountTargetPropertiesResponse struct {
 	// UUID v4 used to identify the MountTarget
 	FileSystemId string `pulumi:"fileSystemId"`
@@ -2713,6 +2890,235 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 			return nil
 		}
 		return &v.ReplicationSchedule
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4635,6 +5041,10 @@ func (o WeeklyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccountEncryptionOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseOutput{})
@@ -4655,14 +5065,14 @@ func init() {
 	pulumi.RegisterOutputType(MonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleResponseOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleResponsePtrOutput{})
-	pulumi.RegisterOutputType(MountTargetPropertiesOutput{})
-	pulumi.RegisterOutputType(MountTargetPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesResponseOutput{})

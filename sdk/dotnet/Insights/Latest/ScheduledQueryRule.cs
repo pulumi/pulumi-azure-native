@@ -23,6 +23,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse>> Action { get; private set; } = null!;
 
         /// <summary>
+        /// The api-version used when creating this alert rule
+        /// </summary>
+        [Output("createdWithApiVersion")]
+        public Output<string> CreatedWithApiVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         [Output("description")]
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// True if alert rule is legacy Log Analytic rule
+        /// </summary>
+        [Output("isLegacyLogAnalyticsRule")]
+        public Output<bool> IsLegacyLogAnalyticsRule { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.

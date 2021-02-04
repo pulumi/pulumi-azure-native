@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// <summary>
         /// Agent virtual machine size
         /// </summary>
-        public readonly string? AgentVMSize;
+        public readonly string? AgentVmSize;
         /// <summary>
         /// AKS networking configuration for vnet
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         private AKSResponseProperties(
             int? agentCount,
 
-            string? agentVMSize,
+            string? agentVmSize,
 
             Outputs.AksNetworkingConfigurationResponse? aksNetworkingConfiguration,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             ImmutableArray<Outputs.SystemServiceResponse> systemServices)
         {
             AgentCount = agentCount;
-            AgentVMSize = agentVMSize;
+            AgentVmSize = agentVmSize;
             AksNetworkingConfiguration = aksNetworkingConfiguration;
             ClusterFqdn = clusterFqdn;
             SslConfiguration = sslConfiguration;

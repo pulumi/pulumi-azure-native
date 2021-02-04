@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineScaleSet")]
     public partial class VirtualMachineScaleSet : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("doNotRunExtensionsOnOverprovisionedVMs")]
         public Output<bool?> DoNotRunExtensionsOnOverprovisionedVMs { get; private set; } = null!;
+
+        /// <summary>
+        /// The extended location of the Virtual Machine Scale Set.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Specifies information about the dedicated host group that the virtual machine scale set resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
@@ -57,6 +63,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the orchestration mode for the virtual machine scale set.
+        /// </summary>
+        [Output("orchestrationMode")]
+        public Output<string?> OrchestrationMode { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
@@ -185,6 +197,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineScaleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -227,6 +240,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Input<bool>? DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 
         /// <summary>
+        /// The extended location of the Virtual Machine Scale Set.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// Specifies information about the dedicated host group that the virtual machine scale set resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
         /// </summary>
         [Input("hostGroup")]
@@ -243,6 +262,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the orchestration mode for the virtual machine scale set.
+        /// </summary>
+        [Input("orchestrationMode")]
+        public Input<Pulumi.AzureNextGen.Compute.Latest.OrchestrationMode>? OrchestrationMode { get; set; }
 
         /// <summary>
         /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.

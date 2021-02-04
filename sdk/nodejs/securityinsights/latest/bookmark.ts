@@ -53,6 +53,10 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * The bookmark event time
+     */
+    public readonly eventTime!: pulumi.Output<string | undefined>;
+    /**
      * Describes an incident that relates to bookmark
      */
     public readonly incidentInfo!: pulumi.Output<outputs.securityinsights.latest.IncidentInfoResponse | undefined>;
@@ -73,9 +77,17 @@ export class Bookmark extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string>;
     /**
+     * The end time for the query
+     */
+    public readonly queryEndTime!: pulumi.Output<string | undefined>;
+    /**
      * The query result of the bookmark.
      */
     public readonly queryResult!: pulumi.Output<string | undefined>;
+    /**
+     * The start time for the query
+     */
+    public readonly queryStartTime!: pulumi.Output<string | undefined>;
     /**
      * Azure resource type
      */
@@ -119,11 +131,14 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["createdBy"] = args ? args.createdBy : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["eventTime"] = args ? args.eventTime : undefined;
             inputs["incidentInfo"] = args ? args.incidentInfo : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["query"] = args ? args.query : undefined;
+            inputs["queryEndTime"] = args ? args.queryEndTime : undefined;
             inputs["queryResult"] = args ? args.queryResult : undefined;
+            inputs["queryStartTime"] = args ? args.queryStartTime : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["updated"] = args ? args.updated : undefined;
             inputs["updatedBy"] = args ? args.updatedBy : undefined;
@@ -135,12 +150,15 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["createdBy"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["eventTime"] = undefined /*out*/;
             inputs["incidentInfo"] = undefined /*out*/;
             inputs["labels"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["notes"] = undefined /*out*/;
             inputs["query"] = undefined /*out*/;
+            inputs["queryEndTime"] = undefined /*out*/;
             inputs["queryResult"] = undefined /*out*/;
+            inputs["queryStartTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updated"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
@@ -183,6 +201,10 @@ export interface BookmarkArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * The bookmark event time
+     */
+    readonly eventTime?: pulumi.Input<string>;
+    /**
      * Describes an incident that relates to bookmark
      */
     readonly incidentInfo?: pulumi.Input<inputs.securityinsights.latest.IncidentInfo>;
@@ -199,9 +221,17 @@ export interface BookmarkArgs {
      */
     readonly query: pulumi.Input<string>;
     /**
+     * The end time for the query
+     */
+    readonly queryEndTime?: pulumi.Input<string>;
+    /**
      * The query result of the bookmark.
      */
     readonly queryResult?: pulumi.Input<string>;
+    /**
+     * The start time for the query
+     */
+    readonly queryStartTime?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

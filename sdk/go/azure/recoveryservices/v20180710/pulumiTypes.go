@@ -6189,6 +6189,8 @@ type HyperVReplicaAzureEnableProtectionInput struct {
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
 	// The storage account name.
 	TargetStorageAccountId *string `pulumi:"targetStorageAccountId"`
+	// The target VM size.
+	TargetVmSize *string `pulumi:"targetVmSize"`
 	// A value indicating whether managed disks should be used during failover.
 	UseManagedDisks *string `pulumi:"useManagedDisks"`
 	// The OS disk VHD id associated with vm.
@@ -6241,6 +6243,8 @@ type HyperVReplicaAzureEnableProtectionInputArgs struct {
 	TargetProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"targetProximityPlacementGroupId"`
 	// The storage account name.
 	TargetStorageAccountId pulumi.StringPtrInput `pulumi:"targetStorageAccountId"`
+	// The target VM size.
+	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
 	// A value indicating whether managed disks should be used during failover.
 	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
 	// The OS disk VHD id associated with vm.
@@ -6350,6 +6354,11 @@ func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetProximityPlacementG
 // The storage account name.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The target VM size.
+func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetVmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
 // A value indicating whether managed disks should be used during failover.
@@ -8972,6 +8981,8 @@ type InMageAzureV2EnableProtectionInput struct {
 	TargetAzureVmName *string `pulumi:"targetAzureVmName"`
 	// The proximity placement group ARM Id.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
+	// The target VM size.
+	TargetVmSize *string `pulumi:"targetVmSize"`
 }
 
 // InMageAzureV2EnableProtectionInputInput is an input type that accepts InMageAzureV2EnableProtectionInputArgs and InMageAzureV2EnableProtectionInputOutput values.
@@ -9028,6 +9039,8 @@ type InMageAzureV2EnableProtectionInputArgs struct {
 	TargetAzureVmName pulumi.StringPtrInput `pulumi:"targetAzureVmName"`
 	// The proximity placement group ARM Id.
 	TargetProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"targetProximityPlacementGroupId"`
+	// The target VM size.
+	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
 }
 
 func (InMageAzureV2EnableProtectionInputArgs) ElementType() reflect.Type {
@@ -9156,6 +9169,11 @@ func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureVmName() pulumi.Str
 // The proximity placement group ARM Id.
 func (o InMageAzureV2EnableProtectionInputOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetProximityPlacementGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The target VM size.
+func (o InMageAzureV2EnableProtectionInputOutput) TargetVmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
 // InMageAzureV2 Managed disk details.

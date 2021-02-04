@@ -126,7 +126,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> str:
         """
         The Description of the Data Box Edge/Gateway device.
         """
@@ -174,7 +174,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="edgeProfile")
-    def edge_profile(self) -> Optional['outputs.EdgeProfileResponse']:
+    def edge_profile(self) -> 'outputs.EdgeProfileResponse':
         """
         The details of Edge Profile for this resource
         """
@@ -190,7 +190,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> str:
         """
         The Data Box Edge/Gateway device name.
         """
@@ -214,7 +214,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> str:
         """
         The etag for the devices.
         """
@@ -230,7 +230,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="modelDescription")
-    def model_description(self) -> Optional[str]:
+    def model_description(self) -> str:
         """
         The description of the Data Box Edge/Gateway device model.
         """
@@ -254,7 +254,7 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter(name="resourceMoveDetails")
-    def resource_move_details(self) -> Optional['outputs.ResourceMoveDetailsResponse']:
+    def resource_move_details(self) -> 'outputs.ResourceMoveDetailsResponse':
         """
         The details of the move operation on this resource.
         """

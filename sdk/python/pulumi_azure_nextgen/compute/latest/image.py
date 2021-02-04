@@ -18,6 +18,7 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,10 +31,11 @@ class Image(pulumi.CustomResource):
                  __opts__=None):
         """
         The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Image.
         :param pulumi.Input[Union[str, 'HyperVGenerationTypes']] hyper_v_generation: Gets the HyperVGenerationType of the VirtualMachine created from the image
         :param pulumi.Input[str] image_name: The name of the image.
         :param pulumi.Input[str] location: Resource location
@@ -59,6 +61,7 @@ class Image(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['extended_location'] = extended_location
             __props__['hyper_v_generation'] = hyper_v_generation
             if image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_name'")
@@ -75,7 +78,7 @@ class Image(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-nextgen:compute/latest:Image',
@@ -100,6 +103,14 @@ class Image(pulumi.CustomResource):
         __props__ = dict()
 
         return Image(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the Image.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hyperVGeneration")

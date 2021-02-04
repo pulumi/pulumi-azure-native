@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a VMSS VM Extension.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type VirtualMachineScaleSetVMExtension struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +68,9 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension"),
 		},
 	})
 	opts = append(opts, aliases)

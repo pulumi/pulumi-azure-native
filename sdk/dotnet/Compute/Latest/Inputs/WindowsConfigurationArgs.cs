@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
-        /// Specifies settings related to in-guest patching (KBs).
+        /// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         /// </summary>
         [Input("patchSettings")]
         public Input<Inputs.PatchSettingsArgs>? PatchSettings { get; set; }

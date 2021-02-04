@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the Dedicated host.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +78,9 @@ func NewDedicatedHost(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHost"),
 		},
 	})
 	opts = append(opts, aliases)

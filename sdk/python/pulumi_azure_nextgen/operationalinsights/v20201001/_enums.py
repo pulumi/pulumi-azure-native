@@ -31,7 +31,7 @@ class ClusterSkuNameEnum(str, Enum):
 
 class IdentityType(str, Enum):
     """
-    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+    Type of managed service identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"

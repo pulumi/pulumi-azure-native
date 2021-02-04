@@ -66,7 +66,7 @@ class PrivateLinkHub(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:PrivateLinkHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/latest:PrivateLinkHub"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:PrivateLinkHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkHub, __self__).__init__(
             'azure-nextgen:synapse/v20201201:PrivateLinkHub',

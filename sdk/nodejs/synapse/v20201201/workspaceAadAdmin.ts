@@ -98,7 +98,7 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
     }

@@ -20,7 +20,10 @@ class GetImageResult:
     """
     The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     """
-    def __init__(__self__, hyper_v_generation=None, id=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+    def __init__(__self__, extended_location=None, hyper_v_generation=None, id=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
@@ -48,6 +51,14 @@ class GetImageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the Image.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -128,6 +139,7 @@ class AwaitableGetImageResult(GetImageResult):
         if False:
             yield self
         return GetImageResult(
+            extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
             location=self.location,
@@ -161,6 +173,7 @@ def get_image(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/latest:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
+        extended_location=__ret__.extended_location,
         hyper_v_generation=__ret__.hyper_v_generation,
         id=__ret__.id,
         location=__ret__.location,

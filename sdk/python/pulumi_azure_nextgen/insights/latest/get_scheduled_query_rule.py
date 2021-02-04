@@ -20,10 +20,13 @@ class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
     """
-    def __init__(__self__, action=None, description=None, display_name=None, enabled=None, etag=None, id=None, kind=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+    def __init__(__self__, action=None, created_with_api_version=None, description=None, display_name=None, enabled=None, etag=None, id=None, is_legacy_log_analytics_rule=None, kind=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
+        if created_with_api_version and not isinstance(created_with_api_version, str):
+            raise TypeError("Expected argument 'created_with_api_version' to be a str")
+        pulumi.set(__self__, "created_with_api_version", created_with_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -39,6 +42,9 @@ class GetScheduledQueryRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_legacy_log_analytics_rule and not isinstance(is_legacy_log_analytics_rule, bool):
+            raise TypeError("Expected argument 'is_legacy_log_analytics_rule' to be a bool")
+        pulumi.set(__self__, "is_legacy_log_analytics_rule", is_legacy_log_analytics_rule)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -74,6 +80,14 @@ class GetScheduledQueryRuleResult:
         Action needs to be taken on rule execution.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> str:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
 
     @property
     @pulumi.getter
@@ -114,6 +128,14 @@ class GetScheduledQueryRuleResult:
         Azure resource Id
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> bool:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
 
     @property
     @pulumi.getter
@@ -195,11 +217,13 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             yield self
         return GetScheduledQueryRuleResult(
             action=self.action,
+            created_with_api_version=self.created_with_api_version,
             description=self.description,
             display_name=self.display_name,
             enabled=self.enabled,
             etag=self.etag,
             id=self.id,
+            is_legacy_log_analytics_rule=self.is_legacy_log_analytics_rule,
             kind=self.kind,
             last_updated_time=self.last_updated_time,
             location=self.location,
@@ -231,11 +255,13 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
 
     return AwaitableGetScheduledQueryRuleResult(
         action=__ret__.action,
+        created_with_api_version=__ret__.created_with_api_version,
         description=__ret__.description,
         display_name=__ret__.display_name,
         enabled=__ret__.enabled,
         etag=__ret__.etag,
         id=__ret__.id,
+        is_legacy_log_analytics_rule=__ret__.is_legacy_log_analytics_rule,
         kind=__ret__.kind,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,

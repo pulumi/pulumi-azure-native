@@ -37,6 +37,8 @@ type LookupVolumeResult struct {
 	CreationToken string `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
@@ -53,11 +55,11 @@ type LookupVolumeResult struct {
 	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
@@ -65,7 +67,7 @@ type LookupVolumeResult struct {
 	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
 	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
 	SmbEncryption *bool `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`

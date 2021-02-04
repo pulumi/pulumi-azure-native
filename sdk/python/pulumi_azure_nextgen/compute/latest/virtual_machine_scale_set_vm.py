@@ -40,7 +40,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a virtual machine scale set virtual machine.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +114,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__['type'] = None
             __props__['vm_id'] = None
             __props__['zones'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVM, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineScaleSetVM',

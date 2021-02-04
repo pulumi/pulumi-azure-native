@@ -18,6 +18,8 @@ type ScheduledQueryRule struct {
 
 	// Action needs to be taken on rule execution.
 	Action pulumi.AnyOutput `pulumi:"action"`
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion pulumi.StringOutput `pulumi:"createdWithApiVersion"`
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the alert rule
@@ -26,6 +28,8 @@ type ScheduledQueryRule struct {
 	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
 	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule pulumi.BoolOutput `pulumi:"isLegacyLogAnalyticsRule"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Last time the rule was updated in IS08601 format.
@@ -101,6 +105,8 @@ func GetScheduledQueryRule(ctx *pulumi.Context,
 type scheduledQueryRuleState struct {
 	// Action needs to be taken on rule execution.
 	Action interface{} `pulumi:"action"`
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion *string `pulumi:"createdWithApiVersion"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The display name of the alert rule
@@ -109,6 +115,8 @@ type scheduledQueryRuleState struct {
 	Enabled *string `pulumi:"enabled"`
 	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
 	Etag *string `pulumi:"etag"`
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule *bool `pulumi:"isLegacyLogAnalyticsRule"`
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind *string `pulumi:"kind"`
 	// Last time the rule was updated in IS08601 format.
@@ -132,6 +140,8 @@ type scheduledQueryRuleState struct {
 type ScheduledQueryRuleState struct {
 	// Action needs to be taken on rule execution.
 	Action pulumi.Input
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion pulumi.StringPtrInput
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrInput
 	// The display name of the alert rule
@@ -140,6 +150,8 @@ type ScheduledQueryRuleState struct {
 	Enabled pulumi.StringPtrInput
 	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
 	Etag pulumi.StringPtrInput
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule pulumi.BoolPtrInput
 	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
 	Kind pulumi.StringPtrInput
 	// Last time the rule was updated in IS08601 format.

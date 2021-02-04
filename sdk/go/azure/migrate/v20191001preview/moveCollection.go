@@ -44,6 +44,12 @@ func NewMoveCollection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:migrate/v20210101:MoveCollection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MoveCollection
 	err := ctx.RegisterResource("azure-nextgen:migrate/v20191001preview:MoveCollection", name, args, &resource, opts...)
 	if err != nil {

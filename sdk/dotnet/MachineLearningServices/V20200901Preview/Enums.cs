@@ -168,6 +168,38 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
     }
 
     /// <summary>
+    /// Annotation type of image labeling tasks.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageAnnotationType : IEquatable<ImageAnnotationType>
+    {
+        private readonly string _value;
+
+        private ImageAnnotationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageAnnotationType Classification { get; } = new ImageAnnotationType("Classification");
+        public static ImageAnnotationType BoundingBox { get; } = new ImageAnnotationType("BoundingBox");
+        public static ImageAnnotationType InstanceSegmentation { get; } = new ImageAnnotationType("InstanceSegmentation");
+
+        public static bool operator ==(ImageAnnotationType left, ImageAnnotationType right) => left.Equals(right);
+        public static bool operator !=(ImageAnnotationType left, ImageAnnotationType right) => !left.Equals(right);
+
+        public static explicit operator string(ImageAnnotationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageAnnotationType other && Equals(other);
+        public bool Equals(ImageAnnotationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the link target.
     /// </summary>
     [EnumType]
@@ -190,6 +222,37 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LinkedServiceLinkType other && Equals(other);
         public bool Equals(LinkedServiceLinkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Media type of data asset.
+    /// </summary>
+    [EnumType]
+    public readonly struct MediaType : IEquatable<MediaType>
+    {
+        private readonly string _value;
+
+        private MediaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MediaType Image { get; } = new MediaType("Image");
+        public static MediaType Text { get; } = new MediaType("Text");
+
+        public static bool operator ==(MediaType left, MediaType right) => left.Equals(right);
+        public static bool operator !=(MediaType left, MediaType right) => !left.Equals(right);
+
+        public static explicit operator string(MediaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MediaType other && Equals(other);
+        public bool Equals(MediaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

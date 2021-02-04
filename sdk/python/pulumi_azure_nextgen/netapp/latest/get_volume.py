@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, usage_threshold=None, volume_type=None):
+    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, encryption_key_source=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, usage_threshold=None, volume_type=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -33,6 +33,9 @@ class GetVolumeResult:
         if data_protection and not isinstance(data_protection, dict):
             raise TypeError("Expected argument 'data_protection' to be a dict")
         pulumi.set(__self__, "data_protection", data_protection)
+        if encryption_key_source and not isinstance(encryption_key_source, str):
+            raise TypeError("Expected argument 'encryption_key_source' to be a str")
+        pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy and not isinstance(export_policy, dict):
             raise TypeError("Expected argument 'export_policy' to be a dict")
         pulumi.set(__self__, "export_policy", export_policy)
@@ -133,6 +136,14 @@ class GetVolumeResult:
         return pulumi.get(self, "data_protection")
 
     @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> Optional[str]:
+        """
+        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @property
     @pulumi.getter(name="exportPolicy")
     def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
         """
@@ -182,7 +193,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> Optional[Sequence['outputs.MountTargetPropertiesResponse']]:
+    def mount_targets(self) -> Sequence['outputs.MountTargetPropertiesResponse']:
         """
         List of mount targets
         """
@@ -200,7 +211,7 @@ class GetVolumeResult:
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> Optional[Sequence[str]]:
         """
-        Set of protocol types
+        Set of protocol types, default NFSv3, CIFS fro SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 
@@ -216,7 +227,7 @@ class GetVolumeResult:
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[str]:
         """
-        The security style of volume
+        The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         """
         return pulumi.get(self, "security_style")
 
@@ -248,7 +259,7 @@ class GetVolumeResult:
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[bool]:
         """
-        If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
@@ -316,6 +327,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             baremetal_tenant_id=self.baremetal_tenant_id,
             creation_token=self.creation_token,
             data_protection=self.data_protection,
+            encryption_key_source=self.encryption_key_source,
             export_policy=self.export_policy,
             file_system_id=self.file_system_id,
             id=self.id,
@@ -369,6 +381,7 @@ def get_volume(account_name: Optional[str] = None,
         baremetal_tenant_id=__ret__.baremetal_tenant_id,
         creation_token=__ret__.creation_token,
         data_protection=__ret__.data_protection,
+        encryption_key_source=__ret__.encryption_key_source,
         export_policy=__ret__.export_policy,
         file_system_id=__ret__.file_system_id,
         id=__ret__.id,

@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the SSH public key.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type SshPublicKey struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +50,9 @@ func NewSshPublicKey(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:SshPublicKey"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:SshPublicKey"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -65,7 +65,7 @@ class GetOrderResult:
 
     @property
     @pulumi.getter(name="currentStatus")
-    def current_status(self) -> Optional['outputs.OrderStatusResponse']:
+    def current_status(self) -> 'outputs.OrderStatusResponse':
         """
         Current status of the order.
         """

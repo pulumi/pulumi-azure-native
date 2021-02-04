@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Account']
@@ -19,6 +20,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  active_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -27,12 +29,13 @@ class Account(pulumi.CustomResource):
                  __opts__=None):
         """
         NetApp account resource
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]] active_directories: Active Directories
+        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Encryption settings
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -58,6 +61,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['active_directories'] = active_directories
+            __props__['encryption'] = encryption
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -67,8 +71,9 @@ class Account(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Account"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:netapp/latest:Account',
@@ -104,6 +109,14 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.AccountEncryptionResponse']]:
+        """
+        Encryption settings
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         Resource location
@@ -125,6 +138,14 @@ class Account(pulumi.CustomResource):
         Azure lifecycle management
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

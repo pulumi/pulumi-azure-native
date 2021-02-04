@@ -134,39 +134,6 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
     }
 
     /// <summary>
-    /// The etag for the devices.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataBoxEdgeDeviceKind : IEquatable<DataBoxEdgeDeviceKind>
-    {
-        private readonly string _value;
-
-        private DataBoxEdgeDeviceKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataBoxEdgeDeviceKind AzureDataBoxGateway { get; } = new DataBoxEdgeDeviceKind("AzureDataBoxGateway");
-        public static DataBoxEdgeDeviceKind AzureStackEdge { get; } = new DataBoxEdgeDeviceKind("AzureStackEdge");
-        public static DataBoxEdgeDeviceKind AzureStackHub { get; } = new DataBoxEdgeDeviceKind("AzureStackHub");
-        public static DataBoxEdgeDeviceKind AzureModularDataCentre { get; } = new DataBoxEdgeDeviceKind("AzureModularDataCentre");
-
-        public static bool operator ==(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => left.Equals(right);
-        public static bool operator !=(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => !left.Equals(right);
-
-        public static explicit operator string(DataBoxEdgeDeviceKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataBoxEdgeDeviceKind other && Equals(other);
-        public bool Equals(DataBoxEdgeDeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The status of the Data Box Edge/Gateway device.
     /// </summary>
     [EnumType]
@@ -354,84 +321,6 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MsiIdentityType other && Equals(other);
         public bool Equals(MsiIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Status of the order as per the allowed status types.
-    /// </summary>
-    [EnumType]
-    public readonly struct OrderState : IEquatable<OrderState>
-    {
-        private readonly string _value;
-
-        private OrderState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OrderState Untracked { get; } = new OrderState("Untracked");
-        public static OrderState AwaitingFulfilment { get; } = new OrderState("AwaitingFulfilment");
-        public static OrderState AwaitingPreparation { get; } = new OrderState("AwaitingPreparation");
-        public static OrderState AwaitingShipment { get; } = new OrderState("AwaitingShipment");
-        public static OrderState Shipped { get; } = new OrderState("Shipped");
-        public static OrderState Arriving { get; } = new OrderState("Arriving");
-        public static OrderState Delivered { get; } = new OrderState("Delivered");
-        public static OrderState ReplacementRequested { get; } = new OrderState("ReplacementRequested");
-        public static OrderState LostDevice { get; } = new OrderState("LostDevice");
-        public static OrderState Declined { get; } = new OrderState("Declined");
-        public static OrderState ReturnInitiated { get; } = new OrderState("ReturnInitiated");
-        public static OrderState AwaitingReturnShipment { get; } = new OrderState("AwaitingReturnShipment");
-        public static OrderState ShippedBack { get; } = new OrderState("ShippedBack");
-        public static OrderState CollectedAtMicrosoft { get; } = new OrderState("CollectedAtMicrosoft");
-        public static OrderState AwaitingPickup { get; } = new OrderState("AwaitingPickup");
-        public static OrderState PickupCompleted { get; } = new OrderState("PickupCompleted");
-        public static OrderState AwaitingDrop { get; } = new OrderState("AwaitingDrop");
-
-        public static bool operator ==(OrderState left, OrderState right) => left.Equals(right);
-        public static bool operator !=(OrderState left, OrderState right) => !left.Equals(right);
-
-        public static explicit operator string(OrderState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OrderState other && Equals(other);
-        public bool Equals(OrderState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Denotes whether move operation is in progress
-    /// </summary>
-    [EnumType]
-    public readonly struct ResourceMoveStatus : IEquatable<ResourceMoveStatus>
-    {
-        private readonly string _value;
-
-        private ResourceMoveStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ResourceMoveStatus None { get; } = new ResourceMoveStatus("None");
-        public static ResourceMoveStatus ResourceMoveInProgress { get; } = new ResourceMoveStatus("ResourceMoveInProgress");
-        public static ResourceMoveStatus ResourceMoveFailed { get; } = new ResourceMoveStatus("ResourceMoveFailed");
-
-        public static bool operator ==(ResourceMoveStatus left, ResourceMoveStatus right) => left.Equals(right);
-        public static bool operator !=(ResourceMoveStatus left, ResourceMoveStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ResourceMoveStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceMoveStatus other && Equals(other);
-        public bool Equals(ResourceMoveStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -742,37 +631,6 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountStatus other && Equals(other);
         public bool Equals(StorageAccountStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct SubscriptionState : IEquatable<SubscriptionState>
-    {
-        private readonly string _value;
-
-        private SubscriptionState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SubscriptionState Registered { get; } = new SubscriptionState("Registered");
-        public static SubscriptionState Warned { get; } = new SubscriptionState("Warned");
-        public static SubscriptionState Suspended { get; } = new SubscriptionState("Suspended");
-        public static SubscriptionState Deleted { get; } = new SubscriptionState("Deleted");
-        public static SubscriptionState Unregistered { get; } = new SubscriptionState("Unregistered");
-
-        public static bool operator ==(SubscriptionState left, SubscriptionState right) => left.Equals(right);
-        public static bool operator !=(SubscriptionState left, SubscriptionState right) => !left.Equals(right);
-
-        public static explicit operator string(SubscriptionState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SubscriptionState other && Equals(other);
-        public bool Equals(SubscriptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

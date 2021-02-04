@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Outputs
         /// </summary>
         public readonly int? MinNodeCount;
         /// <summary>
-        /// Node Idle Time before scaling down amlCompute
+        /// Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         /// </summary>
         public readonly string? NodeIdleTimeBeforeScaleDown;
 

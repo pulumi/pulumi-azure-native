@@ -19,7 +19,6 @@ class Order(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
-                 current_status: Optional[pulumi.Input[pulumi.InputType['OrderStatusArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
@@ -34,7 +33,6 @@ class Order(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_information: The contact details.
-        :param pulumi.Input[pulumi.InputType['OrderStatusArgs']] current_status: Current status of the order.
         :param pulumi.Input[str] device_name: The order details of a device.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
@@ -60,7 +58,6 @@ class Order(pulumi.CustomResource):
             if contact_information is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_information'")
             __props__['contact_information'] = contact_information
-            __props__['current_status'] = current_status
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
@@ -69,6 +66,7 @@ class Order(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['shipment_type'] = shipment_type
             __props__['shipping_address'] = shipping_address
+            __props__['current_status'] = None
             __props__['delivery_tracking_info'] = None
             __props__['name'] = None
             __props__['order_history'] = None
@@ -111,7 +109,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentStatus")
-    def current_status(self) -> pulumi.Output[Optional['outputs.OrderStatusResponse']]:
+    def current_status(self) -> pulumi.Output['outputs.OrderStatusResponse']:
         """
         Current status of the order.
         """

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * A class represent a SignalR service resource.
+ * A class represent a resource.
  */
 export class SignalR extends pulumi.CustomResource {
     /**
@@ -40,7 +40,7 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly cors!: pulumi.Output<outputs.signalrservice.v20200701preview.SignalRCorsSettingsResponse | undefined>;
     /**
-     * The publicly accessible IP of the SignalR service.
+     * The publicly accessible IP of the resource.
      */
     public /*out*/ readonly externalIP!: pulumi.Output<string>;
     /**
@@ -53,7 +53,7 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly features!: pulumi.Output<outputs.signalrservice.v20200701preview.SignalRFeatureResponse[] | undefined>;
     /**
-     * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+     * FQDN of the service instance.
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
@@ -61,11 +61,11 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.signalrservice.v20200701preview.ManagedIdentityResponse | undefined>;
     /**
-     * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+     * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -77,7 +77,7 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly networkACLs!: pulumi.Output<outputs.signalrservice.v20200701preview.SignalRNetworkACLsResponse | undefined>;
     /**
-     * Private endpoint connections to the SignalR resource.
+     * Private endpoint connections to the resource.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.signalrservice.v20200701preview.PrivateEndpointConnectionResponse[]>;
     /**
@@ -85,11 +85,11 @@ export class SignalR extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+     * The publicly accessible port of the resource which is designed for browser/client side usage.
      */
     public /*out*/ readonly publicPort!: pulumi.Output<number>;
     /**
-     * The publicly accessible port of the SignalR service which is designed for customer server side usage.
+     * The publicly accessible port of the resource which is designed for customer server side usage.
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
@@ -113,7 +113,7 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly upstream!: pulumi.Output<outputs.signalrservice.v20200701preview.ServerlessUpstreamSettingsResponse | undefined>;
     /**
-     * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+     * Version of the resource. Probably you need the same or higher version of client SDKs.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
 
@@ -210,11 +210,11 @@ export interface SignalRArgs {
      */
     readonly identity?: pulumi.Input<inputs.signalrservice.v20200701preview.ManagedIdentity>;
     /**
-     * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+     * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
      */
     readonly kind?: pulumi.Input<string | enums.signalrservice.v20200701preview.ServiceKind>;
     /**
-     * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
     readonly location?: pulumi.Input<string>;
     /**

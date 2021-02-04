@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly bool? DisablePasswordAuthentication;
         /// <summary>
+        /// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+        /// </summary>
+        public readonly Outputs.LinuxPatchSettingsResponse? PatchSettings;
+        /// <summary>
         /// Indicates whether virtual machine agent should be provisioned on the virtual machine. &lt;br&gt;&lt;br&gt; When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         /// </summary>
         public readonly bool? ProvisionVMAgent;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         private LinuxConfigurationResponse(
             bool? disablePasswordAuthentication,
 
+            Outputs.LinuxPatchSettingsResponse? patchSettings,
+
             bool? provisionVMAgent,
 
             Outputs.SshConfigurationResponse? ssh)
         {
             DisablePasswordAuthentication = disablePasswordAuthentication;
+            PatchSettings = patchSettings;
             ProvisionVMAgent = provisionVMAgent;
             Ssh = ssh;
         }

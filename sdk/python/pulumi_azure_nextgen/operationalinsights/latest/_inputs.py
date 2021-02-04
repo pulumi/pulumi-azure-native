@@ -66,7 +66,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
-        :param pulumi.Input['IdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
@@ -77,7 +77,7 @@ class IdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['IdentityType']:
         """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        Type of managed service identity.
         """
         return pulumi.get(self, "type")
 

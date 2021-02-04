@@ -17,6 +17,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        /// </summary>
+        [Output("action")]
+        public Output<Union<Outputs.RuleEmailActionResponse, Outputs.RuleWebhookActionResponse>?> Action { get; private set; } = null!;
+
+        /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
         [Output("actions")]
@@ -57,6 +63,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// the provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -120,6 +132,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
     public sealed class AlertRuleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        /// </summary>
+        [Input("action")]
+        public InputUnion<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>? Action { get; set; }
+
         [Input("actions")]
         private InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>>? _actions;
 
@@ -161,6 +179,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// the provisioning state.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

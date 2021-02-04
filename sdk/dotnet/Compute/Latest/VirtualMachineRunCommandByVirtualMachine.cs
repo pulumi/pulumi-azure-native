@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine")]
     public partial class VirtualMachineRunCommandByVirtualMachine : Pulumi.CustomResource
@@ -132,6 +132,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

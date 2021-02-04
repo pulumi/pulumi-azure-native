@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        /// Type of managed service identity.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     public sealed class GetImageResult
     {
         /// <summary>
+        /// The extended location of the Image.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
         /// </summary>
         public readonly string? HyperVGeneration;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
         [OutputConstructor]
         private GetImageResult(
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? hyperVGeneration,
 
             string id,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string type)
         {
+            ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;
             Location = location;

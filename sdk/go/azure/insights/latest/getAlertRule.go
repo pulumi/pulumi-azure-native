@@ -25,6 +25,8 @@ type LookupAlertRuleArgs struct {
 
 // The alert rule resource.
 type LookupAlertRuleResult struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action interface{} `pulumi:"action"`
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions []interface{} `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
@@ -41,6 +43,8 @@ type LookupAlertRuleResult struct {
 	Location string `pulumi:"location"`
 	// Azure resource name
 	Name string `pulumi:"name"`
+	// the provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the proximity placement group.
-// Latest API Version: 2020-06-01.
+// Latest API Version: 2020-12-01.
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +73,9 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:ProximityPlacementGroup"),
 		},
 	})
 	opts = append(opts, aliases)

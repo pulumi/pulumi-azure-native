@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly bool? DoNotRunExtensionsOnOverprovisionedVMs;
         /// <summary>
+        /// The extended location of the Virtual Machine Scale Set.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Specifies information about the dedicated host group that the virtual machine scale set resides in. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
         /// </summary>
         public readonly Outputs.SubResourceResponse? HostGroup;
@@ -71,6 +75,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Resource name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the orchestration mode for the virtual machine scale set.
+        /// </summary>
+        public readonly string? OrchestrationMode;
         /// <summary>
         /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         /// </summary>
@@ -140,6 +148,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             bool? doNotRunExtensionsOnOverprovisionedVMs,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             Outputs.SubResourceResponse? hostGroup,
 
             string id,
@@ -149,6 +159,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             string location,
 
             string name,
+
+            string? orchestrationMode,
 
             bool? overprovision,
 
@@ -183,11 +195,13 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             AdditionalCapabilities = additionalCapabilities;
             AutomaticRepairsPolicy = automaticRepairsPolicy;
             DoNotRunExtensionsOnOverprovisionedVMs = doNotRunExtensionsOnOverprovisionedVMs;
+            ExtendedLocation = extendedLocation;
             HostGroup = hostGroup;
             Id = id;
             Identity = identity;
             Location = location;
             Name = name;
+            OrchestrationMode = orchestrationMode;
             Overprovision = overprovision;
             Plan = plan;
             PlatformFaultDomainCount = platformFaultDomainCount;

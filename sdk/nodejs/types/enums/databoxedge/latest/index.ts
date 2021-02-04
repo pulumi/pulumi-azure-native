@@ -44,18 +44,6 @@ export const ClientPermissionType = {
  */
 export type ClientPermissionType = (typeof ClientPermissionType)[keyof typeof ClientPermissionType];
 
-export const DataBoxEdgeDeviceKind = {
-    AzureDataBoxGateway: "AzureDataBoxGateway",
-    AzureStackEdge: "AzureStackEdge",
-    AzureStackHub: "AzureStackHub",
-    AzureModularDataCentre: "AzureModularDataCentre",
-} as const;
-
-/**
- * The etag for the devices.
- */
-export type DataBoxEdgeDeviceKind = (typeof DataBoxEdgeDeviceKind)[keyof typeof DataBoxEdgeDeviceKind];
-
 export const DataBoxEdgeDeviceStatus = {
     ReadyToSetup: "ReadyToSetup",
     Online: "Online",
@@ -124,42 +112,6 @@ export const MsiIdentityType = {
  * Identity type
  */
 export type MsiIdentityType = (typeof MsiIdentityType)[keyof typeof MsiIdentityType];
-
-export const OrderState = {
-    Untracked: "Untracked",
-    AwaitingFulfilment: "AwaitingFulfilment",
-    AwaitingPreparation: "AwaitingPreparation",
-    AwaitingShipment: "AwaitingShipment",
-    Shipped: "Shipped",
-    Arriving: "Arriving",
-    Delivered: "Delivered",
-    ReplacementRequested: "ReplacementRequested",
-    LostDevice: "LostDevice",
-    Declined: "Declined",
-    ReturnInitiated: "ReturnInitiated",
-    AwaitingReturnShipment: "AwaitingReturnShipment",
-    ShippedBack: "ShippedBack",
-    CollectedAtMicrosoft: "CollectedAtMicrosoft",
-    AwaitingPickup: "AwaitingPickup",
-    PickupCompleted: "PickupCompleted",
-    AwaitingDrop: "AwaitingDrop",
-} as const;
-
-/**
- * Status of the order as per the allowed status types.
- */
-export type OrderState = (typeof OrderState)[keyof typeof OrderState];
-
-export const ResourceMoveStatus = {
-    None: "None",
-    ResourceMoveInProgress: "ResourceMoveInProgress",
-    ResourceMoveFailed: "ResourceMoveFailed",
-} as const;
-
-/**
- * Denotes whether move operation is in progress
- */
-export type ResourceMoveStatus = (typeof ResourceMoveStatus)[keyof typeof ResourceMoveStatus];
 
 export const RoleTypes = {
     IOT: "IOT",
@@ -281,16 +233,6 @@ export const StorageAccountStatus = {
  * Current status of the storage account
  */
 export type StorageAccountStatus = (typeof StorageAccountStatus)[keyof typeof StorageAccountStatus];
-
-export const SubscriptionState = {
-    Registered: "Registered",
-    Warned: "Warned",
-    Suspended: "Suspended",
-    Deleted: "Deleted",
-    Unregistered: "Unregistered",
-} as const;
-
-export type SubscriptionState = (typeof SubscriptionState)[keyof typeof SubscriptionState];
 
 export const TriggerEventType = {
     FileEvent: "FileEvent",

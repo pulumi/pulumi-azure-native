@@ -26,9 +26,17 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Outputs
         /// </summary>
         public readonly string? EventSource;
         /// <summary>
+        /// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        /// </summary>
+        public readonly string? LegacyResourceId;
+        /// <summary>
         /// the level.
         /// </summary>
         public readonly string? Level;
+        /// <summary>
+        /// the namespace of the metric.
+        /// </summary>
+        public readonly string? MetricNamespace;
         /// <summary>
         /// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
         /// Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
@@ -42,6 +50,10 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Outputs
         /// the resource group name.
         /// </summary>
         public readonly string? ResourceGroupName;
+        /// <summary>
+        /// the location of the resource.
+        /// </summary>
+        public readonly string? ResourceLocation;
         /// <summary>
         /// the resource provider name.
         /// </summary>
@@ -67,13 +79,19 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Outputs
 
             string? eventSource,
 
+            string? legacyResourceId,
+
             string? level,
+
+            string? metricNamespace,
 
             string odataType,
 
             string? operationName,
 
             string? resourceGroupName,
+
+            string? resourceLocation,
 
             string? resourceProviderName,
 
@@ -86,10 +104,13 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Outputs
             Claims = claims;
             EventName = eventName;
             EventSource = eventSource;
+            LegacyResourceId = legacyResourceId;
             Level = level;
+            MetricNamespace = metricNamespace;
             OdataType = odataType;
             OperationName = operationName;
             ResourceGroupName = resourceGroupName;
+            ResourceLocation = resourceLocation;
             ResourceProviderName = resourceProviderName;
             ResourceUri = resourceUri;
             Status = status;

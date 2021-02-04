@@ -65,7 +65,7 @@ func (e ClusterSkuNameEnum) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+// Type of managed service identity.
 type IdentityType pulumi.String
 
 const (

@@ -22,6 +22,18 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
         public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200801.ApplicationSharingPolicy>? ApplicationSharingPolicy { get; set; }
 
         /// <summary>
+        /// The Compute Instance Authorization type. Available values are personal (default).
+        /// </summary>
+        [Input("computeInstanceAuthorizationType")]
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200801.ComputeInstanceAuthorizationType>? ComputeInstanceAuthorizationType { get; set; }
+
+        /// <summary>
+        /// Settings for a personal compute instance.
+        /// </summary>
+        [Input("personalComputeInstanceSettings")]
+        public Input<Inputs.PersonalComputeInstanceSettingsArgs>? PersonalComputeInstanceSettings { get; set; }
+
+        /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
         [Input("sshSettings")]
@@ -42,6 +54,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200801.Inputs
         public ComputeInstancePropertiesArgs()
         {
             ApplicationSharingPolicy = "Shared";
+            ComputeInstanceAuthorizationType = "personal";
         }
     }
 }

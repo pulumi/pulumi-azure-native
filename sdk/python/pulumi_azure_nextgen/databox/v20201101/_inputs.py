@@ -259,7 +259,7 @@ class DataBoxDiskJobDetailsArgs:
                  job_details_type: pulumi.Input[str],
                  data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
                  data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  passkey: Optional[pulumi.Input[str]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
@@ -272,7 +272,7 @@ class DataBoxDiskJobDetailsArgs:
                Expected value is 'DataBoxDisk'.
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
-        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
@@ -285,8 +285,8 @@ class DataBoxDiskJobDetailsArgs:
             pulumi.set(__self__, "data_export_details", data_export_details)
         if data_import_details is not None:
             pulumi.set(__self__, "data_import_details", data_import_details)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if passkey is not None:
@@ -348,16 +348,16 @@ class DataBoxDiskJobDetailsArgs:
         pulumi.set(self, "data_import_details", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -428,7 +428,7 @@ class DataBoxHeavyJobDetailsArgs:
                  data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
                  data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
@@ -440,7 +440,7 @@ class DataBoxHeavyJobDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
@@ -453,8 +453,8 @@ class DataBoxHeavyJobDetailsArgs:
             pulumi.set(__self__, "data_import_details", data_import_details)
         if device_password is not None:
             pulumi.set(__self__, "device_password", device_password)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
@@ -524,16 +524,16 @@ class DataBoxHeavyJobDetailsArgs:
         pulumi.set(self, "device_password", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -580,7 +580,7 @@ class DataBoxJobDetailsArgs:
                  data_export_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]]] = None,
                  data_import_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]]] = None,
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  key_encryption_key: Optional[pulumi.Input['KeyEncryptionKeyArgs']] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
@@ -592,7 +592,7 @@ class DataBoxJobDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
         :param pulumi.Input[Sequence[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['KeyEncryptionKeyArgs'] key_encryption_key: Details about which key encryption type is being used.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
@@ -605,8 +605,8 @@ class DataBoxJobDetailsArgs:
             pulumi.set(__self__, "data_import_details", data_import_details)
         if device_password is not None:
             pulumi.set(__self__, "device_password", device_password)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
         if preferences is not None:
@@ -676,16 +676,16 @@ class DataBoxJobDetailsArgs:
         pulumi.set(self, "device_password", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")

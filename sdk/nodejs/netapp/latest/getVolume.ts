@@ -61,6 +61,10 @@ export interface GetVolumeResult {
      */
     readonly dataProtection?: outputs.netapp.latest.VolumePropertiesResponseDataProtection;
     /**
+     * Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+     */
+    readonly encryptionKeySource?: string;
+    /**
      * Set of export policy rules
      */
     readonly exportPolicy?: outputs.netapp.latest.VolumePropertiesResponseExportPolicy;
@@ -87,13 +91,13 @@ export interface GetVolumeResult {
     /**
      * List of mount targets
      */
-    readonly mountTargets?: outputs.netapp.latest.MountTargetPropertiesResponse[];
+    readonly mountTargets: outputs.netapp.latest.MountTargetPropertiesResponse[];
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
      */
     readonly protocolTypes?: string[];
     /**
@@ -101,7 +105,7 @@ export interface GetVolumeResult {
      */
     readonly provisioningState: string;
     /**
-     * The security style of volume
+     * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
     readonly securityStyle?: string;
     /**
@@ -117,7 +121,7 @@ export interface GetVolumeResult {
      */
     readonly smbEncryption?: boolean;
     /**
-     * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
     readonly snapshotDirectoryVisible?: boolean;
     /**

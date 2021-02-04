@@ -37,6 +37,8 @@ type LookupBackupResult struct {
 	BackupType string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate string `pulumi:"creationDate"`
+	// Failure reason
+	FailureReason string `pulumi:"failureReason"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Label for backup

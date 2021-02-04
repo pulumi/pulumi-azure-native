@@ -54,7 +54,7 @@ export const ServiceKind = {
 } as const;
 
 /**
- * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+ * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
  */
 export type ServiceKind = (typeof ServiceKind)[keyof typeof ServiceKind];
 

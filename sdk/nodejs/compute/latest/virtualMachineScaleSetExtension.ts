@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set Extension.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
@@ -133,7 +133,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetExtension.__pulumiType, name, inputs, opts);
     }

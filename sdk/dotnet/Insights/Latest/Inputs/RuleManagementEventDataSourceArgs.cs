@@ -34,10 +34,22 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         public Input<string>? EventSource { get; set; }
 
         /// <summary>
+        /// the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        /// </summary>
+        [Input("legacyResourceId")]
+        public Input<string>? LegacyResourceId { get; set; }
+
+        /// <summary>
         /// the level.
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
+
+        /// <summary>
+        /// the namespace of the metric.
+        /// </summary>
+        [Input("metricNamespace")]
+        public Input<string>? MetricNamespace { get; set; }
 
         /// <summary>
         /// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
@@ -57,6 +69,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// the location of the resource.
+        /// </summary>
+        [Input("resourceLocation")]
+        public Input<string>? ResourceLocation { get; set; }
 
         /// <summary>
         /// the resource provider name.

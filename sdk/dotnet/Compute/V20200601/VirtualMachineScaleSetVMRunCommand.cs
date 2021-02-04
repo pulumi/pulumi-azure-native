@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

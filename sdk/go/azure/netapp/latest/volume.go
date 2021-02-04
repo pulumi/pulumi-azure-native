@@ -12,7 +12,7 @@ import (
 )
 
 // Volume resource
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-11-01.
 type Volume struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type Volume struct {
 	CreationToken pulumi.StringOutput `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection VolumePropertiesResponseDataProtectionPtrOutput `pulumi:"dataProtection"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource pulumi.StringPtrOutput `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy VolumePropertiesResponseExportPolicyPtrOutput `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
@@ -38,11 +40,11 @@ type Volume struct {
 	MountTargets MountTargetPropertiesResponseArrayOutput `pulumi:"mountTargets"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
 	ProtocolTypes pulumi.StringArrayOutput `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle pulumi.StringPtrOutput `pulumi:"securityStyle"`
 	// The service level of the file system
 	ServiceLevel pulumi.StringPtrOutput `pulumi:"serviceLevel"`
@@ -50,7 +52,7 @@ type Volume struct {
 	SmbContinuouslyAvailable pulumi.BoolPtrOutput `pulumi:"smbContinuouslyAvailable"`
 	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
 	SmbEncryption pulumi.BoolPtrOutput `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible pulumi.BoolPtrOutput `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
@@ -101,6 +103,9 @@ func NewVolume(ctx *pulumi.Context,
 	if args.KerberosEnabled == nil {
 		args.KerberosEnabled = pulumi.BoolPtr(false)
 	}
+	if args.SecurityStyle == nil {
+		args.SecurityStyle = pulumi.StringPtr("unix")
+	}
 	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.StringPtr("Premium")
 	}
@@ -109,6 +114,12 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.SmbEncryption == nil {
 		args.SmbEncryption = pulumi.BoolPtr(false)
+	}
+	if args.SnapshotDirectoryVisible == nil {
+		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
+	}
+	if args.ThroughputMibps == nil {
+		args.ThroughputMibps = pulumi.Float64Ptr(0)
 	}
 	if args.UsageThreshold == nil {
 		args.UsageThreshold = pulumi.Float64(107374182400)
@@ -156,6 +167,9 @@ func NewVolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Volume"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201101:Volume"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Volume
@@ -188,6 +202,8 @@ type volumeState struct {
 	CreationToken *string `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
@@ -202,11 +218,11 @@ type volumeState struct {
 	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
@@ -214,7 +230,7 @@ type volumeState struct {
 	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
 	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
 	SmbEncryption *bool `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -240,6 +256,8 @@ type VolumeState struct {
 	CreationToken pulumi.StringPtrInput
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection VolumePropertiesResponseDataProtectionPtrInput
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource pulumi.StringPtrInput
 	// Set of export policy rules
 	ExportPolicy VolumePropertiesResponseExportPolicyPtrInput
 	// Unique FileSystem Identifier.
@@ -254,11 +272,11 @@ type VolumeState struct {
 	MountTargets MountTargetPropertiesResponseArrayInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
 	ProtocolTypes pulumi.StringArrayInput
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle pulumi.StringPtrInput
 	// The service level of the file system
 	ServiceLevel pulumi.StringPtrInput
@@ -266,7 +284,7 @@ type VolumeState struct {
 	SmbContinuouslyAvailable pulumi.BoolPtrInput
 	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
 	SmbEncryption pulumi.BoolPtrInput
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId pulumi.StringPtrInput
@@ -296,6 +314,8 @@ type volumeArgs struct {
 	CreationToken string `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection *VolumePropertiesDataProtection `pulumi:"dataProtection"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// Set of export policy rules
 	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
 	// Restoring
@@ -304,15 +324,13 @@ type volumeArgs struct {
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// List of mount targets
-	MountTargets []MountTargetProperties `pulumi:"mountTargets"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
@@ -320,7 +338,7 @@ type volumeArgs struct {
 	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
 	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
 	SmbEncryption *bool `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -347,6 +365,8 @@ type VolumeArgs struct {
 	CreationToken pulumi.StringInput
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection VolumePropertiesDataProtectionPtrInput
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource pulumi.StringPtrInput
 	// Set of export policy rules
 	ExportPolicy VolumePropertiesExportPolicyPtrInput
 	// Restoring
@@ -355,15 +375,13 @@ type VolumeArgs struct {
 	KerberosEnabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// List of mount targets
-	MountTargets MountTargetPropertiesArrayInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
-	// Set of protocol types
+	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
 	ProtocolTypes pulumi.StringArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The security style of volume
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
 	SecurityStyle pulumi.StringPtrInput
 	// The service level of the file system
 	ServiceLevel pulumi.StringPtrInput
@@ -371,7 +389,7 @@ type VolumeArgs struct {
 	SmbContinuouslyAvailable pulumi.BoolPtrInput
 	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
 	SmbEncryption pulumi.BoolPtrInput
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId pulumi.StringPtrInput

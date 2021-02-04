@@ -28,7 +28,7 @@ export const IdentityType = {
 } as const;
 
 /**
- * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+ * Type of managed service identity.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 

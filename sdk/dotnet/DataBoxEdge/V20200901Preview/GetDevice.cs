@@ -54,7 +54,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The Description of the Data Box Edge/Gateway device.
         /// </summary>
-        public readonly string? Description;
+        public readonly string Description;
         /// <summary>
         /// The device software version number of the device (eg: 1.2.18105.6).
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The details of Edge Profile for this resource
         /// </summary>
-        public readonly Outputs.EdgeProfileResponse? EdgeProfile;
+        public readonly Outputs.EdgeProfileResponse EdgeProfile;
         /// <summary>
         /// The etag for the devices.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The Data Box Edge/Gateway device name.
         /// </summary>
-        public readonly string? FriendlyName;
+        public readonly string FriendlyName;
         /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The etag for the devices.
         /// </summary>
-        public readonly string? Kind;
+        public readonly string Kind;
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The description of the Data Box Edge/Gateway device model.
         /// </summary>
-        public readonly string? ModelDescription;
+        public readonly string ModelDescription;
         /// <summary>
         /// The object name.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <summary>
         /// The details of the move operation on this resource.
         /// </summary>
-        public readonly Outputs.ResourceMoveDetailsResponse? ResourceMoveDetails;
+        public readonly Outputs.ResourceMoveDetailsResponse ResourceMoveDetails;
         /// <summary>
         /// The Serial Number of Data Box Edge/Gateway device.
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
 
             string? dataBoxEdgeDeviceStatus,
 
-            string? description,
+            string description,
 
             string deviceHcsVersion,
 
@@ -164,27 +164,27 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
 
             string deviceType,
 
-            Outputs.EdgeProfileResponse? edgeProfile,
+            Outputs.EdgeProfileResponse edgeProfile,
 
             string? etag,
 
-            string? friendlyName,
+            string friendlyName,
 
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
 
-            string? kind,
+            string kind,
 
             string location,
 
-            string? modelDescription,
+            string modelDescription,
 
             string name,
 
             int nodeCount,
 
-            Outputs.ResourceMoveDetailsResponse? resourceMoveDetails,
+            Outputs.ResourceMoveDetailsResponse resourceMoveDetails,
 
             string serialNumber,
 

@@ -41,6 +41,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The bookmark event time
+        /// </summary>
+        [Output("eventTime")]
+        public Output<string?> EventTime { get; private set; } = null!;
+
+        /// <summary>
         /// Describes an incident that relates to bookmark
         /// </summary>
         [Output("incidentInfo")]
@@ -71,10 +77,22 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
+        /// The end time for the query
+        /// </summary>
+        [Output("queryEndTime")]
+        public Output<string?> QueryEndTime { get; private set; } = null!;
+
+        /// <summary>
         /// The query result of the bookmark.
         /// </summary>
         [Output("queryResult")]
         public Output<string?> QueryResult { get; private set; } = null!;
+
+        /// <summary>
+        /// The start time for the query
+        /// </summary>
+        [Output("queryStartTime")]
+        public Output<string?> QueryStartTime { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type
@@ -174,6 +192,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// The bookmark event time
+        /// </summary>
+        [Input("eventTime")]
+        public Input<string>? EventTime { get; set; }
+
+        /// <summary>
         /// Describes an incident that relates to bookmark
         /// </summary>
         [Input("incidentInfo")]
@@ -204,10 +228,22 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
+        /// The end time for the query
+        /// </summary>
+        [Input("queryEndTime")]
+        public Input<string>? QueryEndTime { get; set; }
+
+        /// <summary>
         /// The query result of the bookmark.
         /// </summary>
         [Input("queryResult")]
         public Input<string>? QueryResult { get; set; }
+
+        /// <summary>
+        /// The start time for the query
+        /// </summary>
+        [Input("queryStartTime")]
+        public Input<string>? QueryStartTime { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

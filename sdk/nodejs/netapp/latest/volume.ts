@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-11-01.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly dataProtection!: pulumi.Output<outputs.netapp.latest.VolumePropertiesResponseDataProtection | undefined>;
     /**
+     * Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+     */
+    public readonly encryptionKeySource!: pulumi.Output<string | undefined>;
+    /**
      * Set of export policy rules
      */
     public readonly exportPolicy!: pulumi.Output<outputs.netapp.latest.VolumePropertiesResponseExportPolicy | undefined>;
@@ -75,13 +79,13 @@ export class Volume extends pulumi.CustomResource {
     /**
      * List of mount targets
      */
-    public readonly mountTargets!: pulumi.Output<outputs.netapp.latest.MountTargetPropertiesResponse[] | undefined>;
+    public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.latest.MountTargetPropertiesResponse[]>;
     /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -89,7 +93,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The security style of volume
+     * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
     public readonly securityStyle!: pulumi.Output<string | undefined>;
     /**
@@ -105,7 +109,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly smbEncryption!: pulumi.Output<boolean | undefined>;
     /**
-     * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
     public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
     /**
@@ -172,28 +176,29 @@ export class Volume extends pulumi.CustomResource {
             inputs["backupId"] = args ? args.backupId : undefined;
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["dataProtection"] = args ? args.dataProtection : undefined;
+            inputs["encryptionKeySource"] = args ? args.encryptionKeySource : undefined;
             inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
             inputs["isRestoring"] = args ? args.isRestoring : undefined;
             inputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) || false;
             inputs["location"] = args ? args.location : undefined;
-            inputs["mountTargets"] = args ? args.mountTargets : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityStyle"] = args ? args.securityStyle : undefined;
+            inputs["securityStyle"] = (args ? args.securityStyle : undefined) || "unix";
             inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) || "Premium";
             inputs["smbContinuouslyAvailable"] = (args ? args.smbContinuouslyAvailable : undefined) || false;
             inputs["smbEncryption"] = (args ? args.smbEncryption : undefined) || false;
-            inputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
+            inputs["snapshotDirectoryVisible"] = (args ? args.snapshotDirectoryVisible : undefined) || true;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputMibps"] = args ? args.throughputMibps : undefined;
+            inputs["throughputMibps"] = (args ? args.throughputMibps : undefined) || 0;
             inputs["usageThreshold"] = (args ? args.usageThreshold : undefined) || 107374182400;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
+            inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -202,6 +207,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["baremetalTenantId"] = undefined /*out*/;
             inputs["creationToken"] = undefined /*out*/;
             inputs["dataProtection"] = undefined /*out*/;
+            inputs["encryptionKeySource"] = undefined /*out*/;
             inputs["exportPolicy"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["isRestoring"] = undefined /*out*/;
@@ -231,7 +237,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }
@@ -258,6 +264,10 @@ export interface VolumeArgs {
      */
     readonly dataProtection?: pulumi.Input<inputs.netapp.latest.VolumePropertiesDataProtection>;
     /**
+     * Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+     */
+    readonly encryptionKeySource?: pulumi.Input<string>;
+    /**
      * Set of export policy rules
      */
     readonly exportPolicy?: pulumi.Input<inputs.netapp.latest.VolumePropertiesExportPolicy>;
@@ -274,15 +284,11 @@ export interface VolumeArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * List of mount targets
-     */
-    readonly mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.latest.MountTargetProperties>[]>;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: pulumi.Input<string>;
     /**
-     * Set of protocol types
+     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
      */
     readonly protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -290,7 +296,7 @@ export interface VolumeArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The security style of volume
+     * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
     readonly securityStyle?: pulumi.Input<string | enums.netapp.latest.SecurityStyle>;
     /**
@@ -306,7 +312,7 @@ export interface VolumeArgs {
      */
     readonly smbEncryption?: pulumi.Input<boolean>;
     /**
-     * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+     * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
     readonly snapshotDirectoryVisible?: pulumi.Input<boolean>;
     /**

@@ -21,9 +21,11 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']]] = None,
                  automatic_repairs_policy: Optional[pulumi.Input[pulumi.InputType['AutomaticRepairsPolicyArgs']]] = None,
                  do_not_run_extensions_on_overprovisioned_vms: Optional[pulumi.Input[bool]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  host_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 orchestration_mode: Optional[pulumi.Input['OrchestrationMode']] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -43,16 +45,18 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes a Virtual Machine Scale Set.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']] additional_capabilities: Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
         :param pulumi.Input[pulumi.InputType['AutomaticRepairsPolicyArgs']] automatic_repairs_policy: Policy for automatic repairs.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_vms: When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] host_group: Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetIdentityArgs']] identity: The identity of the virtual machine scale set, if configured.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['OrchestrationMode'] orchestration_mode: Specifies the orchestration mode for the virtual machine scale set.
         :param pulumi.Input[bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count for each placement group.
@@ -88,11 +92,13 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['additional_capabilities'] = additional_capabilities
             __props__['automatic_repairs_policy'] = automatic_repairs_policy
             __props__['do_not_run_extensions_on_overprovisioned_vms'] = do_not_run_extensions_on_overprovisioned_vms
+            __props__['extended_location'] = extended_location
             __props__['host_group'] = host_group
             __props__['identity'] = identity
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['orchestration_mode'] = orchestration_mode
             __props__['overprovision'] = overprovision
             __props__['plan'] = plan
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
@@ -115,7 +121,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSet, __self__).__init__(
             'azure-nextgen:compute/latest:VirtualMachineScaleSet',
@@ -166,6 +172,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_vms")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location of the Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter(name="hostGroup")
     def host_group(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
@@ -196,6 +210,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         Resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orchestrationMode")
+    def orchestration_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the orchestration mode for the virtual machine scale set.
+        """
+        return pulumi.get(self, "orchestration_mode")
 
     @property
     @pulumi.getter

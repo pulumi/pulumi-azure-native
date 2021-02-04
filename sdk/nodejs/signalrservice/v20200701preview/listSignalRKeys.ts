@@ -31,11 +31,11 @@ export interface ListSignalRKeysArgs {
 }
 
 /**
- * A class represents the access keys of SignalR service.
+ * A class represents the access keys of the resource.
  */
 export interface ListSignalRKeysResult {
     /**
-     * SignalR connection string constructed via the primaryKey
+     * Connection string constructed via the primaryKey
      */
     readonly primaryConnectionString?: string;
     /**
@@ -43,7 +43,7 @@ export interface ListSignalRKeysResult {
      */
     readonly primaryKey?: string;
     /**
-     * SignalR connection string constructed via the secondaryKey
+     * Connection string constructed via the secondaryKey
      */
     readonly secondaryConnectionString?: string;
     /**

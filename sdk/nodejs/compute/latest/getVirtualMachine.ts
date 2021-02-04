@@ -60,6 +60,10 @@ export interface GetVirtualMachineResult {
      */
     readonly evictionPolicy?: string;
     /**
+     * The extended location of the Virtual Machine.
+     */
+    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationResponse;
+    /**
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
      */
     readonly extensionsTimeBudget?: string;
@@ -111,6 +115,10 @@ export interface GetVirtualMachineResult {
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     readonly plan?: outputs.compute.latest.PlanResponse;
+    /**
+     * Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
+     */
+    readonly platformFaultDomain?: number;
     /**
      * Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
      */

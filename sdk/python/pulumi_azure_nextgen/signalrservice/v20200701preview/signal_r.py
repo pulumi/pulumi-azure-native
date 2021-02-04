@@ -34,7 +34,7 @@ class SignalR(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        A class represent a SignalR service resource.
+        A class represent a resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -46,8 +46,8 @@ class SignalR(pulumi.CustomResource):
                When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
-        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
-        :param pulumi.Input[str] location: The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
+        :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
@@ -136,7 +136,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="externalIP")
     def external_ip(self) -> pulumi.Output[str]:
         """
-        The publicly accessible IP of the SignalR service.
+        The publicly accessible IP of the resource.
         """
         return pulumi.get(self, "external_ip")
 
@@ -157,7 +157,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Output[str]:
         """
-        FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        FQDN of the service instance.
         """
         return pulumi.get(self, "host_name")
 
@@ -173,7 +173,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
         """
         return pulumi.get(self, "kind")
 
@@ -181,7 +181,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         """
         return pulumi.get(self, "location")
 
@@ -205,7 +205,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        Private endpoint connections to the SignalR resource.
+        Private endpoint connections to the resource.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -221,7 +221,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="publicPort")
     def public_port(self) -> pulumi.Output[int]:
         """
-        The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        The publicly accessible port of the resource which is designed for browser/client side usage.
         """
         return pulumi.get(self, "public_port")
 
@@ -229,7 +229,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="serverPort")
     def server_port(self) -> pulumi.Output[int]:
         """
-        The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        The publicly accessible port of the resource which is designed for customer server side usage.
         """
         return pulumi.get(self, "server_port")
 
@@ -277,7 +277,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        Version of the resource. Probably you need the same or higher version of client SDKs.
         """
         return pulumi.get(self, "version")
 

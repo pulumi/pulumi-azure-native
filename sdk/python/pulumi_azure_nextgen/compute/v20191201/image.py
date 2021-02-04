@@ -74,7 +74,7 @@ class Image(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:Image"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-nextgen:compute/v20191201:Image',

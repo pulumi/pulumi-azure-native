@@ -41,6 +41,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
     {
         public readonly ImmutableArray<Outputs.ActionResponse> Actions;
         /// <summary>
+        /// The api-version used when creating this alert rule
+        /// </summary>
+        public readonly string CreatedWithApiVersion;
+        /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
         public readonly Outputs.ScheduledQueryRuleCriteriaResponse Criteria;
@@ -68,6 +72,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// True if alert rule is legacy Log Analytic rule
+        /// </summary>
+        public readonly bool IsLegacyLogAnalyticsRule;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
@@ -117,6 +125,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         private GetScheduledQueryRuleResult(
             ImmutableArray<Outputs.ActionResponse> actions,
 
+            string createdWithApiVersion,
+
             Outputs.ScheduledQueryRuleCriteriaResponse criteria,
 
             string? description,
@@ -130,6 +140,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
             string evaluationFrequency,
 
             string id,
+
+            bool isLegacyLogAnalyticsRule,
 
             string kind,
 
@@ -154,6 +166,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
             string windowSize)
         {
             Actions = actions;
+            CreatedWithApiVersion = createdWithApiVersion;
             Criteria = criteria;
             Description = description;
             DisplayName = displayName;
@@ -161,6 +174,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
             Etag = etag;
             EvaluationFrequency = evaluationFrequency;
             Id = id;
+            IsLegacyLogAnalyticsRule = isLegacyLogAnalyticsRule;
             Kind = kind;
             Location = location;
             MuteActionsDuration = muteActionsDuration;

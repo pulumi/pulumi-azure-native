@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         [Input("encryptionAtHost")]
         public Input<bool>? EncryptionAtHost { get; set; }
 
+        /// <summary>
+        /// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+        /// </summary>
+        [Input("securityType")]
+        public Input<Pulumi.AzureNextGen.Compute.Latest.SecurityTypes>? SecurityType { get; set; }
+
+        /// <summary>
+        /// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-12-01
+        /// </summary>
+        [Input("uefiSettings")]
+        public Input<Inputs.UefiSettingsArgs>? UefiSettings { get; set; }
+
         public SecurityProfileArgs()
         {
         }

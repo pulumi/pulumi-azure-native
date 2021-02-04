@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
+        /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. &lt;br&gt;&lt;br&gt; detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. &lt;br&gt;&lt;br&gt; This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+        /// </summary>
+        public readonly string? DetachOption;
+        /// <summary>
         /// Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
         /// </summary>
         public readonly double DiskIOPSReadWrite;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
 
             string createOption,
 
+            string? detachOption,
+
             double diskIOPSReadWrite,
 
             double diskMBpsReadWrite,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         {
             Caching = caching;
             CreateOption = createOption;
+            DetachOption = detachOption;
             DiskIOPSReadWrite = diskIOPSReadWrite;
             DiskMBpsReadWrite = diskMBpsReadWrite;
             DiskSizeGB = diskSizeGB;

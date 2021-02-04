@@ -86,6 +86,9 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:AvailabilitySet"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:AvailabilitySet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AvailabilitySet

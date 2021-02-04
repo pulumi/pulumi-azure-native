@@ -25,7 +25,7 @@ class SshPublicKey(pulumi.CustomResource):
                  __opts__=None):
         """
         Specifies information about the SSH public key.
-        Latest API Version: 2020-06-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -65,7 +65,7 @@ class SshPublicKey(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20191201:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:SshPublicKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20191201:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:SshPublicKey"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:SshPublicKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SshPublicKey, __self__).__init__(
             'azure-nextgen:compute/latest:SshPublicKey',

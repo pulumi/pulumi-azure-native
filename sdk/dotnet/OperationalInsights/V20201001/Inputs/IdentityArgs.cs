@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20201001.Inputs
     public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        /// Type of managed service identity.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AzureNextGen.OperationalInsights.V20201001.IdentityType> Type { get; set; } = null!;

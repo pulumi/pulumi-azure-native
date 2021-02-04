@@ -2035,7 +2035,7 @@ type DataBoxDiskJobDetails struct {
 	// Details of the data to be imported into azure.
 	DataImportDetails []DataImportDetails `pulumi:"dataImportDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -2071,7 +2071,7 @@ type DataBoxDiskJobDetailsArgs struct {
 	// Details of the data to be imported into azure.
 	DataImportDetails DataImportDetailsArrayInput `pulumi:"dataImportDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -2130,8 +2130,8 @@ func (o DataBoxDiskJobDetailsOutput) DataImportDetails() DataImportDetailsArrayO
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxDiskJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetails) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxDiskJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -2184,7 +2184,7 @@ type DataBoxDiskJobDetailsResponse struct {
 	// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
 	DisksAndSizeDetails map[string]int `pulumi:"disksAndSizeDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -2236,7 +2236,7 @@ type DataBoxDiskJobDetailsResponseArgs struct {
 	// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
 	DisksAndSizeDetails pulumi.IntMapInput `pulumi:"disksAndSizeDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -2326,8 +2326,8 @@ func (o DataBoxDiskJobDetailsResponseOutput) DisksAndSizeDetails() pulumi.IntMap
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxDiskJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxDiskJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -2575,7 +2575,7 @@ type DataBoxHeavyJobDetails struct {
 	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword *string `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -2609,7 +2609,7 @@ type DataBoxHeavyJobDetailsArgs struct {
 	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -2669,8 +2669,8 @@ func (o DataBoxHeavyJobDetailsOutput) DevicePassword() pulumi.StringPtrOutput {
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxHeavyJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetails) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxHeavyJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -2713,7 +2713,7 @@ type DataBoxHeavyJobDetailsResponse struct {
 	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword *string `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -2761,7 +2761,7 @@ type DataBoxHeavyJobDetailsResponseArgs struct {
 	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -2847,8 +2847,8 @@ func (o DataBoxHeavyJobDetailsResponseOutput) DevicePassword() pulumi.StringPtrO
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxHeavyJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxHeavyJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -3123,7 +3123,7 @@ type DataBoxJobDetails struct {
 	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword *string `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -3157,7 +3157,7 @@ type DataBoxJobDetailsArgs struct {
 	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -3217,8 +3217,8 @@ func (o DataBoxJobDetailsOutput) DevicePassword() pulumi.StringPtrOutput {
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxJobDetails) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -3261,7 +3261,7 @@ type DataBoxJobDetailsResponse struct {
 	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword *string `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -3309,7 +3309,7 @@ type DataBoxJobDetailsResponseArgs struct {
 	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
 	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -3395,8 +3395,8 @@ func (o DataBoxJobDetailsResponseOutput) DevicePassword() pulumi.StringPtrOutput
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxJobDetailsResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -4095,9 +4095,9 @@ func (o DataboxJobSecretsResponseOutput) PodSecrets() DataBoxSecretResponseArray
 // Dc access security code
 type DcAccessSecurityCodeResponse struct {
 	// Forward Dc access security code.
-	ForwardDcAccessCode *string `pulumi:"forwardDcAccessCode"`
+	ForwardDCAccessCode *string `pulumi:"forwardDCAccessCode"`
 	// Reverse Dc access security code.
-	ReverseDcAccessCode *string `pulumi:"reverseDcAccessCode"`
+	ReverseDCAccessCode *string `pulumi:"reverseDCAccessCode"`
 }
 
 // DcAccessSecurityCodeResponseInput is an input type that accepts DcAccessSecurityCodeResponseArgs and DcAccessSecurityCodeResponseOutput values.
@@ -4114,9 +4114,9 @@ type DcAccessSecurityCodeResponseInput interface {
 // Dc access security code
 type DcAccessSecurityCodeResponseArgs struct {
 	// Forward Dc access security code.
-	ForwardDcAccessCode pulumi.StringPtrInput `pulumi:"forwardDcAccessCode"`
+	ForwardDCAccessCode pulumi.StringPtrInput `pulumi:"forwardDCAccessCode"`
 	// Reverse Dc access security code.
-	ReverseDcAccessCode pulumi.StringPtrInput `pulumi:"reverseDcAccessCode"`
+	ReverseDCAccessCode pulumi.StringPtrInput `pulumi:"reverseDCAccessCode"`
 }
 
 func (DcAccessSecurityCodeResponseArgs) ElementType() reflect.Type {
@@ -4147,13 +4147,13 @@ func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponseOutput
 }
 
 // Forward Dc access security code.
-func (o DcAccessSecurityCodeResponseOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDcAccessCode }).(pulumi.StringPtrOutput)
+func (o DcAccessSecurityCodeResponseOutput) ForwardDCAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDCAccessCode }).(pulumi.StringPtrOutput)
 }
 
 // Reverse Dc access security code.
-func (o DcAccessSecurityCodeResponseOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDcAccessCode }).(pulumi.StringPtrOutput)
+func (o DcAccessSecurityCodeResponseOutput) ReverseDCAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDCAccessCode }).(pulumi.StringPtrOutput)
 }
 
 // Contains all the secrets of a Disk.

@@ -49,7 +49,7 @@ export interface GetDeviceResult {
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
-    readonly description?: string;
+    readonly description: string;
     /**
      * The device software version number of the device (eg: 1.2.18105.6).
      */
@@ -73,7 +73,7 @@ export interface GetDeviceResult {
     /**
      * The details of Edge Profile for this resource
      */
-    readonly edgeProfile?: outputs.databoxedge.v20200901preview.EdgeProfileResponse;
+    readonly edgeProfile: outputs.databoxedge.v20200901preview.EdgeProfileResponse;
     /**
      * The etag for the devices.
      */
@@ -81,7 +81,7 @@ export interface GetDeviceResult {
     /**
      * The Data Box Edge/Gateway device name.
      */
-    readonly friendlyName?: string;
+    readonly friendlyName: string;
     /**
      * The path ID that uniquely identifies the object.
      */
@@ -93,7 +93,7 @@ export interface GetDeviceResult {
     /**
      * The etag for the devices.
      */
-    readonly kind?: string;
+    readonly kind: string;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -101,7 +101,7 @@ export interface GetDeviceResult {
     /**
      * The description of the Data Box Edge/Gateway device model.
      */
-    readonly modelDescription?: string;
+    readonly modelDescription: string;
     /**
      * The object name.
      */
@@ -113,7 +113,7 @@ export interface GetDeviceResult {
     /**
      * The details of the move operation on this resource.
      */
-    readonly resourceMoveDetails?: outputs.databoxedge.v20200901preview.ResourceMoveDetailsResponse;
+    readonly resourceMoveDetails: outputs.databoxedge.v20200901preview.ResourceMoveDetailsResponse;
     /**
      * The Serial Number of Data Box Edge/Gateway device.
      */

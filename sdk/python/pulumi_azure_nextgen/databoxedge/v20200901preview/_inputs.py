@@ -15,18 +15,13 @@ __all__ = [
     'AzureContainerInfoArgs',
     'ClientAccessRightArgs',
     'ContactDetailsArgs',
-    'EdgeProfileArgs',
-    'EdgeProfileSubscriptionArgs',
     'MetricConfigurationArgs',
     'MetricCounterArgs',
     'MetricCounterSetArgs',
     'MetricDimensionArgs',
-    'OrderStatusArgs',
     'RefreshDetailsArgs',
     'ResourceIdentityArgs',
-    'ResourceMoveDetailsArgs',
     'SkuArgs',
-    'SubscriptionRegisteredFeaturesArgs',
     'UserAccessRightArgs',
 ]
 
@@ -363,166 +358,6 @@ class ContactDetailsArgs:
 
 
 @pulumi.input_type
-class EdgeProfileArgs:
-    def __init__(__self__, *,
-                 subscription: Optional[pulumi.Input['EdgeProfileSubscriptionArgs']] = None):
-        """
-        Details about Edge Profile for the resource
-        :param pulumi.Input['EdgeProfileSubscriptionArgs'] subscription: Edge Profile Subscription
-        """
-        if subscription is not None:
-            pulumi.set(__self__, "subscription", subscription)
-
-    @property
-    @pulumi.getter
-    def subscription(self) -> Optional[pulumi.Input['EdgeProfileSubscriptionArgs']]:
-        """
-        Edge Profile Subscription
-        """
-        return pulumi.get(self, "subscription")
-
-    @subscription.setter
-    def subscription(self, value: Optional[pulumi.Input['EdgeProfileSubscriptionArgs']]):
-        pulumi.set(self, "subscription", value)
-
-
-@pulumi.input_type
-class EdgeProfileSubscriptionArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
-                 location_placement_id: Optional[pulumi.Input[str]] = None,
-                 quota_id: Optional[pulumi.Input[str]] = None,
-                 registered_features: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionRegisteredFeaturesArgs']]]] = None,
-                 registration_date: Optional[pulumi.Input[str]] = None,
-                 registration_id: Optional[pulumi.Input[str]] = None,
-                 serialized_details: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'SubscriptionState']]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None):
-        """
-        Subscription details for the Edge Profile
-        :param pulumi.Input[str] id: ARM ID of the subscription
-        :param pulumi.Input[str] registration_id: Edge Subscription Registration ID
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if location_placement_id is not None:
-            pulumi.set(__self__, "location_placement_id", location_placement_id)
-        if quota_id is not None:
-            pulumi.set(__self__, "quota_id", quota_id)
-        if registered_features is not None:
-            pulumi.set(__self__, "registered_features", registered_features)
-        if registration_date is not None:
-            pulumi.set(__self__, "registration_date", registration_date)
-        if registration_id is not None:
-            pulumi.set(__self__, "registration_id", registration_id)
-        if serialized_details is not None:
-            pulumi.set(__self__, "serialized_details", serialized_details)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM ID of the subscription
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="locationPlacementId")
-    def location_placement_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "location_placement_id")
-
-    @location_placement_id.setter
-    def location_placement_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location_placement_id", value)
-
-    @property
-    @pulumi.getter(name="quotaId")
-    def quota_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "quota_id")
-
-    @quota_id.setter
-    def quota_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "quota_id", value)
-
-    @property
-    @pulumi.getter(name="registeredFeatures")
-    def registered_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionRegisteredFeaturesArgs']]]]:
-        return pulumi.get(self, "registered_features")
-
-    @registered_features.setter
-    def registered_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionRegisteredFeaturesArgs']]]]):
-        pulumi.set(self, "registered_features", value)
-
-    @property
-    @pulumi.getter(name="registrationDate")
-    def registration_date(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "registration_date")
-
-    @registration_date.setter
-    def registration_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "registration_date", value)
-
-    @property
-    @pulumi.getter(name="registrationId")
-    def registration_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Edge Subscription Registration ID
-        """
-        return pulumi.get(self, "registration_id")
-
-    @registration_id.setter
-    def registration_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "registration_id", value)
-
-    @property
-    @pulumi.getter(name="serializedDetails")
-    def serialized_details(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "serialized_details")
-
-    @serialized_details.setter
-    def serialized_details(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "serialized_details", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'SubscriptionState']]]:
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'SubscriptionState']]]):
-        pulumi.set(self, "state", value)
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subscription_id", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
-
-
-@pulumi.input_type
 class MetricConfigurationArgs:
     def __init__(__self__, *,
                  counter_sets: pulumi.Input[Sequence[pulumi.Input['MetricCounterSetArgs']]],
@@ -725,45 +560,6 @@ class MetricDimensionArgs:
 
 
 @pulumi.input_type
-class OrderStatusArgs:
-    def __init__(__self__, *,
-                 status: pulumi.Input[Union[str, 'OrderState']],
-                 comments: Optional[pulumi.Input[str]] = None):
-        """
-        Represents a single status change.
-        :param pulumi.Input[Union[str, 'OrderState']] status: Status of the order as per the allowed status types.
-        :param pulumi.Input[str] comments: Comments related to this status change.
-        """
-        pulumi.set(__self__, "status", status)
-        if comments is not None:
-            pulumi.set(__self__, "comments", comments)
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Input[Union[str, 'OrderState']]:
-        """
-        Status of the order as per the allowed status types.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Union[str, 'OrderState']]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
-    def comments(self) -> Optional[pulumi.Input[str]]:
-        """
-        Comments related to this status change.
-        """
-        return pulumi.get(self, "comments")
-
-    @comments.setter
-    def comments(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "comments", value)
-
-
-@pulumi.input_type
 class RefreshDetailsArgs:
     def __init__(__self__, *,
                  error_manifest_file: Optional[pulumi.Input[str]] = None,
@@ -860,46 +656,6 @@ class ResourceIdentityArgs:
 
 
 @pulumi.input_type
-class ResourceMoveDetailsArgs:
-    def __init__(__self__, *,
-                 operation_in_progress: Optional[pulumi.Input[Union[str, 'ResourceMoveStatus']]] = None,
-                 operation_in_progress_lock_timeout_in_utc: Optional[pulumi.Input[str]] = None):
-        """
-        Fields for tracking resource move
-        :param pulumi.Input[Union[str, 'ResourceMoveStatus']] operation_in_progress: Denotes whether move operation is in progress
-        :param pulumi.Input[str] operation_in_progress_lock_timeout_in_utc: Denotes the timeout of the operation to finish
-        """
-        if operation_in_progress is not None:
-            pulumi.set(__self__, "operation_in_progress", operation_in_progress)
-        if operation_in_progress_lock_timeout_in_utc is not None:
-            pulumi.set(__self__, "operation_in_progress_lock_timeout_in_utc", operation_in_progress_lock_timeout_in_utc)
-
-    @property
-    @pulumi.getter(name="operationInProgress")
-    def operation_in_progress(self) -> Optional[pulumi.Input[Union[str, 'ResourceMoveStatus']]]:
-        """
-        Denotes whether move operation is in progress
-        """
-        return pulumi.get(self, "operation_in_progress")
-
-    @operation_in_progress.setter
-    def operation_in_progress(self, value: Optional[pulumi.Input[Union[str, 'ResourceMoveStatus']]]):
-        pulumi.set(self, "operation_in_progress", value)
-
-    @property
-    @pulumi.getter(name="operationInProgressLockTimeoutInUTC")
-    def operation_in_progress_lock_timeout_in_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        Denotes the timeout of the operation to finish
-        """
-        return pulumi.get(self, "operation_in_progress_lock_timeout_in_utc")
-
-    @operation_in_progress_lock_timeout_in_utc.setter
-    def operation_in_progress_lock_timeout_in_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operation_in_progress_lock_timeout_in_utc", value)
-
-
-@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
@@ -937,35 +693,6 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class SubscriptionRegisteredFeaturesArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

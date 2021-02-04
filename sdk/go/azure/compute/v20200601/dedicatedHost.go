@@ -78,6 +78,9 @@ func NewDedicatedHost(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:DedicatedHost"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHost"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedHost

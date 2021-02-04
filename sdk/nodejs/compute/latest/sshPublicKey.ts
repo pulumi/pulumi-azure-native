@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the SSH public key.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2020-12-01.
  */
 export class SshPublicKey extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class SshPublicKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20200601:SshPublicKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20200601:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }

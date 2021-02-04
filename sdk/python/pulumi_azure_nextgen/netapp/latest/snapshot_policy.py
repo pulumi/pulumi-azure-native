@@ -32,7 +32,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         Snapshot policy information
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:SnapshotPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:SnapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SnapshotPolicy, __self__).__init__(
             'azure-nextgen:netapp/latest:SnapshotPolicy',

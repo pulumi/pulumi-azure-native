@@ -98,6 +98,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

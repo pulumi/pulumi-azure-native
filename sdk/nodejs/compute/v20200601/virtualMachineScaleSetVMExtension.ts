@@ -137,7 +137,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVMExtension.__pulumiType, name, inputs, opts);
     }

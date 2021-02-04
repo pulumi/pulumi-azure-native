@@ -40,6 +40,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly action!: pulumi.Output<outputs.insights.v20180416.AlertingActionResponse | outputs.insights.v20180416.LogToMetricActionResponse>;
     /**
+     * The api-version used when creating this alert rule
+     */
+    public /*out*/ readonly createdWithApiVersion!: pulumi.Output<string>;
+    /**
      * The description of the Log Search rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -55,6 +59,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * True if alert rule is legacy Log Analytic rule
+     */
+    public /*out*/ readonly isLegacyLogAnalyticsRule!: pulumi.Output<boolean>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -127,7 +135,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["createdWithApiVersion"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -135,10 +145,12 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["action"] = undefined /*out*/;
+            inputs["createdWithApiVersion"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

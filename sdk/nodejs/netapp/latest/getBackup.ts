@@ -62,6 +62,10 @@ export interface GetBackupResult {
      */
     readonly creationDate: string;
     /**
+     * Failure reason
+     */
+    readonly failureReason: string;
+    /**
      * Resource Id
      */
     readonly id: string;

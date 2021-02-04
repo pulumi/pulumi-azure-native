@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Failure reason
+        /// </summary>
+        public readonly string FailureReason;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
             string creationDate,
 
+            string failureReason,
+
             string id,
 
             string? label,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
             BackupId = backupId;
             BackupType = backupType;
             CreationDate = creationDate;
+            FailureReason = failureReason;
             Id = id;
             Label = label;
             Location = location;

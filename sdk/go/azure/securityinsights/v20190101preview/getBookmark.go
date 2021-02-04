@@ -37,6 +37,8 @@ type LookupBookmarkResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// The bookmark event time
+	EventTime *string `pulumi:"eventTime"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// Describes an incident that relates to bookmark
@@ -49,8 +51,12 @@ type LookupBookmarkResult struct {
 	Notes *string `pulumi:"notes"`
 	// The query of the bookmark.
 	Query string `pulumi:"query"`
+	// The end time for the query
+	QueryEndTime *string `pulumi:"queryEndTime"`
 	// The query result of the bookmark.
 	QueryResult *string `pulumi:"queryResult"`
+	// The start time for the query
+	QueryStartTime *string `pulumi:"queryStartTime"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 	// The last time the bookmark was updated

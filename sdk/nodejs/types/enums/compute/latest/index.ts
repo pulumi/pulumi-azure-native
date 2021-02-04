@@ -99,6 +99,15 @@ export const DiskCreateOptionTypes = {
  */
 export type DiskCreateOptionTypes = (typeof DiskCreateOptionTypes)[keyof typeof DiskCreateOptionTypes];
 
+export const DiskDetachOptionTypes = {
+    ForceDetach: "ForceDetach",
+} as const;
+
+/**
+ * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+ */
+export type DiskDetachOptionTypes = (typeof DiskDetachOptionTypes)[keyof typeof DiskDetachOptionTypes];
+
 export const DiskEncryptionSetIdentityType = {
     SystemAssigned: "SystemAssigned",
     None: "None",
@@ -229,17 +238,6 @@ export const IPVersion = {
  */
 export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
 
-export const InGuestPatchMode = {
-    Manual: "Manual",
-    AutomaticByOS: "AutomaticByOS",
-    AutomaticByPlatform: "AutomaticByPlatform",
-} as const;
-
-/**
- * Specifies the mode of in-guest patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
- */
-export type InGuestPatchMode = (typeof InGuestPatchMode)[keyof typeof InGuestPatchMode];
-
 export const IntervalInMins = {
     ThreeMins: "ThreeMins",
     FiveMins: "FiveMins",
@@ -251,6 +249,16 @@ export const IntervalInMins = {
  * Interval value in minutes used to create LogAnalytics call rate logs.
  */
 export type IntervalInMins = (typeof IntervalInMins)[keyof typeof IntervalInMins];
+
+export const LinuxVMGuestPatchMode = {
+    ImageDefault: "ImageDefault",
+    AutomaticByPlatform: "AutomaticByPlatform",
+} as const;
+
+/**
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+ */
+export type LinuxVMGuestPatchMode = (typeof LinuxVMGuestPatchMode)[keyof typeof LinuxVMGuestPatchMode];
 
 export const NetworkAccessPolicy = {
     /**
@@ -297,6 +305,16 @@ export const OperatingSystemTypes = {
  * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
  */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
+
+export const OrchestrationMode = {
+    Uniform: "Uniform",
+    Flexible: "Flexible",
+} as const;
+
+/**
+ * Specifies the orchestration mode for the virtual machine scale set.
+ */
+export type OrchestrationMode = (typeof OrchestrationMode)[keyof typeof OrchestrationMode];
 
 export const PassNames = {
     OobeSystem: "OobeSystem",
@@ -349,6 +367,15 @@ export const ResourceIdentityType = {
  * The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SecurityTypes = {
+    TrustedLaunch: "TrustedLaunch",
+} as const;
+
+/**
+ * Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+ */
+export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 
 export const SettingNames = {
     AutoLogon: "AutoLogon",
@@ -624,6 +651,17 @@ export const VirtualMachineSizeTypes = {
 } as const;
 
 /**
- * Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). <br><br> This list of sizes is no longer updated and the **VirtualMachineSizeTypes** string constants will be removed from the subsequent REST API specification. Use [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) to get the latest sizes.
+ * Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
  */
 export type VirtualMachineSizeTypes = (typeof VirtualMachineSizeTypes)[keyof typeof VirtualMachineSizeTypes];
+
+export const WindowsVMGuestPatchMode = {
+    Manual: "Manual",
+    AutomaticByOS: "AutomaticByOS",
+    AutomaticByPlatform: "AutomaticByPlatform",
+} as const;
+
+/**
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> ** AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+ */
+export type WindowsVMGuestPatchMode = (typeof WindowsVMGuestPatchMode)[keyof typeof WindowsVMGuestPatchMode];

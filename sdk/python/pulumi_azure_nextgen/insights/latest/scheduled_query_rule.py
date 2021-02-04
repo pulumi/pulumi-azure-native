@@ -85,7 +85,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags
+            __props__['created_with_api_version'] = None
             __props__['etag'] = None
+            __props__['is_legacy_log_analytics_rule'] = None
             __props__['kind'] = None
             __props__['last_updated_time'] = None
             __props__['name'] = None
@@ -126,6 +128,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         return pulumi.get(self, "action")
 
     @property
+    @pulumi.getter(name="createdWithApiVersion")
+    def created_with_api_version(self) -> pulumi.Output[str]:
+        """
+        The api-version used when creating this alert rule
+        """
+        return pulumi.get(self, "created_with_api_version")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
@@ -156,6 +166,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="isLegacyLogAnalyticsRule")
+    def is_legacy_log_analytics_rule(self) -> pulumi.Output[bool]:
+        """
+        True if alert rule is legacy Log Analytic rule
+        """
+        return pulumi.get(self, "is_legacy_log_analytics_rule")
 
     @property
     @pulumi.getter
