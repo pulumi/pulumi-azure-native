@@ -90,8 +90,6 @@ class Topic(pulumi.CustomResource):
             __props__['filtering_messages_before_publishing'] = filtering_messages_before_publishing
             __props__['is_anonymous_accessible'] = is_anonymous_accessible
             __props__['is_express'] = is_express
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
             __props__['name'] = name

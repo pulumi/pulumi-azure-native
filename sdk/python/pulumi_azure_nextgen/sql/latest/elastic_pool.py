@@ -72,8 +72,6 @@ class ElasticPool(pulumi.CustomResource):
             if elastic_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_pool_name'")
             __props__['elastic_pool_name'] = elastic_pool_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

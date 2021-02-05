@@ -67,8 +67,6 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
             __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion

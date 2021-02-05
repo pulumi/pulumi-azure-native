@@ -101,8 +101,6 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['job_preparation'] = job_preparation
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if node_count is None and not opts.urn:
                 raise TypeError("Missing required property 'node_count'")

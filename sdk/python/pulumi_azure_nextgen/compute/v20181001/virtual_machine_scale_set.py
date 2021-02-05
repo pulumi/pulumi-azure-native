@@ -81,8 +81,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['automatic_repairs_policy'] = automatic_repairs_policy
             __props__['do_not_run_extensions_on_overprovisioned_vms'] = do_not_run_extensions_on_overprovisioned_vms
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['overprovision'] = overprovision
             __props__['plan'] = plan

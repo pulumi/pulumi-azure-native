@@ -68,8 +68,6 @@ class Namespace(pulumi.CustomResource):
 
             __props__['created_at'] = created_at
             __props__['enabled'] = enabled
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

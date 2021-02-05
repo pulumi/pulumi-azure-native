@@ -82,8 +82,6 @@ class ActionGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_short_name'")
             __props__['group_short_name'] = group_short_name
             __props__['itsm_receivers'] = itsm_receivers
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

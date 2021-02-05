@@ -66,8 +66,6 @@ class ServiceUnit(pulumi.CustomResource):
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__['deployment_mode'] = deployment_mode
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

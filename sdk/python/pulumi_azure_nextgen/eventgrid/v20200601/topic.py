@@ -67,8 +67,6 @@ class Topic(pulumi.CustomResource):
                 input_schema = 'EventGridSchema'
             __props__['input_schema'] = input_schema
             __props__['input_schema_mapping'] = input_schema_mapping
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['private_endpoint_connections'] = private_endpoint_connections
             __props__['public_network_access'] = public_network_access

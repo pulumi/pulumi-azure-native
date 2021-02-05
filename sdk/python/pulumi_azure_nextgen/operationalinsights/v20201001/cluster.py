@@ -72,8 +72,6 @@ class Cluster(pulumi.CustomResource):
             __props__['is_availability_zones_enabled'] = is_availability_zones_enabled
             __props__['is_double_encryption_enabled'] = is_double_encryption_enabled
             __props__['key_vault_properties'] = key_vault_properties
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -75,8 +75,6 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                 async_execution = False
             __props__['async_execution'] = async_execution
             __props__['error_blob_uri'] = error_blob_uri
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['output_blob_uri'] = output_blob_uri
             __props__['parameters'] = parameters

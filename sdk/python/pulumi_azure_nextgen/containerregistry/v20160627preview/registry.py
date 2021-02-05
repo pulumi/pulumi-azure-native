@@ -58,8 +58,6 @@ class Registry(pulumi.CustomResource):
             if admin_user_enabled is None:
                 admin_user_enabled = False
             __props__['admin_user_enabled'] = admin_user_enabled
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")

@@ -53,8 +53,6 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
             if deployment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_name'")
             __props__['deployment_name'] = deployment_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

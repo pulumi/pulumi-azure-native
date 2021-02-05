@@ -85,8 +85,6 @@ class Account(pulumi.CustomResource):
             __props__['firewall_rules'] = firewall_rules
             __props__['firewall_state'] = firewall_state
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['new_tier'] = new_tier
             if resource_group_name is None and not opts.urn:

@@ -59,8 +59,6 @@ class RouteFilter(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['peerings'] = peerings
             if resource_group_name is None and not opts.urn:

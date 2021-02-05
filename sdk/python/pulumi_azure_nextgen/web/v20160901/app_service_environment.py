@@ -98,8 +98,6 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__['internal_load_balancing_mode'] = internal_load_balancing_mode
             __props__['ipssl_address_count'] = ipssl_address_count
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['multi_role_count'] = multi_role_count
             __props__['multi_size'] = multi_size

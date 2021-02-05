@@ -71,8 +71,6 @@ class PrivateCloud(pulumi.CustomResource):
             if internet is None:
                 internet = 'Disabled'
             __props__['internet'] = internet
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if management_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'management_cluster'")

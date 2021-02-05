@@ -58,8 +58,6 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

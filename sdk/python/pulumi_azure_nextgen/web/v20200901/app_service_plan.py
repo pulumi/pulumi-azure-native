@@ -90,8 +90,6 @@ class AppServicePlan(pulumi.CustomResource):
                 is_xenon = False
             __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maximum_elastic_worker_count'] = maximum_elastic_worker_count
             if name is None and not opts.urn:

@@ -69,8 +69,6 @@ class ApplicationGroup(pulumi.CustomResource):
             if host_pool_arm_path is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_arm_path'")
             __props__['host_pool_arm_path'] = host_pool_arm_path
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

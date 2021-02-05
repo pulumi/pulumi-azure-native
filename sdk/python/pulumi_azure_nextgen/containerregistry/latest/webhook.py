@@ -67,8 +67,6 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
             __props__['custom_headers'] = custom_headers
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")

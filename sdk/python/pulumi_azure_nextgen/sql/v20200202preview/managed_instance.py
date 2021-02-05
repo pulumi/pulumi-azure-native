@@ -110,8 +110,6 @@ class ManagedInstance(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['instance_pool_id'] = instance_pool_id
             __props__['license_type'] = license_type
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
             __props__['managed_instance_create_mode'] = managed_instance_create_mode

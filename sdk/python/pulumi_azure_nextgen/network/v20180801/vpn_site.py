@@ -73,8 +73,6 @@ class VpnSite(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_address'] = ip_address
             __props__['is_security_site'] = is_security_site
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

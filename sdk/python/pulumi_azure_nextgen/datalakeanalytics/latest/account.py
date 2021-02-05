@@ -92,8 +92,6 @@ class Account(pulumi.CustomResource):
             __props__['firewall_allow_azure_ips'] = firewall_allow_azure_ips
             __props__['firewall_rules'] = firewall_rules
             __props__['firewall_state'] = firewall_state
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if max_degree_of_parallelism is None:
                 max_degree_of_parallelism = 30

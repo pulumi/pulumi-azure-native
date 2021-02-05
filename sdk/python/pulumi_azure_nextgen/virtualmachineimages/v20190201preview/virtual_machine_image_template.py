@@ -63,8 +63,6 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             if image_template_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_template_name'")
             __props__['image_template_name'] = image_template_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -73,8 +73,6 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'creation_token'")
             __props__['creation_token'] = creation_token
             __props__['export_policy'] = export_policy
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")

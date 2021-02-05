@@ -61,8 +61,6 @@ class Snapshot(pulumi.CustomResource):
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
             __props__['file_system_id'] = file_system_id
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")

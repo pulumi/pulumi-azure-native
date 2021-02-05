@@ -57,8 +57,6 @@ class Bot(pulumi.CustomResource):
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
             __props__['bot_name'] = bot_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

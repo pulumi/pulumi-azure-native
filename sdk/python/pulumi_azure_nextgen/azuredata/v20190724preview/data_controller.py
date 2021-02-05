@@ -55,8 +55,6 @@ class DataController(pulumi.CustomResource):
             if data_controller_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_controller_name'")
             __props__['data_controller_name'] = data_controller_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if on_premise_property is None and not opts.urn:
                 raise TypeError("Missing required property 'on_premise_property'")

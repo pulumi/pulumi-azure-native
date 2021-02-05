@@ -59,8 +59,6 @@ class OrderByName(pulumi.CustomResource):
             if address_details is None and not opts.urn:
                 raise TypeError("Missing required property 'address_details'")
             __props__['address_details'] = address_details
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if order_details is None and not opts.urn:
                 raise TypeError("Missing required property 'order_details'")

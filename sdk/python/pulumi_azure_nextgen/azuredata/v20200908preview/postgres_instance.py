@@ -62,8 +62,6 @@ class PostgresInstance(pulumi.CustomResource):
             __props__['data_controller_id'] = data_controller_id
             __props__['k8s_raw'] = k8s_raw
             __props__['last_uploaded_date'] = last_uploaded_date
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if postgres_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'postgres_instance_name'")

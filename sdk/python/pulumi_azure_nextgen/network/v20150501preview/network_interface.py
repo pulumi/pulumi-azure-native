@@ -76,8 +76,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['enable_ip_forwarding'] = enable_ip_forwarding
             __props__['etag'] = etag
             __props__['ip_configurations'] = ip_configurations
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mac_address'] = mac_address
             if network_interface_name is None and not opts.urn:

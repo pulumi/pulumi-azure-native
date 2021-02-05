@@ -67,8 +67,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

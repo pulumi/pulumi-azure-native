@@ -68,8 +68,6 @@ class VirtualWan(pulumi.CustomResource):
             __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
             __props__['disable_vpn_encryption'] = disable_vpn_encryption
             __props__['id'] = id
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['p2_s_vpn_server_configurations'] = p2_s_vpn_server_configurations
             if resource_group_name is None and not opts.urn:

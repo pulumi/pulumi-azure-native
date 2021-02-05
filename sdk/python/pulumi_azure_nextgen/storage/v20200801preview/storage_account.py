@@ -101,8 +101,6 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['large_file_shares_state'] = large_file_shares_state
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['minimum_tls_version'] = minimum_tls_version
             __props__['network_rule_set'] = network_rule_set

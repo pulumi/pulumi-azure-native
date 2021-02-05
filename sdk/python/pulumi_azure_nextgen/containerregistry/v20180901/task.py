@@ -71,8 +71,6 @@ class Task(pulumi.CustomResource):
 
             __props__['agent_configuration'] = agent_configuration
             __props__['credentials'] = credentials
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")

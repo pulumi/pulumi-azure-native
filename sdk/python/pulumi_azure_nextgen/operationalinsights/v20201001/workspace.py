@@ -70,8 +70,6 @@ class Workspace(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['force_cmk_for_query'] = force_cmk_for_query
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
             __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion

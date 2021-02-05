@@ -59,8 +59,6 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dashboard_name'")
             __props__['dashboard_name'] = dashboard_name
             __props__['lenses'] = lenses
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['metadata'] = metadata
             if resource_group_name is None and not opts.urn:

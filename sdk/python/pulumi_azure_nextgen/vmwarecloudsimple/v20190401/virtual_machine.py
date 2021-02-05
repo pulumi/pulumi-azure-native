@@ -82,8 +82,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['customization'] = customization
             __props__['disks'] = disks
             __props__['expose_to_guest_vm'] = expose_to_guest_vm
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['nics'] = nics
             if number_of_cores is None and not opts.urn:

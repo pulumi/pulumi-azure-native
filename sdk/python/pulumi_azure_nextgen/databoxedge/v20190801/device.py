@@ -71,8 +71,6 @@ class Device(pulumi.CustomResource):
             __props__['device_name'] = device_name
             __props__['etag'] = etag
             __props__['friendly_name'] = friendly_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['model_description'] = model_description
             if resource_group_name is None and not opts.urn:

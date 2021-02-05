@@ -75,8 +75,6 @@ class BackupPolicy(pulumi.CustomResource):
             __props__['backup_policy_name'] = backup_policy_name
             __props__['daily_backups_to_keep'] = daily_backups_to_keep
             __props__['enabled'] = enabled
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['monthly_backups_to_keep'] = monthly_backups_to_keep
             if resource_group_name is None and not opts.urn:

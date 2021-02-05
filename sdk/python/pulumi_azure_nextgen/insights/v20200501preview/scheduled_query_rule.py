@@ -87,8 +87,6 @@ class ScheduledQueryRule(pulumi.CustomResource):
             if evaluation_frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'evaluation_frequency'")
             __props__['evaluation_frequency'] = evaluation_frequency
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mute_actions_duration'] = mute_actions_duration
             __props__['override_query_time_range'] = override_query_time_range

@@ -67,8 +67,6 @@ class ServerDetails(pulumi.CustomResource):
             __props__['as_administrators'] = as_administrators
             __props__['backup_blob_container_uri'] = backup_blob_container_uri
             __props__['gateway_details'] = gateway_details
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if managed_mode is None:
                 managed_mode = 1

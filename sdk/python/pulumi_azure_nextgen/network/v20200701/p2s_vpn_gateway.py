@@ -71,8 +71,6 @@ class P2sVpnGateway(pulumi.CustomResource):
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['is_routing_preference_internet'] = is_routing_preference_internet
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['p2_s_connection_configurations'] = p2_s_connection_configurations
             if resource_group_name is None and not opts.urn:

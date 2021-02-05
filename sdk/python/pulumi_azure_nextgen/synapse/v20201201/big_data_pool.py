@@ -103,8 +103,6 @@ class BigDataPool(pulumi.CustomResource):
             __props__['force'] = force
             __props__['is_compute_isolation_enabled'] = is_compute_isolation_enabled
             __props__['library_requirements'] = library_requirements
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['node_count'] = node_count
             __props__['node_size'] = node_size

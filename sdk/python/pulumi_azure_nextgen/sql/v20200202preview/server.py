@@ -67,8 +67,6 @@ class Server(pulumi.CustomResource):
             __props__['administrator_login'] = administrator_login
             __props__['administrator_login_password'] = administrator_login_password
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['minimal_tls_version'] = minimal_tls_version
             __props__['public_network_access'] = public_network_access

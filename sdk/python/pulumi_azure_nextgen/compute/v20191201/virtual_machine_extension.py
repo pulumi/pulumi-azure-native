@@ -73,8 +73,6 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
             __props__['force_update_tag'] = force_update_tag
             __props__['instance_view'] = instance_view
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher

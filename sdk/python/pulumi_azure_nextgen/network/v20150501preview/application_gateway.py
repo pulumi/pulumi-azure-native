@@ -86,8 +86,6 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['frontend_ports'] = frontend_ports
             __props__['gateway_ip_configurations'] = gateway_ip_configurations
             __props__['http_listeners'] = http_listeners
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
             __props__['request_routing_rules'] = request_routing_rules

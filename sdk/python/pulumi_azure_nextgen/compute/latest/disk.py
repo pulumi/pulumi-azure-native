@@ -108,8 +108,6 @@ class Disk(pulumi.CustomResource):
             __props__['encryption_settings_collection'] = encryption_settings_collection
             __props__['extended_location'] = extended_location
             __props__['hyper_v_generation'] = hyper_v_generation
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_shares'] = max_shares
             __props__['network_access_policy'] = network_access_policy
