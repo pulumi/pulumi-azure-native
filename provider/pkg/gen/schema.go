@@ -799,6 +799,9 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				return nil, err
 			}
 
+			// Top-level location is never required: it can be derived from a config value or the parent resource group.
+			props.requiredSpecs.Delete("location")
+
 			result.merge(props)
 			apiParameter.Body = &resources.AzureAPIType{
 				Properties:         props.properties,

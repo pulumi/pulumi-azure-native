@@ -62,6 +62,7 @@ type azureNextGenProvider struct {
 	schemaBytes     []byte
 	converter       *resources.SdkShapeConverter
 	customResources map[string]*resources.CustomResource
+	rgLocationMap   map[string]string
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -80,14 +81,15 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 
 	// Return the new provider
 	return &azureNextGenProvider{
-		host:        host,
-		name:        name,
-		version:     version,
-		client:      client,
-		resourceMap: resourceMap,
-		config:      map[string]string{},
-		schemaBytes: schemaBytes,
-		converter:   &resources.SdkShapeConverter{Types: resourceMap.Types},
+		host:          host,
+		name:          name,
+		version:       version,
+		client:        client,
+		resourceMap:   resourceMap,
+		config:        map[string]string{},
+		schemaBytes:   schemaBytes,
+		converter:     &resources.SdkShapeConverter{Types: resourceMap.Types},
+		rgLocationMap: map[string]string{},
 	}, nil
 }
 
@@ -280,7 +282,7 @@ func (k *azureNextGenProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.Resource
 // representation of the properties as present in the program inputs. Though this rule is not
 // required for correctness, violations thereof can negatively impact the end-user experience, as
 // the provider inputs are using for detecting and rendering diffs.
-func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -301,6 +303,7 @@ func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
+	k.applyDefaults(ctx, res, inputs)
 	inputMap := inputs.Mappable()
 
 	// Validate inputs against PUT parameters.
@@ -333,7 +336,79 @@ func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (
 		}
 	}
 
-	return &rpc.CheckResponse{Inputs: newResInputs, Failures: failures}, nil
+	resInputs, err := plugin.MarshalProperties(inputs, plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.resInputs", label), KeepUnknowns: true})
+	if err != nil {
+		return nil, err
+	}
+
+	return &rpc.CheckResponse{Inputs: resInputs, Failures: failures}, nil
+}
+
+// Get a default location property for the given inputs.
+func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, inputs resource.PropertyMap) *resource.PropertyValue {
+	result := func(s string) *resource.PropertyValue {
+		p := resource.NewStringProperty(s)
+		return &p
+	}
+
+	// 1. Check if the config has a fixed location.
+	if v, ok := k.config["location"]; ok {
+		return result(v)
+	}
+
+	// 2. If there is a link to a resource group, try to use its location.
+	rg, ok := inputs["resourceGroupName"]
+	if !ok {
+		return nil
+	}
+
+	// 2a. Resource group is unknown yet - make location unknown too.
+	if rg.ContainsUnknowns() {
+		computed := resource.MakeComputed(resource.NewStringProperty(""))
+		return &computed
+	}
+
+	// 2b. Resource group name is known and its location is already in the cache: use the cached value.
+	rgName := rg.StringValue()
+	if v, ok := k.rgLocationMap[rgName]; ok {
+		return result(v)
+	}
+
+	// 2c. Retrieve the resource group's properties from ARM API.
+	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
+	response, err := k.azureGet(ctx, id, "2020-10-01")
+	if err != nil {
+		logging.V(9).Infof("failed to lookup the location of resource group %q: %v", rgName, err)
+		return nil
+	}
+
+	v, ok := response["location"].(string)
+	if !ok {
+		logging.V(9).Infof("no location for resource group %q", rgName)
+		return nil
+	}
+
+	// Save the location to the cache and return the value.
+	k.rgLocationMap[rgName] = v
+	return result(v)
+}
+
+// Apply default values (e.g., location) to user's inputs.
+func (k *azureNextGenProvider) applyDefaults(ctx context.Context, res resources.AzureAPIResource, inputs resource.PropertyMap) {
+	if !inputs.HasValue("location") {
+		for _, par := range res.PutParameters {
+			if par.Body == nil {
+				continue
+			}
+			if _, ok := par.Body.Properties["location"]; ok {
+				v := k.getDefaultLocation(ctx, inputs)
+				if v != nil {
+					inputs["location"] = *v
+				}
+			}
+		}
+	}
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
@@ -351,8 +426,12 @@ func (k *azureNextGenProvider) validateType(ctx string, typ *resources.AzureAPIT
 			if ctx != "" {
 				propCtx = fmt.Sprintf("%s.%s", ctx, name)
 			}
+			reason := fmt.Sprintf("missing required property '%s'", propCtx)
+			if propCtx == "location" {
+				reason += ". Either set it explicitly or configure it with 'pulumi config set azure-nextgen:location <value>'."
+			}
 			failures = append(failures, &rpc.CheckFailure{
-				Reason: fmt.Sprintf("missing required property '%s'", propCtx),
+				Reason: reason,
 			})
 		}
 	}
@@ -1181,7 +1260,7 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	preparer := autorest.CreatePreparer(
 		op,
 		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id + res.ReadPath),
+		autorest.WithPath(id+res.ReadPath),
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
 	if err != nil {
