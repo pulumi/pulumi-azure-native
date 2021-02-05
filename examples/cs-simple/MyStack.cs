@@ -22,8 +22,7 @@ class MyStack : Stack
 
         var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
         {
-            ResourceGroupName = randomString.Result,
-            Location = "WestUS"
+            ResourceGroupName = randomString.Result
         });
 
         var storageAccount = new StorageAccount("sa", new StorageAccountArgs

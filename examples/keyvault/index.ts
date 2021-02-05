@@ -15,7 +15,6 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString,
-    location: "westus2",
 });
 
 const userIdentity = new managedidentity.UserAssignedIdentity("uai", {
@@ -27,7 +26,6 @@ const userIdentity = new managedidentity.UserAssignedIdentity("uai", {
 const container = new containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     containerGroupName: randomString,
-    location: "westus2",
     osType: containerinstance.OperatingSystemTypes.Linux,
     containers: [{
         name: "foo",

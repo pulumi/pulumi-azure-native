@@ -27,7 +27,6 @@ async function main() {
     // Now, import the same resources to Pulumi. pulumi destroy will clean them up.
     new resources.ResourceGroup(`${name}-rg`, {
         resourceGroupName,
-        location,
     }, { import: `/subscriptions/${subscriptionID}/resourceGroups/${resourceGroupName}` });
 
     const vnetId = `/subscriptions/${subscriptionID}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/virtualNetworks/${virtualNetworkName}`;
@@ -35,7 +34,6 @@ async function main() {
     new network.VirtualNetwork("vnet", {
         resourceGroupName,
         virtualNetworkName,
-        location,
         addressSpace: {
             addressPrefixes: [`${virtualNetworkRange}/16`],
         },

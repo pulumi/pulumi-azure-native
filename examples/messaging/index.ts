@@ -11,7 +11,6 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
 });
 
 const eventHubNamespace = new eventhub.Namespace("ehns", {

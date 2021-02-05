@@ -10,7 +10,6 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
 });
 
 const server = new dbforpostgresql.Server("server", {

@@ -1,15 +1,30 @@
 package examples
 
 import (
+	"fmt"
 	"os"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
+func getLocation(t *testing.T) string {
+	azureLocation := os.Getenv("ARM_LOCATION")
+	if azureLocation == "" {
+		azureLocation = "westus2"
+		fmt.Println("Defaulting location to 'westus2'. You can override using the ARM_LOCATION variable.")
+	}
+
+	return azureLocation
+}
+
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	azureLocation := getLocation(t)
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
+		Config: map[string]string{
+			"azure-nextgen:location": azureLocation,
+		},
 	}
 }
 
