@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * A share subscription data transfer object.
- * Latest API Version: 2019-11-01.
+ * Latest API Version: 2020-09-01.
  */
 export class ShareSubscription extends pulumi.CustomResource {
     /**
@@ -39,6 +40,10 @@ export class ShareSubscription extends pulumi.CustomResource {
      * Time at which the share subscription was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The expiration date of the share subscription.
+     */
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
      * The invitation id.
      */
@@ -88,6 +93,10 @@ export class ShareSubscription extends pulumi.CustomResource {
      */
     public readonly sourceShareLocation!: pulumi.Output<string>;
     /**
+     * System Data of the Azure resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
+    /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -126,6 +135,7 @@ export class ShareSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceShareLocation'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["expirationDate"] = args ? args.expirationDate : undefined;
             inputs["invitationId"] = args ? args.invitationId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
@@ -141,11 +151,13 @@ export class ShareSubscription extends pulumi.CustomResource {
             inputs["shareName"] = undefined /*out*/;
             inputs["shareSubscriptionStatus"] = undefined /*out*/;
             inputs["shareTerms"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         } else {
             inputs["createdAt"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
             inputs["invitationId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["providerEmail"] = undefined /*out*/;
@@ -158,6 +170,7 @@ export class ShareSubscription extends pulumi.CustomResource {
             inputs["shareSubscriptionStatus"] = undefined /*out*/;
             inputs["shareTerms"] = undefined /*out*/;
             inputs["sourceShareLocation"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
@@ -169,7 +182,7 @@ export class ShareSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20200901:ShareSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ShareSubscription.__pulumiType, name, inputs, opts);
     }
@@ -183,6 +196,10 @@ export interface ShareSubscriptionArgs {
      * The name of the share account.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The expiration date of the share subscription.
+     */
+    readonly expirationDate?: pulumi.Input<string>;
     /**
      * The invitation id.
      */

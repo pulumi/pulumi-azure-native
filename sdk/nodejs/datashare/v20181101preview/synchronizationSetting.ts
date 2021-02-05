@@ -92,7 +92,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }

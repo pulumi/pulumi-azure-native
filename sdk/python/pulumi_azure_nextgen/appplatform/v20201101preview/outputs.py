@@ -39,6 +39,7 @@ class AppResourcePropertiesResponse(dict):
                  provisioning_state: str,
                  url: str,
                  active_deployment_name: Optional[str] = None,
+                 enable_end_to_end_tls: Optional[bool] = None,
                  fqdn: Optional[str] = None,
                  https_only: Optional[bool] = None,
                  persistent_disk: Optional['outputs.PersistentDiskResponse'] = None,
@@ -50,6 +51,7 @@ class AppResourcePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the App
         :param str url: URL of the App
         :param str active_deployment_name: Name of the active deployment of the App
+        :param bool enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param str fqdn: Fully qualified dns Name.
         :param bool https_only: Indicate if only https is allowed.
         :param 'PersistentDiskResponseArgs' persistent_disk: Persistent disk settings
@@ -61,6 +63,8 @@ class AppResourcePropertiesResponse(dict):
         pulumi.set(__self__, "url", url)
         if active_deployment_name is not None:
             pulumi.set(__self__, "active_deployment_name", active_deployment_name)
+        if enable_end_to_end_tls is not None:
+            pulumi.set(__self__, "enable_end_to_end_tls", enable_end_to_end_tls)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if https_only is not None:
@@ -103,6 +107,14 @@ class AppResourcePropertiesResponse(dict):
         Name of the active deployment of the App
         """
         return pulumi.get(self, "active_deployment_name")
+
+    @property
+    @pulumi.getter(name="enableEndToEndTLS")
+    def enable_end_to_end_tls(self) -> Optional[bool]:
+        """
+        Indicate if end to end TLS is enabled.
+        """
+        return pulumi.get(self, "enable_end_to_end_tls")
 
     @property
     @pulumi.getter

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     public sealed class GetInvitationResult
     {
         /// <summary>
+        /// The expiration date for the invitation and share subscription.
+        /// </summary>
+        public readonly string? ExpirationDate;
+        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -75,6 +79,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Gets the time at which the invitation was sent.
         /// </summary>
         public readonly string SentAt;
+        /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
         /// <summary>
         /// The target Azure AD Id. Can't be combined with email.
         /// </summary>
@@ -104,6 +112,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
         [OutputConstructor]
         private GetInvitationResult(
+            string? expirationDate,
+
             string id,
 
             string invitationId,
@@ -115,6 +125,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
             string respondedAt,
 
             string sentAt,
+
+            Outputs.ProxyDtoResponseSystemData systemData,
 
             string? targetActiveDirectoryId,
 
@@ -128,12 +140,14 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string userName)
         {
+            ExpirationDate = expirationDate;
             Id = id;
             InvitationId = invitationId;
             InvitationStatus = invitationStatus;
             Name = name;
             RespondedAt = respondedAt;
             SentAt = sentAt;
+            SystemData = systemData;
             TargetActiveDirectoryId = targetActiveDirectoryId;
             TargetEmail = targetEmail;
             TargetObjectId = targetObjectId;

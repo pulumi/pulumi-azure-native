@@ -28,7 +28,7 @@ class Account(pulumi.CustomResource):
                  __opts__=None):
         """
         An account data transfer object.
-        Latest API Version: 2019-11-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -69,10 +69,11 @@ class Account(pulumi.CustomResource):
             __props__['created_at'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:datashare/latest:Account',
@@ -137,6 +138,14 @@ class Account(pulumi.CustomResource):
         Provisioning state of the Account
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.DefaultDtoResponseSystemData']:
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

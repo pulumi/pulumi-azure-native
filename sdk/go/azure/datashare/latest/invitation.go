@@ -12,10 +12,12 @@ import (
 )
 
 // A Invitation data transfer object.
-// Latest API Version: 2019-11-01.
+// Latest API Version: 2020-09-01.
 type Invitation struct {
 	pulumi.CustomResourceState
 
+	// The expiration date for the invitation and share subscription.
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// unique invitation id
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// The status of the invitation.
@@ -26,6 +28,8 @@ type Invitation struct {
 	RespondedAt pulumi.StringOutput `pulumi:"respondedAt"`
 	// Gets the time at which the invitation was sent.
 	SentAt pulumi.StringOutput `pulumi:"sentAt"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemDataOutput `pulumi:"systemData"`
 	// The target Azure AD Id. Can't be combined with email.
 	TargetActiveDirectoryId pulumi.StringPtrOutput `pulumi:"targetActiveDirectoryId"`
 	// The email the invitation is directed to.
@@ -68,6 +72,9 @@ func NewInvitation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:Invitation"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:Invitation"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Invitation
@@ -92,6 +99,8 @@ func GetInvitation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Invitation resources.
 type invitationState struct {
+	// The expiration date for the invitation and share subscription.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// unique invitation id
 	InvitationId *string `pulumi:"invitationId"`
 	// The status of the invitation.
@@ -102,6 +111,8 @@ type invitationState struct {
 	RespondedAt *string `pulumi:"respondedAt"`
 	// Gets the time at which the invitation was sent.
 	SentAt *string `pulumi:"sentAt"`
+	// System Data of the Azure resource.
+	SystemData *ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// The target Azure AD Id. Can't be combined with email.
 	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
 	// The email the invitation is directed to.
@@ -119,6 +130,8 @@ type invitationState struct {
 }
 
 type InvitationState struct {
+	// The expiration date for the invitation and share subscription.
+	ExpirationDate pulumi.StringPtrInput
 	// unique invitation id
 	InvitationId pulumi.StringPtrInput
 	// The status of the invitation.
@@ -129,6 +142,8 @@ type InvitationState struct {
 	RespondedAt pulumi.StringPtrInput
 	// Gets the time at which the invitation was sent.
 	SentAt pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemDataPtrInput
 	// The target Azure AD Id. Can't be combined with email.
 	TargetActiveDirectoryId pulumi.StringPtrInput
 	// The email the invitation is directed to.
@@ -152,6 +167,8 @@ func (InvitationState) ElementType() reflect.Type {
 type invitationArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// The expiration date for the invitation and share subscription.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// The name of the invitation.
 	InvitationName string `pulumi:"invitationName"`
 	// The resource group name.
@@ -172,6 +189,8 @@ type invitationArgs struct {
 type InvitationArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
+	// The expiration date for the invitation and share subscription.
+	ExpirationDate pulumi.StringPtrInput
 	// The name of the invitation.
 	InvitationName pulumi.StringInput
 	// The resource group name.

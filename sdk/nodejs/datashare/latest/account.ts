@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An account data transfer object.
- * Latest API Version: 2019-11-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * System Data of the Azure resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.DefaultDtoResponseSystemData>;
+    /**
      * Tags on the azure resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -100,6 +104,7 @@ export class Account extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
@@ -109,6 +114,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
@@ -121,7 +127,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

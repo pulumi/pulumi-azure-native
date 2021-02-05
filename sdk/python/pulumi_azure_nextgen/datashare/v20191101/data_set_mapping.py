@@ -69,7 +69,7 @@ class DataSetMapping(pulumi.CustomResource):
             __props__['share_subscription_name'] = share_subscription_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:DataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:DataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSetMapping, __self__).__init__(
             'azure-nextgen:datashare/v20191101:DataSetMapping',

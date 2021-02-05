@@ -22,6 +22,12 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview.Inputs
         public Input<string>? ActiveDeploymentName { get; set; }
 
         /// <summary>
+        /// Indicate if end to end TLS is enabled.
+        /// </summary>
+        [Input("enableEndToEndTLS")]
+        public Input<bool>? EnableEndToEndTLS { get; set; }
+
+        /// <summary>
         /// Fully qualified dns Name.
         /// </summary>
         [Input("fqdn")]

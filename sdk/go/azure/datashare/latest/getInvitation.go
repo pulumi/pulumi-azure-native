@@ -29,6 +29,8 @@ type LookupInvitationArgs struct {
 
 // A Invitation data transfer object.
 type LookupInvitationResult struct {
+	// The expiration date for the invitation and share subscription.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// The resource id of the azure resource
 	Id string `pulumi:"id"`
 	// unique invitation id
@@ -41,6 +43,8 @@ type LookupInvitationResult struct {
 	RespondedAt string `pulumi:"respondedAt"`
 	// Gets the time at which the invitation was sent.
 	SentAt string `pulumi:"sentAt"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// The target Azure AD Id. Can't be combined with email.
 	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
 	// The email the invitation is directed to.

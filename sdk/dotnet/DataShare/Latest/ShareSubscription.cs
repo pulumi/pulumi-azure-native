@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 {
     /// <summary>
     /// A share subscription data transfer object.
-    /// Latest API Version: 2019-11-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:datashare/latest:ShareSubscription")]
     public partial class ShareSubscription : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The expiration date of the share subscription.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
         /// The invitation id.
@@ -95,6 +101,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         public Output<string> SourceShareLocation { get; private set; } = null!;
 
         /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.ProxyDtoResponseSystemData> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Type of the azure resource
         /// </summary>
         [Output("type")]
@@ -139,6 +151,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:ShareSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:ShareSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,6 +180,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The expiration date of the share subscription.
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
         /// The invitation id.

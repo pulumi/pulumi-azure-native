@@ -60,6 +60,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:DataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

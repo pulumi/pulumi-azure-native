@@ -14,6 +14,8 @@ import (
 type AppResourceProperties struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS *bool `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn *string `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
@@ -41,6 +43,8 @@ type AppResourcePropertiesInput interface {
 type AppResourcePropertiesArgs struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS pulumi.BoolPtrInput `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
@@ -136,6 +140,11 @@ func (o AppResourcePropertiesOutput) ActiveDeploymentName() pulumi.StringPtrOutp
 	return o.ApplyT(func(v AppResourceProperties) *string { return v.ActiveDeploymentName }).(pulumi.StringPtrOutput)
 }
 
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppResourceProperties) *bool { return v.EnableEndToEndTLS }).(pulumi.BoolPtrOutput)
+}
+
 // Fully qualified dns Name.
 func (o AppResourcePropertiesOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
@@ -187,6 +196,16 @@ func (o AppResourcePropertiesPtrOutput) ActiveDeploymentName() pulumi.StringPtrO
 		}
 		return v.ActiveDeploymentName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesPtrOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppResourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEndToEndTLS
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Fully qualified dns Name.
@@ -245,6 +264,8 @@ type AppResourcePropertiesResponse struct {
 	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
 	// Date time when the resource is created
 	CreatedTime string `pulumi:"createdTime"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS *bool `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn *string `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
@@ -278,6 +299,8 @@ type AppResourcePropertiesResponseArgs struct {
 	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
 	// Date time when the resource is created
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Indicate if end to end TLS is enabled.
+	EnableEndToEndTLS pulumi.BoolPtrInput `pulumi:"enableEndToEndTLS"`
 	// Fully qualified dns Name.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Indicate if only https is allowed.
@@ -382,6 +405,11 @@ func (o AppResourcePropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesResponseOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesResponse) *bool { return v.EnableEndToEndTLS }).(pulumi.BoolPtrOutput)
+}
+
 // Fully qualified dns Name.
 func (o AppResourcePropertiesResponseOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
@@ -453,6 +481,16 @@ func (o AppResourcePropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOu
 		}
 		return &v.CreatedTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicate if end to end TLS is enabled.
+func (o AppResourcePropertiesResponsePtrOutput) EnableEndToEndTLS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppResourcePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEndToEndTLS
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Fully qualified dns Name.

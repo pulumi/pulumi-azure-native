@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 {
     /// <summary>
     /// A Synchronization Setting data transfer object.
-    /// Latest API Version: 2019-11-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:datashare/latest:SynchronizationSetting")]
     public partial class SynchronizationSetting : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.ProxyDtoResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:SynchronizationSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

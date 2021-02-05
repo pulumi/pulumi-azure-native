@@ -59,6 +59,10 @@ export interface GetAccountResult {
      */
     readonly provisioningState: string;
     /**
+     * System Data of the Azure resource.
+     */
+    readonly systemData: outputs.datashare.latest.DefaultDtoResponseSystemData;
+    /**
      * Tags on the azure resource.
      */
     readonly tags?: {[key: string]: string};

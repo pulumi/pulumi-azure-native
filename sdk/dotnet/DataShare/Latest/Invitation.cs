@@ -11,11 +11,17 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 {
     /// <summary>
     /// A Invitation data transfer object.
-    /// Latest API Version: 2019-11-01.
+    /// Latest API Version: 2020-09-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:datashare/latest:Invitation")]
     public partial class Invitation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The expiration date for the invitation and share subscription.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string?> ExpirationDate { get; private set; } = null!;
+
         /// <summary>
         /// unique invitation id
         /// </summary>
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         [Output("sentAt")]
         public Output<string> SentAt { get; private set; } = null!;
+
+        /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.ProxyDtoResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The target Azure AD Id. Can't be combined with email.
@@ -111,6 +123,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Invitation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Invitation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -139,6 +152,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The expiration date for the invitation and share subscription.
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
         /// The name of the invitation.

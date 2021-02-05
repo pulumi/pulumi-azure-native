@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A share data transfer object.
- * Latest API Version: 2019-11-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Share extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly shareKind!: pulumi.Output<string | undefined>;
     /**
+     * System Data of the Azure resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
+    /**
      * Share terms.
      */
     public readonly terms!: pulumi.Output<string | undefined>;
@@ -101,6 +105,7 @@ export class Share extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class Share extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["shareKind"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["terms"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
@@ -122,7 +128,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Share" }, { type: "azure-nextgen:datashare/v20191101:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Share" }, { type: "azure-nextgen:datashare/v20191101:Share" }, { type: "azure-nextgen:datashare/v20200901:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

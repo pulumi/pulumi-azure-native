@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        public readonly Outputs.DefaultDtoResponseSystemData SystemData;
+        /// <summary>
         /// Tags on the azure resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string provisioningState,
 
+            Outputs.DefaultDtoResponseSystemData systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UserEmail = userEmail;

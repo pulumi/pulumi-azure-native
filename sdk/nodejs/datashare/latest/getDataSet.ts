@@ -57,6 +57,10 @@ export interface GetDataSetResult {
      */
     readonly name: string;
     /**
+     * System Data of the Azure resource.
+     */
+    readonly systemData: outputs.datashare.latest.ProxyDtoResponseSystemData;
+    /**
      * Type of the azure resource
      */
     readonly type: string;

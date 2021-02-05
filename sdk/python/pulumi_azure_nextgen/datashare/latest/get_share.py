@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetShareResult',
@@ -19,7 +20,7 @@ class GetShareResult:
     """
     A share data transfer object.
     """
-    def __init__(__self__, created_at=None, description=None, id=None, name=None, provisioning_state=None, share_kind=None, terms=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, created_at=None, description=None, id=None, name=None, provisioning_state=None, share_kind=None, system_data=None, terms=None, type=None, user_email=None, user_name=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -38,6 +39,9 @@ class GetShareResult:
         if share_kind and not isinstance(share_kind, str):
             raise TypeError("Expected argument 'share_kind' to be a str")
         pulumi.set(__self__, "share_kind", share_kind)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if terms and not isinstance(terms, str):
             raise TypeError("Expected argument 'terms' to be a str")
         pulumi.set(__self__, "terms", terms)
@@ -100,6 +104,14 @@ class GetShareResult:
         return pulumi.get(self, "share_kind")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.ProxyDtoResponseSystemData':
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def terms(self) -> Optional[str]:
         """
@@ -144,6 +156,7 @@ class AwaitableGetShareResult(GetShareResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             share_kind=self.share_kind,
+            system_data=self.system_data,
             terms=self.terms,
             type=self.type,
             user_email=self.user_email,
@@ -178,6 +191,7 @@ def get_share(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         share_kind=__ret__.share_kind,
+        system_data=__ret__.system_data,
         terms=__ret__.terms,
         type=__ret__.type,
         user_email=__ret__.user_email,

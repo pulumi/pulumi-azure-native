@@ -71,7 +71,7 @@ class Account(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Account"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-nextgen:datashare/v20191101:Account',

@@ -67,6 +67,9 @@ func NewInvitation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:Invitation"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:Invitation"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Invitation

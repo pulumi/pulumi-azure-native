@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// The expiration date of the share subscription.
+        /// </summary>
+        public readonly string? ExpirationDate;
+        /// <summary>
         /// The resource id of the azure resource
         /// </summary>
         public readonly string Id;
@@ -102,6 +106,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         public readonly string SourceShareLocation;
         /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
+        /// <summary>
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
@@ -117,6 +125,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         [OutputConstructor]
         private GetShareSubscriptionResult(
             string createdAt,
+
+            string? expirationDate,
 
             string id,
 
@@ -144,6 +154,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string sourceShareLocation,
 
+            Outputs.ProxyDtoResponseSystemData systemData,
+
             string type,
 
             string userEmail,
@@ -151,6 +163,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
             string userName)
         {
             CreatedAt = createdAt;
+            ExpirationDate = expirationDate;
             Id = id;
             InvitationId = invitationId;
             Name = name;
@@ -164,6 +177,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
             ShareSubscriptionStatus = shareSubscriptionStatus;
             ShareTerms = shareTerms;
             SourceShareLocation = sourceShareLocation;
+            SystemData = systemData;
             Type = type;
             UserEmail = userEmail;
             UserName = userName;

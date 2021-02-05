@@ -29,6 +29,8 @@ type LookupShareSubscriptionArgs struct {
 type LookupShareSubscriptionResult struct {
 	// Time at which the share subscription was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// The expiration date of the share subscription.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// The resource id of the azure resource
 	Id string `pulumi:"id"`
 	// The invitation id.
@@ -55,6 +57,8 @@ type LookupShareSubscriptionResult struct {
 	ShareTerms string `pulumi:"shareTerms"`
 	// Source share location.
 	SourceShareLocation string `pulumi:"sourceShareLocation"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
 	// Email of the user who created the resource

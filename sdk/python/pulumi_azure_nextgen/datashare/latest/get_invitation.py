@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetInvitationResult',
@@ -19,7 +20,10 @@ class GetInvitationResult:
     """
     A Invitation data transfer object.
     """
-    def __init__(__self__, id=None, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, expiration_date=None, id=None, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, system_data=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        pulumi.set(__self__, "expiration_date", expiration_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +42,9 @@ class GetInvitationResult:
         if sent_at and not isinstance(sent_at, str):
             raise TypeError("Expected argument 'sent_at' to be a str")
         pulumi.set(__self__, "sent_at", sent_at)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if target_active_directory_id and not isinstance(target_active_directory_id, str):
             raise TypeError("Expected argument 'target_active_directory_id' to be a str")
         pulumi.set(__self__, "target_active_directory_id", target_active_directory_id)
@@ -56,6 +63,14 @@ class GetInvitationResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        """
+        The expiration date for the invitation and share subscription.
+        """
+        return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter
@@ -104,6 +119,14 @@ class GetInvitationResult:
         Gets the time at which the invitation was sent.
         """
         return pulumi.get(self, "sent_at")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.ProxyDtoResponseSystemData':
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="targetActiveDirectoryId")
@@ -162,12 +185,14 @@ class AwaitableGetInvitationResult(GetInvitationResult):
         if False:
             yield self
         return GetInvitationResult(
+            expiration_date=self.expiration_date,
             id=self.id,
             invitation_id=self.invitation_id,
             invitation_status=self.invitation_status,
             name=self.name,
             responded_at=self.responded_at,
             sent_at=self.sent_at,
+            system_data=self.system_data,
             target_active_directory_id=self.target_active_directory_id,
             target_email=self.target_email,
             target_object_id=self.target_object_id,
@@ -201,12 +226,14 @@ def get_invitation(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:datashare/latest:getInvitation', __args__, opts=opts, typ=GetInvitationResult).value
 
     return AwaitableGetInvitationResult(
+        expiration_date=__ret__.expiration_date,
         id=__ret__.id,
         invitation_id=__ret__.invitation_id,
         invitation_status=__ret__.invitation_status,
         name=__ret__.name,
         responded_at=__ret__.responded_at,
         sent_at=__ret__.sent_at,
+        system_data=__ret__.system_data,
         target_active_directory_id=__ret__.target_active_directory_id,
         target_email=__ret__.target_email,
         target_object_id=__ret__.target_object_id,

@@ -35,6 +35,8 @@ type LookupTriggerResult struct {
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource
 	Name string `pulumi:"name"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
 }

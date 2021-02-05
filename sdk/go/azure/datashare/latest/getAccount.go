@@ -37,6 +37,8 @@ type LookupAccountResult struct {
 	Name string `pulumi:"name"`
 	// Provisioning state of the Account
 	ProvisioningState string `pulumi:"provisioningState"`
+	// System Data of the Azure resource.
+	SystemData DefaultDtoResponseSystemData `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the azure resource

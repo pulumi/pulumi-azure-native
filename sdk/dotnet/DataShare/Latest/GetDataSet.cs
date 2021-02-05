@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
+        /// <summary>
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
@@ -76,11 +80,14 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string name,
 
+            Outputs.ProxyDtoResponseSystemData systemData,
+
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
+            SystemData = systemData;
             Type = type;
         }
     }

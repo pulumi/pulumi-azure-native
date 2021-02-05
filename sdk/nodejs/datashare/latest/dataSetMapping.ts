@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A data set mapping data transfer object.
- * Latest API Version: 2019-11-01.
+ * Latest API Version: 2020-09-01.
  */
 export class DataSetMapping extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class DataSetMapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * System Data of the Azure resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
+    /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -80,10 +84,12 @@ export class DataSetMapping extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,7 +99,7 @@ export class DataSetMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:DataSetMapping" }, { type: "azure-nextgen:datashare/v20191101:DataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:DataSetMapping" }, { type: "azure-nextgen:datashare/v20191101:DataSetMapping" }, { type: "azure-nextgen:datashare/v20200901:DataSetMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSetMapping.__pulumiType, name, inputs, opts);
     }

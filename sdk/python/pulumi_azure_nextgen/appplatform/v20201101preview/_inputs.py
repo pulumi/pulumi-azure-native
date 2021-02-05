@@ -29,6 +29,7 @@ __all__ = [
 class AppResourcePropertiesArgs:
     def __init__(__self__, *,
                  active_deployment_name: Optional[pulumi.Input[str]] = None,
+                 enable_end_to_end_tls: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  persistent_disk: Optional[pulumi.Input['PersistentDiskArgs']] = None,
@@ -37,6 +38,7 @@ class AppResourcePropertiesArgs:
         """
         App resource properties payload
         :param pulumi.Input[str] active_deployment_name: Name of the active deployment of the App
+        :param pulumi.Input[bool] enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param pulumi.Input[str] fqdn: Fully qualified dns Name.
         :param pulumi.Input[bool] https_only: Indicate if only https is allowed.
         :param pulumi.Input['PersistentDiskArgs'] persistent_disk: Persistent disk settings
@@ -45,6 +47,8 @@ class AppResourcePropertiesArgs:
         """
         if active_deployment_name is not None:
             pulumi.set(__self__, "active_deployment_name", active_deployment_name)
+        if enable_end_to_end_tls is not None:
+            pulumi.set(__self__, "enable_end_to_end_tls", enable_end_to_end_tls)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if https_only is not None:
@@ -67,6 +71,18 @@ class AppResourcePropertiesArgs:
     @active_deployment_name.setter
     def active_deployment_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "active_deployment_name", value)
+
+    @property
+    @pulumi.getter(name="enableEndToEndTLS")
+    def enable_end_to_end_tls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate if end to end TLS is enabled.
+        """
+        return pulumi.get(self, "enable_end_to_end_tls")
+
+    @enable_end_to_end_tls.setter
+    def enable_end_to_end_tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_end_to_end_tls", value)
 
     @property
     @pulumi.getter
