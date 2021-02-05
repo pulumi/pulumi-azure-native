@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['Invitation']
 
@@ -16,6 +17,7 @@ class Invitation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
                  invitation_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
@@ -27,11 +29,12 @@ class Invitation(pulumi.CustomResource):
                  __opts__=None):
         """
         A Invitation data transfer object.
-        Latest API Version: 2019-11-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
+        :param pulumi.Input[str] expiration_date: The expiration date for the invitation and share subscription.
         :param pulumi.Input[str] invitation_name: The name of the invitation.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to send the invitation for.
@@ -61,6 +64,7 @@ class Invitation(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['expiration_date'] = expiration_date
             if invitation_name is None and not opts.urn:
                 raise TypeError("Missing required property 'invitation_name'")
             __props__['invitation_name'] = invitation_name
@@ -78,10 +82,11 @@ class Invitation(pulumi.CustomResource):
             __props__['name'] = None
             __props__['responded_at'] = None
             __props__['sent_at'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Invitation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Invitation, __self__).__init__(
             'azure-nextgen:datashare/latest:Invitation',
@@ -106,6 +111,14 @@ class Invitation(pulumi.CustomResource):
         __props__ = dict()
 
         return Invitation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        The expiration date for the invitation and share subscription.
+        """
+        return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter(name="invitationId")
@@ -146,6 +159,14 @@ class Invitation(pulumi.CustomResource):
         Gets the time at which the invitation was sent.
         """
         return pulumi.get(self, "sent_at")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.ProxyDtoResponseSystemData']:
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="targetActiveDirectoryId")

@@ -12,7 +12,7 @@ import (
 )
 
 // An account data transfer object.
-// Latest API Version: 2019-11-01.
+// Latest API Version: 2020-09-01.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the Account
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// System Data of the Azure resource.
+	SystemData DefaultDtoResponseSystemDataOutput `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the azure resource
@@ -58,6 +60,9 @@ func NewAccount(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:Account"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:Account"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -93,6 +98,8 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// Provisioning state of the Account
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// System Data of the Azure resource.
+	SystemData *DefaultDtoResponseSystemData `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the azure resource
@@ -114,6 +121,8 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// Provisioning state of the Account
 	ProvisioningState pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData DefaultDtoResponseSystemDataPtrInput
 	// Tags on the azure resource.
 	Tags pulumi.StringMapInput
 	// Type of the azure resource

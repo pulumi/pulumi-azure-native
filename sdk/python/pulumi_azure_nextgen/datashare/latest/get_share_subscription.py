@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetShareSubscriptionResult',
@@ -19,10 +20,13 @@ class GetShareSubscriptionResult:
     """
     A share subscription data transfer object.
     """
-    def __init__(__self__, created_at=None, id=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, source_share_location=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, created_at=None, expiration_date=None, id=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, source_share_location=None, system_data=None, type=None, user_email=None, user_name=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        pulumi.set(__self__, "expiration_date", expiration_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,6 +66,9 @@ class GetShareSubscriptionResult:
         if source_share_location and not isinstance(source_share_location, str):
             raise TypeError("Expected argument 'source_share_location' to be a str")
         pulumi.set(__self__, "source_share_location", source_share_location)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -79,6 +86,14 @@ class GetShareSubscriptionResult:
         Time at which the share subscription was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        """
+        The expiration date of the share subscription.
+        """
+        return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter
@@ -185,6 +200,14 @@ class GetShareSubscriptionResult:
         return pulumi.get(self, "source_share_location")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.ProxyDtoResponseSystemData':
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -216,6 +239,7 @@ class AwaitableGetShareSubscriptionResult(GetShareSubscriptionResult):
             yield self
         return GetShareSubscriptionResult(
             created_at=self.created_at,
+            expiration_date=self.expiration_date,
             id=self.id,
             invitation_id=self.invitation_id,
             name=self.name,
@@ -229,6 +253,7 @@ class AwaitableGetShareSubscriptionResult(GetShareSubscriptionResult):
             share_subscription_status=self.share_subscription_status,
             share_terms=self.share_terms,
             source_share_location=self.source_share_location,
+            system_data=self.system_data,
             type=self.type,
             user_email=self.user_email,
             user_name=self.user_name)
@@ -257,6 +282,7 @@ def get_share_subscription(account_name: Optional[str] = None,
 
     return AwaitableGetShareSubscriptionResult(
         created_at=__ret__.created_at,
+        expiration_date=__ret__.expiration_date,
         id=__ret__.id,
         invitation_id=__ret__.invitation_id,
         name=__ret__.name,
@@ -270,6 +296,7 @@ def get_share_subscription(account_name: Optional[str] = None,
         share_subscription_status=__ret__.share_subscription_status,
         share_terms=__ret__.share_terms,
         source_share_location=__ret__.source_share_location,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         user_email=__ret__.user_email,
         user_name=__ret__.user_name)

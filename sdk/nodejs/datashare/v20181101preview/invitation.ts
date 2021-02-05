@@ -138,7 +138,7 @@ export class Invitation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }, { type: "azure-nextgen:datashare/v20200901:Invitation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Invitation.__pulumiType, name, inputs, opts);
     }

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['ShareSubscription']
 
@@ -16,6 +17,7 @@ class ShareSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
@@ -25,11 +27,12 @@ class ShareSubscription(pulumi.CustomResource):
                  __opts__=None):
         """
         A share subscription data transfer object.
-        Latest API Version: 2019-11-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
+        :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
         :param pulumi.Input[str] invitation_id: The invitation id.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
@@ -55,6 +58,7 @@ class ShareSubscription(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['expiration_date'] = expiration_date
             if invitation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'invitation_id'")
             __props__['invitation_id'] = invitation_id
@@ -78,10 +82,11 @@ class ShareSubscription(pulumi.CustomResource):
             __props__['share_name'] = None
             __props__['share_subscription_status'] = None
             __props__['share_terms'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ShareSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:ShareSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ShareSubscription, __self__).__init__(
             'azure-nextgen:datashare/latest:ShareSubscription',
@@ -114,6 +119,14 @@ class ShareSubscription(pulumi.CustomResource):
         Time at which the share subscription was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        The expiration date of the share subscription.
+        """
+        return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter(name="invitationId")
@@ -210,6 +223,14 @@ class ShareSubscription(pulumi.CustomResource):
         Source share location.
         """
         return pulumi.get(self, "source_share_location")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.ProxyDtoResponseSystemData']:
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

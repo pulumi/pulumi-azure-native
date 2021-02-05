@@ -69,7 +69,7 @@ class SynchronizationSetting(pulumi.CustomResource):
             __props__['synchronization_setting_name'] = synchronization_setting_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:SynchronizationSetting"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:SynchronizationSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:SynchronizationSetting"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:SynchronizationSetting"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:SynchronizationSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SynchronizationSetting, __self__).__init__(
             'azure-nextgen:datashare/v20191101:SynchronizationSetting',

@@ -52,6 +52,9 @@ func NewDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:DataSet"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:DataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataSet

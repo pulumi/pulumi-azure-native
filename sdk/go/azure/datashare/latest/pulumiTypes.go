@@ -10,6 +10,235 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// System Data of the Azure resource.
+type DefaultDtoResponseSystemData struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// DefaultDtoResponseSystemDataInput is an input type that accepts DefaultDtoResponseSystemDataArgs and DefaultDtoResponseSystemDataOutput values.
+// You can construct a concrete instance of `DefaultDtoResponseSystemDataInput` via:
+//
+//          DefaultDtoResponseSystemDataArgs{...}
+type DefaultDtoResponseSystemDataInput interface {
+	pulumi.Input
+
+	ToDefaultDtoResponseSystemDataOutput() DefaultDtoResponseSystemDataOutput
+	ToDefaultDtoResponseSystemDataOutputWithContext(context.Context) DefaultDtoResponseSystemDataOutput
+}
+
+// System Data of the Azure resource.
+type DefaultDtoResponseSystemDataArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (DefaultDtoResponseSystemDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultDtoResponseSystemData)(nil)).Elem()
+}
+
+func (i DefaultDtoResponseSystemDataArgs) ToDefaultDtoResponseSystemDataOutput() DefaultDtoResponseSystemDataOutput {
+	return i.ToDefaultDtoResponseSystemDataOutputWithContext(context.Background())
+}
+
+func (i DefaultDtoResponseSystemDataArgs) ToDefaultDtoResponseSystemDataOutputWithContext(ctx context.Context) DefaultDtoResponseSystemDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultDtoResponseSystemDataOutput)
+}
+
+func (i DefaultDtoResponseSystemDataArgs) ToDefaultDtoResponseSystemDataPtrOutput() DefaultDtoResponseSystemDataPtrOutput {
+	return i.ToDefaultDtoResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultDtoResponseSystemDataArgs) ToDefaultDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) DefaultDtoResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultDtoResponseSystemDataOutput).ToDefaultDtoResponseSystemDataPtrOutputWithContext(ctx)
+}
+
+// DefaultDtoResponseSystemDataPtrInput is an input type that accepts DefaultDtoResponseSystemDataArgs, DefaultDtoResponseSystemDataPtr and DefaultDtoResponseSystemDataPtrOutput values.
+// You can construct a concrete instance of `DefaultDtoResponseSystemDataPtrInput` via:
+//
+//          DefaultDtoResponseSystemDataArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultDtoResponseSystemDataPtrInput interface {
+	pulumi.Input
+
+	ToDefaultDtoResponseSystemDataPtrOutput() DefaultDtoResponseSystemDataPtrOutput
+	ToDefaultDtoResponseSystemDataPtrOutputWithContext(context.Context) DefaultDtoResponseSystemDataPtrOutput
+}
+
+type defaultDtoResponseSystemDataPtrType DefaultDtoResponseSystemDataArgs
+
+func DefaultDtoResponseSystemDataPtr(v *DefaultDtoResponseSystemDataArgs) DefaultDtoResponseSystemDataPtrInput {
+	return (*defaultDtoResponseSystemDataPtrType)(v)
+}
+
+func (*defaultDtoResponseSystemDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultDtoResponseSystemData)(nil)).Elem()
+}
+
+func (i *defaultDtoResponseSystemDataPtrType) ToDefaultDtoResponseSystemDataPtrOutput() DefaultDtoResponseSystemDataPtrOutput {
+	return i.ToDefaultDtoResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultDtoResponseSystemDataPtrType) ToDefaultDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) DefaultDtoResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultDtoResponseSystemDataPtrOutput)
+}
+
+// System Data of the Azure resource.
+type DefaultDtoResponseSystemDataOutput struct{ *pulumi.OutputState }
+
+func (DefaultDtoResponseSystemDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultDtoResponseSystemData)(nil)).Elem()
+}
+
+func (o DefaultDtoResponseSystemDataOutput) ToDefaultDtoResponseSystemDataOutput() DefaultDtoResponseSystemDataOutput {
+	return o
+}
+
+func (o DefaultDtoResponseSystemDataOutput) ToDefaultDtoResponseSystemDataOutputWithContext(ctx context.Context) DefaultDtoResponseSystemDataOutput {
+	return o
+}
+
+func (o DefaultDtoResponseSystemDataOutput) ToDefaultDtoResponseSystemDataPtrOutput() DefaultDtoResponseSystemDataPtrOutput {
+	return o.ToDefaultDtoResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultDtoResponseSystemDataOutput) ToDefaultDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) DefaultDtoResponseSystemDataPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *DefaultDtoResponseSystemData {
+		return &v
+	}).(DefaultDtoResponseSystemDataPtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o DefaultDtoResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o DefaultDtoResponseSystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o DefaultDtoResponseSystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DefaultDtoResponseSystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o DefaultDtoResponseSystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DefaultDtoResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultDtoResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type DefaultDtoResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultDtoResponseSystemDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultDtoResponseSystemData)(nil)).Elem()
+}
+
+func (o DefaultDtoResponseSystemDataPtrOutput) ToDefaultDtoResponseSystemDataPtrOutput() DefaultDtoResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o DefaultDtoResponseSystemDataPtrOutput) ToDefaultDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) DefaultDtoResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o DefaultDtoResponseSystemDataPtrOutput) Elem() DefaultDtoResponseSystemDataOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) DefaultDtoResponseSystemData { return *v }).(DefaultDtoResponseSystemDataOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o DefaultDtoResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o DefaultDtoResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o DefaultDtoResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DefaultDtoResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o DefaultDtoResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DefaultDtoResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Identity of resource
 type Identity struct {
 	// Identity Type
@@ -313,6 +542,235 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// System Data of the Azure resource.
+type ProxyDtoResponseSystemData struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// ProxyDtoResponseSystemDataInput is an input type that accepts ProxyDtoResponseSystemDataArgs and ProxyDtoResponseSystemDataOutput values.
+// You can construct a concrete instance of `ProxyDtoResponseSystemDataInput` via:
+//
+//          ProxyDtoResponseSystemDataArgs{...}
+type ProxyDtoResponseSystemDataInput interface {
+	pulumi.Input
+
+	ToProxyDtoResponseSystemDataOutput() ProxyDtoResponseSystemDataOutput
+	ToProxyDtoResponseSystemDataOutputWithContext(context.Context) ProxyDtoResponseSystemDataOutput
+}
+
+// System Data of the Azure resource.
+type ProxyDtoResponseSystemDataArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (ProxyDtoResponseSystemDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDtoResponseSystemData)(nil)).Elem()
+}
+
+func (i ProxyDtoResponseSystemDataArgs) ToProxyDtoResponseSystemDataOutput() ProxyDtoResponseSystemDataOutput {
+	return i.ToProxyDtoResponseSystemDataOutputWithContext(context.Background())
+}
+
+func (i ProxyDtoResponseSystemDataArgs) ToProxyDtoResponseSystemDataOutputWithContext(ctx context.Context) ProxyDtoResponseSystemDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDtoResponseSystemDataOutput)
+}
+
+func (i ProxyDtoResponseSystemDataArgs) ToProxyDtoResponseSystemDataPtrOutput() ProxyDtoResponseSystemDataPtrOutput {
+	return i.ToProxyDtoResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i ProxyDtoResponseSystemDataArgs) ToProxyDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) ProxyDtoResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDtoResponseSystemDataOutput).ToProxyDtoResponseSystemDataPtrOutputWithContext(ctx)
+}
+
+// ProxyDtoResponseSystemDataPtrInput is an input type that accepts ProxyDtoResponseSystemDataArgs, ProxyDtoResponseSystemDataPtr and ProxyDtoResponseSystemDataPtrOutput values.
+// You can construct a concrete instance of `ProxyDtoResponseSystemDataPtrInput` via:
+//
+//          ProxyDtoResponseSystemDataArgs{...}
+//
+//  or:
+//
+//          nil
+type ProxyDtoResponseSystemDataPtrInput interface {
+	pulumi.Input
+
+	ToProxyDtoResponseSystemDataPtrOutput() ProxyDtoResponseSystemDataPtrOutput
+	ToProxyDtoResponseSystemDataPtrOutputWithContext(context.Context) ProxyDtoResponseSystemDataPtrOutput
+}
+
+type proxyDtoResponseSystemDataPtrType ProxyDtoResponseSystemDataArgs
+
+func ProxyDtoResponseSystemDataPtr(v *ProxyDtoResponseSystemDataArgs) ProxyDtoResponseSystemDataPtrInput {
+	return (*proxyDtoResponseSystemDataPtrType)(v)
+}
+
+func (*proxyDtoResponseSystemDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDtoResponseSystemData)(nil)).Elem()
+}
+
+func (i *proxyDtoResponseSystemDataPtrType) ToProxyDtoResponseSystemDataPtrOutput() ProxyDtoResponseSystemDataPtrOutput {
+	return i.ToProxyDtoResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i *proxyDtoResponseSystemDataPtrType) ToProxyDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) ProxyDtoResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyDtoResponseSystemDataPtrOutput)
+}
+
+// System Data of the Azure resource.
+type ProxyDtoResponseSystemDataOutput struct{ *pulumi.OutputState }
+
+func (ProxyDtoResponseSystemDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyDtoResponseSystemData)(nil)).Elem()
+}
+
+func (o ProxyDtoResponseSystemDataOutput) ToProxyDtoResponseSystemDataOutput() ProxyDtoResponseSystemDataOutput {
+	return o
+}
+
+func (o ProxyDtoResponseSystemDataOutput) ToProxyDtoResponseSystemDataOutputWithContext(ctx context.Context) ProxyDtoResponseSystemDataOutput {
+	return o
+}
+
+func (o ProxyDtoResponseSystemDataOutput) ToProxyDtoResponseSystemDataPtrOutput() ProxyDtoResponseSystemDataPtrOutput {
+	return o.ToProxyDtoResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (o ProxyDtoResponseSystemDataOutput) ToProxyDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) ProxyDtoResponseSystemDataPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *ProxyDtoResponseSystemData {
+		return &v
+	}).(ProxyDtoResponseSystemDataPtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o ProxyDtoResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o ProxyDtoResponseSystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o ProxyDtoResponseSystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ProxyDtoResponseSystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o ProxyDtoResponseSystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ProxyDtoResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyDtoResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type ProxyDtoResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
+
+func (ProxyDtoResponseSystemDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyDtoResponseSystemData)(nil)).Elem()
+}
+
+func (o ProxyDtoResponseSystemDataPtrOutput) ToProxyDtoResponseSystemDataPtrOutput() ProxyDtoResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o ProxyDtoResponseSystemDataPtrOutput) ToProxyDtoResponseSystemDataPtrOutputWithContext(ctx context.Context) ProxyDtoResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o ProxyDtoResponseSystemDataPtrOutput) Elem() ProxyDtoResponseSystemDataOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) ProxyDtoResponseSystemData { return *v }).(ProxyDtoResponseSystemDataOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o ProxyDtoResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o ProxyDtoResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o ProxyDtoResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ProxyDtoResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o ProxyDtoResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ProxyDtoResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyDtoResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -999,10 +1457,14 @@ func (o SynchronizationDetailsResponseArrayOutput) Index(i pulumi.IntInput) Sync
 }
 
 func init() {
+	pulumi.RegisterOutputType(DefaultDtoResponseSystemDataOutput{})
+	pulumi.RegisterOutputType(DefaultDtoResponseSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProxyDtoResponseSystemDataOutput{})
+	pulumi.RegisterOutputType(ProxyDtoResponseSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledSourceSynchronizationSettingResponseOutput{})
 	pulumi.RegisterOutputType(ScheduledSourceSynchronizationSettingResponseArrayOutput{})
 	pulumi.RegisterOutputType(ShareSubscriptionSynchronizationResponseOutput{})

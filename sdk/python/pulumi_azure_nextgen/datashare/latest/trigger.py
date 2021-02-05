@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 from ._enums import *
 
 __all__ = ['Trigger']
@@ -26,7 +27,7 @@ class Trigger(pulumi.CustomResource):
                  __opts__=None):
         """
         A Trigger data transfer object.
-        Latest API Version: 2019-11-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -69,8 +70,9 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'trigger_name'")
             __props__['trigger_name'] = trigger_name
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Trigger"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Trigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Trigger"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Trigger"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Trigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Trigger, __self__).__init__(
             'azure-nextgen:datashare/latest:Trigger',
@@ -111,6 +113,14 @@ class Trigger(pulumi.CustomResource):
         Name of the azure resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.ProxyDtoResponseSystemData']:
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

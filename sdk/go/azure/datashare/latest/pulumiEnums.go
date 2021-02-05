@@ -70,6 +70,7 @@ type Type pulumi.String
 
 const (
 	TypeSystemAssigned = Type("SystemAssigned")
+	TypeUserAssigned   = Type("UserAssigned")
 )
 
 func (Type) ElementType() reflect.Type {

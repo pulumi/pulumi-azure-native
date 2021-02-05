@@ -80,7 +80,7 @@ class Invitation(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Invitation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Invitation, __self__).__init__(
             'azure-nextgen:datashare/v20181101preview:Invitation',

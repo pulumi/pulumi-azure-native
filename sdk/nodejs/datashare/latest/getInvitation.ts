@@ -45,6 +45,10 @@ export interface GetInvitationArgs {
  */
 export interface GetInvitationResult {
     /**
+     * The expiration date for the invitation and share subscription.
+     */
+    readonly expirationDate?: string;
+    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -68,6 +72,10 @@ export interface GetInvitationResult {
      * Gets the time at which the invitation was sent.
      */
     readonly sentAt: string;
+    /**
+     * System Data of the Azure resource.
+     */
+    readonly systemData: outputs.datashare.latest.ProxyDtoResponseSystemData;
     /**
      * The target Azure AD Id. Can't be combined with email.
      */

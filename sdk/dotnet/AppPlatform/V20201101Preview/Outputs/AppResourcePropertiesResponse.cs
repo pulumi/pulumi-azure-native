@@ -22,6 +22,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview.Outputs
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
+        /// Indicate if end to end TLS is enabled.
+        /// </summary>
+        public readonly bool? EnableEndToEndTLS;
+        /// <summary>
         /// Fully qualified dns Name.
         /// </summary>
         public readonly string? Fqdn;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview.Outputs
 
             string createdTime,
 
+            bool? enableEndToEndTLS,
+
             string? fqdn,
 
             bool? httpsOnly,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview.Outputs
         {
             ActiveDeploymentName = activeDeploymentName;
             CreatedTime = createdTime;
+            EnableEndToEndTLS = enableEndToEndTLS;
             Fqdn = fqdn;
             HttpsOnly = httpsOnly;
             PersistentDisk = persistentDisk;

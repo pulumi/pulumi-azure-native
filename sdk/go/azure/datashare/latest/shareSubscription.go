@@ -12,12 +12,14 @@ import (
 )
 
 // A share subscription data transfer object.
-// Latest API Version: 2019-11-01.
+// Latest API Version: 2020-09-01.
 type ShareSubscription struct {
 	pulumi.CustomResourceState
 
 	// Time at which the share subscription was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The expiration date of the share subscription.
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// The invitation id.
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// Name of the azure resource
@@ -42,6 +44,8 @@ type ShareSubscription struct {
 	ShareTerms pulumi.StringOutput `pulumi:"shareTerms"`
 	// Source share location.
 	SourceShareLocation pulumi.StringOutput `pulumi:"sourceShareLocation"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemDataOutput `pulumi:"systemData"`
 	// Type of the azure resource
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Email of the user who created the resource
@@ -79,6 +83,9 @@ func NewShareSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:ShareSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:ShareSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ShareSubscription
@@ -105,6 +112,8 @@ func GetShareSubscription(ctx *pulumi.Context,
 type shareSubscriptionState struct {
 	// Time at which the share subscription was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The expiration date of the share subscription.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// The invitation id.
 	InvitationId *string `pulumi:"invitationId"`
 	// Name of the azure resource
@@ -129,6 +138,8 @@ type shareSubscriptionState struct {
 	ShareTerms *string `pulumi:"shareTerms"`
 	// Source share location.
 	SourceShareLocation *string `pulumi:"sourceShareLocation"`
+	// System Data of the Azure resource.
+	SystemData *ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// Type of the azure resource
 	Type *string `pulumi:"type"`
 	// Email of the user who created the resource
@@ -140,6 +151,8 @@ type shareSubscriptionState struct {
 type ShareSubscriptionState struct {
 	// Time at which the share subscription was created.
 	CreatedAt pulumi.StringPtrInput
+	// The expiration date of the share subscription.
+	ExpirationDate pulumi.StringPtrInput
 	// The invitation id.
 	InvitationId pulumi.StringPtrInput
 	// Name of the azure resource
@@ -164,6 +177,8 @@ type ShareSubscriptionState struct {
 	ShareTerms pulumi.StringPtrInput
 	// Source share location.
 	SourceShareLocation pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemDataPtrInput
 	// Type of the azure resource
 	Type pulumi.StringPtrInput
 	// Email of the user who created the resource
@@ -179,6 +194,8 @@ func (ShareSubscriptionState) ElementType() reflect.Type {
 type shareSubscriptionArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// The expiration date of the share subscription.
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// The invitation id.
 	InvitationId string `pulumi:"invitationId"`
 	// The resource group name.
@@ -193,6 +210,8 @@ type shareSubscriptionArgs struct {
 type ShareSubscriptionArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
+	// The expiration date of the share subscription.
+	ExpirationDate pulumi.StringPtrInput
 	// The invitation id.
 	InvitationId pulumi.StringInput
 	// The resource group name.

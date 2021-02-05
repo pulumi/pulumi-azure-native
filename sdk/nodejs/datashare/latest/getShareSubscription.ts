@@ -44,6 +44,10 @@ export interface GetShareSubscriptionResult {
      */
     readonly createdAt: string;
     /**
+     * The expiration date of the share subscription.
+     */
+    readonly expirationDate?: string;
+    /**
      * The resource id of the azure resource
      */
     readonly id: string;
@@ -95,6 +99,10 @@ export interface GetShareSubscriptionResult {
      * Source share location.
      */
     readonly sourceShareLocation: string;
+    /**
+     * System Data of the Azure resource.
+     */
+    readonly systemData: outputs.datashare.latest.ProxyDtoResponseSystemData;
     /**
      * Type of the azure resource
      */

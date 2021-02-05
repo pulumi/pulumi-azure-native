@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 from ._enums import *
 
 __all__ = ['Share']
@@ -27,7 +28,7 @@ class Share(pulumi.CustomResource):
                  __opts__=None):
         """
         A share data transfer object.
-        Latest API Version: 2019-11-01.
+        Latest API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,10 +71,11 @@ class Share(pulumi.CustomResource):
             __props__['created_at'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Share")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
             'azure-nextgen:datashare/latest:Share',
@@ -138,6 +140,14 @@ class Share(pulumi.CustomResource):
         Share kind.
         """
         return pulumi.get(self, "share_kind")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.ProxyDtoResponseSystemData']:
+        """
+        System Data of the Azure resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

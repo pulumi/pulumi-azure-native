@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * A Invitation data transfer object.
- * Latest API Version: 2019-11-01.
+ * Latest API Version: 2020-09-01.
  */
 export class Invitation extends pulumi.CustomResource {
     /**
@@ -36,6 +37,10 @@ export class Invitation extends pulumi.CustomResource {
     }
 
     /**
+     * The expiration date for the invitation and share subscription.
+     */
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    /**
      * unique invitation id
      */
     public /*out*/ readonly invitationId!: pulumi.Output<string>;
@@ -55,6 +60,10 @@ export class Invitation extends pulumi.CustomResource {
      * Gets the time at which the invitation was sent.
      */
     public /*out*/ readonly sentAt!: pulumi.Output<string>;
+    /**
+     * System Data of the Azure resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
     /**
      * The target Azure AD Id. Can't be combined with email.
      */
@@ -105,6 +114,7 @@ export class Invitation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["expirationDate"] = args ? args.expirationDate : undefined;
             inputs["invitationName"] = args ? args.invitationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareName"] = args ? args.shareName : undefined;
@@ -116,15 +126,18 @@ export class Invitation extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["respondedAt"] = undefined /*out*/;
             inputs["sentAt"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         } else {
+            inputs["expirationDate"] = undefined /*out*/;
             inputs["invitationId"] = undefined /*out*/;
             inputs["invitationStatus"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["respondedAt"] = undefined /*out*/;
             inputs["sentAt"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["targetActiveDirectoryId"] = undefined /*out*/;
             inputs["targetEmail"] = undefined /*out*/;
             inputs["targetObjectId"] = undefined /*out*/;
@@ -139,7 +152,7 @@ export class Invitation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }, { type: "azure-nextgen:datashare/v20200901:Invitation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Invitation.__pulumiType, name, inputs, opts);
     }
@@ -153,6 +166,10 @@ export interface InvitationArgs {
      * The name of the share account.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The expiration date for the invitation and share subscription.
+     */
+    readonly expirationDate?: pulumi.Input<string>;
     /**
      * The name of the invitation.
      */

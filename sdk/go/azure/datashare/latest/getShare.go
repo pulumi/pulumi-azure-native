@@ -39,6 +39,8 @@ type LookupShareResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Share kind.
 	ShareKind *string `pulumi:"shareKind"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// Share terms.
 	Terms *string `pulumi:"terms"`
 	// Type of the azure resource

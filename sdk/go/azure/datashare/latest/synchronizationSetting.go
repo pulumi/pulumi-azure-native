@@ -12,7 +12,7 @@ import (
 )
 
 // A Synchronization Setting data transfer object.
-// Latest API Version: 2019-11-01.
+// Latest API Version: 2020-09-01.
 type SynchronizationSetting struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type SynchronizationSetting struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Name of the azure resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemDataOutput `pulumi:"systemData"`
 	// Type of the azure resource
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -53,6 +55,9 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:SynchronizationSetting"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:SynchronizationSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SynchronizationSetting
@@ -81,6 +86,8 @@ type synchronizationSettingState struct {
 	Kind *string `pulumi:"kind"`
 	// Name of the azure resource
 	Name *string `pulumi:"name"`
+	// System Data of the Azure resource.
+	SystemData *ProxyDtoResponseSystemData `pulumi:"systemData"`
 	// Type of the azure resource
 	Type *string `pulumi:"type"`
 }
@@ -90,6 +97,8 @@ type SynchronizationSettingState struct {
 	Kind pulumi.StringPtrInput
 	// Name of the azure resource
 	Name pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData ProxyDtoResponseSystemDataPtrInput
 	// Type of the azure resource
 	Type pulumi.StringPtrInput
 }

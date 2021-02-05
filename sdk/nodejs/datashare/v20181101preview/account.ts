@@ -120,7 +120,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

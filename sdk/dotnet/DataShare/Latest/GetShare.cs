@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         public readonly string? ShareKind;
         /// <summary>
+        /// System Data of the Azure resource.
+        /// </summary>
+        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
+        /// <summary>
         /// Share terms.
         /// </summary>
         public readonly string? Terms;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string? shareKind,
 
+            Outputs.ProxyDtoResponseSystemData systemData,
+
             string? terms,
 
             string type,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
             Name = name;
             ProvisioningState = provisioningState;
             ShareKind = shareKind;
+            SystemData = systemData;
             Terms = terms;
             Type = type;
             UserEmail = userEmail;

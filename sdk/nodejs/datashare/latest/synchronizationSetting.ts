@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Synchronization Setting data transfer object.
- * Latest API Version: 2019-11-01.
+ * Latest API Version: 2020-09-01.
  */
 export class SynchronizationSetting extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class SynchronizationSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * System Data of the Azure resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
+    /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -80,10 +84,12 @@ export class SynchronizationSetting extends pulumi.CustomResource {
             inputs["shareName"] = args ? args.shareName : undefined;
             inputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,7 +99,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }
