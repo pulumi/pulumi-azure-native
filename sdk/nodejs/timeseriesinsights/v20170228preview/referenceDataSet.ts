@@ -80,9 +80,6 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             if ((!args || args.keyProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyProperties'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.referenceDataSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'referenceDataSetName'");
             }
@@ -136,7 +133,7 @@ export interface ReferenceDataSetArgs {
     /**
      * The location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the reference data set.
      */

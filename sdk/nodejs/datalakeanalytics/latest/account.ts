@@ -172,9 +172,6 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.defaultDataLakeStoreAccount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultDataLakeStoreAccount'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -288,7 +285,7 @@ export interface AccountArgs {
     /**
      * The resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The maximum supported degree of parallelism for this account.
      */

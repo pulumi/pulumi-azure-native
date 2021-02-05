@@ -77,9 +77,6 @@ export class DeploymentScript extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +129,7 @@ export interface DeploymentScriptArgs {
     /**
      * The location of the ACI and the storage account for the deployment script.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

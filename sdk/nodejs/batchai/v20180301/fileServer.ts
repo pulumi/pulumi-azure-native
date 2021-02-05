@@ -94,9 +94,6 @@ export class FileServer extends pulumi.CustomResource {
             if ((!args || args.fileServerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fileServerName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +159,7 @@ export interface FileServerArgs {
     /**
      * The region in which to create the File Server.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

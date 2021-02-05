@@ -96,9 +96,6 @@ export class AlertRule extends pulumi.CustomResource {
             if ((!args || args.isEnabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -174,7 +171,7 @@ export interface AlertRuleArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * the name of the alert rule.
      */

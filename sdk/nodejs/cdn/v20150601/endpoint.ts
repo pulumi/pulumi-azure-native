@@ -109,9 +109,6 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
@@ -196,7 +193,7 @@ export interface EndpointArgs {
     /**
      * Endpoint location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
      */

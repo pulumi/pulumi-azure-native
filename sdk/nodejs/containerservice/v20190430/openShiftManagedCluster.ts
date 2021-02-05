@@ -106,9 +106,6 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
     constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.openShiftVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'openShiftVersion'");
             }
@@ -180,7 +177,7 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Configuration for OpenShift master VMs.
      */

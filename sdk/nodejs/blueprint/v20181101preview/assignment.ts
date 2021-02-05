@@ -104,9 +104,6 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.parameters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parameters'");
             }
@@ -184,7 +181,7 @@ export interface AssignmentArgs {
     /**
      * The location of this blueprint assignment.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Defines how resources deployed by a blueprint assignment are locked.
      */

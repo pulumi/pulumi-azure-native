@@ -73,9 +73,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationRuleName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -127,7 +124,7 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The namespace name.
      */

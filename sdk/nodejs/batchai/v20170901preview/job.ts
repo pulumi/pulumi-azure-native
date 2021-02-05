@@ -154,9 +154,6 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.nodeCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeCount'");
             }
@@ -294,7 +291,7 @@ export interface JobArgs {
     /**
      * The region in which to create the job.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The job will be gang scheduled on that many compute nodes
      */

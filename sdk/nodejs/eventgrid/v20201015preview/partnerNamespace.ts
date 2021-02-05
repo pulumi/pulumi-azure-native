@@ -79,9 +79,6 @@ export class PartnerNamespace extends pulumi.CustomResource {
     constructor(name: string, args: PartnerNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.partnerNamespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
@@ -128,7 +125,7 @@ export interface PartnerNamespaceArgs {
     /**
      * Location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the partner namespace.
      */

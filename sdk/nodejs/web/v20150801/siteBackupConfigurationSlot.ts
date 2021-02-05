@@ -82,9 +82,6 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
     constructor(name: string, args: SiteBackupConfigurationSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -160,7 +157,7 @@ export interface SiteBackupConfigurationSlotArgs {
     /**
      * Resource Location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Resource Name
      */

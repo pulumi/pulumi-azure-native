@@ -106,9 +106,6 @@ export class NetworkFunction extends pulumi.CustomResource {
     constructor(name: string, args: NetworkFunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.networkFunctionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkFunctionName'");
             }
@@ -175,7 +172,7 @@ export interface NetworkFunctionArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The parameters for the managed application.
      */

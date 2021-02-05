@@ -104,9 +104,6 @@ export class SiteDeployment extends pulumi.CustomResource {
             if ((!args || args.id === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -197,7 +194,7 @@ export interface SiteDeploymentArgs {
     /**
      * Resource Location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Message
      */

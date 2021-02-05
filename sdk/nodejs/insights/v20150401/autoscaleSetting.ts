@@ -81,9 +81,6 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             if ((!args || args.autoscaleSettingName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoscaleSettingName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.profiles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profiles'");
             }
@@ -138,7 +135,7 @@ export interface AutoscaleSettingArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * the name of the autoscale setting.
      */

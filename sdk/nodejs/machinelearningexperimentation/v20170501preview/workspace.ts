@@ -91,9 +91,6 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.friendlyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -155,7 +152,7 @@ export interface WorkspaceArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the machine learning team account belongs.
      */

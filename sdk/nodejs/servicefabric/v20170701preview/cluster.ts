@@ -165,9 +165,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.managementEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementEndpoint'");
             }
@@ -305,7 +302,7 @@ export interface ClusterArgs {
     /**
      * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The http management endpoint of the cluster.
      */

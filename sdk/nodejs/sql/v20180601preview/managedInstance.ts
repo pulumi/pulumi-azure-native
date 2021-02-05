@@ -159,9 +159,6 @@ export class ManagedInstance extends pulumi.CustomResource {
     constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -272,7 +269,7 @@ export interface ManagedInstanceArgs {
     /**
      * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies maintenance configuration id to apply to this managed instance.
      */

@@ -82,9 +82,6 @@ export class CapacityDetails extends pulumi.CustomResource {
             if ((!args || args.dedicatedCapacityName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dedicatedCapacityName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +136,7 @@ export interface CapacityDetailsArgs {
     /**
      * Location of the PowerBI Dedicated resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */

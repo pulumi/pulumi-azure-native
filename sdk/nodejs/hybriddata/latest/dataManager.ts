@@ -77,9 +77,6 @@ export class DataManager extends pulumi.CustomResource {
             if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface DataManagerArgs {
      * US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
      * region is specified on update the request will succeed.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */

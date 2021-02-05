@@ -96,9 +96,6 @@ export class BuildTask extends pulumi.CustomResource {
             if ((!args || args.buildTaskName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'buildTaskName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platform'");
             }
@@ -164,7 +161,7 @@ export interface BuildTaskArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The platform properties against which the build has to happen.
      */

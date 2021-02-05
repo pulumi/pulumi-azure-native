@@ -99,9 +99,6 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.friendlyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -175,7 +172,7 @@ export interface ProjectArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the machine learning project under a team account workspace.
      */

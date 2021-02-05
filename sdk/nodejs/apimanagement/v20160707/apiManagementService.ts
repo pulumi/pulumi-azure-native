@@ -134,9 +134,6 @@ export class ApiManagementService extends pulumi.CustomResource {
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.publisherEmail === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
@@ -240,7 +237,7 @@ export interface ApiManagementServiceArgs {
     /**
      * Datacenter location of the API Management service.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Publisher email.
      */

@@ -137,9 +137,6 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.creationData === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -246,7 +243,7 @@ export interface SnapshotArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Policy for accessing the disk via network.
      */

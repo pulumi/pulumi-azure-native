@@ -222,9 +222,6 @@ export class WebApp extends pulumi.CustomResource {
     constructor(name: string, args: WebAppArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -406,7 +403,7 @@ export interface WebAppArgs {
     /**
      * Resource Location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */

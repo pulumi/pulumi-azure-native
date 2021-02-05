@@ -108,9 +108,6 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             if ((!args || args.imageTemplateName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'imageTemplateName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -187,7 +184,7 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

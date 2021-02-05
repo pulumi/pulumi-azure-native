@@ -77,9 +77,6 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if ((!args || args.hostGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostGroupName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.platformFaultDomainCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
@@ -128,7 +125,7 @@ export interface DedicatedHostGroupArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Number of fault domains that the host group can span.
      */

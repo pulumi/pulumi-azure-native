@@ -74,9 +74,6 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
             if ((!args || args.diagnosticSettingsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diagnosticSettingsName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +121,7 @@ export interface GuestDiagnosticsSettingArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Operating system type for the configuration
      */

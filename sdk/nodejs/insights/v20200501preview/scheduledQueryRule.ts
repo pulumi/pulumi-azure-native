@@ -132,9 +132,6 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if ((!args || args.evaluationFrequency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'evaluationFrequency'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -235,7 +232,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
      */

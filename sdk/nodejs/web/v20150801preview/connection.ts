@@ -111,9 +111,6 @@ export class Connection extends pulumi.CustomResource {
             if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -216,7 +213,7 @@ export interface ConnectionArgs {
     /**
      * Resource Location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     readonly metadata?: any;
     /**
      * Resource Name

@@ -82,9 +82,6 @@ export class PostgresInstance extends pulumi.CustomResource {
     constructor(name: string, args: PostgresInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.postgresInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'postgresInstanceName'");
             }
@@ -149,7 +146,7 @@ export interface PostgresInstanceArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of PostgresInstance
      */

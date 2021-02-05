@@ -71,9 +71,6 @@ export class PrivateLinkHub extends pulumi.CustomResource {
     constructor(name: string, args: PrivateLinkHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.privateLinkHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateLinkHubName'");
             }
@@ -116,7 +113,7 @@ export interface PrivateLinkHubArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the privateLinkHub
      */

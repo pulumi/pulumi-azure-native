@@ -107,9 +107,6 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
     constructor(name: string, args: VirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +179,7 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the Azure storage blob where script output stream will be uploaded.
      */

@@ -122,9 +122,6 @@ export class PrivateCloud extends pulumi.CustomResource {
     constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.managementCluster === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementCluster'");
             }
@@ -210,7 +207,7 @@ export interface PrivateCloudArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The default cluster used for management
      */

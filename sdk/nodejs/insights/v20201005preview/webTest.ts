@@ -134,9 +134,6 @@ export class WebTest extends pulumi.CustomResource {
     constructor(name: string, args: WebTestArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
@@ -251,7 +248,7 @@ export interface WebTestArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */

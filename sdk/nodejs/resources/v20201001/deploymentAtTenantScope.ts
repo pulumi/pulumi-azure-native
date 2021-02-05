@@ -69,9 +69,6 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
             if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deploymentName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -112,7 +109,7 @@ export interface DeploymentAtTenantScopeArgs {
     /**
      * The location to store the deployment data.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The deployment properties.
      */

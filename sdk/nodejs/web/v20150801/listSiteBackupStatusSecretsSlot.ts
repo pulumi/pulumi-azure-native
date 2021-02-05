@@ -58,7 +58,7 @@ export interface ListSiteBackupStatusSecretsSlotArgs {
     /**
      * Resource Location
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * Resource Name
      */

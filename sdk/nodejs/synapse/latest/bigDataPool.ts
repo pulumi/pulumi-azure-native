@@ -138,9 +138,6 @@ export class BigDataPool extends pulumi.CustomResource {
             if ((!args || args.bigDataPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bigDataPoolName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -261,7 +258,7 @@ export interface BigDataPoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The number of nodes in the Big Data pool.
      */

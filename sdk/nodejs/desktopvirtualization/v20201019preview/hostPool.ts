@@ -143,9 +143,6 @@ export class HostPool extends pulumi.CustomResource {
             if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.preferredAppGroupType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'preferredAppGroupType'");
             }
@@ -244,7 +241,7 @@ export interface HostPoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The max session limit of HostPool.
      */

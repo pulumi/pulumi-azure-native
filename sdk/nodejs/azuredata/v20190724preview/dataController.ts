@@ -73,9 +73,6 @@ export class DataController extends pulumi.CustomResource {
             if ((!args || args.dataControllerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataControllerName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.onPremiseProperty === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'onPremiseProperty'");
             }
@@ -119,7 +116,7 @@ export interface DataControllerArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Properties from the on premise data controller
      */

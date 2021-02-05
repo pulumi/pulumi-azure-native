@@ -188,9 +188,6 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
     constructor(name: string, args: ManagedHostingEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -358,7 +355,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Resource Location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Maximum number of VMs in this hostingEnvironment (App Service Environment)
      */

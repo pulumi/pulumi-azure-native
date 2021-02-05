@@ -107,9 +107,6 @@ export class ServerDetails extends pulumi.CustomResource {
     constructor(name: string, args: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -189,7 +186,7 @@ export interface ServerDetailsArgs {
     /**
      * Location of the Analysis Services resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The managed mode of the server (0 = not managed, 1 = managed).
      */

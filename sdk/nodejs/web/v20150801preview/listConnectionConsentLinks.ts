@@ -42,7 +42,7 @@ export interface ListConnectionConsentLinksArgs {
     /**
      * Resource Location
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * Resource Name
      */

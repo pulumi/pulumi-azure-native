@@ -82,9 +82,6 @@ export class AttestationProvider extends pulumi.CustomResource {
     constructor(name: string, args: AttestationProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -137,7 +134,7 @@ export interface AttestationProviderArgs {
     /**
      * The supported Azure location where the attestation provider should be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Properties of the attestation provider
      */

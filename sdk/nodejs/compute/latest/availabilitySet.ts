@@ -90,9 +90,6 @@ export class AvailabilitySet extends pulumi.CustomResource {
             if ((!args || args.availabilitySetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'availabilitySetName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +141,7 @@ export interface AvailabilitySetArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Fault Domain count.
      */

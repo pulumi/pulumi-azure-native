@@ -90,9 +90,6 @@ export class AgentPool extends pulumi.CustomResource {
             if ((!args || args.agentPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPoolName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -150,7 +147,7 @@ export interface AgentPoolArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The OS of agent machine
      */

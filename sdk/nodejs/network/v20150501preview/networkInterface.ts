@@ -102,9 +102,6 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.networkInterfaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceName'");
             }
@@ -179,7 +176,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Gets the MAC Address of the network interface
      */
