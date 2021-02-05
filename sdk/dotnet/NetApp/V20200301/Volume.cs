@@ -225,8 +225,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200301
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("mountTargets")]
         private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;

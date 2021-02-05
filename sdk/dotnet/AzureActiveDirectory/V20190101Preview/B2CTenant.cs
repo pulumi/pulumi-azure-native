@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
         /// <summary>
         /// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("properties", required: true)]
         public Input<Inputs.CreateTenantRequestBodyPropertiesArgs> Properties { get; set; } = null!;

@@ -156,8 +156,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20201101
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Schedule for monthly snapshots

@@ -255,8 +255,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
         /// <summary>
         /// Datacenter location of the API Management service.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Publisher email.

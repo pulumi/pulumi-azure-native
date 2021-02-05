@@ -123,8 +123,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

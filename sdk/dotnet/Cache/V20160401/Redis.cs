@@ -181,8 +181,8 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.

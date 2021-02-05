@@ -161,8 +161,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200802
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the machine where the extension should be created or updated.

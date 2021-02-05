@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Properties from the on premise data controller

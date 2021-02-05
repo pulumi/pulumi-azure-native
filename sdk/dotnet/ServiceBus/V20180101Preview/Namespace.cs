@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The namespace name.

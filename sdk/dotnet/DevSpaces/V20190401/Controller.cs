@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
         /// <summary>
         /// Region where the Azure resource is located.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the resource.

@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Number of fault domains that the host group can span.

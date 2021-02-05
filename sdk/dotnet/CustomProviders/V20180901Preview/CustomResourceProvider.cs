@@ -123,8 +123,8 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group.

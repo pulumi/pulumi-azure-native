@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The public key of the service, used to encrypt secrets sent to the service

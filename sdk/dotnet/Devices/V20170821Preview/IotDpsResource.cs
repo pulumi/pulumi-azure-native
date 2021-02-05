@@ -117,8 +117,8 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview
         /// <summary>
         /// The resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("properties", required: true)]
         public Input<Inputs.IotDpsPropertiesDescriptionArgs> Properties { get; set; } = null!;

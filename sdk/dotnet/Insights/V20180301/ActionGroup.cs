@@ -239,8 +239,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("logicAppReceivers")]
         private InputList<Inputs.LogicAppReceiverArgs>? _logicAppReceivers;

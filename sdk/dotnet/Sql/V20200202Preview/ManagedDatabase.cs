@@ -232,8 +232,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the Long Term Retention backup to be used for restore of this managed database.

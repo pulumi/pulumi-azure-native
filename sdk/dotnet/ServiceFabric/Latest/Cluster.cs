@@ -366,8 +366,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
         /// <summary>
         /// Azure resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The http management endpoint of the cluster.

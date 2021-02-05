@@ -123,8 +123,8 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
         /// <summary>
         /// The supported Azure location where the dedicated HSM should be created.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the dedicated Hsm

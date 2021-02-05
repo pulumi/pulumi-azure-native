@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The plan associated with this account

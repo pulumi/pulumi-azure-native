@@ -119,8 +119,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20190201Preview
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

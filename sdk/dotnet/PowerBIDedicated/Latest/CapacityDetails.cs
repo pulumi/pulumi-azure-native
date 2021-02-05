@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
         /// <summary>
         /// Location of the PowerBI Dedicated resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.

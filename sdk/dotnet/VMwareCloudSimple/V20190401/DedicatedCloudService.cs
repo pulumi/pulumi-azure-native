@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// <summary>
         /// Azure region
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group

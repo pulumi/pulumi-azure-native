@@ -165,8 +165,8 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// Resource Location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the static site to create or update.

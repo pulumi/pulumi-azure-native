@@ -253,8 +253,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// <summary>
         /// Azure region
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("nics")]
         private InputList<Inputs.VirtualNicArgs>? _nics;

@@ -166,8 +166,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.

@@ -226,8 +226,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <summary>
         /// Subscription data center location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The lock duration time span for the subscription.

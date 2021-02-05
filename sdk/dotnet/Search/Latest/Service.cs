@@ -180,8 +180,8 @@ namespace Pulumi.AzureNextGen.Search.Latest
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Network specific rules that determine how the Azure Cognitive Search service may be reached.

@@ -154,8 +154,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
         /// <summary>
         /// Namespace location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The Namespace name

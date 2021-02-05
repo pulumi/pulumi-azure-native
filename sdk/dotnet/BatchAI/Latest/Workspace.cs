@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <summary>
         /// The region in which to create the Workspace.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

@@ -136,8 +136,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.

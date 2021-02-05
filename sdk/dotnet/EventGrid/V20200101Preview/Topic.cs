@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
         /// <summary>
         /// Location of the resource
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

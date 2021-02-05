@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The platform properties against which the build has to happen.

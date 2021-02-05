@@ -171,8 +171,8 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
         /// <summary>
         /// The location the resource resides in.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Properties of the server.

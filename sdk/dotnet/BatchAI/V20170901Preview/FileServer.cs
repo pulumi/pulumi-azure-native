@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// <summary>
         /// The region in which to create the File Server.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

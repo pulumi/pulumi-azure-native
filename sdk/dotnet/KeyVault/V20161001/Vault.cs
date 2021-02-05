@@ -102,8 +102,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20161001
         /// <summary>
         /// The supported Azure location where the key vault should be created.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Properties of the vault

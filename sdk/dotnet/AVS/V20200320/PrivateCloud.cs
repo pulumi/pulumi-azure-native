@@ -200,8 +200,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The default cluster used for management

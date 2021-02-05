@@ -209,8 +209,8 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.

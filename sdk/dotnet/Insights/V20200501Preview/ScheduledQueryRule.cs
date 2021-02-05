@@ -223,8 +223,8 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.

@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The ARM ID of the Log Analytics Workspace that is used for monitoring

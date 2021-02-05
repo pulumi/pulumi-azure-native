@@ -104,8 +104,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the privateLinkHub

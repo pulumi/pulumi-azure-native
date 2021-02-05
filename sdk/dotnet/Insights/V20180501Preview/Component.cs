@@ -261,8 +261,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180501Preview
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The network access type for accessing Application Insights ingestion.

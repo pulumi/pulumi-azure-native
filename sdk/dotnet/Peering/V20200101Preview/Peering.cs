@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         /// <summary>
         /// The location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The location of the peering.

@@ -149,8 +149,8 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
         /// <summary>
         /// The region in which to create the account.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the new Batch account.
