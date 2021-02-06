@@ -107,7 +107,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
             __props__['repository_public_key'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControlConfiguration, __self__).__init__(
             'azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration',

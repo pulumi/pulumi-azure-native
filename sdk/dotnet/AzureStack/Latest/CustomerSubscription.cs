@@ -66,6 +66,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:CustomerSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

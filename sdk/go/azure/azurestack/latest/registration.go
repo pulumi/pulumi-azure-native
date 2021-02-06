@@ -54,6 +54,9 @@ func NewRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:azurestack/v20170601:Registration"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:azurestack/v20200601preview:Registration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Registration
