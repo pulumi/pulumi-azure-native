@@ -65,7 +65,7 @@ class CustomerSubscription(pulumi.CustomResource):
             __props__['tenant_id'] = tenant_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azurestack/v20170601:CustomerSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azurestack/v20170601:CustomerSubscription"), pulumi.Alias(type_="azure-nextgen:azurestack/v20200601preview:CustomerSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomerSubscription, __self__).__init__(
             'azure-nextgen:azurestack/latest:CustomerSubscription',

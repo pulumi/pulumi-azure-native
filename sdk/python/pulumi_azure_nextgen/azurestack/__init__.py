@@ -7,4 +7,5 @@
 from . import (
     latest,
     v20170601,
+    v20200601preview,
 )

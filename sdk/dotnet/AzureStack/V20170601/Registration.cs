@@ -89,6 +89,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/latest:Registration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:Registration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
