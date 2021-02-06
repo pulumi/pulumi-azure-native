@@ -53,7 +53,6 @@ func TestTemplateCoverage(t *testing.T) {
 					t.Logf("[%s] '%s' @%s - %s", diag.Severity, diag.SourceToken, diag.SourceElement, diag.Description)
 				}
 			}
-			fmt.Printf("%s\n%s\n", match, body)
 			var langs []string
 			var expected []string
 			extensions := map[string]string{

@@ -48,6 +48,7 @@ const (
 %[3]s
 ===================================================== HTTP Response End %[1]s %[2]s
 `
+	apiVersionResources = "2020-10-01"
 )
 
 type azureNextGenProvider struct {
@@ -377,7 +378,7 @@ func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, inputs re
 
 	// 2c. Retrieve the resource group's properties from ARM API.
 	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
-	response, err := k.azureGet(ctx, id, "2020-10-01")
+	response, err := k.azureGet(ctx, id, apiVersionResources)
 	if err != nil {
 		logging.V(9).Infof("failed to lookup the location of resource group %q: %v", rgName, err)
 		return nil
@@ -1654,7 +1655,7 @@ func withInspection() autorest.PrepareDecorator {
 
 				r.Body = ioutil.NopCloser(io.TeeReader(r.Body, &body))
 				if err := r.Write(&b); err != nil {
-					return nil, fmt.Errorf("Failed to write response: %v", err)
+					return nil, fmt.Errorf("failed to write response: %v", err)
 				}
 
 				logging.V(9).Infof(requestFormat, r.Method, r.URL, b.String())
@@ -1677,7 +1678,7 @@ func byInspecting() autorest.RespondDecorator {
 			defer resp.Body.Close()
 			resp.Body = ioutil.NopCloser(io.TeeReader(resp.Body, &body))
 			if err := resp.Write(&b); err != nil {
-				return fmt.Errorf("Failed to write response: %v", err)
+				return fmt.Errorf("failed to write response: %v", err)
 			}
 
 			logging.V(9).Infof(responseFormat, resp.Request.Method, resp.Request.URL, b.String())
