@@ -65,9 +65,6 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ManagedInstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
 	}
@@ -206,7 +203,7 @@ type managedDatabaseArgs struct {
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the Long Term Retention backup to be used for restore of this managed database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The name of the managed instance.
@@ -240,7 +237,7 @@ type ManagedDatabaseArgs struct {
 	// The name of the database.
 	DatabaseName pulumi.StringInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the Long Term Retention backup to be used for restore of this managed database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// The name of the managed instance.

@@ -74,9 +74,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -227,7 +224,7 @@ type accountArgs struct {
 	// The Key Vault encryption identity, if any.
 	Identity *EncryptionIdentity `pulumi:"identity"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The commitment tier to use for next month.
 	NewTier *string `pulumi:"newTier"`
 	// The name of the Azure resource group.
@@ -261,7 +258,7 @@ type AccountArgs struct {
 	// The Key Vault encryption identity, if any.
 	Identity EncryptionIdentityPtrInput
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The commitment tier to use for next month.
 	NewTier *TierType
 	// The name of the Azure resource group.

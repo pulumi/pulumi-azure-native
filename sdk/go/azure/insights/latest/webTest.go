@@ -57,9 +57,6 @@ func NewWebTest(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -201,7 +198,7 @@ type webTestArgs struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	Locations []WebTestGeolocation `pulumi:"locations"`
 	// The name of the resource group. The name is case insensitive.
@@ -233,7 +230,7 @@ type WebTestArgs struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *WebTestKind
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	Locations WebTestGeolocationArrayInput
 	// The name of the resource group. The name is case insensitive.

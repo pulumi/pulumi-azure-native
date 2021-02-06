@@ -40,9 +40,6 @@ func NewTemplateSpecVersion(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -121,7 +118,7 @@ type templateSpecVersionArgs struct {
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -141,7 +138,7 @@ type TemplateSpecVersionArgs struct {
 	// Template Spec version description.
 	Description pulumi.StringPtrInput
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

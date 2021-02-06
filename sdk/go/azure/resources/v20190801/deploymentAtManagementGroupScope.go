@@ -38,9 +38,6 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	if args.GroupId == nil {
 		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -124,7 +121,7 @@ type deploymentAtManagementGroupScopeArgs struct {
 	// The management group ID.
 	GroupId string `pulumi:"groupId"`
 	// The location to store the deployment data.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The deployment properties.
 	Properties DeploymentProperties `pulumi:"properties"`
 }
@@ -136,7 +133,7 @@ type DeploymentAtManagementGroupScopeArgs struct {
 	// The management group ID.
 	GroupId pulumi.StringInput
 	// The location to store the deployment data.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The deployment properties.
 	Properties DeploymentPropertiesInput
 }

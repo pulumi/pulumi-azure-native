@@ -50,9 +50,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -161,7 +158,7 @@ type workspaceArgs struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The provisioning state of the workspace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The network access type for accessing Log Analytics ingestion.
@@ -187,7 +184,7 @@ type WorkspaceArgs struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The provisioning state of the workspace.
 	ProvisioningState pulumi.StringPtrInput
 	// The network access type for accessing Log Analytics ingestion.

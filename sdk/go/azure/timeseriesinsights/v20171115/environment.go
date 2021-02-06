@@ -56,9 +56,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -169,7 +166,7 @@ type environmentArgs struct {
 	// Name of the environment
 	EnvironmentName string `pulumi:"environmentName"`
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The list of partition keys according to which the data in the environment will be ordered.
 	PartitionKeyProperties []PartitionKeyProperty `pulumi:"partitionKeyProperties"`
 	// Name of an Azure Resource group.
@@ -189,7 +186,7 @@ type EnvironmentArgs struct {
 	// Name of the environment
 	EnvironmentName pulumi.StringInput
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The list of partition keys according to which the data in the environment will be ordered.
 	PartitionKeyProperties PartitionKeyPropertyArrayInput
 	// Name of an Azure Resource group.

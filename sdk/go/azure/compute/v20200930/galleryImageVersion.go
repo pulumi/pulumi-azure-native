@@ -49,9 +49,6 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	if args.GalleryName == nil {
 		return nil, errors.New("invalid value for required argument 'GalleryName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -147,7 +144,7 @@ type galleryImageVersionArgs struct {
 	// The name of the Shared Image Gallery in which the Image Definition resides.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The publishing profile of a gallery image Version.
 	PublishingProfile *GalleryImageVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
@@ -167,7 +164,7 @@ type GalleryImageVersionArgs struct {
 	// The name of the Shared Image Gallery in which the Image Definition resides.
 	GalleryName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The publishing profile of a gallery image Version.
 	PublishingProfile GalleryImageVersionPublishingProfilePtrInput
 	// The name of the resource group.

@@ -50,9 +50,6 @@ func NewNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -163,7 +160,7 @@ type namespaceArgs struct {
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
 	// The Namespace name
@@ -183,7 +180,7 @@ type NamespaceArgs struct {
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled pulumi.BoolPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 	MaximumThroughputUnits pulumi.IntPtrInput
 	// The Namespace name

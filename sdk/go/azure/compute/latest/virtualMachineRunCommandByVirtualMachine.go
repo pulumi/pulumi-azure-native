@@ -55,9 +55,6 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -176,7 +173,7 @@ type virtualMachineRunCommandByVirtualMachineArgs struct {
 	// Specifies the Azure storage blob where script error stream will be uploaded.
 	ErrorBlobUri *string `pulumi:"errorBlobUri"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Specifies the Azure storage blob where script output stream will be uploaded.
 	OutputBlobUri *string `pulumi:"outputBlobUri"`
 	// The parameters used by the script.
@@ -208,7 +205,7 @@ type VirtualMachineRunCommandByVirtualMachineArgs struct {
 	// Specifies the Azure storage blob where script error stream will be uploaded.
 	ErrorBlobUri pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies the Azure storage blob where script output stream will be uploaded.
 	OutputBlobUri pulumi.StringPtrInput
 	// The parameters used by the script.

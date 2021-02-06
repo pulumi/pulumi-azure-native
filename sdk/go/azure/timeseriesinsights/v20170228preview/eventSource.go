@@ -40,9 +40,6 @@ func NewEventSource(ctx *pulumi.Context,
 	if args.EventSourceName == nil {
 		return nil, errors.New("invalid value for required argument 'EventSourceName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,7 +117,7 @@ type eventSourceArgs struct {
 	// The kind of the event source.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Key-value pairs of additional properties for the resource.
@@ -136,7 +133,7 @@ type EventSourceArgs struct {
 	// The kind of the event source.
 	Kind Kind
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Key-value pairs of additional properties for the resource.

@@ -57,9 +57,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Origins == nil {
 		return nil, errors.New("invalid value for required argument 'Origins'")
 	}
@@ -211,7 +208,7 @@ type endpointArgs struct {
 	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Endpoint location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used for origin requests.
@@ -241,7 +238,7 @@ type EndpointArgs struct {
 	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Endpoint location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used for origin requests.

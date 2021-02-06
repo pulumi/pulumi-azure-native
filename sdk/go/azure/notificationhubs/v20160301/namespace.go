@@ -54,9 +54,6 @@ func NewNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -174,7 +171,7 @@ type namespaceArgs struct {
 	// Whether or not the namespace is currently enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
 	// The namespace name.
@@ -210,7 +207,7 @@ type NamespaceArgs struct {
 	// Whether or not the namespace is currently enabled.
 	Enabled pulumi.BoolPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the namespace.
 	Name pulumi.StringPtrInput
 	// The namespace name.

@@ -56,9 +56,6 @@ func NewTopic(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -216,7 +213,7 @@ type topicArgs struct {
 	// Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Location of the resource.
-	Location                   string                          `pulumi:"location"`
+	Location                   *string                         `pulumi:"location"`
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
@@ -246,7 +243,7 @@ type TopicArgs struct {
 	// Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Location of the resource.
-	Location                   pulumi.StringInput
+	Location                   pulumi.StringPtrInput
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />

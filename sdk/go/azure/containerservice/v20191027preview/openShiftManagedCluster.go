@@ -58,9 +58,6 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.OpenShiftVersion == nil {
 		return nil, errors.New("invalid value for required argument 'OpenShiftVersion'")
 	}
@@ -190,7 +187,7 @@ type openShiftManagedClusterArgs struct {
 	// Configures OpenShift authentication.
 	AuthProfile *OpenShiftManagedClusterAuthProfile `pulumi:"authProfile"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfile `pulumi:"masterPoolProfile"`
 	// Configures Log Analytics integration.
@@ -220,7 +217,7 @@ type OpenShiftManagedClusterArgs struct {
 	// Configures OpenShift authentication.
 	AuthProfile OpenShiftManagedClusterAuthProfilePtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfilePtrInput
 	// Configures Log Analytics integration.

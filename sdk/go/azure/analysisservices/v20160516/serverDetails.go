@@ -48,9 +48,6 @@ func NewServerDetails(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -166,7 +163,7 @@ type serverDetailsArgs struct {
 	// The container URI of backup blob.
 	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// Location of the Analysis Services resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode *int `pulumi:"managedMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -188,7 +185,7 @@ type ServerDetailsArgs struct {
 	// The container URI of backup blob.
 	BackupBlobContainerUri pulumi.StringPtrInput
 	// Location of the Analysis Services resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode pulumi.IntPtrInput
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

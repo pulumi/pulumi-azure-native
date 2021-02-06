@@ -50,9 +50,6 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -158,7 +155,7 @@ type openShiftClusterArgs struct {
 	// The cluster ingress profiles.
 	IngressProfiles []IngressProfile `pulumi:"ingressProfiles"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The cluster master profile.
 	MasterProfile *MasterProfile `pulumi:"masterProfile"`
 	// The cluster network profile.
@@ -188,7 +185,7 @@ type OpenShiftClusterArgs struct {
 	// The cluster ingress profiles.
 	IngressProfiles IngressProfileArrayInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The cluster master profile.
 	MasterProfile MasterProfilePtrInput
 	// The cluster network profile.

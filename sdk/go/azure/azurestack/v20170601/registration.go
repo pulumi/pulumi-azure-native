@@ -40,9 +40,6 @@ func NewRegistration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.RegistrationName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistrationName'")
 	}
@@ -123,7 +120,7 @@ func (RegistrationState) ElementType() reflect.Type {
 
 type registrationArgs struct {
 	// Location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
 	// The token identifying registered Azure Stack
@@ -135,7 +132,7 @@ type registrationArgs struct {
 // The set of arguments for constructing a Registration resource.
 type RegistrationArgs struct {
 	// Location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the Azure Stack registration.
 	RegistrationName pulumi.StringInput
 	// The token identifying registered Azure Stack

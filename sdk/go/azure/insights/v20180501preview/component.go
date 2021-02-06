@@ -80,9 +80,6 @@ func NewComponent(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -263,7 +260,7 @@ type componentArgs struct {
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind string `pulumi:"kind"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The network access type for accessing Application Insights ingestion.
 	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
 	// The network access type for accessing Application Insights query.
@@ -299,7 +296,7 @@ type ComponentArgs struct {
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The network access type for accessing Application Insights ingestion.
 	PublicNetworkAccessForIngestion pulumi.StringPtrInput
 	// The network access type for accessing Application Insights query.

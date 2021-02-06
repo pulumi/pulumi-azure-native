@@ -61,9 +61,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	if args.ApplicationGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationGatewayName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -292,7 +289,7 @@ type applicationGatewayArgs struct {
 	// Gets or sets HTTP listeners of application gateway resource
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets request routing rules of application gateway resource
@@ -328,7 +325,7 @@ type ApplicationGatewayArgs struct {
 	// Gets or sets HTTP listeners of application gateway resource
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
 	ProvisioningState pulumi.StringPtrInput
 	// Gets or sets request routing rules of application gateway resource

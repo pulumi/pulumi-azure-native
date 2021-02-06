@@ -36,9 +36,6 @@ func NewResource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ParentResourcePath == nil {
 		return nil, errors.New("invalid value for required argument 'ParentResourcePath'")
 	}
@@ -162,7 +159,7 @@ func (ResourceState) ElementType() reflect.Type {
 
 type resourceArgs struct {
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Resource identity.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
 	// Gets or sets the plan of the resource.
@@ -184,7 +181,7 @@ type resourceArgs struct {
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Resource identity.
 	ParentResourcePath pulumi.StringInput
 	// Gets or sets the plan of the resource.

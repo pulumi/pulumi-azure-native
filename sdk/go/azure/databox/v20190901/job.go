@@ -59,9 +59,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.JobName == nil {
 		return nil, errors.New("invalid value for required argument 'JobName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -188,7 +185,7 @@ type jobArgs struct {
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	JobName string `pulumi:"jobName"`
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku type.
@@ -208,7 +205,7 @@ type JobArgs struct {
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	JobName pulumi.StringInput
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// The sku type.

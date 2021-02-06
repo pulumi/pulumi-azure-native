@@ -48,9 +48,6 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ type snapshotPolicyArgs struct {
 	// Schedule for hourly snapshots
 	HourlySchedule *HourlySchedule `pulumi:"hourlySchedule"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule *MonthlySchedule `pulumi:"monthlySchedule"`
 	// The name of the resource group.
@@ -183,7 +180,7 @@ type SnapshotPolicyArgs struct {
 	// Schedule for hourly snapshots
 	HourlySchedule HourlySchedulePtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Schedule for monthly snapshots
 	MonthlySchedule MonthlySchedulePtrInput
 	// The name of the resource group.

@@ -35,9 +35,6 @@ func NewSshPublicKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -109,7 +106,7 @@ func (SshPublicKeyState) ElementType() reflect.Type {
 
 type sshPublicKeyArgs struct {
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
 	PublicKey *string `pulumi:"publicKey"`
 	// The name of the resource group.
@@ -123,7 +120,7 @@ type sshPublicKeyArgs struct {
 // The set of arguments for constructing a SshPublicKey resource.
 type SshPublicKeyArgs struct {
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
 	PublicKey pulumi.StringPtrInput
 	// The name of the resource group.

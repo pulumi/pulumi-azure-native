@@ -92,9 +92,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.DefaultDataLakeStoreAccount == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultDataLakeStoreAccount'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -279,7 +276,7 @@ type accountArgs struct {
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
@@ -317,7 +314,7 @@ type AccountArgs struct {
 	// The current state of the IP address firewall for this account.
 	FirewallState *FirewallState
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism pulumi.IntPtrInput
 	// The maximum supported degree of parallelism per job for this account.

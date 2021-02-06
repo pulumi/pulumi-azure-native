@@ -78,9 +78,6 @@ func NewServerGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -248,7 +245,7 @@ type serverGroupArgs struct {
 	// If ZFS compression is enabled or not for the server group.
 	EnableZfs *bool `pulumi:"enableZfs"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Maintenance window of a server group.
 	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
@@ -298,7 +295,7 @@ type ServerGroupArgs struct {
 	// If ZFS compression is enabled or not for the server group.
 	EnableZfs pulumi.BoolPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Maintenance window of a server group.
 	MaintenanceWindow MaintenanceWindowPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'

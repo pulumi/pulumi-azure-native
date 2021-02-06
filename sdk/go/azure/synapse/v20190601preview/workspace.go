@@ -66,9 +66,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -209,7 +206,7 @@ type workspaceArgs struct {
 	// Identity of the workspace
 	Identity *ManagedIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
@@ -247,7 +244,7 @@ type WorkspaceArgs struct {
 	// Identity of the workspace
 	Identity ManagedIdentityPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.

@@ -55,9 +55,6 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 	if args.CircuitName == nil {
 		return nil, errors.New("invalid value for required argument 'CircuitName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -266,7 +263,7 @@ type expressRouteCircuitArgs struct {
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Gets or sets list of peerings
 	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -298,7 +295,7 @@ type ExpressRouteCircuitArgs struct {
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Gets or sets list of peerings
 	Peerings ExpressRouteCircuitPeeringTypeArrayInput
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed

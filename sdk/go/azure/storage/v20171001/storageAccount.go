@@ -69,9 +69,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -257,7 +254,7 @@ type storageAccountArgs struct {
 	// Required. Indicates the type of storage account.
 	Kind string `pulumi:"kind"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Network rule set
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -285,7 +282,7 @@ type StorageAccountArgs struct {
 	// Required. Indicates the type of storage account.
 	Kind Kind
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Network rule set
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -56,9 +56,6 @@ func NewAssignment(ctx *pulumi.Context,
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Parameters == nil {
 		return nil, errors.New("invalid value for required argument 'Parameters'")
 	}
@@ -163,7 +160,7 @@ type assignmentArgs struct {
 	// Managed identity for this blueprint assignment.
 	Identity ManagedServiceIdentity `pulumi:"identity"`
 	// The location of this blueprint assignment.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Defines how resources deployed by a blueprint assignment are locked.
 	Locks *AssignmentLockSettings `pulumi:"locks"`
 	// Blueprint assignment parameter values.
@@ -189,7 +186,7 @@ type AssignmentArgs struct {
 	// Managed identity for this blueprint assignment.
 	Identity ManagedServiceIdentityInput
 	// The location of this blueprint assignment.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Defines how resources deployed by a blueprint assignment are locked.
 	Locks AssignmentLockSettingsPtrInput
 	// Blueprint assignment parameter values.

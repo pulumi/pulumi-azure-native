@@ -44,9 +44,6 @@ func NewAddressByName(ctx *pulumi.Context,
 	if args.ContactDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ContactDetails'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -115,7 +112,7 @@ type addressByNameArgs struct {
 	// Contact details for the address
 	ContactDetails ContactDetails `pulumi:"contactDetails"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Shipping details for the address
@@ -131,7 +128,7 @@ type AddressByNameArgs struct {
 	// Contact details for the address
 	ContactDetails ContactDetailsInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Shipping details for the address

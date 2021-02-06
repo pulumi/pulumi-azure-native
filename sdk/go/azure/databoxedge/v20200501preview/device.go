@@ -67,9 +67,6 @@ func NewDevice(ctx *pulumi.Context,
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -217,7 +214,7 @@ type deviceArgs struct {
 	// The Data Box Edge/Gateway device name.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The description of the Data Box Edge/Gateway device model.
 	ModelDescription *string `pulumi:"modelDescription"`
 	// The resource group name.
@@ -241,7 +238,7 @@ type DeviceArgs struct {
 	// The Data Box Edge/Gateway device name.
 	FriendlyName pulumi.StringPtrInput
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The description of the Data Box Edge/Gateway device model.
 	ModelDescription pulumi.StringPtrInput
 	// The resource group name.

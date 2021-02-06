@@ -48,9 +48,6 @@ func NewZone(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -165,7 +162,7 @@ type zoneArgs struct {
 	// The etag of the zone.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
 	RegistrationVirtualNetworks []SubResource `pulumi:"registrationVirtualNetworks"`
 	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
@@ -185,7 +182,7 @@ type ZoneArgs struct {
 	// The etag of the zone.
 	Etag pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
 	RegistrationVirtualNetworks SubResourceArrayInput
 	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.

@@ -58,9 +58,6 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -181,7 +178,7 @@ type virtualMachineScaleSetVMRunCommandArgs struct {
 	// The instance ID of the virtual machine.
 	InstanceId string `pulumi:"instanceId"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Specifies the Azure storage blob where script output stream will be uploaded.
 	OutputBlobUri *string `pulumi:"outputBlobUri"`
 	// The parameters used by the script.
@@ -215,7 +212,7 @@ type VirtualMachineScaleSetVMRunCommandArgs struct {
 	// The instance ID of the virtual machine.
 	InstanceId pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies the Azure storage blob where script output stream will be uploaded.
 	OutputBlobUri pulumi.StringPtrInput
 	// The parameters used by the script.

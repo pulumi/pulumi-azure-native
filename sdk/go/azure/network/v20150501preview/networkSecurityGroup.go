@@ -46,9 +46,6 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NetworkSecurityGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupName'")
 	}
@@ -244,7 +241,7 @@ type networkSecurityGroupArgs struct {
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Gets collection of references to Network Interfaces
 	NetworkInterfaces []SubResource `pulumi:"networkInterfaces"`
 	// The name of the network security group.
@@ -270,7 +267,7 @@ type NetworkSecurityGroupArgs struct {
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Gets collection of references to Network Interfaces
 	NetworkInterfaces SubResourceArrayInput
 	// The name of the network security group.

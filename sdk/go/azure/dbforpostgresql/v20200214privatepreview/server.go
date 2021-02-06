@@ -71,9 +71,6 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -228,7 +225,7 @@ type serverArgs struct {
 	// The Azure Active Directory identity of the server.
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -267,7 +264,7 @@ type ServerArgs struct {
 	// The Azure Active Directory identity of the server.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.

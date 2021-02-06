@@ -51,9 +51,6 @@ func NewBackup(ctx *pulumi.Context,
 	if args.BackupName == nil {
 		return nil, errors.New("invalid value for required argument 'BackupName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
@@ -163,7 +160,7 @@ type backupArgs struct {
 	// Label for backup
 	Label *string `pulumi:"label"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
@@ -181,7 +178,7 @@ type BackupArgs struct {
 	// Label for backup
 	Label pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// The name of the resource group.

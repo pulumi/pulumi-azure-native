@@ -69,9 +69,6 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	if args.Id == nil {
 		return nil, errors.New("invalid value for required argument 'Id'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -204,7 +201,7 @@ type dedicatedCloudNodeArgs struct {
 	// SKU's id
 	Id string `pulumi:"id"`
 	// Azure region
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// SKU's name
 	Name string `pulumi:"name"`
 	// count of nodes to create
@@ -230,7 +227,7 @@ type DedicatedCloudNodeArgs struct {
 	// SKU's id
 	Id pulumi.StringInput
 	// Azure region
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// SKU's name
 	Name pulumi.StringInput
 	// count of nodes to create

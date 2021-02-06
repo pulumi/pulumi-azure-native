@@ -94,9 +94,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -279,7 +276,7 @@ type domainArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
 	Privacy *bool `pulumi:"privacy"`
 	// Name of the resource group to which the resource belongs.
@@ -314,7 +311,7 @@ type DomainArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
 	Privacy pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.

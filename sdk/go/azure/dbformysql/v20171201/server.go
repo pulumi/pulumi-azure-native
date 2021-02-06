@@ -66,9 +66,6 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -206,7 +203,7 @@ type serverArgs struct {
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The location the resource resides in.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties of the server.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -224,7 +221,7 @@ type ServerArgs struct {
 	// The Azure Active Directory identity of the server.
 	Identity ResourceIdentityPtrInput
 	// The location the resource resides in.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties of the server.
 	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.

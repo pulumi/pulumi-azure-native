@@ -46,9 +46,6 @@ func NewController(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -147,7 +144,7 @@ func (ControllerState) ElementType() reflect.Type {
 
 type controllerArgs struct {
 	// Region where the Azure resource is located.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Resource group to which the resource belongs.
@@ -165,7 +162,7 @@ type controllerArgs struct {
 // The set of arguments for constructing a Controller resource.
 type ControllerArgs struct {
 	// Region where the Azure resource is located.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the resource.
 	Name pulumi.StringInput
 	// Resource group to which the resource belongs.

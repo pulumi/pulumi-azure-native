@@ -43,9 +43,6 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.Actions == nil {
 		return nil, errors.New("invalid value for required argument 'Actions'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -145,7 +142,7 @@ type webhookArgs struct {
 	// Custom headers that will be added to the webhook notifications.
 	CustomHeaders map[string]string `pulumi:"customHeaders"`
 	// The location of the webhook. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
@@ -169,7 +166,7 @@ type WebhookArgs struct {
 	// Custom headers that will be added to the webhook notifications.
 	CustomHeaders pulumi.StringMapInput
 	// The location of the webhook. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.

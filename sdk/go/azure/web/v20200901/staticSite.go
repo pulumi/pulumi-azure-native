@@ -50,9 +50,6 @@ func NewStaticSite(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -162,7 +159,7 @@ type staticSiteArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the static site to create or update.
 	Name string `pulumi:"name"`
 	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -186,7 +183,7 @@ type StaticSiteArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the static site to create or update.
 	Name pulumi.StringInput
 	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.

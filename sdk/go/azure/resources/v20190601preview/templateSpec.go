@@ -40,9 +40,6 @@ func NewTemplateSpec(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -118,7 +115,7 @@ type templateSpecArgs struct {
 	// Template Spec display name.
 	DisplayName *string `pulumi:"displayName"`
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -134,7 +131,7 @@ type TemplateSpecArgs struct {
 	// Template Spec display name.
 	DisplayName pulumi.StringPtrInput
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

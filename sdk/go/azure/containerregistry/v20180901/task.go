@@ -51,9 +51,6 @@ func NewTask(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Platform == nil {
 		return nil, errors.New("invalid value for required argument 'Platform'")
 	}
@@ -173,7 +170,7 @@ type taskArgs struct {
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials *Credentials `pulumi:"credentials"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformProperties `pulumi:"platform"`
 	// The name of the container registry.
@@ -201,7 +198,7 @@ type TaskArgs struct {
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials CredentialsPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesInput
 	// The name of the container registry.

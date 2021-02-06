@@ -40,9 +40,6 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	if args.GuestDiagnosticSettingsName == nil {
 		return nil, errors.New("invalid value for required argument 'GuestDiagnosticSettingsName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
@@ -103,7 +100,7 @@ type guestDiagnosticsSettingsAssociationArgs struct {
 	// The guest diagnostic settings name.
 	GuestDiagnosticSettingsName string `pulumi:"guestDiagnosticSettingsName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The fully qualified ID of the resource, including the resource name and resource type.
 	ResourceUri string `pulumi:"resourceUri"`
 	// Resource tags
@@ -117,7 +114,7 @@ type GuestDiagnosticsSettingsAssociationArgs struct {
 	// The guest diagnostic settings name.
 	GuestDiagnosticSettingsName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The fully qualified ID of the resource, including the resource name and resource type.
 	ResourceUri pulumi.StringInput
 	// Resource tags

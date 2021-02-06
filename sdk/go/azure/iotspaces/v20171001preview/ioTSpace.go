@@ -36,9 +36,6 @@ func NewIoTSpace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -105,7 +102,7 @@ func (IoTSpaceState) ElementType() reflect.Type {
 
 type ioTSpaceArgs struct {
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The common properties of a IoTSpaces service.
 	Properties *IoTSpacesProperties `pulumi:"properties"`
 	// The name of the resource group that contains the IoTSpaces instance.
@@ -121,7 +118,7 @@ type ioTSpaceArgs struct {
 // The set of arguments for constructing a IoTSpace resource.
 type IoTSpaceArgs struct {
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The common properties of a IoTSpaces service.
 	Properties IoTSpacesPropertiesPtrInput
 	// The name of the resource group that contains the IoTSpaces instance.

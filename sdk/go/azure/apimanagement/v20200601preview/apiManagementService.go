@@ -88,9 +88,6 @@ func NewApiManagementService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PublisherEmail == nil {
 		return nil, errors.New("invalid value for required argument 'PublisherEmail'")
 	}
@@ -325,7 +322,7 @@ type apiManagementServiceArgs struct {
 	// Managed service identity of the Api Management service.
 	Identity *ApiManagementServiceIdentity `pulumi:"identity"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
 	// Publisher email.
@@ -369,7 +366,7 @@ type ApiManagementServiceArgs struct {
 	// Managed service identity of the Api Management service.
 	Identity ApiManagementServiceIdentityPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringPtrInput
 	// Publisher email.

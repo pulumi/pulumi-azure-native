@@ -36,9 +36,6 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -102,7 +99,7 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 
 type privateLinkScopeArgs struct {
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Monitor PrivateLinkScope resource.
@@ -114,7 +111,7 @@ type privateLinkScopeArgs struct {
 // The set of arguments for constructing a PrivateLinkScope resource.
 type PrivateLinkScopeArgs struct {
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Azure Monitor PrivateLinkScope resource.

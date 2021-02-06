@@ -72,9 +72,6 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args.EvaluationFrequency == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationFrequency'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -221,7 +218,7 @@ type scheduledQueryRuleArgs struct {
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration *string `pulumi:"muteActionsDuration"`
 	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
@@ -256,7 +253,7 @@ type ScheduledQueryRuleArgs struct {
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration pulumi.StringPtrInput
 	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)

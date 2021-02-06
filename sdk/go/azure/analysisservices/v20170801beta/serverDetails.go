@@ -54,9 +54,6 @@ func NewServerDetails(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -192,7 +189,7 @@ type serverDetailsArgs struct {
 	// The firewall settings for the AS server.
 	IpV4FirewallSettings *IPv4FirewallSettings `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode *int `pulumi:"managedMode"`
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
@@ -220,7 +217,7 @@ type ServerDetailsArgs struct {
 	// The firewall settings for the AS server.
 	IpV4FirewallSettings IPv4FirewallSettingsPtrInput
 	// Location of the Analysis Services resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode pulumi.IntPtrInput
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.

@@ -40,9 +40,6 @@ func NewVolume(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Provider == nil {
 		return nil, errors.New("invalid value for required argument 'Provider'")
 	}
@@ -127,7 +124,7 @@ type volumeArgs struct {
 	// User readable description of the volume.
 	Description *string `pulumi:"description"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Provider of the volume.
 	Provider string `pulumi:"provider"`
 	// Azure resource group name
@@ -145,7 +142,7 @@ type VolumeArgs struct {
 	// User readable description of the volume.
 	Description pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Provider of the volume.
 	Provider pulumi.StringInput
 	// Azure resource group name

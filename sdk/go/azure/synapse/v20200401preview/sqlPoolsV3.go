@@ -46,9 +46,6 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -147,7 +144,7 @@ func (SqlPoolsV3State) ElementType() reflect.Type {
 
 type sqlPoolsV3Args struct {
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
@@ -163,7 +160,7 @@ type sqlPoolsV3Args struct {
 // The set of arguments for constructing a SqlPoolsV3 resource.
 type SqlPoolsV3Args struct {
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.

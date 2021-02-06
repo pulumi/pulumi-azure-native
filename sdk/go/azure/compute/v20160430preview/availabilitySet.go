@@ -44,9 +44,6 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -168,7 +165,7 @@ func (AvailabilitySetState) ElementType() reflect.Type {
 
 type availabilitySetArgs struct {
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// If the availability set supports managed disks.
 	Managed *bool `pulumi:"managed"`
 	// The name of the availability set.
@@ -190,7 +187,7 @@ type availabilitySetArgs struct {
 // The set of arguments for constructing a AvailabilitySet resource.
 type AvailabilitySetArgs struct {
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// If the availability set supports managed disks.
 	Managed pulumi.BoolPtrInput
 	// The name of the availability set.

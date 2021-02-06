@@ -59,9 +59,6 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -181,7 +178,7 @@ func (ServerState) ElementType() reflect.Type {
 
 type serverArgs struct {
 	// The location the resource resides in.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties of the server.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -197,7 +194,7 @@ type serverArgs struct {
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
 	// The location the resource resides in.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties of the server.
 	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.

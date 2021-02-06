@@ -52,9 +52,6 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -174,7 +171,7 @@ type serverArgs struct {
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -198,7 +195,7 @@ type ServerArgs struct {
 	// The Azure Active Directory identity of the server.
 	Identity ResourceIdentityPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrInput
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'

@@ -48,9 +48,6 @@ func NewPublicIpAddress(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PublicIPAllocationMethod == nil {
 		return nil, errors.New("invalid value for required argument 'PublicIPAllocationMethod'")
 	}
@@ -259,7 +256,7 @@ type publicIpAddressArgs struct {
 	// Gets a reference to the network interface IP configurations using this public IP address
 	IpConfiguration *SubResource `pulumi:"ipConfiguration"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets PublicIP allocation method (Static/Dynamic)
@@ -287,7 +284,7 @@ type PublicIpAddressArgs struct {
 	// Gets a reference to the network interface IP configurations using this public IP address
 	IpConfiguration SubResourcePtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState pulumi.StringPtrInput
 	// Gets or sets PublicIP allocation method (Static/Dynamic)

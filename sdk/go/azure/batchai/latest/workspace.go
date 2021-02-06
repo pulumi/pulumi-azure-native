@@ -39,9 +39,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -115,7 +112,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 
 type workspaceArgs struct {
 	// The region in which to create the Workspace.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user specified tags associated with the Workspace.
@@ -127,7 +124,7 @@ type workspaceArgs struct {
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
 	// The region in which to create the Workspace.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// The user specified tags associated with the Workspace.

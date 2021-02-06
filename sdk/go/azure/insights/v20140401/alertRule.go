@@ -52,9 +52,6 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args.IsEnabled == nil {
 		return nil, errors.New("invalid value for required argument 'IsEnabled'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -160,7 +157,7 @@ type alertRuleArgs struct {
 	// the flag that indicates whether the alert rule is enabled.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// the name of the alert rule.
 	Name string `pulumi:"name"`
 	// the provisioning state.
@@ -186,7 +183,7 @@ type AlertRuleArgs struct {
 	// the flag that indicates whether the alert rule is enabled.
 	IsEnabled pulumi.BoolInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// the name of the alert rule.
 	Name pulumi.StringInput
 	// the provisioning state.

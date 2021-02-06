@@ -68,9 +68,6 @@ func NewMetricAlert(ctx *pulumi.Context,
 	if args.EvaluationFrequency == nil {
 		return nil, errors.New("invalid value for required argument 'EvaluationFrequency'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -205,7 +202,7 @@ type metricAlertArgs struct {
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
@@ -239,7 +236,7 @@ type MetricAlertArgs struct {
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.

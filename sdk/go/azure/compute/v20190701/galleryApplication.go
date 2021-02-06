@@ -50,9 +50,6 @@ func NewGalleryApplication(ctx *pulumi.Context,
 	if args.GalleryName == nil {
 		return nil, errors.New("invalid value for required argument 'GalleryName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -154,7 +151,7 @@ type galleryApplicationArgs struct {
 	// The name of the Shared Application Gallery in which the Application Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The privacy statement uri.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// The release note uri.
@@ -180,7 +177,7 @@ type GalleryApplicationArgs struct {
 	// The name of the Shared Application Gallery in which the Application Definition is to be created.
 	GalleryName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The privacy statement uri.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// The release note uri.

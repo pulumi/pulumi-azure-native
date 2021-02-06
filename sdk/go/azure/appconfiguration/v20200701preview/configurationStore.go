@@ -51,9 +51,6 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	if args.ConfigStoreName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigStoreName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -165,7 +162,7 @@ type configurationStoreArgs struct {
 	// The managed identity information, if configured.
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group to which the container registry belongs.
@@ -185,7 +182,7 @@ type ConfigurationStoreArgs struct {
 	// The managed identity information, if configured.
 	Identity ResourceIdentityPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.

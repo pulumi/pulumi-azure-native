@@ -50,9 +50,6 @@ func NewNotificationHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -169,7 +166,7 @@ type notificationHubArgs struct {
 	// The GcmCredential of the created NotificationHub
 	GcmCredential *GcmCredential `pulumi:"gcmCredential"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The MpnsCredential of the created NotificationHub
 	MpnsCredential *MpnsCredential `pulumi:"mpnsCredential"`
 	// The NotificationHub name.
@@ -203,7 +200,7 @@ type NotificationHubArgs struct {
 	// The GcmCredential of the created NotificationHub
 	GcmCredential GcmCredentialPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The MpnsCredential of the created NotificationHub
 	MpnsCredential MpnsCredentialPtrInput
 	// The NotificationHub name.

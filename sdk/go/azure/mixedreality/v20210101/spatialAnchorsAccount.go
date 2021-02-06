@@ -51,9 +51,6 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -159,7 +156,7 @@ type spatialAnchorsAccountArgs struct {
 	// The kind of account, if supported
 	Kind *Sku `pulumi:"kind"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The plan associated with this account
 	Plan *Identity `pulumi:"plan"`
 	// Name of an Azure resource group.
@@ -181,7 +178,7 @@ type SpatialAnchorsAccountArgs struct {
 	// The kind of account, if supported
 	Kind SkuPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The plan associated with this account
 	Plan IdentityPtrInput
 	// Name of an Azure resource group.

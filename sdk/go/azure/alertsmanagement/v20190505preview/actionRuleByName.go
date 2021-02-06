@@ -37,9 +37,6 @@ func NewActionRuleByName(ctx *pulumi.Context,
 	if args.ActionRuleName == nil {
 		return nil, errors.New("invalid value for required argument 'ActionRuleName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,7 +101,7 @@ type actionRuleByNameArgs struct {
 	// The name of action rule that needs to be created/updated
 	ActionRuleName string `pulumi:"actionRuleName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// action rule properties
 	Properties interface{} `pulumi:"properties"`
 	// Resource group name where the resource is created.
@@ -118,7 +115,7 @@ type ActionRuleByNameArgs struct {
 	// The name of action rule that needs to be created/updated
 	ActionRuleName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// action rule properties
 	Properties pulumi.Input
 	// Resource group name where the resource is created.

@@ -68,9 +68,6 @@ func NewApiManagementService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PublisherEmail == nil {
 		return nil, errors.New("invalid value for required argument 'PublisherEmail'")
 	}
@@ -251,7 +248,7 @@ type apiManagementServiceArgs struct {
 	// Custom hostname configuration of the API Management service.
 	HostnameConfigurations []HostnameConfiguration `pulumi:"hostnameConfigurations"`
 	// Datacenter location of the API Management service.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Publisher email.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// Publisher name.
@@ -283,7 +280,7 @@ type ApiManagementServiceArgs struct {
 	// Custom hostname configuration of the API Management service.
 	HostnameConfigurations HostnameConfigurationArrayInput
 	// Datacenter location of the API Management service.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Publisher email.
 	PublisherEmail pulumi.StringInput
 	// Publisher name.

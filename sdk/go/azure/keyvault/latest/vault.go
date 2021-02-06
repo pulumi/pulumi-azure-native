@@ -35,9 +35,6 @@ func NewVault(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -121,7 +118,7 @@ func (VaultState) ElementType() reflect.Type {
 
 type vaultArgs struct {
 	// The supported Azure location where the key vault should be created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties of the vault
 	Properties VaultProperties `pulumi:"properties"`
 	// The name of the Resource Group to which the server belongs.
@@ -135,7 +132,7 @@ type vaultArgs struct {
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
 	// The supported Azure location where the key vault should be created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties of the vault
 	Properties VaultPropertiesInput
 	// The name of the Resource Group to which the server belongs.

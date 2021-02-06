@@ -47,9 +47,6 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.MultipleActivationKeyName == nil {
 		return nil, errors.New("invalid value for required argument 'MultipleActivationKeyName'")
 	}
@@ -144,7 +141,7 @@ type multipleActivationKeyArgs struct {
 	// <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
 	IsEligible *bool `pulumi:"isEligible"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the MAK key.
 	MultipleActivationKeyName string `pulumi:"multipleActivationKeyName"`
 	// Type of OS for which the key is requested.
@@ -166,7 +163,7 @@ type MultipleActivationKeyArgs struct {
 	// <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
 	IsEligible pulumi.BoolPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the MAK key.
 	MultipleActivationKeyName pulumi.StringInput
 	// Type of OS for which the key is requested.

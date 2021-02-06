@@ -54,9 +54,6 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	if args.BackupPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -170,7 +167,7 @@ type backupPolicyArgs struct {
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Monthly backups count to keep
 	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
 	// The name of the resource group.
@@ -198,7 +195,7 @@ type BackupPolicyArgs struct {
 	// The property to decide policy is enabled or not
 	Enabled pulumi.BoolPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Monthly backups count to keep
 	MonthlyBackupsToKeep pulumi.IntPtrInput
 	// The name of the resource group.

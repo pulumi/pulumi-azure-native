@@ -55,9 +55,6 @@ func NewElasticPool(ctx *pulumi.Context,
 	if args.ElasticPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'ElasticPoolName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -172,7 +169,7 @@ type elasticPoolArgs struct {
 	// The license type to apply for this elastic pool.
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// The storage limit for the database elastic pool in bytes.
@@ -200,7 +197,7 @@ type ElasticPoolArgs struct {
 	// The license type to apply for this elastic pool.
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// The storage limit for the database elastic pool in bytes.

@@ -40,9 +40,6 @@ func NewReplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -138,7 +135,7 @@ func (ReplicationState) ElementType() reflect.Type {
 
 type replicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
 	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
 	// The name of the container registry.
@@ -154,7 +151,7 @@ type replicationArgs struct {
 // The set of arguments for constructing a Replication resource.
 type ReplicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
 	RegionEndpointEnabled pulumi.BoolPtrInput
 	// The name of the container registry.

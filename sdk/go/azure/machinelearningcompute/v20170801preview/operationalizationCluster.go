@@ -60,9 +60,6 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	if args.ClusterType == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterType'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -179,7 +176,7 @@ type operationalizationClusterArgs struct {
 	// Contains global configuration for the web services in the cluster.
 	GlobalServiceConfiguration *GlobalServiceConfiguration `pulumi:"globalServiceConfiguration"`
 	// Specifies the location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the resource group in which the cluster is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Storage Account properties.
@@ -205,7 +202,7 @@ type OperationalizationClusterArgs struct {
 	// Contains global configuration for the web services in the cluster.
 	GlobalServiceConfiguration GlobalServiceConfigurationPtrInput
 	// Specifies the location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the resource group in which the cluster is located.
 	ResourceGroupName pulumi.StringInput
 	// Storage Account properties.

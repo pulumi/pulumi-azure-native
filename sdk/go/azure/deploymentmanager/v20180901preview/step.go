@@ -34,9 +34,6 @@ func NewStep(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -105,7 +102,7 @@ func (StepState) ElementType() reflect.Type {
 
 type stepArgs struct {
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The properties that define the step.
 	Properties WaitStepProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -119,7 +116,7 @@ type stepArgs struct {
 // The set of arguments for constructing a Step resource.
 type StepArgs struct {
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The properties that define the step.
 	Properties WaitStepPropertiesInput
 	// The name of the resource group. The name is case insensitive.

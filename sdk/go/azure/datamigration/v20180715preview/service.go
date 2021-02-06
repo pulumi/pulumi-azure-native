@@ -49,9 +49,6 @@ func NewService(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
@@ -159,7 +156,7 @@ type serviceArgs struct {
 	// The resource kind. Only 'vm' (the default) is supported.
 	Kind *string `pulumi:"kind"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey *string `pulumi:"publicKey"`
 	// Name of the service
@@ -183,7 +180,7 @@ type ServiceArgs struct {
 	// The resource kind. Only 'vm' (the default) is supported.
 	Kind pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey pulumi.StringPtrInput
 	// Name of the service

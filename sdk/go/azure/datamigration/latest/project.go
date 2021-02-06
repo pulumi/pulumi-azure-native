@@ -50,9 +50,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ProjectName == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
@@ -164,7 +161,7 @@ type projectArgs struct {
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the project
 	ProjectName string `pulumi:"projectName"`
 	// Name of the service
@@ -188,7 +185,7 @@ type ProjectArgs struct {
 	// Name of the resource group
 	GroupName pulumi.StringInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the project
 	ProjectName pulumi.StringInput
 	// Name of the service

@@ -54,9 +54,6 @@ func NewDisk(ctx *pulumi.Context,
 	if args.DiskName == nil {
 		return nil, errors.New("invalid value for required argument 'DiskName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -187,7 +184,7 @@ type diskArgs struct {
 	// Encryption settings for disk or snapshot
 	EncryptionSettings *EncryptionSettings `pulumi:"encryptionSettings"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
@@ -209,7 +206,7 @@ type DiskArgs struct {
 	// Encryption settings for disk or snapshot
 	EncryptionSettings EncryptionSettingsPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The Operating System type.
 	OsType *OperatingSystemTypes
 	// The name of the resource group.

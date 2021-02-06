@@ -54,9 +54,6 @@ func NewDiskPool(ctx *pulumi.Context,
 	if args.DiskPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'DiskPoolName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -155,7 +152,7 @@ type diskPoolArgs struct {
 	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
 	Disks []Disk `pulumi:"disks"`
 	// The geo-location where the resource lives.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure Resource ID of a Subnet for the Disk pool.
@@ -177,7 +174,7 @@ type DiskPoolArgs struct {
 	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
 	Disks DiskArrayInput
 	// The geo-location where the resource lives.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Azure Resource ID of a Subnet for the Disk pool.

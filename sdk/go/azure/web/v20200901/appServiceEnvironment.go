@@ -112,9 +112,6 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -376,7 +373,7 @@ type appServiceEnvironmentArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Number of front-end instances.
 	MultiRoleCount *int `pulumi:"multiRoleCount"`
 	// Front-end VM size, e.g. "Medium", "Large".
@@ -432,7 +429,7 @@ type AppServiceEnvironmentArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Number of front-end instances.
 	MultiRoleCount pulumi.IntPtrInput
 	// Front-end VM size, e.g. "Medium", "Large".

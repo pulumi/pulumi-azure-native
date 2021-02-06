@@ -41,9 +41,6 @@ func NewCommitmentPlan(ctx *pulumi.Context,
 	if args.CommitmentPlanName == nil {
 		return nil, errors.New("invalid value for required argument 'CommitmentPlanName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -112,7 +109,7 @@ type commitmentPlanArgs struct {
 	// An entity tag used to enforce optimistic concurrency.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The commitment plan SKU.
@@ -128,7 +125,7 @@ type CommitmentPlanArgs struct {
 	// An entity tag used to enforce optimistic concurrency.
 	Etag pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The commitment plan SKU.

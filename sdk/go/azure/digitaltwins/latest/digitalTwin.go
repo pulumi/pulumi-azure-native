@@ -46,9 +46,6 @@ func NewDigitalTwin(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -144,7 +141,7 @@ type digitalTwinArgs struct {
 	// The managed identity for the DigitalTwinsInstance.
 	Identity *DigitalTwinsIdentity `pulumi:"identity"`
 	// The resource location.
-	Location                   string                          `pulumi:"location"`
+	Location                   *string                         `pulumi:"location"`
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// Public network access for the DigitalTwinsInstance.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -161,7 +158,7 @@ type DigitalTwinArgs struct {
 	// The managed identity for the DigitalTwinsInstance.
 	Identity DigitalTwinsIdentityPtrInput
 	// The resource location.
-	Location                   pulumi.StringInput
+	Location                   pulumi.StringPtrInput
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// Public network access for the DigitalTwinsInstance.
 	PublicNetworkAccess pulumi.StringPtrInput

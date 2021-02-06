@@ -68,9 +68,6 @@ func NewRedis(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -227,7 +224,7 @@ type redisArgs struct {
 	// Specifies whether the non-ssl Redis server port (6379) is enabled.
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis cache.
@@ -259,7 +256,7 @@ type RedisArgs struct {
 	// Specifies whether the non-ssl Redis server port (6379) is enabled.
 	EnableNonSslPort pulumi.BoolPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis cache.

@@ -40,9 +40,6 @@ func NewDigitalTwin(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ func (DigitalTwinState) ElementType() reflect.Type {
 
 type digitalTwinArgs struct {
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the DigitalTwinsInstance.
@@ -138,7 +135,7 @@ type digitalTwinArgs struct {
 // The set of arguments for constructing a DigitalTwin resource.
 type DigitalTwinArgs struct {
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the DigitalTwinsInstance.

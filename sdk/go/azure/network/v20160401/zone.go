@@ -44,9 +44,6 @@ func NewZone(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -153,7 +150,7 @@ type zoneArgs struct {
 	// The etag of the zone.
 	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
@@ -173,7 +170,7 @@ type ZoneArgs struct {
 	// The etag of the zone.
 	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets pulumi.Float64PtrInput
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.

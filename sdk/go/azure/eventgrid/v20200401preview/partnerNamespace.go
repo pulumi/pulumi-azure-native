@@ -39,9 +39,6 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PartnerNamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerNamespaceName'")
 	}
@@ -117,7 +114,7 @@ func (PartnerNamespaceState) ElementType() reflect.Type {
 
 type partnerNamespaceArgs struct {
 	// Location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the partner namespace.
 	PartnerNamespaceName string `pulumi:"partnerNamespaceName"`
 	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
@@ -132,7 +129,7 @@ type partnerNamespaceArgs struct {
 // The set of arguments for constructing a PartnerNamespace resource.
 type PartnerNamespaceArgs struct {
 	// Location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the partner namespace.
 	PartnerNamespaceName pulumi.StringInput
 	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:

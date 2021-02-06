@@ -40,9 +40,6 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -138,7 +135,7 @@ type serviceArgs struct {
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind string `pulumi:"kind"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The common properties of a service.
 	Properties *ServicesProperties `pulumi:"properties"`
 	// The name of the resource group that contains the service instance.
@@ -158,7 +155,7 @@ type ServiceArgs struct {
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind Kind
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The common properties of a service.
 	Properties ServicesPropertiesPtrInput
 	// The name of the resource group that contains the service instance.

@@ -43,9 +43,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
@@ -175,7 +172,7 @@ type snapshotArgs struct {
 	// UUID v4 used to identify the FileSystem
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
@@ -195,7 +192,7 @@ type SnapshotArgs struct {
 	// UUID v4 used to identify the FileSystem
 	FileSystemId pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// The name of the resource group.

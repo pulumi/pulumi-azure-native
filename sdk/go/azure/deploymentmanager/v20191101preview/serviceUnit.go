@@ -38,9 +38,6 @@ func NewServiceUnit(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type serviceUnitArgs struct {
 	// Describes the type of ARM deployment to be performed on the resource.
 	DeploymentMode string `pulumi:"deploymentMode"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the service resource.
@@ -149,7 +146,7 @@ type ServiceUnitArgs struct {
 	// Describes the type of ARM deployment to be performed on the resource.
 	DeploymentMode DeploymentMode
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the service resource.
