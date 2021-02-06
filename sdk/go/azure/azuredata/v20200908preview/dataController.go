@@ -43,9 +43,6 @@ func NewDataController(ctx *pulumi.Context,
 	if args.DataControllerName == nil {
 		return nil, errors.New("invalid value for required argument 'DataControllerName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.OnPremiseProperty == nil {
 		return nil, errors.New("invalid value for required argument 'OnPremiseProperty'")
 	}
@@ -128,7 +125,7 @@ type dataControllerArgs struct {
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties from the on premise data controller
 	OnPremiseProperty OnPremiseProperty `pulumi:"onPremiseProperty"`
 	// The name of the Azure resource group
@@ -145,7 +142,7 @@ type DataControllerArgs struct {
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties from the on premise data controller
 	OnPremiseProperty OnPremisePropertyInput
 	// The name of the Azure resource group

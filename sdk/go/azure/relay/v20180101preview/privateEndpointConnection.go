@@ -38,9 +38,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -111,7 +108,7 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Properties of the private endpoint object.
@@ -129,7 +126,7 @@ type privateEndpointConnectionArgs struct {
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Properties of the private endpoint object.

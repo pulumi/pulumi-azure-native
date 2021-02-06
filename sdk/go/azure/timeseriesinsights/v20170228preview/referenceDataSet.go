@@ -44,9 +44,6 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	if args.KeyProperties == nil {
 		return nil, errors.New("invalid value for required argument 'KeyProperties'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ReferenceDataSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ReferenceDataSetName'")
 	}
@@ -133,7 +130,7 @@ type referenceDataSetArgs struct {
 	// The list of key properties for the reference data set.
 	KeyProperties []ReferenceDataSetKeyProperty `pulumi:"keyProperties"`
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the reference data set.
 	ReferenceDataSetName string `pulumi:"referenceDataSetName"`
 	// Name of an Azure Resource group.
@@ -149,7 +146,7 @@ type ReferenceDataSetArgs struct {
 	// The list of key properties for the reference data set.
 	KeyProperties ReferenceDataSetKeyPropertyArrayInput
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the reference data set.
 	ReferenceDataSetName pulumi.StringInput
 	// Name of an Azure Resource group.

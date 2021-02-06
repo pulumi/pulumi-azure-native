@@ -55,9 +55,6 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ApplicationName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -164,7 +161,7 @@ type applicationArgs struct {
 	// Describes the diagnostics definition and usage for an application resource.
 	Diagnostics *DiagnosticsDescription `pulumi:"diagnostics"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Azure resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// describes the services in the application.
@@ -184,7 +181,7 @@ type ApplicationArgs struct {
 	// Describes the diagnostics definition and usage for an application resource.
 	Diagnostics DiagnosticsDescriptionPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Azure resource group name
 	ResourceGroupName pulumi.StringInput
 	// describes the services in the application.

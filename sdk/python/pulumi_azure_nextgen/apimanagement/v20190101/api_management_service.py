@@ -84,8 +84,6 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['enable_client_certificate'] = enable_client_certificate
             __props__['hostname_configurations'] = hostname_configurations
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['notification_sender_email'] = notification_sender_email
             if publisher_email is None and not opts.urn:

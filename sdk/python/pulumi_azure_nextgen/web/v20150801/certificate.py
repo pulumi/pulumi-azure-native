@@ -96,8 +96,6 @@ class Certificate(pulumi.CustomResource):
             __props__['issue_date'] = issue_date
             __props__['issuer'] = issuer
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

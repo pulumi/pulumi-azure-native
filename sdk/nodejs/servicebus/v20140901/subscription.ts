@@ -122,9 +122,6 @@ export class Subscription extends pulumi.CustomResource {
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -229,7 +226,7 @@ export interface SubscriptionArgs {
     /**
      * Subscription data center location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The lock duration time span for the subscription.
      */

@@ -39,9 +39,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -119,7 +116,7 @@ type accountArgs struct {
 	// The name of the Maps Account.
 	AccountName string `pulumi:"accountName"`
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the Azure Resource Group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of this account.
@@ -133,7 +130,7 @@ type AccountArgs struct {
 	// The name of the Maps Account.
 	AccountName pulumi.StringInput
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the Azure Resource Group.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of this account.

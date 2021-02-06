@@ -57,8 +57,6 @@ class ActionRuleByName(pulumi.CustomResource):
             if action_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'action_rule_name'")
             __props__['action_rule_name'] = action_rule_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['properties'] = properties
             if resource_group is None and not opts.urn:

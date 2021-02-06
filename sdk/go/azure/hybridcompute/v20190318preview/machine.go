@@ -62,9 +62,6 @@ func NewMachine(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -203,7 +200,7 @@ type machineArgs struct {
 	// Public Key that the client provides to be used during initial resource onboarding
 	ClientPublicKey *string `pulumi:"clientPublicKey"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the hybrid machine.
 	Name string `pulumi:"name"`
 	// Resource's Physical Location
@@ -221,7 +218,7 @@ type MachineArgs struct {
 	// Public Key that the client provides to be used during initial resource onboarding
 	ClientPublicKey pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the hybrid machine.
 	Name pulumi.StringInput
 	// Resource's Physical Location

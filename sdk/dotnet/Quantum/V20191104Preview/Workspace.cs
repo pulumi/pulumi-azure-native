@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("providers")]
         private InputList<Inputs.ProviderArgs>? _providers;

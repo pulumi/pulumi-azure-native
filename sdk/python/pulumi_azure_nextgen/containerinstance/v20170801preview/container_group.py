@@ -72,8 +72,6 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['containers'] = containers
             __props__['image_registry_credentials'] = image_registry_credentials
             __props__['ip_address'] = ip_address
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")

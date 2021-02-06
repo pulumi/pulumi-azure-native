@@ -84,8 +84,6 @@ class PartnerRegistration(pulumi.CustomResource):
 
             __props__['authorized_azure_subscription_ids'] = authorized_azure_subscription_ids
             __props__['customer_service_uri'] = customer_service_uri
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['logo_uri'] = logo_uri
             __props__['long_description'] = long_description

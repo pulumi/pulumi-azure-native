@@ -98,8 +98,8 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource.

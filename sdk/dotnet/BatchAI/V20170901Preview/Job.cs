@@ -309,8 +309,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// <summary>
         /// The region in which to create the job.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The job will be gang scheduled on that many compute nodes

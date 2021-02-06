@@ -36,9 +36,6 @@ func NewReplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -123,7 +120,7 @@ func (ReplicationState) ElementType() reflect.Type {
 
 type replicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the replication.
@@ -137,7 +134,7 @@ type replicationArgs struct {
 // The set of arguments for constructing a Replication resource.
 type ReplicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the replication.

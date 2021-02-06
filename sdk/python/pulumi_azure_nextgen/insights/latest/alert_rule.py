@@ -76,8 +76,6 @@ class AlertRule(pulumi.CustomResource):
             if is_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'is_enabled'")
             __props__['is_enabled'] = is_enabled
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

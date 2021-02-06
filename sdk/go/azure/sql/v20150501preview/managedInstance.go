@@ -85,9 +85,6 @@ func NewManagedInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ManagedInstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
 	}
@@ -275,7 +272,7 @@ type managedInstanceArgs struct {
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Specifies maintenance configuration id to apply to this managed instance.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// Specifies the mode of database creation.
@@ -334,7 +331,7 @@ type ManagedInstanceArgs struct {
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies maintenance configuration id to apply to this managed instance.
 	MaintenanceConfigurationId pulumi.StringPtrInput
 	// Specifies the mode of database creation.

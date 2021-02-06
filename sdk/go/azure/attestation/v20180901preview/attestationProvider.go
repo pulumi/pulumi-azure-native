@@ -38,9 +38,6 @@ func NewAttestationProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -120,7 +117,7 @@ func (AttestationProviderState) ElementType() reflect.Type {
 
 type attestationProviderArgs struct {
 	// The supported Azure location where the attestation service instance should be created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties of the attestation service instance
 	Properties AttestationServiceCreationSpecificParams `pulumi:"properties"`
 	// Name of the attestation service instance.
@@ -134,7 +131,7 @@ type attestationProviderArgs struct {
 // The set of arguments for constructing a AttestationProvider resource.
 type AttestationProviderArgs struct {
 	// The supported Azure location where the attestation service instance should be created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties of the attestation service instance
 	Properties AttestationServiceCreationSpecificParamsInput
 	// Name of the attestation service instance.

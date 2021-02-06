@@ -56,9 +56,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ManagedResourceGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedResourceGroupId'")
 	}
@@ -173,7 +170,7 @@ type workspaceArgs struct {
 	// The workspace provider authorizations.
 	Authorizations []WorkspaceProviderAuthorization `pulumi:"authorizations"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The managed resource group Id.
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
 	// The workspace's custom parameters.
@@ -195,7 +192,7 @@ type WorkspaceArgs struct {
 	// The workspace provider authorizations.
 	Authorizations WorkspaceProviderAuthorizationArrayInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringInput
 	// The workspace's custom parameters.

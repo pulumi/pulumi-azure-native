@@ -61,9 +61,6 @@ func NewTask(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
@@ -206,7 +203,7 @@ type taskArgs struct {
 	// The value of this property indicates whether the task resource is system task or not.
 	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The template that describes the repository and tag information for run log artifact.
 	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
@@ -242,7 +239,7 @@ type TaskArgs struct {
 	// The value of this property indicates whether the task resource is system task or not.
 	IsSystemTask pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The template that describes the repository and tag information for run log artifact.
 	LogTemplate pulumi.StringPtrInput
 	// The platform properties against which the run has to happen.

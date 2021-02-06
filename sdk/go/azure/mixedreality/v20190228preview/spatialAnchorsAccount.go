@@ -38,9 +38,6 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -125,7 +122,7 @@ type spatialAnchorsAccountArgs struct {
 	// The identity associated with this account
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of an Mixed Reality Spatial Anchors Account.
@@ -139,7 +136,7 @@ type SpatialAnchorsAccountArgs struct {
 	// The identity associated with this account
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Name of an Mixed Reality Spatial Anchors Account.

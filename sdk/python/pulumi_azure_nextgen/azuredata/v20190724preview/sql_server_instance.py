@@ -66,8 +66,6 @@ class SqlServerInstance(pulumi.CustomResource):
             if edition is None and not opts.urn:
                 raise TypeError("Missing required property 'edition'")
             __props__['edition'] = edition
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

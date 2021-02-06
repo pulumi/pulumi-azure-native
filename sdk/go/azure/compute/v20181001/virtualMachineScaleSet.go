@@ -62,9 +62,6 @@ func NewVirtualMachineScaleSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -228,7 +225,7 @@ type virtualMachineScaleSetArgs struct {
 	// The identity of the virtual machine scale set, if configured.
 	Identity *VirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision *bool `pulumi:"overprovision"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -266,7 +263,7 @@ type VirtualMachineScaleSetArgs struct {
 	// The identity of the virtual machine scale set, if configured.
 	Identity VirtualMachineScaleSetIdentityPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision pulumi.BoolPtrInput
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.

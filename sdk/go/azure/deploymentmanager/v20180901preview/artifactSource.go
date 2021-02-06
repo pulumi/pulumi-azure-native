@@ -44,9 +44,6 @@ func NewArtifactSource(ctx *pulumi.Context,
 	if args.Authentication == nil {
 		return nil, errors.New("invalid value for required argument 'Authentication'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -126,7 +123,7 @@ type artifactSourceArgs struct {
 	// The authentication method to use to access the artifact source.
 	Authentication SasAuthentication `pulumi:"authentication"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of artifact source used.
@@ -144,7 +141,7 @@ type ArtifactSourceArgs struct {
 	// The authentication method to use to access the artifact source.
 	Authentication SasAuthenticationInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The type of artifact source used.

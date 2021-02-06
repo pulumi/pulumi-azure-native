@@ -107,9 +107,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ManagementEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementEndpoint'")
 	}
@@ -359,7 +356,7 @@ type clusterArgs struct {
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings []SettingsSectionDescription `pulumi:"fabricSettings"`
 	// Azure resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The http management endpoint of the cluster.
 	ManagementEndpoint string `pulumi:"managementEndpoint"`
 	// The list of node types in the cluster.
@@ -418,7 +415,7 @@ type ClusterArgs struct {
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings SettingsSectionDescriptionArrayInput
 	// Azure resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The http management endpoint of the cluster.
 	ManagementEndpoint pulumi.StringInput
 	// The list of node types in the cluster.

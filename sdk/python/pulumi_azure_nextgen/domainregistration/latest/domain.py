@@ -101,8 +101,6 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['privacy'] = privacy
             if resource_group_name is None and not opts.urn:

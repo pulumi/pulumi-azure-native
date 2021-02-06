@@ -129,9 +129,6 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -222,7 +219,7 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the network interfaces of the virtual machine.
      */

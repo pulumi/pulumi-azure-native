@@ -91,9 +91,6 @@ export class ApplicationGroup extends pulumi.CustomResource {
             if ((!args || args.hostPoolArmPath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostPoolArmPath'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +156,7 @@ export interface ApplicationGroupArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -69,9 +69,6 @@ export class ActionRuleByName extends pulumi.CustomResource {
             if ((!args || args.actionRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actionRuleName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface ActionRuleByNameArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * action rule properties
      */

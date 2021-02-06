@@ -39,9 +39,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -128,7 +125,7 @@ type domainArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
 	// Location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags of the resource.
@@ -140,7 +137,7 @@ type DomainArgs struct {
 	// Name of the domain.
 	DomainName pulumi.StringInput
 	// Location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 	// Tags of the resource.

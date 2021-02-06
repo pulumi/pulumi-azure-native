@@ -69,8 +69,6 @@ class AutoscaleSetting(pulumi.CustomResource):
             if enabled is None:
                 enabled = True
             __props__['enabled'] = enabled
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['name'] = name
             __props__['notifications'] = notifications

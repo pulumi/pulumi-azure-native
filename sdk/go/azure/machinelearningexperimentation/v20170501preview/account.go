@@ -58,9 +58,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.KeyVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -167,7 +164,7 @@ type accountArgs struct {
 	// The fully qualified arm id of the user key vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group to which the machine learning team account belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The no of users/seats who can access this team account. This property defines the charge on the team account.
@@ -191,7 +188,7 @@ type AccountArgs struct {
 	// The fully qualified arm id of the user key vault.
 	KeyVaultId pulumi.StringInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group to which the machine learning team account belongs.
 	ResourceGroupName pulumi.StringInput
 	// The no of users/seats who can access this team account. This property defines the charge on the team account.

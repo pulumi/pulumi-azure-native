@@ -80,9 +80,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.AmountOfRam == nil {
 		return nil, errors.New("invalid value for required argument 'AmountOfRam'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NumberOfCores == nil {
 		return nil, errors.New("invalid value for required argument 'NumberOfCores'")
 	}
@@ -246,7 +243,7 @@ type virtualMachineArgs struct {
 	// Expose Guest OS or not
 	ExposeToGuestVM *bool `pulumi:"exposeToGuestVM"`
 	// Azure region
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The list of Virtual NICs
 	Nics []VirtualNic `pulumi:"nics"`
 	// The number of CPU cores
@@ -282,7 +279,7 @@ type VirtualMachineArgs struct {
 	// Expose Guest OS or not
 	ExposeToGuestVM pulumi.BoolPtrInput
 	// Azure region
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The list of Virtual NICs
 	Nics VirtualNicArrayInput
 	// The number of CPU cores

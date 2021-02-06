@@ -128,8 +128,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <summary>
         /// The Geo location of the Manager
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The manager name

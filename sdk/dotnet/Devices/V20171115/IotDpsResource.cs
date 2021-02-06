@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Devices.V20171115
         /// <summary>
         /// The resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Service specific properties for a provisioning service

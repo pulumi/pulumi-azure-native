@@ -69,9 +69,6 @@ func NewHostPool(ctx *pulumi.Context,
 	if args.LoadBalancerType == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerType'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PreferredAppGroupType == nil {
 		return nil, errors.New("invalid value for required argument 'PreferredAppGroupType'")
 	}
@@ -219,7 +216,7 @@ type hostPoolArgs struct {
 	// The type of the load balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The max session limit of HostPool.
 	MaxSessionLimit *int `pulumi:"maxSessionLimit"`
 	// PersonalDesktopAssignment type for HostPool.
@@ -257,7 +254,7 @@ type HostPoolArgs struct {
 	// The type of the load balancer.
 	LoadBalancerType pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The max session limit of HostPool.
 	MaxSessionLimit pulumi.IntPtrInput
 	// PersonalDesktopAssignment type for HostPool.

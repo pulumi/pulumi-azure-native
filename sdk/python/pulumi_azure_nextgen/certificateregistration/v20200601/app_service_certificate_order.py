@@ -81,8 +81,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                 key_size = 2048
             __props__['key_size'] = key_size
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if product_type is None and not opts.urn:
                 raise TypeError("Missing required property 'product_type'")

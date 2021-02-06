@@ -199,8 +199,8 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the resource group in which the cluster is located.

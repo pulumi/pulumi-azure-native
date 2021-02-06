@@ -79,8 +79,6 @@ class NotificationHub(pulumi.CustomResource):
             __props__['authorization_rules'] = authorization_rules
             __props__['baidu_credential'] = baidu_credential
             __props__['gcm_credential'] = gcm_credential
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mpns_credential'] = mpns_credential
             __props__['name'] = name

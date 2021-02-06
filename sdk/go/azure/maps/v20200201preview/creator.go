@@ -40,9 +40,6 @@ func NewCreator(ctx *pulumi.Context,
 	if args.CreatorName == nil {
 		return nil, errors.New("invalid value for required argument 'CreatorName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -103,7 +100,7 @@ type creatorArgs struct {
 	// The name of the Maps Creator instance.
 	CreatorName string `pulumi:"creatorName"`
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
@@ -117,7 +114,7 @@ type CreatorArgs struct {
 	// The name of the Maps Creator instance.
 	CreatorName pulumi.StringInput
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The namespace name

@@ -43,9 +43,6 @@ func NewApp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,7 +132,7 @@ type appArgs struct {
 	// The display name of the application.
 	DisplayName *string `pulumi:"displayName"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ARM resource name of the IoT Central application.
@@ -155,7 +152,7 @@ type AppArgs struct {
 	// The display name of the application.
 	DisplayName pulumi.StringPtrInput
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName pulumi.StringInput
 	// The ARM resource name of the IoT Central application.

@@ -303,8 +303,8 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// <summary>
         /// The resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The maximum supported degree of parallelism for this account.

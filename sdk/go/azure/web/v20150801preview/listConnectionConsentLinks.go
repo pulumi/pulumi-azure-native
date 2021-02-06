@@ -24,7 +24,7 @@ type ListConnectionConsentLinksArgs struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Array of links

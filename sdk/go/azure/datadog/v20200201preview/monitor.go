@@ -33,9 +33,6 @@ func NewMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.MonitorName == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorName'")
 	}
@@ -95,7 +92,7 @@ func (MonitorState) ElementType() reflect.Type {
 
 type monitorArgs struct {
 	Identity *IdentityProperties `pulumi:"identity"`
-	Location string              `pulumi:"location"`
+	Location *string             `pulumi:"location"`
 	// Monitor resource name
 	MonitorName string `pulumi:"monitorName"`
 	// Properties specific to the monitor resource.
@@ -109,7 +106,7 @@ type monitorArgs struct {
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
 	Identity IdentityPropertiesPtrInput
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Monitor resource name
 	MonitorName pulumi.StringInput
 	// Properties specific to the monitor resource.

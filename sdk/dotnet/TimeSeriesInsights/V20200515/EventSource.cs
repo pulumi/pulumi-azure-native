@@ -124,8 +124,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
         /// <summary>
         /// The location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

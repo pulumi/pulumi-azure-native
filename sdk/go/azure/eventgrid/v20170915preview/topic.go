@@ -36,9 +36,6 @@ func NewTopic(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -141,7 +138,7 @@ func (TopicState) ElementType() reflect.Type {
 
 type topicArgs struct {
 	// Location of the resource
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags of the resource
@@ -153,7 +150,7 @@ type topicArgs struct {
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// Location of the resource
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 	// Tags of the resource

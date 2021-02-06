@@ -14,14 +14,12 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
 });
 
 // Create a Storage Account for our static website
 const storageAccount = new storage.StorageAccount("websitesa", {
     resourceGroupName: resourceGroup.name,
     accountName: randomString.result,
-    location: "westus2",
     sku: {
         name: storage.SkuName.Standard_LRS,
     },
@@ -92,9 +90,9 @@ const profile =  new cdn.Profile("website-cdn", {
 
 const endpoint = new cdn.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
+    location: "westus",
     profileName: profile.name,
     endpointName: randomString.result,
-    location: "westus",
     originHostHeader: staticHostname,
     origins: [{
         name: "blobstorage",

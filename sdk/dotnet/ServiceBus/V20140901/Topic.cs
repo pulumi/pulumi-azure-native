@@ -262,8 +262,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <summary>
         /// Location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.

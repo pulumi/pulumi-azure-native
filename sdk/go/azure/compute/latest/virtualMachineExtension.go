@@ -51,9 +51,6 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -198,7 +195,7 @@ type virtualMachineExtensionArgs struct {
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceView `pulumi:"instanceView"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
@@ -230,7 +227,7 @@ type VirtualMachineExtensionArgs struct {
 	// The virtual machine extension instance view.
 	InstanceView VirtualMachineExtensionInstanceViewPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.Input
 	// The name of the extension handler publisher.

@@ -63,8 +63,6 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             if authorization_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_rule_name'")
             __props__['authorization_rule_name'] = authorization_rule_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

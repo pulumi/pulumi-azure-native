@@ -258,8 +258,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Policy for accessing the disk via network.

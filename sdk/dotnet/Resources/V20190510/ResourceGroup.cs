@@ -118,8 +118,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190510
         /// <summary>
         /// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The ID of the resource that manages this resource group.

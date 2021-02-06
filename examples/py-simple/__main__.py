@@ -10,8 +10,7 @@ random_string = pulumi_random.RandomString('random',
 
 # Create an Azure Resource Group
 resource_group = resources.ResourceGroup('resource_group',
-    resource_group_name=random_string.result,
-    location='westus')
+    resource_group_name=random_string.result)
 
 # Create an Azure resource (Storage Account)
 account = storage.StorageAccount('sa',

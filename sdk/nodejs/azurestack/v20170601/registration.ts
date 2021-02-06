@@ -78,9 +78,6 @@ export class Registration extends pulumi.CustomResource {
     constructor(name: string, args: RegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationName'");
             }
@@ -131,7 +128,7 @@ export interface RegistrationArgs {
     /**
      * Location of the resource.
      */
-    readonly location: pulumi.Input<string | enums.azurestack.v20170601.Location>;
+    readonly location?: pulumi.Input<string | enums.azurestack.v20170601.Location>;
     /**
      * Name of the Azure Stack registration.
      */

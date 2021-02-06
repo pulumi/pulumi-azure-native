@@ -276,8 +276,8 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies maintenance configuration id to apply to this managed instance.

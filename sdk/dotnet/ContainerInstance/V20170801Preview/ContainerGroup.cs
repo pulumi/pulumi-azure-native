@@ -185,8 +185,8 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20170801Preview
         /// <summary>
         /// The resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The operating system type required by the containers in the container group.

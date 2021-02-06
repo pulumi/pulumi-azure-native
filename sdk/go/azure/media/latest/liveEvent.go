@@ -68,9 +68,6 @@ func NewLiveEvent(ctx *pulumi.Context,
 	if args.LiveEventName == nil {
 		return nil, errors.New("invalid value for required argument 'LiveEventName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -209,7 +206,7 @@ type liveEventArgs struct {
 	// The name of the live event, maximum length is 32.
 	LiveEventName string `pulumi:"liveEventName"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview *LiveEventPreview `pulumi:"preview"`
 	// The name of the resource group within the Azure subscription.
@@ -243,7 +240,7 @@ type LiveEventArgs struct {
 	// The name of the live event, maximum length is 32.
 	LiveEventName pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
 	Preview LiveEventPreviewPtrInput
 	// The name of the resource group within the Azure subscription.

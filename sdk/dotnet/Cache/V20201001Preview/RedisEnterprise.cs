@@ -141,8 +141,8 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The minimum TLS version for the cluster to support, e.g. '1.2'

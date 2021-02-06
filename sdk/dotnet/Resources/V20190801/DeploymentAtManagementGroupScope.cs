@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190801
         /// <summary>
         /// The location to store the deployment data.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The deployment properties.

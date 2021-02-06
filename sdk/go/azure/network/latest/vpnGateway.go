@@ -54,9 +54,6 @@ func NewVpnGateway(ctx *pulumi.Context,
 	if args.GatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -221,7 +218,7 @@ type vpnGatewayArgs struct {
 	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
 	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// List of all the nat Rules associated with the gateway.
 	NatRules []VpnGatewayNatRule `pulumi:"natRules"`
 	// The resource group name of the VpnGateway.
@@ -247,7 +244,7 @@ type VpnGatewayArgs struct {
 	// Enable Routing Preference property for the Public IP Interface of the VpnGateway.
 	IsRoutingPreferenceInternet pulumi.BoolPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// List of all the nat Rules associated with the gateway.
 	NatRules VpnGatewayNatRuleArrayInput
 	// The resource group name of the VpnGateway.

@@ -65,8 +65,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__['disk_encryption_set_name'] = disk_encryption_set_name
             __props__['encryption_type'] = encryption_type
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

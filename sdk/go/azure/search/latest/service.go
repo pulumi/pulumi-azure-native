@@ -57,9 +57,6 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -199,7 +196,7 @@ type serviceArgs struct {
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
@@ -225,7 +222,7 @@ type ServiceArgs struct {
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.

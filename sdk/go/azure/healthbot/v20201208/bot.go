@@ -41,9 +41,6 @@ func NewBot(ctx *pulumi.Context,
 	if args.BotName == nil {
 		return nil, errors.New("invalid value for required argument 'BotName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -128,7 +125,7 @@ type botArgs struct {
 	// The name of the Bot resource.
 	BotName string `pulumi:"botName"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of the HealthBot.
@@ -142,7 +139,7 @@ type BotArgs struct {
 	// The name of the Bot resource.
 	BotName pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
 	// SKU of the HealthBot.

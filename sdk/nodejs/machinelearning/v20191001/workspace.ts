@@ -98,9 +98,6 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.ownerEmail === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ownerEmail'");
             }
@@ -167,7 +164,7 @@ export interface WorkspaceArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The email id of the owner for this workspace.
      */

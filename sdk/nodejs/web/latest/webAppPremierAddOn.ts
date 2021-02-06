@@ -91,9 +91,6 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
     constructor(name: string, args: WebAppPremierAddOnArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -153,7 +150,7 @@ export interface WebAppPremierAddOnArgs {
     /**
      * Resource Location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Premier add on Marketplace offer.
      */

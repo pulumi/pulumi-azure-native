@@ -46,9 +46,6 @@ func NewLogProfile(ctx *pulumi.Context,
 	if args.Categories == nil {
 		return nil, errors.New("invalid value for required argument 'Categories'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -135,7 +132,7 @@ type logProfileArgs struct {
 	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
 	Categories []string `pulumi:"categories"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
 	Locations []string `pulumi:"locations"`
 	// The name of the log profile.
@@ -155,7 +152,7 @@ type LogProfileArgs struct {
 	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
 	Categories pulumi.StringArrayInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
 	Locations pulumi.StringArrayInput
 	// The name of the log profile.

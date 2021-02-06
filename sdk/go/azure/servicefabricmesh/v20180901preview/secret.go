@@ -34,9 +34,6 @@ func NewSecret(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -99,7 +96,7 @@ func (SecretState) ElementType() reflect.Type {
 
 type secretArgs struct {
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Describes the properties of a secret resource.
 	Properties SecretResourceProperties `pulumi:"properties"`
 	// Azure resource group name
@@ -113,7 +110,7 @@ type secretArgs struct {
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Describes the properties of a secret resource.
 	Properties SecretResourcePropertiesInput
 	// Azure resource group name

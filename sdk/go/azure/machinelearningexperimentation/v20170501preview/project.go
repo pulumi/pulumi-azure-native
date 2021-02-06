@@ -54,9 +54,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.FriendlyName == nil {
 		return nil, errors.New("invalid value for required argument 'FriendlyName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ProjectName == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
@@ -155,7 +152,7 @@ type projectArgs struct {
 	// The reference to git repo for this project.
 	Gitrepo *string `pulumi:"gitrepo"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the machine learning project under a team account workspace.
 	ProjectName string `pulumi:"projectName"`
 	// The name of the resource group to which the machine learning team account belongs.
@@ -177,7 +174,7 @@ type ProjectArgs struct {
 	// The reference to git repo for this project.
 	Gitrepo pulumi.StringPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the machine learning project under a team account workspace.
 	ProjectName pulumi.StringInput
 	// The name of the resource group to which the machine learning team account belongs.

@@ -71,9 +71,6 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
             if ((!args || args.guestDiagnosticSettingsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guestDiagnosticSettingsName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -117,7 +114,7 @@ export interface GuestDiagnosticsSettingsAssociationArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The fully qualified ID of the resource, including the resource name and resource type.
      */

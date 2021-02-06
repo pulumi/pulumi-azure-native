@@ -130,8 +130,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
         /// <summary>
         /// Location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Number of days to retain the events for this Event Hub.

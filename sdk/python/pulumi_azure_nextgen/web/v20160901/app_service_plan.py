@@ -78,8 +78,6 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['hosting_environment_profile'] = hosting_environment_profile
             __props__['is_spot'] = is_spot
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

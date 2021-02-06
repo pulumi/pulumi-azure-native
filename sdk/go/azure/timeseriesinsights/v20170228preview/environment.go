@@ -52,9 +52,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -157,7 +154,7 @@ type environmentArgs struct {
 	// Name of the environment
 	EnvironmentName string `pulumi:"environmentName"`
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
@@ -175,7 +172,7 @@ type EnvironmentArgs struct {
 	// Name of the environment
 	EnvironmentName pulumi.StringInput
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.

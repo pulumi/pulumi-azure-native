@@ -55,9 +55,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	if args.LoadBalancerName == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -272,7 +269,7 @@ type loadBalancerArgs struct {
 	// Gets or sets load balancing rules
 	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Gets or sets outbound NAT rules
 	OutboundNatRules []OutboundNatRule `pulumi:"outboundNatRules"`
 	// Gets or sets list of Load balancer probes
@@ -304,7 +301,7 @@ type LoadBalancerArgs struct {
 	// Gets or sets load balancing rules
 	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Gets or sets outbound NAT rules
 	OutboundNatRules OutboundNatRuleArrayInput
 	// Gets or sets list of Load balancer probes

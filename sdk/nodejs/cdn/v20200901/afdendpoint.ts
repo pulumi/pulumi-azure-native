@@ -86,9 +86,6 @@ export class AFDEndpoint extends pulumi.CustomResource {
             if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -148,7 +145,7 @@ export interface AFDEndpointArgs {
     /**
      * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
      */

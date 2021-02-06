@@ -39,8 +39,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <summary>
         /// Resource Location
         /// </summary>
-        [Input("location", required: true)]
-        public string Location { get; set; } = null!;
+        [Input("location")]
+        public string? Location { get; set; }
 
         /// <summary>
         /// Resource Name

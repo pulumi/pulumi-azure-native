@@ -59,9 +59,6 @@ func NewConnection(ctx *pulumi.Context,
 	if args.ConnectionName == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -191,7 +188,7 @@ type connectionArgs struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string      `pulumi:"location"`
+	Location *string     `pulumi:"location"`
 	Metadata interface{} `pulumi:"metadata"`
 	// Resource Name
 	Name *string `pulumi:"name"`
@@ -233,7 +230,7 @@ type ConnectionArgs struct {
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	Metadata pulumi.Input
 	// Resource Name
 	Name pulumi.StringPtrInput

@@ -49,9 +49,6 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
@@ -166,7 +163,7 @@ type policyArgs struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Describes managed rules inside the policy.
 	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
 	// The name of the CdnWebApplicationFirewallPolicy.
@@ -190,7 +187,7 @@ type PolicyArgs struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Describes managed rules inside the policy.
 	ManagedRules ManagedRuleSetListPtrInput
 	// The name of the CdnWebApplicationFirewallPolicy.

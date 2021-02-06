@@ -71,8 +71,6 @@ class SiteBackupConfiguration(pulumi.CustomResource):
             __props__['enabled'] = enabled
             __props__['id'] = id
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

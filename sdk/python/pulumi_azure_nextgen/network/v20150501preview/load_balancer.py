@@ -81,8 +81,6 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['load_balancing_rules'] = load_balancing_rules
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['outbound_nat_rules'] = outbound_nat_rules
             __props__['probes'] = probes

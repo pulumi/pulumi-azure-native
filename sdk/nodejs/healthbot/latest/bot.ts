@@ -78,9 +78,6 @@ export class Bot extends pulumi.CustomResource {
             if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface BotArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Bot resource group in the user subscription.
      */

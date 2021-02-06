@@ -218,8 +218,8 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Provisioning state of the connected cluster resource.

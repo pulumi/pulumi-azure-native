@@ -127,9 +127,6 @@ export class GalleryImage extends pulumi.CustomResource {
             if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.osState === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osState'");
             }
@@ -236,7 +233,7 @@ export interface GalleryImageArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */

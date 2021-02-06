@@ -387,8 +387,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Resource Location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Maximum number of VMs in this hostingEnvironment (App Service Environment)

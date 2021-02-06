@@ -145,8 +145,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <summary>
         /// Resource Location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Premier add on Marketplace offer.

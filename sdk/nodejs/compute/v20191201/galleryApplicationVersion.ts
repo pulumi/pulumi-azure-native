@@ -83,9 +83,6 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.publishingProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publishingProfile'");
             }
@@ -144,7 +141,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The publishing profile of a gallery image version.
      */

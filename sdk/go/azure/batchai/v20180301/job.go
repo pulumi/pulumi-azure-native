@@ -90,9 +90,6 @@ func NewJob(ctx *pulumi.Context,
 	if args.JobName == nil {
 		return nil, errors.New("invalid value for required argument 'JobName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NodeCount == nil {
 		return nil, errors.New("invalid value for required argument 'NodeCount'")
 	}
@@ -289,7 +286,7 @@ type jobArgs struct {
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation *JobPreparation `pulumi:"jobPreparation"`
 	// The region in which to create the job.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
 	MountVolumes *MountVolumes `pulumi:"mountVolumes"`
 	// The job will be gang scheduled on that many compute nodes
@@ -339,7 +336,7 @@ type JobArgs struct {
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation JobPreparationPtrInput
 	// The region in which to create the job.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
 	MountVolumes MountVolumesPtrInput
 	// The job will be gang scheduled on that many compute nodes

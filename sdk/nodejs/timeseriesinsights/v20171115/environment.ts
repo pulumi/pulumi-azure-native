@@ -104,9 +104,6 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -171,7 +168,7 @@ export interface EnvironmentArgs {
     /**
      * The location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The list of partition keys according to which the data in the environment will be ordered.
      */

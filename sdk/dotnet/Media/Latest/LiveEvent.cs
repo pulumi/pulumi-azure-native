@@ -222,8 +222,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.

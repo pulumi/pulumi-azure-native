@@ -39,9 +39,6 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	if args.AuthorizationRuleName == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -122,7 +119,7 @@ type notificationHubAuthorizationRuleArgs struct {
 	// Authorization Rule Name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The notification hub name.
@@ -142,7 +139,7 @@ type NotificationHubAuthorizationRuleArgs struct {
 	// Authorization Rule Name.
 	AuthorizationRuleName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
 	// The notification hub name.

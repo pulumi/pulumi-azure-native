@@ -136,9 +136,6 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.creationToken === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'creationToken'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'poolName'");
             }
@@ -250,7 +247,7 @@ export interface VolumeArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * List of mount targets
      */

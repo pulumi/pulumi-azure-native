@@ -183,8 +183,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20190515
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Optimized auto scale definition.

@@ -71,8 +71,6 @@ class ScalingPlan(pulumi.CustomResource):
             __props__['friendly_name'] = friendly_name
             __props__['host_pool_references'] = host_pool_references
             __props__['host_pool_type'] = host_pool_type
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -45,9 +45,6 @@ func NewOrderByName(ctx *pulumi.Context,
 	if args.AddressDetails == nil {
 		return nil, errors.New("invalid value for required argument 'AddressDetails'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.OrderDetails == nil {
 		return nil, errors.New("invalid value for required argument 'OrderDetails'")
 	}
@@ -128,7 +125,7 @@ type orderByNameArgs struct {
 	// Represents shipping and return address for order
 	AddressDetails AddressDetails `pulumi:"addressDetails"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Represents order details.
 	OrderDetails OrderDetails `pulumi:"orderDetails"`
 	// The name of the order
@@ -144,7 +141,7 @@ type OrderByNameArgs struct {
 	// Represents shipping and return address for order
 	AddressDetails AddressDetailsInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Represents order details.
 	OrderDetails OrderDetailsInput
 	// The name of the order

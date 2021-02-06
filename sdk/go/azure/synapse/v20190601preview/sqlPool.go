@@ -52,9 +52,6 @@ func NewSqlPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -171,7 +168,7 @@ type sqlPoolArgs struct {
 	// Date the SQL pool was created
 	CreationDate *string `pulumi:"creationDate"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Maximum size in bytes
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource state
@@ -205,7 +202,7 @@ type SqlPoolArgs struct {
 	// Date the SQL pool was created
 	CreationDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Maximum size in bytes
 	MaxSizeBytes pulumi.Float64PtrInput
 	// Resource state

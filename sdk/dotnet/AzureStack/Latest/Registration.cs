@@ -116,8 +116,8 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <summary>
         /// Location of the resource.
         /// </summary>
-        [Input("location", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.AzureStack.Latest.Location> Location { get; set; } = null!;
+        [Input("location")]
+        public InputUnion<string, Pulumi.AzureNextGen.AzureStack.Latest.Location>? Location { get; set; }
 
         /// <summary>
         /// Name of the Azure Stack registration.

@@ -55,9 +55,6 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.LinuxProfile == nil {
 		return nil, errors.New("invalid value for required argument 'LinuxProfile'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.MasterProfile == nil {
 		return nil, errors.New("invalid value for required argument 'MasterProfile'")
 	}
@@ -164,7 +161,7 @@ type containerServiceArgs struct {
 	// Properties of Linux VMs.
 	LinuxProfile ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties of master agents.
 	MasterProfile ContainerServiceMasterProfile `pulumi:"masterProfile"`
 	// Properties of the orchestrator.
@@ -188,7 +185,7 @@ type ContainerServiceArgs struct {
 	// Properties of Linux VMs.
 	LinuxProfile ContainerServiceLinuxProfileInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties of master agents.
 	MasterProfile ContainerServiceMasterProfileInput
 	// Properties of the orchestrator.

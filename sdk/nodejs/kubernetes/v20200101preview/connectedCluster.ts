@@ -130,9 +130,6 @@ export class ConnectedCluster extends pulumi.CustomResource {
             if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -224,7 +221,7 @@ export interface ConnectedClusterArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Provisioning state of the connected cluster resource.
      */

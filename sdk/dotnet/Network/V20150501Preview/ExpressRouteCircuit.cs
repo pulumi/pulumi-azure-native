@@ -215,8 +215,8 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("peerings")]
         private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;

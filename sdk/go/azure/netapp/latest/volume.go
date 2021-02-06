@@ -82,9 +82,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.CreationToken == nil {
 		return nil, errors.New("invalid value for required argument 'CreationToken'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
@@ -323,7 +320,7 @@ type volumeArgs struct {
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
@@ -374,7 +371,7 @@ type VolumeArgs struct {
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled pulumi.BoolPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// Set of protocol types, default NFSv3, CIFS fro SMB protocol

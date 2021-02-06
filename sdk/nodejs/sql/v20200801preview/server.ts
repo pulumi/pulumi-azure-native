@@ -106,9 +106,6 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -181,7 +178,7 @@ export interface ServerArgs {
     /**
      * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
      */

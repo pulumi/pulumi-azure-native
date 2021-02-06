@@ -16,13 +16,11 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
 });
 
 const storageAccount = new storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
     accountName: randomString.result,
-    location: "westus2",
     sku: {
         name: storage.SkuName.Standard_LRS,
     },
@@ -32,7 +30,6 @@ const storageAccount = new storage.StorageAccount("sa", {
 const appServicePlan  = new web.AppServicePlan("asp", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
-    location: "westus2",
     kind: "App",
     sku: {
         name: "B1",
@@ -62,7 +59,6 @@ const blob = new storage.Blob("b", {
 
 const appInsights = new insights.Component("ai", {
     resourceGroupName: resourceGroup.name,
-    location: "westus2",
     resourceName: randomString.result,
     kind: "web",
     applicationType: insights.ApplicationType.Web,
@@ -82,7 +78,6 @@ const pwd = "Not2S3cure!?";
 
 const sqlServer = new sql.Server("sql", {
     resourceGroupName: resourceGroup.name,
-    location: "westus2",
     serverName: randomString.result,
     administratorLogin: username,
     administratorLoginPassword: pwd,
@@ -91,7 +86,6 @@ const sqlServer = new sql.Server("sql", {
 
 const database = new sql.Database("db", {
     resourceGroupName: resourceGroup.name,
-    location: "westus2",
     serverName: sqlServer.name,
     databaseName: "db",
     sku: {
@@ -117,7 +111,6 @@ new sqltde.TransparentDataEncryption("tde", {
 
 const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
-    location: "westus2",
     name: randomString.result,
     serverFarmId: appServicePlan.id,
 });

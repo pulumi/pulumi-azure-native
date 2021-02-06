@@ -70,8 +70,6 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
             __props__['agent_pool_profiles'] = agent_pool_profiles
             __props__['auth_profile'] = auth_profile
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['master_pool_profile'] = master_pool_profile
             __props__['monitor_profile'] = monitor_profile

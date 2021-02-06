@@ -61,8 +61,6 @@ class CapacityDetails(pulumi.CustomResource):
             if dedicated_capacity_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dedicated_capacity_name'")
             __props__['dedicated_capacity_name'] = dedicated_capacity_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

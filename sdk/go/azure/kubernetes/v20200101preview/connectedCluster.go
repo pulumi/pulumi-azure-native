@@ -72,9 +72,6 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -206,7 +203,7 @@ type connectedClusterArgs struct {
 	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
 	Infrastructure *string `pulumi:"infrastructure"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
@@ -232,7 +229,7 @@ type ConnectedClusterArgs struct {
 	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
 	Infrastructure pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

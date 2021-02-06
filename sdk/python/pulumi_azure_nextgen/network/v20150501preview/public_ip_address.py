@@ -73,8 +73,6 @@ class PublicIpAddress(pulumi.CustomResource):
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['ip_address'] = ip_address
             __props__['ip_configuration'] = ip_configuration
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
             if public_ip_allocation_method is None and not opts.urn:

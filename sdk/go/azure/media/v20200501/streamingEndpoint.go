@@ -67,9 +67,6 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -230,7 +227,7 @@ type streamingEndpointArgs struct {
 	// The streaming endpoint description.
 	Description *string `pulumi:"description"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Max cache age
 	MaxCacheAge *float64 `pulumi:"maxCacheAge"`
 	// The name of the resource group within the Azure subscription.
@@ -266,7 +263,7 @@ type StreamingEndpointArgs struct {
 	// The streaming endpoint description.
 	Description pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Max cache age
 	MaxCacheAge pulumi.Float64PtrInput
 	// The name of the resource group within the Azure subscription.

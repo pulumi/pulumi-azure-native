@@ -76,8 +76,6 @@ class Snapshot(pulumi.CustomResource):
             __props__['encryption_settings_collection'] = encryption_settings_collection
             __props__['hyper_v_generation'] = hyper_v_generation
             __props__['incremental'] = incremental
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['os_type'] = os_type
             if resource_group_name is None and not opts.urn:

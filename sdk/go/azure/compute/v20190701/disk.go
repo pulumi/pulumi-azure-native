@@ -70,9 +70,6 @@ func NewDisk(ctx *pulumi.Context,
 	if args.DiskName == nil {
 		return nil, errors.New("invalid value for required argument 'DiskName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -241,7 +238,7 @@ type diskArgs struct {
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
@@ -273,7 +270,7 @@ type DiskArgs struct {
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The Operating System type.
 	OsType *OperatingSystemTypes
 	// The name of the resource group.

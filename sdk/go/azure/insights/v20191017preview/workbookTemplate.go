@@ -45,9 +45,6 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 	if args.Galleries == nil {
 		return nil, errors.New("invalid value for required argument 'Galleries'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -132,7 +129,7 @@ type workbookTemplateArgs struct {
 	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
 	Localized map[string][]WorkbookTemplateLocalizedGallery `pulumi:"localized"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
 	Priority *int `pulumi:"priority"`
 	// The name of the resource group. The name is case insensitive.
@@ -154,7 +151,7 @@ type WorkbookTemplateArgs struct {
 	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
 	Localized WorkbookTemplateLocalizedGalleryArrayMapInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
 	Priority pulumi.IntPtrInput
 	// The name of the resource group. The name is case insensitive.

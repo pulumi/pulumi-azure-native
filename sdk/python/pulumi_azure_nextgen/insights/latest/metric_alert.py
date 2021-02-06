@@ -87,8 +87,6 @@ class MetricAlert(pulumi.CustomResource):
             if evaluation_frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'evaluation_frequency'")
             __props__['evaluation_frequency'] = evaluation_frequency
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

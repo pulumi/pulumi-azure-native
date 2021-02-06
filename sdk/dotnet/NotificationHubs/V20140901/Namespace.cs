@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
         /// <summary>
         /// Gets or sets Namespace data center location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The namespace name.

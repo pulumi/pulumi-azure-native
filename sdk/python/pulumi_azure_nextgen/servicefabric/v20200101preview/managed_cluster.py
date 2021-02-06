@@ -98,8 +98,6 @@ class ManagedCluster(pulumi.CustomResource):
                 http_gateway_connection_port = 19080
             __props__['http_gateway_connection_port'] = http_gateway_connection_port
             __props__['load_balancing_rules'] = load_balancing_rules
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

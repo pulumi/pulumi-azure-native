@@ -71,9 +71,6 @@ func NewMachine(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -233,7 +230,7 @@ type machineArgs struct {
 	Extensions []MachineExtensionInstanceView `pulumi:"extensions"`
 	Identity   *MachineIdentity               `pulumi:"identity"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Metadata pertaining to the geographic location of the resource.
 	LocationData *LocationData `pulumi:"locationData"`
 	// The name of the hybrid machine.
@@ -254,7 +251,7 @@ type MachineArgs struct {
 	Extensions MachineExtensionInstanceViewArrayInput
 	Identity   MachineIdentityPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Metadata pertaining to the geographic location of the resource.
 	LocationData LocationDataPtrInput
 	// The name of the hybrid machine.

@@ -40,9 +40,6 @@ func NewPeeringService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PeeringServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringServiceName'")
 	}
@@ -132,7 +129,7 @@ func (PeeringServiceState) ElementType() reflect.Type {
 
 type peeringServiceArgs struct {
 	// The location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The PeeringServiceLocation of the Customer.
 	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
 	// The name of the peering service.
@@ -150,7 +147,7 @@ type peeringServiceArgs struct {
 // The set of arguments for constructing a PeeringService resource.
 type PeeringServiceArgs struct {
 	// The location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The PeeringServiceLocation of the Customer.
 	PeeringServiceLocation pulumi.StringPtrInput
 	// The name of the peering service.

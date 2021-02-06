@@ -68,9 +68,6 @@ func NewVirtualHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -272,7 +269,7 @@ type virtualHubArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResource `pulumi:"p2SVpnGateway"`
 	// The resource group name of the VirtualHub.
@@ -312,7 +309,7 @@ type VirtualHubArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourcePtrInput
 	// The resource group name of the VirtualHub.

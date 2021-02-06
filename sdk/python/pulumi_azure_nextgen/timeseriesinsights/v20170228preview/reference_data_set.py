@@ -62,8 +62,6 @@ class ReferenceDataSet(pulumi.CustomResource):
             if key_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'key_properties'")
             __props__['key_properties'] = key_properties
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if reference_data_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'reference_data_set_name'")

@@ -42,9 +42,6 @@ func NewDeploymentScript(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -125,7 +122,7 @@ type deploymentScriptArgs struct {
 	// Type of the script.
 	Kind string `pulumi:"kind"`
 	// The location of the ACI and the storage account for the deployment script.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment script.
@@ -141,7 +138,7 @@ type DeploymentScriptArgs struct {
 	// Type of the script.
 	Kind pulumi.StringInput
 	// The location of the ACI and the storage account for the deployment script.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of the deployment script.

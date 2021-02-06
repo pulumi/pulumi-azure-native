@@ -36,9 +36,6 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NetworkWatcherName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
 	}
@@ -202,7 +199,7 @@ type networkWatcherArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group.
@@ -218,7 +215,7 @@ type NetworkWatcherArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
 	// The name of the resource group.

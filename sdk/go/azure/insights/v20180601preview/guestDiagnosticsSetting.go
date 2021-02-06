@@ -40,9 +40,6 @@ func NewGuestDiagnosticsSetting(ctx *pulumi.Context,
 	if args.DiagnosticSettingsName == nil {
 		return nil, errors.New("invalid value for required argument 'DiagnosticSettingsName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -109,7 +106,7 @@ type guestDiagnosticsSettingArgs struct {
 	// The name of the diagnostic setting.
 	DiagnosticSettingsName string `pulumi:"diagnosticSettingsName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Operating system type for the configuration
 	OsType       *string `pulumi:"osType"`
 	ProxySetting *string `pulumi:"proxySetting"`
@@ -126,7 +123,7 @@ type GuestDiagnosticsSettingArgs struct {
 	// The name of the diagnostic setting.
 	DiagnosticSettingsName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Operating system type for the configuration
 	OsType       pulumi.StringPtrInput
 	ProxySetting pulumi.StringPtrInput

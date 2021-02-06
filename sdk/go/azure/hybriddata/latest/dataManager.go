@@ -43,9 +43,6 @@ func NewDataManager(ctx *pulumi.Context,
 	if args.DataManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'DataManagerName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type dataManagerArgs struct {
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
 	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
 	// region is specified on update the request will succeed.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku type.
@@ -146,7 +143,7 @@ type DataManagerArgs struct {
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
 	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
 	// region is specified on update the request will succeed.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// The sku type.

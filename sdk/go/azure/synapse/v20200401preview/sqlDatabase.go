@@ -42,9 +42,6 @@ func NewSqlDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -125,7 +122,7 @@ type sqlDatabaseArgs struct {
 	// The collation of the database.
 	Collation *string `pulumi:"collation"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// The name of the resource group. The name is case insensitive.
@@ -143,7 +140,7 @@ type SqlDatabaseArgs struct {
 	// The collation of the database.
 	Collation pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes pulumi.Float64PtrInput
 	// The name of the resource group. The name is case insensitive.

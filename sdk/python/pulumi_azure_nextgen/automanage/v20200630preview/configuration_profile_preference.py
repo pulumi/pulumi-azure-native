@@ -57,8 +57,6 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
             if configuration_profile_preference_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_profile_preference_name'")
             __props__['configuration_profile_preference_name'] = configuration_profile_preference_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:

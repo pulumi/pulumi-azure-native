@@ -56,8 +56,6 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['key_vault_identifier_id'] = key_vault_identifier_id
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if owner_email is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_email'")

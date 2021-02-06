@@ -50,9 +50,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.OwnerEmail == nil {
 		return nil, errors.New("invalid value for required argument 'OwnerEmail'")
 	}
@@ -161,7 +158,7 @@ type workspaceArgs struct {
 	// The key vault identifier used for encrypted workspaces.
 	KeyVaultIdentifierId *string `pulumi:"keyVaultIdentifierId"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The email id of the owner for this workspace.
 	OwnerEmail string `pulumi:"ownerEmail"`
 	// The name of the resource group to which the machine learning workspace belongs.
@@ -181,7 +178,7 @@ type WorkspaceArgs struct {
 	// The key vault identifier used for encrypted workspaces.
 	KeyVaultIdentifierId pulumi.StringPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The email id of the owner for this workspace.
 	OwnerEmail pulumi.StringInput
 	// The name of the resource group to which the machine learning workspace belongs.

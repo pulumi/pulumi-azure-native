@@ -136,8 +136,6 @@ class Database(pulumi.CustomResource):
             __props__['elastic_pool_id'] = elastic_pool_id
             __props__['high_availability_replica_count'] = high_availability_replica_count
             __props__['license_type'] = license_type
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
             __props__['maintenance_configuration_id'] = maintenance_configuration_id

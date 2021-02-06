@@ -150,8 +150,8 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("registrationVirtualNetworks")]
         private InputList<Inputs.SubResourceArgs>? _registrationVirtualNetworks;

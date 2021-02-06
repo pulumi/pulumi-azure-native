@@ -63,9 +63,6 @@ func NewActionGroup(ctx *pulumi.Context,
 	if args.GroupShortName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupShortName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -199,7 +196,7 @@ type actionGroupArgs struct {
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers []ItsmReceiver `pulumi:"itsmReceivers"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The list of logic app receivers that are part of this action group.
 	LogicAppReceivers []LogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the resource group.
@@ -233,7 +230,7 @@ type ActionGroupArgs struct {
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers ItsmReceiverArrayInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The list of logic app receivers that are part of this action group.
 	LogicAppReceivers LogicAppReceiverArrayInput
 	// The name of the resource group.

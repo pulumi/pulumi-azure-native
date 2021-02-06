@@ -68,9 +68,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.CreationToken == nil {
 		return nil, errors.New("invalid value for required argument 'CreationToken'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
@@ -259,7 +256,7 @@ type volumeArgs struct {
 	// Restoring
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// List of mount targets
 	MountTargets []MountTargetProperties `pulumi:"mountTargets"`
 	// The name of the capacity pool
@@ -299,7 +296,7 @@ type VolumeArgs struct {
 	// Restoring
 	IsRestoring pulumi.BoolPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// List of mount targets
 	MountTargets MountTargetPropertiesArrayInput
 	// The name of the capacity pool

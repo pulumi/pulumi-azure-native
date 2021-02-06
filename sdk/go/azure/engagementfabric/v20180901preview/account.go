@@ -37,9 +37,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -101,7 +98,7 @@ type accountArgs struct {
 	// Account Name
 	AccountName string `pulumi:"accountName"`
 	// The location of the resource
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource
@@ -115,7 +112,7 @@ type AccountArgs struct {
 	// Account Name
 	AccountName pulumi.StringInput
 	// The location of the resource
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource

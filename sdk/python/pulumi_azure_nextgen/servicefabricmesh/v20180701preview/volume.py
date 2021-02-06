@@ -60,8 +60,6 @@ class Volume(pulumi.CustomResource):
 
             __props__['azure_file_parameters'] = azure_file_parameters
             __props__['description'] = description
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if provider is None and not opts.urn:
                 raise TypeError("Missing required property 'provider'")

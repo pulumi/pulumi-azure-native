@@ -115,9 +115,6 @@ export class ServerFarm extends pulumi.CustomResource {
     constructor(name: string, args: ServerFarmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -203,7 +200,7 @@ export interface ServerFarmArgs {
     /**
      * Resource Location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Maximum number of instances that can be assigned to this App Service Plan
      */

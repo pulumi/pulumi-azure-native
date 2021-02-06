@@ -88,9 +88,6 @@ export class DigitalTwin extends pulumi.CustomResource {
     constructor(name: string, args: DigitalTwinArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -147,7 +144,7 @@ export interface DigitalTwinArgs {
     /**
      * The resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.latest.PrivateEndpointConnection>[]>;
     /**
      * Public network access for the DigitalTwinsInstance.

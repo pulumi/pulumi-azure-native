@@ -144,8 +144,8 @@ namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
         /// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 
         /// The geo region of a resource never changes after it is created.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Settings used to provision or configure the resource

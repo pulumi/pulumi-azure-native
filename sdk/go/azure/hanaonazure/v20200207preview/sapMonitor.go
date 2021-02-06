@@ -48,9 +48,6 @@ func NewSapMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -140,7 +137,7 @@ type sapMonitorArgs struct {
 	// The value indicating whether to send analytics to Microsoft
 	EnableCustomerAnalytics *bool `pulumi:"enableCustomerAnalytics"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The ARM ID of the Log Analytics Workspace that is used for monitoring
 	LogAnalyticsWorkspaceArmId *string `pulumi:"logAnalyticsWorkspaceArmId"`
 	// The workspace ID of the log analytics workspace to be used for monitoring
@@ -162,7 +159,7 @@ type SapMonitorArgs struct {
 	// The value indicating whether to send analytics to Microsoft
 	EnableCustomerAnalytics pulumi.BoolPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The ARM ID of the Log Analytics Workspace that is used for monitoring
 	LogAnalyticsWorkspaceArmId pulumi.StringPtrInput
 	// The workspace ID of the log analytics workspace to be used for monitoring

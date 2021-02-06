@@ -50,9 +50,6 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -162,7 +159,7 @@ type sqlManagedInstanceArgs struct {
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the Azure resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of SQL Managed Instances
@@ -190,7 +187,7 @@ type SqlManagedInstanceArgs struct {
 	// Last uploaded date from on premise cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the Azure resource group
 	ResourceGroupName pulumi.StringInput
 	// The name of SQL Managed Instances

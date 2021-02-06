@@ -32,9 +32,6 @@ func NewResourceGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -138,7 +135,7 @@ func (ResourceGroupState) ElementType() reflect.Type {
 
 type resourceGroupArgs struct {
 	// The location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The Name of the resource group.
 	Name *string `pulumi:"name"`
 	// The name of the resource group to be created or updated.
@@ -150,7 +147,7 @@ type resourceGroupArgs struct {
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
 	// The location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The Name of the resource group.
 	Name pulumi.StringPtrInput
 	// The name of the resource group to be created or updated.

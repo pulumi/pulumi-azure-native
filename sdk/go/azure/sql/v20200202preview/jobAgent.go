@@ -44,9 +44,6 @@ func NewJobAgent(ctx *pulumi.Context,
 	if args.JobAgentName == nil {
 		return nil, errors.New("invalid value for required argument 'JobAgentName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type jobAgentArgs struct {
 	// The name of the job agent to be created or updated.
 	JobAgentName string `pulumi:"jobAgentName"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -145,7 +142,7 @@ type JobAgentArgs struct {
 	// The name of the job agent to be created or updated.
 	JobAgentName pulumi.StringInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

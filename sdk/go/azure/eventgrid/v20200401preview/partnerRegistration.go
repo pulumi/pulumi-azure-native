@@ -66,9 +66,6 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PartnerRegistrationName == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerRegistrationName'")
 	}
@@ -205,7 +202,7 @@ type partnerRegistrationArgs struct {
 	// The extension of the customer service URI of the publisher.
 	CustomerServiceUri *string `pulumi:"customerServiceUri"`
 	// Location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// URI of the logo.
 	LogoUri *string `pulumi:"logoUri"`
 	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
@@ -249,7 +246,7 @@ type PartnerRegistrationArgs struct {
 	// The extension of the customer service URI of the publisher.
 	CustomerServiceUri pulumi.StringPtrInput
 	// Location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// URI of the logo.
 	LogoUri pulumi.StringPtrInput
 	// Long description for the custom scenarios and integration to be displayed in the portal if needed.

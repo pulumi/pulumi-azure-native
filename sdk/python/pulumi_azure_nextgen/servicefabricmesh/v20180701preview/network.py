@@ -63,8 +63,6 @@ class Network(pulumi.CustomResource):
             __props__['address_prefix'] = address_prefix
             __props__['description'] = description
             __props__['ingress_config'] = ingress_config
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_name'")

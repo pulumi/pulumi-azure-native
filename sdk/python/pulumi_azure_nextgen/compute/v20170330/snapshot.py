@@ -67,8 +67,6 @@ class Snapshot(pulumi.CustomResource):
             __props__['creation_data'] = creation_data
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption_settings'] = encryption_settings
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['os_type'] = os_type
             if resource_group_name is None and not opts.urn:

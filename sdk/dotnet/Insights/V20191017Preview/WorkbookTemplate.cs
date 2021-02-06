@@ -147,8 +147,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.

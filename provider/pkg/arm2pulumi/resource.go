@@ -60,7 +60,6 @@ func (r *resource) IntrospectElement(ctx *pclRenderContext, implicits implicitVa
 	}
 
 	var apiVersion, typ string
-	var location interface{}
 	additionalParams := map[string]interface{}{}
 	for k, v := range r.rawBody {
 		switch k {
@@ -81,9 +80,7 @@ func (r *resource) IntrospectElement(ctx *pclRenderContext, implicits implicitVa
 			}
 		case "properties":
 			r.resourceParams = map[string]interface{}{"properties": r.rawBody[k].(map[string]interface{})}
-		case "location":
-			location = v
-		case "tags", "sku", "plan", "kind":
+		case "location", "tags", "sku", "plan", "kind":
 			// These are additional/optional parameters which should be injected into body parameters of
 			// the API requests if not specified explicitly.
 			// See https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-syntax#resources
@@ -160,22 +157,6 @@ func (r *resource) IntrospectElement(ctx *pclRenderContext, implicits implicitVa
 					return err
 				}
 				r.resourceParams[rgParam.Name] = model.VariableReference(variable)
-				ctx.dep.RefersTo(dep)
-			}
-		}
-	}
-
-	// If location not specified, try to use the default resource group's location instead
-	if _, ok := r.resourceParams["location"]; !ok {
-		if supported.Has("location") {
-			if location != nil {
-				r.resourceParams["location"] = location
-			} else {
-				variable, dep, err := implicits.defaultResourceGroup()
-				if err != nil {
-					return err
-				}
-				r.resourceParams["location"] = pcl.RelativeTraversal(model.VariableReference(variable), "location")
 				ctx.dep.RefersTo(dep)
 			}
 		}

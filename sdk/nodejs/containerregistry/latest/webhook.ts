@@ -82,9 +82,6 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -148,7 +145,7 @@ export interface WebhookArgs {
     /**
      * The location of the webhook. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */

@@ -160,8 +160,8 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The storage limit for the database elastic pool in bytes.

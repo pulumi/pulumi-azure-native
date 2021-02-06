@@ -73,8 +73,6 @@ class Assignment(pulumi.CustomResource):
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['locks'] = locks
             if parameters is None and not opts.urn:

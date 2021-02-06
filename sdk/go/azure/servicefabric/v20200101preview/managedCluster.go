@@ -77,9 +77,6 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.DnsName == nil {
 		return nil, errors.New("invalid value for required argument 'DnsName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -234,7 +231,7 @@ type managedClusterArgs struct {
 	// Describes load balancing rules.
 	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Azure resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the managed cluster
@@ -270,7 +267,7 @@ type ManagedClusterArgs struct {
 	// Describes load balancing rules.
 	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Azure resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the managed cluster

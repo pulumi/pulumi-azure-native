@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the VM scale set to create or update.

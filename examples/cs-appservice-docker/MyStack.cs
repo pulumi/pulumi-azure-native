@@ -21,8 +21,7 @@ class MyStack : Stack
 
         var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
         {
-            ResourceGroupName = Output.Format($"cs-appservice-docker-{randomString.Result}"),
-            Location = "WestUS"
+            ResourceGroupName = Output.Format($"cs-appservice-docker-{randomString.Result}")
         });
 
         var plan = new AppServicePlan("linux-apps", new AppServicePlanArgs

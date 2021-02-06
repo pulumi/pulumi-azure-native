@@ -92,8 +92,6 @@ class Endpoint(pulumi.CustomResource):
             __props__['is_compression_enabled'] = is_compression_enabled
             __props__['is_http_allowed'] = is_http_allowed
             __props__['is_https_allowed'] = is_https_allowed
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['optimization_type'] = optimization_type
             __props__['origin_groups'] = origin_groups

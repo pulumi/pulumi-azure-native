@@ -16,12 +16,11 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
+    location: "eastus2", // explicit location is here to test the location propagation from resource group to other resources
 });
 
 const staticSite = new web.StaticSite("staticsite", {
     resourceGroupName: resourceGroup.name,
-    location: "westus2",
     repositoryUrl: "",
     branch: "master",
     repositoryToken: "",
@@ -35,12 +34,12 @@ const staticSite = new web.StaticSite("staticsite", {
         name: "Free",
     },
     name: randomString.result,
+    location: "westeurope", // it's still possible to set an explict location for a resource
 });
 
 const vnet = new network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
     virtualNetworkName: randomString.result,
-    location: "westus2",
     addressSpace: {
         addressPrefixes: ["10.1.0.0/16"],
     },
@@ -65,7 +64,6 @@ const subnet = new network.Subnet("subnet2", {
 const networkInterface = new network.NetworkInterface("nic", {
     resourceGroupName: resourceGroup.name,
     networkInterfaceName: randomString.result,
-    location: "westus2",
     ipConfigurations: [{
         name: "ipconfig1",
         subnet: {
@@ -78,7 +76,6 @@ const networkInterface = new network.NetworkInterface("nic", {
 const publicIP = new network.PublicIPAddress("pip", {
     resourceGroupName: resourceGroup.name,
     publicIpAddressName: randomString.result,
-    location: "westus2",
     sku: {
         name: network.PublicIPAddressSkuName.Basic,
     },
@@ -89,7 +86,6 @@ const publicIP = new network.PublicIPAddress("pip", {
 const virtualmachine  = new compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
     vmName: randomString.result,
-    location: "westus2",
     hardwareProfile: {
         vmSize: "Standard_A0",
     },
@@ -116,7 +112,6 @@ const virtualmachine  = new compute.VirtualMachine("vm", {
 const appServicePlan  = new web.AppServicePlan("app-plan", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
-    location: "westus2",
     sku: {
         name: "S1",
         capacity: 1
@@ -126,7 +121,6 @@ const appServicePlan  = new web.AppServicePlan("app-plan", {
 const appService = new web.WebApp("app", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
-    location: "westus2",
     serverFarmId: appServicePlan.id,
     kind: "app",
     siteConfig: {
@@ -153,7 +147,6 @@ new web.WebAppSwiftVirtualNetworkConnection("swiftconn", {
 const storageAccount = new storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
     accountName: randomString.result,
-    location: "westus2",
     sku: {
         name: storage.SkuName.Standard_LRS,
     },

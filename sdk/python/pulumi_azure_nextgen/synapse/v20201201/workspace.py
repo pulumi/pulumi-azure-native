@@ -82,8 +82,6 @@ class Workspace(pulumi.CustomResource):
             __props__['default_data_lake_storage'] = default_data_lake_storage
             __props__['encryption'] = encryption
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['managed_virtual_network'] = managed_virtual_network

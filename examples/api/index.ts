@@ -12,7 +12,6 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
 });
 
 new web.Connection("conn", {
@@ -30,7 +29,6 @@ new web.Connection("conn", {
 const apiManagement = new apimanagement.ApiManagementService("apim", {
     resourceGroupName: resourceGroup.name,
     serviceName: randomString.result,
-    location: resourceGroup.location,
     sku: {
         name: "Consumption",
         capacity: 0,

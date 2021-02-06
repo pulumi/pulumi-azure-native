@@ -95,9 +95,6 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -317,7 +314,7 @@ type managedHostingEnvironmentArgs struct {
 	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
 	LastActionResult *string `pulumi:"lastActionResult"`
 	// Resource Location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
 	MaximumNumberOfMachines *int `pulumi:"maximumNumberOfMachines"`
 	// Number of front-end instances
@@ -396,7 +393,7 @@ type ManagedHostingEnvironmentArgs struct {
 	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
 	LastActionResult pulumi.StringPtrInput
 	// Resource Location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
 	MaximumNumberOfMachines pulumi.IntPtrInput
 	// Number of front-end instances

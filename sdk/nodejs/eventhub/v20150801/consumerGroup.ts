@@ -79,9 +79,6 @@ export class ConsumerGroup extends pulumi.CustomResource {
             if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -136,7 +133,7 @@ export interface ConsumerGroupArgs {
     /**
      * Location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the consumer group.
      */

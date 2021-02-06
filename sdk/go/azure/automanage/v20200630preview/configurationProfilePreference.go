@@ -37,9 +37,6 @@ func NewConfigurationProfilePreference(ctx *pulumi.Context,
 	if args.ConfigurationProfilePreferenceName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigurationProfilePreferenceName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -98,7 +95,7 @@ type configurationProfilePreferenceArgs struct {
 	// Name of the configuration profile preference.
 	ConfigurationProfilePreferenceName string `pulumi:"configurationProfilePreferenceName"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Properties of the configuration profile preference.
 	Properties *ConfigurationProfilePreferenceProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -112,7 +109,7 @@ type ConfigurationProfilePreferenceArgs struct {
 	// Name of the configuration profile preference.
 	ConfigurationProfilePreferenceName pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Properties of the configuration profile preference.
 	Properties ConfigurationProfilePreferencePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

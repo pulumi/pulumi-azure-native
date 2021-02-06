@@ -62,8 +62,6 @@ class AFDEndpoint(pulumi.CustomResource):
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['origin_response_timeout_seconds'] = origin_response_timeout_seconds
             if profile_name is None and not opts.urn:

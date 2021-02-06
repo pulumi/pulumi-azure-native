@@ -390,8 +390,8 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The resource identifier of the long term retention backup associated with create operation of this database.

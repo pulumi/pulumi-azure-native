@@ -463,8 +463,8 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <summary>
         /// Resource Location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.

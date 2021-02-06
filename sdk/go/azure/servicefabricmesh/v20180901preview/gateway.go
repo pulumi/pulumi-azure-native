@@ -56,9 +56,6 @@ func NewGateway(ctx *pulumi.Context,
 	if args.GatewayResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayResourceName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -158,7 +155,7 @@ type gatewayArgs struct {
 	// Configuration for http connectivity for this gateway.
 	Http []HttpConfig `pulumi:"http"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Azure resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Network the gateway should listen on for requests.
@@ -180,7 +177,7 @@ type GatewayArgs struct {
 	// Configuration for http connectivity for this gateway.
 	Http HttpConfigArrayInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Azure resource group name
 	ResourceGroupName pulumi.StringInput
 	// Network the gateway should listen on for requests.

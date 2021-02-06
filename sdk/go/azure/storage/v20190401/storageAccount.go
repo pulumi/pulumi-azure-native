@@ -88,9 +88,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -315,7 +312,7 @@ type storageAccountArgs struct {
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
 	LargeFileSharesState *string `pulumi:"largeFileSharesState"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Network rule set
@@ -355,7 +352,7 @@ type StorageAccountArgs struct {
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
 	LargeFileSharesState pulumi.StringPtrInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Network rule set

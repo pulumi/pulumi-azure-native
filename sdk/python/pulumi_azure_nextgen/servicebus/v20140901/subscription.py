@@ -84,8 +84,6 @@ class Subscription(pulumi.CustomResource):
             __props__['enable_batched_operations'] = enable_batched_operations
             __props__['entity_availability_status'] = entity_availability_status
             __props__['is_read_only'] = is_read_only
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count

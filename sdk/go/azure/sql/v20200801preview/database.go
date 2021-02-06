@@ -127,9 +127,6 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -422,7 +419,7 @@ type databaseArgs struct {
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
@@ -500,7 +497,7 @@ type DatabaseArgs struct {
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.

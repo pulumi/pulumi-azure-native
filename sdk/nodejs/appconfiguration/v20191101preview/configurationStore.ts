@@ -97,9 +97,6 @@ export class ConfigurationStore extends pulumi.CustomResource {
             if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -166,7 +163,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */

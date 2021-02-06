@@ -44,9 +44,6 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 	if args.EntityName == nil {
 		return nil, errors.New("invalid value for required argument 'EntityName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -155,7 +152,7 @@ type siteRelayServiceConnectionSlotArgs struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Resource Name
 	Name                     string  `pulumi:"name"`
 	Port                     *int    `pulumi:"port"`
@@ -182,7 +179,7 @@ type SiteRelayServiceConnectionSlotArgs struct {
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Resource Name
 	Name                     pulumi.StringInput
 	Port                     pulumi.IntPtrInput

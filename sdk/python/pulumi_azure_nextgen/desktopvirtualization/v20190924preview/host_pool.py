@@ -90,8 +90,6 @@ class HostPool(pulumi.CustomResource):
             if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
             __props__['load_balancer_type'] = load_balancer_type
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_session_limit'] = max_session_limit
             __props__['personal_desktop_assignment_type'] = personal_desktop_assignment_type

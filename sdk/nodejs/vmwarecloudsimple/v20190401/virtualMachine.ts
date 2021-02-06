@@ -153,9 +153,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.amountOfRam === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.numberOfCores === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'numberOfCores'");
             }
@@ -260,7 +257,7 @@ export interface VirtualMachineArgs {
     /**
      * Azure region
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The list of Virtual NICs
      */

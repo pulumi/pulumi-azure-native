@@ -57,9 +57,6 @@ func NewContainerGroup(ctx *pulumi.Context,
 	if args.Containers == nil {
 		return nil, errors.New("invalid value for required argument 'Containers'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.OsType == nil {
 		return nil, errors.New("invalid value for required argument 'OsType'")
 	}
@@ -197,7 +194,7 @@ type containerGroupArgs struct {
 	// The IP address type of the container group.
 	IpAddress *IpAddress `pulumi:"ipAddress"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The operating system type required by the containers in the container group.
 	OsType string `pulumi:"osType"`
 	// The name of the resource group.
@@ -224,7 +221,7 @@ type ContainerGroupArgs struct {
 	// The IP address type of the container group.
 	IpAddress IpAddressPtrInput
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The operating system type required by the containers in the container group.
 	OsType pulumi.StringInput
 	// The name of the resource group.

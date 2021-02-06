@@ -52,9 +52,6 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args.BuildTaskName == nil {
 		return nil, errors.New("invalid value for required argument 'BuildTaskName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Platform == nil {
 		return nil, errors.New("invalid value for required argument 'Platform'")
 	}
@@ -151,7 +148,7 @@ type buildTaskArgs struct {
 	// The name of the container registry build task.
 	BuildTaskName string `pulumi:"buildTaskName"`
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The platform properties against which the build has to happen.
 	Platform PlatformProperties `pulumi:"platform"`
 	// The name of the container registry.
@@ -175,7 +172,7 @@ type BuildTaskArgs struct {
 	// The name of the container registry build task.
 	BuildTaskName pulumi.StringInput
 	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The platform properties against which the build has to happen.
 	Platform PlatformPropertiesInput
 	// The name of the container registry.

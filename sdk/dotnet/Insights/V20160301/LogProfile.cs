@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("locations", required: true)]
         private InputList<string>? _locations;

@@ -84,8 +84,6 @@ class Task(pulumi.CustomResource):
             if is_system_task is None:
                 is_system_task = False
             __props__['is_system_task'] = is_system_task
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['log_template'] = log_template
             __props__['platform'] = platform

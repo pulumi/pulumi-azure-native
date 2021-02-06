@@ -236,8 +236,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// <summary>
         /// Resource Location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("metadata")]
         public Input<object>? Metadata { get; set; }

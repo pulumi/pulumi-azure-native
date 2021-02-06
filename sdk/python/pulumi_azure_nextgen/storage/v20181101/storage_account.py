@@ -85,8 +85,6 @@ class StorageAccount(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_rule_set'] = network_rule_set
             if resource_group_name is None and not opts.urn:

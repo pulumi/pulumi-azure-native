@@ -109,8 +109,6 @@ class Cluster(pulumi.CustomResource):
             __props__['diagnostics_storage_account_config'] = diagnostics_storage_account_config
             __props__['event_store_service_enabled'] = event_store_service_enabled
             __props__['fabric_settings'] = fabric_settings
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if management_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'management_endpoint'")

@@ -52,9 +52,6 @@ func NewFileServer(ctx *pulumi.Context,
 	if args.FileServerName == nil {
 		return nil, errors.New("invalid value for required argument 'FileServerName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -151,7 +148,7 @@ type fileServerArgs struct {
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	FileServerName string `pulumi:"fileServerName"`
 	// The region in which to create the File Server.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SSH configuration settings for the VM
@@ -171,7 +168,7 @@ type FileServerArgs struct {
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	FileServerName pulumi.StringInput
 	// The region in which to create the File Server.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// SSH configuration settings for the VM

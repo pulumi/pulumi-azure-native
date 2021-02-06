@@ -72,9 +72,6 @@ func NewBigDataPool(ctx *pulumi.Context,
 	if args.BigDataPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'BigDataPoolName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -233,7 +230,7 @@ type bigDataPoolArgs struct {
 	// Library version requirements
 	LibraryRequirements *LibraryRequirements `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The number of nodes in the Big Data pool.
 	NodeCount *int `pulumi:"nodeCount"`
 	// The level of compute power that each node in the Big Data pool has.
@@ -283,7 +280,7 @@ type BigDataPoolArgs struct {
 	// Library version requirements
 	LibraryRequirements LibraryRequirementsPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The number of nodes in the Big Data pool.
 	NodeCount pulumi.IntPtrInput
 	// The level of compute power that each node in the Big Data pool has.

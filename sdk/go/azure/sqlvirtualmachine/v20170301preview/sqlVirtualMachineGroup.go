@@ -46,9 +46,6 @@ func NewSqlVirtualMachineGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -132,7 +129,7 @@ func (SqlVirtualMachineGroupState) ElementType() reflect.Type {
 
 type sqlVirtualMachineGroupArgs struct {
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
@@ -150,7 +147,7 @@ type sqlVirtualMachineGroupArgs struct {
 // The set of arguments for constructing a SqlVirtualMachineGroup resource.
 type SqlVirtualMachineGroupArgs struct {
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.

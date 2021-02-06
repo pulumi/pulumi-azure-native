@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
         /// <summary>
         /// Profile location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the CDN profile within the resource group.

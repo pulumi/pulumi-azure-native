@@ -77,8 +77,6 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['custom_properties'] = custom_properties
             __props__['etag'] = etag
             __props__['hostname_configurations'] = hostname_configurations
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if publisher_email is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_email'")

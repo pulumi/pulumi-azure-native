@@ -48,9 +48,6 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -162,7 +159,7 @@ type databaseArgs struct {
 	// The number of days of data that should be kept in cache for fast queries.
 	HotCachePeriodInDays *int `pulumi:"hotCachePeriodInDays"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of days data should be kept before it stops being accessible to queries.
@@ -180,7 +177,7 @@ type DatabaseArgs struct {
 	// The number of days of data that should be kept in cache for fast queries.
 	HotCachePeriodInDays pulumi.IntPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
 	// The number of days data should be kept before it stops being accessible to queries.

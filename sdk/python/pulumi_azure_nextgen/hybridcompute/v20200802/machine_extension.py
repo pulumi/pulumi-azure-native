@@ -71,8 +71,6 @@ class MachineExtension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extension_name'")
             __props__['extension_name'] = extension_name
             __props__['force_update_tag'] = force_update_tag
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

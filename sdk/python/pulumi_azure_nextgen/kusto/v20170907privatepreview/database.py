@@ -63,8 +63,6 @@ class Database(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['hot_cache_period_in_days'] = hot_cache_period_in_days
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

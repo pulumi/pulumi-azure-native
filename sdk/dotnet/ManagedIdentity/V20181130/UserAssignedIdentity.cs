@@ -110,8 +110,8 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20181130
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the Resource Group to which the identity belongs.

@@ -34,9 +34,6 @@ func NewWebService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -108,7 +105,7 @@ func (WebServiceState) ElementType() reflect.Type {
 
 type webServiceArgs struct {
 	// Specifies the location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Contains the property payload that describes the web service.
 	Properties WebServicePropertiesForGraph `pulumi:"properties"`
 	// Name of the resource group in which the web service is located.
@@ -122,7 +119,7 @@ type webServiceArgs struct {
 // The set of arguments for constructing a WebService resource.
 type WebServiceArgs struct {
 	// Specifies the location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Contains the property payload that describes the web service.
 	Properties WebServicePropertiesForGraphInput
 	// Name of the resource group in which the web service is located.

@@ -73,9 +73,6 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.dashboardName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dashboardName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface DashboardArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The dashboard metadata.
      */

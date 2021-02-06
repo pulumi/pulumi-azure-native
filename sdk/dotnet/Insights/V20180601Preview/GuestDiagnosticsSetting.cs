@@ -120,8 +120,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Operating system type for the configuration

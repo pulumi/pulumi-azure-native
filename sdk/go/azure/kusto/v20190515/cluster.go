@@ -57,9 +57,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -198,7 +195,7 @@ type clusterArgs struct {
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale *OptimizedAutoscale `pulumi:"optimizedAutoscale"`
 	// The name of the resource group containing the Kusto cluster.
@@ -224,7 +221,7 @@ type ClusterArgs struct {
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Optimized auto scale definition.
 	OptimizedAutoscale OptimizedAutoscalePtrInput
 	// The name of the resource group containing the Kusto cluster.

@@ -85,9 +85,6 @@ export class OrderByName extends pulumi.CustomResource {
             if ((!args || args.addressDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressDetails'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.orderDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'orderDetails'");
             }
@@ -141,7 +138,7 @@ export interface OrderByNameArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Represents order details.
      */

@@ -64,9 +64,6 @@ func NewBatchAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -221,7 +218,7 @@ type batchAccountArgs struct {
 	// A reference to the Azure key vault associated with the Batch account.
 	KeyVaultReference *KeyVaultReference `pulumi:"keyVaultReference"`
 	// The region in which to create the account.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// If not specified, the default value is 'enabled'.
@@ -245,7 +242,7 @@ type BatchAccountArgs struct {
 	// A reference to the Azure key vault associated with the Batch account.
 	KeyVaultReference KeyVaultReferencePtrInput
 	// The region in which to create the account.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 	PoolAllocationMode *PoolAllocationMode
 	// If not specified, the default value is 'enabled'.

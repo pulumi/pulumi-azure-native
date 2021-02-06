@@ -259,8 +259,8 @@ namespace Pulumi.AzureNextGen.Compute.V20201201
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the orchestration mode for the virtual machine scale set.

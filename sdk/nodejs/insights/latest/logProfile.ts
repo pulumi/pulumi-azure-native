@@ -86,9 +86,6 @@ export class LogProfile extends pulumi.CustomResource {
             if ((!args || args.categories === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'categories'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
@@ -143,7 +140,7 @@ export interface LogProfileArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
      */

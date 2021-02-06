@@ -119,9 +119,6 @@ func NewWebApp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -426,7 +423,7 @@ type webAppArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name string `pulumi:"name"`
 	// Site redundancy mode
@@ -487,7 +484,7 @@ type WebAppArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringInput
 	// Site redundancy mode

@@ -40,9 +40,6 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -116,7 +113,7 @@ type customResourceProviderArgs struct {
 	// A list of actions that the custom resource provider implements.
 	Actions []CustomRPActionRouteDefinition `pulumi:"actions"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource provider.
@@ -134,7 +131,7 @@ type CustomResourceProviderArgs struct {
 	// A list of actions that the custom resource provider implements.
 	Actions CustomRPActionRouteDefinitionArrayInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource provider.

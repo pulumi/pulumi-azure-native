@@ -61,9 +61,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Origins == nil {
 		return nil, errors.New("invalid value for required argument 'Origins'")
 	}
@@ -225,7 +222,7 @@ type endpointArgs struct {
 	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
 	OptimizationType *string `pulumi:"optimizationType"`
 	// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
@@ -259,7 +256,7 @@ type EndpointArgs struct {
 	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
 	OptimizationType pulumi.StringPtrInput
 	// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.

@@ -129,8 +129,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

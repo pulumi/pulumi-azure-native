@@ -34,9 +34,6 @@ func NewServiceTopology(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -104,7 +101,7 @@ type serviceTopologyArgs struct {
 	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
 	ArtifactSourceId *string `pulumi:"artifactSourceId"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the service topology .
@@ -118,7 +115,7 @@ type ServiceTopologyArgs struct {
 	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
 	ArtifactSourceId pulumi.StringPtrInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the service topology .

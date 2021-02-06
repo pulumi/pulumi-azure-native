@@ -120,9 +120,6 @@ export class ActionGroup extends pulumi.CustomResource {
             if ((!args || args.groupShortName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupShortName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -218,7 +215,7 @@ export interface ActionGroupArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The list of logic app receivers that are part of this action group.
      */

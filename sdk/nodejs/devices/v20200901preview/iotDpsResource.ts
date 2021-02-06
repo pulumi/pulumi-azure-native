@@ -78,9 +78,6 @@ export class IotDpsResource extends pulumi.CustomResource {
     constructor(name: string, args: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -141,7 +138,7 @@ export interface IotDpsResourceArgs {
     /**
      * The resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Service specific properties for a provisioning service
      */

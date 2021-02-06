@@ -52,9 +52,6 @@ func NewNetworkInterface(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NetworkInterfaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaceName'")
 	}
@@ -266,7 +263,7 @@ type networkInterfaceArgs struct {
 	// Gets or sets list of IPConfigurations of the NetworkInterface
 	IpConfigurations []NetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Gets the MAC Address of the network interface
 	MacAddress *string `pulumi:"macAddress"`
 	// The name of the network interface.
@@ -298,7 +295,7 @@ type NetworkInterfaceArgs struct {
 	// Gets or sets list of IPConfigurations of the NetworkInterface
 	IpConfigurations NetworkInterfaceIpConfigurationArrayInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Gets the MAC Address of the network interface
 	MacAddress pulumi.StringPtrInput
 	// The name of the network interface.

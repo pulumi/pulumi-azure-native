@@ -394,8 +394,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <summary>
         /// Resource Location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Number of front-end instances.

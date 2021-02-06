@@ -67,8 +67,6 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'friendly_name'")
             __props__['friendly_name'] = friendly_name
             __props__['gitrepo'] = gitrepo
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

@@ -63,8 +63,6 @@ class MultipleActivationKey(pulumi.CustomResource):
             __props__['agreement_number'] = agreement_number
             __props__['installed_server_number'] = installed_server_number
             __props__['is_eligible'] = is_eligible
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if multiple_activation_key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'multiple_activation_key_name'")

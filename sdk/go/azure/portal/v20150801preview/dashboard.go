@@ -39,9 +39,6 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardName == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -118,7 +115,7 @@ type dashboardArgs struct {
 	// The dashboard lenses.
 	Lenses map[string]DashboardLens `pulumi:"lenses"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The dashboard metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the resource group.
@@ -134,7 +131,7 @@ type DashboardArgs struct {
 	// The dashboard lenses.
 	Lenses DashboardLensMapInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The dashboard metadata.
 	Metadata pulumi.MapInput
 	// The name of the resource group.

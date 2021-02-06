@@ -175,8 +175,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         /// <summary>
         /// The region in which to create the cluster.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.

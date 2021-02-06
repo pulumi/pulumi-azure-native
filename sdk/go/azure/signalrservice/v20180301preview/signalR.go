@@ -49,9 +49,6 @@ func NewSignalR(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -157,7 +154,7 @@ func (SignalRState) ElementType() reflect.Type {
 type signalRArgs struct {
 	// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc.
 	// The geo region of a resource never changes after it is created.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Settings used to provision or configure the resource
 	Properties *SignalRCreateOrUpdateProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -174,7 +171,7 @@ type signalRArgs struct {
 type SignalRArgs struct {
 	// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc.
 	// The geo region of a resource never changes after it is created.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Settings used to provision or configure the resource
 	Properties SignalRCreateOrUpdatePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

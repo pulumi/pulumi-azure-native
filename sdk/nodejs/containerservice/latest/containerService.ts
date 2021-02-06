@@ -108,9 +108,6 @@ export class ContainerService extends pulumi.CustomResource {
             if ((!args || args.linuxProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linuxProfile'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.masterProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'masterProfile'");
             }
@@ -187,7 +184,7 @@ export interface ContainerServiceArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Properties of master agents.
      */

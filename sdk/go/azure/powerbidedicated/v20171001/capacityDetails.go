@@ -43,9 +43,6 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	if args.DedicatedCapacityName == nil {
 		return nil, errors.New("invalid value for required argument 'DedicatedCapacityName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type capacityDetailsArgs struct {
 	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
 	DedicatedCapacityName string `pulumi:"dedicatedCapacityName"`
 	// Location of the PowerBI Dedicated resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the PowerBI Dedicated resource.
@@ -143,7 +140,7 @@ type CapacityDetailsArgs struct {
 	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
 	DedicatedCapacityName pulumi.StringInput
 	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the PowerBI Dedicated resource.

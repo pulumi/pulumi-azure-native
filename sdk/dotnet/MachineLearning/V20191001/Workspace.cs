@@ -152,8 +152,8 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20191001
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The email id of the owner for this workspace.

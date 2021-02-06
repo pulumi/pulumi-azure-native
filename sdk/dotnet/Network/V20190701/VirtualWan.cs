@@ -195,8 +195,8 @@ namespace Pulumi.AzureNextGen.Network.V20190701
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         [Input("p2SVpnServerConfigurations")]
         private InputList<Inputs.P2SVpnServerConfigurationArgs>? _p2SVpnServerConfigurations;

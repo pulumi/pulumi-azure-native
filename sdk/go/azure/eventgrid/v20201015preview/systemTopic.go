@@ -44,9 +44,6 @@ func NewSystemTopic(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -134,7 +131,7 @@ type systemTopicArgs struct {
 	// Identity information for the resource.
 	Identity *IdentityInfo `pulumi:"identity"`
 	// Location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Source for the system topic.
@@ -152,7 +149,7 @@ type SystemTopicArgs struct {
 	// Identity information for the resource.
 	Identity IdentityInfoPtrInput
 	// Location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 	// Source for the system topic.

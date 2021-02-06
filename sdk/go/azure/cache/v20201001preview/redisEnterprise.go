@@ -51,9 +51,6 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -143,7 +140,7 @@ type redisEnterpriseArgs struct {
 	// The name of the RedisEnterprise cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The minimum TLS version for the cluster to support, e.g. '1.2'
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the resource group.
@@ -161,7 +158,7 @@ type RedisEnterpriseArgs struct {
 	// The name of the RedisEnterprise cluster.
 	ClusterName pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The minimum TLS version for the cluster to support, e.g. '1.2'
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the resource group.

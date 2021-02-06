@@ -78,9 +78,6 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	if args.CertificateOrderName == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateOrderName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -258,7 +255,7 @@ type appServiceCertificateOrderArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Certificate product type.
 	ProductType string `pulumi:"productType"`
 	// Name of the resource group to which the resource belongs.
@@ -286,7 +283,7 @@ type AppServiceCertificateOrderArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Certificate product type.
 	ProductType CertificateProductType
 	// Name of the resource group to which the resource belongs.

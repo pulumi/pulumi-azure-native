@@ -78,8 +78,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['circuit_name'] = circuit_name
             __props__['circuit_provisioning_state'] = circuit_provisioning_state
             __props__['etag'] = etag
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['peerings'] = peerings
             __props__['provisioning_state'] = provisioning_state

@@ -38,9 +38,6 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -108,7 +105,7 @@ func (PrivateLinkScopeState) ElementType() reflect.Type {
 
 type privateLinkScopeArgs struct {
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group.
@@ -122,7 +119,7 @@ type privateLinkScopeArgs struct {
 // The set of arguments for constructing a PrivateLinkScope resource.
 type PrivateLinkScopeArgs struct {
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group.

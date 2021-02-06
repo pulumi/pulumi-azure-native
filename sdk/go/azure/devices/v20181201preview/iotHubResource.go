@@ -38,9 +38,6 @@ func NewIotHubResource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -167,7 +164,7 @@ type iotHubResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
 	// The resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// IotHub properties
 	Properties *IotHubProperties `pulumi:"properties"`
 	// The name of the resource group that contains the IoT hub.
@@ -185,7 +182,7 @@ type IotHubResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
 	// The resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// IotHub properties
 	Properties IotHubPropertiesPtrInput
 	// The name of the resource group that contains the IoT hub.

@@ -74,9 +74,6 @@ func NewQueue(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
@@ -252,7 +249,7 @@ type queueArgs struct {
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
 	// location of the resource.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
@@ -298,7 +295,7 @@ type QueueArgs struct {
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible pulumi.BoolPtrInput
 	// location of the resource.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
 	LockDuration pulumi.StringPtrInput
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.

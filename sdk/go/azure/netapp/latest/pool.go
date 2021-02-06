@@ -50,9 +50,6 @@ func NewPool(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
@@ -198,7 +195,7 @@ type poolArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
 	// The qos type of the pool
@@ -218,7 +215,7 @@ type PoolArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
 	// The qos type of the pool

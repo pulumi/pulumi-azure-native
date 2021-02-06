@@ -83,9 +83,6 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     constructor(name: string, args: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.proximityPlacementGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'proximityPlacementGroupName'");
             }
@@ -138,7 +135,7 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the proximity placement group.
      */

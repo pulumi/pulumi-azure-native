@@ -73,8 +73,6 @@ class Cluster(pulumi.CustomResource):
             if enable_streaming_ingest is None:
                 enable_streaming_ingest = False
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['optimized_autoscale'] = optimized_autoscale
             if resource_group_name is None and not opts.urn:

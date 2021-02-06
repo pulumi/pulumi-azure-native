@@ -54,9 +54,6 @@ func NewVpnSite(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -234,7 +231,7 @@ type vpnSiteArgs struct {
 	// IsSecuritySite flag.
 	IsSecuritySite *bool `pulumi:"isSecuritySite"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Office365 Policy.
 	O365Policy *O365PolicyProperties `pulumi:"o365Policy"`
 	// The resource group name of the VpnSite.
@@ -266,7 +263,7 @@ type VpnSiteArgs struct {
 	// IsSecuritySite flag.
 	IsSecuritySite pulumi.BoolPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Office365 Policy.
 	O365Policy O365PolicyPropertiesPtrInput
 	// The resource group name of the VpnSite.

@@ -107,10 +107,6 @@ const resourceGroupName = randomString.result;
 
 const resourceGroup = new resources.ResourceGroup("azure-nextgen", {
     resourceGroupName,
-    location: "westus2",
-    tags: {
-        Owner: "mikhailshilkov",
-    },
 });
 
 new Template("storageaccount", {

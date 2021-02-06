@@ -184,8 +184,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
         /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The managed mode of the server (0 = not managed, 1 = managed).

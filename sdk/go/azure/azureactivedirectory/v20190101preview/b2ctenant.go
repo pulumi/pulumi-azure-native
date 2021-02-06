@@ -37,9 +37,6 @@ func NewB2CTenant(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -113,7 +110,7 @@ func (B2CTenantState) ElementType() reflect.Type {
 
 type b2ctenantArgs struct {
 	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
-	Location   string                            `pulumi:"location"`
+	Location   *string                           `pulumi:"location"`
 	Properties CreateTenantRequestBodyProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -128,7 +125,7 @@ type b2ctenantArgs struct {
 // The set of arguments for constructing a B2CTenant resource.
 type B2CTenantArgs struct {
 	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
-	Location   pulumi.StringInput
+	Location   pulumi.StringPtrInput
 	Properties CreateTenantRequestBodyPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

@@ -59,9 +59,6 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if args.ImageTemplateName == nil {
 		return nil, errors.New("invalid value for required argument 'ImageTemplateName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -178,7 +175,7 @@ type virtualMachineImageTemplateArgs struct {
 	// The name of the image Template
 	ImageTemplateName string `pulumi:"imageTemplateName"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the properties used to describe the source image.
@@ -202,7 +199,7 @@ type VirtualMachineImageTemplateArgs struct {
 	// The name of the image Template
 	ImageTemplateName pulumi.StringInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the properties used to describe the source image.

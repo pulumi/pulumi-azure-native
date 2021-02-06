@@ -83,8 +83,6 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['enable_rbac'] = enable_rbac
             __props__['kubernetes_version'] = kubernetes_version
             __props__['linux_profile'] = linux_profile
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_profile'] = network_profile
             if resource_group_name is None and not opts.urn:

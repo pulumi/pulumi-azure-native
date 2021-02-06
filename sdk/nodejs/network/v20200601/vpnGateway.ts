@@ -93,9 +93,6 @@ export class VpnGateway extends pulumi.CustomResource {
             if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +159,7 @@ export interface VpnGatewayArgs {
     /**
      * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnGateway.
      */

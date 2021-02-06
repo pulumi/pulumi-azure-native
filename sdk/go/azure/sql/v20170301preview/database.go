@@ -95,9 +95,6 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -320,7 +317,7 @@ type databaseArgs struct {
 	// The resource identifier of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// Resource location.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
@@ -380,7 +377,7 @@ type DatabaseArgs struct {
 	// The resource identifier of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// Resource location.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The resource identifier of the long term retention backup associated with create operation of this database.
 	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.

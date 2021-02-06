@@ -90,9 +90,6 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     constructor(name: string, args: NetworkSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.networkSecurityGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
@@ -153,7 +150,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * Resource location
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Gets collection of references to Network Interfaces
      */

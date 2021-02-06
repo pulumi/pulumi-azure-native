@@ -60,9 +60,6 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args.Action == nil {
 		return nil, errors.New("invalid value for required argument 'Action'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -186,7 +183,7 @@ type scheduledQueryRuleArgs struct {
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
 	Enabled *string `pulumi:"enabled"`
 	// Resource location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
@@ -210,7 +207,7 @@ type ScheduledQueryRuleArgs struct {
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
 	Enabled pulumi.StringPtrInput
 	// Resource location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.

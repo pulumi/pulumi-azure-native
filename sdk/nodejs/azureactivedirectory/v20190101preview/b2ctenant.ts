@@ -71,9 +71,6 @@ export class B2CTenant extends pulumi.CustomResource {
     constructor(name: string, args: B2CTenantArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -123,7 +120,7 @@ export interface B2CTenantArgs {
     /**
      * The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.azureactivedirectory.v20190101preview.CreateTenantRequestBodyProperties>;
     /**
      * The name of the resource group.

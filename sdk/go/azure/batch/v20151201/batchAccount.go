@@ -47,9 +47,6 @@ func NewBatchAccount(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -166,7 +163,7 @@ type batchAccountArgs struct {
 	// The properties related to auto storage account.
 	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
 	// The region in which to create the account.
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the new Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user specified tags associated with the account.
@@ -180,7 +177,7 @@ type BatchAccountArgs struct {
 	// The properties related to auto storage account.
 	AutoStorage AutoStorageBasePropertiesPtrInput
 	// The region in which to create the account.
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the new Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The user specified tags associated with the account.

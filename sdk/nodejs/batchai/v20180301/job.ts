@@ -170,9 +170,6 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.nodeCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeCount'");
             }
@@ -318,7 +315,7 @@ export interface JobArgs {
     /**
      * The region in which to create the job.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
      */

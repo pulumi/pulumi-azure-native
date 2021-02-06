@@ -54,9 +54,6 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	if args.Edition == nil {
 		return nil, errors.New("invalid value for required argument 'Edition'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -163,7 +160,7 @@ type sqlServerInstanceArgs struct {
 	// SQL Server edition.
 	Edition string `pulumi:"edition"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// The name of the Azure resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of SQL Server Instance
@@ -185,7 +182,7 @@ type SqlServerInstanceArgs struct {
 	// SQL Server edition.
 	Edition pulumi.StringInput
 	// The geo-location where the resource lives
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// The name of the Azure resource group
 	ResourceGroupName pulumi.StringInput
 	// The name of SQL Server Instance

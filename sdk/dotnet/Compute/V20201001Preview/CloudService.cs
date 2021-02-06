@@ -99,8 +99,8 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Cloud service properties

@@ -259,8 +259,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <summary>
         /// Resource Location.
         /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Name of the certificate.

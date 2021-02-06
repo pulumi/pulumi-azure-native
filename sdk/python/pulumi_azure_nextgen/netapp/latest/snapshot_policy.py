@@ -70,8 +70,6 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__['daily_schedule'] = daily_schedule
             __props__['enabled'] = enabled
             __props__['hourly_schedule'] = hourly_schedule
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['monthly_schedule'] = monthly_schedule
             if resource_group_name is None and not opts.urn:

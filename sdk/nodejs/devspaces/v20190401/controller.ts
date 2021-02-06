@@ -87,9 +87,6 @@ export class Controller extends pulumi.CustomResource {
     constructor(name: string, args: ControllerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
@@ -150,7 +147,7 @@ export interface ControllerArgs {
     /**
      * Region where the Azure resource is located.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the resource.
      */

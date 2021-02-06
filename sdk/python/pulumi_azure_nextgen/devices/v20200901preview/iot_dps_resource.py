@@ -62,8 +62,6 @@ class IotDpsResource(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['identity'] = identity
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

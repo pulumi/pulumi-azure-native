@@ -97,8 +97,6 @@ class Volume(pulumi.CustomResource):
             if kerberos_enabled is None:
                 kerberos_enabled = False
             __props__['kerberos_enabled'] = kerberos_enabled
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mount_targets'] = mount_targets
             if pool_name is None and not opts.urn:

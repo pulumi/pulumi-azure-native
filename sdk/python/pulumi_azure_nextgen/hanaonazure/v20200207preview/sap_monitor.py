@@ -60,8 +60,6 @@ class SapMonitor(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enable_customer_analytics'] = enable_customer_analytics
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['log_analytics_workspace_arm_id'] = log_analytics_workspace_arm_id
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id

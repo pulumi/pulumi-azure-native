@@ -80,8 +80,6 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__['instance_id'] = instance_id
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['output_blob_uri'] = output_blob_uri
             __props__['parameters'] = parameters

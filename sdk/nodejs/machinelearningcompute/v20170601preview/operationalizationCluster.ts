@@ -111,9 +111,6 @@ export class OperationalizationCluster extends pulumi.CustomResource {
             if ((!args || args.containerService === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerService'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -197,7 +194,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Specifies the location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Name of the resource group in which the cluster is located.
      */

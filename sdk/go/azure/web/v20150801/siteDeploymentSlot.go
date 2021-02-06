@@ -55,9 +55,6 @@ func NewSiteDeploymentSlot(ctx *pulumi.Context,
 	if args.Id == nil {
 		return nil, errors.New("invalid value for required argument 'Id'")
 	}
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
@@ -196,7 +193,7 @@ type siteDeploymentSlotArgs struct {
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
 	// Message
 	Message *string `pulumi:"message"`
 	// Resource Name
@@ -234,7 +231,7 @@ type SiteDeploymentSlotArgs struct {
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
-	Location pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Message
 	Message pulumi.StringPtrInput
 	// Resource Name

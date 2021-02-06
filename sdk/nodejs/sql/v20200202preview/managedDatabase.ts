@@ -133,9 +133,6 @@ export class ManagedDatabase extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -233,7 +230,7 @@ export interface ManagedDatabaseArgs {
     /**
      * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Long Term Retention backup to be used for restore of this managed database.
      */

@@ -100,9 +100,6 @@ export class ContainerGroup extends pulumi.CustomResource {
             if ((!args || args.containers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osType'");
             }
@@ -173,7 +170,7 @@ export interface ContainerGroupArgs {
     /**
      * The resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The operating system type required by the containers in the container group.
      */

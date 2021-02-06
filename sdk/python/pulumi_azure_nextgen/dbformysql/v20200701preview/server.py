@@ -92,8 +92,6 @@ class Server(pulumi.CustomResource):
             __props__['ha_enabled'] = ha_enabled
             __props__['identity'] = identity
             __props__['infrastructure_encryption'] = infrastructure_encryption
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_window'] = maintenance_window
             __props__['replication_role'] = replication_role

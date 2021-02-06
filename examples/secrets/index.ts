@@ -11,7 +11,6 @@ const randomString = new random.RandomString("random", {
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
-    location: "westus2",
     tags: {
         something: new pulumi.Config().requireSecret("message"),
     },
