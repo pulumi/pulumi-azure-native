@@ -72336,7 +72336,7 @@
         "apiVersions": [
           "2017-10-01-preview"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": "2017-10-01-preview",
         "locationMappings": null,
         "locations": [
@@ -72733,6 +72733,9 @@
         "applicationId": "a0e1e353-1a3e-42cf-a8ea-3a9746eec58c"
       },
       {
+        "applicationId": "87df0fbf-e22d-4d7c-bc30-f59ca7460837"
+      },
+      {
         "applicationId": "a5ce81bb-67c7-4043-952a-22004782adb5"
       }
     ],
@@ -73001,6 +73004,84 @@
         "locations": [],
         "properties": null,
         "resourceType": "privateStores/offers"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/requestApprovals/query"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/requestApprovals/withdrawPlan"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/RequestApprovals"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/queryNotificationsState"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/offers/acknowledgeNotification"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "privateStores/AdminRequestApprovals"
       }
     ]
   },
@@ -78020,34 +78101,6 @@
         ],
         "properties": null,
         "resourceType": "Locations/registerSqlVmCandidate"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
-        "applicationId": "5741a1ff-751d-4ad7-bcd1-dfe3c998fd11",
-        "managedByRoleDefinitionId": "7379b183-294f-4404-b062-f3b9a0f03f5a",
-        "roleDefinitionId": "3eef04c6-e880-42e9-aaef-6e04c508124c"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.StoragePool",
-    "namespace": "Microsoft.StoragePool",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-03-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
       }
     ]
   },
