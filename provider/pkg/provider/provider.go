@@ -290,9 +290,16 @@ func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest)
 	var failures []*rpc.CheckFailure
 
 	// Deserialize RPC inputs.
+	oldResInputs := req.GetOlds()
+	olds, err := plugin.UnmarshalProperties(oldResInputs, plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), SkipNulls: true,
+	})
+	if err != nil {
+		return nil, err
+	}
 	newResInputs := req.GetNews()
-	inputs, err := plugin.UnmarshalProperties(newResInputs, plugin.MarshalOptions{
-		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
+	news, err := plugin.UnmarshalProperties(newResInputs, plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.news", label), KeepUnknowns: true, SkipNulls: true,
 	})
 	if err != nil {
 		return nil, err
@@ -304,8 +311,8 @@ func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest)
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
-	k.applyDefaults(ctx, res, inputs)
-	inputMap := inputs.Mappable()
+	k.applyDefaults(ctx, res, olds, news)
+	inputMap := news.Mappable()
 
 	// Validate inputs against PUT parameters.
 	for _, param := range res.PutParameters {
@@ -337,7 +344,7 @@ func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest)
 		}
 	}
 
-	resInputs, err := plugin.MarshalProperties(inputs, plugin.MarshalOptions{
+	resInputs, err := plugin.MarshalProperties(news, plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.resInputs", label), KeepUnknowns: true})
 	if err != nil {
 		return nil, err
@@ -347,36 +354,41 @@ func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest)
 }
 
 // Get a default location property for the given inputs.
-func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, inputs resource.PropertyMap) *resource.PropertyValue {
+func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, olds, news resource.PropertyMap) *resource.PropertyValue {
 	result := func(s string) *resource.PropertyValue {
 		p := resource.NewStringProperty(s)
 		return &p
 	}
 
-	// 1. Check if the config has a fixed location.
+	// 1. Check if old inputs define a location.
+	if v, ok := olds["location"]; ok {
+		return &v
+	}
+
+	// 2. Check if the config has a fixed location.
 	if v, ok := k.config["location"]; ok {
 		return result(v)
 	}
 
-	// 2. If there is a link to a resource group, try to use its location.
-	rg, ok := inputs["resourceGroupName"]
+	// 3. If there is a link to a resource group, try to use its location.
+	rg, ok := news["resourceGroupName"]
 	if !ok {
 		return nil
 	}
 
-	// 2a. Resource group is unknown yet - make location unknown too.
+	// 3a. Resource group is unknown yet - make location unknown too.
 	if rg.ContainsUnknowns() {
 		computed := resource.MakeComputed(resource.NewStringProperty(""))
 		return &computed
 	}
 
-	// 2b. Resource group name is known and its location is already in the cache: use the cached value.
+	// 3b. Resource group name is known and its location is already in the cache: use the cached value.
 	rgName := rg.StringValue()
 	if v, ok := k.rgLocationMap[rgName]; ok {
 		return result(v)
 	}
 
-	// 2c. Retrieve the resource group's properties from ARM API.
+	// 3c. Retrieve the resource group's properties from ARM API.
 	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
 	response, err := k.azureGet(ctx, id, apiVersionResources)
 	if err != nil {
@@ -396,16 +408,16 @@ func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, inputs re
 }
 
 // Apply default values (e.g., location) to user's inputs.
-func (k *azureNextGenProvider) applyDefaults(ctx context.Context, res resources.AzureAPIResource, inputs resource.PropertyMap) {
-	if !inputs.HasValue("location") {
+func (k *azureNextGenProvider) applyDefaults(ctx context.Context, res resources.AzureAPIResource, olds, news resource.PropertyMap) {
+	if !news.HasValue("location") {
 		for _, par := range res.PutParameters {
 			if par.Body == nil {
 				continue
 			}
 			if _, ok := par.Body.Properties["location"]; ok {
-				v := k.getDefaultLocation(ctx, inputs)
+				v := k.getDefaultLocation(ctx, olds, news)
 				if v != nil {
-					inputs["location"] = *v
+					news["location"] = *v
 				}
 			}
 		}
