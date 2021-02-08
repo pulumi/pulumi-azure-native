@@ -39,7 +39,7 @@ class ApiVersionSet(pulumi.CustomResource):
         :param pulumi.Input[str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         :param pulumi.Input[str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[Union[str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
+        :param pulumi.Input[Union[str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -156,7 +156,7 @@ class ApiVersionSet(pulumi.CustomResource):
     @pulumi.getter(name="versioningScheme")
     def versioning_scheme(self) -> pulumi.Output[str]:
         """
-        An value that determines where the API Version identifer will be located in a HTTP request.
+        An value that determines where the API Version identifier will be located in a HTTP request.
         """
         return pulumi.get(self, "versioning_scheme")
 

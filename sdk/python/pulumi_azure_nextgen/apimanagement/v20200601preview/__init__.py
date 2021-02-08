@@ -27,6 +27,7 @@ from .diagnostic import *
 from .email_template import *
 from .gateway import *
 from .gateway_api_entity_tag import *
+from .gateway_certificate_authority import *
 from .gateway_hostname_configuration import *
 from .get_api import *
 from .get_api_diagnostic import *
@@ -51,6 +52,7 @@ from .get_content_type import *
 from .get_diagnostic import *
 from .get_email_template import *
 from .get_gateway import *
+from .get_gateway_certificate_authority import *
 from .get_gateway_hostname_configuration import *
 from .get_group import *
 from .get_identity_provider import *
@@ -154,6 +156,8 @@ def _register_module():
                 return Gateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag":
                 return GatewayApiEntityTag(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority":
+                return GatewayCertificateAuthority(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration":
                 return GatewayHostnameConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:apimanagement/v20200601preview:Group":

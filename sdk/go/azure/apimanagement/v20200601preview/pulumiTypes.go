@@ -1424,7 +1424,7 @@ type ApiVersionSetContractDetails struct {
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName *string `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme *string `pulumi:"versioningScheme"`
 }
 
@@ -1451,7 +1451,7 @@ type ApiVersionSetContractDetailsArgs struct {
 	VersionHeaderName pulumi.StringPtrInput `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName pulumi.StringPtrInput `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme pulumi.StringPtrInput `pulumi:"versioningScheme"`
 }
 
@@ -1558,7 +1558,7 @@ func (o ApiVersionSetContractDetailsOutput) VersionQueryName() pulumi.StringPtrO
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.VersionQueryName }).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifer will be located in a HTTP request.
+// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.VersioningScheme }).(pulumi.StringPtrOutput)
 }
@@ -1631,7 +1631,7 @@ func (o ApiVersionSetContractDetailsPtrOutput) VersionQueryName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifer will be located in a HTTP request.
+// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsPtrOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1653,7 +1653,7 @@ type ApiVersionSetContractDetailsResponse struct {
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName *string `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme *string `pulumi:"versioningScheme"`
 }
 
@@ -1680,7 +1680,7 @@ type ApiVersionSetContractDetailsResponseArgs struct {
 	VersionHeaderName pulumi.StringPtrInput `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName pulumi.StringPtrInput `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme pulumi.StringPtrInput `pulumi:"versioningScheme"`
 }
 
@@ -1787,7 +1787,7 @@ func (o ApiVersionSetContractDetailsResponseOutput) VersionQueryName() pulumi.St
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.VersionQueryName }).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifer will be located in a HTTP request.
+// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsResponseOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.VersioningScheme }).(pulumi.StringPtrOutput)
 }
@@ -1860,7 +1860,7 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) VersionQueryName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifer will be located in a HTTP request.
+// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {

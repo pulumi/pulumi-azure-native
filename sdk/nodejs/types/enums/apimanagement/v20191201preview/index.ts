@@ -500,7 +500,7 @@ export const VersioningScheme = {
 } as const;
 
 /**
- * An value that determines where the API Version identifer will be located in a HTTP request.
+ * An value that determines where the API Version identifier will be located in a HTTP request.
  */
 export type VersioningScheme = (typeof VersioningScheme)[keyof typeof VersioningScheme];
 

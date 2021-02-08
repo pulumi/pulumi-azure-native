@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:migrate/latest:HyperVCollector":
 		r, err = NewHyperVCollector(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:migrate/latest:MoveCollection":
+		r, err = NewMoveCollection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:migrate/latest:MoveResource":
+		r, err = NewMoveResource(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:migrate/latest:Project":
 		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:migrate/latest:VMwareCollector":

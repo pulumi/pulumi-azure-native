@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:MoveCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20210101:MoveCollection"},
                 },
             };

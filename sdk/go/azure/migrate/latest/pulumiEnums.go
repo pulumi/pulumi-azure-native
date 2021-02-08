@@ -502,6 +502,65 @@ func (e ReservedInstance) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of identity used for the resource mover service.
+type ResourceIdentityType pulumi.String
+
+const (
+	ResourceIdentityTypeNone           = ResourceIdentityType("None")
+	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeUserAssigned   = ResourceIdentityType("UserAssigned")
+)
+
+func (ResourceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Gets or sets the target availability zone.
+type TargetAvailabilityZone pulumi.String
+
+const (
+	TargetAvailabilityZoneOne   = TargetAvailabilityZone("1")
+	TargetAvailabilityZoneTwo   = TargetAvailabilityZone("2")
+	TargetAvailabilityZoneThree = TargetAvailabilityZone("3")
+	TargetAvailabilityZoneNA    = TargetAvailabilityZone("NA")
+)
+
+func (TargetAvailabilityZone) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TargetAvailabilityZone) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetAvailabilityZone) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TargetAvailabilityZone) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TargetAvailabilityZone) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Time range of performance data used to recommend a size.
 type TimeRange pulumi.String
 
@@ -529,5 +588,33 @@ func (e TimeRange) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e TimeRange) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Defines the zone redundant resource setting.
+type ZoneRedundant pulumi.String
+
+const (
+	ZoneRedundantEnable  = ZoneRedundant("Enable")
+	ZoneRedundantDisable = ZoneRedundant("Disable")
+)
+
+func (ZoneRedundant) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ZoneRedundant) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ZoneRedundant) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ZoneRedundant) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ZoneRedundant) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

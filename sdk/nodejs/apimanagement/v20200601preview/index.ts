@@ -28,6 +28,7 @@ export * from "./diagnostic";
 export * from "./emailTemplate";
 export * from "./gateway";
 export * from "./gatewayApiEntityTag";
+export * from "./gatewayCertificateAuthority";
 export * from "./gatewayHostnameConfiguration";
 export * from "./getApi";
 export * from "./getApiDiagnostic";
@@ -52,6 +53,7 @@ export * from "./getContentType";
 export * from "./getDiagnostic";
 export * from "./getEmailTemplate";
 export * from "./getGateway";
+export * from "./getGatewayCertificateAuthority";
 export * from "./getGatewayHostnameConfiguration";
 export * from "./getGroup";
 export * from "./getIdentityProvider";
@@ -122,6 +124,7 @@ import { Diagnostic } from "./diagnostic";
 import { EmailTemplate } from "./emailTemplate";
 import { Gateway } from "./gateway";
 import { GatewayApiEntityTag } from "./gatewayApiEntityTag";
+import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
 import { GatewayHostnameConfiguration } from "./gatewayHostnameConfiguration";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
@@ -193,6 +196,8 @@ const _module = {
                 return new Gateway(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag":
                 return new GatewayApiEntityTag(name, <any>undefined, { urn })
+            case "azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority":
+                return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:apimanagement/v20200601preview:Group":

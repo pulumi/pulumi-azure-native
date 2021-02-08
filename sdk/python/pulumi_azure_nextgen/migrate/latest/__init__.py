@@ -8,10 +8,14 @@ from .assessment import *
 from .get_assessment import *
 from .get_group import *
 from .get_hyper_v_collector import *
+from .get_move_collection import *
+from .get_move_resource import *
 from .get_project import *
 from .get_v_mware_collector import *
 from .group import *
 from .hyper_v_collector import *
+from .move_collection import *
+from .move_resource import *
 from .project import *
 from .v_mware_collector import *
 from ._inputs import *
@@ -35,6 +39,10 @@ def _register_module():
                 return Group(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:migrate/latest:HyperVCollector":
                 return HyperVCollector(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:migrate/latest:MoveCollection":
+                return MoveCollection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:migrate/latest:MoveResource":
+                return MoveResource(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:migrate/latest:Project":
                 return Project(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:migrate/latest:VMwareCollector":

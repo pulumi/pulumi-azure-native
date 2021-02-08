@@ -289,7 +289,7 @@ class Verbosity(str, Enum):
 
 class VersioningScheme(str, Enum):
     """
-    An value that determines where the API Version identifer will be located in a HTTP request.
+    An value that determines where the API Version identifier will be located in a HTTP request.
     """
     SEGMENT = "Segment"
     QUERY = "Query"
