@@ -46,6 +46,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101.Inputs
         }
 
         /// <summary>
+        /// Has comparison expression for a tag key
+        /// </summary>
+        [Input("tagKey")]
+        public Input<Inputs.ReportConfigComparisonExpressionArgs>? TagKey { get; set; }
+
+        /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
         [Input("tags")]

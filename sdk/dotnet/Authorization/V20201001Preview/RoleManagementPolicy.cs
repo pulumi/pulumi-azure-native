@@ -12,7 +12,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
     /// <summary>
     /// Role management policy
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20201001preview:roleManagementPolicy")]
+    [AzureNextGenResourceType("azure-nextgen:authorization/v20201001preview:RoleManagementPolicy")]
     public partial class RoleManagementPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleManagementPolicy(string name, RoleManagementPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20201001preview:roleManagementPolicy", name, args ?? new RoleManagementPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/v20201001preview:RoleManagementPolicy", name, args ?? new RoleManagementPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleManagementPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20201001preview:roleManagementPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/v20201001preview:RoleManagementPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

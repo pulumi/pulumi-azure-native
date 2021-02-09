@@ -138,6 +138,8 @@ export class RedisEnterprise extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20210301:RedisEnterprise" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisEnterprise.__pulumiType, name, inputs, opts);
     }
 }

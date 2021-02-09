@@ -21,7 +21,7 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20201001preview:roleManagementPolicyAssignment';
+    public static readonly __pulumiType = 'azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment';
 
     /**
      * Returns true if the given object is an instance of RoleManagementPolicyAssignment.  This is designed to work even

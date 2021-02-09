@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getroleManagementPolicy";
-export * from "./getroleManagementPolicyAssignment";
+export * from "./getRoleManagementPolicy";
+export * from "./getRoleManagementPolicyAssignment";
 export * from "./roleManagementPolicy";
 export * from "./roleManagementPolicyAssignment";
 
@@ -21,9 +21,9 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:authorization/v20201001preview:roleManagementPolicy":
+            case "azure-nextgen:authorization/v20201001preview:RoleManagementPolicy":
                 return new RoleManagementPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20201001preview:roleManagementPolicyAssignment":
+            case "azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);

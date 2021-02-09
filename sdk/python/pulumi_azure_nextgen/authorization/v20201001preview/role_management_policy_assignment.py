@@ -60,7 +60,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
         super(RoleManagementPolicyAssignment, __self__).__init__(
-            'azure-nextgen:authorization/v20201001preview:roleManagementPolicyAssignment',
+            'azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment',
             resource_name,
             __props__,
             opts)
