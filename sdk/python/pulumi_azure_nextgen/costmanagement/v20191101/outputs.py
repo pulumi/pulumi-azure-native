@@ -863,12 +863,14 @@ class ReportConfigFilterResponse(dict):
                  and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  dimensions: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
+                 tag_key: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
         :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
         :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param 'ReportConfigComparisonExpressionResponseArgs' tag_key: Has comparison expression for a tag key
         :param 'ReportConfigComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -877,6 +879,8 @@ class ReportConfigFilterResponse(dict):
             pulumi.set(__self__, "dimensions", dimensions)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
+        if tag_key is not None:
+            pulumi.set(__self__, "tag_key", tag_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -903,6 +907,14 @@ class ReportConfigFilterResponse(dict):
         The logical "OR" expression. Must have at least 2 items.
         """
         return pulumi.get(self, "or_")
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> Optional['outputs.ReportConfigComparisonExpressionResponse']:
+        """
+        Has comparison expression for a tag key
+        """
+        return pulumi.get(self, "tag_key")
 
     @property
     @pulumi.getter

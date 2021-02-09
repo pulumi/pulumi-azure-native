@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:authorization/v20201001preview:roleManagementPolicy":
+	case "azure-nextgen:authorization/v20201001preview:RoleManagementPolicy":
 		r, err = NewRoleManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/v20201001preview:roleManagementPolicyAssignment":
+	case "azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment":
 		r, err = NewRoleManagementPolicyAssignment(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)

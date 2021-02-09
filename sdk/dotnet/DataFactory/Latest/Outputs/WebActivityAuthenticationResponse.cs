@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
     public sealed class WebActivityAuthenticationResponse
     {
         /// <summary>
-        /// Password for the PFX file or basic authentication.
+        /// Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
-        /// Base64-encoded contents of a PFX file.
+        /// Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Pfx;
         /// <summary>
@@ -26,11 +26,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly string? Resource;
         /// <summary>
-        /// Web activity authentication (Basic/ClientCertificate/MSI)
+        /// Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Web activity authentication user name for basic authentication.
+        /// TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? UserTenant;
+        /// <summary>
+        /// Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
         /// </summary>
         public readonly string? Username;
 
@@ -44,12 +48,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             string type,
 
+            object? userTenant,
+
             string? username)
         {
             Password = password;
             Pfx = pfx;
             Resource = resource;
             Type = type;
+            UserTenant = userTenant;
             Username = username;
         }
     }

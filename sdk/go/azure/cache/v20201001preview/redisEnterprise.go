@@ -57,6 +57,12 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20210301:RedisEnterprise"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RedisEnterprise
 	err := ctx.RegisterResource("azure-nextgen:cache/v20201001preview:RedisEnterprise", name, args, &resource, opts...)
 	if err != nil {

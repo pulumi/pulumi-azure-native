@@ -21,6 +21,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         [Input("continueOnStepFailure")]
         public Input<object>? ContinueOnStepFailure { get; set; }
 
+        /// <summary>
+        /// Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
+        /// </summary>
+        [Input("dataPathAssignments")]
+        public Input<object>? DataPathAssignments { get; set; }
+
         [Input("dependsOn")]
         private InputList<Inputs.ActivityDependencyArgs>? _dependsOn;
 
@@ -58,10 +64,16 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         public Input<object>? MlParentRunId { get; set; }
 
         /// <summary>
+        /// ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("mlPipelineEndpointId")]
+        public Input<object>? MlPipelineEndpointId { get; set; }
+
+        /// <summary>
         /// ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
         /// </summary>
-        [Input("mlPipelineId", required: true)]
-        public Input<object> MlPipelineId { get; set; } = null!;
+        [Input("mlPipelineId")]
+        public Input<object>? MlPipelineId { get; set; }
 
         /// <summary>
         /// Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published pipeline. Values will be passed in the ParameterAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
@@ -99,6 +111,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
             get => _userProperties ?? (_userProperties = new InputList<Inputs.UserPropertyArgs>());
             set => _userProperties = value;
         }
+
+        /// <summary>
+        /// Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("version")]
+        public Input<object>? Version { get; set; }
 
         public AzureMLExecutePipelineActivityArgs()
         {

@@ -947,12 +947,14 @@ class ReportConfigFilterArgs:
                  and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
                  dimensions: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
                  or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
+                 tag_key: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
                  tags: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
+        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tag_key: Has comparison expression for a tag key
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -961,6 +963,8 @@ class ReportConfigFilterArgs:
             pulumi.set(__self__, "dimensions", dimensions)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
+        if tag_key is not None:
+            pulumi.set(__self__, "tag_key", tag_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -999,6 +1003,18 @@ class ReportConfigFilterArgs:
     @or_.setter
     def or_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]]):
         pulumi.set(self, "or_", value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a tag key
+        """
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
+        pulumi.set(self, "tag_key", value)
 
     @property
     @pulumi.getter

@@ -9411,39 +9411,46 @@ class AzureMLBatchExecutionActivityArgs:
 @pulumi.input_type
 class AzureMLExecutePipelineActivityArgs:
     def __init__(__self__, *,
-                 ml_pipeline_id: Any,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  continue_on_step_failure: Optional[Any] = None,
+                 data_path_assignments: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  experiment_name: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  ml_parent_run_id: Optional[Any] = None,
+                 ml_pipeline_endpoint_id: Optional[Any] = None,
+                 ml_pipeline_id: Optional[Any] = None,
                  ml_pipeline_parameters: Optional[Any] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
-                 user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
+                 user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None,
+                 version: Optional[Any] = None):
         """
         Azure ML Execute Pipeline activity.
-        :param Any ml_pipeline_id: ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Execution'.
         :param Any continue_on_step_failure: Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
+        :param Any data_path_assignments: Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param Any experiment_name: Run history experiment name of the pipeline run. This information will be passed in the ExperimentName property of the published pipeline execution request. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param Any ml_parent_run_id: The parent Azure ML Service pipeline run id. This information will be passed in the ParentRunId property of the published pipeline execution request. Type: string (or Expression with resultType string).
+        :param Any ml_pipeline_endpoint_id: ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
+        :param Any ml_pipeline_id: ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
         :param Any ml_pipeline_parameters: Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published pipeline. Values will be passed in the ParameterAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
+        :param Any version: Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "ml_pipeline_id", ml_pipeline_id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
         if continue_on_step_failure is not None:
             pulumi.set(__self__, "continue_on_step_failure", continue_on_step_failure)
+        if data_path_assignments is not None:
+            pulumi.set(__self__, "data_path_assignments", data_path_assignments)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -9454,24 +9461,18 @@ class AzureMLExecutePipelineActivityArgs:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
         if ml_parent_run_id is not None:
             pulumi.set(__self__, "ml_parent_run_id", ml_parent_run_id)
+        if ml_pipeline_endpoint_id is not None:
+            pulumi.set(__self__, "ml_pipeline_endpoint_id", ml_pipeline_endpoint_id)
+        if ml_pipeline_id is not None:
+            pulumi.set(__self__, "ml_pipeline_id", ml_pipeline_id)
         if ml_pipeline_parameters is not None:
             pulumi.set(__self__, "ml_pipeline_parameters", ml_pipeline_parameters)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
-
-    @property
-    @pulumi.getter(name="mlPipelineId")
-    def ml_pipeline_id(self) -> Any:
-        """
-        ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "ml_pipeline_id")
-
-    @ml_pipeline_id.setter
-    def ml_pipeline_id(self, value: Any):
-        pulumi.set(self, "ml_pipeline_id", value)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -9509,6 +9510,18 @@ class AzureMLExecutePipelineActivityArgs:
     @continue_on_step_failure.setter
     def continue_on_step_failure(self, value: Optional[Any]):
         pulumi.set(self, "continue_on_step_failure", value)
+
+    @property
+    @pulumi.getter(name="dataPathAssignments")
+    def data_path_assignments(self) -> Optional[Any]:
+        """
+        Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
+        """
+        return pulumi.get(self, "data_path_assignments")
+
+    @data_path_assignments.setter
+    def data_path_assignments(self, value: Optional[Any]):
+        pulumi.set(self, "data_path_assignments", value)
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -9571,6 +9584,30 @@ class AzureMLExecutePipelineActivityArgs:
         pulumi.set(self, "ml_parent_run_id", value)
 
     @property
+    @pulumi.getter(name="mlPipelineEndpointId")
+    def ml_pipeline_endpoint_id(self) -> Optional[Any]:
+        """
+        ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "ml_pipeline_endpoint_id")
+
+    @ml_pipeline_endpoint_id.setter
+    def ml_pipeline_endpoint_id(self, value: Optional[Any]):
+        pulumi.set(self, "ml_pipeline_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="mlPipelineId")
+    def ml_pipeline_id(self) -> Optional[Any]:
+        """
+        ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "ml_pipeline_id")
+
+    @ml_pipeline_id.setter
+    def ml_pipeline_id(self, value: Optional[Any]):
+        pulumi.set(self, "ml_pipeline_id", value)
+
+    @property
     @pulumi.getter(name="mlPipelineParameters")
     def ml_pipeline_parameters(self) -> Optional[Any]:
         """
@@ -9605,6 +9642,18 @@ class AzureMLExecutePipelineActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[Any]:
+        """
+        Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[Any]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -68714,14 +68763,16 @@ class WebActivityAuthenticationArgs:
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  pfx: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
+                 user_tenant: Optional[Any] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Web activity authentication properties.
-        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI)
-        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file or basic authentication.
-        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file.
+        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
         :param pulumi.Input[str] resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
-        :param pulumi.Input[str] username: Web activity authentication user name for basic authentication.
+        :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
         """
         pulumi.set(__self__, "type", type)
         if password is not None:
@@ -68730,6 +68781,8 @@ class WebActivityAuthenticationArgs:
             pulumi.set(__self__, "pfx", pfx)
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
+        if user_tenant is not None:
+            pulumi.set(__self__, "user_tenant", user_tenant)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -68737,7 +68790,7 @@ class WebActivityAuthenticationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Web activity authentication (Basic/ClientCertificate/MSI)
+        Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         """
         return pulumi.get(self, "type")
 
@@ -68749,7 +68802,7 @@ class WebActivityAuthenticationArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
         """
-        Password for the PFX file or basic authentication.
+        Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         """
         return pulumi.get(self, "password")
 
@@ -68761,7 +68814,7 @@ class WebActivityAuthenticationArgs:
     @pulumi.getter
     def pfx(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
         """
-        Base64-encoded contents of a PFX file.
+        Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
         """
         return pulumi.get(self, "pfx")
 
@@ -68782,10 +68835,22 @@ class WebActivityAuthenticationArgs:
         pulumi.set(self, "resource", value)
 
     @property
+    @pulumi.getter(name="userTenant")
+    def user_tenant(self) -> Optional[Any]:
+        """
+        TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_tenant")
+
+    @user_tenant.setter
+    def user_tenant(self, value: Optional[Any]):
+        pulumi.set(self, "user_tenant", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Web activity authentication user name for basic authentication.
+        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
         """
         return pulumi.get(self, "username")
 

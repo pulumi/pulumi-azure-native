@@ -51,6 +51,12 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20210301:Database"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Database
 	err := ctx.RegisterResource("azure-nextgen:cache/v20201001preview:Database", name, args, &resource, opts...)
 	if err != nil {

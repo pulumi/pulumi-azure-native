@@ -66,6 +66,9 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MaintenanceConfiguration

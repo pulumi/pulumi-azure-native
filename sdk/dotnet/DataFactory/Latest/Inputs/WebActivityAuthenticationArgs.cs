@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
     public sealed class WebActivityAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Password for the PFX file or basic authentication.
+        /// Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         /// </summary>
         [Input("password")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
         /// <summary>
-        /// Base64-encoded contents of a PFX file.
+        /// Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
         /// </summary>
         [Input("pfx")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Pfx { get; set; }
@@ -34,13 +34,19 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// Web activity authentication (Basic/ClientCertificate/MSI)
+        /// Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Web activity authentication user name for basic authentication.
+        /// TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("userTenant")]
+        public Input<object>? UserTenant { get; set; }
+
+        /// <summary>
+        /// Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
