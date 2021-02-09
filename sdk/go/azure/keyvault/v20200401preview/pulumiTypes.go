@@ -1833,6 +1833,8 @@ func (o PermissionsResponseOutput) Storage() pulumi.StringArrayOutput {
 
 // Private endpoint connection item.
 type PrivateEndpointConnectionItemResponse struct {
+	// Id of private endpoint connection.
+	Id *string `pulumi:"id"`
 	// Properties of the private endpoint object.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	// Approval state of the private link connection.
@@ -1854,6 +1856,8 @@ type PrivateEndpointConnectionItemResponseInput interface {
 
 // Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseArgs struct {
+	// Id of private endpoint connection.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Properties of the private endpoint object.
 	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
 	// Approval state of the private link connection.
@@ -1912,6 +1916,11 @@ func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnection
 
 func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnectionItemResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionItemResponseOutput {
 	return o
+}
+
+// Id of private endpoint connection.
+func (o PrivateEndpointConnectionItemResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Properties of the private endpoint object.
@@ -4288,6 +4297,8 @@ func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 type VirtualNetworkRule struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -4305,6 +4316,8 @@ type VirtualNetworkRuleInput interface {
 type VirtualNetworkRuleArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -4364,6 +4377,11 @@ func (o VirtualNetworkRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 type VirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
@@ -4388,6 +4406,8 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 type VirtualNetworkRuleResponse struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -4405,6 +4425,8 @@ type VirtualNetworkRuleResponseInput interface {
 type VirtualNetworkRuleResponseArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -4462,6 +4484,11 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 // Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+func (o VirtualNetworkRuleResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 type VirtualNetworkRuleResponseArrayOutput struct{ *pulumi.OutputState }

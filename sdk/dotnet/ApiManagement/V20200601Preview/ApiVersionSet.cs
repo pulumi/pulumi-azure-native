@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         public Output<string?> VersionQueryName { get; private set; } = null!;
 
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Output("versioningScheme")]
         public Output<string> VersioningScheme { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         public Input<string> VersionSetId { get; set; } = null!;
 
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
         public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.VersioningScheme> VersioningScheme { get; set; } = null!;

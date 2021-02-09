@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview.Inputs
         public Input<string>? VersionQueryName { get; set; }
 
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme")]
         public Input<string>? VersioningScheme { get; set; }

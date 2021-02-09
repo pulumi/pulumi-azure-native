@@ -9,10 +9,14 @@ export * from "./assessment";
 export * from "./getAssessment";
 export * from "./getGroup";
 export * from "./getHyperVCollector";
+export * from "./getMoveCollection";
+export * from "./getMoveResource";
 export * from "./getProject";
 export * from "./getVMwareCollector";
 export * from "./group";
 export * from "./hyperVCollector";
+export * from "./moveCollection";
+export * from "./moveResource";
 export * from "./project";
 export * from "./vmwareCollector";
 
@@ -23,6 +27,8 @@ export * from "../../types/enums/migrate/latest";
 import { Assessment } from "./assessment";
 import { Group } from "./group";
 import { HyperVCollector } from "./hyperVCollector";
+import { MoveCollection } from "./moveCollection";
+import { MoveResource } from "./moveResource";
 import { Project } from "./project";
 import { VMwareCollector } from "./vmwareCollector";
 
@@ -36,6 +42,10 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "azure-nextgen:migrate/latest:HyperVCollector":
                 return new HyperVCollector(name, <any>undefined, { urn })
+            case "azure-nextgen:migrate/latest:MoveCollection":
+                return new MoveCollection(name, <any>undefined, { urn })
+            case "azure-nextgen:migrate/latest:MoveResource":
+                return new MoveResource(name, <any>undefined, { urn })
             case "azure-nextgen:migrate/latest:Project":
                 return new Project(name, <any>undefined, { urn })
             case "azure-nextgen:migrate/latest:VMwareCollector":

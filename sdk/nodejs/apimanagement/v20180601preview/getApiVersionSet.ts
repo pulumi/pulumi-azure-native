@@ -68,7 +68,7 @@ export interface GetApiVersionSetResult {
      */
     readonly versionQueryName?: string;
     /**
-     * An value that determines where the API Version identifer will be located in a HTTP request.
+     * An value that determines where the API Version identifier will be located in a HTTP request.
      */
     readonly versioningScheme: string;
 }

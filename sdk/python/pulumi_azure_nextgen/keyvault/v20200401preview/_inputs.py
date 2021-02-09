@@ -853,12 +853,16 @@ class VaultPropertiesArgs:
 @pulumi.input_type
 class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None):
         """
         A rule governing the accessibility of a vault from a specific virtual network.
         :param pulumi.Input[str] id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
         """
         pulumi.set(__self__, "id", id)
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter
@@ -871,5 +875,17 @@ class VirtualNetworkRuleArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @ignore_missing_vnet_service_endpoint.setter
+    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 

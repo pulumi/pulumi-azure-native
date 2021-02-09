@@ -1078,7 +1078,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
     }
 
     /// <summary>
-    /// An value that determines where the API Version identifer will be located in a HTTP request.
+    /// An value that determines where the API Version identifier will be located in a HTTP request.
     /// </summary>
     [EnumType]
     public readonly struct VersioningScheme : IEquatable<VersioningScheme>

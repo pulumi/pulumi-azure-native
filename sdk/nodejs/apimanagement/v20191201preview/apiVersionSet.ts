@@ -60,7 +60,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
      */
     public readonly versionQueryName!: pulumi.Output<string | undefined>;
     /**
-     * An value that determines where the API Version identifer will be located in a HTTP request.
+     * An value that determines where the API Version identifier will be located in a HTTP request.
      */
     public readonly versioningScheme!: pulumi.Output<string>;
 
@@ -154,7 +154,7 @@ export interface ApiVersionSetArgs {
      */
     readonly versionSetId: pulumi.Input<string>;
     /**
-     * An value that determines where the API Version identifer will be located in a HTTP request.
+     * An value that determines where the API Version identifier will be located in a HTTP request.
      */
     readonly versioningScheme: pulumi.Input<string | enums.apimanagement.v20191201preview.VersioningScheme>;
 }

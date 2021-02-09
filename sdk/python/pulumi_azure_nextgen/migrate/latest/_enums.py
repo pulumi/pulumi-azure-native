@@ -18,7 +18,10 @@ __all__ = [
     'Percentile',
     'ProjectStatus',
     'ReservedInstance',
+    'ResourceIdentityType',
+    'TargetAvailabilityZone',
     'TimeRange',
+    'ZoneRedundant',
 ]
 
 
@@ -254,6 +257,25 @@ class ReservedInstance(str, Enum):
     RI3_YEAR = "RI3Year"
 
 
+class ResourceIdentityType(str, Enum):
+    """
+    The type of identity used for the resource mover service.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class TargetAvailabilityZone(str, Enum):
+    """
+    Gets or sets the target availability zone.
+    """
+    ONE = "1"
+    TWO = "2"
+    THREE = "3"
+    NA = "NA"
+
+
 class TimeRange(str, Enum):
     """
     Time range of performance data used to recommend a size.
@@ -262,3 +284,11 @@ class TimeRange(str, Enum):
     WEEK = "Week"
     MONTH = "Month"
     CUSTOM = "Custom"
+
+
+class ZoneRedundant(str, Enum):
+    """
+    Defines the zone redundant resource setting.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"

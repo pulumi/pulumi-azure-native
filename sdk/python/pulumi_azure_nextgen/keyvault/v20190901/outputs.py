@@ -324,15 +324,19 @@ class PrivateEndpointConnectionItemResponse(dict):
     """
     def __init__(__self__, *,
                  provisioning_state: str,
+                 id: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param str id: Id of private endpoint connection.
         :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
@@ -345,6 +349,14 @@ class PrivateEndpointConnectionItemResponse(dict):
         Provisioning state of the private endpoint connection.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of private endpoint connection.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -824,12 +836,16 @@ class VirtualNetworkRuleResponse(dict):
     A rule governing the accessibility of a vault from a specific virtual network.
     """
     def __init__(__self__, *,
-                 id: str):
+                 id: str,
+                 ignore_missing_vnet_service_endpoint: Optional[bool] = None):
         """
         A rule governing the accessibility of a vault from a specific virtual network.
         :param str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        :param bool ignore_missing_vnet_service_endpoint: Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
         """
         pulumi.set(__self__, "id", id)
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter
@@ -838,6 +854,14 @@ class VirtualNetworkRuleResponse(dict):
         Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
+        """
+        Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

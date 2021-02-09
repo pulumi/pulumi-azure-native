@@ -30,7 +30,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Outputs
         /// </summary>
         public readonly string? VersionQueryName;
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         public readonly string? VersioningScheme;
 

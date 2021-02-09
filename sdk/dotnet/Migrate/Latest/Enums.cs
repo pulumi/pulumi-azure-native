@@ -539,6 +539,71 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     }
 
     /// <summary>
+    /// The type of identity used for the resource mover service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the target availability zone.
+    /// </summary>
+    [EnumType]
+    public readonly struct TargetAvailabilityZone : IEquatable<TargetAvailabilityZone>
+    {
+        private readonly string _value;
+
+        private TargetAvailabilityZone(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TargetAvailabilityZone One { get; } = new TargetAvailabilityZone("1");
+        public static TargetAvailabilityZone Two { get; } = new TargetAvailabilityZone("2");
+        public static TargetAvailabilityZone Three { get; } = new TargetAvailabilityZone("3");
+        public static TargetAvailabilityZone NA { get; } = new TargetAvailabilityZone("NA");
+
+        public static bool operator ==(TargetAvailabilityZone left, TargetAvailabilityZone right) => left.Equals(right);
+        public static bool operator !=(TargetAvailabilityZone left, TargetAvailabilityZone right) => !left.Equals(right);
+
+        public static explicit operator string(TargetAvailabilityZone value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TargetAvailabilityZone other && Equals(other);
+        public bool Equals(TargetAvailabilityZone other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Time range of performance data used to recommend a size.
     /// </summary>
     [EnumType]
@@ -564,6 +629,37 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TimeRange other && Equals(other);
         public bool Equals(TimeRange other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the zone redundant resource setting.
+    /// </summary>
+    [EnumType]
+    public readonly struct ZoneRedundant : IEquatable<ZoneRedundant>
+    {
+        private readonly string _value;
+
+        private ZoneRedundant(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ZoneRedundant Enable { get; } = new ZoneRedundant("Enable");
+        public static ZoneRedundant Disable { get; } = new ZoneRedundant("Disable");
+
+        public static bool operator ==(ZoneRedundant left, ZoneRedundant right) => left.Equals(right);
+        public static bool operator !=(ZoneRedundant left, ZoneRedundant right) => !left.Equals(right);
+
+        public static explicit operator string(ZoneRedundant value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZoneRedundant other && Equals(other);
+        public bool Equals(ZoneRedundant other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

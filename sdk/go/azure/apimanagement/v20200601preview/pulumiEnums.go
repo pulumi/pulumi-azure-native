@@ -954,7 +954,7 @@ func (e Verbosity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// An value that determines where the API Version identifer will be located in a HTTP request.
+// An value that determines where the API Version identifier will be located in a HTTP request.
 type VersioningScheme pulumi.String
 
 const (
