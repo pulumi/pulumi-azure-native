@@ -53,7 +53,7 @@ setup(name='pulumi_azure_nextgen',
       },
       install_requires=[
           'parver>=0.2.1',
-          'pulumi>=2.11.2,<3.0.0',
+          'pulumi>=2.20.0,<3.0.0',
           'semver>=2.8.1'
       ],
       zip_safe=False)
