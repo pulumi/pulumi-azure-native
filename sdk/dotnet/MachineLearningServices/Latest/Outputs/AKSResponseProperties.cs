@@ -30,6 +30,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly string? ClusterFqdn;
         /// <summary>
+        /// Intended usage of the cluster
+        /// </summary>
+        public readonly string? ClusterPurpose;
+        /// <summary>
         /// SSL configuration
         /// </summary>
         public readonly Outputs.SslConfigurationResponse? SslConfiguration;
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             string? clusterFqdn,
 
+            string? clusterPurpose,
+
             Outputs.SslConfigurationResponse? sslConfiguration,
 
             ImmutableArray<Outputs.SystemServiceResponse> systemServices)
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             AgentVmSize = agentVmSize;
             AksNetworkingConfiguration = aksNetworkingConfiguration;
             ClusterFqdn = clusterFqdn;
+            ClusterPurpose = clusterPurpose;
             SslConfiguration = sslConfiguration;
             SystemServices = systemServices;
         }

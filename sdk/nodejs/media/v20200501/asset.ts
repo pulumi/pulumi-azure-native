@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -71,6 +72,10 @@ export class Asset extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncryptionFormat!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.v20200501.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -106,6 +111,7 @@ export class Asset extends pulumi.CustomResource {
             inputs["lastModified"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["storageEncryptionFormat"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["alternateId"] = undefined /*out*/;
@@ -117,6 +123,7 @@ export class Asset extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["storageAccountName"] = undefined /*out*/;
             inputs["storageEncryptionFormat"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

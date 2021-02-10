@@ -149,7 +149,7 @@ export class SiteDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteDeployment" }, { type: "azure-nextgen:web/v20160801:SiteDeployment" }, { type: "azure-nextgen:web/v20180201:SiteDeployment" }, { type: "azure-nextgen:web/v20181101:SiteDeployment" }, { type: "azure-nextgen:web/v20190801:SiteDeployment" }, { type: "azure-nextgen:web/v20200601:SiteDeployment" }, { type: "azure-nextgen:web/v20200901:SiteDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteDeployment" }, { type: "azure-nextgen:web/v20160801:SiteDeployment" }, { type: "azure-nextgen:web/v20180201:SiteDeployment" }, { type: "azure-nextgen:web/v20181101:SiteDeployment" }, { type: "azure-nextgen:web/v20190801:SiteDeployment" }, { type: "azure-nextgen:web/v20200601:SiteDeployment" }, { type: "azure-nextgen:web/v20200901:SiteDeployment" }, { type: "azure-nextgen:web/v20201001:SiteDeployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteDeployment.__pulumiType, name, inputs, opts);
     }

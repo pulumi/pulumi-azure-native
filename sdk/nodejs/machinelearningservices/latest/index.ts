@@ -7,14 +7,19 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./getLinkedWorkspace";
 export * from "./getMachineLearningCompute";
+export * from "./getMachineLearningService";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
 export * from "./getWorkspaceConnection";
 export * from "./linkedWorkspace";
 export * from "./listMachineLearningComputeKeys";
 export * from "./listMachineLearningComputeNodes";
+export * from "./listNotebookKeys";
+export * from "./listStorageAccountKeys";
 export * from "./listWorkspaceKeys";
+export * from "./listWorkspaceNotebookAccessToken";
 export * from "./machineLearningCompute";
+export * from "./machineLearningService";
 export * from "./privateEndpointConnection";
 export * from "./workspace";
 export * from "./workspaceConnection";
@@ -25,6 +30,7 @@ export * from "../../types/enums/machinelearningservices/latest";
 // Import resources to register:
 import { LinkedWorkspace } from "./linkedWorkspace";
 import { MachineLearningCompute } from "./machineLearningCompute";
+import { MachineLearningService } from "./machineLearningService";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Workspace } from "./workspace";
 import { WorkspaceConnection } from "./workspaceConnection";
@@ -37,6 +43,8 @@ const _module = {
                 return new LinkedWorkspace(name, <any>undefined, { urn })
             case "azure-nextgen:machinelearningservices/latest:MachineLearningCompute":
                 return new MachineLearningCompute(name, <any>undefined, { urn })
+            case "azure-nextgen:machinelearningservices/latest:MachineLearningService":
+                return new MachineLearningService(name, <any>undefined, { urn })
             case "azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-nextgen:machinelearningservices/latest:Workspace":

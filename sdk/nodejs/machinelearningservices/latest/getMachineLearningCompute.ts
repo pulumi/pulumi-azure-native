@@ -64,6 +64,10 @@ export interface GetMachineLearningComputeResult {
      */
     readonly sku?: outputs.machinelearningservices.latest.SkuResponse;
     /**
+     * Read only system data
+     */
+    readonly systemData: outputs.machinelearningservices.latest.SystemDataResponse;
+    /**
      * Contains resource tags defined as key/value pairs.
      */
     readonly tags?: {[key: string]: string};

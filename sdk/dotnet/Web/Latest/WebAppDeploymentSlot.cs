@@ -126,6 +126,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDeploymentSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

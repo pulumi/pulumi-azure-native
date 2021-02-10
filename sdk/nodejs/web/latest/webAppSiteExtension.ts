@@ -208,7 +208,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20160801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtension" }, { type: "azure-nextgen:web/v20201001:WebAppSiteExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSiteExtension.__pulumiType, name, inputs, opts);
     }

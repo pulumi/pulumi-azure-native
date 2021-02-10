@@ -24,11 +24,11 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// <summary>
         /// The identity type.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
-        /// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The user assigned identities associated with the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.IdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -36,9 +36,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             string tenantId,
 
-            string type,
+            string? type,
 
-            ImmutableDictionary<string, Outputs.IdentityResponseUserAssignedIdentities>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

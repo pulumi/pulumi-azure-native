@@ -46,7 +46,7 @@ class ListWorkspaceKeysResult:
 
     @property
     @pulumi.getter(name="notebookAccessKeys")
-    def notebook_access_keys(self) -> Optional['outputs.NotebookListCredentialsResultResponseResult']:
+    def notebook_access_keys(self) -> 'outputs.ListNotebookKeysResultResponseResult':
         return pulumi.get(self, "notebook_access_keys")
 
     @property

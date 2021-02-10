@@ -86,7 +86,7 @@ export class WebAppConnectionStrings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20150801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20160801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20180201:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20181101:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200601:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200901:WebAppConnectionStrings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20150801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20160801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20180201:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20181101:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200601:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200901:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20201001:WebAppConnectionStrings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppConnectionStrings.__pulumiType, name, inputs, opts);
     }

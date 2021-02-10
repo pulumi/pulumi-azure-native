@@ -17,11 +17,19 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// The ARM identifier for Private Endpoint
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The ARM identifier for Subnet resource that private endpoint links to
+        /// </summary>
+        public readonly string SubnetArmId;
 
         [OutputConstructor]
-        private PrivateEndpointResponse(string id)
+        private PrivateEndpointResponse(
+            string id,
+
+            string subnetArmId)
         {
             Id = id;
+            SubnetArmId = subnetArmId;
         }
     }
 }

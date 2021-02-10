@@ -67,4 +67,8 @@ export interface GetWorkspaceConnectionResult {
      * Value details of the workspace connection.
      */
     readonly value?: string;
+    /**
+     * format for the workspace connection value
+     */
+    readonly valueFormat?: string;
 }

@@ -58,6 +58,9 @@ func NewWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSwiftVirtualNetworkConnection

@@ -140,7 +140,7 @@ export class StaticSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:StaticSite" }, { type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:StaticSite" }, { type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20201001:StaticSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StaticSite.__pulumiType, name, inputs, opts);
     }

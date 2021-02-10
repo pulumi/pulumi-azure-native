@@ -23,7 +23,6 @@ export type ShareKind = (typeof ShareKind)[keyof typeof ShareKind];
 
 export const Type = {
     SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
 } as const;
 
 /**

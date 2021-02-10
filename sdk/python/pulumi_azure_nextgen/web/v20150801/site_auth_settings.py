@@ -167,7 +167,7 @@ class SiteAuthSettings(pulumi.CustomResource):
             __props__['twitter_consumer_key'] = twitter_consumer_key
             __props__['twitter_consumer_secret'] = twitter_consumer_secret
             __props__['unauthenticated_client_action'] = unauthenticated_client_action
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteAuthSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteAuthSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteAuthSettings, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteAuthSettings',

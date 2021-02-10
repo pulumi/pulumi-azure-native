@@ -72,6 +72,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAuthSettingsV2"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAuthSettingsV2"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

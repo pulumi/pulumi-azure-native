@@ -80,6 +80,10 @@ export class StreamingLocator extends pulumi.CustomResource {
      */
     public readonly streamingPolicyName!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.v20200501.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["alternativeMediaId"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["startTime"] = undefined /*out*/;
             inputs["streamingLocatorId"] = undefined /*out*/;
             inputs["streamingPolicyName"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

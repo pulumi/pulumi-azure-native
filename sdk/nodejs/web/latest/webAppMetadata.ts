@@ -93,7 +93,7 @@ export class WebAppMetadata extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppMetadata" }, { type: "azure-nextgen:web/v20160801:WebAppMetadata" }, { type: "azure-nextgen:web/v20180201:WebAppMetadata" }, { type: "azure-nextgen:web/v20181101:WebAppMetadata" }, { type: "azure-nextgen:web/v20190801:WebAppMetadata" }, { type: "azure-nextgen:web/v20200601:WebAppMetadata" }, { type: "azure-nextgen:web/v20200901:WebAppMetadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppMetadata" }, { type: "azure-nextgen:web/v20160801:WebAppMetadata" }, { type: "azure-nextgen:web/v20180201:WebAppMetadata" }, { type: "azure-nextgen:web/v20181101:WebAppMetadata" }, { type: "azure-nextgen:web/v20190801:WebAppMetadata" }, { type: "azure-nextgen:web/v20200601:WebAppMetadata" }, { type: "azure-nextgen:web/v20200901:WebAppMetadata" }, { type: "azure-nextgen:web/v20201001:WebAppMetadata" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppMetadata.__pulumiType, name, inputs, opts);
     }

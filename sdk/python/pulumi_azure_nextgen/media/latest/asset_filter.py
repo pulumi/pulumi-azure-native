@@ -75,6 +75,7 @@ class AssetFilter(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tracks'] = tracks
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180701:AssetFilter"), pulumi.Alias(type_="azure-nextgen:media/v20200501:AssetFilter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -125,6 +126,14 @@ class AssetFilter(pulumi.CustomResource):
         The presentation time range.
         """
         return pulumi.get(self, "presentation_time_range")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

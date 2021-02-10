@@ -38,6 +38,8 @@ type Job struct {
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// The current state of the job.
 	State pulumi.StringOutput `pulumi:"state"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -126,6 +128,8 @@ type jobState struct {
 	StartTime *string `pulumi:"startTime"`
 	// The current state of the job.
 	State *string `pulumi:"state"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -153,6 +157,8 @@ type JobState struct {
 	StartTime pulumi.StringPtrInput
 	// The current state of the job.
 	State pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

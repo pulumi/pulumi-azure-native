@@ -102,6 +102,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly ImmutableArray<string> StreamOptions;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             ImmutableArray<string> streamOptions,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.LiveEventTranscriptionResponse> transcriptions,
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             StreamOptions = streamOptions;
+            SystemData = systemData;
             Tags = tags;
             Transcriptions = transcriptions;
             Type = type;

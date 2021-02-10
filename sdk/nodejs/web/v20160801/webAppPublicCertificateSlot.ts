@@ -106,7 +106,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPublicCertificateSlot.__pulumiType, name, inputs, opts);
     }

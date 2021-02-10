@@ -1452,6 +1452,316 @@ func (o ProxyServerPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 }
 
 // Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesAlertNotifications struct {
+	// Defines the minimal alert severity which will be sent as email notifications
+	MinimalSeverity *string `pulumi:"minimalSeverity"`
+	// Defines if email notifications will be sent about new security alerts
+	State *string `pulumi:"state"`
+}
+
+// SecurityContactPropertiesAlertNotificationsInput is an input type that accepts SecurityContactPropertiesAlertNotificationsArgs and SecurityContactPropertiesAlertNotificationsOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesAlertNotificationsInput` via:
+//
+//          SecurityContactPropertiesAlertNotificationsArgs{...}
+type SecurityContactPropertiesAlertNotificationsInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesAlertNotificationsOutput() SecurityContactPropertiesAlertNotificationsOutput
+	ToSecurityContactPropertiesAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesAlertNotificationsOutput
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesAlertNotificationsArgs struct {
+	// Defines the minimal alert severity which will be sent as email notifications
+	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
+	// Defines if email notifications will be sent about new security alerts
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SecurityContactPropertiesAlertNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesAlertNotifications)(nil)).Elem()
+}
+
+func (i SecurityContactPropertiesAlertNotificationsArgs) ToSecurityContactPropertiesAlertNotificationsOutput() SecurityContactPropertiesAlertNotificationsOutput {
+	return i.ToSecurityContactPropertiesAlertNotificationsOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesAlertNotificationsArgs) ToSecurityContactPropertiesAlertNotificationsOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesAlertNotificationsOutput)
+}
+
+func (i SecurityContactPropertiesAlertNotificationsArgs) ToSecurityContactPropertiesAlertNotificationsPtrOutput() SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return i.ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesAlertNotificationsArgs) ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesAlertNotificationsOutput).ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx)
+}
+
+// SecurityContactPropertiesAlertNotificationsPtrInput is an input type that accepts SecurityContactPropertiesAlertNotificationsArgs, SecurityContactPropertiesAlertNotificationsPtr and SecurityContactPropertiesAlertNotificationsPtrOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesAlertNotificationsPtrInput` via:
+//
+//          SecurityContactPropertiesAlertNotificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityContactPropertiesAlertNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesAlertNotificationsPtrOutput() SecurityContactPropertiesAlertNotificationsPtrOutput
+	ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput
+}
+
+type securityContactPropertiesAlertNotificationsPtrType SecurityContactPropertiesAlertNotificationsArgs
+
+func SecurityContactPropertiesAlertNotificationsPtr(v *SecurityContactPropertiesAlertNotificationsArgs) SecurityContactPropertiesAlertNotificationsPtrInput {
+	return (*securityContactPropertiesAlertNotificationsPtrType)(v)
+}
+
+func (*securityContactPropertiesAlertNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesAlertNotifications)(nil)).Elem()
+}
+
+func (i *securityContactPropertiesAlertNotificationsPtrType) ToSecurityContactPropertiesAlertNotificationsPtrOutput() SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return i.ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityContactPropertiesAlertNotificationsPtrType) ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesAlertNotificationsPtrOutput)
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesAlertNotificationsOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesAlertNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesAlertNotifications)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactPropertiesAlertNotificationsOutput() SecurityContactPropertiesAlertNotificationsOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactPropertiesAlertNotificationsOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactPropertiesAlertNotificationsPtrOutput() SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return o.ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *SecurityContactPropertiesAlertNotifications {
+		return &v
+	}).(SecurityContactPropertiesAlertNotificationsPtrOutput)
+}
+
+// Defines the minimal alert severity which will be sent as email notifications
+func (o SecurityContactPropertiesAlertNotificationsOutput) MinimalSeverity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *string { return v.MinimalSeverity }).(pulumi.StringPtrOutput)
+}
+
+// Defines if email notifications will be sent about new security alerts
+func (o SecurityContactPropertiesAlertNotificationsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SecurityContactPropertiesAlertNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesAlertNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesAlertNotifications)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesAlertNotificationsPtrOutput) ToSecurityContactPropertiesAlertNotificationsPtrOutput() SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesAlertNotificationsPtrOutput) ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesAlertNotificationsPtrOutput) Elem() SecurityContactPropertiesAlertNotificationsOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) SecurityContactPropertiesAlertNotifications {
+		return *v
+	}).(SecurityContactPropertiesAlertNotificationsOutput)
+}
+
+// Defines the minimal alert severity which will be sent as email notifications
+func (o SecurityContactPropertiesAlertNotificationsPtrOutput) MinimalSeverity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimalSeverity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines if email notifications will be sent about new security alerts
+func (o SecurityContactPropertiesAlertNotificationsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesNotificationsByRole struct {
+	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	Roles []string `pulumi:"roles"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	State *string `pulumi:"state"`
+}
+
+// SecurityContactPropertiesNotificationsByRoleInput is an input type that accepts SecurityContactPropertiesNotificationsByRoleArgs and SecurityContactPropertiesNotificationsByRoleOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesNotificationsByRoleInput` via:
+//
+//          SecurityContactPropertiesNotificationsByRoleArgs{...}
+type SecurityContactPropertiesNotificationsByRoleInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesNotificationsByRoleOutput() SecurityContactPropertiesNotificationsByRoleOutput
+	ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesNotificationsByRoleOutput
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesNotificationsByRoleArgs struct {
+	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SecurityContactPropertiesNotificationsByRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesNotificationsByRole)(nil)).Elem()
+}
+
+func (i SecurityContactPropertiesNotificationsByRoleArgs) ToSecurityContactPropertiesNotificationsByRoleOutput() SecurityContactPropertiesNotificationsByRoleOutput {
+	return i.ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesNotificationsByRoleArgs) ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesNotificationsByRoleOutput)
+}
+
+func (i SecurityContactPropertiesNotificationsByRoleArgs) ToSecurityContactPropertiesNotificationsByRolePtrOutput() SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return i.ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesNotificationsByRoleArgs) ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesNotificationsByRoleOutput).ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx)
+}
+
+// SecurityContactPropertiesNotificationsByRolePtrInput is an input type that accepts SecurityContactPropertiesNotificationsByRoleArgs, SecurityContactPropertiesNotificationsByRolePtr and SecurityContactPropertiesNotificationsByRolePtrOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesNotificationsByRolePtrInput` via:
+//
+//          SecurityContactPropertiesNotificationsByRoleArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityContactPropertiesNotificationsByRolePtrInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesNotificationsByRolePtrOutput() SecurityContactPropertiesNotificationsByRolePtrOutput
+	ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput
+}
+
+type securityContactPropertiesNotificationsByRolePtrType SecurityContactPropertiesNotificationsByRoleArgs
+
+func SecurityContactPropertiesNotificationsByRolePtr(v *SecurityContactPropertiesNotificationsByRoleArgs) SecurityContactPropertiesNotificationsByRolePtrInput {
+	return (*securityContactPropertiesNotificationsByRolePtrType)(v)
+}
+
+func (*securityContactPropertiesNotificationsByRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesNotificationsByRole)(nil)).Elem()
+}
+
+func (i *securityContactPropertiesNotificationsByRolePtrType) ToSecurityContactPropertiesNotificationsByRolePtrOutput() SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return i.ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(context.Background())
+}
+
+func (i *securityContactPropertiesNotificationsByRolePtrType) ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesNotificationsByRolePtrOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesNotificationsByRoleOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesNotificationsByRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesNotificationsByRole)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPropertiesNotificationsByRoleOutput() SecurityContactPropertiesNotificationsByRoleOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRoleOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPropertiesNotificationsByRolePtrOutput() SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return o.ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) *SecurityContactPropertiesNotificationsByRole {
+		return &v
+	}).(SecurityContactPropertiesNotificationsByRolePtrOutput)
+}
+
+// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+func (o SecurityContactPropertiesNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+func (o SecurityContactPropertiesNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SecurityContactPropertiesNotificationsByRolePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesNotificationsByRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesNotificationsByRole)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesNotificationsByRolePtrOutput) ToSecurityContactPropertiesNotificationsByRolePtrOutput() SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesNotificationsByRolePtrOutput) ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Elem() SecurityContactPropertiesNotificationsByRoleOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) SecurityContactPropertiesNotificationsByRole {
+		return *v
+	}).(SecurityContactPropertiesNotificationsByRoleOutput)
+}
+
+// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+func (o SecurityContactPropertiesNotificationsByRolePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotifications struct {
 	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity *string `pulumi:"minimalSeverity"`
@@ -2082,6 +2392,10 @@ func init() {
 	pulumi.RegisterOutputType(ProxyServerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProxyServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProxyServerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesAlertNotificationsOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesAlertNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesNotificationsByRoleOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesNotificationsByRolePtrOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseAlertNotificationsOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseAlertNotificationsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseNotificationsByRoleOutput{})

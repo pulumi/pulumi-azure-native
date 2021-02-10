@@ -20,7 +20,7 @@ class GetTransformResult:
     """
     A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     """
-    def __init__(__self__, created=None, description=None, id=None, last_modified=None, name=None, outputs=None, type=None):
+    def __init__(__self__, created=None, description=None, id=None, last_modified=None, name=None, outputs=None, system_data=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -39,6 +39,9 @@ class GetTransformResult:
         if outputs and not isinstance(outputs, list):
             raise TypeError("Expected argument 'outputs' to be a list")
         pulumi.set(__self__, "outputs", outputs)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -92,6 +95,14 @@ class GetTransformResult:
         return pulumi.get(self, "outputs")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -112,6 +123,7 @@ class AwaitableGetTransformResult(GetTransformResult):
             last_modified=self.last_modified,
             name=self.name,
             outputs=self.outputs,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -143,4 +155,5 @@ def get_transform(account_name: Optional[str] = None,
         last_modified=__ret__.last_modified,
         name=__ret__.name,
         outputs=__ret__.outputs,
+        system_data=__ret__.system_data,
         type=__ret__.type)

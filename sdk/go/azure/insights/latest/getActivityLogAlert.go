@@ -17,32 +17,32 @@ func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArg
 }
 
 type LookupActivityLogAlertArgs struct {
-	// The name of the activity log alert.
+	// The name of the Activity Log Alert rule.
 	ActivityLogAlertName string `pulumi:"activityLogAlertName"`
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// An activity log alert resource.
+// An Activity Log Alert rule resource.
 type LookupActivityLogAlertResult struct {
 	// The actions that will activate when the condition is met.
-	Actions ActivityLogAlertActionListResponse `pulumi:"actions"`
+	Actions ActionListResponse `pulumi:"actions"`
 	// The condition that will cause this alert to activate.
-	Condition ActivityLogAlertAllOfConditionResponse `pulumi:"condition"`
-	// A description of this activity log alert.
+	Condition AlertRuleAllOfConditionResponse `pulumi:"condition"`
+	// A description of this Activity Log Alert rule.
 	Description *string `pulumi:"description"`
-	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+	// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
 	Enabled *bool `pulumi:"enabled"`
-	// Azure resource Id
+	// The resource Id.
 	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
+	// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
 	Name string `pulumi:"name"`
-	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+	// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
 	Scopes []string `pulumi:"scopes"`
-	// Resource tags
+	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
+	// The type of the resource.
 	Type string `pulumi:"type"`
 }

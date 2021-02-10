@@ -89,7 +89,7 @@ export class WebApplicationSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20150801:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebApplicationSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20150801:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebApplicationSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebApplicationSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebApplicationSettingsSlot.__pulumiType, name, inputs, opts);
     }

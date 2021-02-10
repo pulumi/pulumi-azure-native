@@ -39,6 +39,69 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
     }
 
     /// <summary>
+    /// Intended usage of the cluster
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPurpose : IEquatable<ClusterPurpose>
+    {
+        private readonly string _value;
+
+        private ClusterPurpose(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPurpose FastProd { get; } = new ClusterPurpose("FastProd");
+        public static ClusterPurpose DenseProd { get; } = new ClusterPurpose("DenseProd");
+        public static ClusterPurpose DevTest { get; } = new ClusterPurpose("DevTest");
+
+        public static bool operator ==(ClusterPurpose left, ClusterPurpose right) => left.Equals(right);
+        public static bool operator !=(ClusterPurpose left, ClusterPurpose right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPurpose value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPurpose other && Equals(other);
+        public bool Equals(ClusterPurpose other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The compute environment type for the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeEnvironmentType : IEquatable<ComputeEnvironmentType>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentType ACI { get; } = new ComputeEnvironmentType("ACI");
+        public static ComputeEnvironmentType AKS { get; } = new ComputeEnvironmentType("AKS");
+
+        public static bool operator ==(ComputeEnvironmentType left, ComputeEnvironmentType right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentType left, ComputeEnvironmentType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentType other && Equals(other);
+        public bool Equals(ComputeEnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The Compute Instance Authorization type. Available values are personal (default).
     /// </summary>
     [EnumType]
@@ -290,6 +353,36 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SshPublicAccess other && Equals(other);
         public bool Equals(SshPublicAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// format for the workspace connection value
+    /// </summary>
+    [EnumType]
+    public readonly struct ValueFormat : IEquatable<ValueFormat>
+    {
+        private readonly string _value;
+
+        private ValueFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ValueFormat JSON { get; } = new ValueFormat("JSON");
+
+        public static bool operator ==(ValueFormat left, ValueFormat right) => left.Equals(right);
+        public static bool operator !=(ValueFormat left, ValueFormat right) => !left.Equals(right);
+
+        public static explicit operator string(ValueFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ValueFormat other && Equals(other);
+        public bool Equals(ValueFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

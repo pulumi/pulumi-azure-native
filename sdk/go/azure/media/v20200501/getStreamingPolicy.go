@@ -43,6 +43,8 @@ type LookupStreamingPolicyResult struct {
 	Name string `pulumi:"name"`
 	// Configurations of NoEncryption
 	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

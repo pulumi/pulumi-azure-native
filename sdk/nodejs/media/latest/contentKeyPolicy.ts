@@ -61,6 +61,10 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.latest.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             inputs["lastModified"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["created"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["options"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

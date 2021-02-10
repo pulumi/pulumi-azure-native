@@ -83,6 +83,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]

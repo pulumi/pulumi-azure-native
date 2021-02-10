@@ -53,6 +53,8 @@ type LookupJobResult struct {
 	StartTime string `pulumi:"startTime"`
 	// The current state of the job.
 	State string `pulumi:"state"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         [Output("containerRegistry")]
         public Output<string?> ContainerRegistry { get; private set; } = null!;
-
-        /// <summary>
-        /// The creation time of the machine learning workspace in ISO8601 format.
-        /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
         /// The description of this workspace.
@@ -107,6 +101,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         public Output<Outputs.NotebookResourceInfoResponse> NotebookInfo { get; private set; } = null!;
 
         /// <summary>
+        /// The user assigned identity resource id that represents the workspace identity.
+        /// </summary>
+        [Output("primaryUserAssignedIdentity")]
+        public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// The list of private endpoint connections in the workspace.
         /// </summary>
         [Output("privateEndpointConnections")]
@@ -123,6 +123,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The service managed resource settings.
+        /// </summary>
+        [Output("serviceManagedResourcesSettings")]
+        public Output<Outputs.ServiceManagedResourcesSettingsResponse?> ServiceManagedResourcesSettings { get; private set; } = null!;
 
         /// <summary>
         /// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
@@ -147,6 +153,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         [Output("storageAccount")]
         public Output<string?> StorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -205,6 +217,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -301,10 +314,22 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The user assigned identity resource id that represents the workspace identity.
+        /// </summary>
+        [Input("primaryUserAssignedIdentity")]
+        public Input<string>? PrimaryUserAssignedIdentity { get; set; }
+
+        /// <summary>
         /// Name of the resource group in which workspace is located.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The service managed resource settings.
+        /// </summary>
+        [Input("serviceManagedResourcesSettings")]
+        public Input<Inputs.ServiceManagedResourcesSettingsArgs>? ServiceManagedResourcesSettings { get; set; }
 
         [Input("sharedPrivateLinkResources")]
         private InputList<Inputs.SharedPrivateLinkResourceArgs>? _sharedPrivateLinkResources;

@@ -91,6 +91,7 @@ class StreamingLocator(pulumi.CustomResource):
             __props__['streaming_policy_name'] = streaming_policy_name
             __props__['created'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingLocator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -205,6 +206,14 @@ class StreamingLocator(pulumi.CustomResource):
         Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
         return pulumi.get(self, "streaming_policy_name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

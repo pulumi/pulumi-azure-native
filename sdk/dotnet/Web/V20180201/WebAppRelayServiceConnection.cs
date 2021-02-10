@@ -86,6 +86,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppRelayServiceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -56,6 +56,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         public Output<string?> StorageAuthentication { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]

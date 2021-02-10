@@ -64,6 +64,9 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ActivityLogAlert"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20201001:ActivityLogAlert"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ActivityLogAlert

@@ -17,9 +17,9 @@ class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['ActionListArgs']]] = None,
                  activity_log_alert_name: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertAllOfConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['AlertRuleAllOfConditionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,20 +30,20 @@ class ActivityLogAlert(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        An activity log alert resource.
-        Latest API Version: 2017-04-01.
+        An Activity Log Alert rule resource.
+        Latest API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']] actions: The actions that will activate when the condition is met.
-        :param pulumi.Input[str] activity_log_alert_name: The name of the activity log alert.
-        :param pulumi.Input[pulumi.InputType['ActivityLogAlertAllOfConditionArgs']] condition: The condition that will cause this alert to activate.
-        :param pulumi.Input[str] description: A description of this activity log alert.
-        :param pulumi.Input[bool] enabled: Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[pulumi.InputType['ActionListArgs']] actions: The actions that will activate when the condition is met.
+        :param pulumi.Input[str] activity_log_alert_name: The name of the Activity Log Alert rule.
+        :param pulumi.Input[pulumi.InputType['AlertRuleAllOfConditionArgs']] condition: The condition that will cause this alert to activate.
+        :param pulumi.Input[str] description: A description of this Activity Log Alert rule.
+        :param pulumi.Input[bool] enabled: Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
+        :param pulumi.Input[str] location: The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +75,8 @@ class ActivityLogAlert(pulumi.CustomResource):
             if enabled is None:
                 enabled = True
             __props__['enabled'] = enabled
+            if location is None:
+                location = 'global'
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -85,7 +87,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActivityLogAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActivityLogAlert"), pulumi.Alias(type_="azure-nextgen:insights/v20201001:ActivityLogAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActivityLogAlert, __self__).__init__(
             'azure-nextgen:insights/latest:ActivityLogAlert',
@@ -113,7 +115,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output['outputs.ActivityLogAlertActionListResponse']:
+    def actions(self) -> pulumi.Output['outputs.ActionListResponse']:
         """
         The actions that will activate when the condition is met.
         """
@@ -121,7 +123,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> pulumi.Output['outputs.ActivityLogAlertAllOfConditionResponse']:
+    def condition(self) -> pulumi.Output['outputs.AlertRuleAllOfConditionResponse']:
         """
         The condition that will cause this alert to activate.
         """
@@ -131,7 +133,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of this activity log alert.
+        A description of this Activity Log Alert rule.
         """
         return pulumi.get(self, "description")
 
@@ -139,15 +141,15 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource location
+        The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
         """
         return pulumi.get(self, "location")
 
@@ -155,7 +157,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -163,7 +165,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         """
         return pulumi.get(self, "scopes")
 
@@ -171,7 +173,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -179,7 +181,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource.
         """
         return pulumi.get(self, "type")
 

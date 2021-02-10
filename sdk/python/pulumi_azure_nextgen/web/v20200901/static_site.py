@@ -81,7 +81,7 @@ class StaticSite(pulumi.CustomResource):
             __props__['default_hostname'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200601:StaticSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20201001:StaticSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSite, __self__).__init__(
             'azure-nextgen:web/v20200901:StaticSite',

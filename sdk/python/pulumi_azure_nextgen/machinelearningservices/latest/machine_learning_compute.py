@@ -31,7 +31,7 @@ class MachineLearningCompute(pulumi.CustomResource):
                  __opts__=None):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,8 +76,9 @@ class MachineLearningCompute(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningCompute, __self__).__init__(
             'azure-nextgen:machinelearningservices/latest:MachineLearningCompute',
@@ -142,6 +143,14 @@ class MachineLearningCompute(pulumi.CustomResource):
         The sku of the workspace.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

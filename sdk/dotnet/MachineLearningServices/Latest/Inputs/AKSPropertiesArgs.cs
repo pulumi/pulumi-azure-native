@@ -40,6 +40,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         public Input<string>? ClusterFqdn { get; set; }
 
         /// <summary>
+        /// Intended usage of the cluster
+        /// </summary>
+        [Input("clusterPurpose")]
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.Latest.ClusterPurpose>? ClusterPurpose { get; set; }
+
+        /// <summary>
         /// SSL configuration
         /// </summary>
         [Input("sslConfiguration")]
@@ -47,6 +53,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
 
         public AKSPropertiesArgs()
         {
+            ClusterPurpose = "FastProd";
         }
     }
 }

@@ -77,6 +77,9 @@ func NewServerFarmRouteForVnet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:ServerFarmRouteForVnet"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:ServerFarmRouteForVnet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerFarmRouteForVnet

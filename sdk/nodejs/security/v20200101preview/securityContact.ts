@@ -38,11 +38,11 @@ export class SecurityContact extends pulumi.CustomResource {
     /**
      * Defines whether to send email notifications about new security alerts
      */
-    public /*out*/ readonly alertNotifications!: pulumi.Output<outputs.security.v20200101preview.SecurityContactPropertiesResponseAlertNotifications | undefined>;
+    public readonly alertNotifications!: pulumi.Output<outputs.security.v20200101preview.SecurityContactPropertiesResponseAlertNotifications | undefined>;
     /**
      * List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
      */
-    public /*out*/ readonly emails!: pulumi.Output<string | undefined>;
+    public readonly emails!: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
@@ -50,11 +50,11 @@ export class SecurityContact extends pulumi.CustomResource {
     /**
      * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
      */
-    public /*out*/ readonly notificationsByRole!: pulumi.Output<outputs.security.v20200101preview.SecurityContactPropertiesResponseNotificationsByRole | undefined>;
+    public readonly notificationsByRole!: pulumi.Output<outputs.security.v20200101preview.SecurityContactPropertiesResponseNotificationsByRole | undefined>;
     /**
      * The security contact's phone number
      */
-    public /*out*/ readonly phone!: pulumi.Output<string | undefined>;
+    public readonly phone!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
@@ -73,12 +73,12 @@ export class SecurityContact extends pulumi.CustomResource {
             if ((!args || args.securityContactName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityContactName'");
             }
+            inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
+            inputs["emails"] = args ? args.emails : undefined;
+            inputs["notificationsByRole"] = args ? args.notificationsByRole : undefined;
+            inputs["phone"] = args ? args.phone : undefined;
             inputs["securityContactName"] = args ? args.securityContactName : undefined;
-            inputs["alertNotifications"] = undefined /*out*/;
-            inputs["emails"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["notificationsByRole"] = undefined /*out*/;
-            inputs["phone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["alertNotifications"] = undefined /*out*/;
@@ -105,6 +105,22 @@ export class SecurityContact extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityContact resource.
  */
 export interface SecurityContactArgs {
+    /**
+     * Defines whether to send email notifications about new security alerts
+     */
+    readonly alertNotifications?: pulumi.Input<inputs.security.v20200101preview.SecurityContactPropertiesAlertNotifications>;
+    /**
+     * List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+     */
+    readonly emails?: pulumi.Input<string>;
+    /**
+     * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+     */
+    readonly notificationsByRole?: pulumi.Input<inputs.security.v20200101preview.SecurityContactPropertiesNotificationsByRole>;
+    /**
+     * The security contact's phone number
+     */
+    readonly phone?: pulumi.Input<string>;
     /**
      * Name of the security contact object
      */

@@ -52,10 +52,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         public readonly string? ContainerRegistry;
         /// <summary>
-        /// The creation time of the machine learning workspace in ISO8601 format.
-        /// </summary>
-        public readonly string CreationTime;
-        /// <summary>
         /// The description of this workspace.
         /// </summary>
         public readonly string? Description;
@@ -104,6 +100,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         public readonly Outputs.NotebookResourceInfoResponse NotebookInfo;
         /// <summary>
+        /// The user assigned identity resource id that represents the workspace identity.
+        /// </summary>
+        public readonly string? PrimaryUserAssignedIdentity;
+        /// <summary>
         /// The list of private endpoint connections in the workspace.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -115,6 +115,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The service managed resource settings.
+        /// </summary>
+        public readonly Outputs.ServiceManagedResourcesSettingsResponse? ServiceManagedResourcesSettings;
         /// <summary>
         /// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
         /// </summary>
@@ -131,6 +135,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
         public readonly string? StorageAccount;
+        /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -151,8 +159,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
             string? applicationInsights,
 
             string? containerRegistry,
-
-            string creationTime,
 
             string? description,
 
@@ -178,11 +184,15 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 
             Outputs.NotebookResourceInfoResponse notebookInfo,
 
+            string? primaryUserAssignedIdentity,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             int privateLinkCount,
 
             string provisioningState,
+
+            Outputs.ServiceManagedResourcesSettingsResponse? serviceManagedResourcesSettings,
 
             string serviceProvisionedResourceGroup,
 
@@ -191,6 +201,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
             Outputs.SkuResponse? sku,
 
             string? storageAccount,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -201,7 +213,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
             AllowPublicAccessWhenBehindVnet = allowPublicAccessWhenBehindVnet;
             ApplicationInsights = applicationInsights;
             ContainerRegistry = containerRegistry;
-            CreationTime = creationTime;
             Description = description;
             DiscoveryUrl = discoveryUrl;
             Encryption = encryption;
@@ -214,13 +225,16 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
             Location = location;
             Name = name;
             NotebookInfo = notebookInfo;
+            PrimaryUserAssignedIdentity = primaryUserAssignedIdentity;
             PrivateEndpointConnections = privateEndpointConnections;
             PrivateLinkCount = privateLinkCount;
             ProvisioningState = provisioningState;
+            ServiceManagedResourcesSettings = serviceManagedResourcesSettings;
             ServiceProvisionedResourceGroup = serviceProvisionedResourceGroup;
             SharedPrivateLinkResources = sharedPrivateLinkResources;
             Sku = sku;
             StorageAccount = storageAccount;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             WorkspaceId = workspaceId;

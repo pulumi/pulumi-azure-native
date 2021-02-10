@@ -75,7 +75,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_url'")
             __props__['storage_account_url'] = storage_account_url
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppBackupConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppBackupConfiguration, __self__).__init__(
             'azure-nextgen:web/v20190801:WebAppBackupConfiguration',

@@ -105,6 +105,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceCertificateOrder

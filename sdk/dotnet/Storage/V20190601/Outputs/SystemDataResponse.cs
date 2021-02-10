@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601.Outputs
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The type of identity that last modified the resource.
+        /// The timestamp of resource last modification (UTC)
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>

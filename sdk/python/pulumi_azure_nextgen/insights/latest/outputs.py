@@ -11,10 +11,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActivityLogAlertActionGroupResponse',
-    'ActivityLogAlertActionListResponse',
-    'ActivityLogAlertAllOfConditionResponse',
-    'ActivityLogAlertLeafConditionResponse',
+    'ActionGroupResponse',
+    'ActionListResponse',
+    'AlertRuleAllOfConditionResponse',
+    'AlertRuleAnyOfOrLeafConditionResponse',
+    'AlertRuleLeafConditionResponse',
     'AlertingActionResponse',
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
     'ApplicationInsightsComponentDataVolumeCapResponse',
@@ -74,7 +75,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ActivityLogAlertActionGroupResponse(dict):
+class ActionGroupResponse(dict):
     """
     A pointer to an Azure Action Group.
     """
@@ -83,7 +84,7 @@ class ActivityLogAlertActionGroupResponse(dict):
                  webhook_properties: Optional[Mapping[str, str]] = None):
         """
         A pointer to an Azure Action Group.
-        :param str action_group_id: The resourceId of the action group. This cannot be null or empty.
+        :param str action_group_id: The resource ID of the Action Group. This cannot be null or empty.
         :param Mapping[str, str] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
@@ -94,7 +95,7 @@ class ActivityLogAlertActionGroupResponse(dict):
     @pulumi.getter(name="actionGroupId")
     def action_group_id(self) -> str:
         """
-        The resourceId of the action group. This cannot be null or empty.
+        The resource ID of the Action Group. This cannot be null or empty.
         """
         return pulumi.get(self, "action_group_id")
 
@@ -111,24 +112,24 @@ class ActivityLogAlertActionGroupResponse(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertActionListResponse(dict):
+class ActionListResponse(dict):
     """
-    A list of activity log alert actions.
+    A list of Activity Log Alert rule actions.
     """
     def __init__(__self__, *,
-                 action_groups: Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']] = None):
+                 action_groups: Optional[Sequence['outputs.ActionGroupResponse']] = None):
         """
-        A list of activity log alert actions.
-        :param Sequence['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
+        A list of Activity Log Alert rule actions.
+        :param Sequence['ActionGroupResponseArgs'] action_groups: The list of the Action Groups.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']]:
+    def action_groups(self) -> Optional[Sequence['outputs.ActionGroupResponse']]:
         """
-        The list of activity log alerts.
+        The list of the Action Groups.
         """
         return pulumi.get(self, "action_groups")
 
@@ -137,23 +138,23 @@ class ActivityLogAlertActionListResponse(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertAllOfConditionResponse(dict):
+class AlertRuleAllOfConditionResponse(dict):
     """
-    An Activity Log alert condition that is met when all its member conditions are met.
+    An Activity Log Alert rule condition that is met when all its member conditions are met.
     """
     def __init__(__self__, *,
-                 all_of: Sequence['outputs.ActivityLogAlertLeafConditionResponse']):
+                 all_of: Sequence['outputs.AlertRuleAnyOfOrLeafConditionResponse']):
         """
-        An Activity Log alert condition that is met when all its member conditions are met.
-        :param Sequence['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
+        An Activity Log Alert rule condition that is met when all its member conditions are met.
+        :param Sequence['AlertRuleAnyOfOrLeafConditionResponseArgs'] all_of: The list of Activity Log Alert rule conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Sequence['outputs.ActivityLogAlertLeafConditionResponse']:
+    def all_of(self) -> Sequence['outputs.AlertRuleAnyOfOrLeafConditionResponse']:
         """
-        The list of activity log alert conditions.
+        The list of Activity Log Alert rule conditions.
         """
         return pulumi.get(self, "all_of")
 
@@ -162,34 +163,129 @@ class ActivityLogAlertAllOfConditionResponse(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertLeafConditionResponse(dict):
+class AlertRuleAnyOfOrLeafConditionResponse(dict):
     """
-    An Activity Log alert condition that is met by comparing an activity log field and value.
+    An Activity Log Alert rule condition that is met when all its member conditions are met.
+    Each condition can be of one of the following types:
+    __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+       * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+      _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+      * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+      _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
     """
     def __init__(__self__, *,
-                 equals: str,
-                 field: str):
+                 any_of: Optional[Sequence['outputs.AlertRuleLeafConditionResponse']] = None,
+                 contains_any: Optional[Sequence[str]] = None,
+                 equals: Optional[str] = None,
+                 field: Optional[str] = None):
         """
-        An Activity Log alert condition that is met by comparing an activity log field and value.
-        :param str equals: The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-        :param str field: The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+        An Activity Log Alert rule condition that is met when all its member conditions are met.
+        Each condition can be of one of the following types:
+        __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+           * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+          _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+          * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+          _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+
+        :param Sequence['AlertRuleLeafConditionResponseArgs'] any_of: An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+        :param Sequence[str] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+        :param str equals: The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+        :param str field: The name of the Activity Log event's field that this condition will examine.
+               The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
-        pulumi.set(__self__, "equals", equals)
-        pulumi.set(__self__, "field", field)
+        if any_of is not None:
+            pulumi.set(__self__, "any_of", any_of)
+        if contains_any is not None:
+            pulumi.set(__self__, "contains_any", contains_any)
+        if equals is not None:
+            pulumi.set(__self__, "equals", equals)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> Optional[Sequence['outputs.AlertRuleLeafConditionResponse']]:
+        """
+        An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+        """
+        return pulumi.get(self, "any_of")
+
+    @property
+    @pulumi.getter(name="containsAny")
+    def contains_any(self) -> Optional[Sequence[str]]:
+        """
+        The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+        """
+        return pulumi.get(self, "contains_any")
 
     @property
     @pulumi.getter
-    def equals(self) -> str:
+    def equals(self) -> Optional[str]:
         """
-        The field value will be compared to this value (case-insensitive) to determine if the condition is met.
+        The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
         """
         return pulumi.get(self, "equals")
 
     @property
     @pulumi.getter
-    def field(self) -> str:
+    def field(self) -> Optional[str]:
         """
-        The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+        The name of the Activity Log event's field that this condition will examine.
+        The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+        """
+        return pulumi.get(self, "field")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AlertRuleLeafConditionResponse(dict):
+    """
+    An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+    This condition must contain 'field' and either 'equals' or 'containsAny'.
+    """
+    def __init__(__self__, *,
+                 contains_any: Optional[Sequence[str]] = None,
+                 equals: Optional[str] = None,
+                 field: Optional[str] = None):
+        """
+        An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+        This condition must contain 'field' and either 'equals' or 'containsAny'.
+        :param Sequence[str] contains_any: The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+        :param str equals: The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+        :param str field: The name of the Activity Log event's field that this condition will examine.
+               The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+        """
+        if contains_any is not None:
+            pulumi.set(__self__, "contains_any", contains_any)
+        if equals is not None:
+            pulumi.set(__self__, "equals", equals)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter(name="containsAny")
+    def contains_any(self) -> Optional[Sequence[str]]:
+        """
+        The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+        """
+        return pulumi.get(self, "contains_any")
+
+    @property
+    @pulumi.getter
+    def equals(self) -> Optional[str]:
+        """
+        The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+        """
+        return pulumi.get(self, "equals")
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The name of the Activity Log event's field that this condition will examine.
+        The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
         return pulumi.get(self, "field")
 

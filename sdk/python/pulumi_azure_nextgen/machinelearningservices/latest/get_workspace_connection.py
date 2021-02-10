@@ -19,7 +19,7 @@ class GetWorkspaceConnectionResult:
     """
     Workspace connection.
     """
-    def __init__(__self__, auth_type=None, category=None, id=None, name=None, target=None, type=None, value=None):
+    def __init__(__self__, auth_type=None, category=None, id=None, name=None, target=None, type=None, value=None, value_format=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
@@ -41,6 +41,9 @@ class GetWorkspaceConnectionResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+        if value_format and not isinstance(value_format, str):
+            raise TypeError("Expected argument 'value_format' to be a str")
+        pulumi.set(__self__, "value_format", value_format)
 
     @property
     @pulumi.getter(name="authType")
@@ -98,6 +101,14 @@ class GetWorkspaceConnectionResult:
         """
         return pulumi.get(self, "value")
 
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
+
 
 class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
     # pylint: disable=using-constant-test
@@ -111,7 +122,8 @@ class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
             name=self.name,
             target=self.target,
             type=self.type,
-            value=self.value)
+            value=self.value,
+            value_format=self.value_format)
 
 
 def get_workspace_connection(connection_name: Optional[str] = None,
@@ -142,4 +154,5 @@ def get_workspace_connection(connection_name: Optional[str] = None,
         name=__ret__.name,
         target=__ret__.target,
         type=__ret__.type,
-        value=__ret__.value)
+        value=__ret__.value,
+        value_format=__ret__.value_format)

@@ -74,7 +74,7 @@ class SiteMetadataSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteMetadataSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteMetadataSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteMetadataSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteMetadataSlot, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteMetadataSlot',

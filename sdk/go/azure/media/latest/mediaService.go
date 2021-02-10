@@ -29,6 +29,8 @@ type MediaService struct {
 	// The storage accounts for this resource.
 	StorageAccounts       StorageAccountResponseArrayOutput `pulumi:"storageAccounts"`
 	StorageAuthentication pulumi.StringPtrOutput            `pulumi:"storageAuthentication"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -101,6 +103,8 @@ type mediaServiceState struct {
 	// The storage accounts for this resource.
 	StorageAccounts       []StorageAccountResponse `pulumi:"storageAccounts"`
 	StorageAuthentication *string                  `pulumi:"storageAuthentication"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -121,6 +125,8 @@ type MediaServiceState struct {
 	// The storage accounts for this resource.
 	StorageAccounts       StorageAccountResponseArrayInput
 	StorageAuthentication pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

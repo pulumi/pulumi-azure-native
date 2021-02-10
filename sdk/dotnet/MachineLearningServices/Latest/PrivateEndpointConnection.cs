@@ -11,13 +11,25 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Friendly name of the private endpoint connection.
+        /// The identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,7 +53,25 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type of private endpoint connection.
+        /// The sku of the workspace.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains resource tags defined as key/value pairs.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -80,6 +110,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,6 +135,18 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the private endpoint connection associated with the workspace
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
@@ -120,6 +163,24 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The sku of the workspace.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Contains resource tags defined as key/value pairs.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

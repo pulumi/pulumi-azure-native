@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['Asset']
 
@@ -74,6 +75,7 @@ class Asset(pulumi.CustomResource):
             __props__['last_modified'] = None
             __props__['name'] = None
             __props__['storage_encryption_format'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Asset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -172,6 +174,14 @@ class Asset(pulumi.CustomResource):
         The Asset encryption format. One of None or MediaStorageEncryption.
         """
         return pulumi.get(self, "storage_encryption_format")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

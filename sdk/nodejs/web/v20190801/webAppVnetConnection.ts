@@ -127,7 +127,7 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20201001:WebAppVnetConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppVnetConnection.__pulumiType, name, inputs, opts);
     }

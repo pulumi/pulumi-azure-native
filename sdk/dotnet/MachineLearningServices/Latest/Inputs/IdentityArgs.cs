@@ -18,14 +18,14 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         /// <summary>
         /// The identity type.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.MachineLearningServices.Latest.ResourceIdentityType> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<Pulumi.AzureNextGen.MachineLearningServices.Latest.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
-        /// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The user assigned identities associated with the resource.
         /// </summary>
         public InputMap<object> UserAssignedIdentities
         {

@@ -107,7 +107,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__['status'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceCertificateOrder, __self__).__init__(
             'azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder',

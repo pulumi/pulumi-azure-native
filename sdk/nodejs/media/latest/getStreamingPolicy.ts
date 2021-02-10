@@ -72,6 +72,10 @@ export interface GetStreamingPolicyResult {
      */
     readonly noEncryption?: outputs.media.latest.NoEncryptionResponse;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.latest.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

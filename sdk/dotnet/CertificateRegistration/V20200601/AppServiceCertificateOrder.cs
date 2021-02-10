@@ -189,6 +189,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

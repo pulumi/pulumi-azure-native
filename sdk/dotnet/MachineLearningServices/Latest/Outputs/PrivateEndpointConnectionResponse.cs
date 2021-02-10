@@ -14,11 +14,19 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// ResourceId of the private endpoint connection.
+        /// Specifies the resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Friendly name of the private endpoint connection.
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
+        /// Specifies the name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -34,13 +42,29 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type of private endpoint connection.
+        /// The sku of the workspace.
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Contains resource tags defined as key/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
             string id,
+
+            Outputs.IdentityResponse? identity,
+
+            string? location,
 
             string name,
 
@@ -50,13 +74,24 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             string provisioningState,
 
+            Outputs.SkuResponse? sku,
+
+            Outputs.SystemDataResponse systemData,
+
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             Id = id;
+            Identity = identity;
+            Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            Sku = sku;
+            SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

@@ -114,7 +114,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppRelayServiceConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
     }

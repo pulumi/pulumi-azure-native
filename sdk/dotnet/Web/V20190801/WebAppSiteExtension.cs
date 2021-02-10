@@ -181,6 +181,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSiteExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

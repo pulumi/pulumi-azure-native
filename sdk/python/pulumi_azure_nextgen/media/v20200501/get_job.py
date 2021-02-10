@@ -20,7 +20,7 @@ class GetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     """
-    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, id=None, input=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
+    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, id=None, input=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, system_data=None, type=None):
         if correlation_data and not isinstance(correlation_data, dict):
             raise TypeError("Expected argument 'correlation_data' to be a dict")
         pulumi.set(__self__, "correlation_data", correlation_data)
@@ -57,6 +57,9 @@ class GetJobResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -158,6 +161,14 @@ class GetJobResult:
         return pulumi.get(self, "state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -184,6 +195,7 @@ class AwaitableGetJobResult(GetJobResult):
             priority=self.priority,
             start_time=self.start_time,
             state=self.state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -224,4 +236,5 @@ def get_job(account_name: Optional[str] = None,
         priority=__ret__.priority,
         start_time=__ret__.start_time,
         state=__ret__.state,
+        system_data=__ret__.system_data,
         type=__ret__.type)

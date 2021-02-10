@@ -30,6 +30,8 @@ type StreamingPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configurations of NoEncryption
 	NoEncryption NoEncryptionResponsePtrOutput `pulumi:"noEncryption"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -101,6 +103,8 @@ type streamingPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Configurations of NoEncryption
 	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -120,6 +124,8 @@ type StreamingPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Configurations of NoEncryption
 	NoEncryption NoEncryptionResponsePtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

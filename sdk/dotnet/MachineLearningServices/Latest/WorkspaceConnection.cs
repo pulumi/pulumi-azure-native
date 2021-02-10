@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
     /// <summary>
     /// Workspace connection.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:WorkspaceConnection")]
     public partial class WorkspaceConnection : Pulumi.CustomResource
@@ -52,6 +52,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
 
+        /// <summary>
+        /// format for the workspace connection value
+        /// </summary>
+        [Output("valueFormat")]
+        public Output<string?> ValueFormat { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a WorkspaceConnection resource with the given unique name, arguments, and options.
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,6 +151,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
+
+        /// <summary>
+        /// format for the workspace connection value
+        /// </summary>
+        [Input("valueFormat")]
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.Latest.ValueFormat>? ValueFormat { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

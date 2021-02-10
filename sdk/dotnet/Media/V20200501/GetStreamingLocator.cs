@@ -94,6 +94,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string StreamingPolicyName;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string streamingPolicyName,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AlternativeMediaId = alternativeMediaId;
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             StartTime = startTime;
             StreamingLocatorId = streamingLocatorId;
             StreamingPolicyName = streamingPolicyName;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -21,6 +21,8 @@ type AccountFilter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The presentation time range.
 	PresentationTimeRange PresentationTimeRangeResponsePtrOutput `pulumi:"presentationTimeRange"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tracks selection conditions.
 	Tracks FilterTrackSelectionResponseArrayOutput `pulumi:"tracks"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -80,6 +82,8 @@ type accountFilterState struct {
 	Name *string `pulumi:"name"`
 	// The presentation time range.
 	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tracks selection conditions.
 	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -93,6 +97,8 @@ type AccountFilterState struct {
 	Name pulumi.StringPtrInput
 	// The presentation time range.
 	PresentationTimeRange PresentationTimeRangeResponsePtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// The tracks selection conditions.
 	Tracks FilterTrackSelectionResponseArrayInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

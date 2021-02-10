@@ -12,7 +12,7 @@ import (
 )
 
 // Workspace connection.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2021-01-01.
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type WorkspaceConnection struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Value details of the workspace connection.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat pulumi.StringPtrOutput `pulumi:"valueFormat"`
 }
 
 // NewWorkspaceConnection registers a new resource with the given unique name, arguments, and options.
@@ -55,6 +57,9 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -92,6 +97,8 @@ type workspaceConnectionState struct {
 	Type *string `pulumi:"type"`
 	// Value details of the workspace connection.
 	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
 }
 
 type WorkspaceConnectionState struct {
@@ -107,6 +114,8 @@ type WorkspaceConnectionState struct {
 	Type pulumi.StringPtrInput
 	// Value details of the workspace connection.
 	Value pulumi.StringPtrInput
+	// format for the workspace connection value
+	ValueFormat pulumi.StringPtrInput
 }
 
 func (WorkspaceConnectionState) ElementType() reflect.Type {
@@ -128,6 +137,8 @@ type workspaceConnectionArgs struct {
 	Target *string `pulumi:"target"`
 	// Value details of the workspace connection.
 	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -148,6 +159,8 @@ type WorkspaceConnectionArgs struct {
 	Target pulumi.StringPtrInput
 	// Value details of the workspace connection.
 	Value pulumi.StringPtrInput
+	// format for the workspace connection value
+	ValueFormat pulumi.StringPtrInput
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput
 }

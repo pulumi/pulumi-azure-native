@@ -52,10 +52,16 @@ func NewMachineLearningService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:MachineLearningService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningService"),
 		},
 	})
 	opts = append(opts, aliases)

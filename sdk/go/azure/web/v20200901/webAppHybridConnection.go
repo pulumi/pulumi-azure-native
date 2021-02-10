@@ -80,6 +80,9 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHybridConnection"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnection

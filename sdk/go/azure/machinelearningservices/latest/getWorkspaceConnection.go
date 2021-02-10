@@ -41,4 +41,6 @@ type LookupWorkspaceConnectionResult struct {
 	Type string `pulumi:"type"`
 	// Value details of the workspace connection.
 	Value *string `pulumi:"value"`
+	// format for the workspace connection value
+	ValueFormat *string `pulumi:"valueFormat"`
 }

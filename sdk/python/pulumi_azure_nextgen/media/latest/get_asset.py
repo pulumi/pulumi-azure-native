@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetAssetResult',
@@ -19,7 +20,7 @@ class GetAssetResult:
     """
     An Asset.
     """
-    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, type=None):
+    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, system_data=None, type=None):
         if alternate_id and not isinstance(alternate_id, str):
             raise TypeError("Expected argument 'alternate_id' to be a str")
         pulumi.set(__self__, "alternate_id", alternate_id)
@@ -50,6 +51,9 @@ class GetAssetResult:
         if storage_encryption_format and not isinstance(storage_encryption_format, str):
             raise TypeError("Expected argument 'storage_encryption_format' to be a str")
         pulumi.set(__self__, "storage_encryption_format", storage_encryption_format)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -135,6 +139,14 @@ class GetAssetResult:
         return pulumi.get(self, "storage_encryption_format")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -159,6 +171,7 @@ class AwaitableGetAssetResult(GetAssetResult):
             name=self.name,
             storage_account_name=self.storage_account_name,
             storage_encryption_format=self.storage_encryption_format,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -194,4 +207,5 @@ def get_asset(account_name: Optional[str] = None,
         name=__ret__.name,
         storage_account_name=__ret__.storage_account_name,
         storage_encryption_format=__ret__.storage_encryption_format,
+        system_data=__ret__.system_data,
         type=__ret__.type)

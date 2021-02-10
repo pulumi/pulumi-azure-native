@@ -39,6 +39,8 @@ type LookupMachineLearningComputeResult struct {
 	Properties interface{} `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Read only system data
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.

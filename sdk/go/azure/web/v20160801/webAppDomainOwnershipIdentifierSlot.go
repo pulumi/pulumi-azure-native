@@ -61,6 +61,9 @@ func NewWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDomainOwnershipIdentifierSlot

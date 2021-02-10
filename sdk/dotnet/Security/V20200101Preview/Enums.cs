@@ -84,4 +84,127 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Defines the minimal alert severity which will be sent as email notifications
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalSeverity : IEquatable<MinimalSeverity>
+    {
+        private readonly string _value;
+
+        private MinimalSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Get notifications on new alerts with High severity
+        /// </summary>
+        public static MinimalSeverity High { get; } = new MinimalSeverity("High");
+        /// <summary>
+        /// Get notifications on new alerts with medium or high severity
+        /// </summary>
+        public static MinimalSeverity Medium { get; } = new MinimalSeverity("Medium");
+        /// <summary>
+        /// Don't get notifications on new alerts with low, medium or high severity
+        /// </summary>
+        public static MinimalSeverity Low { get; } = new MinimalSeverity("Low");
+
+        public static bool operator ==(MinimalSeverity left, MinimalSeverity right) => left.Equals(right);
+        public static bool operator !=(MinimalSeverity left, MinimalSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalSeverity other && Equals(other);
+        public bool Equals(MinimalSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A possible role to configure sending security notification alerts to
+    /// </summary>
+    [EnumType]
+    public readonly struct Roles : IEquatable<Roles>
+    {
+        private readonly string _value;
+
+        private Roles(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If enabled, send notification on new alerts to the account admins
+        /// </summary>
+        public static Roles AccountAdmin { get; } = new Roles("AccountAdmin");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the service admins
+        /// </summary>
+        public static Roles ServiceAdmin { get; } = new Roles("ServiceAdmin");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the subscription owners
+        /// </summary>
+        public static Roles Owner { get; } = new Roles("Owner");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the subscription contributors
+        /// </summary>
+        public static Roles Contributor { get; } = new Roles("Contributor");
+
+        public static bool operator ==(Roles left, Roles right) => left.Equals(right);
+        public static bool operator !=(Roles left, Roles right) => !left.Equals(right);
+
+        public static explicit operator string(Roles value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Roles other && Equals(other);
+        public bool Equals(Roles other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    /// </summary>
+    [EnumType]
+    public readonly struct State : IEquatable<State>
+    {
+        private readonly string _value;
+
+        private State(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Send notification on new alerts to the subscription's admins
+        /// </summary>
+        public static State On { get; } = new State("On");
+        /// <summary>
+        /// Don't send notification on new alerts to the subscription's admins
+        /// </summary>
+        public static State Off { get; } = new State("Off");
+
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
+
+        public static explicit operator string(State value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

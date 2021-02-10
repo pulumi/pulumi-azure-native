@@ -56,6 +56,10 @@ export class Transform extends pulumi.CustomResource {
      */
     public readonly outputs!: pulumi.Output<outputs.media.v20200501.TransformOutputResponse[]>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.v20200501.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -90,6 +94,7 @@ export class Transform extends pulumi.CustomResource {
             inputs["created"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["created"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class Transform extends pulumi.CustomResource {
             inputs["lastModified"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["outputs"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

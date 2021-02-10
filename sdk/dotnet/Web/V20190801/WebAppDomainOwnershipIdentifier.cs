@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

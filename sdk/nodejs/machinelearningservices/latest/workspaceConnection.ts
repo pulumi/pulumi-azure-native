@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * Workspace connection.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2021-01-01.
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**
@@ -59,6 +60,10 @@ export class WorkspaceConnection extends pulumi.CustomResource {
      * Value details of the workspace connection.
      */
     public readonly value!: pulumi.Output<string | undefined>;
+    /**
+     * format for the workspace connection value
+     */
+    public readonly valueFormat!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkspaceConnection resource with the given unique name, arguments, and options.
@@ -86,6 +91,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["valueFormat"] = args ? args.valueFormat : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -95,6 +101,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             inputs["target"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
+            inputs["valueFormat"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -103,7 +110,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceConnection.__pulumiType, name, inputs, opts);
     }
@@ -141,6 +148,10 @@ export interface WorkspaceConnectionArgs {
      * Value details of the workspace connection.
      */
     readonly value?: pulumi.Input<string>;
+    /**
+     * format for the workspace connection value
+     */
+    readonly valueFormat?: pulumi.Input<string | enums.machinelearningservices.latest.ValueFormat>;
     /**
      * Name of Azure Machine Learning workspace.
      */

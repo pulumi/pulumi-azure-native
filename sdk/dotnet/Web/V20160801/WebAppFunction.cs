@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

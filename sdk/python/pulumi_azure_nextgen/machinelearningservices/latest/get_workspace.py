@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, location=None, name=None, notebook_info=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, tags=None, type=None, workspace_id=None):
+    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, location=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, system_data=None, tags=None, type=None, workspace_id=None):
         if allow_public_access_when_behind_vnet and not isinstance(allow_public_access_when_behind_vnet, bool):
             raise TypeError("Expected argument 'allow_public_access_when_behind_vnet' to be a bool")
         pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
@@ -30,9 +30,6 @@ class GetWorkspaceResult:
         if container_registry and not isinstance(container_registry, str):
             raise TypeError("Expected argument 'container_registry' to be a str")
         pulumi.set(__self__, "container_registry", container_registry)
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        pulumi.set(__self__, "creation_time", creation_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -69,6 +66,9 @@ class GetWorkspaceResult:
         if notebook_info and not isinstance(notebook_info, dict):
             raise TypeError("Expected argument 'notebook_info' to be a dict")
         pulumi.set(__self__, "notebook_info", notebook_info)
+        if primary_user_assigned_identity and not isinstance(primary_user_assigned_identity, str):
+            raise TypeError("Expected argument 'primary_user_assigned_identity' to be a str")
+        pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -78,6 +78,9 @@ class GetWorkspaceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_managed_resources_settings and not isinstance(service_managed_resources_settings, dict):
+            raise TypeError("Expected argument 'service_managed_resources_settings' to be a dict")
+        pulumi.set(__self__, "service_managed_resources_settings", service_managed_resources_settings)
         if service_provisioned_resource_group and not isinstance(service_provisioned_resource_group, str):
             raise TypeError("Expected argument 'service_provisioned_resource_group' to be a str")
         pulumi.set(__self__, "service_provisioned_resource_group", service_provisioned_resource_group)
@@ -90,6 +93,9 @@ class GetWorkspaceResult:
         if storage_account and not isinstance(storage_account, str):
             raise TypeError("Expected argument 'storage_account' to be a str")
         pulumi.set(__self__, "storage_account", storage_account)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -123,14 +129,6 @@ class GetWorkspaceResult:
         ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "container_registry")
-
-    @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
-        """
-        The creation time of the machine learning workspace in ISO8601 format.
-        """
-        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
@@ -229,6 +227,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "notebook_info")
 
     @property
+    @pulumi.getter(name="primaryUserAssignedIdentity")
+    def primary_user_assigned_identity(self) -> Optional[str]:
+        """
+        The user assigned identity resource id that represents the workspace identity.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity")
+
+    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
@@ -251,6 +257,14 @@ class GetWorkspaceResult:
         The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceManagedResourcesSettings")
+    def service_managed_resources_settings(self) -> Optional['outputs.ServiceManagedResourcesSettingsResponse']:
+        """
+        The service managed resource settings.
+        """
+        return pulumi.get(self, "service_managed_resources_settings")
 
     @property
     @pulumi.getter(name="serviceProvisionedResourceGroup")
@@ -283,6 +297,14 @@ class GetWorkspaceResult:
         ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -318,7 +340,6 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             allow_public_access_when_behind_vnet=self.allow_public_access_when_behind_vnet,
             application_insights=self.application_insights,
             container_registry=self.container_registry,
-            creation_time=self.creation_time,
             description=self.description,
             discovery_url=self.discovery_url,
             encryption=self.encryption,
@@ -331,13 +352,16 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             location=self.location,
             name=self.name,
             notebook_info=self.notebook_info,
+            primary_user_assigned_identity=self.primary_user_assigned_identity,
             private_endpoint_connections=self.private_endpoint_connections,
             private_link_count=self.private_link_count,
             provisioning_state=self.provisioning_state,
+            service_managed_resources_settings=self.service_managed_resources_settings,
             service_provisioned_resource_group=self.service_provisioned_resource_group,
             shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
             storage_account=self.storage_account,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             workspace_id=self.workspace_id)
@@ -365,7 +389,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         allow_public_access_when_behind_vnet=__ret__.allow_public_access_when_behind_vnet,
         application_insights=__ret__.application_insights,
         container_registry=__ret__.container_registry,
-        creation_time=__ret__.creation_time,
         description=__ret__.description,
         discovery_url=__ret__.discovery_url,
         encryption=__ret__.encryption,
@@ -378,13 +401,16 @@ def get_workspace(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         notebook_info=__ret__.notebook_info,
+        primary_user_assigned_identity=__ret__.primary_user_assigned_identity,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         private_link_count=__ret__.private_link_count,
         provisioning_state=__ret__.provisioning_state,
+        service_managed_resources_settings=__ret__.service_managed_resources_settings,
         service_provisioned_resource_group=__ret__.service_provisioned_resource_group,
         shared_private_link_resources=__ret__.shared_private_link_resources,
         sku=__ret__.sku,
         storage_account=__ret__.storage_account,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)

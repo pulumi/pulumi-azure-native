@@ -31,4 +31,3 @@ class Type(str, Enum):
     Identity Type
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"

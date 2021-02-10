@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string PolicyId;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string policyId,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Created = created;
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             Name = name;
             Options = options;
             PolicyId = policyId;
+            SystemData = systemData;
             Type = type;
         }
     }

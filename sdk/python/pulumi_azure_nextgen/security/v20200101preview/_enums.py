@@ -7,6 +7,9 @@ from enum import Enum
 __all__ = [
     'AuthenticationType',
     'AutoProvision',
+    'MinimalSeverity',
+    'Roles',
+    'State',
 ]
 
 
@@ -22,6 +25,33 @@ class AuthenticationType(str, Enum):
 class AutoProvision(str, Enum):
     """
     Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+    """
+    ON = "On"
+    OFF = "Off"
+
+
+class MinimalSeverity(str, Enum):
+    """
+    Defines the minimal alert severity which will be sent as email notifications
+    """
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+
+
+class Roles(str, Enum):
+    """
+    A possible role to configure sending security notification alerts to
+    """
+    ACCOUNT_ADMIN = "AccountAdmin"
+    SERVICE_ADMIN = "ServiceAdmin"
+    OWNER = "Owner"
+    CONTRIBUTOR = "Contributor"
+
+
+class State(str, Enum):
+    """
+    Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
     """
     ON = "On"
     OFF = "Off"

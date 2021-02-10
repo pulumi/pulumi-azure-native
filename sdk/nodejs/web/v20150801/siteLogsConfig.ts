@@ -117,7 +117,7 @@ export class SiteLogsConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteLogsConfig" }, { type: "azure-nextgen:web/v20160801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20180201:SiteLogsConfig" }, { type: "azure-nextgen:web/v20181101:SiteLogsConfig" }, { type: "azure-nextgen:web/v20190801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200601:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200901:SiteLogsConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteLogsConfig" }, { type: "azure-nextgen:web/v20160801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20180201:SiteLogsConfig" }, { type: "azure-nextgen:web/v20181101:SiteLogsConfig" }, { type: "azure-nextgen:web/v20190801:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200601:SiteLogsConfig" }, { type: "azure-nextgen:web/v20200901:SiteLogsConfig" }, { type: "azure-nextgen:web/v20201001:SiteLogsConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteLogsConfig.__pulumiType, name, inputs, opts);
     }

@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly Outputs.NoEncryptionResponse? NoEncryption;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             Outputs.NoEncryptionResponse? noEncryption,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             CommonEncryptionCbcs = commonEncryptionCbcs;
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
             Id = id;
             Name = name;
             NoEncryption = noEncryption;
+            SystemData = systemData;
             Type = type;
         }
     }

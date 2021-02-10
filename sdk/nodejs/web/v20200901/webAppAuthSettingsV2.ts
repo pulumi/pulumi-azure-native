@@ -98,7 +98,7 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsV2" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsV2" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAuthSettingsV2.__pulumiType, name, inputs, opts);
     }

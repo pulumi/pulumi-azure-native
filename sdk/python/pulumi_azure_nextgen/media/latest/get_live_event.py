@@ -20,7 +20,7 @@ class GetLiveEventResult:
     """
     The live event.
     """
-    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, id=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
+    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, id=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, system_data=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -63,6 +63,9 @@ class GetLiveEventResult:
         if stream_options and not isinstance(stream_options, list):
             raise TypeError("Expected argument 'stream_options' to be a list")
         pulumi.set(__self__, "stream_options", stream_options)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -189,6 +192,14 @@ class GetLiveEventResult:
         return pulumi.get(self, "stream_options")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -241,6 +252,7 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
             stream_options=self.stream_options,
+            system_data=self.system_data,
             tags=self.tags,
             transcriptions=self.transcriptions,
             type=self.type,
@@ -283,6 +295,7 @@ def get_live_event(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         stream_options=__ret__.stream_options,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         transcriptions=__ret__.transcriptions,
         type=__ret__.type,

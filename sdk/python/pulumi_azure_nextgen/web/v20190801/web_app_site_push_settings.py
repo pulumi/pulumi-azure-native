@@ -72,7 +72,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
             __props__['tag_whitelist_json'] = tag_whitelist_json
             __props__['tags_requiring_auth'] = tags_requiring_auth
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSitePushSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSitePushSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSitePushSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSitePushSettings, __self__).__init__(
             'azure-nextgen:web/v20190801:WebAppSitePushSettings',

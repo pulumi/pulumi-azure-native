@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// Read only system data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 
             Outputs.SkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

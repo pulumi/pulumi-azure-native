@@ -37,6 +37,8 @@ type LookupAssetFilterResult struct {
 	Name string `pulumi:"name"`
 	// The presentation time range.
 	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tracks selection conditions.
 	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

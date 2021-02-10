@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppBackupConfigurationSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppBackupConfigurationSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppBackupConfigurationSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppBackupConfigurationSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

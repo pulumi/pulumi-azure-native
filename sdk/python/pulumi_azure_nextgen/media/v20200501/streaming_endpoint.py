@@ -106,6 +106,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:StreamingEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -276,6 +277,14 @@ class StreamingEndpoint(pulumi.CustomResource):
         The number of scale units. Use the Scale operation to adjust this value.
         """
         return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

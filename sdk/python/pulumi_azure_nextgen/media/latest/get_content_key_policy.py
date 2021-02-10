@@ -20,7 +20,7 @@ class GetContentKeyPolicyResult:
     """
     A Content Key Policy resource.
     """
-    def __init__(__self__, created=None, description=None, id=None, last_modified=None, name=None, options=None, policy_id=None, type=None):
+    def __init__(__self__, created=None, description=None, id=None, last_modified=None, name=None, options=None, policy_id=None, system_data=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -42,6 +42,9 @@ class GetContentKeyPolicyResult:
         if policy_id and not isinstance(policy_id, str):
             raise TypeError("Expected argument 'policy_id' to be a str")
         pulumi.set(__self__, "policy_id", policy_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -103,6 +106,14 @@ class GetContentKeyPolicyResult:
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -124,6 +135,7 @@ class AwaitableGetContentKeyPolicyResult(GetContentKeyPolicyResult):
             name=self.name,
             options=self.options,
             policy_id=self.policy_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -156,4 +168,5 @@ def get_content_key_policy(account_name: Optional[str] = None,
         name=__ret__.name,
         options=__ret__.options,
         policy_id=__ret__.policy_id,
+        system_data=__ret__.system_data,
         type=__ret__.type)

@@ -48,6 +48,10 @@ export class AssetFilter extends pulumi.CustomResource {
      */
     public readonly presentationTimeRange!: pulumi.Output<outputs.media.v20200501.PresentationTimeRangeResponse | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.v20200501.SystemDataResponse>;
+    /**
      * The tracks selection conditions.
      */
     public readonly tracks!: pulumi.Output<outputs.media.v20200501.FilterTrackSelectionResponse[] | undefined>;
@@ -86,11 +90,13 @@ export class AssetFilter extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tracks"] = args ? args.tracks : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["firstQuality"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["presentationTimeRange"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tracks"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

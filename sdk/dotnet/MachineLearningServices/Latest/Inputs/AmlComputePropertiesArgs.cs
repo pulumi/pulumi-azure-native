@@ -16,6 +16,18 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
     public sealed class AmlComputePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
+        /// <summary>
+        /// Network is isolated or not
+        /// </summary>
+        [Input("isolatedNetwork")]
+        public Input<bool>? IsolatedNetwork { get; set; }
+
+        /// <summary>
         /// Compute OS Type
         /// </summary>
         [Input("osType")]
@@ -46,6 +58,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         public Input<Inputs.UserAccountCredentialsArgs>? UserAccountCredentials { get; set; }
 
         /// <summary>
+        /// Virtual Machine image for AML Compute - windows only
+        /// </summary>
+        [Input("virtualMachineImage")]
+        public Input<Inputs.VirtualMachineImageArgs>? VirtualMachineImage { get; set; }
+
+        /// <summary>
         /// Virtual Machine priority
         /// </summary>
         [Input("vmPriority")]
@@ -59,6 +77,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
 
         public AmlComputePropertiesArgs()
         {
+            EnableNodePublicIp = true;
             OsType = "Linux";
             RemoteLoginPortPublicAccess = "NotSpecified";
         }

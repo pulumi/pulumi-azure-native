@@ -23,10 +23,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly string ComputeType;
         /// <summary>
-        /// The date and time when the compute was created.
-        /// </summary>
-        public readonly string CreatedOn;
-        /// <summary>
         /// The description of the Machine Learning compute.
         /// </summary>
         public readonly string? Description;
@@ -34,10 +30,6 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         /// </summary>
         public readonly bool IsAttachedCompute;
-        /// <summary>
-        /// The date and time when the compute was last modified.
-        /// </summary>
-        public readonly string ModifiedOn;
         /// <summary>
         /// Compute Instance properties
         /// </summary>
@@ -61,13 +53,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             string computeType,
 
-            string createdOn,
-
             string? description,
 
             bool isAttachedCompute,
-
-            string modifiedOn,
 
             Outputs.ComputeInstanceResponseProperties? properties,
 
@@ -79,10 +67,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         {
             ComputeLocation = computeLocation;
             ComputeType = computeType;
-            CreatedOn = createdOn;
             Description = description;
             IsAttachedCompute = isAttachedCompute;
-            ModifiedOn = modifiedOn;
             Properties = properties;
             ProvisioningErrors = provisioningErrors;
             ProvisioningState = provisioningState;

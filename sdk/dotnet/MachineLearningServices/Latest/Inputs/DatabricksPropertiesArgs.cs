@@ -18,6 +18,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         [Input("databricksAccessToken")]
         public Input<string>? DatabricksAccessToken { get; set; }
 
+        /// <summary>
+        /// Workspace Url
+        /// </summary>
+        [Input("workspaceUrl")]
+        public Input<string>? WorkspaceUrl { get; set; }
+
         public DatabricksPropertiesArgs()
         {
         }

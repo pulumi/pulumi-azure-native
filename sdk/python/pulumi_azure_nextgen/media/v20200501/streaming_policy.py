@@ -76,6 +76,7 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__['streaming_policy_name'] = streaming_policy_name
             __props__['created'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingPolicy"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -158,6 +159,14 @@ class StreamingPolicy(pulumi.CustomResource):
         Configurations of NoEncryption
         """
         return pulumi.get(self, "no_encryption")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

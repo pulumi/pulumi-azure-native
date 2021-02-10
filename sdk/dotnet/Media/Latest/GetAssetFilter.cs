@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly Outputs.PresentationTimeRangeResponse? PresentationTimeRange;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tracks selection conditions.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterTrackSelectionResponse> Tracks;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             Outputs.PresentationTimeRangeResponse? presentationTimeRange,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableArray<Outputs.FilterTrackSelectionResponse> tracks,
 
             string type)
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
             Id = id;
             Name = name;
             PresentationTimeRange = presentationTimeRange;
+            SystemData = systemData;
             Tracks = tracks;
             Type = type;
         }

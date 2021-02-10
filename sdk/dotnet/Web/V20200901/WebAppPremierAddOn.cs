@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPremierAddOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

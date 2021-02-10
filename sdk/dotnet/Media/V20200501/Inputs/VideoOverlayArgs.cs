@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         public Input<string>? FadeOutDuration { get; set; }
 
         /// <summary>
-        /// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        /// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         /// </summary>
         [Input("inputLabel", required: true)]
         public Input<string> InputLabel { get; set; } = null!;
