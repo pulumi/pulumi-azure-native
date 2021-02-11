@@ -108,7 +108,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
-        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
 
             string sourceShareLocation,
 
-            Outputs.ProxyDtoResponseSystemData systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type,
 

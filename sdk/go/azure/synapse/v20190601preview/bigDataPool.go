@@ -24,13 +24,15 @@ type BigDataPool struct {
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries LibraryResourcePropertiesResponseArrayOutput `pulumi:"customLibraries"`
+	CustomLibraries LibraryInfoResponseArrayOutput `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrOutput `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
 	DynamicExecutorAllocation DynamicExecutorAllocationResponsePtrOutput `pulumi:"dynamicExecutorAllocation"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrOutput `pulumi:"isComputeIsolationEnabled"`
+	// The time when the Big Data pool was updated successfully.
+	LastSucceededTimestamp pulumi.StringOutput `pulumi:"lastSucceededTimestamp"`
 	// Library version requirements
 	LibraryRequirements LibraryRequirementsResponsePtrOutput `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
@@ -115,13 +117,15 @@ type bigDataPoolState struct {
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryResourcePropertiesResponse `pulumi:"customLibraries"`
+	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
 	DynamicExecutorAllocation *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
+	// The time when the Big Data pool was updated successfully.
+	LastSucceededTimestamp *string `pulumi:"lastSucceededTimestamp"`
 	// Library version requirements
 	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
@@ -160,13 +164,15 @@ type BigDataPoolState struct {
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
 	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries LibraryResourcePropertiesResponseArrayInput
+	CustomLibraries LibraryInfoResponseArrayInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Dynamic Executor Allocation
 	DynamicExecutorAllocation DynamicExecutorAllocationResponsePtrInput
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrInput
+	// The time when the Big Data pool was updated successfully.
+	LastSucceededTimestamp pulumi.StringPtrInput
 	// Library version requirements
 	LibraryRequirements LibraryRequirementsResponsePtrInput
 	// The geo-location where the resource lives
@@ -210,6 +216,8 @@ type bigDataPoolArgs struct {
 	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries []LibraryInfo `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
@@ -258,6 +266,8 @@ type BigDataPoolArgs struct {
 	CacheSize pulumi.IntPtrInput
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries LibraryInfoArrayInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Dynamic Executor Allocation

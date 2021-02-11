@@ -105,7 +105,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.DefaultDtoResponseSystemData':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         System Data of the Azure resource.
         """

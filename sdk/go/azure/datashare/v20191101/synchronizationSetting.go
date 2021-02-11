@@ -55,6 +55,9 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:SynchronizationSetting"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:SynchronizationSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SynchronizationSetting

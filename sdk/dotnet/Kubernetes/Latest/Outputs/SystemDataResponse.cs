@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.Latest.Outputs
+namespace Pulumi.AzureNextGen.Kubernetes.Latest.Outputs
 {
 
     [OutputType]
-    public sealed class DefaultDtoResponseSystemData
+    public sealed class SystemDataResponse
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest.Outputs
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The type of identity that last modified the resource.
+        /// The timestamp of resource modification (UTC).
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest.Outputs
         public readonly string? LastModifiedByType;
 
         [OutputConstructor]
-        private DefaultDtoResponseSystemData(
+        private SystemDataResponse(
             string? createdAt,
 
             string? createdBy,

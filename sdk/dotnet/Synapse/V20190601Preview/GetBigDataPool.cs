@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LibraryResourcePropertiesResponse> CustomLibraries;
+        public readonly ImmutableArray<Outputs.LibraryInfoResponse> CustomLibraries;
         /// <summary>
         /// The default folder where Spark logs will be written.
         /// </summary>
@@ -81,6 +81,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// Whether compute isolation is required or not.
         /// </summary>
         public readonly bool? IsComputeIsolationEnabled;
+        /// <summary>
+        /// The time when the Big Data pool was updated successfully.
+        /// </summary>
+        public readonly string LastSucceededTimestamp;
         /// <summary>
         /// Library version requirements
         /// </summary>
@@ -144,7 +148,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? creationDate,
 
-            ImmutableArray<Outputs.LibraryResourcePropertiesResponse> customLibraries,
+            ImmutableArray<Outputs.LibraryInfoResponse> customLibraries,
 
             string? defaultSparkLogFolder,
 
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             string id,
 
             bool? isComputeIsolationEnabled,
+
+            string lastSucceededTimestamp,
 
             Outputs.LibraryRequirementsResponse? libraryRequirements,
 
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             DynamicExecutorAllocation = dynamicExecutorAllocation;
             Id = id;
             IsComputeIsolationEnabled = isComputeIsolationEnabled;
+            LastSucceededTimestamp = lastSucceededTimestamp;
             LibraryRequirements = libraryRequirements;
             Location = location;
             Name = name;

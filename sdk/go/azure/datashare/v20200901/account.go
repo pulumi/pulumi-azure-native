@@ -26,7 +26,7 @@ type Account struct {
 	// Provisioning state of the Account
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// System Data of the Azure resource.
-	SystemData DefaultDtoResponseSystemDataOutput `pulumi:"systemData"`
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the azure resource
@@ -63,6 +63,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:Account"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account
@@ -98,7 +101,7 @@ type accountState struct {
 	// Provisioning state of the Account
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// System Data of the Azure resource.
-	SystemData *DefaultDtoResponseSystemData `pulumi:"systemData"`
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the azure resource
@@ -121,7 +124,7 @@ type AccountState struct {
 	// Provisioning state of the Account
 	ProvisioningState pulumi.StringPtrInput
 	// System Data of the Azure resource.
-	SystemData DefaultDtoResponseSystemDataPtrInput
+	SystemData SystemDataResponsePtrInput
 	// Tags on the azure resource.
 	Tags pulumi.StringMapInput
 	// Type of the azure resource

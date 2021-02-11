@@ -54,7 +54,7 @@ export class BigDataPool extends pulumi.CustomResource {
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    public /*out*/ readonly customLibraries!: pulumi.Output<outputs.synapse.v20190601preview.LibraryResourcePropertiesResponse[] | undefined>;
+    public readonly customLibraries!: pulumi.Output<outputs.synapse.v20190601preview.LibraryInfoResponse[] | undefined>;
     /**
      * The default folder where Spark logs will be written.
      */
@@ -67,6 +67,10 @@ export class BigDataPool extends pulumi.CustomResource {
      * Whether compute isolation is required or not.
      */
     public readonly isComputeIsolationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The time when the Big Data pool was updated successfully.
+     */
+    public /*out*/ readonly lastSucceededTimestamp!: pulumi.Output<string>;
     /**
      * Library version requirements
      */
@@ -144,6 +148,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["bigDataPoolName"] = args ? args.bigDataPoolName : undefined;
             inputs["cacheSize"] = args ? args.cacheSize : undefined;
             inputs["creationDate"] = args ? args.creationDate : undefined;
+            inputs["customLibraries"] = args ? args.customLibraries : undefined;
             inputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
             inputs["dynamicExecutorAllocation"] = args ? args.dynamicExecutorAllocation : undefined;
             inputs["force"] = args ? args.force : undefined;
@@ -161,7 +166,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["sparkVersion"] = args ? args.sparkVersion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["customLibraries"] = undefined /*out*/;
+            inputs["lastSucceededTimestamp"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -173,6 +178,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["defaultSparkLogFolder"] = undefined /*out*/;
             inputs["dynamicExecutorAllocation"] = undefined /*out*/;
             inputs["isComputeIsolationEnabled"] = undefined /*out*/;
+            inputs["lastSucceededTimestamp"] = undefined /*out*/;
             inputs["libraryRequirements"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -224,6 +230,10 @@ export interface BigDataPoolArgs {
      * The time when the Big Data pool was created.
      */
     readonly creationDate?: pulumi.Input<string>;
+    /**
+     * List of custom libraries/packages associated with the spark pool.
+     */
+    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.LibraryInfo>[]>;
     /**
      * The default folder where Spark logs will be written.
      */

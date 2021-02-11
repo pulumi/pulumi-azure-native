@@ -47,7 +47,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
@@ -99,7 +99,7 @@ export class DataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:DataSet" }, { type: "azure-nextgen:datashare/v20191101:DataSet" }, { type: "azure-nextgen:datashare/v20200901:DataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:DataSet" }, { type: "azure-nextgen:datashare/v20191101:DataSet" }, { type: "azure-nextgen:datashare/v20200901:DataSet" }, { type: "azure-nextgen:datashare/v20201001preview:DataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSet.__pulumiType, name, inputs, opts);
     }

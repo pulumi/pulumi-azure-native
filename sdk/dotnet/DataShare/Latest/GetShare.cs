@@ -72,7 +72,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
-        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Share terms.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string? shareKind,
 
-            Outputs.ProxyDtoResponseSystemData systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? terms,
 

@@ -36,7 +36,7 @@ type LookupBigDataPoolResult struct {
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryResourcePropertiesResponse `pulumi:"customLibraries"`
+	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
@@ -45,6 +45,8 @@ type LookupBigDataPoolResult struct {
 	Id string `pulumi:"id"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
+	// The time when the Big Data pool was updated successfully.
+	LastSucceededTimestamp string `pulumi:"lastSucceededTimestamp"`
 	// Library version requirements
 	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives

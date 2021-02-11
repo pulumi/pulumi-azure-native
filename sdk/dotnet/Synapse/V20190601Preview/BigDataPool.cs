@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// List of custom libraries/packages associated with the spark pool.
         /// </summary>
         [Output("customLibraries")]
-        public Output<ImmutableArray<Outputs.LibraryResourcePropertiesResponse>> CustomLibraries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LibraryInfoResponse>> CustomLibraries { get; private set; } = null!;
 
         /// <summary>
         /// The default folder where Spark logs will be written.
@@ -62,6 +62,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Output("isComputeIsolationEnabled")]
         public Output<bool?> IsComputeIsolationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The time when the Big Data pool was updated successfully.
+        /// </summary>
+        [Output("lastSucceededTimestamp")]
+        public Output<string> LastSucceededTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Library version requirements
@@ -220,6 +226,18 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
+
+        [Input("customLibraries")]
+        private InputList<Inputs.LibraryInfoArgs>? _customLibraries;
+
+        /// <summary>
+        /// List of custom libraries/packages associated with the spark pool.
+        /// </summary>
+        public InputList<Inputs.LibraryInfoArgs> CustomLibraries
+        {
+            get => _customLibraries ?? (_customLibraries = new InputList<Inputs.LibraryInfoArgs>());
+            set => _customLibraries = value;
+        }
 
         /// <summary>
         /// The default folder where Spark logs will be written.

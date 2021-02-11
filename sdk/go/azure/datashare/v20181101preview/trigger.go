@@ -55,6 +55,9 @@ func NewTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:Trigger"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Trigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Trigger

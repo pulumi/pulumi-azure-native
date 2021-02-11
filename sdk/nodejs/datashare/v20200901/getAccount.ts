@@ -61,7 +61,7 @@ export interface GetAccountResult {
     /**
      * System Data of the Azure resource.
      */
-    readonly systemData: outputs.datashare.v20200901.DefaultDtoResponseSystemData;
+    readonly systemData: outputs.datashare.v20200901.SystemDataResponse;
     /**
      * Tags on the azure resource.
      */

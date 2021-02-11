@@ -63,7 +63,7 @@ class GetDataSetMappingResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.ProxyDtoResponseSystemData':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         System Data of the Azure resource.
         """

@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
-        public readonly Outputs.ProxyDtoResponseSystemData SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The target Azure AD Id. Can't be combined with email.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string sentAt,
 
-            Outputs.ProxyDtoResponseSystemData systemData,
+            Outputs.SystemDataResponse systemData,
 
             string? targetActiveDirectoryId,
 

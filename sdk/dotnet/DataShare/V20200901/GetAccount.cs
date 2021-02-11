@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// <summary>
         /// System Data of the Azure resource.
         /// </summary>
-        public readonly Outputs.DefaultDtoResponseSystemData SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tags on the azure resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
 
             string provisioningState,
 
-            Outputs.DefaultDtoResponseSystemData systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
