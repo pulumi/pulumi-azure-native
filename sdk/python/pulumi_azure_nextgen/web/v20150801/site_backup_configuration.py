@@ -83,7 +83,7 @@ class SiteBackupConfiguration(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteBackupConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteBackupConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteBackupConfiguration, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteBackupConfiguration',

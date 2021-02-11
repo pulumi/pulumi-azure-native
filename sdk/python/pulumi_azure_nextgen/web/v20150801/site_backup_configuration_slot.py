@@ -88,7 +88,7 @@ class SiteBackupConfigurationSlot(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteBackupConfigurationSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteBackupConfigurationSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteBackupConfigurationSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteBackupConfigurationSlot, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteBackupConfigurationSlot',

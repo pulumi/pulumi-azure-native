@@ -90,7 +90,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__['test_data'] = test_data
             __props__['function_app_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppInstanceFunctionSlot, __self__).__init__(
             'azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot',

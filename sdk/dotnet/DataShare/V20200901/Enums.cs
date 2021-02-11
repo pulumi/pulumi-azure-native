@@ -82,7 +82,6 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         }
 
         public static Type SystemAssigned { get; } = new Type("SystemAssigned");
-        public static Type UserAssigned { get; } = new Type("UserAssigned");
 
         public static bool operator ==(Type left, Type right) => left.Equals(right);
         public static bool operator !=(Type left, Type right) => !left.Equals(right);

@@ -69,6 +69,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAzureStorageAccountsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

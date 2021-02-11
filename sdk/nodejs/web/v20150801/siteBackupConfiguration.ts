@@ -120,7 +120,7 @@ export class SiteBackupConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20180201:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:SiteBackupConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20180201:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:SiteBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:SiteBackupConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteBackupConfiguration.__pulumiType, name, inputs, opts);
     }

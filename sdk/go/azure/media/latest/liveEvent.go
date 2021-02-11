@@ -42,6 +42,8 @@ type LiveEvent struct {
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions pulumi.StringArrayOutput `pulumi:"streamOptions"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
@@ -137,6 +139,8 @@ type liveEventState struct {
 	ResourceState *string `pulumi:"resourceState"`
 	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions []string `pulumi:"streamOptions"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
@@ -174,6 +178,8 @@ type LiveEventState struct {
 	ResourceState pulumi.StringPtrInput
 	// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
 	StreamOptions pulumi.StringArrayInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.

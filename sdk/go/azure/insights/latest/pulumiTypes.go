@@ -11,977 +11,1301 @@ import (
 )
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroup struct {
-	// The resourceId of the action group. This cannot be null or empty.
+type ActionGroupType struct {
+	// The resource ID of the Action Group. This cannot be null or empty.
 	ActionGroupId string `pulumi:"actionGroupId"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
-// ActivityLogAlertActionGroupInput is an input type that accepts ActivityLogAlertActionGroupArgs and ActivityLogAlertActionGroupOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionGroupInput` via:
+// ActionGroupTypeInput is an input type that accepts ActionGroupTypeArgs and ActionGroupTypeOutput values.
+// You can construct a concrete instance of `ActionGroupTypeInput` via:
 //
-//          ActivityLogAlertActionGroupArgs{...}
-type ActivityLogAlertActionGroupInput interface {
+//          ActionGroupTypeArgs{...}
+type ActionGroupTypeInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionGroupOutput() ActivityLogAlertActionGroupOutput
-	ToActivityLogAlertActionGroupOutputWithContext(context.Context) ActivityLogAlertActionGroupOutput
+	ToActionGroupTypeOutput() ActionGroupTypeOutput
+	ToActionGroupTypeOutputWithContext(context.Context) ActionGroupTypeOutput
 }
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupArgs struct {
-	// The resourceId of the action group. This cannot be null or empty.
+type ActionGroupTypeArgs struct {
+	// The resource ID of the Action Group. This cannot be null or empty.
 	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
-func (ActivityLogAlertActionGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroup)(nil)).Elem()
+func (ActionGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupType)(nil)).Elem()
 }
 
-func (i ActivityLogAlertActionGroupArgs) ToActivityLogAlertActionGroupOutput() ActivityLogAlertActionGroupOutput {
-	return i.ToActivityLogAlertActionGroupOutputWithContext(context.Background())
+func (i ActionGroupTypeArgs) ToActionGroupTypeOutput() ActionGroupTypeOutput {
+	return i.ToActionGroupTypeOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionGroupArgs) ToActivityLogAlertActionGroupOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupOutput)
+func (i ActionGroupTypeArgs) ToActionGroupTypeOutputWithContext(ctx context.Context) ActionGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupTypeOutput)
 }
 
-// ActivityLogAlertActionGroupArrayInput is an input type that accepts ActivityLogAlertActionGroupArray and ActivityLogAlertActionGroupArrayOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionGroupArrayInput` via:
+// ActionGroupTypeArrayInput is an input type that accepts ActionGroupTypeArray and ActionGroupTypeArrayOutput values.
+// You can construct a concrete instance of `ActionGroupTypeArrayInput` via:
 //
-//          ActivityLogAlertActionGroupArray{ ActivityLogAlertActionGroupArgs{...} }
-type ActivityLogAlertActionGroupArrayInput interface {
+//          ActionGroupTypeArray{ ActionGroupTypeArgs{...} }
+type ActionGroupTypeArrayInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionGroupArrayOutput() ActivityLogAlertActionGroupArrayOutput
-	ToActivityLogAlertActionGroupArrayOutputWithContext(context.Context) ActivityLogAlertActionGroupArrayOutput
+	ToActionGroupTypeArrayOutput() ActionGroupTypeArrayOutput
+	ToActionGroupTypeArrayOutputWithContext(context.Context) ActionGroupTypeArrayOutput
 }
 
-type ActivityLogAlertActionGroupArray []ActivityLogAlertActionGroupInput
+type ActionGroupTypeArray []ActionGroupTypeInput
 
-func (ActivityLogAlertActionGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroup)(nil)).Elem()
+func (ActionGroupTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroupType)(nil)).Elem()
 }
 
-func (i ActivityLogAlertActionGroupArray) ToActivityLogAlertActionGroupArrayOutput() ActivityLogAlertActionGroupArrayOutput {
-	return i.ToActivityLogAlertActionGroupArrayOutputWithContext(context.Background())
+func (i ActionGroupTypeArray) ToActionGroupTypeArrayOutput() ActionGroupTypeArrayOutput {
+	return i.ToActionGroupTypeArrayOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionGroupArray) ToActivityLogAlertActionGroupArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupArrayOutput)
+func (i ActionGroupTypeArray) ToActionGroupTypeArrayOutputWithContext(ctx context.Context) ActionGroupTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupTypeArrayOutput)
 }
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupOutput struct{ *pulumi.OutputState }
+type ActionGroupTypeOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroup)(nil)).Elem()
+func (ActionGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupType)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionGroupOutput) ToActivityLogAlertActionGroupOutput() ActivityLogAlertActionGroupOutput {
+func (o ActionGroupTypeOutput) ToActionGroupTypeOutput() ActionGroupTypeOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionGroupOutput) ToActivityLogAlertActionGroupOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupOutput {
+func (o ActionGroupTypeOutput) ToActionGroupTypeOutputWithContext(ctx context.Context) ActionGroupTypeOutput {
 	return o
 }
 
-// The resourceId of the action group. This cannot be null or empty.
-func (o ActivityLogAlertActionGroupOutput) ActionGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionGroup) string { return v.ActionGroupId }).(pulumi.StringOutput)
+// The resource ID of the Action Group. This cannot be null or empty.
+func (o ActionGroupTypeOutput) ActionGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionGroupType) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
 // the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-func (o ActivityLogAlertActionGroupOutput) WebhookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionGroup) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
+func (o ActionGroupTypeOutput) WebhookProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ActionGroupType) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
 
-type ActivityLogAlertActionGroupArrayOutput struct{ *pulumi.OutputState }
+type ActionGroupTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroup)(nil)).Elem()
+func (ActionGroupTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroupType)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionGroupArrayOutput) ToActivityLogAlertActionGroupArrayOutput() ActivityLogAlertActionGroupArrayOutput {
+func (o ActionGroupTypeArrayOutput) ToActionGroupTypeArrayOutput() ActionGroupTypeArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionGroupArrayOutput) ToActivityLogAlertActionGroupArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupArrayOutput {
+func (o ActionGroupTypeArrayOutput) ToActionGroupTypeArrayOutputWithContext(ctx context.Context) ActionGroupTypeArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionGroupArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertActionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertActionGroup {
-		return vs[0].([]ActivityLogAlertActionGroup)[vs[1].(int)]
-	}).(ActivityLogAlertActionGroupOutput)
+func (o ActionGroupTypeArrayOutput) Index(i pulumi.IntInput) ActionGroupTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupType {
+		return vs[0].([]ActionGroupType)[vs[1].(int)]
+	}).(ActionGroupTypeOutput)
 }
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupResponse struct {
-	// The resourceId of the action group. This cannot be null or empty.
+type ActionGroupResponse struct {
+	// The resource ID of the Action Group. This cannot be null or empty.
 	ActionGroupId string `pulumi:"actionGroupId"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
-// ActivityLogAlertActionGroupResponseInput is an input type that accepts ActivityLogAlertActionGroupResponseArgs and ActivityLogAlertActionGroupResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionGroupResponseInput` via:
+// ActionGroupResponseInput is an input type that accepts ActionGroupResponseArgs and ActionGroupResponseOutput values.
+// You can construct a concrete instance of `ActionGroupResponseInput` via:
 //
-//          ActivityLogAlertActionGroupResponseArgs{...}
-type ActivityLogAlertActionGroupResponseInput interface {
+//          ActionGroupResponseArgs{...}
+type ActionGroupResponseInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput
-	ToActivityLogAlertActionGroupResponseOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseOutput
+	ToActionGroupResponseOutput() ActionGroupResponseOutput
+	ToActionGroupResponseOutputWithContext(context.Context) ActionGroupResponseOutput
 }
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupResponseArgs struct {
-	// The resourceId of the action group. This cannot be null or empty.
+type ActionGroupResponseArgs struct {
+	// The resource ID of the Action Group. This cannot be null or empty.
 	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
-func (ActivityLogAlertActionGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroupResponse)(nil)).Elem()
+func (ActionGroupResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupResponse)(nil)).Elem()
 }
 
-func (i ActivityLogAlertActionGroupResponseArgs) ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput {
-	return i.ToActivityLogAlertActionGroupResponseOutputWithContext(context.Background())
+func (i ActionGroupResponseArgs) ToActionGroupResponseOutput() ActionGroupResponseOutput {
+	return i.ToActionGroupResponseOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionGroupResponseArgs) ToActivityLogAlertActionGroupResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseOutput)
+func (i ActionGroupResponseArgs) ToActionGroupResponseOutputWithContext(ctx context.Context) ActionGroupResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupResponseOutput)
 }
 
-// ActivityLogAlertActionGroupResponseArrayInput is an input type that accepts ActivityLogAlertActionGroupResponseArray and ActivityLogAlertActionGroupResponseArrayOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionGroupResponseArrayInput` via:
+// ActionGroupResponseArrayInput is an input type that accepts ActionGroupResponseArray and ActionGroupResponseArrayOutput values.
+// You can construct a concrete instance of `ActionGroupResponseArrayInput` via:
 //
-//          ActivityLogAlertActionGroupResponseArray{ ActivityLogAlertActionGroupResponseArgs{...} }
-type ActivityLogAlertActionGroupResponseArrayInput interface {
+//          ActionGroupResponseArray{ ActionGroupResponseArgs{...} }
+type ActionGroupResponseArrayInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput
-	ToActivityLogAlertActionGroupResponseArrayOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseArrayOutput
+	ToActionGroupResponseArrayOutput() ActionGroupResponseArrayOutput
+	ToActionGroupResponseArrayOutputWithContext(context.Context) ActionGroupResponseArrayOutput
 }
 
-type ActivityLogAlertActionGroupResponseArray []ActivityLogAlertActionGroupResponseInput
+type ActionGroupResponseArray []ActionGroupResponseInput
 
-func (ActivityLogAlertActionGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroupResponse)(nil)).Elem()
+func (ActionGroupResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroupResponse)(nil)).Elem()
 }
 
-func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput {
-	return i.ToActivityLogAlertActionGroupResponseArrayOutputWithContext(context.Background())
+func (i ActionGroupResponseArray) ToActionGroupResponseArrayOutput() ActionGroupResponseArrayOutput {
+	return i.ToActionGroupResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseArrayOutput)
+func (i ActionGroupResponseArray) ToActionGroupResponseArrayOutputWithContext(ctx context.Context) ActionGroupResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupResponseArrayOutput)
 }
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupResponseOutput struct{ *pulumi.OutputState }
+type ActionGroupResponseOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionGroupResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroupResponse)(nil)).Elem()
+func (ActionGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionGroupResponseOutput) ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput {
+func (o ActionGroupResponseOutput) ToActionGroupResponseOutput() ActionGroupResponseOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionGroupResponseOutput) ToActivityLogAlertActionGroupResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseOutput {
+func (o ActionGroupResponseOutput) ToActionGroupResponseOutputWithContext(ctx context.Context) ActionGroupResponseOutput {
 	return o
 }
 
-// The resourceId of the action group. This cannot be null or empty.
-func (o ActivityLogAlertActionGroupResponseOutput) ActionGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionGroupResponse) string { return v.ActionGroupId }).(pulumi.StringOutput)
+// The resource ID of the Action Group. This cannot be null or empty.
+func (o ActionGroupResponseOutput) ActionGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionGroupResponse) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
 // the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-func (o ActivityLogAlertActionGroupResponseOutput) WebhookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionGroupResponse) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
+func (o ActionGroupResponseOutput) WebhookProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ActionGroupResponse) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
 
-type ActivityLogAlertActionGroupResponseArrayOutput struct{ *pulumi.OutputState }
+type ActionGroupResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionGroupResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroupResponse)(nil)).Elem()
+func (ActionGroupResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroupResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionGroupResponseArrayOutput) ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput {
+func (o ActionGroupResponseArrayOutput) ToActionGroupResponseArrayOutput() ActionGroupResponseArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionGroupResponseArrayOutput) ToActivityLogAlertActionGroupResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseArrayOutput {
+func (o ActionGroupResponseArrayOutput) ToActionGroupResponseArrayOutputWithContext(ctx context.Context) ActionGroupResponseArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionGroupResponseArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertActionGroupResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertActionGroupResponse {
-		return vs[0].([]ActivityLogAlertActionGroupResponse)[vs[1].(int)]
-	}).(ActivityLogAlertActionGroupResponseOutput)
+func (o ActionGroupResponseArrayOutput) Index(i pulumi.IntInput) ActionGroupResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupResponse {
+		return vs[0].([]ActionGroupResponse)[vs[1].(int)]
+	}).(ActionGroupResponseOutput)
 }
 
-// A list of activity log alert actions.
-type ActivityLogAlertActionList struct {
-	// The list of activity log alerts.
-	ActionGroups []ActivityLogAlertActionGroup `pulumi:"actionGroups"`
+// A list of Activity Log Alert rule actions.
+type ActionList struct {
+	// The list of the Action Groups.
+	ActionGroups []ActionGroupType `pulumi:"actionGroups"`
 }
 
-// ActivityLogAlertActionListInput is an input type that accepts ActivityLogAlertActionListArgs and ActivityLogAlertActionListOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionListInput` via:
+// ActionListInput is an input type that accepts ActionListArgs and ActionListOutput values.
+// You can construct a concrete instance of `ActionListInput` via:
 //
-//          ActivityLogAlertActionListArgs{...}
-type ActivityLogAlertActionListInput interface {
+//          ActionListArgs{...}
+type ActionListInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionListOutput() ActivityLogAlertActionListOutput
-	ToActivityLogAlertActionListOutputWithContext(context.Context) ActivityLogAlertActionListOutput
+	ToActionListOutput() ActionListOutput
+	ToActionListOutputWithContext(context.Context) ActionListOutput
 }
 
-// A list of activity log alert actions.
-type ActivityLogAlertActionListArgs struct {
-	// The list of activity log alerts.
-	ActionGroups ActivityLogAlertActionGroupArrayInput `pulumi:"actionGroups"`
+// A list of Activity Log Alert rule actions.
+type ActionListArgs struct {
+	// The list of the Action Groups.
+	ActionGroups ActionGroupTypeArrayInput `pulumi:"actionGroups"`
 }
 
-func (ActivityLogAlertActionListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionList)(nil)).Elem()
+func (ActionListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionList)(nil)).Elem()
 }
 
-func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListOutput() ActivityLogAlertActionListOutput {
-	return i.ToActivityLogAlertActionListOutputWithContext(context.Background())
+func (i ActionListArgs) ToActionListOutput() ActionListOutput {
+	return i.ToActionListOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListOutputWithContext(ctx context.Context) ActivityLogAlertActionListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListOutput)
+func (i ActionListArgs) ToActionListOutputWithContext(ctx context.Context) ActionListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionListOutput)
 }
 
-func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return i.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
+func (i ActionListArgs) ToActionListPtrOutput() ActionListPtrOutput {
+	return i.ToActionListPtrOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListOutput).ToActivityLogAlertActionListPtrOutputWithContext(ctx)
+func (i ActionListArgs) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionListOutput).ToActionListPtrOutputWithContext(ctx)
 }
 
-// ActivityLogAlertActionListPtrInput is an input type that accepts ActivityLogAlertActionListArgs, ActivityLogAlertActionListPtr and ActivityLogAlertActionListPtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionListPtrInput` via:
+// ActionListPtrInput is an input type that accepts ActionListArgs, ActionListPtr and ActionListPtrOutput values.
+// You can construct a concrete instance of `ActionListPtrInput` via:
 //
-//          ActivityLogAlertActionListArgs{...}
+//          ActionListArgs{...}
 //
 //  or:
 //
 //          nil
-type ActivityLogAlertActionListPtrInput interface {
+type ActionListPtrInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput
-	ToActivityLogAlertActionListPtrOutputWithContext(context.Context) ActivityLogAlertActionListPtrOutput
+	ToActionListPtrOutput() ActionListPtrOutput
+	ToActionListPtrOutputWithContext(context.Context) ActionListPtrOutput
 }
 
-type activityLogAlertActionListPtrType ActivityLogAlertActionListArgs
+type actionListPtrType ActionListArgs
 
-func ActivityLogAlertActionListPtr(v *ActivityLogAlertActionListArgs) ActivityLogAlertActionListPtrInput {
-	return (*activityLogAlertActionListPtrType)(v)
+func ActionListPtr(v *ActionListArgs) ActionListPtrInput {
+	return (*actionListPtrType)(v)
 }
 
-func (*activityLogAlertActionListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionList)(nil)).Elem()
+func (*actionListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionList)(nil)).Elem()
 }
 
-func (i *activityLogAlertActionListPtrType) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return i.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
+func (i *actionListPtrType) ToActionListPtrOutput() ActionListPtrOutput {
+	return i.ToActionListPtrOutputWithContext(context.Background())
 }
 
-func (i *activityLogAlertActionListPtrType) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListPtrOutput)
+func (i *actionListPtrType) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionListPtrOutput)
 }
 
-// A list of activity log alert actions.
-type ActivityLogAlertActionListOutput struct{ *pulumi.OutputState }
+// A list of Activity Log Alert rule actions.
+type ActionListOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionList)(nil)).Elem()
+func (ActionListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionList)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListOutput() ActivityLogAlertActionListOutput {
+func (o ActionListOutput) ToActionListOutput() ActionListOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListOutputWithContext(ctx context.Context) ActivityLogAlertActionListOutput {
+func (o ActionListOutput) ToActionListOutputWithContext(ctx context.Context) ActionListOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return o.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
+func (o ActionListOutput) ToActionListPtrOutput() ActionListPtrOutput {
+	return o.ToActionListPtrOutputWithContext(context.Background())
 }
 
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionList) *ActivityLogAlertActionList {
+func (o ActionListOutput) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
+	return o.ApplyT(func(v ActionList) *ActionList {
 		return &v
-	}).(ActivityLogAlertActionListPtrOutput)
+	}).(ActionListPtrOutput)
 }
 
-// The list of activity log alerts.
-func (o ActivityLogAlertActionListOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionList) []ActivityLogAlertActionGroup { return v.ActionGroups }).(ActivityLogAlertActionGroupArrayOutput)
+// The list of the Action Groups.
+func (o ActionListOutput) ActionGroups() ActionGroupTypeArrayOutput {
+	return o.ApplyT(func(v ActionList) []ActionGroupType { return v.ActionGroups }).(ActionGroupTypeArrayOutput)
 }
 
-type ActivityLogAlertActionListPtrOutput struct{ *pulumi.OutputState }
+type ActionListPtrOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionList)(nil)).Elem()
+func (ActionListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionList)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
+func (o ActionListPtrOutput) ToActionListPtrOutput() ActionListPtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
+func (o ActionListPtrOutput) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListPtrOutput) Elem() ActivityLogAlertActionListOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList { return *v }).(ActivityLogAlertActionListOutput)
+func (o ActionListPtrOutput) Elem() ActionListOutput {
+	return o.ApplyT(func(v *ActionList) ActionList { return *v }).(ActionListOutput)
 }
 
-// The list of activity log alerts.
-func (o ActivityLogAlertActionListPtrOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) []ActivityLogAlertActionGroup {
+// The list of the Action Groups.
+func (o ActionListPtrOutput) ActionGroups() ActionGroupTypeArrayOutput {
+	return o.ApplyT(func(v *ActionList) []ActionGroupType {
 		if v == nil {
 			return nil
 		}
 		return v.ActionGroups
-	}).(ActivityLogAlertActionGroupArrayOutput)
+	}).(ActionGroupTypeArrayOutput)
 }
 
-// A list of activity log alert actions.
-type ActivityLogAlertActionListResponse struct {
-	// The list of activity log alerts.
-	ActionGroups []ActivityLogAlertActionGroupResponse `pulumi:"actionGroups"`
+// A list of Activity Log Alert rule actions.
+type ActionListResponse struct {
+	// The list of the Action Groups.
+	ActionGroups []ActionGroupResponse `pulumi:"actionGroups"`
 }
 
-// ActivityLogAlertActionListResponseInput is an input type that accepts ActivityLogAlertActionListResponseArgs and ActivityLogAlertActionListResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionListResponseInput` via:
+// ActionListResponseInput is an input type that accepts ActionListResponseArgs and ActionListResponseOutput values.
+// You can construct a concrete instance of `ActionListResponseInput` via:
 //
-//          ActivityLogAlertActionListResponseArgs{...}
-type ActivityLogAlertActionListResponseInput interface {
+//          ActionListResponseArgs{...}
+type ActionListResponseInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput
-	ToActivityLogAlertActionListResponseOutputWithContext(context.Context) ActivityLogAlertActionListResponseOutput
+	ToActionListResponseOutput() ActionListResponseOutput
+	ToActionListResponseOutputWithContext(context.Context) ActionListResponseOutput
 }
 
-// A list of activity log alert actions.
-type ActivityLogAlertActionListResponseArgs struct {
-	// The list of activity log alerts.
-	ActionGroups ActivityLogAlertActionGroupResponseArrayInput `pulumi:"actionGroups"`
+// A list of Activity Log Alert rule actions.
+type ActionListResponseArgs struct {
+	// The list of the Action Groups.
+	ActionGroups ActionGroupResponseArrayInput `pulumi:"actionGroups"`
 }
 
-func (ActivityLogAlertActionListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionListResponse)(nil)).Elem()
+func (ActionListResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionListResponse)(nil)).Elem()
 }
 
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput {
-	return i.ToActivityLogAlertActionListResponseOutputWithContext(context.Background())
+func (i ActionListResponseArgs) ToActionListResponseOutput() ActionListResponseOutput {
+	return i.ToActionListResponseOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponseOutput)
+func (i ActionListResponseArgs) ToActionListResponseOutputWithContext(ctx context.Context) ActionListResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponseOutput)
 }
 
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return i.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
+func (i ActionListResponseArgs) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
+	return i.ToActionListResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponseOutput).ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx)
+func (i ActionListResponseArgs) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponseOutput).ToActionListResponsePtrOutputWithContext(ctx)
 }
 
-// ActivityLogAlertActionListResponsePtrInput is an input type that accepts ActivityLogAlertActionListResponseArgs, ActivityLogAlertActionListResponsePtr and ActivityLogAlertActionListResponsePtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionListResponsePtrInput` via:
+// ActionListResponsePtrInput is an input type that accepts ActionListResponseArgs, ActionListResponsePtr and ActionListResponsePtrOutput values.
+// You can construct a concrete instance of `ActionListResponsePtrInput` via:
 //
-//          ActivityLogAlertActionListResponseArgs{...}
+//          ActionListResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ActivityLogAlertActionListResponsePtrInput interface {
+type ActionListResponsePtrInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput
-	ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Context) ActivityLogAlertActionListResponsePtrOutput
+	ToActionListResponsePtrOutput() ActionListResponsePtrOutput
+	ToActionListResponsePtrOutputWithContext(context.Context) ActionListResponsePtrOutput
 }
 
-type activityLogAlertActionListResponsePtrType ActivityLogAlertActionListResponseArgs
+type actionListResponsePtrType ActionListResponseArgs
 
-func ActivityLogAlertActionListResponsePtr(v *ActivityLogAlertActionListResponseArgs) ActivityLogAlertActionListResponsePtrInput {
-	return (*activityLogAlertActionListResponsePtrType)(v)
+func ActionListResponsePtr(v *ActionListResponseArgs) ActionListResponsePtrInput {
+	return (*actionListResponsePtrType)(v)
 }
 
-func (*activityLogAlertActionListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionListResponse)(nil)).Elem()
+func (*actionListResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionListResponse)(nil)).Elem()
 }
 
-func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return i.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
+func (i *actionListResponsePtrType) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
+	return i.ToActionListResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponsePtrOutput)
+func (i *actionListResponsePtrType) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionListResponsePtrOutput)
 }
 
-// A list of activity log alert actions.
-type ActivityLogAlertActionListResponseOutput struct{ *pulumi.OutputState }
+// A list of Activity Log Alert rule actions.
+type ActionListResponseOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionListResponse)(nil)).Elem()
+func (ActionListResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionListResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput {
+func (o ActionListResponseOutput) ToActionListResponseOutput() ActionListResponseOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponseOutput {
+func (o ActionListResponseOutput) ToActionListResponseOutputWithContext(ctx context.Context) ActionListResponseOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return o.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
+func (o ActionListResponseOutput) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
+	return o.ToActionListResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionListResponse) *ActivityLogAlertActionListResponse {
+func (o ActionListResponseOutput) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
+	return o.ApplyT(func(v ActionListResponse) *ActionListResponse {
 		return &v
-	}).(ActivityLogAlertActionListResponsePtrOutput)
+	}).(ActionListResponsePtrOutput)
 }
 
-// The list of activity log alerts.
-func (o ActivityLogAlertActionListResponseOutput) ActionGroups() ActivityLogAlertActionGroupResponseArrayOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionListResponse) []ActivityLogAlertActionGroupResponse {
-		return v.ActionGroups
-	}).(ActivityLogAlertActionGroupResponseArrayOutput)
+// The list of the Action Groups.
+func (o ActionListResponseOutput) ActionGroups() ActionGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActionListResponse) []ActionGroupResponse { return v.ActionGroups }).(ActionGroupResponseArrayOutput)
 }
 
-type ActivityLogAlertActionListResponsePtrOutput struct{ *pulumi.OutputState }
+type ActionListResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertActionListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionListResponse)(nil)).Elem()
+func (ActionListResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionListResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertActionListResponsePtrOutput) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
+func (o ActionListResponsePtrOutput) ToActionListResponsePtrOutput() ActionListResponsePtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListResponsePtrOutput) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
+func (o ActionListResponsePtrOutput) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertActionListResponsePtrOutput) Elem() ActivityLogAlertActionListResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) ActivityLogAlertActionListResponse { return *v }).(ActivityLogAlertActionListResponseOutput)
+func (o ActionListResponsePtrOutput) Elem() ActionListResponseOutput {
+	return o.ApplyT(func(v *ActionListResponse) ActionListResponse { return *v }).(ActionListResponseOutput)
 }
 
-// The list of activity log alerts.
-func (o ActivityLogAlertActionListResponsePtrOutput) ActionGroups() ActivityLogAlertActionGroupResponseArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) []ActivityLogAlertActionGroupResponse {
+// The list of the Action Groups.
+func (o ActionListResponsePtrOutput) ActionGroups() ActionGroupResponseArrayOutput {
+	return o.ApplyT(func(v *ActionListResponse) []ActionGroupResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ActionGroups
-	}).(ActivityLogAlertActionGroupResponseArrayOutput)
+	}).(ActionGroupResponseArrayOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfCondition struct {
-	// The list of activity log alert conditions.
-	AllOf []ActivityLogAlertLeafCondition `pulumi:"allOf"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+type AlertRuleAllOfCondition struct {
+	// The list of Activity Log Alert rule conditions.
+	AllOf []AlertRuleAnyOfOrLeafCondition `pulumi:"allOf"`
 }
 
-// ActivityLogAlertAllOfConditionInput is an input type that accepts ActivityLogAlertAllOfConditionArgs and ActivityLogAlertAllOfConditionOutput values.
-// You can construct a concrete instance of `ActivityLogAlertAllOfConditionInput` via:
+// AlertRuleAllOfConditionInput is an input type that accepts AlertRuleAllOfConditionArgs and AlertRuleAllOfConditionOutput values.
+// You can construct a concrete instance of `AlertRuleAllOfConditionInput` via:
 //
-//          ActivityLogAlertAllOfConditionArgs{...}
-type ActivityLogAlertAllOfConditionInput interface {
+//          AlertRuleAllOfConditionArgs{...}
+type AlertRuleAllOfConditionInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertAllOfConditionOutput() ActivityLogAlertAllOfConditionOutput
-	ToActivityLogAlertAllOfConditionOutputWithContext(context.Context) ActivityLogAlertAllOfConditionOutput
+	ToAlertRuleAllOfConditionOutput() AlertRuleAllOfConditionOutput
+	ToAlertRuleAllOfConditionOutputWithContext(context.Context) AlertRuleAllOfConditionOutput
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionArgs struct {
-	// The list of activity log alert conditions.
-	AllOf ActivityLogAlertLeafConditionArrayInput `pulumi:"allOf"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+type AlertRuleAllOfConditionArgs struct {
+	// The list of Activity Log Alert rule conditions.
+	AllOf AlertRuleAnyOfOrLeafConditionArrayInput `pulumi:"allOf"`
 }
 
-func (ActivityLogAlertAllOfConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfCondition)(nil)).Elem()
+func (AlertRuleAllOfConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAllOfCondition)(nil)).Elem()
 }
 
-func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionOutput() ActivityLogAlertAllOfConditionOutput {
-	return i.ToActivityLogAlertAllOfConditionOutputWithContext(context.Background())
+func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionOutput() AlertRuleAllOfConditionOutput {
+	return i.ToAlertRuleAllOfConditionOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionOutput)
+func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionOutputWithContext(ctx context.Context) AlertRuleAllOfConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionOutput)
 }
 
-func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return i.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
+func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
+	return i.ToAlertRuleAllOfConditionPtrOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionOutput).ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx)
+func (i AlertRuleAllOfConditionArgs) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionOutput).ToAlertRuleAllOfConditionPtrOutputWithContext(ctx)
 }
 
-// ActivityLogAlertAllOfConditionPtrInput is an input type that accepts ActivityLogAlertAllOfConditionArgs, ActivityLogAlertAllOfConditionPtr and ActivityLogAlertAllOfConditionPtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertAllOfConditionPtrInput` via:
+// AlertRuleAllOfConditionPtrInput is an input type that accepts AlertRuleAllOfConditionArgs, AlertRuleAllOfConditionPtr and AlertRuleAllOfConditionPtrOutput values.
+// You can construct a concrete instance of `AlertRuleAllOfConditionPtrInput` via:
 //
-//          ActivityLogAlertAllOfConditionArgs{...}
+//          AlertRuleAllOfConditionArgs{...}
 //
 //  or:
 //
 //          nil
-type ActivityLogAlertAllOfConditionPtrInput interface {
+type AlertRuleAllOfConditionPtrInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput
-	ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Context) ActivityLogAlertAllOfConditionPtrOutput
+	ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput
+	ToAlertRuleAllOfConditionPtrOutputWithContext(context.Context) AlertRuleAllOfConditionPtrOutput
 }
 
-type activityLogAlertAllOfConditionPtrType ActivityLogAlertAllOfConditionArgs
+type alertRuleAllOfConditionPtrType AlertRuleAllOfConditionArgs
 
-func ActivityLogAlertAllOfConditionPtr(v *ActivityLogAlertAllOfConditionArgs) ActivityLogAlertAllOfConditionPtrInput {
-	return (*activityLogAlertAllOfConditionPtrType)(v)
+func AlertRuleAllOfConditionPtr(v *AlertRuleAllOfConditionArgs) AlertRuleAllOfConditionPtrInput {
+	return (*alertRuleAllOfConditionPtrType)(v)
 }
 
-func (*activityLogAlertAllOfConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfCondition)(nil)).Elem()
+func (*alertRuleAllOfConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleAllOfCondition)(nil)).Elem()
 }
 
-func (i *activityLogAlertAllOfConditionPtrType) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return i.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
+func (i *alertRuleAllOfConditionPtrType) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
+	return i.ToAlertRuleAllOfConditionPtrOutputWithContext(context.Background())
 }
 
-func (i *activityLogAlertAllOfConditionPtrType) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionPtrOutput)
+func (i *alertRuleAllOfConditionPtrType) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionPtrOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionOutput struct{ *pulumi.OutputState }
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+type AlertRuleAllOfConditionOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertAllOfConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfCondition)(nil)).Elem()
+func (AlertRuleAllOfConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAllOfCondition)(nil)).Elem()
 }
 
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionOutput() ActivityLogAlertAllOfConditionOutput {
+func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionOutput() AlertRuleAllOfConditionOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionOutput {
+func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionOutputWithContext(ctx context.Context) AlertRuleAllOfConditionOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
+func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
+	return o.ToAlertRuleAllOfConditionPtrOutputWithContext(context.Background())
 }
 
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
+func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
+	return o.ApplyT(func(v AlertRuleAllOfCondition) *AlertRuleAllOfCondition {
 		return &v
-	}).(ActivityLogAlertAllOfConditionPtrOutput)
+	}).(AlertRuleAllOfConditionPtrOutput)
 }
 
-// The list of activity log alert conditions.
-func (o ActivityLogAlertAllOfConditionOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition { return v.AllOf }).(ActivityLogAlertLeafConditionArrayOutput)
+// The list of Activity Log Alert rule conditions.
+func (o AlertRuleAllOfConditionOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
+	return o.ApplyT(func(v AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
 
-type ActivityLogAlertAllOfConditionPtrOutput struct{ *pulumi.OutputState }
+type AlertRuleAllOfConditionPtrOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertAllOfConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfCondition)(nil)).Elem()
+func (AlertRuleAllOfConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleAllOfCondition)(nil)).Elem()
 }
 
-func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
+func (o AlertRuleAllOfConditionPtrOutput) ToAlertRuleAllOfConditionPtrOutput() AlertRuleAllOfConditionPtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
+func (o AlertRuleAllOfConditionPtrOutput) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionPtrOutput) Elem() ActivityLogAlertAllOfConditionOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition { return *v }).(ActivityLogAlertAllOfConditionOutput)
+func (o AlertRuleAllOfConditionPtrOutput) Elem() AlertRuleAllOfConditionOutput {
+	return o.ApplyT(func(v *AlertRuleAllOfCondition) AlertRuleAllOfCondition { return *v }).(AlertRuleAllOfConditionOutput)
 }
 
-// The list of activity log alert conditions.
-func (o ActivityLogAlertAllOfConditionPtrOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition {
+// The list of Activity Log Alert rule conditions.
+func (o AlertRuleAllOfConditionPtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionArrayOutput {
+	return o.ApplyT(func(v *AlertRuleAllOfCondition) []AlertRuleAnyOfOrLeafCondition {
 		if v == nil {
 			return nil
 		}
 		return v.AllOf
-	}).(ActivityLogAlertLeafConditionArrayOutput)
+	}).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionResponse struct {
-	// The list of activity log alert conditions.
-	AllOf []ActivityLogAlertLeafConditionResponse `pulumi:"allOf"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+type AlertRuleAllOfConditionResponse struct {
+	// The list of Activity Log Alert rule conditions.
+	AllOf []AlertRuleAnyOfOrLeafConditionResponse `pulumi:"allOf"`
 }
 
-// ActivityLogAlertAllOfConditionResponseInput is an input type that accepts ActivityLogAlertAllOfConditionResponseArgs and ActivityLogAlertAllOfConditionResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertAllOfConditionResponseInput` via:
+// AlertRuleAllOfConditionResponseInput is an input type that accepts AlertRuleAllOfConditionResponseArgs and AlertRuleAllOfConditionResponseOutput values.
+// You can construct a concrete instance of `AlertRuleAllOfConditionResponseInput` via:
 //
-//          ActivityLogAlertAllOfConditionResponseArgs{...}
-type ActivityLogAlertAllOfConditionResponseInput interface {
+//          AlertRuleAllOfConditionResponseArgs{...}
+type AlertRuleAllOfConditionResponseInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput
-	ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponseOutput
+	ToAlertRuleAllOfConditionResponseOutput() AlertRuleAllOfConditionResponseOutput
+	ToAlertRuleAllOfConditionResponseOutputWithContext(context.Context) AlertRuleAllOfConditionResponseOutput
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionResponseArgs struct {
-	// The list of activity log alert conditions.
-	AllOf ActivityLogAlertLeafConditionResponseArrayInput `pulumi:"allOf"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+type AlertRuleAllOfConditionResponseArgs struct {
+	// The list of Activity Log Alert rule conditions.
+	AllOf AlertRuleAnyOfOrLeafConditionResponseArrayInput `pulumi:"allOf"`
 }
 
-func (ActivityLogAlertAllOfConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
+func (AlertRuleAllOfConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAllOfConditionResponse)(nil)).Elem()
 }
 
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput {
-	return i.ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Background())
+func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponseOutput() AlertRuleAllOfConditionResponseOutput {
+	return i.ToAlertRuleAllOfConditionResponseOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponseOutput)
+func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponseOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponseOutput)
 }
 
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return i.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
+func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
+	return i.ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponseOutput).ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx)
+func (i AlertRuleAllOfConditionResponseArgs) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponseOutput).ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx)
 }
 
-// ActivityLogAlertAllOfConditionResponsePtrInput is an input type that accepts ActivityLogAlertAllOfConditionResponseArgs, ActivityLogAlertAllOfConditionResponsePtr and ActivityLogAlertAllOfConditionResponsePtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertAllOfConditionResponsePtrInput` via:
+// AlertRuleAllOfConditionResponsePtrInput is an input type that accepts AlertRuleAllOfConditionResponseArgs, AlertRuleAllOfConditionResponsePtr and AlertRuleAllOfConditionResponsePtrOutput values.
+// You can construct a concrete instance of `AlertRuleAllOfConditionResponsePtrInput` via:
 //
-//          ActivityLogAlertAllOfConditionResponseArgs{...}
+//          AlertRuleAllOfConditionResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ActivityLogAlertAllOfConditionResponsePtrInput interface {
+type AlertRuleAllOfConditionResponsePtrInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput
-	ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput
+	ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput
+	ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Context) AlertRuleAllOfConditionResponsePtrOutput
 }
 
-type activityLogAlertAllOfConditionResponsePtrType ActivityLogAlertAllOfConditionResponseArgs
+type alertRuleAllOfConditionResponsePtrType AlertRuleAllOfConditionResponseArgs
 
-func ActivityLogAlertAllOfConditionResponsePtr(v *ActivityLogAlertAllOfConditionResponseArgs) ActivityLogAlertAllOfConditionResponsePtrInput {
-	return (*activityLogAlertAllOfConditionResponsePtrType)(v)
+func AlertRuleAllOfConditionResponsePtr(v *AlertRuleAllOfConditionResponseArgs) AlertRuleAllOfConditionResponsePtrInput {
+	return (*alertRuleAllOfConditionResponsePtrType)(v)
 }
 
-func (*activityLogAlertAllOfConditionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
+func (*alertRuleAllOfConditionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleAllOfConditionResponse)(nil)).Elem()
 }
 
-func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return i.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
+func (i *alertRuleAllOfConditionResponsePtrType) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
+	return i.ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponsePtrOutput)
+func (i *alertRuleAllOfConditionResponsePtrType) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAllOfConditionResponsePtrOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionResponseOutput struct{ *pulumi.OutputState }
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+type AlertRuleAllOfConditionResponseOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertAllOfConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
+func (AlertRuleAllOfConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAllOfConditionResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput {
+func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponseOutput() AlertRuleAllOfConditionResponseOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponseOutput {
+func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponseOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponseOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
+func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
+	return o.ToAlertRuleAllOfConditionResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfConditionResponse) *ActivityLogAlertAllOfConditionResponse {
+func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
+	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) *AlertRuleAllOfConditionResponse {
 		return &v
-	}).(ActivityLogAlertAllOfConditionResponsePtrOutput)
+	}).(AlertRuleAllOfConditionResponsePtrOutput)
 }
 
-// The list of activity log alert conditions.
-func (o ActivityLogAlertAllOfConditionResponseOutput) AllOf() ActivityLogAlertLeafConditionResponseArrayOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfConditionResponse) []ActivityLogAlertLeafConditionResponse { return v.AllOf }).(ActivityLogAlertLeafConditionResponseArrayOutput)
+// The list of Activity Log Alert rule conditions.
+func (o AlertRuleAllOfConditionResponseOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
+	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse { return v.AllOf }).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
-type ActivityLogAlertAllOfConditionResponsePtrOutput struct{ *pulumi.OutputState }
+type AlertRuleAllOfConditionResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertAllOfConditionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
+func (AlertRuleAllOfConditionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleAllOfConditionResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
+func (o AlertRuleAllOfConditionResponsePtrOutput) ToAlertRuleAllOfConditionResponsePtrOutput() AlertRuleAllOfConditionResponsePtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
+func (o AlertRuleAllOfConditionResponsePtrOutput) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) Elem() ActivityLogAlertAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) ActivityLogAlertAllOfConditionResponse { return *v }).(ActivityLogAlertAllOfConditionResponseOutput)
+func (o AlertRuleAllOfConditionResponsePtrOutput) Elem() AlertRuleAllOfConditionResponseOutput {
+	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) AlertRuleAllOfConditionResponse { return *v }).(AlertRuleAllOfConditionResponseOutput)
 }
 
-// The list of activity log alert conditions.
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) AllOf() ActivityLogAlertLeafConditionResponseArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) []ActivityLogAlertLeafConditionResponse {
+// The list of Activity Log Alert rule conditions.
+func (o AlertRuleAllOfConditionResponsePtrOutput) AllOf() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
+	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) []AlertRuleAnyOfOrLeafConditionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.AllOf
-	}).(ActivityLogAlertLeafConditionResponseArrayOutput)
+	}).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafCondition struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals string `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field string `pulumi:"field"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+// Each condition can be of one of the following types:
+// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+type AlertRuleAnyOfOrLeafCondition struct {
+	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+	AnyOf []AlertRuleLeafCondition `pulumi:"anyOf"`
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny []string `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals *string `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field *string `pulumi:"field"`
 }
 
-// ActivityLogAlertLeafConditionInput is an input type that accepts ActivityLogAlertLeafConditionArgs and ActivityLogAlertLeafConditionOutput values.
-// You can construct a concrete instance of `ActivityLogAlertLeafConditionInput` via:
+// AlertRuleAnyOfOrLeafConditionInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArgs and AlertRuleAnyOfOrLeafConditionOutput values.
+// You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionInput` via:
 //
-//          ActivityLogAlertLeafConditionArgs{...}
-type ActivityLogAlertLeafConditionInput interface {
+//          AlertRuleAnyOfOrLeafConditionArgs{...}
+type AlertRuleAnyOfOrLeafConditionInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertLeafConditionOutput() ActivityLogAlertLeafConditionOutput
-	ToActivityLogAlertLeafConditionOutputWithContext(context.Context) ActivityLogAlertLeafConditionOutput
+	ToAlertRuleAnyOfOrLeafConditionOutput() AlertRuleAnyOfOrLeafConditionOutput
+	ToAlertRuleAnyOfOrLeafConditionOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionOutput
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionArgs struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringInput `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field pulumi.StringInput `pulumi:"field"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+// Each condition can be of one of the following types:
+// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+type AlertRuleAnyOfOrLeafConditionArgs struct {
+	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+	AnyOf AlertRuleLeafConditionArrayInput `pulumi:"anyOf"`
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals pulumi.StringPtrInput `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field pulumi.StringPtrInput `pulumi:"field"`
 }
 
-func (ActivityLogAlertLeafConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafCondition)(nil)).Elem()
+func (AlertRuleAnyOfOrLeafConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnyOfOrLeafCondition)(nil)).Elem()
 }
 
-func (i ActivityLogAlertLeafConditionArgs) ToActivityLogAlertLeafConditionOutput() ActivityLogAlertLeafConditionOutput {
-	return i.ToActivityLogAlertLeafConditionOutputWithContext(context.Background())
+func (i AlertRuleAnyOfOrLeafConditionArgs) ToAlertRuleAnyOfOrLeafConditionOutput() AlertRuleAnyOfOrLeafConditionOutput {
+	return i.ToAlertRuleAnyOfOrLeafConditionOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertLeafConditionArgs) ToActivityLogAlertLeafConditionOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionOutput)
+func (i AlertRuleAnyOfOrLeafConditionArgs) ToAlertRuleAnyOfOrLeafConditionOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionOutput)
 }
 
-// ActivityLogAlertLeafConditionArrayInput is an input type that accepts ActivityLogAlertLeafConditionArray and ActivityLogAlertLeafConditionArrayOutput values.
-// You can construct a concrete instance of `ActivityLogAlertLeafConditionArrayInput` via:
+// AlertRuleAnyOfOrLeafConditionArrayInput is an input type that accepts AlertRuleAnyOfOrLeafConditionArray and AlertRuleAnyOfOrLeafConditionArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionArrayInput` via:
 //
-//          ActivityLogAlertLeafConditionArray{ ActivityLogAlertLeafConditionArgs{...} }
-type ActivityLogAlertLeafConditionArrayInput interface {
+//          AlertRuleAnyOfOrLeafConditionArray{ AlertRuleAnyOfOrLeafConditionArgs{...} }
+type AlertRuleAnyOfOrLeafConditionArrayInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertLeafConditionArrayOutput() ActivityLogAlertLeafConditionArrayOutput
-	ToActivityLogAlertLeafConditionArrayOutputWithContext(context.Context) ActivityLogAlertLeafConditionArrayOutput
+	ToAlertRuleAnyOfOrLeafConditionArrayOutput() AlertRuleAnyOfOrLeafConditionArrayOutput
+	ToAlertRuleAnyOfOrLeafConditionArrayOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionArrayOutput
 }
 
-type ActivityLogAlertLeafConditionArray []ActivityLogAlertLeafConditionInput
+type AlertRuleAnyOfOrLeafConditionArray []AlertRuleAnyOfOrLeafConditionInput
 
-func (ActivityLogAlertLeafConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafCondition)(nil)).Elem()
+func (AlertRuleAnyOfOrLeafConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnyOfOrLeafCondition)(nil)).Elem()
 }
 
-func (i ActivityLogAlertLeafConditionArray) ToActivityLogAlertLeafConditionArrayOutput() ActivityLogAlertLeafConditionArrayOutput {
-	return i.ToActivityLogAlertLeafConditionArrayOutputWithContext(context.Background())
+func (i AlertRuleAnyOfOrLeafConditionArray) ToAlertRuleAnyOfOrLeafConditionArrayOutput() AlertRuleAnyOfOrLeafConditionArrayOutput {
+	return i.ToAlertRuleAnyOfOrLeafConditionArrayOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertLeafConditionArray) ToActivityLogAlertLeafConditionArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionArrayOutput)
+func (i AlertRuleAnyOfOrLeafConditionArray) ToAlertRuleAnyOfOrLeafConditionArrayOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionArrayOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionOutput struct{ *pulumi.OutputState }
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+// Each condition can be of one of the following types:
+// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+type AlertRuleAnyOfOrLeafConditionOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertLeafConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafCondition)(nil)).Elem()
+func (AlertRuleAnyOfOrLeafConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnyOfOrLeafCondition)(nil)).Elem()
 }
 
-func (o ActivityLogAlertLeafConditionOutput) ToActivityLogAlertLeafConditionOutput() ActivityLogAlertLeafConditionOutput {
+func (o AlertRuleAnyOfOrLeafConditionOutput) ToAlertRuleAnyOfOrLeafConditionOutput() AlertRuleAnyOfOrLeafConditionOutput {
 	return o
 }
 
-func (o ActivityLogAlertLeafConditionOutput) ToActivityLogAlertLeafConditionOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionOutput {
+func (o AlertRuleAnyOfOrLeafConditionOutput) ToAlertRuleAnyOfOrLeafConditionOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionOutput {
 	return o
 }
 
-// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-func (o ActivityLogAlertLeafConditionOutput) Equals() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertLeafCondition) string { return v.Equals }).(pulumi.StringOutput)
+// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+func (o AlertRuleAnyOfOrLeafConditionOutput) AnyOf() AlertRuleLeafConditionArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) []AlertRuleLeafCondition { return v.AnyOf }).(AlertRuleLeafConditionArrayOutput)
 }
 
-// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-func (o ActivityLogAlertLeafConditionOutput) Field() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertLeafCondition) string { return v.Field }).(pulumi.StringOutput)
+// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+func (o AlertRuleAnyOfOrLeafConditionOutput) ContainsAny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-type ActivityLogAlertLeafConditionArrayOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertLeafConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafCondition)(nil)).Elem()
+// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+func (o AlertRuleAnyOfOrLeafConditionOutput) Equals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-func (o ActivityLogAlertLeafConditionArrayOutput) ToActivityLogAlertLeafConditionArrayOutput() ActivityLogAlertLeafConditionArrayOutput {
+// The name of the Activity Log event's field that this condition will examine.
+// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+func (o AlertRuleAnyOfOrLeafConditionOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleAnyOfOrLeafConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnyOfOrLeafConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnyOfOrLeafCondition)(nil)).Elem()
+}
+
+func (o AlertRuleAnyOfOrLeafConditionArrayOutput) ToAlertRuleAnyOfOrLeafConditionArrayOutput() AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertLeafConditionArrayOutput) ToActivityLogAlertLeafConditionArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionArrayOutput {
+func (o AlertRuleAnyOfOrLeafConditionArrayOutput) ToAlertRuleAnyOfOrLeafConditionArrayOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertLeafConditionArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertLeafConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertLeafCondition {
-		return vs[0].([]ActivityLogAlertLeafCondition)[vs[1].(int)]
-	}).(ActivityLogAlertLeafConditionOutput)
+func (o AlertRuleAnyOfOrLeafConditionArrayOutput) Index(i pulumi.IntInput) AlertRuleAnyOfOrLeafConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnyOfOrLeafCondition {
+		return vs[0].([]AlertRuleAnyOfOrLeafCondition)[vs[1].(int)]
+	}).(AlertRuleAnyOfOrLeafConditionOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionResponse struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals string `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field string `pulumi:"field"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+// Each condition can be of one of the following types:
+// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+type AlertRuleAnyOfOrLeafConditionResponse struct {
+	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+	AnyOf []AlertRuleLeafConditionResponse `pulumi:"anyOf"`
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny []string `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals *string `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field *string `pulumi:"field"`
 }
 
-// ActivityLogAlertLeafConditionResponseInput is an input type that accepts ActivityLogAlertLeafConditionResponseArgs and ActivityLogAlertLeafConditionResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertLeafConditionResponseInput` via:
+// AlertRuleAnyOfOrLeafConditionResponseInput is an input type that accepts AlertRuleAnyOfOrLeafConditionResponseArgs and AlertRuleAnyOfOrLeafConditionResponseOutput values.
+// You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionResponseInput` via:
 //
-//          ActivityLogAlertLeafConditionResponseArgs{...}
-type ActivityLogAlertLeafConditionResponseInput interface {
+//          AlertRuleAnyOfOrLeafConditionResponseArgs{...}
+type AlertRuleAnyOfOrLeafConditionResponseInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput
-	ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseOutput
+	ToAlertRuleAnyOfOrLeafConditionResponseOutput() AlertRuleAnyOfOrLeafConditionResponseOutput
+	ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionResponseOutput
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionResponseArgs struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringInput `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field pulumi.StringInput `pulumi:"field"`
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+// Each condition can be of one of the following types:
+// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+type AlertRuleAnyOfOrLeafConditionResponseArgs struct {
+	// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+	AnyOf AlertRuleLeafConditionResponseArrayInput `pulumi:"anyOf"`
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals pulumi.StringPtrInput `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field pulumi.StringPtrInput `pulumi:"field"`
 }
 
-func (ActivityLogAlertLeafConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafConditionResponse)(nil)).Elem()
+func (AlertRuleAnyOfOrLeafConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnyOfOrLeafConditionResponse)(nil)).Elem()
 }
 
-func (i ActivityLogAlertLeafConditionResponseArgs) ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput {
-	return i.ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Background())
+func (i AlertRuleAnyOfOrLeafConditionResponseArgs) ToAlertRuleAnyOfOrLeafConditionResponseOutput() AlertRuleAnyOfOrLeafConditionResponseOutput {
+	return i.ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertLeafConditionResponseArgs) ToActivityLogAlertLeafConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseOutput)
+func (i AlertRuleAnyOfOrLeafConditionResponseArgs) ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionResponseOutput)
 }
 
-// ActivityLogAlertLeafConditionResponseArrayInput is an input type that accepts ActivityLogAlertLeafConditionResponseArray and ActivityLogAlertLeafConditionResponseArrayOutput values.
-// You can construct a concrete instance of `ActivityLogAlertLeafConditionResponseArrayInput` via:
+// AlertRuleAnyOfOrLeafConditionResponseArrayInput is an input type that accepts AlertRuleAnyOfOrLeafConditionResponseArray and AlertRuleAnyOfOrLeafConditionResponseArrayOutput values.
+// You can construct a concrete instance of `AlertRuleAnyOfOrLeafConditionResponseArrayInput` via:
 //
-//          ActivityLogAlertLeafConditionResponseArray{ ActivityLogAlertLeafConditionResponseArgs{...} }
-type ActivityLogAlertLeafConditionResponseArrayInput interface {
+//          AlertRuleAnyOfOrLeafConditionResponseArray{ AlertRuleAnyOfOrLeafConditionResponseArgs{...} }
+type AlertRuleAnyOfOrLeafConditionResponseArrayInput interface {
 	pulumi.Input
 
-	ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput
-	ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseArrayOutput
+	ToAlertRuleAnyOfOrLeafConditionResponseArrayOutput() AlertRuleAnyOfOrLeafConditionResponseArrayOutput
+	ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(context.Context) AlertRuleAnyOfOrLeafConditionResponseArrayOutput
 }
 
-type ActivityLogAlertLeafConditionResponseArray []ActivityLogAlertLeafConditionResponseInput
+type AlertRuleAnyOfOrLeafConditionResponseArray []AlertRuleAnyOfOrLeafConditionResponseInput
 
-func (ActivityLogAlertLeafConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafConditionResponse)(nil)).Elem()
+func (AlertRuleAnyOfOrLeafConditionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnyOfOrLeafConditionResponse)(nil)).Elem()
 }
 
-func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput {
-	return i.ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(context.Background())
+func (i AlertRuleAnyOfOrLeafConditionResponseArray) ToAlertRuleAnyOfOrLeafConditionResponseArrayOutput() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
+	return i.ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseArrayOutput)
+func (i AlertRuleAnyOfOrLeafConditionResponseArray) ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnyOfOrLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionResponseOutput struct{ *pulumi.OutputState }
+// An Activity Log Alert rule condition that is met when all its member conditions are met.
+// Each condition can be of one of the following types:
+// __Important__: Each type has its unique subset of properties. Properties from different types CANNOT exist in one condition.
+//    * __Leaf Condition -__ must contain 'field' and either 'equals' or 'containsAny'.
+//        _Please note, 'anyOf' should __not__ be set in a Leaf Condition._
+//   * __AnyOf Condition -__ must contain __only__ 'anyOf' (which is an array of Leaf Conditions).
+//       _Please note, 'field', 'equals' and 'containsAny' should __not__ be set in an AnyOf Condition._
+type AlertRuleAnyOfOrLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
-func (ActivityLogAlertLeafConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafConditionResponse)(nil)).Elem()
+func (AlertRuleAnyOfOrLeafConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleAnyOfOrLeafConditionResponse)(nil)).Elem()
 }
 
-func (o ActivityLogAlertLeafConditionResponseOutput) ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput {
+func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ToAlertRuleAnyOfOrLeafConditionResponseOutput() AlertRuleAnyOfOrLeafConditionResponseOutput {
 	return o
 }
 
-func (o ActivityLogAlertLeafConditionResponseOutput) ToActivityLogAlertLeafConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseOutput {
+func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ToAlertRuleAnyOfOrLeafConditionResponseOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionResponseOutput {
 	return o
 }
 
-// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-func (o ActivityLogAlertLeafConditionResponseOutput) Equals() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertLeafConditionResponse) string { return v.Equals }).(pulumi.StringOutput)
+// An Activity Log Alert rule condition that is met when at least one of its member leaf conditions are met.
+func (o AlertRuleAnyOfOrLeafConditionResponseOutput) AnyOf() AlertRuleLeafConditionResponseArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) []AlertRuleLeafConditionResponse { return v.AnyOf }).(AlertRuleLeafConditionResponseArrayOutput)
 }
 
-// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-func (o ActivityLogAlertLeafConditionResponseOutput) Field() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertLeafConditionResponse) string { return v.Field }).(pulumi.StringOutput)
+// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+func (o AlertRuleAnyOfOrLeafConditionResponseOutput) ContainsAny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
 }
 
-type ActivityLogAlertLeafConditionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertLeafConditionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafConditionResponse)(nil)).Elem()
+// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+func (o AlertRuleAnyOfOrLeafConditionResponseOutput) Equals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) *string { return v.Equals }).(pulumi.StringPtrOutput)
 }
 
-func (o ActivityLogAlertLeafConditionResponseArrayOutput) ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput {
+// The name of the Activity Log event's field that this condition will examine.
+// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+func (o AlertRuleAnyOfOrLeafConditionResponseOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleAnyOfOrLeafConditionResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleAnyOfOrLeafConditionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleAnyOfOrLeafConditionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleAnyOfOrLeafConditionResponse)(nil)).Elem()
+}
+
+func (o AlertRuleAnyOfOrLeafConditionResponseArrayOutput) ToAlertRuleAnyOfOrLeafConditionResponseArrayOutput() AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertLeafConditionResponseArrayOutput) ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseArrayOutput {
+func (o AlertRuleAnyOfOrLeafConditionResponseArrayOutput) ToAlertRuleAnyOfOrLeafConditionResponseArrayOutputWithContext(ctx context.Context) AlertRuleAnyOfOrLeafConditionResponseArrayOutput {
 	return o
 }
 
-func (o ActivityLogAlertLeafConditionResponseArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertLeafConditionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertLeafConditionResponse {
-		return vs[0].([]ActivityLogAlertLeafConditionResponse)[vs[1].(int)]
-	}).(ActivityLogAlertLeafConditionResponseOutput)
+func (o AlertRuleAnyOfOrLeafConditionResponseArrayOutput) Index(i pulumi.IntInput) AlertRuleAnyOfOrLeafConditionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleAnyOfOrLeafConditionResponse {
+		return vs[0].([]AlertRuleAnyOfOrLeafConditionResponse)[vs[1].(int)]
+	}).(AlertRuleAnyOfOrLeafConditionResponseOutput)
+}
+
+// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+// This condition must contain 'field' and either 'equals' or 'containsAny'.
+type AlertRuleLeafCondition struct {
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny []string `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals *string `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field *string `pulumi:"field"`
+}
+
+// AlertRuleLeafConditionInput is an input type that accepts AlertRuleLeafConditionArgs and AlertRuleLeafConditionOutput values.
+// You can construct a concrete instance of `AlertRuleLeafConditionInput` via:
+//
+//          AlertRuleLeafConditionArgs{...}
+type AlertRuleLeafConditionInput interface {
+	pulumi.Input
+
+	ToAlertRuleLeafConditionOutput() AlertRuleLeafConditionOutput
+	ToAlertRuleLeafConditionOutputWithContext(context.Context) AlertRuleLeafConditionOutput
+}
+
+// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+// This condition must contain 'field' and either 'equals' or 'containsAny'.
+type AlertRuleLeafConditionArgs struct {
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals pulumi.StringPtrInput `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+}
+
+func (AlertRuleLeafConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleLeafCondition)(nil)).Elem()
+}
+
+func (i AlertRuleLeafConditionArgs) ToAlertRuleLeafConditionOutput() AlertRuleLeafConditionOutput {
+	return i.ToAlertRuleLeafConditionOutputWithContext(context.Background())
+}
+
+func (i AlertRuleLeafConditionArgs) ToAlertRuleLeafConditionOutputWithContext(ctx context.Context) AlertRuleLeafConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionOutput)
+}
+
+// AlertRuleLeafConditionArrayInput is an input type that accepts AlertRuleLeafConditionArray and AlertRuleLeafConditionArrayOutput values.
+// You can construct a concrete instance of `AlertRuleLeafConditionArrayInput` via:
+//
+//          AlertRuleLeafConditionArray{ AlertRuleLeafConditionArgs{...} }
+type AlertRuleLeafConditionArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleLeafConditionArrayOutput() AlertRuleLeafConditionArrayOutput
+	ToAlertRuleLeafConditionArrayOutputWithContext(context.Context) AlertRuleLeafConditionArrayOutput
+}
+
+type AlertRuleLeafConditionArray []AlertRuleLeafConditionInput
+
+func (AlertRuleLeafConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleLeafCondition)(nil)).Elem()
+}
+
+func (i AlertRuleLeafConditionArray) ToAlertRuleLeafConditionArrayOutput() AlertRuleLeafConditionArrayOutput {
+	return i.ToAlertRuleLeafConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleLeafConditionArray) ToAlertRuleLeafConditionArrayOutputWithContext(ctx context.Context) AlertRuleLeafConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionArrayOutput)
+}
+
+// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+// This condition must contain 'field' and either 'equals' or 'containsAny'.
+type AlertRuleLeafConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleLeafConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleLeafCondition)(nil)).Elem()
+}
+
+func (o AlertRuleLeafConditionOutput) ToAlertRuleLeafConditionOutput() AlertRuleLeafConditionOutput {
+	return o
+}
+
+func (o AlertRuleLeafConditionOutput) ToAlertRuleLeafConditionOutputWithContext(ctx context.Context) AlertRuleLeafConditionOutput {
+	return o
+}
+
+// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+func (o AlertRuleLeafConditionOutput) ContainsAny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleLeafCondition) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
+}
+
+// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+func (o AlertRuleLeafConditionOutput) Equals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleLeafCondition) *string { return v.Equals }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Activity Log event's field that this condition will examine.
+// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+func (o AlertRuleLeafConditionOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleLeafCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleLeafConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleLeafConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleLeafCondition)(nil)).Elem()
+}
+
+func (o AlertRuleLeafConditionArrayOutput) ToAlertRuleLeafConditionArrayOutput() AlertRuleLeafConditionArrayOutput {
+	return o
+}
+
+func (o AlertRuleLeafConditionArrayOutput) ToAlertRuleLeafConditionArrayOutputWithContext(ctx context.Context) AlertRuleLeafConditionArrayOutput {
+	return o
+}
+
+func (o AlertRuleLeafConditionArrayOutput) Index(i pulumi.IntInput) AlertRuleLeafConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleLeafCondition {
+		return vs[0].([]AlertRuleLeafCondition)[vs[1].(int)]
+	}).(AlertRuleLeafConditionOutput)
+}
+
+// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+// This condition must contain 'field' and either 'equals' or 'containsAny'.
+type AlertRuleLeafConditionResponse struct {
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny []string `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals *string `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field *string `pulumi:"field"`
+}
+
+// AlertRuleLeafConditionResponseInput is an input type that accepts AlertRuleLeafConditionResponseArgs and AlertRuleLeafConditionResponseOutput values.
+// You can construct a concrete instance of `AlertRuleLeafConditionResponseInput` via:
+//
+//          AlertRuleLeafConditionResponseArgs{...}
+type AlertRuleLeafConditionResponseInput interface {
+	pulumi.Input
+
+	ToAlertRuleLeafConditionResponseOutput() AlertRuleLeafConditionResponseOutput
+	ToAlertRuleLeafConditionResponseOutputWithContext(context.Context) AlertRuleLeafConditionResponseOutput
+}
+
+// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+// This condition must contain 'field' and either 'equals' or 'containsAny'.
+type AlertRuleLeafConditionResponseArgs struct {
+	// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+	ContainsAny pulumi.StringArrayInput `pulumi:"containsAny"`
+	// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+	Equals pulumi.StringPtrInput `pulumi:"equals"`
+	// The name of the Activity Log event's field that this condition will examine.
+	// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+}
+
+func (AlertRuleLeafConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleLeafConditionResponse)(nil)).Elem()
+}
+
+func (i AlertRuleLeafConditionResponseArgs) ToAlertRuleLeafConditionResponseOutput() AlertRuleLeafConditionResponseOutput {
+	return i.ToAlertRuleLeafConditionResponseOutputWithContext(context.Background())
+}
+
+func (i AlertRuleLeafConditionResponseArgs) ToAlertRuleLeafConditionResponseOutputWithContext(ctx context.Context) AlertRuleLeafConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionResponseOutput)
+}
+
+// AlertRuleLeafConditionResponseArrayInput is an input type that accepts AlertRuleLeafConditionResponseArray and AlertRuleLeafConditionResponseArrayOutput values.
+// You can construct a concrete instance of `AlertRuleLeafConditionResponseArrayInput` via:
+//
+//          AlertRuleLeafConditionResponseArray{ AlertRuleLeafConditionResponseArgs{...} }
+type AlertRuleLeafConditionResponseArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleLeafConditionResponseArrayOutput() AlertRuleLeafConditionResponseArrayOutput
+	ToAlertRuleLeafConditionResponseArrayOutputWithContext(context.Context) AlertRuleLeafConditionResponseArrayOutput
+}
+
+type AlertRuleLeafConditionResponseArray []AlertRuleLeafConditionResponseInput
+
+func (AlertRuleLeafConditionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleLeafConditionResponse)(nil)).Elem()
+}
+
+func (i AlertRuleLeafConditionResponseArray) ToAlertRuleLeafConditionResponseArrayOutput() AlertRuleLeafConditionResponseArrayOutput {
+	return i.ToAlertRuleLeafConditionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleLeafConditionResponseArray) ToAlertRuleLeafConditionResponseArrayOutputWithContext(ctx context.Context) AlertRuleLeafConditionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleLeafConditionResponseArrayOutput)
+}
+
+// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
+// This condition must contain 'field' and either 'equals' or 'containsAny'.
+type AlertRuleLeafConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleLeafConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleLeafConditionResponse)(nil)).Elem()
+}
+
+func (o AlertRuleLeafConditionResponseOutput) ToAlertRuleLeafConditionResponseOutput() AlertRuleLeafConditionResponseOutput {
+	return o
+}
+
+func (o AlertRuleLeafConditionResponseOutput) ToAlertRuleLeafConditionResponseOutputWithContext(ctx context.Context) AlertRuleLeafConditionResponseOutput {
+	return o
+}
+
+// The value of the event's field will be compared to the values in this array (case-insensitive) to determine if the condition is met.
+func (o AlertRuleLeafConditionResponseOutput) ContainsAny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleLeafConditionResponse) []string { return v.ContainsAny }).(pulumi.StringArrayOutput)
+}
+
+// The value of the event's field will be compared to this value (case-insensitive) to determine if the condition is met.
+func (o AlertRuleLeafConditionResponseOutput) Equals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleLeafConditionResponse) *string { return v.Equals }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Activity Log event's field that this condition will examine.
+// The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
+func (o AlertRuleLeafConditionResponseOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleLeafConditionResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleLeafConditionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleLeafConditionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleLeafConditionResponse)(nil)).Elem()
+}
+
+func (o AlertRuleLeafConditionResponseArrayOutput) ToAlertRuleLeafConditionResponseArrayOutput() AlertRuleLeafConditionResponseArrayOutput {
+	return o
+}
+
+func (o AlertRuleLeafConditionResponseArrayOutput) ToAlertRuleLeafConditionResponseArrayOutputWithContext(ctx context.Context) AlertRuleLeafConditionResponseArrayOutput {
+	return o
+}
+
+func (o AlertRuleLeafConditionResponseArrayOutput) Index(i pulumi.IntInput) AlertRuleLeafConditionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleLeafConditionResponse {
+		return vs[0].([]AlertRuleLeafConditionResponse)[vs[1].(int)]
+	}).(AlertRuleLeafConditionResponseOutput)
 }
 
 // Specify action need to be taken when rule type is Alert
@@ -14752,22 +15076,26 @@ func (o WebtestLocationAvailabilityCriteriaResponseOutput) WebTestId() pulumi.St
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActivityLogAlertActionGroupOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionGroupArrayOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionGroupResponseOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionGroupResponseArrayOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionListOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionListPtrOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionListResponseOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionListResponsePtrOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionPtrOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionResponseOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionResponsePtrOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionArrayOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionResponseOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActionGroupTypeOutput{})
+	pulumi.RegisterOutputType(ActionGroupTypeArrayOutput{})
+	pulumi.RegisterOutputType(ActionGroupResponseOutput{})
+	pulumi.RegisterOutputType(ActionGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActionListOutput{})
+	pulumi.RegisterOutputType(ActionListPtrOutput{})
+	pulumi.RegisterOutputType(ActionListResponseOutput{})
+	pulumi.RegisterOutputType(ActionListResponsePtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleAllOfConditionOutput{})
+	pulumi.RegisterOutputType(AlertRuleAllOfConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleAllOfConditionResponseOutput{})
+	pulumi.RegisterOutputType(AlertRuleAllOfConditionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionResponseOutput{})
+	pulumi.RegisterOutputType(AlertRuleAnyOfOrLeafConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleLeafConditionOutput{})
+	pulumi.RegisterOutputType(AlertRuleLeafConditionArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleLeafConditionResponseOutput{})
+	pulumi.RegisterOutputType(AlertRuleLeafConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(AlertingActionOutput{})
 	pulumi.RegisterOutputType(AlertingActionResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesOutput{})

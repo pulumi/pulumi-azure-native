@@ -71,6 +71,9 @@ func NewWebAppSitePushSettings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSitePushSettings"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSitePushSettings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSitePushSettings

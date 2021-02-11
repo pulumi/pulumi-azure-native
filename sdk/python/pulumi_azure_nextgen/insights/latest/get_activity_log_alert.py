@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetActivityLogAlertResult:
     """
-    An activity log alert resource.
+    An Activity Log Alert rule resource.
     """
     def __init__(__self__, actions=None, condition=None, description=None, enabled=None, id=None, location=None, name=None, scopes=None, tags=None, type=None):
         if actions and not isinstance(actions, dict):
@@ -54,7 +54,7 @@ class GetActivityLogAlertResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> 'outputs.ActivityLogAlertActionListResponse':
+    def actions(self) -> 'outputs.ActionListResponse':
         """
         The actions that will activate when the condition is met.
         """
@@ -62,7 +62,7 @@ class GetActivityLogAlertResult:
 
     @property
     @pulumi.getter
-    def condition(self) -> 'outputs.ActivityLogAlertAllOfConditionResponse':
+    def condition(self) -> 'outputs.AlertRuleAllOfConditionResponse':
         """
         The condition that will cause this alert to activate.
         """
@@ -72,7 +72,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of this activity log alert.
+        A description of this Activity Log Alert rule.
         """
         return pulumi.get(self, "description")
 
@@ -80,7 +80,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         """
         return pulumi.get(self, "enabled")
 
@@ -88,15 +88,15 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        The resource Id.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
-        Resource location
+        The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
         """
         return pulumi.get(self, "location")
 
@@ -104,7 +104,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -112,7 +112,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def scopes(self) -> Sequence[str]:
         """
-        A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         """
         return pulumi.get(self, "scopes")
 
@@ -120,7 +120,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -128,7 +128,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -157,8 +157,8 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str activity_log_alert_name: The name of the activity log alert.
-    :param str resource_group_name: The name of the resource group.
+    :param str activity_log_alert_name: The name of the Activity Log Alert rule.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['activityLogAlertName'] = activity_log_alert_name

@@ -47,10 +47,6 @@ export interface GetWorkspaceResult {
      */
     readonly containerRegistry?: string;
     /**
-     * The creation time of the machine learning workspace in ISO8601 format.
-     */
-    readonly creationTime: string;
-    /**
      * The description of this workspace.
      */
     readonly description?: string;
@@ -99,6 +95,10 @@ export interface GetWorkspaceResult {
      */
     readonly notebookInfo: outputs.machinelearningservices.latest.NotebookResourceInfoResponse;
     /**
+     * The user assigned identity resource id that represents the workspace identity.
+     */
+    readonly primaryUserAssignedIdentity?: string;
+    /**
      * The list of private endpoint connections in the workspace.
      */
     readonly privateEndpointConnections: outputs.machinelearningservices.latest.PrivateEndpointConnectionResponse[];
@@ -110,6 +110,10 @@ export interface GetWorkspaceResult {
      * The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
      */
     readonly provisioningState: string;
+    /**
+     * The service managed resource settings.
+     */
+    readonly serviceManagedResourcesSettings?: outputs.machinelearningservices.latest.ServiceManagedResourcesSettingsResponse;
     /**
      * The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
      */
@@ -126,6 +130,10 @@ export interface GetWorkspaceResult {
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */
     readonly storageAccount?: string;
+    /**
+     * Read only system data
+     */
+    readonly systemData: outputs.machinelearningservices.latest.SystemDataResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

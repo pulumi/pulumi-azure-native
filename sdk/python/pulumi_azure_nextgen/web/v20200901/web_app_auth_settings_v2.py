@@ -68,7 +68,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsV2, __self__).__init__(
             'azure-nextgen:web/v20200901:WebAppAuthSettingsV2',

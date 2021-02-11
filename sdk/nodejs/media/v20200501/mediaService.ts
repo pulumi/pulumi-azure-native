@@ -61,6 +61,10 @@ export class MediaService extends pulumi.CustomResource {
     public readonly storageAccounts!: pulumi.Output<outputs.media.v20200501.StorageAccountResponse[] | undefined>;
     public readonly storageAuthentication!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.v20200501.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -95,6 +99,7 @@ export class MediaService extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["mediaServiceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["encryption"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class MediaService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["storageAccounts"] = undefined /*out*/;
             inputs["storageAuthentication"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

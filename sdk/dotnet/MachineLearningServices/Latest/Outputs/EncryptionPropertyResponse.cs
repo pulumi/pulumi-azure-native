@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
     public sealed class EncryptionPropertyResponse
     {
         /// <summary>
+        /// The identity that will be used to access the key vault for encryption at rest.
+        /// </summary>
+        public readonly Outputs.IdentityForCmkResponse? Identity;
+        /// <summary>
         /// Customer Key vault properties.
         /// </summary>
         public readonly Outputs.KeyVaultPropertiesResponse KeyVaultProperties;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
         [OutputConstructor]
         private EncryptionPropertyResponse(
+            Outputs.IdentityForCmkResponse? identity,
+
             Outputs.KeyVaultPropertiesResponse keyVaultProperties,
 
             string status)
         {
+            Identity = identity;
             KeyVaultProperties = keyVaultProperties;
             Status = status;
         }

@@ -101,6 +101,30 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
     public sealed class SecurityContactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defines whether to send email notifications about new security alerts
+        /// </summary>
+        [Input("alertNotifications")]
+        public Input<Inputs.SecurityContactPropertiesAlertNotificationsArgs>? AlertNotifications { get; set; }
+
+        /// <summary>
+        /// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        /// </summary>
+        [Input("emails")]
+        public Input<string>? Emails { get; set; }
+
+        /// <summary>
+        /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        /// </summary>
+        [Input("notificationsByRole")]
+        public Input<Inputs.SecurityContactPropertiesNotificationsByRoleArgs>? NotificationsByRole { get; set; }
+
+        /// <summary>
+        /// The security contact's phone number
+        /// </summary>
+        [Input("phone")]
+        public Input<string>? Phone { get; set; }
+
+        /// <summary>
         /// Name of the security contact object
         /// </summary>
         [Input("securityContactName", required: true)]

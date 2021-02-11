@@ -47,6 +47,8 @@ type LookupAssetResult struct {
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat string `pulumi:"storageEncryptionFormat"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

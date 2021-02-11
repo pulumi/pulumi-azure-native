@@ -71,3 +71,99 @@ func (e AutoProvision) ToStringPtrOutput() pulumi.StringPtrOutput {
 func (e AutoProvision) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
+
+// Defines the minimal alert severity which will be sent as email notifications
+type MinimalSeverity pulumi.String
+
+const (
+	// Get notifications on new alerts with High severity
+	MinimalSeverityHigh = MinimalSeverity("High")
+	// Get notifications on new alerts with medium or high severity
+	MinimalSeverityMedium = MinimalSeverity("Medium")
+	// Don't get notifications on new alerts with low, medium or high severity
+	MinimalSeverityLow = MinimalSeverity("Low")
+)
+
+func (MinimalSeverity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MinimalSeverity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MinimalSeverity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MinimalSeverity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MinimalSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// A possible role to configure sending security notification alerts to
+type Roles pulumi.String
+
+const (
+	// If enabled, send notification on new alerts to the account admins
+	RolesAccountAdmin = Roles("AccountAdmin")
+	// If enabled, send notification on new alerts to the service admins
+	RolesServiceAdmin = Roles("ServiceAdmin")
+	// If enabled, send notification on new alerts to the subscription owners
+	RolesOwner = Roles("Owner")
+	// If enabled, send notification on new alerts to the subscription contributors
+	RolesContributor = Roles("Contributor")
+)
+
+func (Roles) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Roles) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Roles) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Roles) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Roles) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type State pulumi.String
+
+const (
+	// Send notification on new alerts to the subscription's admins
+	StateOn = State("On")
+	// Don't send notification on new alerts to the subscription's admins
+	StateOff = State("Off")
+)
+
+func (State) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e State) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e State) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e State) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e State) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}

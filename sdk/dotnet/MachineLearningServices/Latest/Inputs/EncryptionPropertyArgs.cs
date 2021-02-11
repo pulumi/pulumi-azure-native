@@ -13,6 +13,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
     public sealed class EncryptionPropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity that will be used to access the key vault for encryption at rest.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityForCmkArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Customer Key vault properties.
         /// </summary>
         [Input("keyVaultProperties", required: true)]

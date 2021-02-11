@@ -21,57 +21,57 @@ export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi
 
 export interface GetActivityLogAlertArgs {
     /**
-     * The name of the activity log alert.
+     * The name of the Activity Log Alert rule.
      */
     readonly activityLogAlertName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
 
 /**
- * An activity log alert resource.
+ * An Activity Log Alert rule resource.
  */
 export interface GetActivityLogAlertResult {
     /**
      * The actions that will activate when the condition is met.
      */
-    readonly actions: outputs.insights.latest.ActivityLogAlertActionListResponse;
+    readonly actions: outputs.insights.latest.ActionListResponse;
     /**
      * The condition that will cause this alert to activate.
      */
-    readonly condition: outputs.insights.latest.ActivityLogAlertAllOfConditionResponse;
+    readonly condition: outputs.insights.latest.AlertRuleAllOfConditionResponse;
     /**
-     * A description of this activity log alert.
+     * A description of this Activity Log Alert rule.
      */
     readonly description?: string;
     /**
-     * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+     * Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
      */
     readonly enabled?: boolean;
     /**
-     * Azure resource Id
+     * The resource Id.
      */
     readonly id: string;
     /**
-     * Resource location
+     * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
      */
-    readonly location: string;
+    readonly location?: string;
     /**
-     * Azure resource name
+     * The name of the resource.
      */
     readonly name: string;
     /**
-     * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+     * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
     readonly scopes: string[];
     /**
-     * Resource tags
+     * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type
+     * The type of the resource.
      */
     readonly type: string;
 }

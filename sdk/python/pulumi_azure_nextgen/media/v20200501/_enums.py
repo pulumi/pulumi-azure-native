@@ -9,7 +9,10 @@ __all__ = [
     'AccountEncryptionKeyType',
     'AnalysisResolution',
     'AssetContainerPermission',
+    'AttributeFilter',
     'AudioAnalysisMode',
+    'BlurType',
+    'ChannelMapping',
     'ContentKeyPolicyFairPlayRentalAndLeaseKeyType',
     'ContentKeyPolicyPlayReadyContentType',
     'ContentKeyPolicyPlayReadyLicenseType',
@@ -19,10 +22,13 @@ __all__ = [
     'DeinterlaceParity',
     'EncoderNamedPreset',
     'EntropyMode',
+    'FaceRedactorMode',
     'FilterTrackPropertyCompareOperation',
     'FilterTrackPropertyType',
     'H264Complexity',
     'H264VideoProfile',
+    'H265Complexity',
+    'H265VideoProfile',
     'InsightsType',
     'LiveEventEncodingType',
     'LiveEventInputProtocol',
@@ -35,6 +41,7 @@ __all__ = [
     'StorageAuthentication',
     'StreamOptionsFlag',
     'StretchMode',
+    'TrackAttribute',
     'TrackPropertyCompareOperation',
     'TrackPropertyType',
     'VideoSyncMode',
@@ -75,12 +82,47 @@ class AssetContainerPermission(str, Enum):
     READ_WRITE_DELETE = "ReadWriteDelete"
 
 
+class AttributeFilter(str, Enum):
+    """
+    The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+    """
+    ALL = "All"
+    TOP = "Top"
+    BOTTOM = "Bottom"
+    VALUE_EQUALS = "ValueEquals"
+
+
 class AudioAnalysisMode(str, Enum):
     """
     Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
     """
     STANDARD = "Standard"
     BASIC = "Basic"
+
+
+class BlurType(str, Enum):
+    """
+    Blur type
+    """
+    BOX = "Box"
+    LOW = "Low"
+    MED = "Med"
+    HIGH = "High"
+    BLACK = "Black"
+
+
+class ChannelMapping(str, Enum):
+    """
+    Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+    """
+    FRONT_LEFT = "FrontLeft"
+    FRONT_RIGHT = "FrontRight"
+    CENTER = "Center"
+    LOW_FREQUENCY_EFFECTS = "LowFrequencyEffects"
+    BACK_LEFT = "BackLeft"
+    BACK_RIGHT = "BackRight"
+    STEREO_LEFT = "StereoLeft"
+    STEREO_RIGHT = "StereoRight"
 
 
 class ContentKeyPolicyFairPlayRentalAndLeaseKeyType(str, Enum):
@@ -164,6 +206,11 @@ class EncoderNamedPreset(str, Enum):
     H264_MULTIPLE_BITRATE1080P = "H264MultipleBitrate1080p"
     H264_MULTIPLE_BITRATE720P = "H264MultipleBitrate720p"
     H264_MULTIPLE_BITRATE_SD = "H264MultipleBitrateSD"
+    H265_CONTENT_AWARE_ENCODING = "H265ContentAwareEncoding"
+    H265_ADAPTIVE_STREAMING = "H265AdaptiveStreaming"
+    H265_SINGLE_BITRATE720P = "H265SingleBitrate720p"
+    H265_SINGLE_BITRATE1080P = "H265SingleBitrate1080p"
+    H265_SINGLE_BITRATE4_K = "H265SingleBitrate4K"
 
 
 class EntropyMode(str, Enum):
@@ -172,6 +219,15 @@ class EntropyMode(str, Enum):
     """
     CABAC = "Cabac"
     CAVLC = "Cavlc"
+
+
+class FaceRedactorMode(str, Enum):
+    """
+    This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+    """
+    ANALYZE = "Analyze"
+    REDACT = "Redact"
+    COMBINED = "Combined"
 
 
 class FilterTrackPropertyCompareOperation(str, Enum):
@@ -213,6 +269,23 @@ class H264VideoProfile(str, Enum):
     HIGH = "High"
     HIGH422 = "High422"
     HIGH444 = "High444"
+
+
+class H265Complexity(str, Enum):
+    """
+    Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+    """
+    SPEED = "Speed"
+    BALANCED = "Balanced"
+    QUALITY = "Quality"
+
+
+class H265VideoProfile(str, Enum):
+    """
+    We currently support Main. Default is Auto.
+    """
+    AUTO = "Auto"
+    MAIN = "Main"
 
 
 class InsightsType(str, Enum):
@@ -312,6 +385,14 @@ class StretchMode(str, Enum):
     NONE = "None"
     AUTO_SIZE = "AutoSize"
     AUTO_FIT = "AutoFit"
+
+
+class TrackAttribute(str, Enum):
+    """
+    The TrackAttribute to filter the tracks by.
+    """
+    BITRATE = "Bitrate"
+    LANGUAGE = "Language"
 
 
 class TrackPropertyCompareOperation(str, Enum):

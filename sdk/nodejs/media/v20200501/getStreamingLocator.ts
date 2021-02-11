@@ -88,6 +88,10 @@ export interface GetStreamingLocatorResult {
      */
     readonly streamingPolicyName: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.v20200501.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

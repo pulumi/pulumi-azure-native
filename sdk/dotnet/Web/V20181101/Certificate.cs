@@ -191,6 +191,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

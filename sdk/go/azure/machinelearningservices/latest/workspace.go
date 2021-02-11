@@ -12,7 +12,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2021-01-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type Workspace struct {
 	ApplicationInsights pulumi.StringPtrOutput `pulumi:"applicationInsights"`
 	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
 	ContainerRegistry pulumi.StringPtrOutput `pulumi:"containerRegistry"`
-	// The creation time of the machine learning workspace in ISO8601 format.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The description of this workspace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
@@ -46,12 +44,16 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The notebook info of Azure ML workspace.
 	NotebookInfo NotebookResourceInfoResponseOutput `pulumi:"notebookInfo"`
+	// The user assigned identity resource id that represents the workspace identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Count of private connections in the workspace
 	PrivateLinkCount pulumi.IntOutput `pulumi:"privateLinkCount"`
 	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The service managed resource settings.
+	ServiceManagedResourcesSettings ServiceManagedResourcesSettingsResponsePtrOutput `pulumi:"serviceManagedResourcesSettings"`
 	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
 	ServiceProvisionedResourceGroup pulumi.StringOutput `pulumi:"serviceProvisionedResourceGroup"`
 	// The list of shared private link resources in this workspace.
@@ -60,6 +62,8 @@ type Workspace struct {
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
 	StorageAccount pulumi.StringPtrOutput `pulumi:"storageAccount"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the type of the resource.
@@ -130,6 +134,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:Workspace"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:Workspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
@@ -160,8 +167,6 @@ type workspaceState struct {
 	ApplicationInsights *string `pulumi:"applicationInsights"`
 	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
 	ContainerRegistry *string `pulumi:"containerRegistry"`
-	// The creation time of the machine learning workspace in ISO8601 format.
-	CreationTime *string `pulumi:"creationTime"`
 	// The description of this workspace.
 	Description *string `pulumi:"description"`
 	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
@@ -184,12 +189,16 @@ type workspaceState struct {
 	Name *string `pulumi:"name"`
 	// The notebook info of Azure ML workspace.
 	NotebookInfo *NotebookResourceInfoResponse `pulumi:"notebookInfo"`
+	// The user assigned identity resource id that represents the workspace identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Count of private connections in the workspace
 	PrivateLinkCount *int `pulumi:"privateLinkCount"`
 	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The service managed resource settings.
+	ServiceManagedResourcesSettings *ServiceManagedResourcesSettingsResponse `pulumi:"serviceManagedResourcesSettings"`
 	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
 	ServiceProvisionedResourceGroup *string `pulumi:"serviceProvisionedResourceGroup"`
 	// The list of shared private link resources in this workspace.
@@ -198,6 +207,8 @@ type workspaceState struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
 	StorageAccount *string `pulumi:"storageAccount"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.
@@ -213,8 +224,6 @@ type WorkspaceState struct {
 	ApplicationInsights pulumi.StringPtrInput
 	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
 	ContainerRegistry pulumi.StringPtrInput
-	// The creation time of the machine learning workspace in ISO8601 format.
-	CreationTime pulumi.StringPtrInput
 	// The description of this workspace.
 	Description pulumi.StringPtrInput
 	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
@@ -237,12 +246,16 @@ type WorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The notebook info of Azure ML workspace.
 	NotebookInfo NotebookResourceInfoResponsePtrInput
+	// The user assigned identity resource id that represents the workspace identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Count of private connections in the workspace
 	PrivateLinkCount pulumi.IntPtrInput
 	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState pulumi.StringPtrInput
+	// The service managed resource settings.
+	ServiceManagedResourcesSettings ServiceManagedResourcesSettingsResponsePtrInput
 	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
 	ServiceProvisionedResourceGroup pulumi.StringPtrInput
 	// The list of shared private link resources in this workspace.
@@ -251,6 +264,8 @@ type WorkspaceState struct {
 	Sku SkuResponsePtrInput
 	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
 	StorageAccount pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
 	// Specifies the type of the resource.
@@ -288,8 +303,12 @@ type workspaceArgs struct {
 	KeyVault *string `pulumi:"keyVault"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
+	// The user assigned identity resource id that represents the workspace identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The service managed resource settings.
+	ServiceManagedResourcesSettings *ServiceManagedResourcesSettings `pulumi:"serviceManagedResourcesSettings"`
 	// The list of shared private link resources in this workspace.
 	SharedPrivateLinkResources []SharedPrivateLinkResource `pulumi:"sharedPrivateLinkResources"`
 	// The sku of the workspace.
@@ -328,8 +347,12 @@ type WorkspaceArgs struct {
 	KeyVault pulumi.StringPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
+	// The user assigned identity resource id that represents the workspace identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
+	// The service managed resource settings.
+	ServiceManagedResourcesSettings ServiceManagedResourcesSettingsPtrInput
 	// The list of shared private link resources in this workspace.
 	SharedPrivateLinkResources SharedPrivateLinkResourceArrayInput
 	// The sku of the workspace.

@@ -15,6 +15,8 @@ __all__ = [
     'GcpCredentialsDetailsPropertiesArgs',
     'HybridComputeSettingsPropertiesArgs',
     'ProxyServerPropertiesArgs',
+    'SecurityContactPropertiesAlertNotificationsArgs',
+    'SecurityContactPropertiesNotificationsByRoleArgs',
     'ServicePrincipalPropertiesArgs',
 ]
 
@@ -443,6 +445,86 @@ class ProxyServerPropertiesArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class SecurityContactPropertiesAlertNotificationsArgs:
+    def __init__(__self__, *,
+                 minimal_severity: Optional[pulumi.Input[Union[str, 'MinimalSeverity']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
+        """
+        Defines whether to send email notifications about new security alerts
+        :param pulumi.Input[Union[str, 'MinimalSeverity']] minimal_severity: Defines the minimal alert severity which will be sent as email notifications
+        :param pulumi.Input[Union[str, 'State']] state: Defines if email notifications will be sent about new security alerts
+        """
+        if minimal_severity is not None:
+            pulumi.set(__self__, "minimal_severity", minimal_severity)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="minimalSeverity")
+    def minimal_severity(self) -> Optional[pulumi.Input[Union[str, 'MinimalSeverity']]]:
+        """
+        Defines the minimal alert severity which will be sent as email notifications
+        """
+        return pulumi.get(self, "minimal_severity")
+
+    @minimal_severity.setter
+    def minimal_severity(self, value: Optional[pulumi.Input[Union[str, 'MinimalSeverity']]]):
+        pulumi.set(self, "minimal_severity", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        Defines if email notifications will be sent about new security alerts
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class SecurityContactPropertiesNotificationsByRoleArgs:
+    def __init__(__self__, *,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
+        """
+        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]] roles: Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        :param pulumi.Input[Union[str, 'State']] state: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        """
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]]:
+        """
+        Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

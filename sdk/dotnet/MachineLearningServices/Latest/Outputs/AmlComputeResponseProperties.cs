@@ -26,9 +26,17 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly int CurrentNodeCount;
         /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        public readonly bool? EnableNodePublicIp;
+        /// <summary>
         /// Collection of errors encountered by various compute nodes during node setup.
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineLearningServiceErrorResponse> Errors;
+        /// <summary>
+        /// Network is isolated or not
+        /// </summary>
+        public readonly bool? IsolatedNetwork;
         /// <summary>
         /// Counts of various node states on the compute.
         /// </summary>
@@ -58,6 +66,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly Outputs.UserAccountCredentialsResponse? UserAccountCredentials;
         /// <summary>
+        /// Virtual Machine image for AML Compute - windows only
+        /// </summary>
+        public readonly Outputs.VirtualMachineImageResponse? VirtualMachineImage;
+        /// <summary>
         /// Virtual Machine priority
         /// </summary>
         public readonly string? VmPriority;
@@ -74,7 +86,11 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             int currentNodeCount,
 
+            bool? enableNodePublicIp,
+
             ImmutableArray<Outputs.MachineLearningServiceErrorResponse> errors,
+
+            bool? isolatedNetwork,
 
             Outputs.NodeStateCountsResponse nodeStateCounts,
 
@@ -90,6 +106,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             Outputs.UserAccountCredentialsResponse? userAccountCredentials,
 
+            Outputs.VirtualMachineImageResponse? virtualMachineImage,
+
             string? vmPriority,
 
             string? vmSize)
@@ -97,7 +115,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             AllocationState = allocationState;
             AllocationStateTransitionTime = allocationStateTransitionTime;
             CurrentNodeCount = currentNodeCount;
+            EnableNodePublicIp = enableNodePublicIp;
             Errors = errors;
+            IsolatedNetwork = isolatedNetwork;
             NodeStateCounts = nodeStateCounts;
             OsType = osType;
             RemoteLoginPortPublicAccess = remoteLoginPortPublicAccess;
@@ -105,6 +125,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             Subnet = subnet;
             TargetNodeCount = targetNodeCount;
             UserAccountCredentials = userAccountCredentials;
+            VirtualMachineImage = virtualMachineImage;
             VmPriority = vmPriority;
             VmSize = vmSize;
         }

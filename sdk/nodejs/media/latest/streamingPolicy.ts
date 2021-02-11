@@ -65,6 +65,10 @@ export class StreamingPolicy extends pulumi.CustomResource {
      */
     public readonly noEncryption!: pulumi.Output<outputs.media.latest.NoEncryptionResponse | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.latest.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
             inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["commonEncryptionCbcs"] = undefined /*out*/;
@@ -107,6 +112,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
             inputs["envelopeEncryption"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["noEncryption"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteAppSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

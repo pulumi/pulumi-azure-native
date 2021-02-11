@@ -91,7 +91,7 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
             __props__['thumbprint'] = thumbprint
             __props__['type'] = None
             __props__['virtual_ip'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHostNameBindingSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHostNameBindingSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHostNameBindingSlot, __self__).__init__(
             'azure-nextgen:web/v20190801:WebAppHostNameBindingSlot',

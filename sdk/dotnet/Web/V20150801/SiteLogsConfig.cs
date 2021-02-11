@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteLogsConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteLogsConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteLogsConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

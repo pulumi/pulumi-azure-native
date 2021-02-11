@@ -64,6 +64,10 @@ export interface GetMediaServiceResult {
     readonly storageAccounts?: outputs.media.latest.StorageAccountResponse[];
     readonly storageAuthentication?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

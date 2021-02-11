@@ -83,7 +83,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
             __props__['title'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtensionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSiteExtensionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteExtensionSlot, __self__).__init__(
             'azure-nextgen:web/v20181101:WebAppSiteExtensionSlot',

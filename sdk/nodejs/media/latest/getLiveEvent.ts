@@ -96,6 +96,10 @@ export interface GetLiveEventResult {
      */
     readonly streamOptions?: string[];
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.latest.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

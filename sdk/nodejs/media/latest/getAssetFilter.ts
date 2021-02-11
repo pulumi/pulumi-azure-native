@@ -61,6 +61,10 @@ export interface GetAssetFilterResult {
      */
     readonly presentationTimeRange?: outputs.media.latest.PresentationTimeRangeResponse;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.latest.SystemDataResponse;
+    /**
      * The tracks selection conditions.
      */
     readonly tracks?: outputs.media.latest.FilterTrackSelectionResponse[];

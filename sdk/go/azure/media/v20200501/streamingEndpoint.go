@@ -51,6 +51,8 @@ type StreamingEndpoint struct {
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntOutput `pulumi:"scaleUnits"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -152,6 +154,8 @@ type streamingEndpointState struct {
 	ResourceState *string `pulumi:"resourceState"`
 	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits *int `pulumi:"scaleUnits"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -195,6 +199,8 @@ type StreamingEndpointState struct {
 	ResourceState pulumi.StringPtrInput
 	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits pulumi.IntPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

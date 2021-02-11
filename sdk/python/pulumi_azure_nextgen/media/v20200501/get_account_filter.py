@@ -20,7 +20,7 @@ class GetAccountFilterResult:
     """
     An Account Filter.
     """
-    def __init__(__self__, first_quality=None, id=None, name=None, presentation_time_range=None, tracks=None, type=None):
+    def __init__(__self__, first_quality=None, id=None, name=None, presentation_time_range=None, system_data=None, tracks=None, type=None):
         if first_quality and not isinstance(first_quality, dict):
             raise TypeError("Expected argument 'first_quality' to be a dict")
         pulumi.set(__self__, "first_quality", first_quality)
@@ -33,6 +33,9 @@ class GetAccountFilterResult:
         if presentation_time_range and not isinstance(presentation_time_range, dict):
             raise TypeError("Expected argument 'presentation_time_range' to be a dict")
         pulumi.set(__self__, "presentation_time_range", presentation_time_range)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tracks and not isinstance(tracks, list):
             raise TypeError("Expected argument 'tracks' to be a list")
         pulumi.set(__self__, "tracks", tracks)
@@ -73,6 +76,14 @@ class GetAccountFilterResult:
         return pulumi.get(self, "presentation_time_range")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tracks(self) -> Optional[Sequence['outputs.FilterTrackSelectionResponse']]:
         """
@@ -99,6 +110,7 @@ class AwaitableGetAccountFilterResult(GetAccountFilterResult):
             id=self.id,
             name=self.name,
             presentation_time_range=self.presentation_time_range,
+            system_data=self.system_data,
             tracks=self.tracks,
             type=self.type)
 
@@ -129,5 +141,6 @@ def get_account_filter(account_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         presentation_time_range=__ret__.presentation_time_range,
+        system_data=__ret__.system_data,
         tracks=__ret__.tracks,
         type=__ret__.type)

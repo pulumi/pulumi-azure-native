@@ -11,10 +11,16 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
 {
 
     /// <summary>
-    /// Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+    /// Describes all the settings to be used when analyzing a video in order to detect (and optionally redact) all the faces present.
     /// </summary>
     public sealed class FaceDetectorPresetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Blur type
+        /// </summary>
+        [Input("blurType")]
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.BlurType>? BlurType { get; set; }
+
         [Input("experimentalOptions")]
         private InputMap<string>? _experimentalOptions;
 
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
             get => _experimentalOptions ?? (_experimentalOptions = new InputMap<string>());
             set => _experimentalOptions = value;
         }
+
+        /// <summary>
+        /// This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+        /// </summary>
+        [Input("mode")]
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.FaceRedactorMode>? Mode { get; set; }
 
         /// <summary>
         /// The discriminator for derived types.

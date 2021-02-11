@@ -14,9 +14,17 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
     public sealed class FaceDetectorPresetResponse
     {
         /// <summary>
+        /// Blur type
+        /// </summary>
+        public readonly string? BlurType;
+        /// <summary>
         /// Dictionary containing key value pairs for parameters not exposed in the preset itself
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExperimentalOptions;
+        /// <summary>
+        /// This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+        /// </summary>
+        public readonly string? Mode;
         /// <summary>
         /// The discriminator for derived types.
         /// Expected value is '#Microsoft.Media.FaceDetectorPreset'.
@@ -29,13 +37,19 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Outputs
 
         [OutputConstructor]
         private FaceDetectorPresetResponse(
+            string? blurType,
+
             ImmutableDictionary<string, string>? experimentalOptions,
+
+            string? mode,
 
             string odataType,
 
             string? resolution)
         {
+            BlurType = blurType;
             ExperimentalOptions = experimentalOptions;
+            Mode = mode;
             OdataType = odataType;
             Resolution = resolution;
         }

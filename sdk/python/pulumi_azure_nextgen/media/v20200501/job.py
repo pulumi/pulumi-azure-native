@@ -21,7 +21,7 @@ class Job(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  correlation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputAssetArgs'], pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputHttpArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
+                 input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputAssetArgs'], pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputHttpArgs'], pulumi.InputType['JobInputSequenceArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
@@ -38,7 +38,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] correlation_data: Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
-        :param pulumi.Input[Union[pulumi.InputType['JobInputAssetArgs'], pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputHttpArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
+        :param pulumi.Input[Union[pulumi.InputType['JobInputAssetArgs'], pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputHttpArgs'], pulumi.InputType['JobInputSequenceArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
         :param pulumi.Input[str] job_name: The Job name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] outputs: The outputs for the Job.
         :param pulumi.Input[Union[str, 'Priority']] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
@@ -89,6 +89,7 @@ class Job(pulumi.CustomResource):
             __props__['name'] = None
             __props__['start_time'] = None
             __props__['state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/latest:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -203,6 +204,14 @@ class Job(pulumi.CustomResource):
         The current state of the job.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

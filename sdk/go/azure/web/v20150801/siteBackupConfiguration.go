@@ -73,6 +73,9 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteBackupConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:SiteBackupConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteBackupConfiguration

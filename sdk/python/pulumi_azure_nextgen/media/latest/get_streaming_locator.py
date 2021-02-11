@@ -20,7 +20,7 @@ class GetStreamingLocatorResult:
     """
     A Streaming Locator resource
     """
-    def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, id=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, type=None):
+    def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, id=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, system_data=None, type=None):
         if alternative_media_id and not isinstance(alternative_media_id, str):
             raise TypeError("Expected argument 'alternative_media_id' to be a str")
         pulumi.set(__self__, "alternative_media_id", alternative_media_id)
@@ -57,6 +57,9 @@ class GetStreamingLocatorResult:
         if streaming_policy_name and not isinstance(streaming_policy_name, str):
             raise TypeError("Expected argument 'streaming_policy_name' to be a str")
         pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -158,6 +161,14 @@ class GetStreamingLocatorResult:
         return pulumi.get(self, "streaming_policy_name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -184,6 +195,7 @@ class AwaitableGetStreamingLocatorResult(GetStreamingLocatorResult):
             start_time=self.start_time,
             streaming_locator_id=self.streaming_locator_id,
             streaming_policy_name=self.streaming_policy_name,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -221,4 +233,5 @@ def get_streaming_locator(account_name: Optional[str] = None,
         start_time=__ret__.start_time,
         streaming_locator_id=__ret__.streaming_locator_id,
         streaming_policy_name=__ret__.streaming_policy_name,
+        system_data=__ret__.system_data,
         type=__ret__.type)

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly Outputs.PersonalComputeInstanceSettingsResponse? PersonalComputeInstanceSettings;
         /// <summary>
+        /// Details of customized scripts to execute for setting up the cluster.
+        /// </summary>
+        public readonly Outputs.SetupScriptsResponse? SetupScripts;
+        /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
         public readonly Outputs.ComputeInstanceSshSettingsResponse? SshSettings;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
 
             Outputs.PersonalComputeInstanceSettingsResponse? personalComputeInstanceSettings,
 
+            Outputs.SetupScriptsResponse? setupScripts,
+
             Outputs.ComputeInstanceSshSettingsResponse? sshSettings,
 
             string state,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
             Errors = errors;
             LastOperation = lastOperation;
             PersonalComputeInstanceSettings = personalComputeInstanceSettings;
+            SetupScripts = setupScripts;
             SshSettings = sshSettings;
             State = state;
             Subnet = subnet;

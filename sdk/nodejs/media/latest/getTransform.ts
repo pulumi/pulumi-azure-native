@@ -64,6 +64,10 @@ export interface GetTransformResult {
      */
     readonly outputs: outputs.media.latest.TransformOutputResponse[];
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.latest.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

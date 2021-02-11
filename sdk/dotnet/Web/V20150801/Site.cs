@@ -245,6 +245,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:Site"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:Site"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

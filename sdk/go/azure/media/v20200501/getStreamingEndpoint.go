@@ -65,6 +65,8 @@ type LookupStreamingEndpointResult struct {
 	ResourceState string `pulumi:"resourceState"`
 	// The number of scale units. Use the Scale operation to adjust this value.
 	ScaleUnits int `pulumi:"scaleUnits"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

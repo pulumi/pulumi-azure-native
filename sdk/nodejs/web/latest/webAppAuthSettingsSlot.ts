@@ -364,7 +364,7 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAuthSettingsSlot.__pulumiType, name, inputs, opts);
     }

@@ -66,7 +66,7 @@ class WebAppConnectionStringsSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStringsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStringsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppConnectionStringsSlot, __self__).__init__(
             'azure-nextgen:web/v20200601:WebAppConnectionStringsSlot',

@@ -100,6 +100,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly string State;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             string state,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             CorrelationData = correlationData;
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
             Priority = priority;
             StartTime = startTime;
             State = state;
+            SystemData = systemData;
             Type = type;
         }
     }

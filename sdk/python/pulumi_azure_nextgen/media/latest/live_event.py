@@ -103,6 +103,7 @@ class LiveEvent(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -233,6 +234,14 @@ class LiveEvent(pulumi.CustomResource):
         The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         """
         return pulumi.get(self, "stream_options")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -31,8 +31,6 @@ type LookupWorkspaceResult struct {
 	ApplicationInsights *string `pulumi:"applicationInsights"`
 	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
 	ContainerRegistry *string `pulumi:"containerRegistry"`
-	// The creation time of the machine learning workspace in ISO8601 format.
-	CreationTime string `pulumi:"creationTime"`
 	// The description of this workspace.
 	Description *string `pulumi:"description"`
 	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
@@ -57,12 +55,16 @@ type LookupWorkspaceResult struct {
 	Name string `pulumi:"name"`
 	// The notebook info of Azure ML workspace.
 	NotebookInfo NotebookResourceInfoResponse `pulumi:"notebookInfo"`
+	// The user assigned identity resource id that represents the workspace identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Count of private connections in the workspace
 	PrivateLinkCount int `pulumi:"privateLinkCount"`
 	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The service managed resource settings.
+	ServiceManagedResourcesSettings *ServiceManagedResourcesSettingsResponse `pulumi:"serviceManagedResourcesSettings"`
 	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
 	ServiceProvisionedResourceGroup string `pulumi:"serviceProvisionedResourceGroup"`
 	// The list of shared private link resources in this workspace.
@@ -71,6 +73,8 @@ type LookupWorkspaceResult struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
 	StorageAccount *string `pulumi:"storageAccount"`
+	// Read only system data
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.

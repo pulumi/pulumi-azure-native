@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppBackupConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

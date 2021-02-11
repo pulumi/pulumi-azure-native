@@ -98,7 +98,7 @@ export class SiteMetadata extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteMetadata" }, { type: "azure-nextgen:web/v20160801:SiteMetadata" }, { type: "azure-nextgen:web/v20180201:SiteMetadata" }, { type: "azure-nextgen:web/v20181101:SiteMetadata" }, { type: "azure-nextgen:web/v20190801:SiteMetadata" }, { type: "azure-nextgen:web/v20200601:SiteMetadata" }, { type: "azure-nextgen:web/v20200901:SiteMetadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteMetadata" }, { type: "azure-nextgen:web/v20160801:SiteMetadata" }, { type: "azure-nextgen:web/v20180201:SiteMetadata" }, { type: "azure-nextgen:web/v20181101:SiteMetadata" }, { type: "azure-nextgen:web/v20190801:SiteMetadata" }, { type: "azure-nextgen:web/v20200601:SiteMetadata" }, { type: "azure-nextgen:web/v20200901:SiteMetadata" }, { type: "azure-nextgen:web/v20201001:SiteMetadata" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteMetadata.__pulumiType, name, inputs, opts);
     }

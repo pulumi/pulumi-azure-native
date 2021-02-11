@@ -233,6 +233,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteAuthSettings"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteAuthSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

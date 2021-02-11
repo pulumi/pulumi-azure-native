@@ -120,7 +120,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSitePushSettingsSlot.__pulumiType, name, inputs, opts);
     }

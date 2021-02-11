@@ -82,8 +82,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:MachineLearningService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -300,6 +300,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -34,6 +34,8 @@ type Asset struct {
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat pulumi.StringOutput `pulumi:"storageEncryptionFormat"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -109,6 +111,8 @@ type assetState struct {
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat *string `pulumi:"storageEncryptionFormat"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -132,6 +136,8 @@ type AssetState struct {
 	StorageAccountName pulumi.StringPtrInput
 	// The Asset encryption format. One of None or MediaStorageEncryption.
 	StorageEncryptionFormat pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

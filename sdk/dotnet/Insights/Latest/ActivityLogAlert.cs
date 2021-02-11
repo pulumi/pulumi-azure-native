@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
-    /// An activity log alert resource.
-    /// Latest API Version: 2017-04-01.
+    /// An Activity Log Alert rule resource.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:insights/latest:ActivityLogAlert")]
     public partial class ActivityLogAlert : Pulumi.CustomResource
@@ -20,52 +20,52 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The actions that will activate when the condition is met.
         /// </summary>
         [Output("actions")]
-        public Output<Outputs.ActivityLogAlertActionListResponse> Actions { get; private set; } = null!;
+        public Output<Outputs.ActionListResponse> Actions { get; private set; } = null!;
 
         /// <summary>
         /// The condition that will cause this alert to activate.
         /// </summary>
         [Output("condition")]
-        public Output<Outputs.ActivityLogAlertAllOfConditionResponse> Condition { get; private set; } = null!;
+        public Output<Outputs.AlertRuleAllOfConditionResponse> Condition { get; private set; } = null!;
 
         /// <summary>
-        /// A description of this activity log alert.
+        /// A description of this Activity Log Alert rule.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        /// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        /// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// The tags of the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20170401:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201001:ActivityLogAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,10 +124,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The actions that will activate when the condition is met.
         /// </summary>
         [Input("actions", required: true)]
-        public Input<Inputs.ActivityLogAlertActionListArgs> Actions { get; set; } = null!;
+        public Input<Inputs.ActionListArgs> Actions { get; set; } = null!;
 
         /// <summary>
-        /// The name of the activity log alert.
+        /// The name of the Activity Log Alert rule.
         /// </summary>
         [Input("activityLogAlertName", required: true)]
         public Input<string> ActivityLogAlertName { get; set; } = null!;
@@ -135,28 +136,28 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The condition that will cause this alert to activate.
         /// </summary>
         [Input("condition", required: true)]
-        public Input<Inputs.ActivityLogAlertAllOfConditionArgs> Condition { get; set; } = null!;
+        public Input<Inputs.AlertRuleAllOfConditionArgs> Condition { get; set; } = null!;
 
         /// <summary>
-        /// A description of this activity log alert.
+        /// A description of this Activity Log Alert rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        /// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -165,7 +166,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        /// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         /// </summary>
         public InputList<string> Scopes
         {
@@ -177,7 +178,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// The tags of the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -188,6 +189,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public ActivityLogAlertArgs()
         {
             Enabled = true;
+            Location = "global";
         }
     }
 }

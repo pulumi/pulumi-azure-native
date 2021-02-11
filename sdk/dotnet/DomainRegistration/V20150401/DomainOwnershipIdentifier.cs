@@ -69,6 +69,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150401
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

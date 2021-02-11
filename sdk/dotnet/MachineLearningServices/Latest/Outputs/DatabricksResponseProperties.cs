@@ -17,11 +17,19 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Outputs
         /// Databricks access token
         /// </summary>
         public readonly string? DatabricksAccessToken;
+        /// <summary>
+        /// Workspace Url
+        /// </summary>
+        public readonly string? WorkspaceUrl;
 
         [OutputConstructor]
-        private DatabricksResponseProperties(string? databricksAccessToken)
+        private DatabricksResponseProperties(
+            string? databricksAccessToken,
+
+            string? workspaceUrl)
         {
             DatabricksAccessToken = databricksAccessToken;
+            WorkspaceUrl = workspaceUrl;
         }
     }
 }

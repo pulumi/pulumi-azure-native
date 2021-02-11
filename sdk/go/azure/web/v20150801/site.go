@@ -122,6 +122,9 @@ func NewSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:Site"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:Site"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Site

@@ -116,6 +116,10 @@ export interface GetStreamingEndpointResult {
      */
     readonly scaleUnits: number;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.v20200501.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

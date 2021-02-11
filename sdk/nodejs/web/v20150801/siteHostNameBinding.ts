@@ -133,7 +133,7 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20160801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20180201:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20181101:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20190801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200601:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200901:SiteHostNameBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20160801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20180201:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20181101:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20190801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200601:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200901:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20201001:SiteHostNameBinding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteHostNameBinding.__pulumiType, name, inputs, opts);
     }

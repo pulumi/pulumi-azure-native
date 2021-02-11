@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         public Output<Outputs.PresentationTimeRangeResponse?> PresentationTimeRange { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tracks selection conditions.
         /// </summary>
         [Output("tracks")]

@@ -195,7 +195,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtensionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSiteExtensionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSiteExtensionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSiteExtensionSlot.__pulumiType, name, inputs, opts);
     }

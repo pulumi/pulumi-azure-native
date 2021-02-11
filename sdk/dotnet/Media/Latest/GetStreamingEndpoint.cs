@@ -122,6 +122,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly int ScaleUnits;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             int scaleUnits,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             ScaleUnits = scaleUnits;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

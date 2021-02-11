@@ -64,7 +64,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlotConfigurationNames")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSlotConfigurationNames")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSlotConfigurationNames, __self__).__init__(
             'azure-nextgen:web/v20200601:WebAppSlotConfigurationNames',

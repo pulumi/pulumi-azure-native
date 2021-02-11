@@ -158,6 +158,51 @@ namespace Pulumi.AzureNextGen.Media.V20200501
     }
 
     /// <summary>
+    /// The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+    /// </summary>
+    [EnumType]
+    public readonly struct AttributeFilter : IEquatable<AttributeFilter>
+    {
+        private readonly string _value;
+
+        private AttributeFilter(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All tracks will be included.
+        /// </summary>
+        public static AttributeFilter All { get; } = new AttributeFilter("All");
+        /// <summary>
+        /// The first track will be included when the attribute is sorted in descending order.  Generally used to select the largest bitrate.
+        /// </summary>
+        public static AttributeFilter Top { get; } = new AttributeFilter("Top");
+        /// <summary>
+        /// The first track will be included when the attribute is sorted in ascending order.  Generally used to select the smallest bitrate.
+        /// </summary>
+        public static AttributeFilter Bottom { get; } = new AttributeFilter("Bottom");
+        /// <summary>
+        /// Any tracks that have an attribute equal to the value given will be included.
+        /// </summary>
+        public static AttributeFilter ValueEquals { get; } = new AttributeFilter("ValueEquals");
+
+        public static bool operator ==(AttributeFilter left, AttributeFilter right) => left.Equals(right);
+        public static bool operator !=(AttributeFilter left, AttributeFilter right) => !left.Equals(right);
+
+        public static explicit operator string(AttributeFilter value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AttributeFilter other && Equals(other);
+        public bool Equals(AttributeFilter other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
     /// </summary>
     [EnumType]
@@ -187,6 +232,116 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AudioAnalysisMode other && Equals(other);
         public bool Equals(AudioAnalysisMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Blur type
+    /// </summary>
+    [EnumType]
+    public readonly struct BlurType : IEquatable<BlurType>
+    {
+        private readonly string _value;
+
+        private BlurType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Box: debug filter, bounding box only
+        /// </summary>
+        public static BlurType Box { get; } = new BlurType("Box");
+        /// <summary>
+        /// Low: box-car blur filter
+        /// </summary>
+        public static BlurType Low { get; } = new BlurType("Low");
+        /// <summary>
+        /// Med: Gaussian blur filter
+        /// </summary>
+        public static BlurType Med { get; } = new BlurType("Med");
+        /// <summary>
+        /// High: Confuse blur filter
+        /// </summary>
+        public static BlurType High { get; } = new BlurType("High");
+        /// <summary>
+        /// Black: Black out filter
+        /// </summary>
+        public static BlurType Black { get; } = new BlurType("Black");
+
+        public static bool operator ==(BlurType left, BlurType right) => left.Equals(right);
+        public static bool operator !=(BlurType left, BlurType right) => !left.Equals(right);
+
+        public static explicit operator string(BlurType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlurType other && Equals(other);
+        public bool Equals(BlurType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelMapping : IEquatable<ChannelMapping>
+    {
+        private readonly string _value;
+
+        private ChannelMapping(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Front Left Channel.
+        /// </summary>
+        public static ChannelMapping FrontLeft { get; } = new ChannelMapping("FrontLeft");
+        /// <summary>
+        /// The Front Right Channel.
+        /// </summary>
+        public static ChannelMapping FrontRight { get; } = new ChannelMapping("FrontRight");
+        /// <summary>
+        /// The Center Channel.
+        /// </summary>
+        public static ChannelMapping Center { get; } = new ChannelMapping("Center");
+        /// <summary>
+        /// Low Frequency Effects Channel.  Sometimes referred to as the Subwoofer.
+        /// </summary>
+        public static ChannelMapping LowFrequencyEffects { get; } = new ChannelMapping("LowFrequencyEffects");
+        /// <summary>
+        /// The Back Left Channel.  Sometimes referred to as the Left Surround Channel.
+        /// </summary>
+        public static ChannelMapping BackLeft { get; } = new ChannelMapping("BackLeft");
+        /// <summary>
+        /// The Back Right Channel.  Sometimes referred to as the Right Surround Channel.
+        /// </summary>
+        public static ChannelMapping BackRight { get; } = new ChannelMapping("BackRight");
+        /// <summary>
+        /// The Left Stereo channel.  Sometimes referred to as Down Mix Left.
+        /// </summary>
+        public static ChannelMapping StereoLeft { get; } = new ChannelMapping("StereoLeft");
+        /// <summary>
+        /// The Right Stereo channel.  Sometimes referred to as Down Mix Right.
+        /// </summary>
+        public static ChannelMapping StereoRight { get; } = new ChannelMapping("StereoRight");
+
+        public static bool operator ==(ChannelMapping left, ChannelMapping right) => left.Equals(right);
+        public static bool operator !=(ChannelMapping left, ChannelMapping right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelMapping value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelMapping other && Equals(other);
+        public bool Equals(ChannelMapping other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -550,6 +705,26 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// Produces a set of 5 GOP-aligned MP4 files, ranging from 1900kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 240p.
         /// </summary>
         public static EncoderNamedPreset H264MultipleBitrateSD { get; } = new EncoderNamedPreset("H264MultipleBitrateSD");
+        /// <summary>
+        /// Produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved.
+        /// </summary>
+        public static EncoderNamedPreset H265ContentAwareEncoding { get; } = new EncoderNamedPreset("H265ContentAwareEncoding");
+        /// <summary>
+        /// Produces a set of GOP aligned MP4 files with H.265 video and stereo AAC audio. Auto-generates a bitrate ladder based on the input resolution, bitrate and frame rate. The auto-generated preset will never exceed the input resolution. For example, if the input is 720p, output will remain 720p at best.
+        /// </summary>
+        public static EncoderNamedPreset H265AdaptiveStreaming { get; } = new EncoderNamedPreset("H265AdaptiveStreaming");
+        /// <summary>
+        /// Produces an MP4 file where the video is encoded with H.265 codec at 1800 kbps and a picture height of 720 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+        /// </summary>
+        public static EncoderNamedPreset H265SingleBitrate720p { get; } = new EncoderNamedPreset("H265SingleBitrate720p");
+        /// <summary>
+        /// Produces an MP4 file where the video is encoded with H.265 codec at 3500 kbps and a picture height of 1080 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+        /// </summary>
+        public static EncoderNamedPreset H265SingleBitrate1080p { get; } = new EncoderNamedPreset("H265SingleBitrate1080p");
+        /// <summary>
+        /// Produces an MP4 file where the video is encoded with H.265 codec at 9500 kbps and a picture height of 2160 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+        /// </summary>
+        public static EncoderNamedPreset H265SingleBitrate4K { get; } = new EncoderNamedPreset("H265SingleBitrate4K");
 
         public static bool operator ==(EncoderNamedPreset left, EncoderNamedPreset right) => left.Equals(right);
         public static bool operator !=(EncoderNamedPreset left, EncoderNamedPreset right) => !left.Equals(right);
@@ -596,6 +771,47 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EntropyMode other && Equals(other);
         public bool Equals(EntropyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+    /// </summary>
+    [EnumType]
+    public readonly struct FaceRedactorMode : IEquatable<FaceRedactorMode>
+    {
+        private readonly string _value;
+
+        private FaceRedactorMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Analyze mode detects faces and outputs a metadata file with the results. Allows editing of the metadata file before faces are blurred with Redact mode.
+        /// </summary>
+        public static FaceRedactorMode Analyze { get; } = new FaceRedactorMode("Analyze");
+        /// <summary>
+        /// Redact mode consumes the metadata file from Analyze mode and redacts the faces found.
+        /// </summary>
+        public static FaceRedactorMode Redact { get; } = new FaceRedactorMode("Redact");
+        /// <summary>
+        /// Combined mode does the Analyze and Redact steps in one pass when editing the analyzed faces is not desired.
+        /// </summary>
+        public static FaceRedactorMode Combined { get; } = new FaceRedactorMode("Combined");
+
+        public static bool operator ==(FaceRedactorMode left, FaceRedactorMode right) => left.Equals(right);
+        public static bool operator !=(FaceRedactorMode left, FaceRedactorMode right) => !left.Equals(right);
+
+        public static explicit operator string(FaceRedactorMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FaceRedactorMode other && Equals(other);
+        public bool Equals(FaceRedactorMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -780,6 +996,84 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is H264VideoProfile other && Equals(other);
         public bool Equals(H264VideoProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+    /// </summary>
+    [EnumType]
+    public readonly struct H265Complexity : IEquatable<H265Complexity>
+    {
+        private readonly string _value;
+
+        private H265Complexity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+        /// </summary>
+        public static H265Complexity Speed { get; } = new H265Complexity("Speed");
+        /// <summary>
+        /// Tells the encoder to use settings that achieve a balance between speed and quality.
+        /// </summary>
+        public static H265Complexity Balanced { get; } = new H265Complexity("Balanced");
+        /// <summary>
+        /// Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+        /// </summary>
+        public static H265Complexity Quality { get; } = new H265Complexity("Quality");
+
+        public static bool operator ==(H265Complexity left, H265Complexity right) => left.Equals(right);
+        public static bool operator !=(H265Complexity left, H265Complexity right) => !left.Equals(right);
+
+        public static explicit operator string(H265Complexity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is H265Complexity other && Equals(other);
+        public bool Equals(H265Complexity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// We currently support Main. Default is Auto.
+    /// </summary>
+    [EnumType]
+    public readonly struct H265VideoProfile : IEquatable<H265VideoProfile>
+    {
+        private readonly string _value;
+
+        private H265VideoProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Tells the encoder to automatically determine the appropriate H.265 profile.
+        /// </summary>
+        public static H265VideoProfile Auto { get; } = new H265VideoProfile("Auto");
+        /// <summary>
+        /// Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
+        /// </summary>
+        public static H265VideoProfile Main { get; } = new H265VideoProfile("Main");
+
+        public static bool operator ==(H265VideoProfile left, H265VideoProfile right) => left.Equals(right);
+        public static bool operator !=(H265VideoProfile left, H265VideoProfile right) => !left.Equals(right);
+
+        public static explicit operator string(H265VideoProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is H265VideoProfile other && Equals(other);
+        public bool Equals(H265VideoProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1245,6 +1539,43 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StretchMode other && Equals(other);
         public bool Equals(StretchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The TrackAttribute to filter the tracks by.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrackAttribute : IEquatable<TrackAttribute>
+    {
+        private readonly string _value;
+
+        private TrackAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The bitrate of the track.
+        /// </summary>
+        public static TrackAttribute Bitrate { get; } = new TrackAttribute("Bitrate");
+        /// <summary>
+        /// The language of the track.
+        /// </summary>
+        public static TrackAttribute Language { get; } = new TrackAttribute("Language");
+
+        public static bool operator ==(TrackAttribute left, TrackAttribute right) => left.Equals(right);
+        public static bool operator !=(TrackAttribute left, TrackAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(TrackAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrackAttribute other && Equals(other);
+        public bool Equals(TrackAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

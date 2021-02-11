@@ -122,6 +122,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:StaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

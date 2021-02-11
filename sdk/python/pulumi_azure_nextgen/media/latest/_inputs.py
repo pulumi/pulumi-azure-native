@@ -18,6 +18,7 @@ __all__ = [
     'AudioArgs',
     'AudioAnalyzerPresetArgs',
     'AudioOverlayArgs',
+    'AudioTrackDescriptorArgs',
     'BuiltInStandardEncoderPresetArgs',
     'CbcsDrmConfigurationArgs',
     'CencDrmConfigurationArgs',
@@ -54,16 +55,22 @@ __all__ = [
     'FilterTrackSelectionArgs',
     'FiltersArgs',
     'FirstQualityArgs',
+    'FromAllInputFileArgs',
+    'FromEachInputFileArgs',
     'H264LayerArgs',
     'H264VideoArgs',
+    'H265LayerArgs',
+    'H265VideoArgs',
     'HlsArgs',
     'IPAccessControlArgs',
     'IPRangeArgs',
     'ImageArgs',
     'ImageFormatArgs',
+    'InputFileArgs',
     'JobInputAssetArgs',
     'JobInputClipArgs',
     'JobInputHttpArgs',
+    'JobInputSequenceArgs',
     'JobInputsArgs',
     'JobOutputAssetArgs',
     'JpgFormatArgs',
@@ -90,6 +97,10 @@ __all__ = [
     'PresentationTimeRangeArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RectangleArgs',
+    'SelectAudioTrackByAttributeArgs',
+    'SelectAudioTrackByIdArgs',
+    'SelectVideoTrackByAttributeArgs',
+    'SelectVideoTrackByIdArgs',
     'StandardEncoderPresetArgs',
     'StorageAccountArgs',
     'StreamingEndpointAccessControlArgs',
@@ -107,6 +118,7 @@ __all__ = [
     'VideoArgs',
     'VideoAnalyzerPresetArgs',
     'VideoOverlayArgs',
+    'VideoTrackDescriptorArgs',
 ]
 
 @pulumi.input_type
@@ -546,7 +558,7 @@ class AudioOverlayArgs:
                  start: Optional[pulumi.Input[str]] = None):
         """
         Describes the properties of an audio overlay.
-        :param pulumi.Input[str] input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        :param pulumi.Input[str] input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.AudioOverlay'.
         :param pulumi.Input[float] audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
@@ -572,7 +584,7 @@ class AudioOverlayArgs:
     @pulumi.getter(name="inputLabel")
     def input_label(self) -> pulumi.Input[str]:
         """
-        The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         """
         return pulumi.get(self, "input_label")
 
@@ -652,6 +664,47 @@ class AudioOverlayArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class AudioTrackDescriptorArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 channel_mapping: Optional[pulumi.Input[Union[str, 'ChannelMapping']]] = None):
+        """
+        A TrackSelection to select audio tracks.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        :param pulumi.Input[Union[str, 'ChannelMapping']] channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrackDescriptor')
+        if channel_mapping is not None:
+            pulumi.set(__self__, "channel_mapping", channel_mapping)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="channelMapping")
+    def channel_mapping(self) -> Optional[pulumi.Input[Union[str, 'ChannelMapping']]]:
+        """
+        Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+        """
+        return pulumi.get(self, "channel_mapping")
+
+    @channel_mapping.setter
+    def channel_mapping(self, value: Optional[pulumi.Input[Union[str, 'ChannelMapping']]]):
+        pulumi.set(self, "channel_mapping", value)
 
 
 @pulumi.input_type
@@ -2470,18 +2523,26 @@ class EnvelopeEncryptionArgs:
 class FaceDetectorPresetArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
+                 blur_type: Optional[pulumi.Input[Union[str, 'BlurType']]] = None,
                  experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'FaceRedactorMode']]] = None,
                  resolution: Optional[pulumi.Input[Union[str, 'AnalysisResolution']]] = None):
         """
-        Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+        Describes all the settings to be used when analyzing a video in order to detect (and optionally redact) all the faces present.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.FaceDetectorPreset'.
+        :param pulumi.Input[Union[str, 'BlurType']] blur_type: Blur type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
+        :param pulumi.Input[Union[str, 'FaceRedactorMode']] mode: This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
         :param pulumi.Input[Union[str, 'AnalysisResolution']] resolution: Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.FaceDetectorPreset')
+        if blur_type is not None:
+            pulumi.set(__self__, "blur_type", blur_type)
         if experimental_options is not None:
             pulumi.set(__self__, "experimental_options", experimental_options)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
         if resolution is not None:
             pulumi.set(__self__, "resolution", resolution)
 
@@ -2499,6 +2560,18 @@ class FaceDetectorPresetArgs:
         pulumi.set(self, "odata_type", value)
 
     @property
+    @pulumi.getter(name="blurType")
+    def blur_type(self) -> Optional[pulumi.Input[Union[str, 'BlurType']]]:
+        """
+        Blur type
+        """
+        return pulumi.get(self, "blur_type")
+
+    @blur_type.setter
+    def blur_type(self, value: Optional[pulumi.Input[Union[str, 'BlurType']]]):
+        pulumi.set(self, "blur_type", value)
+
+    @property
     @pulumi.getter(name="experimentalOptions")
     def experimental_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -2509,6 +2582,18 @@ class FaceDetectorPresetArgs:
     @experimental_options.setter
     def experimental_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "experimental_options", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'FaceRedactorMode']]]:
+        """
+        This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'FaceRedactorMode']]]):
+        pulumi.set(self, "mode", value)
 
     @property
     @pulumi.getter
@@ -2692,6 +2777,88 @@ class FirstQualityArgs:
     @bitrate.setter
     def bitrate(self, value: pulumi.Input[int]):
         pulumi.set(self, "bitrate", value)
+
+
+@pulumi.input_type
+class FromAllInputFileArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 included_tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]] = None):
+        """
+        An InputDefinition that looks across all of the files provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to allow selection of a single track across a set of input files.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.FromAllInputFile'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromAllInputFile')
+        if included_tracks is not None:
+            pulumi.set(__self__, "included_tracks", included_tracks)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.FromAllInputFile'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="includedTracks")
+    def included_tracks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]]:
+        """
+        The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        """
+        return pulumi.get(self, "included_tracks")
+
+    @included_tracks.setter
+    def included_tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]]):
+        pulumi.set(self, "included_tracks", value)
+
+
+@pulumi.input_type
+class FromEachInputFileArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 included_tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]] = None):
+        """
+        An InputDefinition that looks at each input file provided to select tracks specified by the IncludedTracks property. Generally used with the AudioTrackByAttribute and VideoTrackByAttribute to select tracks from each file given.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.FromEachInputFile'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromEachInputFile')
+        if included_tracks is not None:
+            pulumi.set(__self__, "included_tracks", included_tracks)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.FromEachInputFile'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="includedTracks")
+    def included_tracks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]]:
+        """
+        The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        """
+        return pulumi.get(self, "included_tracks")
+
+    @included_tracks.setter
+    def included_tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]]):
+        pulumi.set(self, "included_tracks", value)
 
 
 @pulumi.input_type
@@ -3080,6 +3247,375 @@ class H264VideoArgs:
 
 
 @pulumi.input_type
+class H265LayerArgs:
+    def __init__(__self__, *,
+                 bitrate: pulumi.Input[int],
+                 odata_type: pulumi.Input[str],
+                 adaptive_b_frame: Optional[pulumi.Input[bool]] = None,
+                 b_frames: Optional[pulumi.Input[int]] = None,
+                 buffer_window: Optional[pulumi.Input[str]] = None,
+                 frame_rate: Optional[pulumi.Input[str]] = None,
+                 height: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 max_bitrate: Optional[pulumi.Input[int]] = None,
+                 profile: Optional[pulumi.Input[Union[str, 'H265VideoProfile']]] = None,
+                 reference_frames: Optional[pulumi.Input[int]] = None,
+                 slices: Optional[pulumi.Input[int]] = None,
+                 width: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.265 video codec.
+        :param pulumi.Input[int] bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer. For example: a target bitrate of 3000Kbps or 3Mbps means this value should be 3000000 This is a required field.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.H265VideoLayer'.
+        :param pulumi.Input[bool] adaptive_b_frame: Specifies whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+        :param pulumi.Input[int] b_frames: The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        :param pulumi.Input[str] buffer_window: The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+        :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param pulumi.Input[str] level: We currently support Level up to 6.2. The value can be Auto, or a number that matches the H.265 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+        :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        :param pulumi.Input[Union[str, 'H265VideoProfile']] profile: We currently support Main. Default is Auto.
+        :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H265VideoLayer')
+        if adaptive_b_frame is not None:
+            pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
+        if b_frames is not None:
+            pulumi.set(__self__, "b_frames", b_frames)
+        if buffer_window is not None:
+            pulumi.set(__self__, "buffer_window", buffer_window)
+        if frame_rate is not None:
+            pulumi.set(__self__, "frame_rate", frame_rate)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if reference_frames is not None:
+            pulumi.set(__self__, "reference_frames", reference_frames)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> pulumi.Input[int]:
+        """
+        The average bitrate in bits per second at which to encode the input video when generating this layer. For example: a target bitrate of 3000Kbps or 3Mbps means this value should be 3000000 This is a required field.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @bitrate.setter
+    def bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "bitrate", value)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.H265VideoLayer'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="adaptiveBFrame")
+    def adaptive_b_frame(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+        """
+        return pulumi.get(self, "adaptive_b_frame")
+
+    @adaptive_b_frame.setter
+    def adaptive_b_frame(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "adaptive_b_frame", value)
+
+    @property
+    @pulumi.getter(name="bFrames")
+    def b_frames(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        """
+        return pulumi.get(self, "b_frames")
+
+    @b_frames.setter
+    def b_frames(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "b_frames", value)
+
+    @property
+    @pulumi.getter(name="bufferWindow")
+    def buffer_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+        """
+        return pulumi.get(self, "buffer_window")
+
+    @buffer_window.setter
+    def buffer_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "buffer_window", value)
+
+    @property
+    @pulumi.getter(name="frameRate")
+    def frame_rate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        """
+        return pulumi.get(self, "frame_rate")
+
+    @frame_rate.setter
+    def frame_rate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "frame_rate", value)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[pulumi.Input[str]]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @height.setter
+    def height(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "height", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        We currently support Level up to 6.2. The value can be Auto, or a number that matches the H.265 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @max_bitrate.setter
+    def max_bitrate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_bitrate", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[Union[str, 'H265VideoProfile']]]:
+        """
+        We currently support Main. Default is Auto.
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[Union[str, 'H265VideoProfile']]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="referenceFrames")
+    def reference_frames(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        """
+        return pulumi.get(self, "reference_frames")
+
+    @reference_frames.setter
+    def reference_frames(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reference_frames", value)
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+        """
+        return pulumi.get(self, "slices")
+
+    @slices.setter
+    def slices(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "slices", value)
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[pulumi.Input[str]]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "width", value)
+
+
+@pulumi.input_type
+class H265VideoArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 complexity: Optional[pulumi.Input[Union[str, 'H265Complexity']]] = None,
+                 key_frame_interval: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['H265LayerArgs']]]] = None,
+                 scene_change_detection: Optional[pulumi.Input[bool]] = None,
+                 stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+                 sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None):
+        """
+        Describes all the properties for encoding a video with the H.265 codec.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
+        :param pulumi.Input[Union[str, 'H265Complexity']] complexity: Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[Sequence[pulumi.Input['H265LayerArgs']]] layers: The collection of output H.265 layers to be produced by the encoder.
+        :param pulumi.Input[bool] scene_change_detection: Specifies whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+        :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if complexity is not None:
+            pulumi.set(__self__, "complexity", complexity)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if scene_change_detection is not None:
+            pulumi.set(__self__, "scene_change_detection", scene_change_detection)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def complexity(self) -> Optional[pulumi.Input[Union[str, 'H265Complexity']]]:
+        """
+        Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+        """
+        return pulumi.get(self, "complexity")
+
+    @complexity.setter
+    def complexity(self, value: Optional[pulumi.Input[Union[str, 'H265Complexity']]]):
+        pulumi.set(self, "complexity", value)
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @key_frame_interval.setter
+    def key_frame_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_frame_interval", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['H265LayerArgs']]]]:
+        """
+        The collection of output H.265 layers to be produced by the encoder.
+        """
+        return pulumi.get(self, "layers")
+
+    @layers.setter
+    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['H265LayerArgs']]]]):
+        pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter(name="sceneChangeDetection")
+    def scene_change_detection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+        """
+        return pulumi.get(self, "scene_change_detection")
+
+    @scene_change_detection.setter
+    def scene_change_detection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scene_change_detection", value)
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[pulumi.Input[Union[str, 'StretchMode']]]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @stretch_mode.setter
+    def stretch_mode(self, value: Optional[pulumi.Input[Union[str, 'StretchMode']]]):
+        pulumi.set(self, "stretch_mode", value)
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[pulumi.Input[Union[str, 'VideoSyncMode']]]:
+        """
+        The Video Sync Mode
+        """
+        return pulumi.get(self, "sync_mode")
+
+    @sync_mode.setter
+    def sync_mode(self, value: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]]):
+        pulumi.set(self, "sync_mode", value)
+
+
+@pulumi.input_type
 class HlsArgs:
     def __init__(__self__, *,
                  fragments_per_ts_segment: Optional[pulumi.Input[int]] = None):
@@ -3326,7 +3862,7 @@ class ImageFormatArgs:
                  odata_type: pulumi.Input[str]):
         """
         Describes the properties for an output image file.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ImageFormat'.
         """
@@ -3337,7 +3873,7 @@ class ImageFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -3360,12 +3896,70 @@ class ImageFormatArgs:
 
 
 @pulumi.input_type
+class InputFileArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 filename: Optional[pulumi.Input[str]] = None,
+                 included_tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]] = None):
+        """
+        An InputDefinition for a single file.  TrackSelections are scoped to the file specified.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.InputFile'.
+        :param pulumi.Input[str] filename: Name of the file that this input definition applies to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.InputFile')
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if included_tracks is not None:
+            pulumi.set(__self__, "included_tracks", included_tracks)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.InputFile'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the file that this input definition applies to.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
+
+    @property
+    @pulumi.getter(name="includedTracks")
+    def included_tracks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]]:
+        """
+        The list of TrackDescriptors which define the metadata and selection of tracks in the input.
+        """
+        return pulumi.get(self, "included_tracks")
+
+    @included_tracks.setter
+    def included_tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]]):
+        pulumi.set(self, "included_tracks", value)
+
+
+@pulumi.input_type
 class JobInputAssetArgs:
     def __init__(__self__, *,
                  asset_name: pulumi.Input[str],
                  odata_type: pulumi.Input[str],
                  end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
                  files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 input_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None):
         """
@@ -3375,6 +3969,7 @@ class JobInputAssetArgs:
                Expected value is '#Microsoft.Media.JobInputClip'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
@@ -3384,6 +3979,8 @@ class JobInputAssetArgs:
             pulumi.set(__self__, "end", end)
         if files is not None:
             pulumi.set(__self__, "files", files)
+        if input_definitions is not None:
+            pulumi.set(__self__, "input_definitions", input_definitions)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if start is not None:
@@ -3439,6 +4036,18 @@ class JobInputAssetArgs:
         pulumi.set(self, "files", value)
 
     @property
+    @pulumi.getter(name="inputDefinitions")
+    def input_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]]:
+        """
+        Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        """
+        return pulumi.get(self, "input_definitions")
+
+    @input_definitions.setter
+    def input_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]]):
+        pulumi.set(self, "input_definitions", value)
+
+    @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3469,6 +4078,7 @@ class JobInputClipArgs:
                  odata_type: pulumi.Input[str],
                  end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
                  files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 input_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None):
         """
@@ -3477,6 +4087,7 @@ class JobInputClipArgs:
                Expected value is '#Microsoft.Media.JobInputClip'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
@@ -3485,6 +4096,8 @@ class JobInputClipArgs:
             pulumi.set(__self__, "end", end)
         if files is not None:
             pulumi.set(__self__, "files", files)
+        if input_definitions is not None:
+            pulumi.set(__self__, "input_definitions", input_definitions)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if start is not None:
@@ -3528,6 +4141,18 @@ class JobInputClipArgs:
         pulumi.set(self, "files", value)
 
     @property
+    @pulumi.getter(name="inputDefinitions")
+    def input_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]]:
+        """
+        Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        """
+        return pulumi.get(self, "input_definitions")
+
+    @input_definitions.setter
+    def input_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]]):
+        pulumi.set(self, "input_definitions", value)
+
+    @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3559,6 +4184,7 @@ class JobInputHttpArgs:
                  base_uri: Optional[pulumi.Input[str]] = None,
                  end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
                  files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 input_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None):
         """
@@ -3568,6 +4194,7 @@ class JobInputHttpArgs:
         :param pulumi.Input[str] base_uri: Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]] input_definitions: Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
@@ -3578,6 +4205,8 @@ class JobInputHttpArgs:
             pulumi.set(__self__, "end", end)
         if files is not None:
             pulumi.set(__self__, "files", files)
+        if input_definitions is not None:
+            pulumi.set(__self__, "input_definitions", input_definitions)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if start is not None:
@@ -3633,6 +4262,18 @@ class JobInputHttpArgs:
         pulumi.set(self, "files", value)
 
     @property
+    @pulumi.getter(name="inputDefinitions")
+    def input_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]]:
+        """
+        Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        """
+        return pulumi.get(self, "input_definitions")
+
+    @input_definitions.setter
+    def input_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]]):
+        pulumi.set(self, "input_definitions", value)
+
+    @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3658,15 +4299,56 @@ class JobInputHttpArgs:
 
 
 @pulumi.input_type
+class JobInputSequenceArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobInputClipArgs']]]] = None):
+        """
+        A Sequence contains an ordered list of Clips where each clip is a JobInput.  The Sequence will be treated as a single input.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.JobInputSequence'.
+        :param pulumi.Input[Sequence[pulumi.Input['JobInputClipArgs']]] inputs: JobInputs that make up the timeline.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputSequence')
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.JobInputSequence'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobInputClipArgs']]]]:
+        """
+        JobInputs that make up the timeline.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobInputClipArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+
+@pulumi.input_type
 class JobInputsArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputsArgs']]]]] = None):
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]]]] = None):
         """
         Describes a list of inputs to a Job.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputs'.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputsArgs']]]] inputs: List of inputs to a Job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]]] inputs: List of inputs to a Job.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
         if inputs is not None:
@@ -3687,14 +4369,14 @@ class JobInputsArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputsArgs']]]]]:
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]]]]:
         """
         List of inputs to a Job.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputsArgs']]]]]):
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]]]]):
         pulumi.set(self, "inputs", value)
 
 
@@ -3761,7 +4443,7 @@ class JpgFormatArgs:
                  odata_type: pulumi.Input[str]):
         """
         Describes the settings for producing JPEG thumbnails.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ImageFormat'.
         """
@@ -3772,7 +4454,7 @@ class JpgFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -4574,7 +5256,7 @@ class Mp4FormatArgs:
                  output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None):
         """
         Describes the properties for an output ISO MP4 file.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
@@ -4588,7 +5270,7 @@ class Mp4FormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -4630,7 +5312,7 @@ class MultiBitrateFormatArgs:
                  output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None):
         """
         Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
@@ -4644,7 +5326,7 @@ class MultiBitrateFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -4732,7 +5414,7 @@ class PngFormatArgs:
                  odata_type: pulumi.Input[str]):
         """
         Describes the settings for producing PNG thumbnails.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ImageFormat'.
         """
@@ -4743,7 +5425,7 @@ class PngFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -5223,15 +5905,269 @@ class RectangleArgs:
 
 
 @pulumi.input_type
+class SelectAudioTrackByAttributeArgs:
+    def __init__(__self__, *,
+                 attribute: pulumi.Input[Union[str, 'TrackAttribute']],
+                 filter: pulumi.Input[Union[str, 'AttributeFilter']],
+                 odata_type: pulumi.Input[str],
+                 channel_mapping: Optional[pulumi.Input[Union[str, 'ChannelMapping']]] = None,
+                 filter_value: Optional[pulumi.Input[str]] = None):
+        """
+        Select audio tracks from the input by specifying an attribute and an attribute filter.
+        :param pulumi.Input[Union[str, 'TrackAttribute']] attribute: The TrackAttribute to filter the tracks by.
+        :param pulumi.Input[Union[str, 'AttributeFilter']] filter: The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        :param pulumi.Input[Union[str, 'ChannelMapping']] channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+        :param pulumi.Input[str] filter_value: The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrackDescriptor')
+        if channel_mapping is not None:
+            pulumi.set(__self__, "channel_mapping", channel_mapping)
+        if filter_value is not None:
+            pulumi.set(__self__, "filter_value", filter_value)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input[Union[str, 'TrackAttribute']]:
+        """
+        The TrackAttribute to filter the tracks by.
+        """
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input[Union[str, 'TrackAttribute']]):
+        pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[Union[str, 'AttributeFilter']]:
+        """
+        The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[Union[str, 'AttributeFilter']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="channelMapping")
+    def channel_mapping(self) -> Optional[pulumi.Input[Union[str, 'ChannelMapping']]]:
+        """
+        Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+        """
+        return pulumi.get(self, "channel_mapping")
+
+    @channel_mapping.setter
+    def channel_mapping(self, value: Optional[pulumi.Input[Union[str, 'ChannelMapping']]]):
+        pulumi.set(self, "channel_mapping", value)
+
+    @property
+    @pulumi.getter(name="filterValue")
+    def filter_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property.
+        """
+        return pulumi.get(self, "filter_value")
+
+    @filter_value.setter
+    def filter_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_value", value)
+
+
+@pulumi.input_type
+class SelectAudioTrackByIdArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 track_id: pulumi.Input[float],
+                 channel_mapping: Optional[pulumi.Input[Union[str, 'ChannelMapping']]] = None):
+        """
+        Select audio tracks from the input by specifying a track identifier.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        :param pulumi.Input[float] track_id: Track identifier to select
+        :param pulumi.Input[Union[str, 'ChannelMapping']] channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrackDescriptor')
+        pulumi.set(__self__, "track_id", track_id)
+        if channel_mapping is not None:
+            pulumi.set(__self__, "channel_mapping", channel_mapping)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="trackId")
+    def track_id(self) -> pulumi.Input[float]:
+        """
+        Track identifier to select
+        """
+        return pulumi.get(self, "track_id")
+
+    @track_id.setter
+    def track_id(self, value: pulumi.Input[float]):
+        pulumi.set(self, "track_id", value)
+
+    @property
+    @pulumi.getter(name="channelMapping")
+    def channel_mapping(self) -> Optional[pulumi.Input[Union[str, 'ChannelMapping']]]:
+        """
+        Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+        """
+        return pulumi.get(self, "channel_mapping")
+
+    @channel_mapping.setter
+    def channel_mapping(self, value: Optional[pulumi.Input[Union[str, 'ChannelMapping']]]):
+        pulumi.set(self, "channel_mapping", value)
+
+
+@pulumi.input_type
+class SelectVideoTrackByAttributeArgs:
+    def __init__(__self__, *,
+                 attribute: pulumi.Input[Union[str, 'TrackAttribute']],
+                 filter: pulumi.Input[Union[str, 'AttributeFilter']],
+                 odata_type: pulumi.Input[str],
+                 filter_value: Optional[pulumi.Input[str]] = None):
+        """
+        Select video tracks from the input by specifying an attribute and an attribute filter.
+        :param pulumi.Input[Union[str, 'TrackAttribute']] attribute: The TrackAttribute to filter the tracks by.
+        :param pulumi.Input[Union[str, 'AttributeFilter']] filter: The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        :param pulumi.Input[str] filter_value: The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrackDescriptor')
+        if filter_value is not None:
+            pulumi.set(__self__, "filter_value", filter_value)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input[Union[str, 'TrackAttribute']]:
+        """
+        The TrackAttribute to filter the tracks by.
+        """
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input[Union[str, 'TrackAttribute']]):
+        pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[Union[str, 'AttributeFilter']]:
+        """
+        The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[Union[str, 'AttributeFilter']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="filterValue")
+    def filter_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks.
+        """
+        return pulumi.get(self, "filter_value")
+
+    @filter_value.setter
+    def filter_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_value", value)
+
+
+@pulumi.input_type
+class SelectVideoTrackByIdArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 track_id: pulumi.Input[float]):
+        """
+        Select video tracks from the input by specifying a track identifier.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        :param pulumi.Input[float] track_id: Track identifier to select
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrackDescriptor')
+        pulumi.set(__self__, "track_id", track_id)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="trackId")
+    def track_id(self) -> pulumi.Input[float]:
+        """
+        Track identifier to select
+        """
+        return pulumi.get(self, "track_id")
+
+    @track_id.setter
+    def track_id(self, value: pulumi.Input[float]):
+        pulumi.set(self, "track_id", value)
+
+
+@pulumi.input_type
 class StandardEncoderPresetArgs:
     def __init__(__self__, *,
-                 codecs: pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]],
+                 codecs: pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'H265VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]],
                  formats: pulumi.Input[Sequence[pulumi.Input[Union['ImageFormatArgs', 'JpgFormatArgs', 'Mp4FormatArgs', 'MultiBitrateFormatArgs', 'PngFormatArgs', 'TransportStreamFormatArgs']]]],
                  odata_type: pulumi.Input[str],
                  filters: Optional[pulumi.Input['FiltersArgs']] = None):
         """
         Describes all the settings to be used when encoding the input video with the Standard Encoder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]] codecs: The list of codecs to be used when encoding the input video.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'H265VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]] codecs: The list of codecs to be used when encoding the input video.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageFormatArgs', 'JpgFormatArgs', 'Mp4FormatArgs', 'MultiBitrateFormatArgs', 'PngFormatArgs', 'TransportStreamFormatArgs']]]] formats: The list of outputs to be produced by the encoder.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.StandardEncoderPreset'.
@@ -5245,14 +6181,14 @@ class StandardEncoderPresetArgs:
 
     @property
     @pulumi.getter
-    def codecs(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]]:
+    def codecs(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'H265VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]]:
         """
         The list of codecs to be used when encoding the input video.
         """
         return pulumi.get(self, "codecs")
 
     @codecs.setter
-    def codecs(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]]):
+    def codecs(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'H264VideoArgs', 'H265VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]]):
         pulumi.set(self, "codecs", value)
 
     @property
@@ -5767,7 +6703,7 @@ class TransportStreamFormatArgs:
                  output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None):
         """
         Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
@@ -5781,7 +6717,7 @@ class TransportStreamFormatArgs:
     @pulumi.getter(name="filenamePattern")
     def filename_pattern(self) -> pulumi.Input[str]:
         """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
         """
         return pulumi.get(self, "filename_pattern")
 
@@ -6048,7 +6984,7 @@ class VideoOverlayArgs:
                  start: Optional[pulumi.Input[str]] = None):
         """
         Describes the properties of a video overlay.
-        :param pulumi.Input[str] input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        :param pulumi.Input[str] input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoOverlay'.
         :param pulumi.Input[float] audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
@@ -6083,7 +7019,7 @@ class VideoOverlayArgs:
     @pulumi.getter(name="inputLabel")
     def input_label(self) -> pulumi.Input[str]:
         """
-        The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         """
         return pulumi.get(self, "input_label")
 
@@ -6199,5 +7135,30 @@ class VideoOverlayArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class VideoTrackDescriptorArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str]):
+        """
+        A TrackSelection to select video tracks.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrackDescriptor')
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
 
 

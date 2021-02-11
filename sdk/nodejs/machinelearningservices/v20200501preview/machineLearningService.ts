@@ -117,7 +117,7 @@ export class MachineLearningService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/latest:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningService.__pulumiType, name, inputs, opts);
     }

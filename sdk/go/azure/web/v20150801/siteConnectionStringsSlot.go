@@ -67,6 +67,9 @@ func NewSiteConnectionStringsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteConnectionStringsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:SiteConnectionStringsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteConnectionStringsSlot

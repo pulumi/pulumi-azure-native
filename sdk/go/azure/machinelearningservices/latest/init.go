@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewLinkedWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:machinelearningservices/latest:MachineLearningCompute":
 		r, err = NewMachineLearningCompute(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:machinelearningservices/latest:MachineLearningService":
+		r, err = NewMachineLearningService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:machinelearningservices/latest:Workspace":

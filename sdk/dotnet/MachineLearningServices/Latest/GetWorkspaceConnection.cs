@@ -73,6 +73,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// Value details of the workspace connection.
         /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// format for the workspace connection value
+        /// </summary>
+        public readonly string? ValueFormat;
 
         [OutputConstructor]
         private GetWorkspaceConnectionResult(
@@ -88,7 +92,9 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 
             string type,
 
-            string? value)
+            string? value,
+
+            string? valueFormat)
         {
             AuthType = authType;
             Category = category;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
             Target = target;
             Type = type;
             Value = value;
+            ValueFormat = valueFormat;
         }
     }
 }

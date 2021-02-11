@@ -103,6 +103,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

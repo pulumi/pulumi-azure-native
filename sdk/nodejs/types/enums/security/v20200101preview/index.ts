@@ -37,3 +37,63 @@ export const AutoProvision = {
  * Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
  */
 export type AutoProvision = (typeof AutoProvision)[keyof typeof AutoProvision];
+
+export const MinimalSeverity = {
+    /**
+     * Get notifications on new alerts with High severity
+     */
+    High: "High",
+    /**
+     * Get notifications on new alerts with medium or high severity
+     */
+    Medium: "Medium",
+    /**
+     * Don't get notifications on new alerts with low, medium or high severity
+     */
+    Low: "Low",
+} as const;
+
+/**
+ * Defines the minimal alert severity which will be sent as email notifications
+ */
+export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
+
+export const Roles = {
+    /**
+     * If enabled, send notification on new alerts to the account admins
+     */
+    AccountAdmin: "AccountAdmin",
+    /**
+     * If enabled, send notification on new alerts to the service admins
+     */
+    ServiceAdmin: "ServiceAdmin",
+    /**
+     * If enabled, send notification on new alerts to the subscription owners
+     */
+    Owner: "Owner",
+    /**
+     * If enabled, send notification on new alerts to the subscription contributors
+     */
+    Contributor: "Contributor",
+} as const;
+
+/**
+ * A possible role to configure sending security notification alerts to
+ */
+export type Roles = (typeof Roles)[keyof typeof Roles];
+
+export const State = {
+    /**
+     * Send notification on new alerts to the subscription's admins
+     */
+    On: "On",
+    /**
+     * Don't send notification on new alerts to the subscription's admins
+     */
+    Off: "Off",
+} as const;
+
+/**
+ * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+ */
+export type State = (typeof State)[keyof typeof State];

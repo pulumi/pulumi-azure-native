@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest.Inputs
         public Input<Inputs.PersonalComputeInstanceSettingsArgs>? PersonalComputeInstanceSettings { get; set; }
 
         /// <summary>
+        /// Details of customized scripts to execute for setting up the cluster.
+        /// </summary>
+        [Input("setupScripts")]
+        public Input<Inputs.SetupScriptsArgs>? SetupScripts { get; set; }
+
+        /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
         [Input("sshSettings")]

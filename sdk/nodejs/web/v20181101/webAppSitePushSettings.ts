@@ -109,7 +109,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSitePushSettings.__pulumiType, name, inputs, opts);
     }

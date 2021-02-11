@@ -55,7 +55,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The inputs for the Job.
      */
-    public readonly input!: pulumi.Output<outputs.media.latest.JobInputAssetResponse | outputs.media.latest.JobInputClipResponse | outputs.media.latest.JobInputHttpResponse | outputs.media.latest.JobInputsResponse>;
+    public readonly input!: pulumi.Output<outputs.media.latest.JobInputAssetResponse | outputs.media.latest.JobInputClipResponse | outputs.media.latest.JobInputHttpResponse | outputs.media.latest.JobInputSequenceResponse | outputs.media.latest.JobInputsResponse>;
     /**
      * The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
@@ -80,6 +80,10 @@ export class Job extends pulumi.CustomResource {
      * The current state of the job.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.latest.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -128,6 +132,7 @@ export class Job extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["correlationData"] = undefined /*out*/;
@@ -141,6 +146,7 @@ export class Job extends pulumi.CustomResource {
             inputs["priority"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -175,7 +181,7 @@ export interface JobArgs {
     /**
      * The inputs for the Job.
      */
-    readonly input: pulumi.Input<inputs.media.latest.JobInputAsset | inputs.media.latest.JobInputClip | inputs.media.latest.JobInputHttp | inputs.media.latest.JobInputs>;
+    readonly input: pulumi.Input<inputs.media.latest.JobInputAsset | inputs.media.latest.JobInputClip | inputs.media.latest.JobInputHttp | inputs.media.latest.JobInputSequence | inputs.media.latest.JobInputs>;
     /**
      * The Job name.
      */

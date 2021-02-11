@@ -69,7 +69,7 @@ class SiteAppSettings(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteAppSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteAppSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteAppSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteAppSettings, __self__).__init__(
             'azure-nextgen:web/v20150801:SiteAppSettings',

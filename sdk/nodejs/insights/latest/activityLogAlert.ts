@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * An activity log alert resource.
- * Latest API Version: 2017-04-01.
+ * An Activity Log Alert rule resource.
+ * Latest API Version: 2020-10-01.
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**
@@ -39,37 +39,37 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * The actions that will activate when the condition is met.
      */
-    public readonly actions!: pulumi.Output<outputs.insights.latest.ActivityLogAlertActionListResponse>;
+    public readonly actions!: pulumi.Output<outputs.insights.latest.ActionListResponse>;
     /**
      * The condition that will cause this alert to activate.
      */
-    public readonly condition!: pulumi.Output<outputs.insights.latest.ActivityLogAlertAllOfConditionResponse>;
+    public readonly condition!: pulumi.Output<outputs.insights.latest.AlertRuleAllOfConditionResponse>;
     /**
-     * A description of this activity log alert.
+     * A description of this Activity Log Alert rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+     * Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource location
+     * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name
+     * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+     * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
     public readonly scopes!: pulumi.Output<string[]>;
     /**
-     * Resource tags
+     * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -103,7 +103,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["condition"] = args ? args.condition : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = (args ? args.enabled : undefined) || true;
-            inputs["location"] = args ? args.location : undefined;
+            inputs["location"] = (args ? args.location : undefined) || "global";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -127,7 +127,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20170401:ActivityLogAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20170401:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20201001:ActivityLogAlert" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActivityLogAlert.__pulumiType, name, inputs, opts);
     }
@@ -140,37 +140,37 @@ export interface ActivityLogAlertArgs {
     /**
      * The actions that will activate when the condition is met.
      */
-    readonly actions: pulumi.Input<inputs.insights.latest.ActivityLogAlertActionList>;
+    readonly actions: pulumi.Input<inputs.insights.latest.ActionList>;
     /**
-     * The name of the activity log alert.
+     * The name of the Activity Log Alert rule.
      */
     readonly activityLogAlertName: pulumi.Input<string>;
     /**
      * The condition that will cause this alert to activate.
      */
-    readonly condition: pulumi.Input<inputs.insights.latest.ActivityLogAlertAllOfCondition>;
+    readonly condition: pulumi.Input<inputs.insights.latest.AlertRuleAllOfCondition>;
     /**
-     * A description of this activity log alert.
+     * A description of this Activity Log Alert rule.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+     * Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Resource location
+     * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+     * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
     readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Resource tags
+     * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

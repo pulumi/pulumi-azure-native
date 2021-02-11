@@ -89,6 +89,10 @@ export class LiveEvent extends pulumi.CustomResource {
      */
     public readonly streamOptions!: pulumi.Output<string[] | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.media.latest.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -147,6 +151,7 @@ export class LiveEvent extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["created"] = undefined /*out*/;
@@ -162,6 +167,7 @@ export class LiveEvent extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["streamOptions"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["transcriptions"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

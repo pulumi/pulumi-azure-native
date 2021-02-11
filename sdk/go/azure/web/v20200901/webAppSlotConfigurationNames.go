@@ -66,6 +66,9 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSlotConfigurationNames"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlotConfigurationNames"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSlotConfigurationNames

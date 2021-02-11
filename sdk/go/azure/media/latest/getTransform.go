@@ -39,6 +39,8 @@ type LookupTransformResult struct {
 	Name string `pulumi:"name"`
 	// An array of one or more TransformOutputs that the Transform should generate.
 	Outputs []TransformOutputResponse `pulumi:"outputs"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

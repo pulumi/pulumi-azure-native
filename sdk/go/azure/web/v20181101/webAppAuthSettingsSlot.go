@@ -153,6 +153,9 @@ func NewWebAppAuthSettingsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAuthSettingsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettingsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettingsSlot

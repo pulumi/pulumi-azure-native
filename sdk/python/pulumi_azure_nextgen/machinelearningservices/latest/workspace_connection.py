@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['WorkspaceConnection']
 
@@ -22,13 +23,14 @@ class WorkspaceConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 value_format: Optional[pulumi.Input[Union[str, 'ValueFormat']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Workspace connection.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -39,6 +41,7 @@ class WorkspaceConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] target: Target of the workspace connection.
         :param pulumi.Input[str] value: Value details of the workspace connection.
+        :param pulumi.Input[Union[str, 'ValueFormat']] value_format: format for the workspace connection value
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
         if __name__ is not None:
@@ -69,11 +72,12 @@ class WorkspaceConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['target'] = target
             __props__['value'] = value
+            __props__['value_format'] = value_format
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceConnection, __self__).__init__(
             'azure-nextgen:machinelearningservices/latest:WorkspaceConnection',
@@ -146,6 +150,14 @@ class WorkspaceConnection(pulumi.CustomResource):
         Value details of the workspace connection.
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

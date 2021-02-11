@@ -67,7 +67,7 @@ export interface GetJobResult {
     /**
      * The inputs for the Job.
      */
-    readonly input: outputs.media.v20200501.JobInputAssetResponse | outputs.media.v20200501.JobInputClipResponse | outputs.media.v20200501.JobInputHttpResponse | outputs.media.v20200501.JobInputsResponse;
+    readonly input: outputs.media.v20200501.JobInputAssetResponse | outputs.media.v20200501.JobInputClipResponse | outputs.media.v20200501.JobInputHttpResponse | outputs.media.v20200501.JobInputSequenceResponse | outputs.media.v20200501.JobInputsResponse;
     /**
      * The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
@@ -92,6 +92,10 @@ export interface GetJobResult {
      * The current state of the job.
      */
     readonly state: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.media.v20200501.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

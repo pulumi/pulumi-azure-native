@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.TransformOutputResponse> Outputs;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             ImmutableArray<Outputs.TransformOutputResponse> outputs,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Created = created;
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
             LastModified = lastModified;
             Name = name;
             Outputs = outputs;
+            SystemData = systemData;
             Type = type;
         }
     }

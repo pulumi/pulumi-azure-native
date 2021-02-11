@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppConnectionStrings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

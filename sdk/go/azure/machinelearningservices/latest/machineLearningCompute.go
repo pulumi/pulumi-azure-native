@@ -12,7 +12,7 @@ import (
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2021-01-01.
 type MachineLearningCompute struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type MachineLearningCompute struct {
 	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Read only system data
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the type of the resource.
@@ -91,6 +93,9 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MachineLearningCompute
@@ -125,6 +130,8 @@ type machineLearningComputeState struct {
 	Properties interface{} `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.
@@ -142,6 +149,8 @@ type MachineLearningComputeState struct {
 	Properties pulumi.Input
 	// The sku of the workspace.
 	Sku SkuResponsePtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
 	// Specifies the type of the resource.

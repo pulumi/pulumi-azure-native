@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Files;
         /// <summary>
+        /// Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.
+        /// </summary>
+        public readonly ImmutableArray<object> InputDefinitions;
+        /// <summary>
         /// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         /// </summary>
         public readonly string? Label;
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
 
             ImmutableArray<string> files,
 
+            ImmutableArray<object> inputDefinitions,
+
             string? label,
 
             string odataType,
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Outputs
             BaseUri = baseUri;
             End = end;
             Files = files;
+            InputDefinitions = inputDefinitions;
             Label = label;
             OdataType = odataType;
             Start = start;

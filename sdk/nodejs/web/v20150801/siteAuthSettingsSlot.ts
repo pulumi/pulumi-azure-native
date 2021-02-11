@@ -253,7 +253,7 @@ export class SiteAuthSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:SiteAuthSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteAuthSettingsSlot.__pulumiType, name, inputs, opts);
     }

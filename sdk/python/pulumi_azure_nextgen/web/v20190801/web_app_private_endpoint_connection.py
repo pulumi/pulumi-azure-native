@@ -66,7 +66,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPrivateEndpointConnection, __self__).__init__(
             'azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection',

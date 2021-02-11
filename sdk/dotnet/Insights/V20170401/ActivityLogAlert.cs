@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201001:ActivityLogAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

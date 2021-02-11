@@ -101,12 +101,28 @@ func (SecurityContactState) ElementType() reflect.Type {
 }
 
 type securityContactArgs struct {
+	// Defines whether to send email notifications about new security alerts
+	AlertNotifications *SecurityContactPropertiesAlertNotifications `pulumi:"alertNotifications"`
+	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+	Emails *string `pulumi:"emails"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	NotificationsByRole *SecurityContactPropertiesNotificationsByRole `pulumi:"notificationsByRole"`
+	// The security contact's phone number
+	Phone *string `pulumi:"phone"`
 	// Name of the security contact object
 	SecurityContactName string `pulumi:"securityContactName"`
 }
 
 // The set of arguments for constructing a SecurityContact resource.
 type SecurityContactArgs struct {
+	// Defines whether to send email notifications about new security alerts
+	AlertNotifications SecurityContactPropertiesAlertNotificationsPtrInput
+	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+	Emails pulumi.StringPtrInput
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	NotificationsByRole SecurityContactPropertiesNotificationsByRolePtrInput
+	// The security contact's phone number
+	Phone pulumi.StringPtrInput
 	// Name of the security contact object
 	SecurityContactName pulumi.StringInput
 }

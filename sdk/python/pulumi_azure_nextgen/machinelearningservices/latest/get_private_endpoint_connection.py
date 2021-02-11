@@ -20,10 +20,16 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,6 +42,15 @@ class GetPrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -44,15 +59,31 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        ResourceId of the private endpoint connection.
+        Specifies the resource ID.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        Friendly name of the private endpoint connection.
+        Specifies the name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -82,9 +113,33 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Read only system data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
-        Resource type of private endpoint connection.
+        Specifies the type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -96,10 +151,15 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             yield self
         return GetPrivateEndpointConnectionResult(
             id=self.id,
+            identity=self.identity,
+            location=self.location,
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
+            sku=self.sku,
+            system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -126,8 +186,13 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
 
     return AwaitableGetPrivateEndpointConnectionResult(
         id=__ret__.id,
+        identity=__ret__.identity,
+        location=__ret__.location,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
+        system_data=__ret__.system_data,
+        tags=__ret__.tags,
         type=__ret__.type)

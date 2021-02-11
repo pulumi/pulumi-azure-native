@@ -57,6 +57,9 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DomainOwnershipIdentifier

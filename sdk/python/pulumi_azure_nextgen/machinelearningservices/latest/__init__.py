@@ -6,14 +6,19 @@
 from ._enums import *
 from .get_linked_workspace import *
 from .get_machine_learning_compute import *
+from .get_machine_learning_service import *
 from .get_private_endpoint_connection import *
 from .get_workspace import *
 from .get_workspace_connection import *
 from .linked_workspace import *
 from .list_machine_learning_compute_keys import *
 from .list_machine_learning_compute_nodes import *
+from .list_notebook_keys import *
+from .list_storage_account_keys import *
 from .list_workspace_keys import *
+from .list_workspace_notebook_access_token import *
 from .machine_learning_compute import *
+from .machine_learning_service import *
 from .private_endpoint_connection import *
 from .workspace import *
 from .workspace_connection import *
@@ -36,6 +41,8 @@ def _register_module():
                 return LinkedWorkspace(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:machinelearningservices/latest:MachineLearningCompute":
                 return MachineLearningCompute(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:machinelearningservices/latest:MachineLearningService":
+                return MachineLearningService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection":
                 return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:machinelearningservices/latest:Workspace":

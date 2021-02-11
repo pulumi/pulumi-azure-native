@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['SecurityContact']
 
@@ -16,6 +18,10 @@ class SecurityContact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_notifications: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']]] = None,
+                 emails: Optional[pulumi.Input[str]] = None,
+                 notifications_by_role: Optional[pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']]] = None,
+                 phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -25,6 +31,10 @@ class SecurityContact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']] alert_notifications: Defines whether to send email notifications about new security alerts
+        :param pulumi.Input[str] emails: List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']] notifications_by_role: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
         if __name__ is not None:
@@ -44,14 +54,14 @@ class SecurityContact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['alert_notifications'] = alert_notifications
+            __props__['emails'] = emails
+            __props__['notifications_by_role'] = notifications_by_role
+            __props__['phone'] = phone
             if security_contact_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_contact_name'")
             __props__['security_contact_name'] = security_contact_name
-            __props__['alert_notifications'] = None
-            __props__['emails'] = None
             __props__['name'] = None
-            __props__['notifications_by_role'] = None
-            __props__['phone'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20170801preview:SecurityContact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

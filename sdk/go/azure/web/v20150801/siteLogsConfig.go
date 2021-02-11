@@ -70,6 +70,9 @@ func NewSiteLogsConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteLogsConfig"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:SiteLogsConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteLogsConfig

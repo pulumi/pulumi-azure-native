@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:machinelearningservices/latest:MachineLearningCompute")]
     public partial class MachineLearningCompute : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Read only system data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
