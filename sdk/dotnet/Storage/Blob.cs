@@ -7,19 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNextGen.Storage
 {
     /// <summary>
     /// Manages a Blob within a Storage Container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:Blob")]
+    [AzureNextGenResourceType("azure-nextgen:storage:Blob")]
     public partial class Blob : Pulumi.CustomResource
     {
         /// <summary>
         /// The access tier of the storage blob.
         /// </summary>
         [Output("accessTier")]
-        public Output<Pulumi.AzureNextGen.Storage.Latest.BlobAccessTier> AccessTier { get; private set; } = null!;
+        public Output<Pulumi.AzureNextGen.Storage.BlobAccessTier> AccessTier { get; private set; } = null!;
 
         /// <summary>
         /// The MD5 sum of the blob contents.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The type of the storage blob to be created.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.AzureNextGen.Storage.Latest.BlobType> Type { get; private set; } = null!;
+        public Output<Pulumi.AzureNextGen.Storage.BlobType> Type { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the blob.
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Blob(string name, BlobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:Blob", name, args ?? new BlobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage:Blob", name, args ?? new BlobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Blob(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:Blob", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage:Blob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The access tier of the storage blob.
         /// </summary>
         [Input("accessTier")]
-        public Input<Pulumi.AzureNextGen.Storage.Latest.BlobAccessTier>? AccessTier { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.BlobAccessTier>? AccessTier { get; set; }
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container.
@@ -166,11 +166,11 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The type of the storage blob to be created. Defaults to 'Block'.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Storage.Latest.BlobType>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.BlobType>? Type { get; set; }
 
         public BlobArgs()
         {
-            Type = Pulumi.AzureNextGen.Storage.Latest.BlobType.Block;
+            Type = Pulumi.AzureNextGen.Storage.BlobType.Block;
         }
     }
 }

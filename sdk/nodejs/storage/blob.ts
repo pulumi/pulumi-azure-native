@@ -2,8 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
-import * as utilities from "../../utilities";
+import { input as inputs, output as outputs, enums } from "../types";
+import * as utilities from "../utilities";
 
 /**
  * Manages a Blob within a Storage Container.
@@ -22,7 +22,7 @@ export class Blob extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:Blob';
+    public static readonly __pulumiType = 'azure-nextgen:storage:Blob';
 
     /**
      * Returns true if the given object is an instance of Blob.  This is designed to work even
@@ -38,7 +38,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The access tier of the storage blob.
      */
-    public readonly accessTier!: pulumi.Output<enums.storage.latest.BlobAccessTier>;
+    public readonly accessTier!: pulumi.Output<enums.storage.BlobAccessTier>;
     /**
      * The MD5 sum of the blob contents.
      */
@@ -58,7 +58,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The type of the storage blob to be created.
      */
-    public readonly type!: pulumi.Output<enums.storage.latest.BlobType>;
+    public readonly type!: pulumi.Output<enums.storage.BlobType>;
     /**
      * The URL of the blob.
      */
@@ -125,7 +125,7 @@ export interface BlobArgs {
     /**
      * The access tier of the storage blob.
      */
-    readonly accessTier?: pulumi.Input<enums.storage.latest.BlobAccessTier>;
+    readonly accessTier?: pulumi.Input<enums.storage.BlobAccessTier>;
     /**
      * Specifies the storage account in which to create the storage container.
      */
@@ -161,5 +161,5 @@ export interface BlobArgs {
     /**
      * The type of the storage blob to be created. Defaults to 'Block'.
      */
-    readonly type?: pulumi.Input<enums.storage.latest.BlobType>;
+    readonly type?: pulumi.Input<enums.storage.BlobType>;
 }

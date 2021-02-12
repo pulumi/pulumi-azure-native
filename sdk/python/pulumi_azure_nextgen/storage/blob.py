@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
-from ... import _utilities, _tables
+from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = ['Blob']
@@ -85,7 +85,7 @@ class Blob(pulumi.CustomResource):
             __props__['name'] = None
             __props__['url'] = None
         super(Blob, __self__).__init__(
-            'azure-nextgen:storage/latest:Blob',
+            'azure-nextgen:storage:Blob',
             resource_name,
             __props__,
             opts)

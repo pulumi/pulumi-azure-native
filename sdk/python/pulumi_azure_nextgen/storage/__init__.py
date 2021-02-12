@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .blob import *
 from .blob_container import *
 from .blob_container_immutability_policy import *
 from .blob_inventory_policy import *
@@ -33,6 +34,7 @@ from .private_endpoint_connection import *
 from .queue import *
 from .queue_service_properties import *
 from .storage_account import *
+from .storage_account_static_website import *
 from .table import *
 from .table_service_properties import *
 from ._inputs import *
@@ -69,7 +71,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:storage:BlobContainer":
+            if typ == "azure-nextgen:storage:Blob":
+                return Blob(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage:BlobContainer":
                 return BlobContainer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:storage:BlobContainerImmutabilityPolicy":
                 return BlobContainerImmutabilityPolicy(name, pulumi.ResourceOptions(urn=urn))
@@ -93,6 +97,8 @@ def _register_module():
                 return QueueServiceProperties(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:storage:StorageAccount":
                 return StorageAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage:StorageAccountStaticWebsite":
+                return StorageAccountStaticWebsite(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:storage:Table":
                 return Table(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:storage:TableServiceProperties":

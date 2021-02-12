@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AccessTier',
     'Action',
+    'BlobAccessTier',
+    'BlobType',
     'Bypass',
     'DefaultAction',
     'DirectoryServiceOptions',
@@ -48,6 +50,23 @@ class Action(str, Enum):
     The action of virtual network rule.
     """
     ALLOW = "Allow"
+
+
+class BlobAccessTier(str, Enum):
+    """
+    The access tier of a storage blob.
+    """
+    HOT = "Hot"
+    COOL = "Cool"
+    ARCHIVE = "Archive"
+
+
+class BlobType(str, Enum):
+    """
+    The type of a storage blob to be created.
+    """
+    BLOCK = "Block"
+    APPEND = "Append"
 
 
 class Bypass(str, Enum):

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-nextgen:storage:Blob":
+		r, err = NewBlob(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage:BlobContainer":
 		r, err = NewBlobContainer(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage:BlobContainerImmutabilityPolicy":
@@ -45,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewQueueServiceProperties(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage:StorageAccount":
 		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-nextgen:storage:StorageAccountStaticWebsite":
+		r, err = NewStorageAccountStaticWebsite(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage:Table":
 		r, err = NewTable(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-nextgen:storage:TableServiceProperties":

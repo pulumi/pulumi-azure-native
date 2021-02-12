@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./blob";
 export * from "./blobContainer";
 export * from "./blobContainerImmutabilityPolicy";
 export * from "./blobInventoryPolicy";
@@ -34,6 +35,7 @@ export * from "./privateEndpointConnection";
 export * from "./queue";
 export * from "./queueServiceProperties";
 export * from "./storageAccount";
+export * from "./storageAccountStaticWebsite";
 export * from "./table";
 export * from "./tableServiceProperties";
 
@@ -76,6 +78,7 @@ export {
 };
 
 // Import resources to register:
+import { Blob } from "./blob";
 import { BlobContainer } from "./blobContainer";
 import { BlobContainerImmutabilityPolicy } from "./blobContainerImmutabilityPolicy";
 import { BlobInventoryPolicy } from "./blobInventoryPolicy";
@@ -88,6 +91,7 @@ import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Queue } from "./queue";
 import { QueueServiceProperties } from "./queueServiceProperties";
 import { StorageAccount } from "./storageAccount";
+import { StorageAccountStaticWebsite } from "./storageAccountStaticWebsite";
 import { Table } from "./table";
 import { TableServiceProperties } from "./tableServiceProperties";
 
@@ -95,6 +99,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:storage:Blob":
+                return new Blob(name, <any>undefined, { urn })
             case "azure-nextgen:storage:BlobContainer":
                 return new BlobContainer(name, <any>undefined, { urn })
             case "azure-nextgen:storage:BlobContainerImmutabilityPolicy":
@@ -119,6 +125,8 @@ const _module = {
                 return new QueueServiceProperties(name, <any>undefined, { urn })
             case "azure-nextgen:storage:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
+            case "azure-nextgen:storage:StorageAccountStaticWebsite":
+                return new StorageAccountStaticWebsite(name, <any>undefined, { urn })
             case "azure-nextgen:storage:Table":
                 return new Table(name, <any>undefined, { urn })
             case "azure-nextgen:storage:TableServiceProperties":

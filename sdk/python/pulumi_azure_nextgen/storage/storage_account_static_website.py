@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
-from ... import _utilities, _tables
+from .. import _utilities, _tables
 
 __all__ = ['StorageAccountStaticWebsite']
 
@@ -59,7 +59,7 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['container_name'] = None
         super(StorageAccountStaticWebsite, __self__).__init__(
-            'azure-nextgen:storage/latest:StorageAccountStaticWebsite',
+            'azure-nextgen:storage:StorageAccountStaticWebsite',
             resource_name,
             __props__,
             opts)

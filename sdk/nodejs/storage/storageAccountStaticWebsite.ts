@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as utilities from "../../utilities";
+import * as utilities from "../utilities";
 
 /**
  * Enables the static website feature of a storage account.
@@ -21,7 +21,7 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:StorageAccountStaticWebsite';
+    public static readonly __pulumiType = 'azure-nextgen:storage:StorageAccountStaticWebsite';
 
     /**
      * Returns true if the given object is an instance of StorageAccountStaticWebsite.  This is designed to work even
