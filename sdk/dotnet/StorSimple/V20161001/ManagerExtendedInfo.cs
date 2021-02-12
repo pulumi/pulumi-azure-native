@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:ManagerExtendedInfo"},
                 },

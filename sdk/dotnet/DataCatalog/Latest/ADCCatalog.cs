@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
     /// Azure Data Catalog.
     /// Latest API Version: 2016-03-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.")]
     [AzureNextGenResourceType("azure-nextgen:datacatalog/latest:ADCCatalog")]
     public partial class ADCCatalog : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datacatalog:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-nextgen:datacatalog/v20160330:ADCCatalog"},
                 },
             };

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A Disk.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Disk'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Disk"},
                 },

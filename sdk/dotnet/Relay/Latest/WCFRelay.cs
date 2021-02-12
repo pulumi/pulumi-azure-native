@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
     /// Description of the WCF relay resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelay'.")]
     [AzureNextGenResourceType("azure-nextgen:relay/latest:WCFRelay")]
     public partial class WCFRelay : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:WCFRelay"},
                 },

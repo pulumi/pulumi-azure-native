@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/latest:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190401preview:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190501:Budget"},

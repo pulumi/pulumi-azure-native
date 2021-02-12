@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Database"},

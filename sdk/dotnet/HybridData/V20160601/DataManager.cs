@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/latest:DataManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataManager"},
                 },

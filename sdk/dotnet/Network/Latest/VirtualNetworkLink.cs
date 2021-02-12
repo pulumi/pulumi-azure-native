@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Describes a link to virtual network for a Private DNS zone.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkLink"},

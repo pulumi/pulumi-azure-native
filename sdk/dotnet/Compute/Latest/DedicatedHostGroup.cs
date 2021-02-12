@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHostGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:DedicatedHostGroup"},

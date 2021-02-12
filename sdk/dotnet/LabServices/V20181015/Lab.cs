@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:Lab"},
                 },
             };

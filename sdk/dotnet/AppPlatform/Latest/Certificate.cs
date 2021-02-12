@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
     /// Certificate resource payload.
     /// Latest API Version: 2020-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Certificate'.")]
     [AzureNextGenResourceType("azure-nextgen:appplatform/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Certificate"},

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:SecurityRule"},

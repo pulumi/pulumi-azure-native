@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// SecurityPolicy association for AzureFrontDoor profile
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:SecurityPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:SecurityPolicy")]
     public partial class SecurityPolicy : Pulumi.CustomResource
     {
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:SecurityPolicy"},
                 },
             };

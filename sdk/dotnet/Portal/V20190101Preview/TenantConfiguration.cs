@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:portal:TenantConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20200901preview:TenantConfiguration"},
                 },
             };

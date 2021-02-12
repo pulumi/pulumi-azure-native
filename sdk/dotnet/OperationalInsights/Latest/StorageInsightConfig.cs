@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     /// The top level storage insight resource container.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:StorageInsightConfig'.")]
     [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:StorageInsightConfig")]
     public partial class StorageInsightConfig : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20150320:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig"},

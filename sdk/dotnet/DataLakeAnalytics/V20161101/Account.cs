@@ -214,6 +214,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:Account"},
                 },

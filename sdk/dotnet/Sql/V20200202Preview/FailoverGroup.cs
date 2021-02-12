@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:FailoverGroup"},
                 },

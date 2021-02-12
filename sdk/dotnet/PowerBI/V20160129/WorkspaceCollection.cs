@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.PowerBI.V20160129
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbi:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi/latest:WorkspaceCollection"},
                 },
             };

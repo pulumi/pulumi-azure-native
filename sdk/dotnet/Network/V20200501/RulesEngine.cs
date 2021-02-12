@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:RulesEngine"},

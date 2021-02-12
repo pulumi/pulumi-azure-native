@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice:EnterpriseChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/latest:EnterpriseChannel"},
                 },
             };

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ApplicationSecurityGroup"},

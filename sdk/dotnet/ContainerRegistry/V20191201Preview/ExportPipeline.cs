@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:ExportPipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:ExportPipeline"},
                 },
             };

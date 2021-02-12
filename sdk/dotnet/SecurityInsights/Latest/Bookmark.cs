@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
     /// Represents a bookmark in Azure Security Insights.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Bookmark'.")]
     [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:Bookmark")]
     public partial class Bookmark : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Bookmark"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Bookmark"},
                 },
             };

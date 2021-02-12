@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
     /// Description of a namespace authorization rule.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:WCFRelayAuthorizationRule'.")]
     [AzureNextGenResourceType("azure-nextgen:relay/latest:WCFRelayAuthorizationRule")]
     public partial class WCFRelayAuthorizationRule : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule"},
                 },

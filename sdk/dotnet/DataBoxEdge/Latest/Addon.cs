@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Role Addon
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.")]
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Addon"},
                 },

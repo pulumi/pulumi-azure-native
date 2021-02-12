@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Schedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Schedule"},

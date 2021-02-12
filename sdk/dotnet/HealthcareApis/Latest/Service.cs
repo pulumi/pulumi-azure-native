@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
     /// The description of the service.
     /// Latest API Version: 2021-01-11.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthcareapis:Service'.")]
     [AzureNextGenResourceType("azure-nextgen:healthcareapis/latest:Service")]
     public partial class Service : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.Latest
     /// Represents a connected cluster.
     /// Latest API Version: 2021-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetes:ConnectedCluster'.")]
     [AzureNextGenResourceType("azure-nextgen:kubernetes/latest:ConnectedCluster")]
     public partial class ConnectedCluster : Pulumi.CustomResource
     {
@@ -149,6 +150,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210301:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster"},

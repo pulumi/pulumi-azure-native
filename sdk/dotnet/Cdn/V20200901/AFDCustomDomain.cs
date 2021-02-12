@@ -97,6 +97,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDCustomDomain"},
                 },
             };

@@ -264,6 +264,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:Database"},

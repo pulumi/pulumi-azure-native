@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:FirewallRule"},

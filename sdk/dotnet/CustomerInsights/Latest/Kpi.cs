@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The KPI resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Kpi'.")]
     [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Kpi")]
     public partial class Kpi : Pulumi.CustomResource
     {
@@ -167,6 +168,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Kpi"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Kpi"},
                 },

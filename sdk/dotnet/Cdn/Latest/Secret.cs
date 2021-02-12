@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// Friendly Secret name mapping to the any Secret or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Secret'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Secret"},
                 },
             };

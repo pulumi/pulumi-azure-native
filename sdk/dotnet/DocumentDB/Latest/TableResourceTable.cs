@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
     /// An Azure Cosmos DB Table.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.")]
     [AzureNextGenResourceType("azure-nextgen:documentdb/latest:TableResourceTable")]
     public partial class TableResourceTable : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:TableResourceTable"},

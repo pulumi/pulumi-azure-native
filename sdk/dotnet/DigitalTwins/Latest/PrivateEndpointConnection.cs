@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
     /// The private endpoint connection of a Digital Twin.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:PrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:digitaltwins/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -56,6 +57,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection"},
                 },
             };

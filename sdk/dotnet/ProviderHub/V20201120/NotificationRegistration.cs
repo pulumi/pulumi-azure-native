@@ -55,6 +55,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub:NotificationRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:NotificationRegistration"},
                 },
             };

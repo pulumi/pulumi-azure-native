@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.PowerBI.Latest
     /// <summary>
     /// Latest API Version: 2016-01-29.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbi:WorkspaceCollection'.")]
     [AzureNextGenResourceType("azure-nextgen:powerbi/latest:WorkspaceCollection")]
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
@@ -70,6 +71,7 @@ namespace Pulumi.AzureNextGen.PowerBI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbi:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20160129:WorkspaceCollection"},
                 },
             };

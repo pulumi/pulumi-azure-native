@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:FirewallRule'.")]
     [AzureNextGenResourceType("azure-nextgen:cache/latest:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:FirewallRule"},

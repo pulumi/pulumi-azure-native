@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
     /// Represents a Database.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Database'.")]
     [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Database"},
                 },

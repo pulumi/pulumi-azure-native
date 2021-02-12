@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     /// The workflow type.
     /// Latest API Version: 2019-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:Workflow'.")]
     [AzureNextGenResourceType("azure-nextgen:logic/latest:Workflow")]
     public partial class Workflow : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150201preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Workflow"},

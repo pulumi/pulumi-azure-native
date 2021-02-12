@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerKey"},
                 },

@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:View"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:View"},

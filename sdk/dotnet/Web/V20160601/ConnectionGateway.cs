@@ -73,6 +73,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:ConnectionGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:ConnectionGateway"},
                 },
             };

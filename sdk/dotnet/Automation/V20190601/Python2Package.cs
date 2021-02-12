@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Python2Package"},

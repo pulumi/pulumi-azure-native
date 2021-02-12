@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Pipeline"},
                 },

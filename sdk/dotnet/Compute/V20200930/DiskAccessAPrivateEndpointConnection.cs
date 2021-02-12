@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection"},
                 },
             };

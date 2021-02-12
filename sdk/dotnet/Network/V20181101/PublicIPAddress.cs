@@ -148,6 +148,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:PublicIPAddress"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The backup schedule.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupSchedule'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:BackupSchedule")]
     public partial class BackupSchedule : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BackupSchedule"},
                 },
             };

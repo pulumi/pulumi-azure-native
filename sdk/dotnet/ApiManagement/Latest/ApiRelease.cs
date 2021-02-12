@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// ApiRelease details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiRelease'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiRelease")]
     public partial class ApiRelease : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiRelease"},

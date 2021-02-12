@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
     /// The Private Endpoint Connection resource.
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:cache/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:PrivateEndpointConnection"},
                 },
             };

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ServiceEndpointPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ServiceEndpointPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ServiceEndpointPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ServiceEndpointPolicy"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Portal.Latest
     /// Response to get user settings
     /// Latest API Version: 2018-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettings'.")]
     [AzureNextGenResourceType("azure-nextgen:portal/latest:UserSettings")]
     public partial class UserSettings : Pulumi.CustomResource
     {
@@ -47,6 +48,7 @@ namespace Pulumi.AzureNextGen.Portal.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:portal:UserSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:UserSettings"},
                 },
             };

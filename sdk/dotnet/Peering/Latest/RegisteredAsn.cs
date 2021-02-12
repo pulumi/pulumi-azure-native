@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
     /// The customer's ASN that is registered by the peering service provider.
     /// Latest API Version: 2020-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.")]
     [AzureNextGenResourceType("azure-nextgen:peering/latest:RegisteredAsn")]
     public partial class RegisteredAsn : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:RegisteredAsn"},

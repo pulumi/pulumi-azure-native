@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization:ScalingPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan"},
                 },

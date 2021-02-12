@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214:Secret"},

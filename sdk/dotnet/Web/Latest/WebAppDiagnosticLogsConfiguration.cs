@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Configuration of App Service site logs.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDiagnosticLogsConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration")]
     public partial class WebAppDiagnosticLogsConfiguration : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration"},

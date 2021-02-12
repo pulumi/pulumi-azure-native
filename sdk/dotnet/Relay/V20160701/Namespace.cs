@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20180101preview:Namespace"},

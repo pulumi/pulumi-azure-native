@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Subnet in a virtual network resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Subnet'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:Subnet")]
     public partial class Subnet : Pulumi.CustomResource
     {
@@ -161,6 +162,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:Subnet"},

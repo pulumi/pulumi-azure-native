@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Identity Provider details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:IdentityProvider'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:IdentityProvider")]
     public partial class IdentityProvider : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:IdentityProvider"},

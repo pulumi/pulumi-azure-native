@@ -160,6 +160,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aad:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/latest:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20200101:DomainService"},

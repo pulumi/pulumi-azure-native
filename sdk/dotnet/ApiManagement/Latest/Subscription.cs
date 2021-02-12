@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Subscription details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Subscription'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Subscription"},

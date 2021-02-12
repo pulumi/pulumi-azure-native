@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180115:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscNodeConfiguration"},

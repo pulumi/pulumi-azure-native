@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Transform'.")]
     [AzureNextGenResourceType("azure-nextgen:media/latest:Transform")]
     public partial class Transform : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Transform"},

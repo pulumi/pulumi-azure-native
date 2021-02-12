@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Network profile resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkProfile'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkProfile")]
     public partial class NetworkProfile : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:NetworkProfile"},

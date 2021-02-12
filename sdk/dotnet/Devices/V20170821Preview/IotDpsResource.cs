@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170821Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:IotDpsResource"},

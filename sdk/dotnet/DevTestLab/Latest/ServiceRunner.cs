@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A container for a managed identity to execute DevTest lab services.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:ServiceRunner")]
     public partial class ServiceRunner : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceRunner"},
                 },

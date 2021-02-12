@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Snapshot resource.
     /// Latest API Version: 2020-09-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Snapshot'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
@@ -173,6 +174,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Snapshot"},

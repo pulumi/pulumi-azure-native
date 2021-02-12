@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Addons.Latest
     /// The status of the Canonical support plan.
     /// Latest API Version: 2018-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.")]
     [AzureNextGenResourceType("azure-nextgen:addons/latest:SupportPlanType")]
     public partial class SupportPlanType : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Addons.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:addons:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20170515:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20180301:SupportPlanType"},
                 },

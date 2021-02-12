@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPremierAddOn"},

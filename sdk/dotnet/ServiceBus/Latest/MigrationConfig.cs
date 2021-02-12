@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     /// Single item in List or Get Migration Config operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:MigrationConfig'.")]
     [AzureNextGenResourceType("azure-nextgen:servicebus/latest:MigrationConfig")]
     public partial class MigrationConfig : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:MigrationConfig"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
     /// Site REST Resource.
     /// Latest API Version: 2020-07-07.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:Site'.")]
     [AzureNextGenResourceType("azure-nextgen:offazure/latest:Site")]
     public partial class Site : Pulumi.CustomResource
     {
@@ -74,6 +75,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200101:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:Site"},
                 },

@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:subscription:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/latest:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/v20191001preview:Alias"},
                 },

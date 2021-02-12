@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
     /// The Private Endpoint Connection resource.
     /// Latest API Version: 2017-04-18.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cognitiveservices:PrivateEndpointConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:cognitiveservices/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:PrivateEndpointConnection"},
                 },
             };

@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Factory"},
                 },

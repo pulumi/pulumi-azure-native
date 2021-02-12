@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// Workspace active directory administrator
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceAadAdmin'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:WorkspaceAadAdmin")]
     public partial class WorkspaceAadAdmin : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:WorkspaceAadAdmin"},
                 },

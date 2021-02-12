@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:visualstudio:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20171101preview:Extension"},
                 },
             };

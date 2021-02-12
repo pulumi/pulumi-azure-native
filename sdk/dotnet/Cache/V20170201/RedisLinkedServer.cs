@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:RedisLinkedServer"},

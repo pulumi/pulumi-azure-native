@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Addons.V20170515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:addons:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/latest:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/v20180301:SupportPlanType"},
                 },

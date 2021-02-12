@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// String dictionary resource.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppMetadata'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppMetadata")]
     public partial class WebAppMetadata : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppMetadata"},

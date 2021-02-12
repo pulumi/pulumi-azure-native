@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Cache.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:PatchSchedule"},

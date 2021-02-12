@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOriginGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:AFDOriginGroup")]
     public partial class AFDOriginGroup : Pulumi.CustomResource
     {
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDOriginGroup"},
                 },
             };

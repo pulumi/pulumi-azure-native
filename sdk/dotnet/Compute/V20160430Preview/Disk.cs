@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Disk"},

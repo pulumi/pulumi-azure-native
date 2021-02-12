@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"},
                 },

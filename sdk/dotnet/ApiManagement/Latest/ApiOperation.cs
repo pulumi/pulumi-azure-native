@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Api Operation details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiOperation'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiOperation")]
     public partial class ApiOperation : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiOperation"},

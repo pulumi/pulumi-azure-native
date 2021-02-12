@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Route Filter Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RouteFilter'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:RouteFilter")]
     public partial class RouteFilter : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:RouteFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:RouteFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:RouteFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:RouteFilter"},

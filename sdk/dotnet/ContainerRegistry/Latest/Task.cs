@@ -14,6 +14,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
     /// The task will have all information to schedule a run against it.
     /// Latest API Version: 2019-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Task'.")]
     [AzureNextGenResourceType("azure-nextgen:containerregistry/latest:Task")]
     public partial class Task : Pulumi.CustomResource
     {
@@ -126,6 +127,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180901:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190401:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:Task"},

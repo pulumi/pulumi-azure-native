@@ -175,6 +175,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSiteExtension"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the module type.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Python2Package'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Python2Package")]
     public partial class Python2Package : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Python2Package"},

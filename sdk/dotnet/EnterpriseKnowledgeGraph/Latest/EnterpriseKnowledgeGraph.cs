@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
     /// EnterpriseKnowledgeGraph resource definition
     /// Latest API Version: 2018-12-03.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph'.")]
     [AzureNextGenResourceType("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                 },
             };

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Specifies information about the gallery Application Version that you want to create or update.
     /// Latest API Version: 2020-09-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryApplicationVersion'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:GalleryApplicationVersion")]
     public partial class GalleryApplicationVersion : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:GalleryApplicationVersion"},

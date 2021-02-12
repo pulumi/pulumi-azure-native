@@ -91,6 +91,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate"},

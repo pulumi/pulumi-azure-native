@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
     /// Represents an image from the Azure Marketplace
     /// Latest API Version: 2018-10-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:GalleryImage'.")]
     [AzureNextGenResourceType("azure-nextgen:labservices/latest:GalleryImage")]
     public partial class GalleryImage : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:GalleryImage"},
                 },
             };

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// VirtualWAN Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualWan'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualWan")]
     public partial class VirtualWan : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualWan"},

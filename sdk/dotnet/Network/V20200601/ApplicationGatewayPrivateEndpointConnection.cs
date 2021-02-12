@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},

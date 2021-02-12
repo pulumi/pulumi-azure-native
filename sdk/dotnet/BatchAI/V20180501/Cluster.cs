@@ -142,6 +142,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Cluster"},
                 },
             };

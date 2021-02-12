@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     /// Default rollout definition.
     /// Latest API Version: 2020-11-20.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.")]
     [AzureNextGenResourceType("azure-nextgen:providerhub/latest:DefaultRollout")]
     public partial class DefaultRollout : Pulumi.CustomResource
     {
@@ -62,6 +63,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:DefaultRollout"},
                 },
             };

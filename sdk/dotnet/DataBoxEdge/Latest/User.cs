@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.")]
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:User")]
     public partial class User : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:User"},

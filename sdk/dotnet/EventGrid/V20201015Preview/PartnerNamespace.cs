@@ -89,6 +89,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PartnerNamespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PartnerNamespace"},
                 },
             };

@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190505Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement:ActionRuleByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
                 },
             };

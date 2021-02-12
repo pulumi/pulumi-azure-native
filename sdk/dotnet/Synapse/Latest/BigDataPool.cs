@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// A Big Data pool
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:BigDataPool'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:BigDataPool")]
     public partial class BigDataPool : Pulumi.CustomResource
     {
@@ -173,6 +174,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:BigDataPool"},
                 },

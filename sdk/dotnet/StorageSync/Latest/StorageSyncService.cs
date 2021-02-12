@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     /// Storage Sync Service object.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:StorageSyncService'.")]
     [AzureNextGenResourceType("azure-nextgen:storagesync/latest:StorageSyncService")]
     public partial class StorageSyncService : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:StorageSyncService"},

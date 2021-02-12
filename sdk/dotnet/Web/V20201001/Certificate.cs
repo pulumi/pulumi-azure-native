@@ -196,6 +196,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160301:Certificate"},

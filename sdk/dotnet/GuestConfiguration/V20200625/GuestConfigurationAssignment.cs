@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.V20200625
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"},

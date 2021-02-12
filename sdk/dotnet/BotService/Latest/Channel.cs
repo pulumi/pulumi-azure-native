@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
     /// Bot channel resource definition
     /// Latest API Version: 2020-06-02.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.")]
     [AzureNextGenResourceType("azure-nextgen:botservice/latest:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20171201:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20200602:Channel"},

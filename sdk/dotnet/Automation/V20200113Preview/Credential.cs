@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Credential"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Credential"},

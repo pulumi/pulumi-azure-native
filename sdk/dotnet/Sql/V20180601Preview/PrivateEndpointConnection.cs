@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:PrivateEndpointConnection"},
                 },

@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:StaticSite"},

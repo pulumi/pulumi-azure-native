@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteMetadataSlot"},

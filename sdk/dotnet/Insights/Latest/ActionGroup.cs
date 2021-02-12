@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// An action group resource.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActionGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:ActionGroup")]
     public partial class ActionGroup : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20170401:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180901:ActionGroup"},

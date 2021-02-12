@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
     /// The privateStore offer data structure.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.")]
     [AzureNextGenResourceType("azure-nextgen:marketplace/latest:PrivateStoreOffer")]
     public partial class PrivateStoreOffer : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Marketplace.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:marketplace:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azure-nextgen:marketplace/v20200101:PrivateStoreOffer"},
                 },
             };

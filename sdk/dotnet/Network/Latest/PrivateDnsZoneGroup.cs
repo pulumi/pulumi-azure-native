@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Private dns zone group resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateDnsZoneGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateDnsZoneGroup")]
     public partial class PrivateDnsZoneGroup : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateDnsZoneGroup"},

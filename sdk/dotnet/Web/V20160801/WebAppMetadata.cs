@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppMetadata"},

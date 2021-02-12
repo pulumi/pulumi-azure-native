@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// Properties that define a favorite that is associated to an Application Insights component.
     /// Latest API Version: 2015-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:Favorite")]
     public partial class Favorite : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:Favorite"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Favorite"},
                 },
             };

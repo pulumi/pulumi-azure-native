@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:Image"},

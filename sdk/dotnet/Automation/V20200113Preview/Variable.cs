@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Variable"},

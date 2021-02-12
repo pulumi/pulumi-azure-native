@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
     /// Instance of an Azure ML web service resource.
     /// Latest API Version: 2017-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:WebService'.")]
     [AzureNextGenResourceType("azure-nextgen:machinelearning/latest:WebService")]
     public partial class WebService : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning:WebService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160501preview:WebService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20170101:WebService"},
                 },

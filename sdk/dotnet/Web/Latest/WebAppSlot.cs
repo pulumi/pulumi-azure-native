@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// A web app, a mobile app backend, or an API app.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSlot'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSlot")]
     public partial class WebAppSlot : Pulumi.CustomResource
     {
@@ -318,6 +319,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSlot"},

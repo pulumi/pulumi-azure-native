@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"},

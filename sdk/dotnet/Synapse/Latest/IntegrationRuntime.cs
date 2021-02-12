@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
     /// Integration runtime resource type.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.")]
     [AzureNextGenResourceType("azure-nextgen:synapse/latest:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IntegrationRuntime"},
                 },

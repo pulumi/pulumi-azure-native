@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:NatRule"},
                 },
             };

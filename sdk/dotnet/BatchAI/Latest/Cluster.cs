@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
     /// Information about a Cluster.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Cluster'.")]
     [AzureNextGenResourceType("azure-nextgen:batchai/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Cluster"},
                 },
             };

@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningcompute:OperationalizationCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningcompute/v20170601preview:OperationalizationCluster"},
                 },
             };

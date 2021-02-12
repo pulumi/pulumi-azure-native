@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:search:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:PrivateEndpointConnection"},

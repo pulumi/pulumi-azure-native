@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Job'.")]
     [AzureNextGenResourceType("azure-nextgen:media/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Job"},

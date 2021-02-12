@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190401:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:Task"},

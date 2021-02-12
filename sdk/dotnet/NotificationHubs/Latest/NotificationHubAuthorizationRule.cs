@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
     /// Description of a Namespace AuthorizationRules.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.")]
     [AzureNextGenResourceType("azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule"},
                 },

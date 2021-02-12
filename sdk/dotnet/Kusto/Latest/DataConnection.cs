@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
     /// Class representing an data connection.
     /// Latest API Version: 2020-09-18.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.")]
     [AzureNextGenResourceType("azure-nextgen:kusto/latest:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:DataConnection"},

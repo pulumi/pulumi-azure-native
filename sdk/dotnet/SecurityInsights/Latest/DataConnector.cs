@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
     /// Data connector.
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.")]
     [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:DataConnector")]
     public partial class DataConnector : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:DataConnector"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:DataConnector"},
                 },
             };

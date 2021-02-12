@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.")]
     [AzureNextGenResourceType("azure-nextgen:streamanalytics/latest:Output")]
     public partial class Output : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Output"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Output"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Output"},
                 },

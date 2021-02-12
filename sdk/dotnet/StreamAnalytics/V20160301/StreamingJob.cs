@@ -178,6 +178,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:StreamingJob"},
                 },

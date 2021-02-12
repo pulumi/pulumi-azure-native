@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A schedule.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:GlobalSchedule'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:GlobalSchedule")]
     public partial class GlobalSchedule : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:GlobalSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:GlobalSchedule"},
                 },

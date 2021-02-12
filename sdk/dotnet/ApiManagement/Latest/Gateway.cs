@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Gateway details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Gateway'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Gateway"},

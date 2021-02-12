@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },

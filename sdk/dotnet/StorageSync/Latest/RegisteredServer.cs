@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     /// Registered Server resource.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:RegisteredServer'.")]
     [AzureNextGenResourceType("azure-nextgen:storagesync/latest:RegisteredServer")]
     public partial class RegisteredServer : Pulumi.CustomResource
     {
@@ -173,6 +174,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:RegisteredServer"},

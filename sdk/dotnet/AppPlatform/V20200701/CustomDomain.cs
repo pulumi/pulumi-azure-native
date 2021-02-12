@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:CustomDomain"},

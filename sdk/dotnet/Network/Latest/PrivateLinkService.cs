@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Private link service resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkService'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateLinkService")]
     public partial class PrivateLinkService : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PrivateLinkService"},

@@ -103,6 +103,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Certificate"},

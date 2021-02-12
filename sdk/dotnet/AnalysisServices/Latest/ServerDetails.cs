@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
     /// Represents an instance of an Analysis Services resource.
     /// Latest API Version: 2017-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.")]
     [AzureNextGenResourceType("azure-nextgen:analysisservices/latest:ServerDetails")]
     public partial class ServerDetails : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801:ServerDetails"},

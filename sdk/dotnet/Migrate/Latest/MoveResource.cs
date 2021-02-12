@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     /// Defines the move resource.
     /// Latest API Version: 2021-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.")]
     [AzureNextGenResourceType("azure-nextgen:migrate/latest:MoveResource")]
     public partial class MoveResource : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001preview:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20210101:MoveResource"},
                 },

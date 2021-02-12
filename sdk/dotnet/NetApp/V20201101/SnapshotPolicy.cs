@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:SnapshotPolicy"},

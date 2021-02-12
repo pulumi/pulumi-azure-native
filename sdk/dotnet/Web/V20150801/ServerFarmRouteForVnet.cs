@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:ServerFarmRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:ServerFarmRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:ServerFarmRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:ServerFarmRouteForVnet"},

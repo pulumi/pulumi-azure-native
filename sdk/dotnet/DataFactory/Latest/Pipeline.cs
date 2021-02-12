@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
     /// Pipeline resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Pipeline'.")]
     [AzureNextGenResourceType("azure-nextgen:datafactory/latest:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Pipeline"},
                 },

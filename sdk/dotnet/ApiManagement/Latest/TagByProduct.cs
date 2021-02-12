@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     /// Tag Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByProduct'.")]
     [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:TagByProduct")]
     public partial class TagByProduct : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:TagByProduct"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagByProduct"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:TagByProduct"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:TagByProduct"},

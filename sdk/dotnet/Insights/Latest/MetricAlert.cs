@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// The metric alert resource.
     /// Latest API Version: 2018-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MetricAlert'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:MetricAlert")]
     public partial class MetricAlert : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:MetricAlert"},
                 },
             };

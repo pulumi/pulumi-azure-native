@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
     /// Represents a lab.
     /// Latest API Version: 2018-10-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:Lab'.")]
     [AzureNextGenResourceType("azure-nextgen:labservices/latest:Lab")]
     public partial class Lab : Pulumi.CustomResource
     {
@@ -131,6 +132,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices:Lab"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:Lab"},
                 },
             };

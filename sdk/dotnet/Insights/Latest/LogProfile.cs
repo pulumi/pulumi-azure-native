@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
     /// The log profile resource.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.")]
     [AzureNextGenResourceType("azure-nextgen:insights/latest:LogProfile")]
     public partial class LogProfile : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:LogProfile"},
                 },
             };

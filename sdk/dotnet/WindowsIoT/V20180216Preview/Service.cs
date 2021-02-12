@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:windowsiot:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20190601:Service"},
                 },

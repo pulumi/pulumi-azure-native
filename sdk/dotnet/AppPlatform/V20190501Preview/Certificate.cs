@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Certificate"},

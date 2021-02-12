@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
     /// Data Lake Store trusted identity provider information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.")]
     [AzureNextGenResourceType("azure-nextgen:datalakestore/latest:TrustedIdProvider")]
     public partial class TrustedIdProvider : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore:TrustedIdProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:TrustedIdProvider"},
                 },
             };

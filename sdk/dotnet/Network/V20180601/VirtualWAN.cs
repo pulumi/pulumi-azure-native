@@ -91,6 +91,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualWAN"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualWAN"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualWAN"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualWAN"},

@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:EventHub"},

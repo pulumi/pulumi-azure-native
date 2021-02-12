@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
     /// Job Resource.
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.")]
     [AzureNextGenResourceType("azure-nextgen:databox/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databox:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20190901:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20200401:Job"},

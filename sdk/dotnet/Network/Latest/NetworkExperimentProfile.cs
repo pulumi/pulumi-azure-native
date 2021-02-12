@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Defines an Network Experiment Profile and lists of Experiments
     /// Latest API Version: 2019-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkExperimentProfile'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkExperimentProfile"},
                 },
             };

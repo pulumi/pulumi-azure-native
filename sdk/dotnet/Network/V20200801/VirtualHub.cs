@@ -178,6 +178,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualHub"},

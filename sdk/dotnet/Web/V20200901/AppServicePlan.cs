@@ -197,6 +197,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServicePlan"},

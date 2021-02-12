@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppVnetConnection"},

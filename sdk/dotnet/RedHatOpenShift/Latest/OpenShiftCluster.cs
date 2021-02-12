@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// Latest API Version: 2020-04-30.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.")]
     [AzureNextGenResourceType("azure-nextgen:redhatopenshift/latest:OpenShiftCluster")]
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster"},
                 },
             };

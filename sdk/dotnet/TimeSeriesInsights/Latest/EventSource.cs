@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
     /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
     /// Latest API Version: 2020-05-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:EventSource'.")]
     [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/latest:EventSource")]
     public partial class EventSource : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:EventSource"},

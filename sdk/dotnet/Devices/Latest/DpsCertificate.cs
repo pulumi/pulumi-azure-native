@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
     /// The X509 Certificate.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'.")]
     [AzureNextGenResourceType("azure-nextgen:devices/latest:DpsCertificate")]
     public partial class DpsCertificate : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:DpsCertificate"},

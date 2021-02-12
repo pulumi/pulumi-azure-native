@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
     /// The description of the provisioning service.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResource'.")]
     [AzureNextGenResourceType("azure-nextgen:devices/latest:IotDpsResource")]
     public partial class IotDpsResource : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:IotDpsResource"},

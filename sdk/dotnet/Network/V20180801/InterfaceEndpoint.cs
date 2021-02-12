@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:InterfaceEndpoint"},

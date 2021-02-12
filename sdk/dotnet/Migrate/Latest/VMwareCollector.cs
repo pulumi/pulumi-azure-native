@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     /// <summary>
     /// Latest API Version: 2019-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:VMwareCollector'.")]
     [AzureNextGenResourceType("azure-nextgen:migrate/latest:VMwareCollector")]
     public partial class VMwareCollector : Pulumi.CustomResource
     {
@@ -52,6 +53,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate:VMwareCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:VMwareCollector"},
                 },
             };

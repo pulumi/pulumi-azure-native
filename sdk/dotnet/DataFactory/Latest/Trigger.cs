@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
     /// Trigger resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Trigger'.")]
     [AzureNextGenResourceType("azure-nextgen:datafactory/latest:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Trigger"},
                 },

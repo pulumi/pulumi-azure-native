@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateDnsZoneGroup"},

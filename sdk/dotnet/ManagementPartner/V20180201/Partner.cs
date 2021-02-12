@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managementpartner:Partner"},
                     new Pulumi.Alias { Type = "azure-nextgen:managementpartner/latest:Partner"},
                 },
             };

@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:CustomDomain"},

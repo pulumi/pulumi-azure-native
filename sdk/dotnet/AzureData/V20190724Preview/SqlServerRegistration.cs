@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azuredata:SqlServerRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20170301preview:SqlServerRegistration"},
                 },
             };

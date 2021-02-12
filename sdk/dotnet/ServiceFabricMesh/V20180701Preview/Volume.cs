@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Volume"},
                 },
             };

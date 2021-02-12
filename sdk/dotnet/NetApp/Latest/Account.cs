@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
     /// NetApp account resource
     /// Latest API Version: 2020-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Account'.")]
     [AzureNextGenResourceType("azure-nextgen:netapp/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Account"},

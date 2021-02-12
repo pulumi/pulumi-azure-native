@@ -121,6 +121,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOrigin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDOrigin"},
                 },
             };

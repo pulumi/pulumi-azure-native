@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.Latest
     /// The description of the Windows IoT Device Service.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:windowsiot:Service'.")]
     [AzureNextGenResourceType("azure-nextgen:windowsiot/latest:Service")]
     public partial class Service : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:windowsiot:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20180216preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20190601:Service"},
                 },

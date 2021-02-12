@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:CustomImageResource"},

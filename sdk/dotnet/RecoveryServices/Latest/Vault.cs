@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
     /// Resource information, as returned by the resource provider.
     /// Latest API Version: 2020-02-02.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:Vault'.")]
     [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:Vault"},
                 },

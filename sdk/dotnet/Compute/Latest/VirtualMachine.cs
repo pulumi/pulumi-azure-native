@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Describes a Virtual Machine.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachine'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
@@ -221,6 +222,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:VirtualMachine"},

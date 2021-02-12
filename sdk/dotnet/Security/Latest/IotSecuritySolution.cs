@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
     /// IoT Security solution configuration and resource information.
     /// Latest API Version: 2019-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.")]
     [AzureNextGenResourceType("azure-nextgen:security/latest:IotSecuritySolution")]
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },

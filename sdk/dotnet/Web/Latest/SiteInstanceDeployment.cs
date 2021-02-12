@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Represents user credentials used for publishing activity
     /// Latest API Version: 2015-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:SiteInstanceDeployment")]
     public partial class SiteInstanceDeployment : Pulumi.CustomResource
     {
@@ -125,6 +126,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteInstanceDeployment"},
                 },
             };

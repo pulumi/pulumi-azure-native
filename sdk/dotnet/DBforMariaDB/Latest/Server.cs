@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
     /// Represents a server.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Server'.")]
     [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:Server")]
     public partial class Server : Pulumi.CustomResource
     {
@@ -143,6 +144,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:Server"},
                 },

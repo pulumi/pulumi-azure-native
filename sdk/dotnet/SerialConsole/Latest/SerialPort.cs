@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SerialConsole.Latest
     /// Represents the serial port of the parent resource.
     /// Latest API Version: 2018-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:serialconsole:SerialPort'.")]
     [AzureNextGenResourceType("azure-nextgen:serialconsole/latest:SerialPort")]
     public partial class SerialPort : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.SerialConsole.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:serialconsole:SerialPort"},
                     new Pulumi.Alias { Type = "azure-nextgen:serialconsole/v20180501:SerialPort"},
                 },
             };

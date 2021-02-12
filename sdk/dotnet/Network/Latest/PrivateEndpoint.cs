@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Private endpoint resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
     {
@@ -113,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PrivateEndpoint"},

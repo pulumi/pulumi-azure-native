@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
     /// Registration definition.
     /// Latest API Version: 2019-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.")]
     [AzureNextGenResourceType("azure-nextgen:managedservices/latest:RegistrationDefinition")]
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationDefinition"},

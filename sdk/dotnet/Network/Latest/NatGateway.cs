@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Nat Gateway resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NatGateway'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NatGateway"},

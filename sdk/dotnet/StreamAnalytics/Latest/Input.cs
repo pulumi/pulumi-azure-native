@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Input'.")]
     [AzureNextGenResourceType("azure-nextgen:streamanalytics/latest:Input")]
     public partial class Input : Pulumi.CustomResource
     {
@@ -59,6 +60,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Input"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Input"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Input"},
                 },

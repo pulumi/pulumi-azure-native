@@ -184,6 +184,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:Application"},

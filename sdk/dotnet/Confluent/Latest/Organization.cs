@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
     /// Organization resource.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.")]
     [AzureNextGenResourceType("azure-nextgen:confluent/latest:Organization")]
     public partial class Organization : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:confluent:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301preview:Organization"},
                 },

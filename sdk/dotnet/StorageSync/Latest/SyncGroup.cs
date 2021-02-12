@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     /// Sync Group object.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:SyncGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:storagesync/latest:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:SyncGroup"},

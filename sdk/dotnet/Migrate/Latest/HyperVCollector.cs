@@ -12,6 +12,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     /// <summary>
     /// Latest API Version: 2019-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'.")]
     [AzureNextGenResourceType("azure-nextgen:migrate/latest:HyperVCollector")]
     public partial class HyperVCollector : Pulumi.CustomResource
     {
@@ -52,6 +53,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate:HyperVCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:HyperVCollector"},
                 },
             };

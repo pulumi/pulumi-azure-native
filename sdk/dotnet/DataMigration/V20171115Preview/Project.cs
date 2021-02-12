@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/latest:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Project"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Site Extension Information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSiteExtension'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppSiteExtension")]
     public partial class WebAppSiteExtension : Pulumi.CustomResource
     {
@@ -182,6 +183,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSiteExtension"},

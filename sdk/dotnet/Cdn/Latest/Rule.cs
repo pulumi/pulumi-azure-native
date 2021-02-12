@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     /// Friendly Rules name mapping to the any Rules or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Rule'.")]
     [AzureNextGenResourceType("azure-nextgen:cdn/latest:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
@@ -92,6 +93,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Rule"},
                 },
             };

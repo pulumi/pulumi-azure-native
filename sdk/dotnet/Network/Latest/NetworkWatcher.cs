@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Network watcher in a resource group.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkWatcher'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkWatcher")]
     public partial class NetworkWatcher : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:NetworkWatcher"},

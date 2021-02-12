@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
     /// The details of subscription under management group.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.")]
     [AzureNextGenResourceType("azure-nextgen:management/latest:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroupSubscription"},
                 },
             };

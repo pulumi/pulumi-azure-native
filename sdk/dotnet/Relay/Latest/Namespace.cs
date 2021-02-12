@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
     /// Description of a namespace resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:Namespace'.")]
     [AzureNextGenResourceType("azure-nextgen:relay/latest:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
@@ -98,6 +99,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20180101preview:Namespace"},

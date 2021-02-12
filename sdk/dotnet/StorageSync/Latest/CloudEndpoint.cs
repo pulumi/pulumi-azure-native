@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     /// Cloud Endpoint object.
     /// Latest API Version: 2020-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.")]
     [AzureNextGenResourceType("azure-nextgen:storagesync/latest:CloudEndpoint")]
     public partial class CloudEndpoint : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:CloudEndpoint"},

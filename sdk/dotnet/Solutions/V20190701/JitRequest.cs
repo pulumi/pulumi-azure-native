@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:JitRequest"},
                 },

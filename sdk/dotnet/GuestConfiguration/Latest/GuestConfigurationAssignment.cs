@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.Latest
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// Latest API Version: 2020-06-25.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:guestconfiguration:GuestConfigurationAssignment'.")]
     [AzureNextGenResourceType("azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment")]
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment"},

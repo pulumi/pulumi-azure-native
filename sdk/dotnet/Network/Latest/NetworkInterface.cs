@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// A network interface in a resource group.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkInterface'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
@@ -161,6 +162,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:NetworkInterface"},

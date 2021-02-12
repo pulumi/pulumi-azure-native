@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
     /// Class representing a Kusto cluster.
     /// Latest API Version: 2020-09-18.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:Cluster'.")]
     [AzureNextGenResourceType("azure-nextgen:kusto/latest:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -173,6 +174,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Cluster"},

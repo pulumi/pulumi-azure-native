@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest
     /// Contains the job information.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:importexport:Job'.")]
     [AzureNextGenResourceType("azure-nextgen:importexport/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.ImportExport.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:importexport:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/v20161101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/v20200801:Job"},
                 },

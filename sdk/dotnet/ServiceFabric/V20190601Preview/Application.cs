@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Application"},

@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:attestation:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/latest:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/v20180901preview:AttestationProvider"},
                 },

@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:ManagementLockByScope"},
                 },
             };

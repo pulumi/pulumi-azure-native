@@ -73,6 +73,7 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:Site"},
                 },

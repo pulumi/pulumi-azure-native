@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160330:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160930:ContainerService"},

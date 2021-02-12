@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
     /// Virtual machine model
     /// Latest API Version: 2019-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:VirtualMachine'.")]
     [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple/latest:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
@@ -197,6 +198,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine"},
                 },
             };

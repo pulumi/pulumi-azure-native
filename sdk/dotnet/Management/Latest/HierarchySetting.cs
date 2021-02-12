@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
     /// Settings defined at the Management Group scope.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.")]
     [AzureNextGenResourceType("azure-nextgen:management/latest:HierarchySetting")]
     public partial class HierarchySetting : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:management:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:HierarchySetting"},
                 },

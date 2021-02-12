@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The file server.
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileServer'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:FileServer"},
                 },
             };

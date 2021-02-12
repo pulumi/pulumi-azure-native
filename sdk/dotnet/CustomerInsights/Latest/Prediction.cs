@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
     /// The prediction resource format.
     /// Latest API Version: 2017-04-26.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.")]
     [AzureNextGenResourceType("azure-nextgen:customerinsights/latest:Prediction")]
     public partial class Prediction : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Prediction"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Prediction"},
                 },
             };

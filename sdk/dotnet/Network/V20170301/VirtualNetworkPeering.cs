@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:VirtualNetworkPeering"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
     /// Describes a hybrid machine.
     /// Latest API Version: 2020-08-02.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybridcompute:Machine'.")]
     [AzureNextGenResourceType("azure-nextgen:hybridcompute/latest:Machine")]
     public partial class Machine : Pulumi.CustomResource
     {
@@ -182,6 +183,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute:Machine"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20190318preview:Machine"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20190802preview:Machine"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20191212:Machine"},

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
     /// Data Lake Analytics compute policy information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakeanalytics:ComputePolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:datalakeanalytics/latest:ComputePolicy")]
     public partial class ComputePolicy : Pulumi.CustomResource
     {
@@ -77,6 +78,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:ComputePolicy"},
                 },

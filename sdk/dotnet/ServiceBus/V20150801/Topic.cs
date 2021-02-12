@@ -175,6 +175,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Topic"},

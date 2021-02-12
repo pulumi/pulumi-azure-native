@@ -118,6 +118,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage"},

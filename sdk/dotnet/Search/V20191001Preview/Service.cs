@@ -124,6 +124,7 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:search:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20150819:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:Service"},

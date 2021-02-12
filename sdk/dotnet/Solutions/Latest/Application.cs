@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
     /// Information about managed application.
     /// Latest API Version: 2019-07-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:Application'.")]
     [AzureNextGenResourceType("azure-nextgen:solutions/latest:Application")]
     public partial class Application : Pulumi.CustomResource
     {
@@ -185,6 +186,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:Application"},

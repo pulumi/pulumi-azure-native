@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// Class representing a Traffic Manager profile.
     /// Latest API Version: 2018-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170501:Profile"},

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:FirewallRule"},
                 },

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
     /// A report config resource.
     /// Latest API Version: 2018-05-31.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfig'.")]
     [AzureNextGenResourceType("azure-nextgen:costmanagement/latest:ReportConfig")]
     public partial class ReportConfig : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180531:ReportConfig"},
                 },
             };

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
     /// Linked service resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:LinkedService'.")]
     [AzureNextGenResourceType("azure-nextgen:datafactory/latest:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:LinkedService"},
                 },

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualApplianceSite"},

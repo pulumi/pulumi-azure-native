@@ -130,6 +130,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:MyWorkbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:MyWorkbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:MyWorkbook"},
                 },

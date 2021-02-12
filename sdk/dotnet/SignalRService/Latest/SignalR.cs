@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
     /// A class represent a SignalR service resource.
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:signalrservice:SignalR'.")]
     [AzureNextGenResourceType("azure-nextgen:signalrservice/latest:SignalR")]
     public partial class SignalR : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20180301preview:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20181001:SignalR"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200501:SignalR"},

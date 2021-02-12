@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteConnectionStrings"},

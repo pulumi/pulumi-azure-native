@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:Resource"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:Resource"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:Resource"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:Resource"},

@@ -121,6 +121,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},

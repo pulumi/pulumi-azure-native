@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
     /// The SourceControl Configuration object returned in Get &amp; Put response.
     /// Latest API Version: 2021-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.")]
     [AzureNextGenResourceType("azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : Pulumi.CustomResource
     {
@@ -137,6 +138,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration"},

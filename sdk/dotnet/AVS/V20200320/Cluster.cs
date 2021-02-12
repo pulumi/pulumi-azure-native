@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Cluster"},
                 },

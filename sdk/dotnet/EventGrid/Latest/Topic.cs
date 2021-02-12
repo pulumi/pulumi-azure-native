@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
     /// EventGrid Topic
     /// Latest API Version: 2020-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:Topic'.")]
     [AzureNextGenResourceType("azure-nextgen:eventgrid/latest:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
@@ -111,6 +112,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170915preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180101:Topic"},

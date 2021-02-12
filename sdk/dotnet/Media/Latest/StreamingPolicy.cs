@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
     /// A Streaming Policy resource
     /// Latest API Version: 2020-05-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingPolicy'.")]
     [AzureNextGenResourceType("azure-nextgen:media/latest:StreamingPolicy")]
     public partial class StreamingPolicy : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingPolicy"},

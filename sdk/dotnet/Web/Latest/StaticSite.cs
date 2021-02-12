@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
     /// Static Site ARM resource.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:StaticSite'.")]
     [AzureNextGenResourceType("azure-nextgen:web/latest:StaticSite")]
     public partial class StaticSite : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:StaticSite"},

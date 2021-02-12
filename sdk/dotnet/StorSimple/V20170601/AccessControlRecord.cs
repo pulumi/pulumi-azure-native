@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:AccessControlRecord"},
                 },

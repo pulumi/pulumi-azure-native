@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Attestation.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:attestation:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/latest:PrivateEndpointConnection"},
                 },
             };

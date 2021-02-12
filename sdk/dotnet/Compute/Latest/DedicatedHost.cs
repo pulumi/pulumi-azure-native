@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     /// Specifies information about the Dedicated host.
     /// Latest API Version: 2020-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.")]
     [AzureNextGenResourceType("azure-nextgen:compute/latest:DedicatedHost")]
     public partial class DedicatedHost : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:DedicatedHost"},

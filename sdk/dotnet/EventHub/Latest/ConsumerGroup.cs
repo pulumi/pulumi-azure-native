@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
     /// Single item in List or Get Consumer group operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:ConsumerGroup'.")]
     [AzureNextGenResourceType("azure-nextgen:eventhub/latest:ConsumerGroup")]
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:ConsumerGroup"},

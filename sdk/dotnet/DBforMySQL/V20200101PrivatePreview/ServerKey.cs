@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200101PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200101:ServerKey"},
                 },

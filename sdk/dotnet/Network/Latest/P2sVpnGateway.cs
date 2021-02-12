@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
     /// P2SVpnGateway Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:P2sVpnGateway'.")]
     [AzureNextGenResourceType("azure-nextgen:network/latest:P2sVpnGateway")]
     public partial class P2sVpnGateway : Pulumi.CustomResource
     {
@@ -119,6 +120,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:P2sVpnGateway"},

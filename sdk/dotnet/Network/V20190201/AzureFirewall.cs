@@ -106,6 +106,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:AzureFirewall"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:AzureFirewall"},

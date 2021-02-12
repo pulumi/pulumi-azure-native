@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
     /// A virtual network rule.
     /// Latest API Version: 2018-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:VirtualNetworkRule'.")]
     [AzureNextGenResourceType("azure-nextgen:dbformariadb/latest:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule"},
                 },

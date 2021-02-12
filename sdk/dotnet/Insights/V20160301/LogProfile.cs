@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:LogProfile"},
                 },
             };

@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     /// An assessment created for a group in the Migration project.
     /// Latest API Version: 2019-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Assessment'.")]
     [AzureNextGenResourceType("azure-nextgen:migrate/latest:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
@@ -65,6 +66,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Assessment"},
                 },
             };

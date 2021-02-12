@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
     /// Security assessment on a resource
     /// Latest API Version: 2020-01-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:Assessment'.")]
     [AzureNextGenResourceType("azure-nextgen:security/latest:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:Assessment"},
                 },

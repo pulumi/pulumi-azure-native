@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
     /// Represents a container on the  Data Box Edge/Gateway device.
     /// Latest API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.")]
     [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Container")]
     public partial class Container : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Container"},

@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveEvent"},

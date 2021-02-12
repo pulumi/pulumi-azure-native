@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
     /// Registration information.
     /// Latest API Version: 2017-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:Registration'.")]
     [AzureNextGenResourceType("azure-nextgen:azurestack/latest:Registration")]
     public partial class Registration : Pulumi.CustomResource
     {
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:Registration"},
                 },

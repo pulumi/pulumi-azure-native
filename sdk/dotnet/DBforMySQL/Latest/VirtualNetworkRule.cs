@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
     /// A virtual network rule.
     /// Latest API Version: 2017-12-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:VirtualNetworkRule'.")]
     [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule"},
                 },

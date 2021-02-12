@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     /// Definition of the job schedule.
     /// Latest API Version: 2019-06-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:JobSchedule'.")]
     [AzureNextGenResourceType("azure-nextgen:automation/latest:JobSchedule")]
     public partial class JobSchedule : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:JobSchedule"},

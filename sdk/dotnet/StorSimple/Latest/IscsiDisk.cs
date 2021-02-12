@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     /// The iSCSI disk.
     /// Latest API Version: 2016-10-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiDisk'.")]
     [AzureNextGenResourceType("azure-nextgen:storsimple/latest:IscsiDisk")]
     public partial class IscsiDisk : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiDisk"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiDisk"},
                 },
             };

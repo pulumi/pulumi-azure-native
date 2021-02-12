@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
     /// A streaming job object, containing all information associated with the named streaming job.
     /// Latest API Version: 2016-03-01.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:StreamingJob'.")]
     [AzureNextGenResourceType("azure-nextgen:streamanalytics/latest:StreamingJob")]
     public partial class StreamingJob : Pulumi.CustomResource
     {
@@ -179,6 +180,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:StreamingJob"},
                 },

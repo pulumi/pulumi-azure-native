@@ -13,6 +13,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     /// A Service Fabric.
     /// Latest API Version: 2018-09-15.
     /// </summary>
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.")]
     [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:ServiceFabric")]
     public partial class ServiceFabric : Pulumi.CustomResource
     {
@@ -95,6 +96,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceFabric"},
                 },
             };
