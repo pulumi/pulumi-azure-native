@@ -74,6 +74,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

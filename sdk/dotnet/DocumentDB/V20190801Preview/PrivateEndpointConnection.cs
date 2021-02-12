@@ -77,6 +77,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

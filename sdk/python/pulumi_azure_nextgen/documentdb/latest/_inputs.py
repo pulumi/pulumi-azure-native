@@ -34,6 +34,7 @@ __all__ = [
     'IndexingPolicyArgs',
     'IpAddressOrRangeArgs',
     'LocationArgs',
+    'ManagedServiceIdentityArgs',
     'MongoDBCollectionResourceArgs',
     'MongoDBDatabaseResourceArgs',
     'MongoIndexArgs',
@@ -41,6 +42,8 @@ __all__ = [
     'MongoIndexOptionsArgs',
     'PeriodicModeBackupPolicyArgs',
     'PeriodicModePropertiesArgs',
+    'PrivateEndpointPropertyArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgs',
     'SpatialSpecArgs',
     'SqlContainerResourceArgs',
     'SqlDatabaseResourceArgs',
@@ -521,7 +524,7 @@ class ContainerPartitionKeyArgs:
                  version: Optional[pulumi.Input[int]] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning
+        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
         :param pulumi.Input[int] version: Indicates the version of the partition key definition
         """
@@ -538,7 +541,7 @@ class ContainerPartitionKeyArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[Union[str, 'PartitionKind']]]:
         """
-        Indicates the kind of algorithm used for partitioning
+        Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         """
         return pulumi.get(self, "kind")
 
@@ -999,7 +1002,7 @@ class IndexingPolicyArgs:
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is None:
-            indexing_mode = 'Consistent'
+            indexing_mode = 'consistent'
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
         if spatial_indexes is not None:
@@ -1156,6 +1159,46 @@ class LocationArgs:
     @location_name.setter
     def location_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location_name", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -1435,6 +1478,70 @@ class PeriodicModePropertiesArgs:
     @backup_retention_interval_in_hours.setter
     def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_interval_in_hours", value)
+
+
+@pulumi.input_type
+class PrivateEndpointPropertyArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Private endpoint which the connection belongs to.
+        :param pulumi.Input[str] id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStatePropertyArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Connection State of the Private Endpoint Connection.
+        :param pulumi.Input[str] description: The private link service connection description.
+        :param pulumi.Input[str] status: The private link service connection status.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

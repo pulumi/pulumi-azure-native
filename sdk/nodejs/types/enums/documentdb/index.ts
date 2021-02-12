@@ -14,6 +14,7 @@ import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
 import * as v20200601preview from "./v20200601preview";
 import * as v20200901 from "./v20200901";
+import * as v20210115 from "./v20210115";
 
 export {
     latest,
@@ -28,6 +29,7 @@ export {
     v20200401,
     v20200601preview,
     v20200901,
+    v20210115,
 };
 
 export const BackupPolicyType = {
@@ -41,8 +43,8 @@ export const BackupPolicyType = {
 export type BackupPolicyType = (typeof BackupPolicyType)[keyof typeof BackupPolicyType];
 
 export const CompositePathSortOrder = {
-    Ascending: "Ascending",
-    Descending: "Descending",
+    Ascending: "ascending",
+    Descending: "descending",
 } as const;
 
 /**
@@ -128,9 +130,9 @@ export const IndexKind = {
 export type IndexKind = (typeof IndexKind)[keyof typeof IndexKind];
 
 export const IndexingMode = {
-    Consistent: "Consistent",
-    Lazy: "Lazy",
-    None: "None",
+    Consistent: "consistent",
+    Lazy: "lazy",
+    None: "none",
 } as const;
 
 /**
@@ -138,15 +140,38 @@ export const IndexingMode = {
  */
 export type IndexingMode = (typeof IndexingMode)[keyof typeof IndexingMode];
 
-export const PartitionKind = {
-    Hash: "Hash",
-    Range: "Range",
+export const NetworkAclBypass = {
+    None: "None",
+    AzureServices: "AzureServices",
 } as const;
 
 /**
- * Indicates the kind of algorithm used for partitioning
+ * Indicates what services are allowed to bypass firewall checks.
+ */
+export type NetworkAclBypass = (typeof NetworkAclBypass)[keyof typeof NetworkAclBypass];
+
+export const PartitionKind = {
+    Hash: "Hash",
+    Range: "Range",
+    MultiHash: "MultiHash",
+} as const;
+
+/**
+ * Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
  */
 export type PartitionKind = (typeof PartitionKind)[keyof typeof PartitionKind];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RoleDefinitionType = {
     BuiltInRole: "BuiltInRole",
@@ -161,6 +186,7 @@ export type RoleDefinitionType = (typeof RoleDefinitionType)[keyof typeof RoleDe
 export const ServerVersion = {
     ServerVersion_3_2: "3.2",
     ServerVersion_3_6: "3.6",
+    ServerVersion_4_0: "4.0",
 } as const;
 
 /**

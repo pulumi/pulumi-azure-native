@@ -104,6 +104,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// List of IpRules.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpAddressOrRangeResponse> IpRules;
@@ -131,6 +135,14 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// The name of the ARM resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Indicates what services are allowed to bypass firewall checks.
+        /// </summary>
+        public readonly string? NetworkAclBypass;
+        /// <summary>
+        /// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        /// </summary>
+        public readonly ImmutableArray<string> NetworkAclBypassResourceIds;
         /// <summary>
         /// List of Private Endpoint Connections configured for the Cosmos DB account.
         /// </summary>
@@ -198,6 +210,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             ImmutableArray<Outputs.IpAddressOrRangeResponse> ipRules,
 
             bool? isVirtualNetworkFilterEnabled,
@@ -211,6 +225,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
             ImmutableArray<Outputs.LocationResponse> locations,
 
             string name,
+
+            string? networkAclBypass,
+
+            ImmutableArray<string> networkAclBypassResourceIds,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
@@ -244,6 +262,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             FailoverPolicies = failoverPolicies;
             Id = id;
+            Identity = identity;
             IpRules = ipRules;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             KeyVaultKeyUri = keyVaultKeyUri;
@@ -251,6 +270,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
             Location = location;
             Locations = locations;
             Name = name;
+            NetworkAclBypass = networkAclBypass;
+            NetworkAclBypassResourceIds = networkAclBypassResourceIds;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

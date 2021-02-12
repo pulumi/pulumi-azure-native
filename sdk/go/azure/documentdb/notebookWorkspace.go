@@ -12,7 +12,7 @@ import (
 )
 
 // A notebook workspace resource
-// API Version: 2020-09-01.
+// API Version: 2021-01-15.
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
 
@@ -63,6 +63,9 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:NotebookWorkspace"),
 		},
 	})
 	opts = append(opts, aliases)

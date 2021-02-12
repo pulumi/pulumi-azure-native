@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2021-01-15.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccount'.
  */
@@ -100,6 +100,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly failoverPolicies!: pulumi.Output<outputs.documentdb.latest.FailoverPolicyResponse[]>;
     /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.documentdb.latest.ManagedServiceIdentityResponse | undefined>;
+    /**
      * List of IpRules.
      */
     public readonly ipRules!: pulumi.Output<outputs.documentdb.latest.IpAddressOrRangeResponse[] | undefined>;
@@ -127,6 +131,14 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * The name of the ARM resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Indicates what services are allowed to bypass firewall checks.
+     */
+    public readonly networkAclBypass!: pulumi.Output<string | undefined>;
+    /**
+     * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+     */
+    public readonly networkAclBypassResourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * List of Private Endpoint Connections configured for the Cosmos DB account.
      */
@@ -198,12 +210,15 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
             inputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["ipRules"] = args ? args.ipRules : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             inputs["keyVaultKeyUri"] = args ? args.keyVaultKeyUri : undefined;
             inputs["kind"] = (args ? args.kind : undefined) || "GlobalDocumentDB";
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
+            inputs["networkAclBypass"] = args ? args.networkAclBypass : undefined;
+            inputs["networkAclBypassResourceIds"] = args ? args.networkAclBypassResourceIds : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
@@ -232,6 +247,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["enableFreeTier"] = undefined /*out*/;
             inputs["enableMultipleWriteLocations"] = undefined /*out*/;
             inputs["failoverPolicies"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["ipRules"] = undefined /*out*/;
             inputs["isVirtualNetworkFilterEnabled"] = undefined /*out*/;
             inputs["keyVaultKeyUri"] = undefined /*out*/;
@@ -239,6 +255,8 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["locations"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkAclBypass"] = undefined /*out*/;
+            inputs["networkAclBypassResourceIds"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
@@ -255,7 +273,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210115:DatabaseAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }
@@ -322,6 +340,10 @@ export interface DatabaseAccountArgs {
      */
     readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
+     * Identity for the resource.
+     */
+    readonly identity?: pulumi.Input<inputs.documentdb.latest.ManagedServiceIdentity>;
+    /**
      * List of IpRules.
      */
     readonly ipRules?: pulumi.Input<pulumi.Input<inputs.documentdb.latest.IpAddressOrRange>[]>;
@@ -345,6 +367,14 @@ export interface DatabaseAccountArgs {
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
     readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.latest.Location>[]>;
+    /**
+     * Indicates what services are allowed to bypass firewall checks.
+     */
+    readonly networkAclBypass?: pulumi.Input<enums.documentdb.latest.NetworkAclBypass>;
+    /**
+     * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+     */
+    readonly networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

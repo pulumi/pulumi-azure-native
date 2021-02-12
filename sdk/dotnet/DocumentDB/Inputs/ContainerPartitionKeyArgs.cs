@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Inputs
     public sealed class ContainerPartitionKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates the kind of algorithm used for partitioning
+        /// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         /// </summary>
         [Input("kind")]
         public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.PartitionKind>? Kind { get; set; }

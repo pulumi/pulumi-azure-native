@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-01-15.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:documentdb:GremlinResourceGremlinDatabase")]
     public partial class GremlinResourceGremlinDatabase : Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

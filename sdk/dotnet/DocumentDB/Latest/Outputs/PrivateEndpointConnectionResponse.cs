@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
+        /// Group id of the private endpoint.
+        /// </summary>
+        public readonly string? GroupId;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -30,12 +34,18 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
         /// <summary>
+        /// Provisioning state of the private endpoint.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            string? groupId,
+
             string id,
 
             string name,
@@ -44,12 +54,16 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Outputs
 
             Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
 
+            string? provisioningState,
+
             string type)
         {
+            GroupId = groupId;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

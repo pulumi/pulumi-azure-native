@@ -33,7 +33,7 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB Cassandra keyspace.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CassandraResourceCassandraKeyspace, __self__).__init__(
             'azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace',

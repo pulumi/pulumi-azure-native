@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
-    /// API Version: 2020-09-01.
+    /// API Version: 2021-01-15.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:documentdb:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

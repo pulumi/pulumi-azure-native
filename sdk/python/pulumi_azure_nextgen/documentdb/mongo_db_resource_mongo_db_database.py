@@ -29,7 +29,7 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB MongoDB database.
-        API Version: 2020-09-01.
+        API Version: 2021-01-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,7 +75,7 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBDatabase"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoDBResourceMongoDBDatabase, __self__).__init__(
             'azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase',

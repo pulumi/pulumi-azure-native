@@ -51,8 +51,8 @@ namespace Pulumi.AzureNextGen.DocumentDB
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CompositePathSortOrder Ascending { get; } = new CompositePathSortOrder("Ascending");
-        public static CompositePathSortOrder Descending { get; } = new CompositePathSortOrder("Descending");
+        public static CompositePathSortOrder @Ascending { get; } = new CompositePathSortOrder("ascending");
+        public static CompositePathSortOrder @Descending { get; } = new CompositePathSortOrder("descending");
 
         public static bool operator ==(CompositePathSortOrder left, CompositePathSortOrder right) => left.Equals(right);
         public static bool operator !=(CompositePathSortOrder left, CompositePathSortOrder right) => !left.Equals(right);
@@ -306,9 +306,9 @@ namespace Pulumi.AzureNextGen.DocumentDB
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IndexingMode Consistent { get; } = new IndexingMode("Consistent");
-        public static IndexingMode Lazy { get; } = new IndexingMode("Lazy");
-        public static IndexingMode None { get; } = new IndexingMode("None");
+        public static IndexingMode Consistent { get; } = new IndexingMode("consistent");
+        public static IndexingMode Lazy { get; } = new IndexingMode("lazy");
+        public static IndexingMode None { get; } = new IndexingMode("none");
 
         public static bool operator ==(IndexingMode left, IndexingMode right) => left.Equals(right);
         public static bool operator !=(IndexingMode left, IndexingMode right) => !left.Equals(right);
@@ -326,7 +326,38 @@ namespace Pulumi.AzureNextGen.DocumentDB
     }
 
     /// <summary>
-    /// Indicates the kind of algorithm used for partitioning
+    /// Indicates what services are allowed to bypass firewall checks.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkAclBypass : IEquatable<NetworkAclBypass>
+    {
+        private readonly string _value;
+
+        private NetworkAclBypass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkAclBypass None { get; } = new NetworkAclBypass("None");
+        public static NetworkAclBypass AzureServices { get; } = new NetworkAclBypass("AzureServices");
+
+        public static bool operator ==(NetworkAclBypass left, NetworkAclBypass right) => left.Equals(right);
+        public static bool operator !=(NetworkAclBypass left, NetworkAclBypass right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkAclBypass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkAclBypass other && Equals(other);
+        public bool Equals(NetworkAclBypass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
     /// </summary>
     [EnumType]
     public readonly struct PartitionKind : IEquatable<PartitionKind>
@@ -340,6 +371,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
 
         public static PartitionKind Hash { get; } = new PartitionKind("Hash");
         public static PartitionKind Range { get; } = new PartitionKind("Range");
+        public static PartitionKind MultiHash { get; } = new PartitionKind("MultiHash");
 
         public static bool operator ==(PartitionKind left, PartitionKind right) => left.Equals(right);
         public static bool operator !=(PartitionKind left, PartitionKind right) => !left.Equals(right);
@@ -349,6 +381,39 @@ namespace Pulumi.AzureNextGen.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PartitionKind other && Equals(other);
         public bool Equals(PartitionKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned,UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -402,6 +467,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
 
         public static ServerVersion ServerVersion_3_2 { get; } = new ServerVersion("3.2");
         public static ServerVersion ServerVersion_3_6 { get; } = new ServerVersion("3.6");
+        public static ServerVersion ServerVersion_4_0 { get; } = new ServerVersion("4.0");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);

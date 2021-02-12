@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB storedProcedure.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2021-01-15.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlStoredProcedure'.
  */
@@ -112,7 +112,7 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlStoredProcedure.__pulumiType, name, inputs, opts);
     }

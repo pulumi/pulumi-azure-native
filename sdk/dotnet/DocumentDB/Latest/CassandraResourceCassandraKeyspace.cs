@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2021-01-15.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraKeyspace'.")]
     [AzureNextGenResourceType("azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace")]
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

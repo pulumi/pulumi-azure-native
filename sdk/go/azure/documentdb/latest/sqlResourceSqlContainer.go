@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB container.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-15.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlContainer'.
 type SqlResourceSqlContainer struct {
@@ -73,6 +73,9 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer"),
 		},
 	})
 	opts = append(opts, aliases)

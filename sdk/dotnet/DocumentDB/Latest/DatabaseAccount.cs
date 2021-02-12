@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2021-01-15.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccount'.")]
     [AzureNextGenResourceType("azure-nextgen:documentdb/latest:DatabaseAccount")]
@@ -108,6 +108,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         public Output<ImmutableArray<Outputs.FailoverPolicyResponse>> FailoverPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// List of IpRules.
         /// </summary>
         [Output("ipRules")]
@@ -148,6 +154,18 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates what services are allowed to bypass firewall checks.
+        /// </summary>
+        [Output("networkAclBypass")]
+        public Output<string?> NetworkAclBypass { get; private set; } = null!;
+
+        /// <summary>
+        /// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        /// </summary>
+        [Output("networkAclBypassResourceIds")]
+        public Output<ImmutableArray<string>> NetworkAclBypassResourceIds { get; private set; } = null!;
 
         /// <summary>
         /// List of Private Endpoint Connections configured for the Cosmos DB account.
@@ -234,6 +252,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -353,6 +372,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         [Input("ipRules")]
         private InputList<Inputs.IpAddressOrRangeArgs>? _ipRules;
 
@@ -399,6 +424,24 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         {
             get => _locations ?? (_locations = new InputList<Inputs.LocationArgs>());
             set => _locations = value;
+        }
+
+        /// <summary>
+        /// Indicates what services are allowed to bypass firewall checks.
+        /// </summary>
+        [Input("networkAclBypass")]
+        public Input<Pulumi.AzureNextGen.DocumentDB.Latest.NetworkAclBypass>? NetworkAclBypass { get; set; }
+
+        [Input("networkAclBypassResourceIds")]
+        private InputList<string>? _networkAclBypassResourceIds;
+
+        /// <summary>
+        /// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        /// </summary>
+        public InputList<string> NetworkAclBypassResourceIds
+        {
+            get => _networkAclBypassResourceIds ?? (_networkAclBypassResourceIds = new InputList<string>());
+            set => _networkAclBypassResourceIds = value;
         }
 
         /// <summary>

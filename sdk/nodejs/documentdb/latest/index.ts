@@ -34,6 +34,7 @@ export * from "./getGremlinResourceGremlinGraph";
 export * from "./getMongoDBResourceMongoDBCollection";
 export * from "./getMongoDBResourceMongoDBDatabase";
 export * from "./getNotebookWorkspace";
+export * from "./getPrivateEndpointConnection";
 export * from "./getSqlResourceSqlContainer";
 export * from "./getSqlResourceSqlDatabase";
 export * from "./getSqlResourceSqlStoredProcedure";
@@ -48,6 +49,7 @@ export * from "./listNotebookWorkspaceConnectionInfo";
 export * from "./mongoDBResourceMongoDBCollection";
 export * from "./mongoDBResourceMongoDBDatabase";
 export * from "./notebookWorkspace";
+export * from "./privateEndpointConnection";
 export * from "./sqlResourceSqlContainer";
 export * from "./sqlResourceSqlDatabase";
 export * from "./sqlResourceSqlStoredProcedure";
@@ -76,6 +78,7 @@ import { GremlinResourceGremlinGraph } from "./gremlinResourceGremlinGraph";
 import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollection";
 import { MongoDBResourceMongoDBDatabase } from "./mongoDBResourceMongoDBDatabase";
 import { NotebookWorkspace } from "./notebookWorkspace";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { SqlResourceSqlContainer } from "./sqlResourceSqlContainer";
 import { SqlResourceSqlDatabase } from "./sqlResourceSqlDatabase";
 import { SqlResourceSqlStoredProcedure } from "./sqlResourceSqlStoredProcedure";
@@ -121,6 +124,8 @@ const _module = {
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
             case "azure-nextgen:documentdb/latest:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
+            case "azure-nextgen:documentdb/latest:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-nextgen:documentdb/latest:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
             case "azure-nextgen:documentdb/latest:SqlResourceSqlDatabase":
