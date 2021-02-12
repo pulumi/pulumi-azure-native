@@ -102,7 +102,7 @@ export interface GetShareSubscriptionResult {
     /**
      * System Data of the Azure resource.
      */
-    readonly systemData: outputs.datashare.v20200901.ProxyDtoResponseSystemData;
+    readonly systemData: outputs.datashare.v20200901.SystemDataResponse;
     /**
      * Type of the azure resource
      */

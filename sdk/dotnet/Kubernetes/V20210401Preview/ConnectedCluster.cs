@@ -148,6 +148,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes/latest:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210301:ConnectedCluster"},
                 },

@@ -71,7 +71,7 @@ class DataSetMapping(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:DataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/latest:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:DataSetMapping"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:DataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSetMapping, __self__).__init__(
             'azure-nextgen:datashare/v20200901:DataSetMapping',
@@ -115,7 +115,7 @@ class DataSetMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.ProxyDtoResponseSystemData']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         System Data of the Azure resource.
         """

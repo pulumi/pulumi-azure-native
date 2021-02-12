@@ -94,7 +94,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.v20200901.ProxyDtoResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.v20200901.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
@@ -181,7 +181,7 @@ export class ShareSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20201001preview:ShareSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ShareSubscription.__pulumiType, name, inputs, opts);
     }

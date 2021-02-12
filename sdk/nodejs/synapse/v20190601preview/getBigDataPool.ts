@@ -58,7 +58,7 @@ export interface GetBigDataPoolResult {
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    readonly customLibraries?: outputs.synapse.v20190601preview.LibraryResourcePropertiesResponse[];
+    readonly customLibraries?: outputs.synapse.v20190601preview.LibraryInfoResponse[];
     /**
      * The default folder where Spark logs will be written.
      */
@@ -75,6 +75,10 @@ export interface GetBigDataPoolResult {
      * Whether compute isolation is required or not.
      */
     readonly isComputeIsolationEnabled?: boolean;
+    /**
+     * The time when the Big Data pool was updated successfully.
+     */
+    readonly lastSucceededTimestamp: string;
     /**
      * Library version requirements
      */

@@ -5254,6 +5254,287 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) VNetId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfo struct {
+	// Storage blob container name.
+	ContainerName *string `pulumi:"containerName"`
+	// Name of the library.
+	Name *string `pulumi:"name"`
+	// Storage blob path of library.
+	Path *string `pulumi:"path"`
+	// Type of the library.
+	Type *string `pulumi:"type"`
+}
+
+// LibraryInfoInput is an input type that accepts LibraryInfoArgs and LibraryInfoOutput values.
+// You can construct a concrete instance of `LibraryInfoInput` via:
+//
+//          LibraryInfoArgs{...}
+type LibraryInfoInput interface {
+	pulumi.Input
+
+	ToLibraryInfoOutput() LibraryInfoOutput
+	ToLibraryInfoOutputWithContext(context.Context) LibraryInfoOutput
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoArgs struct {
+	// Storage blob container name.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Name of the library.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Storage blob path of library.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Type of the library.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LibraryInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfo)(nil)).Elem()
+}
+
+func (i LibraryInfoArgs) ToLibraryInfoOutput() LibraryInfoOutput {
+	return i.ToLibraryInfoOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoArgs) ToLibraryInfoOutputWithContext(ctx context.Context) LibraryInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoOutput)
+}
+
+// LibraryInfoArrayInput is an input type that accepts LibraryInfoArray and LibraryInfoArrayOutput values.
+// You can construct a concrete instance of `LibraryInfoArrayInput` via:
+//
+//          LibraryInfoArray{ LibraryInfoArgs{...} }
+type LibraryInfoArrayInput interface {
+	pulumi.Input
+
+	ToLibraryInfoArrayOutput() LibraryInfoArrayOutput
+	ToLibraryInfoArrayOutputWithContext(context.Context) LibraryInfoArrayOutput
+}
+
+type LibraryInfoArray []LibraryInfoInput
+
+func (LibraryInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfo)(nil)).Elem()
+}
+
+func (i LibraryInfoArray) ToLibraryInfoArrayOutput() LibraryInfoArrayOutput {
+	return i.ToLibraryInfoArrayOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoArray) ToLibraryInfoArrayOutputWithContext(ctx context.Context) LibraryInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoArrayOutput)
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfo)(nil)).Elem()
+}
+
+func (o LibraryInfoOutput) ToLibraryInfoOutput() LibraryInfoOutput {
+	return o
+}
+
+func (o LibraryInfoOutput) ToLibraryInfoOutputWithContext(ctx context.Context) LibraryInfoOutput {
+	return o
+}
+
+// Storage blob container name.
+func (o LibraryInfoOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the library.
+func (o LibraryInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Storage blob path of library.
+func (o LibraryInfoOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Type of the library.
+func (o LibraryInfoOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LibraryInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfo)(nil)).Elem()
+}
+
+func (o LibraryInfoArrayOutput) ToLibraryInfoArrayOutput() LibraryInfoArrayOutput {
+	return o
+}
+
+func (o LibraryInfoArrayOutput) ToLibraryInfoArrayOutputWithContext(ctx context.Context) LibraryInfoArrayOutput {
+	return o
+}
+
+func (o LibraryInfoArrayOutput) Index(i pulumi.IntInput) LibraryInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryInfo {
+		return vs[0].([]LibraryInfo)[vs[1].(int)]
+	}).(LibraryInfoOutput)
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoResponse struct {
+	// Storage blob container name.
+	ContainerName *string `pulumi:"containerName"`
+	// Creator Id of the library/package.
+	CreatorId string `pulumi:"creatorId"`
+	// Name of the library.
+	Name *string `pulumi:"name"`
+	// Storage blob path of library.
+	Path *string `pulumi:"path"`
+	// Provisioning status of the library/package.
+	ProvisioningStatus string `pulumi:"provisioningStatus"`
+	// Type of the library.
+	Type *string `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp string `pulumi:"uploadedTimestamp"`
+}
+
+// LibraryInfoResponseInput is an input type that accepts LibraryInfoResponseArgs and LibraryInfoResponseOutput values.
+// You can construct a concrete instance of `LibraryInfoResponseInput` via:
+//
+//          LibraryInfoResponseArgs{...}
+type LibraryInfoResponseInput interface {
+	pulumi.Input
+
+	ToLibraryInfoResponseOutput() LibraryInfoResponseOutput
+	ToLibraryInfoResponseOutputWithContext(context.Context) LibraryInfoResponseOutput
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoResponseArgs struct {
+	// Storage blob container name.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Creator Id of the library/package.
+	CreatorId pulumi.StringInput `pulumi:"creatorId"`
+	// Name of the library.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Storage blob path of library.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Provisioning status of the library/package.
+	ProvisioningStatus pulumi.StringInput `pulumi:"provisioningStatus"`
+	// Type of the library.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp pulumi.StringInput `pulumi:"uploadedTimestamp"`
+}
+
+func (LibraryInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfoResponse)(nil)).Elem()
+}
+
+func (i LibraryInfoResponseArgs) ToLibraryInfoResponseOutput() LibraryInfoResponseOutput {
+	return i.ToLibraryInfoResponseOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoResponseArgs) ToLibraryInfoResponseOutputWithContext(ctx context.Context) LibraryInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseOutput)
+}
+
+// LibraryInfoResponseArrayInput is an input type that accepts LibraryInfoResponseArray and LibraryInfoResponseArrayOutput values.
+// You can construct a concrete instance of `LibraryInfoResponseArrayInput` via:
+//
+//          LibraryInfoResponseArray{ LibraryInfoResponseArgs{...} }
+type LibraryInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput
+	ToLibraryInfoResponseArrayOutputWithContext(context.Context) LibraryInfoResponseArrayOutput
+}
+
+type LibraryInfoResponseArray []LibraryInfoResponseInput
+
+func (LibraryInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfoResponse)(nil)).Elem()
+}
+
+func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput {
+	return i.ToLibraryInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LibraryInfoResponseArray) ToLibraryInfoResponseArrayOutputWithContext(ctx context.Context) LibraryInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LibraryInfoResponseArrayOutput)
+}
+
+// Library/package information of a Big Data pool powered by Apache Spark
+type LibraryInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LibraryInfoResponse)(nil)).Elem()
+}
+
+func (o LibraryInfoResponseOutput) ToLibraryInfoResponseOutput() LibraryInfoResponseOutput {
+	return o
+}
+
+func (o LibraryInfoResponseOutput) ToLibraryInfoResponseOutputWithContext(ctx context.Context) LibraryInfoResponseOutput {
+	return o
+}
+
+// Storage blob container name.
+func (o LibraryInfoResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Creator Id of the library/package.
+func (o LibraryInfoResponseOutput) CreatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) string { return v.CreatorId }).(pulumi.StringOutput)
+}
+
+// Name of the library.
+func (o LibraryInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Storage blob path of library.
+func (o LibraryInfoResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning status of the library/package.
+func (o LibraryInfoResponseOutput) ProvisioningStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) string { return v.ProvisioningStatus }).(pulumi.StringOutput)
+}
+
+// Type of the library.
+func (o LibraryInfoResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the library.
+func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) string { return v.UploadedTimestamp }).(pulumi.StringOutput)
+}
+
+type LibraryInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LibraryInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LibraryInfoResponse)(nil)).Elem()
+}
+
+func (o LibraryInfoResponseArrayOutput) ToLibraryInfoResponseArrayOutput() LibraryInfoResponseArrayOutput {
+	return o
+}
+
+func (o LibraryInfoResponseArrayOutput) ToLibraryInfoResponseArrayOutputWithContext(ctx context.Context) LibraryInfoResponseArrayOutput {
+	return o
+}
+
+func (o LibraryInfoResponseArrayOutput) Index(i pulumi.IntInput) LibraryInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryInfoResponse {
+		return vs[0].([]LibraryInfoResponse)[vs[1].(int)]
+	}).(LibraryInfoResponseOutput)
+}
+
 // Library requirements for a Big Data pool powered by Apache Spark
 type LibraryRequirements struct {
 	// The library requirements.
@@ -5577,160 +5858,6 @@ func (o LibraryRequirementsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 		}
 		return &v.Time
 	}).(pulumi.StringPtrOutput)
-}
-
-// Library/package properties
-type LibraryResourcePropertiesResponse struct {
-	// Container name of the library/package.
-	ContainerName string `pulumi:"containerName"`
-	// Creator Id of the library/package.
-	CreatorId string `pulumi:"creatorId"`
-	// Name of the library/package.
-	Name string `pulumi:"name"`
-	// Location of library/package in storage account.
-	Path string `pulumi:"path"`
-	// Provisioning status of the library/package.
-	ProvisioningStatus string `pulumi:"provisioningStatus"`
-	// Type of the library/package.
-	Type string `pulumi:"type"`
-	// The last update time of the library/package.
-	UploadedTimestamp string `pulumi:"uploadedTimestamp"`
-}
-
-// LibraryResourcePropertiesResponseInput is an input type that accepts LibraryResourcePropertiesResponseArgs and LibraryResourcePropertiesResponseOutput values.
-// You can construct a concrete instance of `LibraryResourcePropertiesResponseInput` via:
-//
-//          LibraryResourcePropertiesResponseArgs{...}
-type LibraryResourcePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLibraryResourcePropertiesResponseOutput() LibraryResourcePropertiesResponseOutput
-	ToLibraryResourcePropertiesResponseOutputWithContext(context.Context) LibraryResourcePropertiesResponseOutput
-}
-
-// Library/package properties
-type LibraryResourcePropertiesResponseArgs struct {
-	// Container name of the library/package.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Creator Id of the library/package.
-	CreatorId pulumi.StringInput `pulumi:"creatorId"`
-	// Name of the library/package.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Location of library/package in storage account.
-	Path pulumi.StringInput `pulumi:"path"`
-	// Provisioning status of the library/package.
-	ProvisioningStatus pulumi.StringInput `pulumi:"provisioningStatus"`
-	// Type of the library/package.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The last update time of the library/package.
-	UploadedTimestamp pulumi.StringInput `pulumi:"uploadedTimestamp"`
-}
-
-func (LibraryResourcePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LibraryResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i LibraryResourcePropertiesResponseArgs) ToLibraryResourcePropertiesResponseOutput() LibraryResourcePropertiesResponseOutput {
-	return i.ToLibraryResourcePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LibraryResourcePropertiesResponseArgs) ToLibraryResourcePropertiesResponseOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LibraryResourcePropertiesResponseOutput)
-}
-
-// LibraryResourcePropertiesResponseArrayInput is an input type that accepts LibraryResourcePropertiesResponseArray and LibraryResourcePropertiesResponseArrayOutput values.
-// You can construct a concrete instance of `LibraryResourcePropertiesResponseArrayInput` via:
-//
-//          LibraryResourcePropertiesResponseArray{ LibraryResourcePropertiesResponseArgs{...} }
-type LibraryResourcePropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToLibraryResourcePropertiesResponseArrayOutput() LibraryResourcePropertiesResponseArrayOutput
-	ToLibraryResourcePropertiesResponseArrayOutputWithContext(context.Context) LibraryResourcePropertiesResponseArrayOutput
-}
-
-type LibraryResourcePropertiesResponseArray []LibraryResourcePropertiesResponseInput
-
-func (LibraryResourcePropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LibraryResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i LibraryResourcePropertiesResponseArray) ToLibraryResourcePropertiesResponseArrayOutput() LibraryResourcePropertiesResponseArrayOutput {
-	return i.ToLibraryResourcePropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LibraryResourcePropertiesResponseArray) ToLibraryResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LibraryResourcePropertiesResponseArrayOutput)
-}
-
-// Library/package properties
-type LibraryResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LibraryResourcePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LibraryResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o LibraryResourcePropertiesResponseOutput) ToLibraryResourcePropertiesResponseOutput() LibraryResourcePropertiesResponseOutput {
-	return o
-}
-
-func (o LibraryResourcePropertiesResponseOutput) ToLibraryResourcePropertiesResponseOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseOutput {
-	return o
-}
-
-// Container name of the library/package.
-func (o LibraryResourcePropertiesResponseOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
-}
-
-// Creator Id of the library/package.
-func (o LibraryResourcePropertiesResponseOutput) CreatorId() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.CreatorId }).(pulumi.StringOutput)
-}
-
-// Name of the library/package.
-func (o LibraryResourcePropertiesResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Location of library/package in storage account.
-func (o LibraryResourcePropertiesResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.Path }).(pulumi.StringOutput)
-}
-
-// Provisioning status of the library/package.
-func (o LibraryResourcePropertiesResponseOutput) ProvisioningStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.ProvisioningStatus }).(pulumi.StringOutput)
-}
-
-// Type of the library/package.
-func (o LibraryResourcePropertiesResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The last update time of the library/package.
-func (o LibraryResourcePropertiesResponseOutput) UploadedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryResourcePropertiesResponse) string { return v.UploadedTimestamp }).(pulumi.StringOutput)
-}
-
-type LibraryResourcePropertiesResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (LibraryResourcePropertiesResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LibraryResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o LibraryResourcePropertiesResponseArrayOutput) ToLibraryResourcePropertiesResponseArrayOutput() LibraryResourcePropertiesResponseArrayOutput {
-	return o
-}
-
-func (o LibraryResourcePropertiesResponseArrayOutput) ToLibraryResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) LibraryResourcePropertiesResponseArrayOutput {
-	return o
-}
-
-func (o LibraryResourcePropertiesResponseArrayOutput) Index(i pulumi.IntInput) LibraryResourcePropertiesResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LibraryResourcePropertiesResponse {
-		return vs[0].([]LibraryResourcePropertiesResponse)[vs[1].(int)]
-	}).(LibraryResourcePropertiesResponseOutput)
 }
 
 // The key authorization type integration runtime.
@@ -12509,12 +12636,14 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LibraryInfoOutput{})
+	pulumi.RegisterOutputType(LibraryInfoArrayOutput{})
+	pulumi.RegisterOutputType(LibraryInfoResponseOutput{})
+	pulumi.RegisterOutputType(LibraryInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsResponseOutput{})
 	pulumi.RegisterOutputType(LibraryRequirementsResponsePtrOutput{})
-	pulumi.RegisterOutputType(LibraryResourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LibraryResourcePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeKeyAuthorizationOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeKeyAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(LinkedIntegrationRuntimeRbacAuthorizationOutput{})

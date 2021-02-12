@@ -44,7 +44,7 @@ type LookupInvitationResult struct {
 	// Gets the time at which the invitation was sent.
 	SentAt string `pulumi:"sentAt"`
 	// System Data of the Azure resource.
-	SystemData ProxyDtoResponseSystemData `pulumi:"systemData"`
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The target Azure AD Id. Can't be combined with email.
 	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
 	// The email the invitation is directed to.

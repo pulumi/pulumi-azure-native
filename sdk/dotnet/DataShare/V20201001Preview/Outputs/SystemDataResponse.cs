@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.Latest.Outputs
+namespace Pulumi.AzureNextGen.DataShare.V20201001Preview.Outputs
 {
 
     [OutputType]
-    public sealed class ProxyDtoResponseSystemData
+    public sealed class SystemDataResponse
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest.Outputs
         public readonly string? LastModifiedByType;
 
         [OutputConstructor]
-        private ProxyDtoResponseSystemData(
+        private SystemDataResponse(
             string? createdAt,
 
             string? createdBy,

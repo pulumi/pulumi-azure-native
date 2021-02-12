@@ -47,7 +47,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.ProxyDtoResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.latest.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
@@ -99,7 +99,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20201001preview:SynchronizationSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }

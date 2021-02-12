@@ -61,6 +61,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:Account"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

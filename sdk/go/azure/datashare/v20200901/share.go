@@ -26,7 +26,7 @@ type Share struct {
 	// Share kind.
 	ShareKind pulumi.StringPtrOutput `pulumi:"shareKind"`
 	// System Data of the Azure resource.
-	SystemData ProxyDtoResponseSystemDataOutput `pulumi:"systemData"`
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Share terms.
 	Terms pulumi.StringPtrOutput `pulumi:"terms"`
 	// Type of the azure resource
@@ -63,6 +63,9 @@ func NewShare(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:Share"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Share"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Share
@@ -98,7 +101,7 @@ type shareState struct {
 	// Share kind.
 	ShareKind *string `pulumi:"shareKind"`
 	// System Data of the Azure resource.
-	SystemData *ProxyDtoResponseSystemData `pulumi:"systemData"`
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Share terms.
 	Terms *string `pulumi:"terms"`
 	// Type of the azure resource
@@ -121,7 +124,7 @@ type ShareState struct {
 	// Share kind.
 	ShareKind pulumi.StringPtrInput
 	// System Data of the Azure resource.
-	SystemData ProxyDtoResponseSystemDataPtrInput
+	SystemData SystemDataResponsePtrInput
 	// Share terms.
 	Terms pulumi.StringPtrInput
 	// Type of the azure resource

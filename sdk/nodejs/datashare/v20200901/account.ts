@@ -58,7 +58,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.v20200901.DefaultDtoResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.v20200901.SystemDataResponse>;
     /**
      * Tags on the azure resource.
      */
@@ -126,7 +126,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20201001preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

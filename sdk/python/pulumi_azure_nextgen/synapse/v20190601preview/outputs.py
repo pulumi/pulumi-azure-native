@@ -28,8 +28,8 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
+    'LibraryInfoResponse',
     'LibraryRequirementsResponse',
-    'LibraryResourcePropertiesResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
     'LinkedIntegrationRuntimeResponseResult',
@@ -910,6 +910,101 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LibraryInfoResponse(dict):
+    """
+    Library/package information of a Big Data pool powered by Apache Spark
+    """
+    def __init__(__self__, *,
+                 creator_id: str,
+                 provisioning_status: str,
+                 uploaded_timestamp: str,
+                 container_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 path: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Library/package information of a Big Data pool powered by Apache Spark
+        :param str creator_id: Creator Id of the library/package.
+        :param str provisioning_status: Provisioning status of the library/package.
+        :param str uploaded_timestamp: The last update time of the library.
+        :param str container_name: Storage blob container name.
+        :param str name: Name of the library.
+        :param str path: Storage blob path of library.
+        :param str type: Type of the library.
+        """
+        pulumi.set(__self__, "creator_id", creator_id)
+        pulumi.set(__self__, "provisioning_status", provisioning_status)
+        pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="creatorId")
+    def creator_id(self) -> str:
+        """
+        Creator Id of the library/package.
+        """
+        return pulumi.get(self, "creator_id")
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> str:
+        """
+        Provisioning status of the library/package.
+        """
+        return pulumi.get(self, "provisioning_status")
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> str:
+        """
+        The last update time of the library.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[str]:
+        """
+        Storage blob container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the library.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Storage blob path of library.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the library.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LibraryRequirementsResponse(dict):
     """
     Library requirements for a Big Data pool powered by Apache Spark
@@ -953,97 +1048,6 @@ class LibraryRequirementsResponse(dict):
         The filename of the library requirements file.
         """
         return pulumi.get(self, "filename")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class LibraryResourcePropertiesResponse(dict):
-    """
-    Library/package properties
-    """
-    def __init__(__self__, *,
-                 container_name: str,
-                 creator_id: str,
-                 name: str,
-                 path: str,
-                 provisioning_status: str,
-                 type: str,
-                 uploaded_timestamp: str):
-        """
-        Library/package properties
-        :param str container_name: Container name of the library/package.
-        :param str creator_id: Creator Id of the library/package.
-        :param str name: Name of the library/package.
-        :param str path: Location of library/package in storage account.
-        :param str provisioning_status: Provisioning status of the library/package.
-        :param str type: Type of the library/package.
-        :param str uploaded_timestamp: The last update time of the library/package.
-        """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "creator_id", creator_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "provisioning_status", provisioning_status)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
-
-    @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
-        """
-        Container name of the library/package.
-        """
-        return pulumi.get(self, "container_name")
-
-    @property
-    @pulumi.getter(name="creatorId")
-    def creator_id(self) -> str:
-        """
-        Creator Id of the library/package.
-        """
-        return pulumi.get(self, "creator_id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the library/package.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        """
-        Location of library/package in storage account.
-        """
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter(name="provisioningStatus")
-    def provisioning_status(self) -> str:
-        """
-        Provisioning status of the library/package.
-        """
-        return pulumi.get(self, "provisioning_status")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of the library/package.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uploadedTimestamp")
-    def uploaded_timestamp(self) -> str:
-        """
-        The last update time of the library/package.
-        """
-        return pulumi.get(self, "uploaded_timestamp")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

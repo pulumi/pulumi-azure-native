@@ -58,7 +58,7 @@ type LookupShareSubscriptionResult struct {
 	// Source share location.
 	SourceShareLocation string `pulumi:"sourceShareLocation"`
 	// System Data of the Azure resource.
-	SystemData ProxyDtoResponseSystemData `pulumi:"systemData"`
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
 	// Email of the user who created the resource

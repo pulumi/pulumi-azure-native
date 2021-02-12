@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901.Outputs
 {
 
     [OutputType]
-    public sealed class ProxyDtoResponseSystemData
+    public sealed class SystemDataResponse
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901.Outputs
         public readonly string? LastModifiedByType;
 
         [OutputConstructor]
-        private ProxyDtoResponseSystemData(
+        private SystemDataResponse(
             string? createdAt,
 
             string? createdBy,

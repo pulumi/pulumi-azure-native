@@ -86,7 +86,7 @@ class ShareSubscription(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:ShareSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:ShareSubscription"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:ShareSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ShareSubscription, __self__).__init__(
             'azure-nextgen:datashare/latest:ShareSubscription',
@@ -226,7 +226,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.ProxyDtoResponseSystemData']:
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         System Data of the Azure resource.
         """

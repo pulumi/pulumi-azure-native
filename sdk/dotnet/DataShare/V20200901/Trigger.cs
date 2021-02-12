@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// System Data of the Azure resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.ProxyDtoResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
@@ -67,6 +67,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

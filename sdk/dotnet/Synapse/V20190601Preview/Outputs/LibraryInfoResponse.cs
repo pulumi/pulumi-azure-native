@@ -11,50 +11,50 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
 {
 
     [OutputType]
-    public sealed class LibraryResourcePropertiesResponse
+    public sealed class LibraryInfoResponse
     {
         /// <summary>
-        /// Container name of the library/package.
+        /// Storage blob container name.
         /// </summary>
-        public readonly string ContainerName;
+        public readonly string? ContainerName;
         /// <summary>
         /// Creator Id of the library/package.
         /// </summary>
         public readonly string CreatorId;
         /// <summary>
-        /// Name of the library/package.
+        /// Name of the library.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// Location of library/package in storage account.
+        /// Storage blob path of library.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// Provisioning status of the library/package.
         /// </summary>
         public readonly string ProvisioningStatus;
         /// <summary>
-        /// Type of the library/package.
+        /// Type of the library.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
-        /// The last update time of the library/package.
+        /// The last update time of the library.
         /// </summary>
         public readonly string UploadedTimestamp;
 
         [OutputConstructor]
-        private LibraryResourcePropertiesResponse(
-            string containerName,
+        private LibraryInfoResponse(
+            string? containerName,
 
             string creatorId,
 
-            string name,
+            string? name,
 
-            string path,
+            string? path,
 
             string provisioningStatus,
 
-            string type,
+            string? type,
 
             string uploadedTimestamp)
         {

@@ -21,7 +21,7 @@ type DataSetMapping struct {
 	// Name of the azure resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// System Data of the Azure resource.
-	SystemData ProxyDtoResponseSystemDataOutput `pulumi:"systemData"`
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Type of the azure resource
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,6 +58,9 @@ func NewDataSetMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:DataSetMapping"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:DataSetMapping"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataSetMapping
@@ -87,7 +90,7 @@ type dataSetMappingState struct {
 	// Name of the azure resource
 	Name *string `pulumi:"name"`
 	// System Data of the Azure resource.
-	SystemData *ProxyDtoResponseSystemData `pulumi:"systemData"`
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Type of the azure resource
 	Type *string `pulumi:"type"`
 }
@@ -98,7 +101,7 @@ type DataSetMappingState struct {
 	// Name of the azure resource
 	Name pulumi.StringPtrInput
 	// System Data of the Azure resource.
-	SystemData ProxyDtoResponseSystemDataPtrInput
+	SystemData SystemDataResponsePtrInput
 	// Type of the azure resource
 	Type pulumi.StringPtrInput
 }

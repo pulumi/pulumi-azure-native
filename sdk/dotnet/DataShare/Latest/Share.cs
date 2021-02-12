@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// System Data of the Azure resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.ProxyDtoResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Share terms.
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

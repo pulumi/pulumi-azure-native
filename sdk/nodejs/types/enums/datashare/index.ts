@@ -6,10 +6,12 @@ import * as latest from "./latest";
 import * as v20181101preview from "./v20181101preview";
 import * as v20191101 from "./v20191101";
 import * as v20200901 from "./v20200901";
+import * as v20201001preview from "./v20201001preview";
 
 export {
     latest,
     v20181101preview,
     v20191101,
     v20200901,
+    v20201001preview,
 };

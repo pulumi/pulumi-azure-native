@@ -66,7 +66,7 @@ export interface GetShareResult {
     /**
      * System Data of the Azure resource.
      */
-    readonly systemData: outputs.datashare.latest.ProxyDtoResponseSystemData;
+    readonly systemData: outputs.datashare.latest.SystemDataResponse;
     /**
      * Share terms.
      */

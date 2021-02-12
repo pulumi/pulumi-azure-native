@@ -23,6 +23,7 @@ class BigDataPool(pulumi.CustomResource):
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
                  cache_size: Optional[pulumi.Input[int]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
+                 custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
@@ -53,6 +54,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
         :param pulumi.Input[int] cache_size: The cache size
         :param pulumi.Input[str] creation_date: The time when the Big Data pool was created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']] dynamic_executor_allocation: Dynamic Executor Allocation
         :param pulumi.Input[bool] force: Whether to stop any running jobs in the Big Data pool
@@ -95,6 +97,7 @@ class BigDataPool(pulumi.CustomResource):
             __props__['big_data_pool_name'] = big_data_pool_name
             __props__['cache_size'] = cache_size
             __props__['creation_date'] = creation_date
+            __props__['custom_libraries'] = custom_libraries
             __props__['default_spark_log_folder'] = default_spark_log_folder
             __props__['dynamic_executor_allocation'] = dynamic_executor_allocation
             __props__['force'] = force
@@ -116,7 +119,7 @@ class BigDataPool(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['custom_libraries'] = None
+            __props__['last_succeeded_timestamp'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/latest:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:BigDataPool")])
@@ -179,7 +182,7 @@ class BigDataPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customLibraries")
-    def custom_libraries(self) -> pulumi.Output[Optional[Sequence['outputs.LibraryResourcePropertiesResponse']]]:
+    def custom_libraries(self) -> pulumi.Output[Optional[Sequence['outputs.LibraryInfoResponse']]]:
         """
         List of custom libraries/packages associated with the spark pool.
         """
@@ -208,6 +211,14 @@ class BigDataPool(pulumi.CustomResource):
         Whether compute isolation is required or not.
         """
         return pulumi.get(self, "is_compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="lastSucceededTimestamp")
+    def last_succeeded_timestamp(self) -> pulumi.Output[str]:
+        """
+        The time when the Big Data pool was updated successfully.
+        """
+        return pulumi.get(self, "last_succeeded_timestamp")
 
     @property
     @pulumi.getter(name="libraryRequirements")

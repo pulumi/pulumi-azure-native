@@ -20,7 +20,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, custom_libraries=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_compute_isolation_enabled=None, last_succeeded_timestamp=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -48,6 +48,9 @@ class GetBigDataPoolResult:
         if is_compute_isolation_enabled and not isinstance(is_compute_isolation_enabled, bool):
             raise TypeError("Expected argument 'is_compute_isolation_enabled' to be a bool")
         pulumi.set(__self__, "is_compute_isolation_enabled", is_compute_isolation_enabled)
+        if last_succeeded_timestamp and not isinstance(last_succeeded_timestamp, str):
+            raise TypeError("Expected argument 'last_succeeded_timestamp' to be a str")
+        pulumi.set(__self__, "last_succeeded_timestamp", last_succeeded_timestamp)
         if library_requirements and not isinstance(library_requirements, dict):
             raise TypeError("Expected argument 'library_requirements' to be a dict")
         pulumi.set(__self__, "library_requirements", library_requirements)
@@ -122,7 +125,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="customLibraries")
-    def custom_libraries(self) -> Optional[Sequence['outputs.LibraryResourcePropertiesResponse']]:
+    def custom_libraries(self) -> Optional[Sequence['outputs.LibraryInfoResponse']]:
         """
         List of custom libraries/packages associated with the spark pool.
         """
@@ -159,6 +162,14 @@ class GetBigDataPoolResult:
         Whether compute isolation is required or not.
         """
         return pulumi.get(self, "is_compute_isolation_enabled")
+
+    @property
+    @pulumi.getter(name="lastSucceededTimestamp")
+    def last_succeeded_timestamp(self) -> str:
+        """
+        The time when the Big Data pool was updated successfully.
+        """
+        return pulumi.get(self, "last_succeeded_timestamp")
 
     @property
     @pulumi.getter(name="libraryRequirements")
@@ -280,6 +291,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             dynamic_executor_allocation=self.dynamic_executor_allocation,
             id=self.id,
             is_compute_isolation_enabled=self.is_compute_isolation_enabled,
+            last_succeeded_timestamp=self.last_succeeded_timestamp,
             library_requirements=self.library_requirements,
             location=self.location,
             name=self.name,
@@ -326,6 +338,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         dynamic_executor_allocation=__ret__.dynamic_executor_allocation,
         id=__ret__.id,
         is_compute_isolation_enabled=__ret__.is_compute_isolation_enabled,
+        last_succeeded_timestamp=__ret__.last_succeeded_timestamp,
         library_requirements=__ret__.library_requirements,
         location=__ret__.location,
         name=__ret__.name,
