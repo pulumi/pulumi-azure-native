@@ -22,6 +22,8 @@ func TestResourceName(t *testing.T) {
 		"ManagedCluster_ClusterUserGet":           "ManagedClusterUser",
 		"BlobService_ServicePropertiesGet":        "BlobServiceProperties",
 		"SaasResource-listAccessToken":            "SaasResourceAccessToken",
+		"WebApps_ListApplicationSettings":         "WebAppApplicationSettings",
+		"Products_GetProducts":                    "Products",
 	}
 	for operationID, expected := range testCases {
 		actual := ResourceName(operationID)
