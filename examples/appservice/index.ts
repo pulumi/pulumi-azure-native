@@ -123,7 +123,7 @@ new web.WebAppMetadata("meta", {
     },
 });
 
-new web.WebApplicationSettings("settings", {
+new web.WebAppApplicationSettings("settings", {
     resourceGroupName: resourceGroup.name,
     name: app.name,
     properties: {
